@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <model name="green_cube">
+    <pose>0 0 0 0 0 0</pose>
+    <static>false</static>
+    <link name="link">
+      <inertial>
+        <!-- Lightweight plastic/foam handover block, 80 x 160 x 30 mm. -->
+        <mass>0.012</mass>
+        <inertia>
+          <ixx>0.00002650</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00000730</iyy>
+          <iyz>0</iyz>
+          <izz>0.00003200</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.08 0.16 0.03</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.08 0.16 0.03</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.0 0.8 0.0 1.0</ambient>
+          <diffuse>0.0 0.8 0.0 1.0</diffuse>
+          <specular>0.2 0.2 0.2 1.0</specular>
+        </material>
+      </visual>
+      <!-- Visual-only AprilTags.  The 0.5 mm offsets prevent z-fighting; no
+           collision, inertia, friction, or support geometry is added. -->
+      <visual name="apriltag_20_top_visual">
+        <pose>0 0.045 0.0155 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane><normal>0 0 1</normal><size>0.05625 0.05625</size></plane>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse>
+          <pbr><metal>
+            <albedo_map>model://h1_2_description/models/green_cube/materials/textures/tag36h11_20.png</albedo_map>
+            <metalness>0</metalness><roughness>1</roughness>
+          </metal></pbr>
+        </material>
+      </visual>
+      <visual name="apriltag_23_top_reacquisition_visual">
+        <pose>-0.020 -0.061 0.0155 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane><normal>0 0 1</normal><size>0.0375 0.0375</size></plane>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse>
+          <pbr><metal>
+            <albedo_map>model://h1_2_description/models/green_cube/materials/textures/tag36h11_23.png</albedo_map>
+            <metalness>0</metalness><roughness>1</roughness>
+          </metal></pbr>
+        </material>
+      </visual>
+      <visual name="apriltag_21_positive_x_visual">
+        <pose>0.0405 0 0 0 1.5707963267948966 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane><normal>0 0 1</normal><size>0.025 0.025</size></plane>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse>
+          <pbr><metal>
+            <albedo_map>model://h1_2_description/models/green_cube/materials/textures/tag36h11_21.png</albedo_map>
+            <metalness>0</metalness><roughness>1</roughness>
+          </metal></pbr>
+        </material>
+      </visual>
+      <visual name="apriltag_22_negative_x_visual">
+        <pose>-0.0405 0 0 0 -1.5707963267948966 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane><normal>0 0 1</normal><size>0.025 0.025</size></plane>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse>
+          <pbr><metal>
+            <albedo_map>model://h1_2_description/models/green_cube/materials/textures/tag36h11_22.png</albedo_map>
+            <metalness>0</metalness><roughness>1</roughness>
+          </metal></pbr>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

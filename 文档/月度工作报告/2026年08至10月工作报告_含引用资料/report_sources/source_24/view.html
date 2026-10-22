@@ -1,0 +1,132 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>官方步态运行时</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>官方步态运行时</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="unitree_h12_runtime.py">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_navigation/h1_2_navigation/unitree_h12_runtime.py</p><pre>&quot;&quot;&quot;Official Unitree H1_2 observation and direct-target runtime.&quot;&quot;&quot;
+
+from dataclasses import dataclass
+import math
+
+import numpy as np
+
+from .unitree_h12_contract import build_observation
+
+
+@dataclass(frozen=True)
+class UnitreeH12SensorState:
+    &quot;&quot;&quot;One synchronous policy input sample.&quot;&quot;&quot;
+
+    base_quaternion_xyzw: tuple
+    base_angular_velocity: tuple
+    leg_positions: np.ndarray
+    leg_velocities: np.ndarray
+
+
+@dataclass(frozen=True)
+class UnitreeH12Output:
+    &quot;&quot;&quot;One policy action and its direct PD position target.&quot;&quot;&quot;
+
+    observation: np.ndarray
+    policy_action: np.ndarray
+    leg_position_targets: np.ndarray
+    phase: float
+
+
+def projected_gravity(quaternion_xyzw):
+    &quot;&quot;&quot;Return world gravity expressed in the robot body frame.&quot;&quot;&quot;
+    quaternion = np.asarray(quaternion_xyzw, dtype=np.float64).reshape(-1)
+    if quaternion.size != 4 or not np.isfinite(quaternion).all():
+        raise ValueError(&#x27;quaternion must contain four finite values&#x27;)
+    norm = np.linalg.norm(quaternion)
+    if norm &lt; 1.0e-9:
+        raise ValueError(&#x27;quaternion norm is zero&#x27;)
+    x_value, y_value, z_value, w_value = quaternion / norm
+    return np.asarray([
+        2.0 * (-z_value * x_value + w_value * y_value),
+        -2.0 * (z_value * y_value + w_value * x_value),
+        1.0 - 2.0 * (w_value * w_value + z_value * z_value),
+    ], dtype=np.float32)
+
+
+class UnitreeH12Runtime:
+    &quot;&quot;&quot;Preserve the official 50 Hz recurrent observation/action semantics.&quot;&quot;&quot;
+
+    def __init__(self, contract, policy):
+        self.contract = contract
+        self.policy = policy
+        control = contract[&#x27;control&#x27;]
+        self.control_period = float(control[&#x27;control_period&#x27;])
+        self.action_scale = np.float32(control[&#x27;action_scale&#x27;])
+        self.action_clip = np.float32(contract[&#x27;policy&#x27;][&#x27;action_clip&#x27;])
+        self.gait_period = float(contract[&#x27;policy&#x27;][&#x27;gait_period&#x27;])
+        self.scales = {
+            name: np.asarray(values, dtype=np.float32)
+            for name, values in control[&#x27;scales&#x27;].items()
+        }
+        defaults = contract[&#x27;training_default_positions&#x27;]
+        self.default_positions = np.asarray(
+            list(defaults.values()), dtype=np.float32)
+        limits = contract[&#x27;joint_position_limits&#x27;]
+        self.minimum_positions = np.asarray(
+            [limits[name][0] for name in defaults], dtype=np.float32)
+        self.maximum_positions = np.asarray(
+            [limits[name][1] for name in defaults], dtype=np.float32)
+        self.previous_action = np.zeros(12, dtype=np.float32)
+        self.step_index = 0
+
+    def reset(self):
+        &quot;&quot;&quot;Reset phase, previous action, and recurrent memory.&quot;&quot;&quot;
+        self.previous_action.fill(0.0)
+        self.step_index = 0
+        self.policy.reset()
+
+    def step(self, sensor_state, command):
+        &quot;&quot;&quot;Advance one official policy period.&quot;&quot;&quot;
+        command = np.asarray(command, dtype=np.float32).reshape(-1)
+        positions = np.asarray(
+            sensor_state.leg_positions, dtype=np.float32).reshape(-1)
+        velocities = np.asarray(
+            sensor_state.leg_velocities, dtype=np.float32).reshape(-1)
+        angular_velocity = np.asarray(
+            sensor_state.base_angular_velocity,
+            dtype=np.float32).reshape(-1)
+        if command.size != 3 or positions.size != 12 or velocities.size != 12:
+            raise ValueError(&#x27;invalid Unitree H1_2 runtime vector size&#x27;)
+        if angular_velocity.size != 3:
+            raise ValueError(&#x27;base angular velocity must have three values&#x27;)
+        if not all(np.isfinite(values).all() for values in (
+                command, positions, velocities, angular_velocity)):
+            raise ValueError(&#x27;Unitree H1_2 runtime input is non-finite&#x27;)
+        self.step_index += 1
+        elapsed = self.step_index * self.control_period
+        phase = math.fmod(elapsed, self.gait_period) / self.gait_period
+        phase_angle = 2.0 * math.pi * phase
+        observation = build_observation({
+            &#x27;base_angular_velocity&#x27;: (
+                angular_velocity * self.scales[&#x27;angular_velocity&#x27;]),
+            &#x27;projected_gravity&#x27;: projected_gravity(
+                sensor_state.base_quaternion_xyzw),
+            &#x27;velocity_command&#x27;: command * self.scales[&#x27;velocity_command&#x27;],
+            &#x27;joint_position&#x27;: (
+                (positions - self.default_positions)
+                * self.scales[&#x27;joint_position&#x27;]),
+            &#x27;joint_velocity&#x27;: velocities * self.scales[&#x27;joint_velocity&#x27;],
+            &#x27;previous_action&#x27;: self.previous_action,
+            &#x27;gait_phase&#x27;: [math.sin(phase_angle), math.cos(phase_angle)],
+        }, self.contract)
+        action = np.clip(
+            self.policy.infer(observation),
+            -self.action_clip,
+            self.action_clip).astype(np.float32, copy=False)
+        targets = np.clip(
+            self.default_positions + self.action_scale * action,
+            self.minimum_positions,
+            self.maximum_positions).astype(np.float32, copy=False)
+        self.previous_action[:] = action
+        return UnitreeH12Output(
+            observation=observation,
+            policy_action=action.copy(),
+            leg_position_targets=targets.copy(),
+            phase=phase,
+        )
+</pre></body></html>

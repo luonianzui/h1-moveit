@@ -1,0 +1,113 @@
+{
+  "controller_commands_issued": 0,
+  "exact_fcl_authority": {
+    "file_count": 9,
+    "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v4_31j/manifest.json",
+    "sha256": "f44efe1dcb9147c49cafa74d387ccbe0096c5e21cfe3c69be259bd0dd1d90c40"
+  },
+  "execution_contract": {
+    "baseline": "826.3",
+    "hard_maximum_abs_torso_deg": 44.5,
+    "incubator_joint_state_exact_gap_ns": 1000000,
+    "incubator_x_m": 0.59,
+    "left_hand_handle_contact_forbidden": true,
+    "middle_speed_scale": 0.5,
+    "planned_maximum_abs_torso_deg": 44.25,
+    "public_joint_state_exact_gap_ns": 10000000,
+    "raw_clock_exact_gap_ns": 1000000,
+    "right_handle_only": true,
+    "right_time_scale": 2.0,
+    "table_x_m": 0.6,
+    "terminal_cube_rotation_tolerance_deg": 2.0,
+    "terminal_cube_target_orientation_xyzw": [
+      0.0,
+      0.0,
+      0.7071067811865475,
+      0.7071067811865476
+    ],
+    "terminal_cube_target_position_m": [
+      0.611,
+      -0.03,
+      0.995
+    ],
+    "terminal_cube_translation_tolerance_m": 0.003
+  },
+  "files": {
+    "certificate_source": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v17/h1_candidate3_live_certificate_829.py",
+      "sha256": "d75c39e7b3f1fef7bbfa50a1a627a00a64466a0101e3908d954169310330f740"
+    },
+    "commands": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v17/commands_829.json",
+      "sha256": "606604a604228feacfc2cd5db444e01fafe6a758d6c758362938cc284d78fad6"
+    },
+    "gazebo_launch_source": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v17/gazebo.launch.py",
+      "sha256": "fcc16f3f775ac7864b185348608a7073e15b9b49f8b65ad873b29241b124a733"
+    },
+    "gazebo_world_sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v17/h1_world.sdf",
+      "sha256": "78e53275f8bace37c45fb0acf7ccd3164a665a7cb05eb4fc7a937a531792b335"
+    },
+    "incubator_model_sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v17/incubator_model.sdf",
+      "sha256": "44ff23fc7077f0c232e2e69ff9d73aba336140d6a7951968c9c4241a97e73db9"
+    },
+    "robot_gazebo_control_xacro": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v17/h1_2.gazebo.ros2_control.xacro",
+      "sha256": "3c865dcf19fec32403aac51365702afdf8232111840fcffb8ee80eb2923f1535"
+    },
+    "robot_joint_state_relay_source": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v17/h1_robot_joint_state_relay_829.py",
+      "sha256": "a48a4d9672b2169bf717b6ec9a3c4a0600df48b1e5293783e13451bbd5494c00"
+    },
+    "ros2_controllers_config": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v17/ros2_controllers.yaml",
+      "sha256": "612722d2143e39ef467219c67b9fb4bbfba9cb90a6bf047701308b4ff6279795"
+    },
+    "rosbag_qos_overrides": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v17/candidate3_rosbag_qos_overrides_829.yaml",
+      "sha256": "da086156e2c7599f05e8c3ccc9066af8e4c6acc8210451de4ecc8b20bc0a6f1c"
+    },
+    "supervisor_source": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v17/h1_candidate3_live_supervisor_829.py",
+      "sha256": "d4d1511842309cdaf914123e21c5bebe0164fe8074c2f83cf1082665baa997d7"
+    },
+    "telemetry_bridge_config": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v17/candidate3_telemetry_bridge_829.yaml",
+      "sha256": "615231d3fc7d810f38165cbc679e4044263d4000cace8b56cc0ed35705ec9b0d"
+    }
+  },
+  "run_id": "c92e9d3111e76fd7cafaefd384a1cb807e8bccf35a1ff43d23dcdab586e67ed6",
+  "run_root": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_live_829_final_r16",
+  "schema": "h1_candidate3_live_production_authority/829-v17",
+  "sealed": true,
+  "status": "READY",
+  "supersedes": {
+    "path": "runtime_assets/candidate3_live_829_authority_v16",
+    "reason": "v17 preserves the action-complete r14 controller trajectory and 826.3 posture while binding the scheduled-time certificate, exact right-pad geometric grip contract, immutable 31-joint FCL authority v6 with a 2e-6 rad Gazebo solver envelope, zero-stderr reporting, and a fresh absent r16 root after r15 recording was invalidated by an online SQLite diagnostic lock"
+  },
+  "valid": true
+}

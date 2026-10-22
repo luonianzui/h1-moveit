@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="h1_2_navigation">
+  <xacro:arg
+    name="isaac_source_urdf"
+    default="/home/liu/test/h1_2_isaaclab/assets/h1_2_feetonly.urdf"/>
+  <xacro:arg
+    name="controller_parameters_file"
+    default="$(find h1_2_navigation)/config/v12_controllers.yaml"/>
+
+  <xacro:include filename="$(arg isaac_source_urdf)"/>
+
+  <xacro:include filename="dex1_1_navigation_visual.urdf.xacro"/>
+  <xacro:dex1_1_navigation_visual
+    side="left" parent="left_wrist_yaw_link"/>
+  <xacro:dex1_1_navigation_visual
+    side="right" parent="right_wrist_yaw_link"/>
+
+  <link name="imu_link"/>
+  <joint name="imu_joint" type="fixed">
+    <origin xyz="-0.04452 -0.01891 0.27756" rpy="0 0 0"/>
+    <parent link="torso_link"/>
+    <child link="imu_link"/>
+  </joint>
+
+  <link name="lidar_link"/>
+  <joint name="lidar_joint" type="fixed">
+    <origin xyz="0.04874 0 0.67980" rpy="0 0.24015730507441985 0"/>
+    <parent link="torso_link"/>
+    <child link="lidar_link"/>
+  </joint>
+
+  <xacro:include filename="livox_mid360.urdf.xacro"/>
+  <xacro:livox_mid360 parent="lidar_link" name="livox_mid360">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:livox_mid360>
+
+  <gazebo reference="imu_link">
+    <sensor name="v12_imu" type="imu">
+      <always_on>true</always_on>
+      <update_rate>200</update_rate>
+      <topic>/h1_2_navigation/imu</topic>
+      <gz_frame_id>imu_link</gz_frame_id>
+      <imu>
+        <angular_velocity>
+          <x><noise type="gaussian"><mean>0</mean><stddev>0.0002</stddev></noise></x>
+          <y><noise type="gaussian"><mean>0</mean><stddev>0.0002</stddev></noise></y>
+          <z><noise type="gaussian"><mean>0</mean><stddev>0.0002</stddev></noise></z>
+        </angular_velocity>
+        <linear_acceleration>
+          <x><noise type="gaussian"><mean>0</mean><stddev>0.0017</stddev></noise></x>
+          <y><noise type="gaussian"><mean>0</mean><stddev>0.0017</stddev></noise></y>
+          <z><noise type="gaussian"><mean>0</mean><stddev>0.0017</stddev></noise></z>
+        </linear_acceleration>
+      </imu>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="left_ankle_roll_joint">
+    <sensor name="left_foot_load" type="force_torque">
+      <always_on>true</always_on>
+      <update_rate>200</update_rate>
+      <topic>/h1_2_navigation/left_foot/wrench</topic>
+    </sensor>
+  </gazebo>
+  <gazebo reference="right_ankle_roll_joint">
+    <sensor name="right_foot_load" type="force_torque">
+      <always_on>true</always_on>
+      <update_rate>200</update_rate>
+      <topic>/h1_2_navigation/right_foot/wrench</topic>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="left_ankle_roll_link">
+    <sensor name="left_foot_contact" type="contact">
+      <always_on>true</always_on>
+      <update_rate>200</update_rate>
+      <contact>
+        <collision>left_ankle_roll_link_fixed_joint_lump__left_foot_collision</collision>
+        <topic>/h1_2_navigation/left_foot/contacts</topic>
+      </contact>
+    </sensor>
+  </gazebo>
+  <gazebo reference="right_ankle_roll_link">
+    <sensor name="right_foot_contact" type="contact">
+      <always_on>true</always_on>
+      <update_rate>200</update_rate>
+      <contact>
+        <collision>right_ankle_roll_link_fixed_joint_lump__right_foot_collision</collision>
+        <topic>/h1_2_navigation/right_foot/contacts</topic>
+      </contact>
+    </sensor>
+  </gazebo>
+
+  <xacro:include filename="h1_2.navigation.ros2_control.xacro"/>
+  <xacro:h1_2_navigation_ros2_control
+    controller_parameters_file="$(arg controller_parameters_file)"/>
+</robot>

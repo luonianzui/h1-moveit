@@ -1,0 +1,78 @@
+# r119 机器人真实接触按钮：关盖—转子30秒—停转—开盖
+
+日期：2026-09-22。仅Gazebo，用户明确授权继续实际机器人操作。独占fresh r119，
+使用原H1-2、双Dex1、Mid360、桌子、四墙和离心机；不连接真机、不操作原孵育箱，
+不发布腿部/躯干/夹爪开度/support/reset命令，不创建备份。
+
+## 结果
+
+**机器人执行PASS；独立机器审计16/16 PASS。**
+fresh默认盖子闭合，因此先左手按蓝键开盖准备，然后完成用户要求：
+左手按蓝键关盖→右手按绿键启动→稳速计时→右手按绿键停止→停稳后左手按蓝键开盖。
+不是直接发设备命令伪装按压；正常执行器只发布两臂轨迹，Gazebo原始contact触发设备按钮。
+
+| 指标 | 实测 |
+|---|---:|
+| 物理按钮事件（含准备） | 5，lid/lid/rotor/rotor/lid |
+| 原始接触消息 | 2127 |
+| 左/右臂轨迹 | 12/6 |
+| 29.8..30.2 rpm首次入区至停止按键 | 30.05000000000001秒仿真时间 |
+| 启动按键至停止按键（含加速） | 33.173秒仿真时间 |
+| 转速峰值 | 30.0803 rpm |
+| 最大接触深度 | 9.442869658912723e-7 m |
+| 原始接触瞬时力峰值 | 221.23944875299452 N |
+| 机器状态/定位样本 | 5428/221，定位全valid |
+| 非允许碰撞对象离线最小净距 | 8.670888 mm，门限5 mm |
+| 完整记录窗口 | 111.031仿真秒 / 425.919墙钟秒 |
+
+旋转/减速期间盖子保持闭合；实测停止后才发最后开盖按键。
+终态盖子约120°、转子停稳、双臂回初始姿态（各关节<0.005rad门），机器无fault，
+starts=1、stops=1、blocked=0；未放宽开盖旋转互锁。机器人固定站位，
+不是Nav2走到设备后视觉自适应操作或机器人抓握盖子。
+
+## 实现和失败修复
+
+新增三个独立脚本：centrifuge_press_plan.py离线MoveIt FK/FCL与约束IK；
+centrifuge_contact_button.py接触对过滤和40ms按下/150ms释放防抖；
+centrifuge_robot_cycle.py单次claim执行与stop-and-hold。
+新enable_robot_press默认false，且与allow_open_lid_demo互斥。
+只在离心机模型添加按钮帽contact sensor，不修改原机器人/SRDF/孵育箱模型或STL。
+
+r117初始脚踝自然沉降与YAML零值不符而前置拒绝；r118将实测腿姿用于规划，
+物理上已到帽面，但sensor/topic未被Harmonic Contact读取而收不到事件并保持。
+r119修复为contact/topic，保留原0.02rad起始门、碰撞净距和动作语义，
+运行前确认两个GZ contact话题都有真实publisher，并保留全部失败证据。
+原始腿姿基线来自r117 trace中34个静止样本，不是修改腿部命令或刚体位置。
+
+测试首调因未限制colcon扫描范围而发现证据快照里的重复包，未开始测试；
+tests.log保留，tests_retry1.log使用--base-paths src后42 tests/0 failures。
+首次独立审计因最早preflight记录sim_time=null导致时间差TypeError，尚未写结果；
+audit_execution_v1.py保留，现版仅忽略未收到clock时的时间起点，不放宽任何门限。
+
+## 验证与保护
+
+description/config两包六库精确隔离构建PASS，Conda存在/缺失与哈希精确恢复。
+配置42测试/0失败，导航113测试通过；发布入口变更后再次隔离构建/回归。
+protected_before.json、protected_after.json：10,262旧文件及827/828/831/901/909/914/915/920
+八份备份均PASS。没有恢复、改写或覆盖旧成果。920仍是箱子版本，
+SHA-256 c4e72068e831ab0d14712261446709704012797ab81ae8948800f7a668db3ecf。
+
+核心证据：
+- run/robot_cycle_trace.jsonl，run/robot_cycle_result.json
+- press_plan.json：SHA-256 2cf74f85c9cda4add2591b2758e3e92a112e56430b91a7f05a3df82736715795
+- execution_audit.json：SHA-256 792690f6c14469a872ac703aa29b7b7c0c51b18336bcc16faa49cc788cf9c554
+- source_snapshot/，runtime_source_sha256.json，最终SHA256SUMS和source_final_sha256.json
+
+## 视频、现场和边界
+
+run/robot_cycle.mp4为1200×900、H.264、10fps、454秒/4540帧，recorder正常SIGINT，
+完整解码PASS。但桌面录像被Codex前台窗口间歇遮挡，**不是全流程视觉验收证据**。
+成功依据是全程机器日志。run/final_window.png直接捕获Gazebo窗口，显示最终开盖停转姿态。
+未来录像应使用验证过的window_id定向采集而非桌面坐标；不能补造本轮漏拍帧。
+
+运行后Gazebo/GUI保留供查看，执行器与视频recorder已退出，6控制器active、
+五个机器人轨迹publisher均0（run/final_health.log）。这是历史快照，下次重新核验。
+新操作必须新身份、新计划及新claim，禁止复用r119。
+
+按钮仍为刚性接触帽，221.24N瞬时峰值说明尚未标定弹簧行程、柔顺力控和实际安全按压力。
+不把本结果外推为实体机器人许可、高速离心/载荷安全或导航后动态视觉任务。

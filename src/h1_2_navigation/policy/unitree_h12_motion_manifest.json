@@ -1,0 +1,25 @@
+{
+  "action_dimension": 12,
+  "exporter_sha256": "a255171ea63eb75ce20738a89483b9fd5860735b40fde01d18d0f443064365db",
+  "golden": {
+    "sha256": "78dfa9829caab78850304c64c9c0ca38c44660f6fb2df1e28200d1d4f178691b",
+    "size": 56550
+  },
+  "golden_sequence_length": 257,
+  "numpy_maximum_absolute_error": 3.2186508178710938e-06,
+  "numpy_mean_absolute_error": 3.2405071692664933e-07,
+  "observation_dimension": 47,
+  "policy": {
+    "sha256": "68a1f2dff967fdc464451956eb6b4c60288cf375e38629092edab23b2adb014c",
+    "size": 118744
+  },
+  "recurrent_hidden_dimension": 64,
+  "recurrent_type": "lstm",
+  "schema_version": 1,
+  "source_policy": {
+    "path": "/home/liu/robot/gym_sim/unitree_rl_gym-main/deploy/pre_train/h1_2/motion.pt",
+    "sha256": "ea3003268d5d2e4b5004eb26d0969fbfdedced265ceeec7bf0b335309259cc80",
+    "size": 145745
+  },
+  "writes_performed": true
+}

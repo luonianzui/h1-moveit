@@ -1,0 +1,304 @@
+{
+  "authority_root": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_authority_v16",
+  "base_authority": {
+    "manifest_sha256": "0344f0725198ed7773ac45feb45dbf29e75fc4e26514b97ef9a6de28615546cd",
+    "path": "runtime_assets/candidate3_live_831_fast_authority_v14",
+    "schema": "h1_candidate3_live_fast_authority/831-v14"
+  },
+  "commands": {
+    "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/commands_831.json",
+    "schema": "h1_candidate3_roundtrip_commands/831-v16",
+    "sha256": "0b4da78c4e41f7941850657bf215f95a0597b64aeb0fbb16e4216cf9f5ecfbea"
+  },
+  "controller_commands_issued": 0,
+  "controller_execution_authorized": true,
+  "derived_from": {
+    "commands_sha256": "aef171adfacb8b1af212caa1c193e8fabf51e06d03f8fff4ceddf9ed0a22e8fb",
+    "manifest_sha256": "b9e49b32c60979eb5a97d8ed3d5dc325a5d73e10b1985a45fd99c61f8848cd29",
+    "path": "runtime_assets/candidate3_roundtrip_831_authority_v9",
+    "semantic_changes": [
+      "allocate a fresh non-overwriting r24 replay identity",
+      "retain v9 trajectories, timing, safety gates, and payloads exactly",
+      "start from a fresh Gazebo world and restore the user's exact view",
+      "retain the mandatory rosbag subscriber and GPU video encoding"
+    ]
+  },
+  "execution_contract": {
+    "clean_requested_angle_video": true,
+    "controller_message_count": 60,
+    "cycles": 2,
+    "exact_inverse_return": true,
+    "flow_completion_marker": "CANDIDATE3_ROUNDTRIP_831_FLOW_COMPLETION=PASS",
+    "fresh_launch_after_failed_preload": true,
+    "gpu_video_encoding": true,
+    "hard_maximum_abs_torso_deg": 44.5,
+    "inverse_transform": "reverse_points_mirror_time",
+    "left_hand_handle_contact_forbidden": true,
+    "live_certificate_required": false,
+    "live_demonstration_instance": "r24",
+    "live_supervisor_required": false,
+    "middle_trajectory_timing_unchanged": true,
+    "operation": "roundtrip",
+    "preparation_controller_commands": 0,
+    "prepared_support_required": true,
+    "ready_claim_required_before_motion": true,
+    "ready_claim_socket_identity": "stable bound filesystem pathname device/inode",
+    "reduced_capture_load": true,
+    "required_rosbag_present": true,
+    "requires_live_final_validation": true,
+    "right_base_point_dt_s": 0.004,
+    "right_handle_only": true,
+    "right_minimum_scheduled_point_dt_s": 0.00328,
+    "right_profile_limits": {
+      "prismatic_acceleration_m_s2": 40.0,
+      "prismatic_velocity_m_s": 0.1,
+      "revolute_acceleration_rad_s2": 750.0,
+      "revolute_velocity_rad_s": 2.0
+    },
+    "right_stage_time_scales": {
+      "close_q0_right_hand": 0.87,
+      "contact_arc_q0_to_q90_hold": 1.0,
+      "contact_arc_q90_hold_to_q0": 1.0,
+      "egress_open_from_q0": 0.82,
+      "ingress_open_to_q0": 0.82,
+      "prepare_left_park": 0.82,
+      "release_q0_right_hand": 0.87,
+      "return_left_launch_seam": 0.82
+    },
+    "semantic_authority_identical_to_v9": true,
+    "sequence": [
+      "open",
+      "insert_cube",
+      "close_and_lock",
+      "reopen",
+      "return_cube_to_origin",
+      "close_and_relock"
+    ],
+    "timed_maximum_seconds": 180.0,
+    "timed_metric": "flow_invocation_to_terminal_pass",
+    "trajectory_geometry_unchanged": true,
+    "trajectory_geometry_unchanged_from_v9": true,
+    "trajectory_time_scales_unchanged": false,
+    "trajectory_time_scales_unchanged_from_v9": true,
+    "user_set_camera_video": true,
+    "video_recording_is_non_authoritative": true
+  },
+  "external_middle_support_bindings": {
+    "middle_admission": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "src/h1_2_vision/h1_2_vision/candidate3_middle_admission.py",
+      "sha256": "3292d0cb1da48cd4083770cd930d5f6cc8aa5e7686d8f9ee60918300a18de352",
+      "size_bytes": 8871
+    },
+    "middle_certificate": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_certificate_828.json",
+      "sha256": "58a683347c95be35c7c9c39e814c7be23dfab7311a037a0a0e6d7bb5f62aaade",
+      "size_bytes": 2708
+    },
+    "middle_contract": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "src/h1_2_vision/h1_2_vision/candidate3_middle_execution_contract_828.py",
+      "sha256": "681df3fce9b12c23388fed7cd4a62cccaba87353ef44a1e82234ec8d1864392a",
+      "size_bytes": 47439
+    },
+    "middle_exact_result": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_exact_result_828.json",
+      "sha256": "3e49dd9a34b206da4699545cff5656fb0db3fb38796ffd9a9435ebf55048e1fb",
+      "size_bytes": 552608
+    },
+    "middle_plan": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_plan_828.json",
+      "sha256": "cb20f8303cb2e75a5fe45025ea4a119fa5ba81054c8cda55442d320052d1634e",
+      "size_bytes": 533286
+    },
+    "scene": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_middle_e0_828/scene.cdr",
+      "sha256": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568",
+      "size_bytes": 1371569
+    },
+    "support_manifest": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_support_manifest_828.json",
+      "sha256": "a93ec01822bf6edb86531d281ba43e655c4a0e9f694c2058faa372a0e5bde1eb",
+      "size_bytes": 6233
+    }
+  },
+  "files": {
+    "candidate3_return_plan_831.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/candidate3_return_plan_831.json",
+      "sha256": "24767afddc9101094a419d9ab00c04db352e344b1aae90b287d86ca4773ebb21",
+      "size_bytes": 531123
+    },
+    "candidate3_rosbag_qos_overrides_829.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/candidate3_rosbag_qos_overrides_829.yaml",
+      "sha256": "da086156e2c7599f05e8c3ccc9066af8e4c6acc8210451de4ecc8b20bc0a6f1c",
+      "size_bytes": 1031
+    },
+    "candidate3_telemetry_bridge_829.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/candidate3_telemetry_bridge_829.yaml",
+      "sha256": "615231d3fc7d810f38165cbc679e4044263d4000cace8b56cc0ed35705ec9b0d",
+      "size_bytes": 481
+    },
+    "commands_831.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/commands_831.json",
+      "sha256": "0b4da78c4e41f7941850657bf215f95a0597b64aeb0fbb16e4216cf9f5ecfbea",
+      "size_bytes": 17254
+    },
+    "controller_execution_authorization.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/controller_execution_authorization.json",
+      "sha256": "6108f94f348e7d88ee96d94e587e7958bc52ec825fd1289803fb9b1bf8b5cb8c",
+      "size_bytes": 2722
+    },
+    "gazebo.launch.py": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/gazebo.launch.py",
+      "sha256": "4f2a3da2f03716a8905738d1c10c6b41600a44fc6a5b725fed961419bb514bf5",
+      "size_bytes": 21931
+    },
+    "h1_2.gazebo.ros2_control.xacro": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/h1_2.gazebo.ros2_control.xacro",
+      "sha256": "3c865dcf19fec32403aac51365702afdf8232111840fcffb8ee80eb2923f1535",
+      "size_bytes": 7695
+    },
+    "h1_candidate3_flow_fast_831_v3.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/h1_candidate3_flow_fast_831_v3.py",
+      "sha256": "358391076710527b6ec2ab360db6a18d6f7b03da74fb1ef4595c30fdf3f7fd2d",
+      "size_bytes": 48188
+    },
+    "h1_candidate3_middle_executor_fast_831_v3.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/h1_candidate3_middle_executor_fast_831_v3.py",
+      "sha256": "e88dd07c1de79585c1e2534f870e0422394d227744ac2d4fafa0fc9267ab4246",
+      "size_bytes": 89102
+    },
+    "h1_fast_support_daemon_831.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/h1_fast_support_daemon_831.py",
+      "sha256": "ba325e6406957bed1c36e1eb5eca99adb321ddeb019eb65a4243ea223adcc015",
+      "size_bytes": 82081
+    },
+    "h1_right_handle_executor_828.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/h1_right_handle_executor_828.py",
+      "sha256": "7a1233641c26298a92b0e153328dfd76e5e561a2f5520fec40f1c11a165ecde8",
+      "size_bytes": 72866
+    },
+    "h1_robot_joint_state_relay_829.py": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/h1_robot_joint_state_relay_829.py",
+      "sha256": "5055b923daaf322cfcf7a7dbb738359c5e4d702010be539c4ce75b8f5b8f193c",
+      "size_bytes": 12374
+    },
+    "h1_support_orchestrator_828.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/h1_support_orchestrator_828.py",
+      "sha256": "76b016bc26e57fb6f2f8e1cf5a51b72a0a302c64ae2b47c51238a89dacd605ac",
+      "size_bytes": 72929
+    },
+    "h1_world.sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/h1_world.sdf",
+      "sha256": "4b61050f468df5f81a6805d410dd63daeb8b7c9d0aa9143b00b90282c38eb96c",
+      "size_bytes": 2264
+    },
+    "incubator_model.sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/incubator_model.sdf",
+      "sha256": "44ff23fc7077f0c232e2e69ff9d73aba336140d6a7951968c9c4241a97e73db9",
+      "size_bytes": 12085
+    },
+    "return_execution_authorization.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/return_execution_authorization.json",
+      "sha256": "d035d264b4f9e6a5abc4d61e2a174e07c5a7e9badf5f82b45a5ae91b90b004ff",
+      "size_bytes": 2150
+    },
+    "right_handle_manifest.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/right_handle_manifest.json",
+      "sha256": "d4260f136a2a699683516b4c55d74c7546beea59f4f7c5c3d925583d307ff6e0",
+      "size_bytes": 7302
+    },
+    "ros2_controllers.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/ros2_controllers.yaml",
+      "sha256": "612722d2143e39ef467219c67b9fb4bbfba9cb90a6bf047701308b4ff6279795",
+      "size_bytes": 2654
+    }
+  },
+  "live_execution_passed": false,
+  "process_roles": [
+    "launch",
+    "recorder",
+    "support_daemon",
+    "preparation",
+    "flow"
+  ],
+  "provenance": {
+    "candidate3_return_plan_831.json": "runtime_assets/candidate3_return_c2_831/candidate3_return_plan_831.json",
+    "candidate3_rosbag_qos_overrides_829.yaml": "runtime_assets/candidate3_live_831_fast_authority_v14/candidate3_rosbag_qos_overrides_829.yaml",
+    "candidate3_telemetry_bridge_829.yaml": "runtime_assets/candidate3_live_831_fast_authority_v14/candidate3_telemetry_bridge_829.yaml",
+    "commands_831.json": "generated",
+    "controller_execution_authorization.json": "generated:transform:runtime_assets/candidate3_live_831_fast_authority_v14/controller_execution_authorization.json",
+    "gazebo.launch.py": "runtime_assets/candidate3_live_831_fast_authority_v14/gazebo.launch.py",
+    "h1_2.gazebo.ros2_control.xacro": "runtime_assets/candidate3_live_831_fast_authority_v14/h1_2.gazebo.ros2_control.xacro",
+    "h1_candidate3_flow_fast_831_v3.py": "src/h1_2_moveit_demo/scripts/h1_candidate3_flow_fast_831_v3.py",
+    "h1_candidate3_middle_executor_fast_831_v3.py": "src/h1_2_moveit_demo/scripts/h1_candidate3_middle_executor_fast_831_v3.py",
+    "h1_fast_support_daemon_831.py": "src/h1_2_moveit_demo/scripts/h1_fast_support_daemon_831.py",
+    "h1_right_handle_executor_828.py": "generated:transform:runtime_assets/candidate3_live_831_fast_authority_v14/h1_right_handle_executor_828.py",
+    "h1_robot_joint_state_relay_829.py": "runtime_assets/candidate3_live_831_fast_authority_v14/h1_robot_joint_state_relay_829.py",
+    "h1_support_orchestrator_828.py": "src/h1_2_moveit_demo/scripts/h1_support_orchestrator_828.py",
+    "h1_world.sdf": "runtime_assets/candidate3_live_831_fast_authority_v14/h1_world.sdf",
+    "incubator_model.sdf": "runtime_assets/candidate3_live_831_fast_authority_v14/incubator_model.sdf",
+    "return_execution_authorization.json": "generated",
+    "right_handle_manifest.json": "runtime_assets/candidate3_live_831_fast_authority_v14/right_handle_manifest.json",
+    "ros2_controllers.yaml": "runtime_assets/candidate3_live_831_fast_authority_v14/ros2_controllers.yaml"
+  },
+  "return_execution_authorization": {
+    "path": "runtime_assets/candidate3_roundtrip_831_authority_v16/return_execution_authorization.json",
+    "schema": "h1_candidate3_return_execution_authorization/831-v1",
+    "sha256": "d035d264b4f9e6a5abc4d61e2a174e07c5a7e9badf5f82b45a5ae91b90b004ff"
+  },
+  "run_id": "b1523d7a83b6ca7be179519c336393c4666d2202804b919462bb11b3e4398075",
+  "run_root": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_r24",
+  "schema": "h1_candidate3_roundtrip_authority/831-v16",
+  "sealed": true,
+  "status": "READY",
+  "valid": true
+}

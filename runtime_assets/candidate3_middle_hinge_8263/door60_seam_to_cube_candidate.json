@@ -1,0 +1,1550 @@
+{
+  "schema": "h1_candidate3_hinge_motion_candidate/v1",
+  "id": "door60_rigid_grip_torso_neg8_to_zero",
+  "status": "EXACT_GEOMETRY_PASS_CANDIDATE_ONLY",
+  "valid": true,
+  "execution_ready": false,
+  "offline_only": true,
+  "controller_commands_issued": 0,
+  "direction": "seam_to_cube",
+  "not_certified": [
+    "11-phase ordered middle workflow",
+    "right-prefix/contact-arc-to-hinge seam",
+    "cube-phase dual-arm coexistence at the torso-zero seam endpoint",
+    "controller execution"
+  ],
+  "bindings": {
+    "scene_cdr": {
+      "path": "runtime_evidence/right_natural_828_table_xplus100_incubator_original_20260828/middle_v1/scene.cdr",
+      "sha256": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568"
+    },
+    "original_handle_stl": {
+      "path": "src/h1_2_description/models/incubator/meshes/incubator_handle.STL",
+      "sha256": "ad6670185fa5756ba5dabdee7e542db2df3346973fea4eb887288f54a6b6f59e"
+    },
+    "robot_urdf": {
+      "path": "runtime_evidence/826_apriltag_plan_only_20260826/stage_h_nominal_pass/clearance_audit_robot.urdf",
+      "sha256": "3aad4bdc038ff6cde3bef221bb15b8134bb45f7a87ef5dfa0fadc2126bd44929"
+    },
+    "robot_srdf": {
+      "path": "runtime_evidence/826_apriltag_plan_only_20260826/stage_h_nominal_pass/clearance_audit_robot.srdf",
+      "sha256": "2f268a57406fcea301cd1a58c3912b91aa9a3a676e2ae42b9f9c741fac30d79d"
+    },
+    "generator_input_sha256": "fa9be6a8eeea9314b79b25abaa86d71a745a31d1d921d756b27acdfb3ca6a03e",
+    "exact_auditor_source_sha256": "481f5293b6e1988e257bc0aa0c237f957bcd11514a59088232dab1a967ede9ae",
+    "exact_auditor_binary_sha256": "f1007f0dcfb048e01e92193e515a9111f2ceb71d5843982dd83aa949bdec13a3",
+    "exact_evidence": {
+      "path": "runtime_evidence/candidate3_middle_hinge_8263_20260828/door60_seam_to_cube_exact.json",
+      "sha256": "f45bc0cfffcd097df63e72439abcb0b07aabb97b20e1b0fee61725ad9c58ed0e"
+    }
+  },
+  "contract": {
+    "door_angle_start_deg": 60.0,
+    "door_angle_end_deg": 60.0,
+    "handle_angle_deg": 90.0,
+    "right_finger_positions": {
+      "right_dex1_finger_1_joint": 0.0105,
+      "right_dex1_finger_2_joint": 0.007
+    },
+    "park_left_shoulder_roll_rad": 0.316,
+    "left_hand_handle_contact_forbidden": true,
+    "authorized_handle_collision_pairs": [
+      [
+        "incubator_handle_exact",
+        "right_dex1_finger_1_pad_link"
+      ],
+      [
+        "incubator_handle_exact",
+        "right_dex1_finger_2_pad_link"
+      ]
+    ],
+    "required_environment_clearance_m": 0.01,
+    "required_right_nonpad_handle_clearance_m": 0.0006,
+    "maximum_absolute_torso_deg": 43.0,
+    "dense_angular_step_deg": 0.1
+  },
+  "exact_metrics": {
+    "samples": 134,
+    "minimum_environment_clearance_m": 0.010001,
+    "minimum_right_nonpad_handle_clearance_m": 0.0007034675662530002,
+    "minimum_left_handle_clearance_m_lower_bound": 0.05,
+    "minimum_arm_margin_deg": 7.34633170954914,
+    "minimum_patch_span_m": 0.009595578772559454,
+    "minimum_patch_station_m": 0.09745732170773796,
+    "maximum_tcp_position_error_mm": 2.3278484624049705e-11,
+    "maximum_tcp_rotation_error_deg": 3.723694529224023e-11,
+    "torso_min_deg": -8.0,
+    "torso_max_deg": -0.0
+  },
+  "configuration_order": [
+    "torso_joint",
+    "right_shoulder_pitch_joint",
+    "right_shoulder_roll_joint",
+    "right_shoulder_yaw_joint",
+    "right_elbow_joint",
+    "right_wrist_roll_joint",
+    "right_wrist_pitch_joint",
+    "right_wrist_yaw_joint"
+  ],
+  "row_count": 81,
+  "rows": [
+    {
+      "sample": 0,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.13962634015954636,
+      "right_arm_rad": [
+        -0.40508658634931377,
+        -0.7053351498947151,
+        -1.3721400158844062,
+        2.8523692063316526,
+        2.4882829080658677,
+        -0.3342823237247038,
+        -0.983092388964152
+      ],
+      "tcp_position_error_mm": 1.7240159478989986e-11,
+      "tcp_rotation_error_deg": 3.723694529224023e-11,
+      "max_configuration_step_deg": 0.0,
+      "joint_margin_deg": 7.34633170954914
+    },
+    {
+      "sample": 1,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.13788101090755203,
+      "right_arm_rad": [
+        -0.40379376798781763,
+        -0.7061072527484117,
+        -1.3724741097566344,
+        2.853126010918231,
+        2.488336088676254,
+        -0.3329003566932117,
+        -0.9838388027661478
+      ],
+      "tcp_position_error_mm": 1.0477435691957806e-11,
+      "tcp_rotation_error_deg": 1.6082864572443603e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 7.425512587879858
+    },
+    {
+      "sample": 2,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.1361356816555577,
+      "right_arm_rad": [
+        -0.4024994336886469,
+        -0.7068765391384184,
+        -1.372808257611654,
+        2.853880020727002,
+        2.4883893636981127,
+        -0.33151921667712797,
+        -0.9845875155011578
+      ],
+      "tcp_position_error_mm": 1.4296654671740973e-11,
+      "tcp_rotation_error_deg": 1.5590207354639045e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 7.504646081718088
+    },
+    {
+      "sample": 3,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.13439035240356337,
+      "right_arm_rad": [
+        -0.4012035858887974,
+        -0.7076430059635702,
+        -1.3731424626905124,
+        2.854631235573096,
+        2.4884427392371298,
+        -0.33013890702061566,
+        -0.9853385224294628
+      ],
+      "tcp_position_error_mm": 1.9332256535776434e-11,
+      "tcp_rotation_error_deg": 1.480955732814541e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 7.583731999457395
+    },
+    {
+      "sample": 4,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.13264502315156904,
+      "right_arm_rad": [
+        -0.3999062193196527,
+        -0.7084066515639179,
+        -1.3734767446984,
+        2.8553796548172716,
+        2.488496213612535,
+        -0.32875943791593276,
+        -0.9860918102543297
+      ],
+      "tcp_position_error_mm": 9.957794473768056e-12,
+      "tcp_rotation_error_deg": 1.6241246968805474e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 7.6627697571244155
+    },
+    {
+      "sample": 5,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.1308996938995747,
+      "right_arm_rad": [
+        -0.3986073463955881,
+        -0.7091674709876585,
+        -1.3738110856622137,
+        2.856125278843113,
+        2.488549802880737,
+        -0.3273808039587173,
+        -0.9868473852988521
+      ],
+      "tcp_position_error_mm": 1.3965530300464025e-11,
+      "tcp_rotation_error_deg": 1.539664506049374e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 7.741759664366279
+    },
+    {
+      "sample": 6,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.1291543646475804,
+      "right_arm_rad": [
+        -0.39730696589813663,
+        -0.7099254618327488,
+        -1.3741454967234787,
+        2.856868107233476,
+        2.4886035093504284,
+        -0.3260030118385845,
+        -0.9876052387430029
+      ],
+      "tcp_position_error_mm": 1.0167797795378371e-11,
+      "tcp_rotation_error_deg": 1.611738815714731e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 7.820701337896272
+    },
+    {
+      "sample": 7,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.12740903539558607,
+      "right_arm_rad": [
+        -0.3960050840503142,
+        -0.7106806203207457,
+        -1.3744799732021142,
+        2.8576081399972453,
+        2.488657342768637,
+        -0.3246260617095683,
+        -0.9883653700066418
+      ],
+      "tcp_position_error_mm": 1.0734843392637064e-11,
+      "tcp_rotation_error_deg": 1.6024392256419517e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 7.8995947688888934
+    },
+    {
+      "sample": 8,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.12566370614359174,
+      "right_arm_rad": [
+        -0.39470170367149693,
+        -0.7114329433139668,
+        -1.3748145177121822,
+        2.858345376938535,
+        2.4887113094195987,
+        -0.3232499567736325,
+        -0.9891277747237535
+      ],
+      "tcp_position_error_mm": 9.954476951839968e-12,
+      "tcp_rotation_error_deg": 1.6129516378563807e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 7.978439773885136
+    },
+    {
+      "sample": 9,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.12391837689159739,
+      "right_arm_rad": [
+        -0.39339684444614165,
+        -0.7121824245737467,
+        -1.375149097034256,
+        2.8590798188326514,
+        2.488765432487237,
+        -0.32187468539983477,
+        -0.9898924671548215
+      ],
+      "tcp_position_error_mm": 1.374134372310587e-11,
+      "tcp_rotation_error_deg": 1.548896265965276e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 8.057237019288905
+    },
+    {
+      "sample": 10,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.12217304763960307,
+      "right_arm_rad": [
+        -0.3920904963592374,
+        -0.7129290633564499,
+        -1.3754837411933631,
+        2.8598114647248307,
+        2.488819705275781,
+        -0.32050026220248473,
+        -0.9906594286984984
+      ],
+      "tcp_position_error_mm": 1.653764250791859e-11,
+      "tcp_rotation_error_deg": 1.5074464701806758e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 8.135985667761938
+    },
+    {
+      "sample": 11,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.12042771838760874,
+      "right_arm_rad": [
+        -0.39078264348029246,
+        -0.7136728599914339,
+        -1.3758184927702368,
+        2.860540313313605,
+        2.488874115115046,
+        -0.31912670702621865,
+        -0.9914286342598471
+      ],
+      "tcp_position_error_mm": 9.952096940247378e-12,
+      "tcp_rotation_error_deg": 1.599926204739912e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 8.214684582290333
+    },
+    {
+      "sample": 12,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.11868238913561441,
+      "right_arm_rad": [
+        -0.3894733065850278,
+        -0.7144138080643829,
+        -1.376153316346647,
+        2.861266365417765,
+        2.4889286861599125,
+        -0.3177540074003839,
+        -0.9922000992654781
+      ],
+      "tcp_position_error_mm": 1.2608586956452643e-11,
+      "tcp_rotation_error_deg": 1.5443779890055785e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 8.293334477389852
+    },
+    {
+      "sample": 13,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.11693705988362008,
+      "right_arm_rad": [
+        -0.3881624891406342,
+        -0.7151519043590983,
+        -1.3764882133586072,
+        2.8619896208461983,
+        2.4889834251372425,
+        -0.3163821661584966,
+        -0.9929738200023323
+      ],
+      "tcp_position_error_mm": 9.932369188144186e-12,
+      "tcp_rotation_error_deg": 1.6001419433101434e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 8.371935190711977
+    },
+    {
+      "sample": 14,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.11519173063162574,
+      "right_arm_rad": [
+        -0.38685020060902314,
+        -0.7158871445746962,
+        -1.3768231725616789,
+        2.8627100797477394,
+        2.489038344750021,
+        -0.3150111809005194,
+        -0.9937497993434324
+      ],
+      "tcp_position_error_mm": 1.1102596700538038e-11,
+      "tcp_rotation_error_deg": 1.566065578109265e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 8.450486859768727
+    },
+    {
+      "sample": 15,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.11344640137963143,
+      "right_arm_rad": [
+        -0.38553643390805376,
+        -0.7166195274386916,
+        -1.3771582178644803,
+        2.8634277413089846,
+        2.4890934410510455,
+        -0.31364106382583457,
+        -0.9945280219301199
+      ],
+      "tcp_position_error_mm": 9.939696071479834e-12,
+      "tcp_rotation_error_deg": 1.5954877328062896e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 8.528988785586979
+    },
+    {
+      "sample": 16,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.1117010721276371,
+      "right_arm_rad": [
+        -0.38422119826969797,
+        -0.7173490487084974,
+        -1.3774933385883823,
+        2.8641426056531585,
+        2.4891487264295105,
+        -0.3122718128173487,
+        -0.9953084903575845
+      ],
+      "tcp_position_error_mm": 1.0196043498468152e-11,
+      "tcp_rotation_error_deg": 1.58362893581117e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 8.60744108946725
+    },
+    {
+      "sample": 17,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.10995574287564276,
+      "right_arm_rad": [
+        -0.3829044965458544,
+        -0.7180757053152157,
+        -1.3778285376368218,
+        2.8648546725286717,
+        2.489204206827901,
+        -0.31090343141361554,
+        -0.9960912001808836
+      ],
+      "tcp_position_error_mm": 1.012849940308511e-11,
+      "tcp_rotation_error_deg": 1.584888171205858e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 8.685843568665348
+    },
+    {
+      "sample": 18,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.10821041362364843,
+      "right_arm_rad": [
+        -0.3815863331952683,
+        -0.7187994939072577,
+        -1.3781638145474135,
+        2.8655639417705756,
+        2.489259889759655,
+        -0.3095359217818761,
+        -0.9968761487071215
+      ],
+      "tcp_position_error_mm": 9.634006375447828e-12,
+      "tcp_rotation_error_deg": 1.5845205616556902e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 8.764196099007506
+    },
+    {
+      "sample": 19,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.1064650843716541,
+      "right_arm_rad": [
+        -0.3802667115857124,
+        -0.7195204113402841,
+        -1.3784991712112105,
+        2.86627041314501,
+        2.4893157816016047,
+        -0.3081692870894544,
+        -0.9976633320299969
+      ],
+      "tcp_position_error_mm": 1.0341792863847085e-11,
+      "tcp_rotation_error_deg": 1.5807771333391767e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 8.84249849901943
+    },
+    {
+      "sample": 20,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.10471975511965978,
+      "right_arm_rad": [
+        -0.37894565582227946,
+        -0.7202384507447627,
+        -1.3788345656761822,
+        2.866974087605034,
+        2.489371909492899,
+        -0.3068035123496339,
+        -0.9984527689560984
+      ],
+      "tcp_position_error_mm": 1.0733811740014968e-11,
+      "tcp_rotation_error_deg": 1.554444692673595e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 8.920751627376724
+    },
+    {
+      "sample": 21,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.10297442586766545,
+      "right_arm_rad": [
+        -0.3776231293929054,
+        -0.7209536161834549,
+        -1.3791700843241388,
+        2.867674962610483,
+        2.489428239717256,
+        -0.3054386358102748,
+        -0.9992444118291434
+      ],
+      "tcp_position_error_mm": 1.2332755194362777e-11,
+      "tcp_rotation_error_deg": 1.5163464815460974e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 8.99895329263842
+    },
+    {
+      "sample": 22,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.10122909661567112,
+      "right_arm_rad": [
+        -0.3762991580349824,
+        -0.7216659005058771,
+        -1.379505681815575,
+        2.8683730391973215,
+        2.4894848009694264,
+        -0.304074641128844,
+        -1.0000382812276776
+      ],
+      "tcp_position_error_mm": 1.3066510229205366e-11,
+      "tcp_rotation_error_deg": 1.5181853588191454e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 9.077104431162695
+    },
+    {
+      "sample": 23,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.09948376736367678,
+      "right_arm_rad": [
+        -0.37497374137182277,
+        -0.7223753012770721,
+        -1.3798413681215944,
+        2.8690683168934763,
+        2.489541595703495,
+        -0.30271153492024544,
+        -1.0008343690885404
+      ],
+      "tcp_position_error_mm": 9.539983019195542e-12,
+      "tcp_rotation_error_deg": 1.5744561311719493e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 9.155204663943472
+    },
+    {
+      "sample": 24,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.09773843811168245,
+      "right_arm_rad": [
+        -0.3736468854401581,
+        -0.7230818149204521,
+        -1.380177139691344,
+        2.869760795589712,
+        2.4895986327649835,
+        -0.3013493182173503,
+        -1.0016326743546433
+      ],
+      "tcp_position_error_mm": 9.724579449186455e-12,
+      "tcp_rotation_error_deg": 1.5694252606124037e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 9.233253931801592
+    },
+    {
+      "sample": 25,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.09599310885968812,
+      "right_arm_rad": [
+        -0.37231859834830944,
+        -0.7237854375036431,
+        -1.3805129886495329,
+        2.870450475289659,
+        2.4896559230343414,
+        -0.29998799028462775,
+        -1.0024331982083998
+      ],
+      "tcp_position_error_mm": 1.1589176410166953e-11,
+      "tcp_rotation_error_deg": 1.5367585864372753e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 9.311252276879863
+    },
+    {
+      "sample": 26,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.0942477796076938,
+      "right_arm_rad": [
+        -0.37098888868023583,
+        -0.7244861650261974,
+        -1.3808489061741442,
+        2.8711373560180204,
+        2.4897134778260073,
+        -0.29862755001870517,
+        -1.0032359423221806
+      ],
+      "tcp_position_error_mm": 1.27713127442394e-11,
+      "tcp_rotation_error_deg": 1.5130348048689884e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 9.389199762396881
+    },
+    {
+      "sample": 27,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.09250245035569947,
+      "right_arm_rad": [
+        -0.36965773790891937,
+        -0.725183998314295,
+        -1.3811849406923524,
+        2.8718214362416425,
+        2.4897712812281494,
+        -0.29726802007632075,
+        -1.004040878777436
+      ],
+      "tcp_position_error_mm": 9.543764361830349e-12,
+      "tcp_rotation_error_deg": 1.565563099448995e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 9.467095090217173
+    },
+    {
+      "sample": 28,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.09075712110370514,
+      "right_arm_rad": [
+        -0.36832517456718794,
+        -0.7258789298400433,
+        -1.381521041360046,
+        2.872502717117209,
+        2.48982936447539,
+        -0.29590938198069966,
+        -1.004848030984753
+      ],
+      "tcp_position_error_mm": 1.323179978277606e-11,
+      "tcp_rotation_error_deg": 1.504605268197721e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 9.544939318981953
+    },
+    {
+      "sample": 29,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.0890117918517108,
+      "right_arm_rad": [
+        -0.3669911799273923,
+        -0.7265709604710857,
+        -1.3818572570740104,
+        2.8731811970910295,
+        2.489887711373519,
+        -0.2945516586319595,
+        -1.0056573708049963
+      ],
+      "tcp_position_error_mm": 9.57777513768798e-12,
+      "tcp_rotation_error_deg": 1.5602197147725822e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 9.622731136611133
+    },
+    {
+      "sample": 30,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.08726646259971647,
+      "right_arm_rad": [
+        -0.36565576930961197,
+        -0.7272600850500766,
+        -1.3821935649593728,
+        2.8738568765524577,
+        2.4899463398243635,
+        -0.2931948431986146,
+        -1.0064689071976474
+      ],
+      "tcp_position_error_mm": 9.46361916992878e-12,
+      "tcp_rotation_error_deg": 1.5585690523599497e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 9.700470934520009
+    },
+    {
+      "sample": 31,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.08552113334772216,
+      "right_arm_rad": [
+        -0.36431894643262963,
+        -0.7279463004878518,
+        -1.3825299666545556,
+        2.8745297552217792,
+        2.4900052560556913,
+        -0.2918389390369402,
+        -1.0072826364570353
+      ],
+      "tcp_position_error_mm": 9.337060439113067e-12,
+      "tcp_rotation_error_deg": 1.557877455884648e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 9.778158520408176
+    },
+    {
+      "sample": 32,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.08377580409572781,
+      "right_arm_rad": [
+        -0.3629807344255852,
+        -0.7286296002990862,
+        -1.3828664229815246,
+        2.8751998339214304,
+        2.4900644857106835,
+        -0.29048393260687466,
+        -1.0080985759508578
+      ],
+      "tcp_position_error_mm": 2.1756742221745254e-11,
+      "tcp_rotation_error_deg": 1.413250468856079e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 9.85579467006402
+    },
+    {
+      "sample": 33,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.08203047484373349,
+      "right_arm_rad": [
+        -0.36164110554671175,
+        -0.7293099869465707,
+        -1.3832030019048485,
+        2.8758671105661624,
+        2.4901240033959042,
+        -0.28912985481081055,
+        -1.0089166877398685
+      ],
+      "tcp_position_error_mm": 1.0319411991924305e-11,
+      "tcp_rotation_error_deg": 1.5182611262315594e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 9.93337761291087
+    },
+    {
+      "sample": 34,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.08028514559173916,
+      "right_arm_rad": [
+        -0.36030009029572585,
+        -0.7299874526788996,
+        -1.3835396488283458,
+        2.876531586388343,
+        2.4901838420587232,
+        -0.2877766857665681,
+        -1.0097369971548824
+      ],
+      "tcp_position_error_mm": 1.7514180927080532e-11,
+      "tcp_rotation_error_deg": 1.4690210229232823e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 10.010908488113712
+    },
+    {
+      "sample": 35,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.07853981633974483,
+      "right_arm_rad": [
+        -0.358957671807682,
+        -0.7306619980542258,
+        -1.3838764088619884,
+        2.8771932599152157,
+        2.490243987126891,
+        -0.2864244469504318,
+        -1.0105594780760199
+      ],
+      "tcp_position_error_mm": 1.2428796763138877e-11,
+      "tcp_rotation_error_deg": 1.4941201643694075e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 10.088386065172092
+    },
+    {
+      "sample": 36,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.07679448708775051,
+      "right_arm_rad": [
+        -0.35761385313032434,
+        -0.7313336201457358,
+        -1.384213285239482,
+        2.8778521308051612,
+        2.4903044439469313,
+        -0.2850731425029669,
+        -1.0113841260039969
+      ],
+      "tcp_position_error_mm": 1.4428355380734591e-11,
+      "tcp_rotation_error_deg": 1.4599759825022692e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 10.165810106849088
+    },
+    {
+      "sample": 37,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.07504915783575616,
+      "right_arm_rad": [
+        -0.3562686484228158,
+        -0.7320023141071524,
+        -1.384550257893968,
+        2.8785081993436834,
+        2.490365228960008,
+        -0.2837227669309998,
+        -1.0122109484558848
+      ],
+      "tcp_position_error_mm": 1.7007556295027707e-11,
+      "tcp_rotation_error_deg": 1.4296988466437371e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 10.243180927880367
+    },
+    {
+      "sample": 38,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.07330382858376185,
+      "right_arm_rad": [
+        -0.35492205182061104,
+        -0.7326680785875151,
+        -1.3848873488758306,
+        2.8791614646725723,
+        2.490426338495578,
+        -0.28237333222466554,
+        -1.0130399312358294
+      ],
+      "tcp_position_error_mm": 9.268578019503863e-12,
+      "tcp_rotation_error_deg": 1.5379824187338936e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 10.320497841281796
+    },
+    {
+      "sample": 39,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.0715584993317675,
+      "right_arm_rad": [
+        -0.3535740791062922,
+        -0.7333309084904086,
+        -1.3852245348122516,
+        2.8798119271594986,
+        2.4904877905373137,
+        -0.2810248315704215,
+        -1.0138710835658735
+      ],
+      "tcp_position_error_mm": 1.203081395455293e-11,
+      "tcp_rotation_error_deg": 1.4839026552106796e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 10.397761237440609
+    },
+    {
+      "sample": 40,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.06981317007977318,
+      "right_arm_rad": [
+        -0.3522247292469433,
+        -0.7339908016487315,
+        -1.385561827687564,
+        2.8804595862117877,
+        2.4905495861732825,
+        -0.27967727283549787,
+        -1.0147043964466314
+      ],
+      "tcp_position_error_mm": 1.19973856855857e-11,
+      "tcp_rotation_error_deg": 1.49314557731037e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 10.474970665597722
+    },
+    {
+      "sample": 41,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.06806784082777885,
+      "right_arm_rad": [
+        -0.35087400697311116,
+        -0.7346477549073889,
+        -1.3858992274239779,
+        2.8811044415599616,
+        2.4906117322259798,
+        -0.2783306589120049,
+        -1.0155398670993367
+      ],
+      "tcp_position_error_mm": 1.1410464065000113e-11,
+      "tcp_rotation_error_deg": 1.4822892722294194e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 10.55212596004742
+    },
+    {
+      "sample": 42,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.06632251157578452,
+      "right_arm_rad": [
+        -0.3495219184823707,
+        -0.7353017648718343,
+        -1.3862367309120935,
+        2.8817464930131176,
+        2.490674236946166,
+        -0.276984991460549,
+        -1.0163774943087347
+      ],
+      "tcp_position_error_mm": 1.1755239942373725e-11,
+      "tcp_rotation_error_deg": 1.4974888653600792e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 10.62922702564397
+    },
+    {
+      "sample": 43,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.0645771823237902,
+      "right_arm_rad": [
+        -0.3481684616359158,
+        -0.7359528295908875,
+        -1.3865743525566692,
+        2.8823857399037425,
+        2.490737100187486,
+        -0.27564027942524716,
+        -1.017217267846097
+      ],
+      "tcp_position_error_mm": 9.224679446128321e-12,
+      "tcp_rotation_error_deg": 1.527892216460576e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 10.706273349927212
+    },
+    {
+      "sample": 44,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.06283185307179587,
+      "right_arm_rad": [
+        -0.34681365992017477,
+        -0.736600942734292,
+        -1.3869120531155743,
+        2.8830221830111133,
+        2.4908003474442753,
+        -0.27429650954192586,
+        -1.0180592050973998
+      ],
+      "tcp_position_error_mm": 1.2726113498217456e-11,
+      "tcp_rotation_error_deg": 1.4523777273671873e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 10.78326569287831
+    },
+    {
+      "sample": 45,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.061086523819801536,
+      "right_arm_rad": [
+        -0.34545748928302555,
+        -0.737246106123153,
+        -1.3872498929721588,
+        2.883655820419024,
+        2.4908639565233575,
+        -0.27295370985909423,
+        -1.0189032721799722
+      ],
+      "tcp_position_error_mm": 1.1426757188455286e-11,
+      "tcp_rotation_error_deg": 1.4766103718793202e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 10.860202447436068
+    },
+    {
+      "sample": 46,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.059341194567807204,
+      "right_arm_rad": [
+        -0.34409996787778446,
+        -0.7378883143634987,
+        -1.3875878441365166,
+        2.884286652596631,
+        2.490927947489668,
+        -0.27161187182546137,
+        -1.0197494806953338
+      ],
+      "tcp_position_error_mm": 9.673789324215295e-12,
+      "tcp_rotation_error_deg": 1.5141612627065084e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 10.937084103553364
+    },
+    {
+      "sample": 47,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.05759586531581287,
+      "right_arm_rad": [
+        -0.3427410979116979,
+        -0.7385275648030084,
+        -1.3879259120621688,
+        2.8849146791063722,
+        2.490992324384005,
+        -0.2702710007744997,
+        -1.020597825036805
+      ],
+      "tcp_position_error_mm": 8.920671391642747e-12,
+      "tcp_rotation_error_deg": 1.521226802739314e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 11.013910355644738
+    },
+    {
+      "sample": 48,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.05585053606381855,
+      "right_arm_rad": [
+        -0.3413808989026809,
+        -0.7391638518645786,
+        -1.3882640660426018,
+        2.8855399004841042,
+        2.4910571085559763,
+        -0.26893108708114294,
+        -1.0214483181905716
+      ],
+      "tcp_position_error_mm": 1.3232221880136006e-11,
+      "tcp_rotation_error_deg": 1.4458612486633344e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 11.090681755185868
+    },
+    {
+      "sample": 49,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.054105206811824215,
+      "right_arm_rad": [
+        -0.34001934742421247,
+        -0.7397971772688754,
+        -1.3886023652185482,
+        2.886162314837069,
+        2.491122278268562,
+        -0.26759215837465766,
+        -1.02230092695441
+      ],
+      "tcp_position_error_mm": 1.5416941847355452e-11,
+      "tcp_rotation_error_deg": 1.4403302915084834e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 11.167396719136384
+    },
+    {
+      "sample": 50,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.05235987755982989,
+      "right_arm_rad": [
+        -0.33865646192544363,
+        -0.7404275356413804,
+        -1.3889407811926993,
+        2.8867819226333387,
+        2.491187853715434,
+        -0.26625420603627253,
+        -1.0231556631346261
+      ],
+      "tcp_position_error_mm": 1.1931752409738374e-11,
+      "tcp_rotation_error_deg": 1.46124688244015e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 11.244055741315512
+    },
+    {
+      "sample": 51,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.05061454830783556,
+      "right_arm_rad": [
+        -0.3372922479921224,
+        -0.7410549238071504,
+        -1.3892793125195961,
+        2.887398723610502,
+        2.4912538421550066,
+        -0.26491723264039924,
+        -1.024012524680287
+      ],
+      "tcp_position_error_mm": 1.0995027176373272e-11,
+      "tcp_rotation_error_deg": 1.472930766422174e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 11.320658674220326
+    },
+    {
+      "sample": 52,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.048869219055841226,
+      "right_arm_rad": [
+        -0.3359267053788807,
+        -0.7416793395853594,
+        -1.3896179699715312,
+        2.888012717173882,
+        2.491320244958022,
+        -0.2635812458482007,
+        -1.0248715032668176
+      ],
+      "tcp_position_error_mm": 8.877145310781502e-12,
+      "tcp_rotation_error_deg": 1.5086411074672705e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 11.397205078898523
+    },
+    {
+      "sample": 53,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.0471238898038469,
+      "right_arm_rad": [
+        -0.3345598412228662,
+        -0.7423007795636317,
+        -1.389956748941594,
+        2.8886239031412195,
+        2.491387070853363,
+        -0.26224624697392934,
+        -1.0257325984723897
+      ],
+      "tcp_position_error_mm": 9.062676260278751e-12,
+      "tcp_rotation_error_deg": 1.5079617972867856e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 11.473694880048988
+    },
+    {
+      "sample": 54,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.04537856055185257,
+      "right_arm_rad": [
+        -0.33319165972483356,
+        -0.7429192408376969,
+        -1.3902956509979676,
+        2.889232281161137,
+        2.4914543255841073,
+        -0.2609122399151965,
+        -1.026595806704415
+      ],
+      "tcp_position_error_mm": 8.841262538964744e-12,
+      "tcp_rotation_error_deg": 1.5066261780966306e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 11.550127854355038
+    },
+    {
+      "sample": 55,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.04363323129985824,
+      "right_arm_rad": [
+        -0.33182216782685425,
+        -0.743534720058538,
+        -1.390634672033431,
+        2.889837851032811,
+        2.491522017599529,
+        -0.25957922624357826,
+        -1.0274611272846847
+      ],
+      "tcp_position_error_mm": 2.2990038322373063e-11,
+      "tcp_rotation_error_deg": 1.3707926537965565e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 11.626503911772003
+    },
+    {
+      "sample": 56,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.041887902047863905,
+      "right_arm_rad": [
+        -0.33045136843279854,
+        -0.7441472145662591,
+        -1.3909738164064775,
+        2.8904406123247686,
+        2.491590151258054,
+        -0.25824721106257503,
+        -1.0283285551905614
+      ],
+      "tcp_position_error_mm": 2.2577306548196836e-11,
+      "tcp_rotation_error_deg": 1.3629362087351156e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 11.702822759890843
+    },
+    {
+      "sample": 57,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.04014257279586958,
+      "right_arm_rad": [
+        -0.32907926098995466,
+        -0.7447567222862989,
+        -1.3913130957130246,
+        2.891040564408343,
+        2.491658727409107,
+        -0.25691620249789326,
+        -1.0291980816899005
+      ],
+      "tcp_position_error_mm": 8.704993817811191e-12,
+      "tcp_rotation_error_deg": 1.4996024014803908e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 11.779083933142873
+    },
+    {
+      "sample": 58,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.038397243543875255,
+      "right_arm_rad": [
+        -0.3277058540018472,
+        -0.7453632396486911,
+        -1.3916525027130848,
+        2.891637707160205,
+        2.491727755940388,
+        -0.25558620089811585,
+        -1.030069707716378
+      ],
+      "tcp_position_error_mm": 9.975882967365914e-12,
+      "tcp_rotation_error_deg": 1.4668010740843275e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 11.855287411555768
+    },
+    {
+      "sample": 59,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.03665191429188092,
+      "right_arm_rad": [
+        -0.32633115280468394,
+        -0.7459667636265765,
+        -1.3919920368142702,
+        2.8922320402756303,
+        2.4917972435217632,
+        -0.254257209390559,
+        -1.0309434307925949
+      ],
+      "tcp_position_error_mm": 9.142619435720105e-12,
+      "tcp_rotation_error_deg": 1.4895329725800345e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 11.931433015947501
+    },
+    {
+      "sample": 60,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.03490658503988659,
+      "right_arm_rad": [
+        -0.32495515980031886,
+        -0.7465672916921774,
+        -1.3923317035741267,
+        2.8928235632821435,
+        2.491867193837662,
+        -0.2529292336743043,
+        -1.031819245288911
+      ],
+      "tcp_position_error_mm": 8.839530586902541e-12,
+      "tcp_rotation_error_deg": 1.4907000634400588e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.00752041978476
+    },
+    {
+      "sample": 61,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.03316125578789226,
+      "right_arm_rad": [
+        -0.32357788030348794,
+        -0.7471648208484726,
+        -1.392671502524794,
+        2.8934122758674863,
+        2.491937613451281,
+        -0.25160227697787835,
+        -1.032697148666563
+      ],
+      "tcp_position_error_mm": 9.118356757810079e-12,
+      "tcp_rotation_error_deg": 1.4866954913317045e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.083549438086589
+    },
+    {
+      "sample": 62,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.031415926535897934,
+      "right_arm_rad": [
+        -0.32219931742024366,
+        -0.7477593484761594,
+        -1.393011437834415,
+        2.8939981775925996,
+        2.492008506667834,
+        -0.2502763444744243,
+        -1.0335771360114858
+      ],
+      "tcp_position_error_mm": 8.561397978311583e-12,
+      "tcp_rotation_error_deg": 1.4905708787534496e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.15951977445372
+    },
+    {
+      "sample": 63,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.029670597283903602,
+      "right_arm_rad": [
+        -0.3208194786627771,
+        -0.7483508712452489,
+        -1.3933515045484977,
+        2.8945812682619994,
+        2.4920798821700734,
+        -0.24895143758454277,
+        -1.034459207084758
+      ],
+      "tcp_position_error_mm": 9.133506080219358e-12,
+      "tcp_rotation_error_deg": 1.4778865557628078e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.235431347491737
+    },
+    {
+      "sample": 64,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.027925268031909273,
+      "right_arm_rad": [
+        -0.31943836651419394,
+        -0.7489393866665343,
+        -1.3936917082121014,
+        2.8951615473957113,
+        2.4921517435532117,
+        -0.2476275621012557,
+        -1.0353433562679966
+      ],
+      "tcp_position_error_mm": 1.1753565113295542e-11,
+      "tcp_rotation_error_deg": 1.4542409227578412e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.31128382528493
+    },
+    {
+      "sample": 65,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.026179938779914945,
+      "right_arm_rad": [
+        -0.31805598484011854,
+        -0.7495248920360051,
+        -1.3940320515326659,
+        2.895739014588377,
+        2.492224095756424,
+        -0.24630472266725423,
+        -1.0362295793981884
+      ],
+      "tcp_position_error_mm": 8.496708877226456e-12,
+      "tcp_rotation_error_deg": 1.478316801685985e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.387076941826688
+    },
+    {
+      "sample": 66,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.024434609527920613,
+      "right_arm_rad": [
+        -0.31667233857743793,
+        -0.750107384488207,
+        -1.3943725350315666,
+        2.896313669491629,
+        2.4922969447510246,
+        -0.24498292304495142,
+        -1.0371178734323818
+      ],
+      "tcp_position_error_mm": 1.0743702552795712e-11,
+      "tcp_rotation_error_deg": 1.4589160651791495e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.462810481546624
+    },
+    {
+      "sample": 67,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.022689280275926284,
+      "right_arm_rad": [
+        -0.3152874329557145,
+        -0.7506868611247056,
+        -1.3947131586641548,
+        2.8968855117706633,
+        2.4923702967596055,
+        -0.24366216678734312,
+        -1.0380082356172315
+      ],
+      "tcp_position_error_mm": 9.273561073973263e-12,
+      "tcp_rotation_error_deg": 1.451883752586942e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.538484240873073
+    },
+    {
+      "sample": 68,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.020943951023931952,
+      "right_arm_rad": [
+        -0.31390128276967677,
+        -0.7512633175116304,
+        -1.3950539025826476,
+        2.8974545416212103,
+        2.4924441675640043,
+        -0.24234244927576534,
+        -1.0389006733321577
+      ],
+      "tcp_position_error_mm": 1.4286688830067517e-11,
+      "tcp_rotation_error_deg": 1.4110073651273799e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.614098484435988
+    },
+    {
+      "sample": 69,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.019198621771937627,
+      "right_arm_rad": [
+        -0.31251387028793176,
+        -0.7518367545048256,
+        -1.3953948144693071,
+        2.898020757422186,
+        2.4925185402541046,
+        -0.24102379386786604,
+        -1.0397951593998565
+      ],
+      "tcp_position_error_mm": 8.377127487486648e-12,
+      "tcp_rotation_error_deg": 1.4768558265802902e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.68965187394072
+    },
+    {
+      "sample": 70,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.017453292519943295,
+      "right_arm_rad": [
+        -0.31112522238177875,
+        -0.7524071657443815,
+        -1.3957358495067453,
+        2.8985841600373052,
+        2.4925934426499574,
+        -0.23970618565988175,
+        -1.0406917139747294
+      ],
+      "tcp_position_error_mm": 1.983449565953506e-11,
+      "tcp_rotation_error_deg": 1.3529980246502212e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.765145263310016
+    },
+    {
+      "sample": 71,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.015707963267948967,
+      "right_arm_rad": [
+        -0.309735329577467,
+        -0.7529745507687611,
+        -1.396077038309165,
+        2.899144748301429,
+        2.4926688660427936,
+        -0.2383896409933263,
+        -1.0415903186175297
+      ],
+      "tcp_position_error_mm": 1.1402450231362028e-11,
+      "tcp_rotation_error_deg": 1.4218294855200795e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.8405777162441
+    },
+    {
+      "sample": 72,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.013962634015954637,
+      "right_arm_rad": [
+        -0.3083441953996253,
+        -0.7535389070224416,
+        -1.3964183845589435,
+        2.8997025217719927,
+        2.492744814728253,
+        -0.23707416508673754,
+        -1.04249096867047
+      ],
+      "tcp_position_error_mm": 8.799990083370875e-12,
+      "tcp_rotation_error_deg": 1.4679360747939408e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.915948933742783
+    },
+    {
+      "sample": 73,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.012217304763960306,
+      "right_arm_rad": [
+        -0.30695188310135224,
+        -0.7541002223900637,
+        -1.3967597682792723,
+        2.9002574833257593,
+        2.492821352953095,
+        -0.2357597120178701,
+        -1.043393722686384
+      ],
+      "tcp_position_error_mm": 1.7664290095119297e-11,
+      "tcp_rotation_error_deg": 1.3632069813221031e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.983583301241328
+    },
+    {
+      "sample": 74,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.010471975511965976,
+      "right_arm_rad": [
+        -0.30555828680290575,
+        -0.7546585119015508,
+        -1.3971014198502896,
+        2.900809626429191,
+        2.492898375043844,
+        -0.2344463808570779,
+        -1.0442984601138798
+      ],
+      "tcp_position_error_mm": 8.831903645979439e-12,
+      "tcp_rotation_error_deg": 1.4564156065693784e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.931745665078298
+    },
+    {
+      "sample": 75,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.008726646259971648,
+      "right_arm_rad": [
+        -0.30416346879033407,
+        -0.7552137636111217,
+        -1.397443221346833,
+        2.9013589539018505,
+        2.492975944184446,
+        -0.23313412657772162,
+        -1.045205238464684
+      ],
+      "tcp_position_error_mm": 8.614843576701196e-12,
+      "tcp_rotation_error_deg": 1.4477041580107952e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.879791092623389
+    },
+    {
+      "sample": 76,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.006981317007977318,
+      "right_arm_rad": [
+        -0.3027674320638025,
+        -0.7557659751085899,
+        -1.3977851777017394,
+        2.9019054652623346,
+        2.4930540639731027,
+        -0.2318229550148918,
+        -1.0461140524379218
+      ],
+      "tcp_position_error_mm": 9.513038806963876e-12,
+      "tcp_rotation_error_deg": 1.4333734499491637e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.827719887594347
+    },
+    {
+      "sample": 77,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.005235987755982988,
+      "right_arm_rad": [
+        -0.30137018106095226,
+        -0.7563151437679247,
+        -1.398127290909529,
+        2.9024491601070297,
+        2.493132739408737,
+        -0.23051287081241983,
+        -1.0470248982340404
+      ],
+      "tcp_position_error_mm": 8.685555164446455e-12,
+      "tcp_rotation_error_deg": 1.4563197057816267e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.775532267689513
+    },
+    {
+      "sample": 78,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.003490658503988659,
+      "right_arm_rad": [
+        -0.299971723192159,
+        -0.7568612665066836,
+        -1.3984695568578092,
+        2.902990038195068,
+        2.49321197843526,
+        -0.2292038761127631,
+        -1.0479377751712438
+      ],
+      "tcp_position_error_mm": 2.3278484624049705e-11,
+      "tcp_rotation_error_deg": 1.3757023316025219e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.723228271972934
+    },
+    {
+      "sample": 79,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.0017453292519943296,
+      "right_arm_rad": [
+        -0.2985720602822466,
+        -0.7574043411441672,
+        -1.398811983024033,
+        2.903528098973566,
+        2.49329178333988,
+        -0.22789597787696886,
+        -1.0488526766473314
+      ],
+      "tcp_position_error_mm": 9.395582636493702e-12,
+      "tcp_rotation_error_deg": 1.4289781749300441e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.670808278722824
+    },
+    {
+      "sample": 80,
+      "door_angle_deg": 60.0,
+      "torso_yaw_rad": -0.0,
+      "right_arm_rad": [
+        -0.2971712483846393,
+        -0.7579443569577397,
+        -1.3991544648894476,
+        2.904063344892126,
+        2.4933722108933543,
+        -0.22658913677533296,
+        -1.0497696532303225
+      ],
+      "tcp_position_error_mm": 1.9502393349685184e-11,
+      "tcp_rotation_error_deg": 1.3479589446273988e-11,
+      "max_configuration_step_deg": 0.1,
+      "joint_margin_deg": 12.618269390605107
+    }
+  ]
+}

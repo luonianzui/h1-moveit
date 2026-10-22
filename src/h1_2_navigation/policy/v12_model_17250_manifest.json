@@ -1,0 +1,29 @@
+{
+  "checkpoint": {
+    "path": "/home/liu/robot/gym_sim/IsaacLab-3.0-beta2/logs/rsl_rl/h1_2_human_omni_recover_stop_gait_v12/2026-08-10_18-09-30_omni_recover_stop_v12_v11m150_16h_8192_r1/model_17250.pt",
+    "sha256": "92ae9d9e945ed72e5aca91370acf94673d57181113ca89ab4f1c6639e0e87405",
+    "size": 3799642
+  },
+  "exporter_sha256": "52779f76d5369f20b0cf1b1b84826d8f50704080a0717672080e17940db16951",
+  "golden": {
+    "sha256": "0630c714126687d30cf82bf1156b9f8aea610da1014fcb2e1820699c8f4b0a24",
+    "size": 85298
+  },
+  "golden_sample_count": 258,
+  "iteration": 17250,
+  "numpy_maximum_absolute_error": 3.0517578125e-05,
+  "numpy_mean_absolute_error": 7.822868752782597e-08,
+  "policy": {
+    "sha256": "4891a943e6347c580c25224192523753649763fb083cb5a6fdcfe71c62e66b1c",
+    "size": 270033
+  },
+  "schema_version": 1,
+  "task": "H12-Human-Omni-Recover-Stop-Gait-Flat-v12",
+  "task_source_sha256": "9395bc00d19cea9699c0d86589a14defe517da4a0c4b4ee7020580bd00b726ba",
+  "torchscript": {
+    "sha256": "f206a6247b737c95406339ca47a25e19c86ecd35afd967d655a024b00501bf16",
+    "size": 307178
+  },
+  "torchscript_maximum_absolute_error": 0.0,
+  "writes_performed": true
+}

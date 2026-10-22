@@ -1,0 +1,17 @@
+- ros_topic_name: /h1_2/native_clock_829
+  gz_topic_name: /clock
+  ros_type_name: rosgraph_msgs/msg/Clock
+  gz_type_name: gz.msgs.Clock
+  subscriber_queue: 20000
+  publisher_queue: 20000
+  lazy: false
+  direction: GZ_TO_ROS
+
+- ros_topic_name: /h1_2/native_joint_states_829
+  gz_topic_name: /h1_2/native_joint_state_829
+  ros_type_name: sensor_msgs/msg/JointState
+  gz_type_name: gz.msgs.Model
+  subscriber_queue: 20000
+  publisher_queue: 20000
+  lazy: false
+  direction: GZ_TO_ROS

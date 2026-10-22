@@ -1,0 +1,1858 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[13] 执行监督与遮挡恢复程序</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>[13] 执行监督与遮挡恢复程序</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="candidate3_execution_supervisor.py">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_vision/h1_2_vision/candidate3_execution_supervisor.py</p><pre>&quot;&quot;&quot;
+Gazebo-only, certificate-gated executor for the complete candidate-3 plan.
+
+The node defaults to disabled.  Explicit ``execute:=true`` and
+``execution_mode:=gazebo`` are both required.  It preloads the already-audited
+door/cube support plugins before admitting a fresh g5 result, publishes only
+the four allow-listed controller topics, and preempts them with measured joint
+holds on every runtime anomaly.  A failure never detaches a support, opens a
+gripper, resets Gazebo, or changes an object pose.
+&quot;&quot;&quot;
+
+from __future__ import annotations
+
+import copy
+import json
+import math
+import os
+from pathlib import Path
+import subprocess
+import threading
+import time
+import uuid
+
+from ament_index_python.packages import (
+    get_package_prefix,
+    get_package_share_directory,
+)
+from h1_2_perception_msgs.msg import (
+    Candidate3Plan,
+    PlanCertificate,
+    TagObservation,
+    TrackedObjectState,
+)
+import numpy as np
+import rclpy
+from rclpy.executors import MultiThreadedExecutor
+from rclpy.node import Node
+from rclpy.qos import (
+    DurabilityPolicy,
+    qos_profile_sensor_data,
+    QoSProfile,
+    ReliabilityPolicy,
+)
+from sensor_msgs.msg import JointState
+from std_msgs.msg import String
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
+
+from .candidate3_contract import canonical_hash, pose_matrix
+from .candidate3_execution_contract import (
+    CONTROLLER_JOINTS,
+    load_result_file,
+)
+from .candidate3_post_nav_contract import validate_navigation_hold_status
+from .tag_config import load_tag_map
+
+
+SCHEMA = &#x27;h1_candidate3_execution_evidence/v1&#x27;
+RESULT_STATUS = &#x27;PASS&#x27;
+DOOR_ASSET_SHA256 = (
+    &#x27;867548548197ae577580f394051e8118cc0fccefdea1494c1bbb41ccaa4a4a19&#x27;)
+CUBE_ASSET_SHA256 = (
+    &#x27;acaec97384f16a736f6b246a3fa1a0897b7aad93e72a6204701610ebf4f7e705&#x27;)
+CLOSE_ASSET_SHA256 = (
+    &#x27;5b212d78bb204fdde047c875d1e2e9585efb18d7d053c847be0a0ef59a4a9038&#x27;)
+
+
+class ExecutionFault(RuntimeError):
+    &quot;&quot;&quot;A runtime gate failed after the supervisor was explicitly enabled.&quot;&quot;&quot;
+
+
+def stamp_ns(stamp):
+    return int(stamp.sec) * 1_000_000_000 + int(stamp.nanosec)
+
+
+def point_duration_ns(point):
+    value = point[&#x27;time_from_start&#x27;]
+    return int(value[&#x27;sec&#x27;]) * 1_000_000_000 + int(value[&#x27;nanosec&#x27;])
+
+
+def rotation_error(left, right):
+    relative = np.asarray(left, dtype=float)[:3, :3].T @ np.asarray(
+        right, dtype=float)[:3, :3]
+    cosine = (float(np.trace(relative)) - 1.0) * 0.5
+    return math.acos(min(1.0, max(-1.0, cosine)))
+
+
+class Candidate3ExecutionSupervisor(Node):
+    &quot;&quot;&quot;Execute one fresh, complete g5 plan or stop-and-hold fail closed.&quot;&quot;&quot;
+
+    def __init__(self):
+        super().__init__(&#x27;h1_2_candidate3_execution_supervisor&#x27;)
+        self.declare_parameter(&#x27;execute&#x27;, False)
+        self.declare_parameter(&#x27;execution_mode&#x27;, &#x27;disabled&#x27;)
+        self.declare_parameter(&#x27;workspace&#x27;, &#x27;&#x27;)
+        self.declare_parameter(&#x27;planner_output_root&#x27;, &#x27;&#x27;)
+        self.declare_parameter(&#x27;evidence_output_root&#x27;, &#x27;&#x27;)
+        self.declare_parameter(&#x27;door_recovery_owner_file&#x27;, &#x27;&#x27;)
+        self.declare_parameter(&#x27;door_recovery_already_attached&#x27;, False)
+        self.declare_parameter(&#x27;cube_recovery_preload_file&#x27;, &#x27;&#x27;)
+        self.declare_parameter(&#x27;cube_recovery_already_attached&#x27;, False)
+        self.declare_parameter(&#x27;maximum_telemetry_age_s&#x27;, 0.75)
+        self.declare_parameter(&#x27;maximum_support_heartbeat_age_s&#x27;, 6.0)
+        self.declare_parameter(&#x27;start_tolerance_rad&#x27;, 0.003)
+        self.declare_parameter(&#x27;endpoint_tolerance_rad&#x27;, 0.003)
+        self.declare_parameter(&#x27;cabinet_translation_tolerance_m&#x27;, 0.003)
+        self.declare_parameter(
+            &#x27;cabinet_rotation_tolerance_rad&#x27;, math.radians(1.0))
+        self.declare_parameter(&#x27;discovery_timeout_s&#x27;, 20.0)
+        # Gazebo commonly runs at RTF 0.2--0.3 with the D435 and MoveIt
+        # monitors enabled.  This is only a wall-clock watchdog; trajectory
+        # stamps, certified speed/acceleration limits, and the &lt;=90 s
+        # simulation-time action contract remain unchanged.
+        self.declare_parameter(&#x27;trajectory_timeout_factor&#x27;, 10.0)
+        self.declare_parameter(&#x27;trajectory_timeout_padding_s&#x27;, 3.0)
+        self.declare_parameter(&#x27;tag_reacquisition_timeout_s&#x27;, 5.0)
+        self.declare_parameter(&#x27;maximum_tag_occlusion_holds&#x27;, 20)
+        self.declare_parameter(&#x27;require_post_navigation_alignment&#x27;, False)
+        self.declare_parameter(&#x27;post_navigation_goal_x&#x27;, 0.0)
+        self.declare_parameter(&#x27;post_navigation_goal_y&#x27;, 0.0)
+        self.declare_parameter(&#x27;post_navigation_goal_yaw&#x27;, 0.0)
+        # Deliberately narrow Gazebo recovery entry points.  They are exact
+        # phase boundaries or already-supported cube-transport messages, so a
+        # fail-closed stop can continue from fresh measured state without
+        # reset, teleport, premature detach, or premature gripper release.
+        self.declare_parameter(&#x27;resume_stage_index&#x27;, -1)
+        self.declare_parameter(&#x27;resume_message_index&#x27;, -1)
+
+        self.execute_enabled = bool(self.get_parameter(&#x27;execute&#x27;).value)
+        self.execution_mode = str(
+            self.get_parameter(&#x27;execution_mode&#x27;).value).strip()
+        workspace_text = str(self.get_parameter(&#x27;workspace&#x27;).value).strip()
+        planner_root_text = str(
+            self.get_parameter(&#x27;planner_output_root&#x27;).value).strip()
+        evidence_root_text = str(
+            self.get_parameter(&#x27;evidence_output_root&#x27;).value).strip()
+        self.workspace = Path(workspace_text) if workspace_text else None
+        self.planner_output_root = (
+            Path(planner_root_text) if planner_root_text else None)
+        self.evidence_output_root = (
+            Path(evidence_root_text) if evidence_root_text else None)
+        owner_text = str(
+            self.get_parameter(&#x27;door_recovery_owner_file&#x27;).value).strip()
+        self.door_recovery_owner_file = (
+            Path(owner_text) if owner_text else None)
+        self.door_recovery_already_attached = bool(
+            self.get_parameter(&#x27;door_recovery_already_attached&#x27;).value)
+        cube_preload_text = str(
+            self.get_parameter(&#x27;cube_recovery_preload_file&#x27;).value).strip()
+        self.cube_recovery_preload_file = (
+            Path(cube_preload_text) if cube_preload_text else None)
+        self.cube_recovery_already_attached = bool(
+            self.get_parameter(&#x27;cube_recovery_already_attached&#x27;).value)
+        self.maximum_age_s = float(
+            self.get_parameter(&#x27;maximum_telemetry_age_s&#x27;).value)
+        self.maximum_support_age_s = float(
+            self.get_parameter(&#x27;maximum_support_heartbeat_age_s&#x27;).value)
+        self.start_tolerance = float(
+            self.get_parameter(&#x27;start_tolerance_rad&#x27;).value)
+        self.endpoint_tolerance = float(
+            self.get_parameter(&#x27;endpoint_tolerance_rad&#x27;).value)
+        self.cabinet_translation_tolerance = float(
+            self.get_parameter(&#x27;cabinet_translation_tolerance_m&#x27;).value)
+        self.cabinet_rotation_tolerance = float(
+            self.get_parameter(&#x27;cabinet_rotation_tolerance_rad&#x27;).value)
+        self.discovery_timeout = float(
+            self.get_parameter(&#x27;discovery_timeout_s&#x27;).value)
+        self.timeout_factor = float(
+            self.get_parameter(&#x27;trajectory_timeout_factor&#x27;).value)
+        self.timeout_padding = float(
+            self.get_parameter(&#x27;trajectory_timeout_padding_s&#x27;).value)
+        self.tag_reacquisition_timeout = float(
+            self.get_parameter(&#x27;tag_reacquisition_timeout_s&#x27;).value)
+        self.maximum_tag_occlusion_holds = int(
+            self.get_parameter(&#x27;maximum_tag_occlusion_holds&#x27;).value)
+        self.require_post_navigation_alignment = bool(
+            self.get_parameter(&#x27;require_post_navigation_alignment&#x27;).value)
+        self.post_navigation_goal = tuple(float(
+            self.get_parameter(name).value) for name in (
+                &#x27;post_navigation_goal_x&#x27;, &#x27;post_navigation_goal_y&#x27;,
+                &#x27;post_navigation_goal_yaw&#x27;))
+        self.resume_stage_index = int(
+            self.get_parameter(&#x27;resume_stage_index&#x27;).value)
+        self.resume_message_index = int(
+            self.get_parameter(&#x27;resume_message_index&#x27;).value)
+        self.resume_enabled = self.resume_stage_index &gt;= 0
+
+        self.lock = threading.Lock()
+        self.joint_positions = {}
+        self.joint_receive_ns = 0
+        self.mechanism_positions = {}
+        self.mechanism_velocities = {}
+        self.mechanism_receive_ns = 0
+        self.cabinet = None
+        self.cabinet_receive_ns = 0
+        self.raw_cabinet_pose = None
+        self.raw_cabinet_stamp_ns = 0
+        self.raw_cabinet_receive_ns = 0
+        self.raw_cabinet_tag_id = -1
+        self.raw_cabinet_observation_count = 0
+        self.navigation_status = None
+        self.navigation_status_receive_ns = 0
+        self.latch_state = &#x27;&#x27;
+        self.latch_receive_ns = 0
+        self.right_support_state = &#x27;&#x27;
+        self.right_support_receive_ns = 0
+        self.left_support_state = &#x27;&#x27;
+        self.left_support_receive_ns = 0
+        self.plan_messages = {}
+        self.certificate_messages = {}
+        self.ready = False
+        self.motion_started = False
+        self.execution_started = False
+        self.fault_requested = &#x27;&#x27;
+        self.done = threading.Event()
+        self.start_monotonic_ns = time.monotonic_ns()
+        self.armed_monotonic_ns = 0
+        self.events = []
+        self.run_directory = None
+        self.final_status = &#x27;&#x27;
+        self.support_bridge_process = None
+        self.support_bridge_streams = []
+        self.active_result_path = None
+        self.tag_resume_audit_count = 0
+        self.resume_record = None
+        self.resume_source_index = 0
+
+        vision_share = Path(get_package_share_directory(&#x27;h1_2_vision&#x27;))
+        description_share = Path(
+            get_package_share_directory(&#x27;h1_2_description&#x27;))
+        self.declare_parameter(
+            &#x27;tag_map&#x27;, str(vision_share / &#x27;config/tag_map.yaml&#x27;))
+        self.tag_config = load_tag_map(
+            Path(self.get_parameter(&#x27;tag_map&#x27;).value), [
+                description_share / &#x27;models/incubator/materials/textures&#x27;,
+                description_share / &#x27;models/green_cube/materials/textures&#x27;,
+            ])
+
+        volatile = QoSProfile(
+            depth=10, reliability=ReliabilityPolicy.RELIABLE,
+            durability=DurabilityPolicy.VOLATILE)
+        transient = QoSProfile(
+            depth=1, reliability=ReliabilityPolicy.RELIABLE,
+            durability=DurabilityPolicy.TRANSIENT_LOCAL)
+        self.trajectory_publishers = {
+            topic: self.create_publisher(JointTrajectory, topic, volatile)
+            for topic in CONTROLLER_JOINTS
+        }
+        self.status_pub = self.create_publisher(
+            String, &#x27;/candidate3_execution/status&#x27;, transient)
+        self.create_subscription(
+            JointState, &#x27;/joint_states&#x27;, self.joint_callback,
+            qos_profile_sensor_data)
+        self.create_subscription(
+            JointState, &#x27;/incubator/joint_states&#x27;, self.mechanism_callback,
+            qos_profile_sensor_data)
+        self.create_subscription(
+            TrackedObjectState, &#x27;/tag_pose/cabinet&#x27;, self.cabinet_callback, 10)
+        self.create_subscription(
+            String, &#x27;/h1_2_navigation/incubator_navigation/status&#x27;,
+            self.navigation_status_callback, transient)
+        self.create_subscription(
+            TagObservation, &#x27;/apriltag/detections&#x27;,
+            self.tag_observation_callback, 20)
+        self.create_subscription(
+            String, &#x27;/incubator/latch/state&#x27;, self.latch_callback, 10)
+        # The ros_gz support-state bridges are lazy.  Creating these ROS
+        # subscriptions before preload would create a Gazebo transport
+        # endpoint and correctly make the mature helpers reject their exact
+        # empty-topic precondition.  Enable them only after both detached
+        # plugins have been installed and proved.
+        self.support_subscriptions = []
+        self.create_subscription(
+            Candidate3Plan, &#x27;/candidate3_plan&#x27;, self.plan_callback, transient)
+        self.create_subscription(
+            PlanCertificate, &#x27;/plan_certificate&#x27;,
+            self.certificate_callback, transient)
+        self.create_subscription(
+            String, &#x27;/candidate3_replan/status&#x27;,
+            self.replan_status_callback, transient)
+        self.create_subscription(
+            String, &#x27;/candidate3_execution/stop&#x27;, self.stop_callback, 10)
+        self.bootstrap_thread = threading.Thread(
+            target=self.bootstrap, daemon=True)
+        self.bootstrap_thread.start()
+
+    def event(self, status, **fields):
+        record = {
+            &#x27;monotonic_ns&#x27;: time.monotonic_ns(),
+            &#x27;ros_time_ns&#x27;: self.get_clock().now().nanoseconds,
+            &#x27;status&#x27;: status,
+            **fields,
+        }
+        with self.lock:
+            self.events.append(record)
+        self.get_logger().info(json.dumps(record, sort_keys=True))
+
+    def publish_status(self, status, **fields):
+        message = String()
+        message.data = json.dumps(
+            {&#x27;schema&#x27;: SCHEMA, &#x27;status&#x27;: status, **fields},
+            sort_keys=True, separators=(&#x27;,&#x27;, &#x27;:&#x27;))
+        self.status_pub.publish(message)
+
+    def joint_callback(self, message):
+        if len(message.name) != len(message.position):
+            return
+        positions = {}
+        for name, value in zip(message.name, message.position):
+            if name in positions or not math.isfinite(float(value)):
+                return
+            positions[name] = float(value)
+        with self.lock:
+            self.joint_positions = positions
+            self.joint_receive_ns = time.monotonic_ns()
+
+    def mechanism_callback(self, message):
+        if (len(message.name) != len(message.position) or
+                len(message.name) != len(message.velocity)):
+            return
+        positions = {}
+        velocities = {}
+        for name, position, velocity in zip(
+                message.name, message.position, message.velocity):
+            if (name in positions or not math.isfinite(float(position)) or
+                    not math.isfinite(float(velocity))):
+                return
+            positions[name] = float(position)
+            velocities[name] = float(velocity)
+        with self.lock:
+            self.mechanism_positions = positions
+            self.mechanism_velocities = velocities
+            self.mechanism_receive_ns = time.monotonic_ns()
+
+    def cabinet_callback(self, message):
+        with self.lock:
+            self.cabinet = message
+            self.cabinet_receive_ns = time.monotonic_ns()
+
+    def navigation_status_callback(self, message):
+        try:
+            value = json.loads(message.data)
+        except (TypeError, ValueError, json.JSONDecodeError):
+            value = None
+        with self.lock:
+            self.navigation_status = value
+            self.navigation_status_receive_ns = time.monotonic_ns()
+
+    def tag_observation_callback(self, message):
+        &quot;&quot;&quot;
+        Keep a quality-gated per-frame cabinet pose for motion monitoring.
+
+        Admission still requires the fused cabinet state to be stable.  During
+        motion, a robot arm can temporarily break the seven-frame stability
+        window even while an individual cabinet tag remains valid.  The raw
+        observation is converted with the same hashed tag-map transforms as
+        the localizer, and the normal 3 mm / 1 degree live-pose gate remains
+        in force.
+        &quot;&quot;&quot;
+        record = self.tag_config[&#x27;tags_by_id&#x27;].get(int(message.id))
+        if (record is None or record[&#x27;object_name&#x27;] != &#x27;cabinet&#x27; or
+                message.object_name != &#x27;cabinet&#x27; or
+                message.family != self.tag_config[&#x27;family&#x27;] or
+                message.world_frame != &#x27;world&#x27; or
+                message.config_hash != self.tag_config[&#x27;config_hash&#x27;] or
+                not message.valid or message.status != &#x27;VALID&#x27;):
+            return
+        try:
+            world_from_tag = pose_matrix(message.pose_world.pose)
+            world_from_object = (
+                world_from_tag @ np.linalg.inv(record[&#x27;object_from_tag&#x27;]) @
+                self.tag_config[&#x27;objects&#x27;][&#x27;cabinet&#x27;][
+                    &#x27;object_pose_correction&#x27;])
+        except (ValueError, np.linalg.LinAlgError):
+            return
+        observed_stamp_ns = stamp_ns(message.header.stamp)
+        if observed_stamp_ns &lt;= 0:
+            return
+        with self.lock:
+            self.raw_cabinet_pose = world_from_object
+            self.raw_cabinet_stamp_ns = observed_stamp_ns
+            self.raw_cabinet_receive_ns = time.monotonic_ns()
+            self.raw_cabinet_tag_id = int(message.id)
+            self.raw_cabinet_observation_count += 1
+
+    def latch_callback(self, message):
+        with self.lock:
+            self.latch_state = message.data.strip().lower()
+            self.latch_receive_ns = time.monotonic_ns()
+
+    def right_support_callback(self, message):
+        with self.lock:
+            self.right_support_state = message.data.strip().lower()
+            self.right_support_receive_ns = time.monotonic_ns()
+
+    def left_support_callback(self, message):
+        with self.lock:
+            self.left_support_state = message.data.strip().lower()
+            self.left_support_receive_ns = time.monotonic_ns()
+
+    @staticmethod
+    def key(message):
+        return int(message.scene_epoch_id), message.scene_hash, message.plan_hash
+
+    def plan_callback(self, message):
+        with self.lock:
+            self.plan_messages[self.key(message)] = (
+                message, time.monotonic_ns())
+            self.plan_messages = {self.key(message): self.plan_messages[
+                self.key(message)]}
+
+    def certificate_callback(self, message):
+        with self.lock:
+            self.certificate_messages[self.key(message)] = (
+                message, time.monotonic_ns())
+            self.certificate_messages = {self.key(message):
+                                         self.certificate_messages[
+                                             self.key(message)]}
+
+    def stop_callback(self, message):
+        value = message.data.strip()
+        if value:
+            with self.lock:
+                self.fault_requested = f&#x27;EXTERNAL_STOP:{value}&#x27;
+
+    def replan_status_callback(self, message):
+        received_ns = time.monotonic_ns()
+        try:
+            value = json.loads(message.data)
+        except json.JSONDecodeError:
+            return
+        if (value.get(&#x27;status&#x27;) != RESULT_STATUS or
+                value.get(&#x27;valid&#x27;) is not True or not value.get(&#x27;result&#x27;)):
+            return
+        with self.lock:
+            if (not self.ready or self.execution_started or
+                    received_ns &lt; self.armed_monotonic_ns):
+                return
+            self.execution_started = True
+        thread = threading.Thread(
+            target=self.execute_result, args=(value, received_ns), daemon=True)
+        thread.start()
+
+    def validate_configuration(self):
+        if not self.execute_enabled:
+            raise ExecutionFault(&#x27;EXECUTE_FALSE&#x27;)
+        if self.execution_mode != &#x27;gazebo&#x27;:
+            raise ExecutionFault(&#x27;EXECUTION_MODE_NOT_GAZEBO&#x27;)
+        for value, name in (
+                (self.workspace, &#x27;workspace&#x27;),
+                (self.planner_output_root, &#x27;planner_output_root&#x27;),
+                (self.evidence_output_root, &#x27;evidence_output_root&#x27;)):
+            if value is None or not value.is_absolute():
+                raise ExecutionFault(f&#x27;CONFIG_PATH:{name}&#x27;)
+        self.workspace = self.workspace.resolve(strict=True)
+        self.planner_output_root.mkdir(parents=True, exist_ok=True)
+        self.planner_output_root = self.planner_output_root.resolve(strict=True)
+        self.evidence_output_root.mkdir(parents=True, exist_ok=True)
+        self.evidence_output_root = self.evidence_output_root.resolve(strict=True)
+        if any(
+                not math.isfinite(value) or value &lt;= 0.0 for value in (
+                    self.maximum_age_s, self.maximum_support_age_s,
+                    self.start_tolerance,
+                    self.endpoint_tolerance,
+                    self.cabinet_translation_tolerance,
+                    self.cabinet_rotation_tolerance,
+                    self.discovery_timeout, self.timeout_factor,
+                    self.timeout_padding,
+                    self.tag_reacquisition_timeout)):
+            raise ExecutionFault(&#x27;CONFIG_NUMERIC&#x27;)
+        if not all(math.isfinite(value)
+                   for value in self.post_navigation_goal):
+            raise ExecutionFault(&#x27;CONFIG_POST_NAVIGATION_GOAL&#x27;)
+        if (self.start_tolerance &gt; 0.003 or
+                self.endpoint_tolerance &gt; 0.003 or
+                self.cabinet_translation_tolerance &gt; 0.003 or
+                self.cabinet_rotation_tolerance &gt; math.radians(1.0) or
+                self.maximum_support_age_s &gt; 10.0 or
+                self.tag_reacquisition_timeout &gt; 5.0 or
+                self.timeout_factor &gt; 10.0 or
+                not 1 &lt;= self.maximum_tag_occlusion_holds &lt;= 20):
+            raise ExecutionFault(&#x27;CONFIG_TOLERANCE_WIDENING&#x27;)
+        if ((self.resume_stage_index, self.resume_message_index) not in
+                ((-1, -1), (1, 0), (2, 3), (3, 2), (3, 3), (6, 1))):
+            raise ExecutionFault(&#x27;CONFIG_RESUME_ENTRY_POINT&#x27;)
+        if (self.resume_stage_index, self.resume_message_index) == (2, 3):
+            if (self.door_recovery_owner_file is None or
+                    not self.door_recovery_owner_file.is_absolute() or
+                    not self.door_recovery_owner_file.is_file() or
+                    self.door_recovery_owner_file.is_symlink()):
+                raise ExecutionFault(&#x27;CONFIG_DOOR_RECOVERY_OWNER&#x27;)
+            self.door_recovery_owner_file = (
+                self.door_recovery_owner_file.resolve(strict=True))
+        elif self.door_recovery_already_attached:
+            raise ExecutionFault(&#x27;CONFIG_DOOR_ALREADY_ATTACHED_SCOPE&#x27;)
+        if (self.resume_stage_index, self.resume_message_index) == (3, 2):
+            if (self.cube_recovery_preload_file is None or
+                    not self.cube_recovery_preload_file.is_absolute() or
+                    not self.cube_recovery_preload_file.is_file() or
+                    self.cube_recovery_preload_file.is_symlink()):
+                raise ExecutionFault(&#x27;CONFIG_CUBE_RECOVERY_PRELOAD&#x27;)
+            self.cube_recovery_preload_file = (
+                self.cube_recovery_preload_file.resolve(strict=True))
+        elif self.cube_recovery_already_attached:
+            raise ExecutionFault(&#x27;CONFIG_CUBE_ALREADY_ATTACHED_SCOPE&#x27;)
+        for _ in range(10):
+            path = self.evidence_output_root / (
+                f&#x27;run_{time.strftime(&quot;%Y%m%dT%H%M%S&quot;)}_{uuid.uuid4().hex}&#x27;)
+            try:
+                path.mkdir(mode=0o700)
+                self.run_directory = path
+                break
+            except FileExistsError:
+                continue
+        if self.run_directory is None:
+            raise ExecutionFault(&#x27;EVIDENCE_DIRECTORY&#x27;)
+
+    def bootstrap(self):
+        try:
+            self.validate_configuration()
+            self.publish_status(&#x27;BOOTSTRAP_GAZEBO_ONLY&#x27;)
+            self.event(&#x27;BOOTSTRAP_GAZEBO_ONLY&#x27;)
+            if self.resume_enabled:
+                self.wait_for_recovery_inputs()
+            else:
+                self.wait_for_preload_inputs()
+            self.require_controller_contract()
+            if not self.resume_enabled:
+                self.run_support_helper(&#x27;door_preload&#x27;, &#x27;door&#x27;, &#x27;preload&#x27;)
+                self.run_support_helper(&#x27;cube_preload&#x27;, &#x27;cube&#x27;, &#x27;preload&#x27;)
+            self.start_support_bridge()
+            self.enable_support_subscriptions()
+            expected_right = (
+                &#x27;attached&#x27; if (
+                    self.resume_stage_index == 3 or
+                    ((self.resume_stage_index, self.resume_message_index) ==
+                     (2, 3) and self.door_recovery_already_attached))
+                else &#x27;detached&#x27;)
+            expected_left = (
+                &#x27;attached&#x27; if (
+                    (self.resume_stage_index, self.resume_message_index) ==
+                    (3, 2) and self.cube_recovery_already_attached)
+                else &#x27;detached&#x27;)
+            self.wait_support(&#x27;right&#x27;, expected_right, 5.0)
+            self.wait_support(&#x27;left&#x27;, expected_left, 5.0)
+            with self.lock:
+                self.ready = True
+                self.armed_monotonic_ns = time.monotonic_ns()
+            self.event(
+                &#x27;ARMED_WAITING_FRESH_PLAN&#x27;, resume=self.resume_enabled,
+                resume_stage_index=self.resume_stage_index,
+                resume_message_index=self.resume_message_index)
+            self.publish_status(
+                &#x27;ARMED_WAITING_FRESH_PLAN&#x27;, gazebo_only=True,
+                resume=self.resume_enabled)
+        except Exception as error:
+            self.finalize_failure(f&#x27;BOOTSTRAP:{type(error).__name__}:{error}&#x27;)
+
+    def wait_for_preload_inputs(self):
+        deadline = time.monotonic() + self.discovery_timeout
+        required = {name for names in CONTROLLER_JOINTS.values()
+                    for name in names}
+        while time.monotonic() &lt; deadline:
+            with self.lock:
+                positions = dict(self.joint_positions)
+                joint_age = time.monotonic_ns() - self.joint_receive_ns
+                mechanism = dict(self.mechanism_positions)
+                mechanism_age = time.monotonic_ns() - self.mechanism_receive_ns
+                latch = self.latch_state
+                latch_age = time.monotonic_ns() - self.latch_receive_ns
+            clock_ready = (
+                bool(getattr(self.get_clock(), &#x27;ros_time_is_active&#x27;, False)) and
+                self.get_clock().now().nanoseconds &gt; 0)
+            if (clock_ready and required &lt;= positions.keys() and
+                    joint_age &lt;= int(self.maximum_age_s * 1e9) and
+                    {&#x27;door_hinge_joint&#x27;, &#x27;handle_latch_joint&#x27;} &lt;=
+                    mechanism.keys() and
+                    mechanism_age &lt;= int(self.maximum_age_s * 1e9) and
+                    latch == &#x27;locked&#x27; and
+                    latch_age &lt;= int(self.maximum_age_s * 1e9)):
+                if (abs(mechanism[&#x27;door_hinge_joint&#x27;]) &gt; math.radians(0.2) or
+                        abs(mechanism[&#x27;handle_latch_joint&#x27;]) &gt;
+                        math.radians(3.0)):
+                    raise ExecutionFault(&#x27;INITIAL_MECHANISM_NOT_Q0_LOCKED&#x27;)
+                return
+            time.sleep(0.02)
+        raise ExecutionFault(&#x27;PRELOAD_INPUT_TIMEOUT&#x27;)
+
+    def wait_for_recovery_inputs(self):
+        &quot;&quot;&quot;Require the exact supported stage-3 stop state before bridging.&quot;&quot;&quot;
+        deadline = time.monotonic() + self.discovery_timeout
+        required = {name for names in CONTROLLER_JOINTS.values()
+                    for name in names}
+        while time.monotonic() &lt; deadline:
+            with self.lock:
+                positions = dict(self.joint_positions)
+                joint_age = time.monotonic_ns() - self.joint_receive_ns
+                mechanism = dict(self.mechanism_positions)
+                velocities = dict(self.mechanism_velocities)
+                mechanism_age = time.monotonic_ns() - self.mechanism_receive_ns
+                latch = self.latch_state
+                latch_age = time.monotonic_ns() - self.latch_receive_ns
+            clock_ready = (
+                bool(getattr(self.get_clock(), &#x27;ros_time_is_active&#x27;, False)) and
+                self.get_clock().now().nanoseconds &gt; 0)
+            if (clock_ready and required &lt;= positions.keys() and
+                    joint_age &lt;= int(self.maximum_age_s * 1e9) and
+                    {&#x27;door_hinge_joint&#x27;, &#x27;handle_latch_joint&#x27;} &lt;=
+                    mechanism.keys() and
+                    {&#x27;door_hinge_joint&#x27;, &#x27;handle_latch_joint&#x27;} &lt;=
+                    velocities.keys() and
+                    mechanism_age &lt;= int(self.maximum_age_s * 1e9) and
+                    latch_age &lt;= int(self.maximum_age_s * 1e9)):
+                resume_entry = (
+                    self.resume_stage_index, self.resume_message_index)
+                if resume_entry == (6, 1):
+                    if (latch != &#x27;locked&#x27; or
+                            abs(mechanism[&#x27;door_hinge_joint&#x27;]) &gt;
+                            math.radians(0.2) or
+                            not -math.radians(1.0) &lt;=
+                            mechanism[&#x27;handle_latch_joint&#x27;] &lt;=
+                            math.radians(7.0) or
+                            abs(velocities[&#x27;door_hinge_joint&#x27;]) &gt; 0.01 or
+                            abs(velocities[&#x27;handle_latch_joint&#x27;]) &gt; 0.01):
+                        raise ExecutionFault(
+                            &#x27;RECOVERY_MECHANISM_NOT_LOCKED_RELEASE_READY&#x27;)
+                elif resume_entry in ((1, 0), (2, 3)):
+                    if (latch != &#x27;unlocked&#x27; or
+                            abs(mechanism[&#x27;door_hinge_joint&#x27;]) &gt;
+                            math.radians(0.2) or
+                            abs(mechanism[&#x27;handle_latch_joint&#x27;] -
+                                math.pi / 2.0) &gt; math.radians(3.0) or
+                            abs(velocities[&#x27;door_hinge_joint&#x27;]) &gt; 0.01 or
+                            abs(velocities[&#x27;handle_latch_joint&#x27;]) &gt; 0.01):
+                        raise ExecutionFault(
+                            &#x27;RECOVERY_MECHANISM_NOT_UNLOCKED_HANDLE_ENDPOINT&#x27;)
+                else:
+                    if (latch != &#x27;unlocked&#x27; or
+                            abs(mechanism[&#x27;door_hinge_joint&#x27;] -
+                                math.pi / 3.0) &gt; math.radians(0.5) or
+                            abs(mechanism[&#x27;handle_latch_joint&#x27;] -
+                                math.pi / 2.0) &gt; math.radians(3.0) or
+                            abs(velocities[&#x27;door_hinge_joint&#x27;]) &gt; 0.01 or
+                            abs(velocities[&#x27;handle_latch_joint&#x27;]) &gt; 0.01):
+                        raise ExecutionFault(
+                            &#x27;RECOVERY_MECHANISM_NOT_OPEN_SUPPORTED&#x27;)
+                return
+            time.sleep(0.02)
+        raise ExecutionFault(&#x27;RECOVERY_INPUT_TIMEOUT&#x27;)
+
+    def enable_support_subscriptions(self):
+        &quot;&quot;&quot;Turn on the lazy ROS bridges only after exact empty-topic preload.&quot;&quot;&quot;
+        if self.support_subscriptions:
+            raise ExecutionFault(&#x27;SUPPORT_SUBSCRIPTIONS_ALREADY_ENABLED&#x27;)
+        self.support_subscriptions = [
+            self.create_subscription(
+                String, &#x27;/h1_2/right_door_support/state&#x27;,
+                self.right_support_callback, 10),
+            self.create_subscription(
+                String, &#x27;/h1_2/left_pose_grasp/state&#x27;,
+                self.left_support_callback, 10),
+        ]
+
+    def start_support_bridge(self):
+        &quot;&quot;&quot;Start only the two deferred GZ-to-ROS support-state bridges.&quot;&quot;&quot;
+        if self.support_bridge_process is not None:
+            raise ExecutionFault(&#x27;SUPPORT_BRIDGE_ALREADY_STARTED&#x27;)
+        executable = (Path(get_package_prefix(&#x27;ros_gz_bridge&#x27;)) / &#x27;lib&#x27; /
+                      &#x27;ros_gz_bridge&#x27; / &#x27;parameter_bridge&#x27;)
+        if not executable.is_file() or not os.access(executable, os.X_OK):
+            raise ExecutionFault(&#x27;SUPPORT_BRIDGE_EXECUTABLE&#x27;)
+        descriptors = []
+        try:
+            for name in (&#x27;support_bridge.stdout.log&#x27;,
+                         &#x27;support_bridge.stderr.log&#x27;):
+                descriptors.append(os.open(
+                    self.run_directory / name,
+                    os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW,
+                    0o400))
+            self.support_bridge_process = subprocess.Popen(
+                [
+                    str(executable),
+                    &#x27;/h1_2/right_door_support/state@&#x27;
+                    &#x27;std_msgs/msg/String[gz.msgs.StringMsg&#x27;,
+                    &#x27;/h1_2/left_pose_grasp/state@&#x27;
+                    &#x27;std_msgs/msg/String[gz.msgs.StringMsg&#x27;,
+                    &#x27;--ros-args&#x27;, &#x27;-p&#x27;, &#x27;use_sim_time:=true&#x27;,
+                ],
+                stdin=subprocess.DEVNULL,
+                stdout=descriptors[0], stderr=descriptors[1],
+                close_fds=True)
+            self.support_bridge_streams = descriptors
+        except Exception:
+            for descriptor in descriptors:
+                try:
+                    os.close(descriptor)
+                except OSError:
+                    pass
+            raise
+        for descriptor in descriptors:
+            os.close(descriptor)
+        self.support_bridge_streams = []
+        time.sleep(0.2)
+        if self.support_bridge_process.poll() is not None:
+            raise ExecutionFault(&#x27;SUPPORT_BRIDGE_EARLY_EXIT&#x27;)
+        self.event(&#x27;SUPPORT_BRIDGE_STARTED&#x27;,
+                   pid=self.support_bridge_process.pid)
+
+    def stop_support_bridge(self):
+        &quot;&quot;&quot;Stop the read-only bridge after the supervisor reaches a terminal state.&quot;&quot;&quot;
+        process = self.support_bridge_process
+        if process is None or process.poll() is not None:
+            return
+        process.terminate()
+        try:
+            process.wait(timeout=3.0)
+        except subprocess.TimeoutExpired:
+            process.kill()
+            process.wait(timeout=3.0)
+
+    def require_controller_contract(self):
+        deadline = time.monotonic() + self.discovery_timeout
+        while time.monotonic() &lt; deadline:
+            if all(
+                    publisher.get_subscription_count() == 1 and
+                    self.count_publishers(topic) == 1
+                    for topic, publisher in self.trajectory_publishers.items()):
+                break
+            time.sleep(0.05)
+        else:
+            raise ExecutionFault(&#x27;CONTROLLER_TOPIC_TOPOLOGY&#x27;)
+        completed = subprocess.run(
+            [&#x27;ros2&#x27;, &#x27;control&#x27;, &#x27;list_controllers&#x27;],
+            stdin=subprocess.DEVNULL, capture_output=True, text=True,
+            timeout=10.0, check=False)
+        if completed.returncode != 0:
+            raise ExecutionFault(&#x27;CONTROLLER_LIST&#x27;)
+        expected = {
+            &#x27;joint_state_broadcaster&#x27;, &#x27;left_arm_controller&#x27;,
+            &#x27;right_arm_controller&#x27;, &#x27;left_gripper_controller&#x27;,
+            &#x27;right_gripper_controller&#x27;,
+        }
+        active = {
+            line.split()[0] for line in completed.stdout.splitlines()
+            if len(line.split()) &gt;= 3 and line.split()[-1] == &#x27;active&#x27;
+        }
+        if active != expected:
+            raise ExecutionFault(f&#x27;CONTROLLERS_ACTIVE:{sorted(active)}&#x27;)
+        self.event(&#x27;CONTROLLER_CONTRACT_PASS&#x27;, active=sorted(active))
+
+    def helper_paths(self):
+        source = self.workspace / &#x27;src/h1_2_moveit_demo/scripts&#x27;
+        assets = self.workspace / &#x27;runtime_assets&#x27;
+        snapshot = (self.workspace / &#x27;install/h1_2_moveit_demo/lib/&#x27;
+                    &#x27;h1_2_moveit_demo/h1_ros_snapshot_8251.py&#x27;)
+        return {
+            &#x27;door_helper&#x27;: source / &#x27;h1_door_support_8251.sh&#x27;,
+            &#x27;cube_helper&#x27;: source / &#x27;h1_cube_support_8251.sh&#x27;,
+            &#x27;door_detach_helper&#x27;: source / &#x27;h1_door_support_detach_8253.sh&#x27;,
+            &#x27;door_asset&#x27;: assets / &#x27;full_robot_flow_8251/door.trajectory.json&#x27;,
+            &#x27;cube_asset&#x27;: (assets / &#x27;parallel_cube_8262/&#x27;
+                           &#x27;cube.parallel90.neutral.trajectory.json&#x27;),
+            &#x27;close_asset&#x27;: (assets / &#x27;close_and_relock_8253/&#x27;
+                            &#x27;door_close.trajectory.json&#x27;),
+            &#x27;snapshot&#x27;: snapshot,
+        }
+
+    def run_support_helper(self, label, helper, operation):
+        paths = self.helper_paths()
+        environment = dict(os.environ)
+        environment[&#x27;LC_ALL&#x27;] = &#x27;C&#x27;
+        environment.update({
+            &#x27;H1_FULL_WORKSPACE&#x27;: str(self.workspace),
+            &#x27;H1_FULL_ROS_SNAPSHOT_TOOL&#x27;: str(paths[&#x27;snapshot&#x27;]),
+            &#x27;H1_DOOR_ASSET&#x27;: str(paths[&#x27;door_asset&#x27;]),
+            &#x27;H1_DOOR_ASSET_SHA256&#x27;: DOOR_ASSET_SHA256,
+            &#x27;H1_DOOR_ATTACH_AFTER_INDEX&#x27;: &#x27;6&#x27;,
+            &#x27;H1_CUBE_ASSET&#x27;: str(paths[&#x27;cube_asset&#x27;]),
+            &#x27;H1_CUBE_ASSET_SHA256&#x27;: CUBE_ASSET_SHA256,
+            &#x27;H1_CUBE_ATTACH_AFTER_INDEX&#x27;: &#x27;2&#x27;,
+            &#x27;H1_CUBE_DETACH_AFTER_INDEX&#x27;: &#x27;4&#x27;,
+            &#x27;H1_CUBE_RACK_EXPECTED_YAW&#x27;: &#x27;90&#x27;,
+            &#x27;H1_CLOSE_WORKSPACE&#x27;: str(self.workspace),
+            &#x27;H1_CLOSE_ROS_SNAPSHOT_TOOL&#x27;: str(paths[&#x27;snapshot&#x27;]),
+            &#x27;H1_CLOSE_DOOR_ASSET&#x27;: str(paths[&#x27;close_asset&#x27;]),
+            &#x27;H1_CLOSE_DOOR_ASSET_SHA256&#x27;: CLOSE_ASSET_SHA256,
+            &#x27;H1_CLOSE_DOOR_DETACH_AFTER_INDEX&#x27;: &#x27;7&#x27;,
+            &#x27;H1_CLOSE_SKIP_PRE_TRANSPORT&#x27;: &#x27;1&#x27;,
+            &#x27;H1_CLOSE_SKIP_POST_TRANSPORT&#x27;: &#x27;1&#x27;,
+        })
+        if operation in (&#x27;attach&#x27;, &#x27;detach&#x27;,
+                         &#x27;recover_attach&#x27;, &#x27;recover_detach&#x27;):
+            environment[&#x27;H1_CUBE_SUPPORT_FAST_RESIDENT&#x27;] = &#x27;1&#x27;
+        if helper == &#x27;door&#x27; and operation in (&#x27;attach&#x27;, &#x27;recover_attach&#x27;):
+            environment[&#x27;H1_DOOR_SUPPORT_FAST_RESIDENT&#x27;] = &#x27;1&#x27;
+        if helper == &#x27;door&#x27; and operation == &#x27;recover_attach&#x27;:
+            environment[&#x27;H1_DOOR_RECOVERY_OWNER_FILE&#x27;] = str(
+                self.door_recovery_owner_file)
+        if helper == &#x27;cube&#x27; and operation in (
+                &#x27;recover_attach&#x27;, &#x27;recover_detach&#x27;):
+            environment[&#x27;H1_CUBE_RECOVERY_PRELOAD_FILE&#x27;] = str(
+                self.cube_recovery_preload_file)
+        helper_path = paths[
+            {&#x27;door&#x27;: &#x27;door_helper&#x27;, &#x27;cube&#x27;: &#x27;cube_helper&#x27;,
+             &#x27;door_detach&#x27;: &#x27;door_detach_helper&#x27;}[helper]]
+        for path in (helper_path, paths[&#x27;snapshot&#x27;]):
+            if not path.is_file() or not os.access(path, os.X_OK):
+                raise ExecutionFault(f&#x27;HELPER_UNAVAILABLE:{path}&#x27;)
+        started = time.monotonic_ns()
+        completed = subprocess.run(
+            [str(helper_path), operation], env=environment,
+            stdin=subprocess.DEVNULL, capture_output=True, text=True,
+            timeout=60.0, check=False)
+        self.write_exclusive(
+            self.run_directory / f&#x27;{label}.stdout.log&#x27;, completed.stdout)
+        self.write_exclusive(
+            self.run_directory / f&#x27;{label}.stderr.log&#x27;, completed.stderr)
+        if completed.returncode != 0:
+            raise ExecutionFault(
+                f&#x27;HELPER:{label}:exit={completed.returncode}&#x27;)
+        self.event(&#x27;SUPPORT_HELPER_PASS&#x27;, helper=label,
+                   duration_s=(time.monotonic_ns() - started) * 1e-9)
+
+    @staticmethod
+    def write_exclusive(path, payload):
+        descriptor = os.open(
+            path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o400)
+        try:
+            with os.fdopen(descriptor, &#x27;w&#x27;, encoding=&#x27;utf-8&#x27;) as stream:
+                stream.write(payload)
+                if payload and not payload.endswith(&#x27;\n&#x27;):
+                    stream.write(&#x27;\n&#x27;)
+        except Exception:
+            try:
+                os.close(descriptor)
+            except OSError:
+                pass
+            raise
+
+    def wait_support(self, side, expected, timeout_s):
+        deadline = time.monotonic() + timeout_s
+        while time.monotonic() &lt; deadline:
+            with self.lock:
+                if side == &#x27;right&#x27;:
+                    value = self.right_support_state
+                    received = self.right_support_receive_ns
+                else:
+                    value = self.left_support_state
+                    received = self.left_support_receive_ns
+            if (value == expected and received and
+                    time.monotonic_ns() - received &lt;=
+                    int(self.maximum_age_s * 1e9)):
+                return
+            time.sleep(0.02)
+        raise ExecutionFault(f&#x27;SUPPORT_STATE:{side}:{expected}&#x27;)
+
+    def matched_messages(self, key):
+        &quot;&quot;&quot;Wait briefly for all transient-local metadata from the same publish.&quot;&quot;&quot;
+        deadline = time.monotonic() + 1.0
+        while time.monotonic() &lt; deadline:
+            with self.lock:
+                plan_entry = self.plan_messages.get(key)
+                certificate_entry = self.certificate_messages.get(key)
+            if plan_entry is not None and certificate_entry is not None:
+                return plan_entry, certificate_entry
+            time.sleep(0.005)
+        raise ExecutionFault(&#x27;MISSING_MATCHED_ROS_METADATA&#x27;)
+
+    def validate_ros_metadata(self, result, plan_message, certificate_message):
+        plan = result[&#x27;plan&#x27;]
+        certificate = result[&#x27;certificate&#x27;]
+        if any((
+                not plan_message.valid,
+                plan_message.status != &#x27;PASS&#x27;,
+                not plan_message.candidate3_only,
+                plan_message.contains_partial,
+                plan_message.topology != plan[&#x27;topology&#x27;],
+                int(plan_message.door_arc_target_count) != 601,
+                int(plan_message.stage_count) != 7,
+                list(plan_message.stage_names) != plan[&#x27;stage_names&#x27;],
+                list(plan_message.stage_trajectory_hashes) !=
+                plan[&#x27;stage_hashes&#x27;],
+                list(plan_message.stage_waypoint_counts) !=
+                plan[&#x27;stage_waypoint_counts&#x27;],
+                not certificate_message.valid,
+                certificate_message.status != &#x27;PASS&#x27;,
+                certificate_message.certificate_hash !=
+                result[&#x27;certificate_hash&#x27;],
+        )):
+            raise ExecutionFault(&#x27;ROS_METADATA_CONTRACT&#x27;)
+        for field in (
+                &#x27;candidate3_only&#x27;, &#x27;ik_complete&#x27;, &#x27;collision_free&#x27;,
+                &#x27;original_stl_contact_passed&#x27;, &#x27;hinge_contract_passed&#x27;,
+                &#x27;forward_passed&#x27;, &#x27;reverse_passed&#x27;, &#x27;timing_passed&#x27;,
+                &#x27;support_topology_passed&#x27;, &#x27;no_partial&#x27;):
+            if not bool(getattr(certificate_message, field)):
+                raise ExecutionFault(f&#x27;ROS_CERTIFICATE:{field}&#x27;)
+        validity_ns = (int(certificate_message.validity.sec) * 1_000_000_000 +
+                       int(certificate_message.validity.nanosec))
+        age_ns = (self.get_clock().now().nanoseconds -
+                  stamp_ns(certificate_message.header.stamp))
+        if validity_ns &lt;= 0 or age_ns &lt; 0 or age_ns &gt; validity_ns:
+            raise ExecutionFault(
+                f&#x27;CERTIFICATE_EXPIRED:age_ns={age_ns}:validity_ns={validity_ns}&#x27;)
+        if abs(float(certificate_message.minimum_environment_clearance_m) -
+               float(certificate[&#x27;minimum_environment_clearance_m&#x27;])) &gt; 1e-12:
+            raise ExecutionFault(&#x27;ROS_CERTIFICATE_CLEARANCE&#x27;)
+
+    def execute_result(self, status, status_receive_ns):
+        result = None
+        try:
+            result_path = Path(status[&#x27;result&#x27;])
+            if status_receive_ns &lt; self.armed_monotonic_ns:
+                raise ExecutionFault(&#x27;STALE_STATUS_RECEIPT&#x27;)
+            result = load_result_file(result_path, self.planner_output_root)
+            key = (
+                int(result[&#x27;plan&#x27;][&#x27;scene_epoch_id&#x27;]),
+                result[&#x27;plan&#x27;][&#x27;scene_hash&#x27;], result[&#x27;plan_hash&#x27;])
+            (plan_message, plan_receive_ns), (
+                certificate_message, certificate_receive_ns) = (
+                    self.matched_messages(key))
+            if min(plan_receive_ns, certificate_receive_ns) &lt; self.armed_monotonic_ns:
+                raise ExecutionFault(&#x27;STALE_ROS_METADATA&#x27;)
+            if (status.get(&#x27;scene_epoch_id&#x27;), status.get(&#x27;scene_hash&#x27;),
+                    status.get(&#x27;plan_hash&#x27;)) != key:
+                raise ExecutionFault(&#x27;STATUS_RESULT_BINDING&#x27;)
+            if status.get(&#x27;certificate_hash&#x27;) != result[&#x27;certificate_hash&#x27;]:
+                raise ExecutionFault(&#x27;STATUS_CERTIFICATE_BINDING&#x27;)
+            self.validate_ros_metadata(
+                result, plan_message, certificate_message)
+            if not all(
+                    publisher.get_subscription_count() == 1 and
+                    self.count_publishers(topic) == 1
+                    for topic, publisher in
+                    self.trajectory_publishers.items()):
+                raise ExecutionFault(&#x27;CONTROLLER_TOPIC_TOPOLOGY_CHANGED&#x27;)
+            self.active_result_path = result_path
+            if self.resume_enabled:
+                self.pre_motion_resume_gate(result)
+            else:
+                self.pre_motion_gate(result)
+            # Recheck the short certificate window immediately before the
+            # first publication.  It only authorizes starting this complete
+            # run; subsequent safety is governed by live telemetry.
+            self.validate_ros_metadata(
+                result, plan_message, certificate_message)
+            self.event(
+                &#x27;EXECUTION_ADMITTED&#x27;, plan_hash=result[&#x27;plan_hash&#x27;],
+                certificate_hash=result[&#x27;certificate_hash&#x27;],
+                result=str(result_path))
+            self.publish_status(
+                &#x27;EXECUTING&#x27;, plan_hash=result[&#x27;plan_hash&#x27;], gazebo_only=True)
+            if self.resume_enabled:
+                self.execute_remaining_plan(
+                    result[&#x27;plan&#x27;], result[&#x27;certificate&#x27;])
+            else:
+                self.execute_plan(result[&#x27;plan&#x27;], result[&#x27;certificate&#x27;])
+            self.finalize_success(result, result_path)
+        except Exception as error:
+            reason = f&#x27;{type(error).__name__}:{error}&#x27;
+            if self.motion_started:
+                hold_status = self.publish_measured_hold()
+                reason = f&#x27;{reason};{hold_status}&#x27;
+            self.finalize_failure(reason, result=result)
+
+    def pre_motion_gate(self, result):
+        plan = result[&#x27;plan&#x27;]
+        certificate = result[&#x27;certificate&#x27;]
+        if self.require_post_navigation_alignment:
+            alignment_hash = plan.get(&#x27;post_nav_alignment_hash&#x27;, &#x27;&#x27;)
+            if (not isinstance(alignment_hash, str) or
+                    len(alignment_hash) != 64 or any(
+                        value not in &#x27;0123456789abcdef&#x27;
+                        for value in alignment_hash)):
+                raise ExecutionFault(&#x27;POST_NAV_ALIGNMENT_CERTIFICATE&#x27;)
+            with self.lock:
+                navigation_status = copy.deepcopy(self.navigation_status)
+                navigation_receive_ns = self.navigation_status_receive_ns
+            age_ns = time.monotonic_ns() - navigation_receive_ns
+            if (navigation_receive_ns &lt;= 0 or age_ns &lt; 0 or
+                    age_ns &gt; int(self.maximum_age_s * 1.0e9)):
+                raise ExecutionFault(&#x27;POST_NAVIGATION_HOLD_STALE&#x27;)
+            try:
+                validate_navigation_hold_status(
+                    navigation_status,
+                    expected_goal_pose=self.post_navigation_goal)
+            except (TypeError, ValueError) as error:
+                raise ExecutionFault(
+                    f&#x27;POST_NAVIGATION_HOLD:{error}&#x27;) from error
+        self.runtime_gate(plan, certificate, require_cabinet=True)
+        self.wait_support(&#x27;right&#x27;, &#x27;detached&#x27;, 1.0)
+        self.wait_support(&#x27;left&#x27;, &#x27;detached&#x27;, 1.0)
+        self.wait_latch(&#x27;locked&#x27;, 1.0)
+        self.require_close_to_start(plan[&#x27;stages&#x27;][0][&#x27;messages&#x27;][0])
+        self.require_close_to_start(plan[&#x27;stages&#x27;][2][&#x27;messages&#x27;][0])
+        with self.lock:
+            mechanism = dict(self.mechanism_positions)
+        if (abs(mechanism.get(&#x27;door_hinge_joint&#x27;, math.inf)) &gt;
+                math.radians(0.2) or
+                abs(mechanism.get(&#x27;handle_latch_joint&#x27;, math.inf)) &gt;
+                math.radians(3.0)):
+            raise ExecutionFault(&#x27;PRE_MOTION_MECHANISM&#x27;)
+
+    def pre_motion_resume_gate(self, result):
+        &quot;&quot;&quot;Admit only the exact, still-supported cube-transport stop state.&quot;&quot;&quot;
+        plan = result[&#x27;plan&#x27;]
+        certificate = result[&#x27;certificate&#x27;]
+        resume_entry = (
+            self.resume_stage_index, self.resume_message_index)
+        self.runtime_gate(plan, certificate, require_cabinet=True)
+        expected_right = (
+            &#x27;attached&#x27; if (
+                self.resume_stage_index == 3 or
+                (resume_entry == (2, 3) and
+                 self.door_recovery_already_attached))
+            else &#x27;detached&#x27;)
+        self.wait_support(&#x27;right&#x27;, expected_right, 1.0)
+        expected_left = (
+            &#x27;attached&#x27; if (
+                resume_entry == (3, 2) and
+                self.cube_recovery_already_attached)
+            else &#x27;detached&#x27;)
+        self.wait_support(&#x27;left&#x27;, expected_left, 1.0)
+        with self.lock:
+            positions = dict(self.joint_positions)
+        if resume_entry == (6, 1):
+            self.wait_latch(&#x27;locked&#x27;, 1.0)
+            with self.lock:
+                mechanism = dict(self.mechanism_positions)
+                velocities = dict(self.mechanism_velocities)
+            if (abs(mechanism.get(&#x27;door_hinge_joint&#x27;, math.inf)) &gt;
+                    math.radians(0.2) or
+                    not -math.radians(1.0) &lt;=
+                    mechanism.get(&#x27;handle_latch_joint&#x27;, math.inf) &lt;=
+                    math.radians(7.0) or
+                    abs(velocities.get(&#x27;handle_latch_joint&#x27;, math.inf)) &gt;
+                    0.01):
+                raise ExecutionFault(&#x27;RECOVERY_HANDLE_RELEASE_READY&#x27;)
+            self.require_close_to_start(plan[&#x27;stages&#x27;][6][&#x27;messages&#x27;][2])
+            gripper_record = plan[&#x27;stages&#x27;][6][&#x27;messages&#x27;][1]
+            clamp_error = max(
+                abs(positions[name] - float(value))
+                for name, value in zip(
+                    gripper_record[&#x27;joint_names&#x27;],
+                    gripper_record[&#x27;points&#x27;][0][&#x27;positions&#x27;]))
+            if clamp_error &gt; 0.006:
+                raise ExecutionFault(
+                    f&#x27;RECOVERY_HANDLE_GRIPPER_CLAMP:{clamp_error:.9f}&#x27;)
+            self.event(
+                &#x27;RECOVERY_HANDLE_RELEASE_READY&#x27;,
+                handle_position_rad=mechanism[&#x27;handle_latch_joint&#x27;],
+                gripper_clamp_error_rad=clamp_error)
+        elif resume_entry == (1, 0):
+            self.wait_latch(&#x27;unlocked&#x27;, 2.0)
+            self.wait_mechanism(0.0, math.pi / 2.0, 2.0)
+            # The left arm must still be holding the handle at the exact
+            # audited unlock endpoint while message 1:0 opens the gripper.
+            self.require_close_to_start(plan[&#x27;stages&#x27;][1][&#x27;messages&#x27;][1])
+            self.event(&#x27;RECOVERY_UNLOCK_ENDPOINT_READY&#x27;)
+        elif resume_entry == (2, 3):
+            self.wait_latch(&#x27;unlocked&#x27;, 2.0)
+            self.wait_mechanism(0.0, math.pi / 2.0, 2.0)
+            self.require_close_to_start(plan[&#x27;stages&#x27;][2][&#x27;messages&#x27;][3])
+            gripper_record = plan[&#x27;stages&#x27;][2][&#x27;messages&#x27;][2]
+            self.require_close(
+                positions, gripper_record[&#x27;joint_names&#x27;],
+                gripper_record[&#x27;points&#x27;][-1][&#x27;positions&#x27;], 0.006,
+                &#x27;RECOVERY_DOOR_GRIPPER_CLAMPED&#x27;)
+            # Repeat the unchanged attach helper after the mechanism has
+            # settled; the 601-point door trajectory remains forbidden until
+            # its fresh attached heartbeat is observed.
+            if self.door_recovery_already_attached:
+                self.wait_support(&#x27;right&#x27;, &#x27;attached&#x27;, 1.0)
+                self.event(&#x27;RECOVERY_DOOR_ALREADY_ATTACHED_READY&#x27;)
+            else:
+                self.run_support_helper(
+                    &#x27;door_attach_recovery&#x27;, &#x27;door&#x27;, &#x27;recover_attach&#x27;)
+                self.wait_support(&#x27;right&#x27;, &#x27;attached&#x27;, 2.0)
+                self.event(&#x27;RECOVERY_DOOR_ATTACH_READY&#x27;)
+        else:
+            self.wait_latch(&#x27;unlocked&#x27;, 1.0)
+            self.wait_mechanism(math.pi / 3.0, math.pi / 2.0, 2.0)
+            self.require_close_to_start(plan[&#x27;stages&#x27;][4][&#x27;messages&#x27;][0])
+            cube_gripper = CONTROLLER_JOINTS[
+                &#x27;/left_gripper_controller/joint_trajectory&#x27;]
+            self.require_close(
+                positions, cube_gripper, [-0.014942, -0.014942],
+                self.endpoint_tolerance, &#x27;RECOVERY_CUBE_GRIPPER_CLAMPED&#x27;)
+            if resume_entry == (3, 2):
+                if self.cube_recovery_already_attached:
+                    self.wait_support(&#x27;left&#x27;, &#x27;attached&#x27;, 1.0)
+                    self.event(&#x27;RECOVERY_CUBE_ALREADY_ATTACHED_READY&#x27;)
+                else:
+                    self.run_support_helper(
+                        &#x27;cube_attach_recovery&#x27;, &#x27;cube&#x27;, &#x27;recover_attach&#x27;)
+                    self.wait_support(&#x27;left&#x27;, &#x27;attached&#x27;, 2.0)
+                    self.event(&#x27;RECOVERY_CUBE_ATTACH_READY&#x27;)
+            else:
+                self.require_close_to_start(plan[&#x27;stages&#x27;][3][&#x27;messages&#x27;][4])
+        record = plan[&#x27;stages&#x27;][self.resume_stage_index][&#x27;messages&#x27;][
+            self.resume_message_index]
+        active, source_index, error = self.audited_tag_resume_connector(
+            plan, record, self.resume_stage_index, 0)
+        self.resume_record = active
+        self.resume_source_index = source_index
+        self.event(
+            &#x27;REMAINING_PATH_REPLAN_CPP_AUDIT_PASS&#x27;,
+            stage_index=self.resume_stage_index,
+            message_index=self.resume_message_index,
+            source_point_index=source_index,
+            connector_error_rad=error)
+
+    def execute_remaining_plan(self, plan, certificate):
+        &quot;&quot;&quot;Execute the audited stage-3 suffix and every untouched later stage.&quot;&quot;&quot;
+        if self.resume_record is None:
+            raise ExecutionFault(&#x27;RECOVERY_RECORD_MISSING&#x27;)
+        for stage_index in range(self.resume_stage_index, len(plan[&#x27;stages&#x27;])):
+            stage = plan[&#x27;stages&#x27;][stage_index]
+            first_message = (
+                self.resume_message_index
+                if stage_index == self.resume_stage_index else 0)
+            self.event(
+                &#x27;STAGE_START&#x27;, stage_index=stage_index,
+                stage=stage[&#x27;name&#x27;], resumed=True)
+            for message_index in range(first_message, len(stage[&#x27;messages&#x27;])):
+                override = (
+                    self.resume_record
+                    if (stage_index, message_index) == (
+                        self.resume_stage_index, self.resume_message_index)
+                    else None)
+                self.execute_message(
+                    plan, certificate, stage_index, message_index,
+                    stage[&#x27;messages&#x27;][message_index],
+                    initial_override=override,
+                    initial_source_index=(
+                        self.resume_source_index if override is not None else 0))
+                self.support_checkpoint(stage_index, message_index)
+            self.stage_checkpoint(stage_index)
+            self.event(
+                &#x27;STAGE_PASS&#x27;, stage_index=stage_index,
+                stage=stage[&#x27;name&#x27;], resumed=True)
+
+    def runtime_gate(self, plan, certificate, require_cabinet=True,
+                     allow_raw_cabinet=False):
+        now_wall = time.monotonic_ns()
+        maximum_age_ns = int(self.maximum_age_s * 1e9)
+        with self.lock:
+            fault = self.fault_requested
+            joints = dict(self.joint_positions)
+            joint_receive = self.joint_receive_ns
+            mechanism = dict(self.mechanism_positions)
+            velocities = dict(self.mechanism_velocities)
+            mechanism_receive = self.mechanism_receive_ns
+            cabinet = self.cabinet
+            cabinet_receive = self.cabinet_receive_ns
+            raw_cabinet = (
+                None if self.raw_cabinet_pose is None else
+                self.raw_cabinet_pose.copy())
+            raw_cabinet_stamp = self.raw_cabinet_stamp_ns
+            raw_cabinet_receive = self.raw_cabinet_receive_ns
+            latch_receive = self.latch_receive_ns
+            right_support = self.right_support_state
+            right_support_receive = self.right_support_receive_ns
+            left_support = self.left_support_state
+            left_support_receive = self.left_support_receive_ns
+        if fault:
+            raise ExecutionFault(fault)
+        required = {name for names in CONTROLLER_JOINTS.values()
+                    for name in names}
+        if (required - joints.keys() or not joint_receive or
+                now_wall - joint_receive &gt; maximum_age_ns):
+            raise ExecutionFault(&#x27;STALE_ROBOT_STATE&#x27;)
+        if (not mechanism_receive or
+                now_wall - mechanism_receive &gt; maximum_age_ns or
+                {&#x27;door_hinge_joint&#x27;, &#x27;handle_latch_joint&#x27;} -
+                mechanism.keys() or
+                {&#x27;door_hinge_joint&#x27;, &#x27;handle_latch_joint&#x27;} -
+                velocities.keys()):
+            raise ExecutionFault(&#x27;STALE_MECHANISM_STATE&#x27;)
+        door = mechanism[&#x27;door_hinge_joint&#x27;]
+        handle = mechanism[&#x27;handle_latch_joint&#x27;]
+        if (not -math.radians(2.0) &lt;= door &lt;= math.radians(62.0) or
+                not -math.radians(5.0) &lt;= handle &lt;= math.radians(95.0)):
+            raise ExecutionFault(&#x27;MECHANISM_ENVELOPE&#x27;)
+        if not latch_receive or now_wall - latch_receive &gt; maximum_age_ns:
+            raise ExecutionFault(&#x27;STALE_LATCH&#x27;)
+        support_age_ns = int(self.maximum_support_age_s * 1e9)
+        if (right_support not in (&#x27;attached&#x27;, &#x27;detached&#x27;) or
+                left_support not in (&#x27;attached&#x27;, &#x27;detached&#x27;) or
+                not right_support_receive or not left_support_receive or
+                now_wall - right_support_receive &gt; support_age_ns or
+                now_wall - left_support_receive &gt; support_age_ns):
+            raise ExecutionFault(&#x27;STALE_SUPPORT_STATE&#x27;)
+        if require_cabinet:
+            stable_available = (
+                cabinet is not None and cabinet_receive and
+                now_wall - cabinet_receive &lt;= maximum_age_ns and
+                cabinet.valid and cabinet.stable)
+            raw_available = (
+                allow_raw_cabinet and raw_cabinet is not None and
+                raw_cabinet_receive and
+                now_wall - raw_cabinet_receive &lt;= maximum_age_ns)
+            if stable_available:
+                if cabinet.config_hash != certificate[&#x27;tag_config_hash&#x27;]:
+                    raise ExecutionFault(&#x27;LIVE_TAG_CONFIG_HASH&#x27;)
+                cabinet_stamp = stamp_ns(cabinet.header.stamp)
+                live = pose_matrix(cabinet.pose_world.pose)
+            elif raw_available:
+                if self.tag_config[&#x27;config_hash&#x27;] != certificate[
+                        &#x27;tag_config_hash&#x27;]:
+                    raise ExecutionFault(&#x27;LIVE_TAG_CONFIG_HASH&#x27;)
+                cabinet_stamp = raw_cabinet_stamp
+                live = raw_cabinet
+            else:
+                raise ExecutionFault(&#x27;STALE_CABINET_TAG&#x27;)
+            age_ns = self.get_clock().now().nanoseconds - cabinet_stamp
+            if age_ns &lt; 0 or age_ns &gt; maximum_age_ns:
+                raise ExecutionFault(&#x27;CABINET_TAG_STAMP&#x27;)
+            expected = np.asarray(plan[&#x27;current_cabinet_pose&#x27;], dtype=float)
+            translation = float(np.linalg.norm(
+                live[:3, 3] - expected[:3, 3]))
+            angle = rotation_error(expected, live)
+            if translation &gt; self.cabinet_translation_tolerance:
+                raise ExecutionFault(
+                    f&#x27;CABINET_TRANSLATION:{translation:.9f}&#x27;)
+            if angle &gt; self.cabinet_rotation_tolerance:
+                raise ExecutionFault(f&#x27;CABINET_ROTATION:{angle:.9f}&#x27;)
+
+    def require_close_to_start(self, message):
+        with self.lock:
+            positions = dict(self.joint_positions)
+        self.require_close(
+            positions, message[&#x27;joint_names&#x27;],
+            message[&#x27;points&#x27;][0][&#x27;positions&#x27;], self.start_tolerance,
+            &#x27;TRAJECTORY_START&#x27;)
+
+    @staticmethod
+    def require_close(actual, names, expected, tolerance, status):
+        if any(name not in actual for name in names):
+            raise ExecutionFault(f&#x27;{status}:MISSING_JOINT&#x27;)
+        maximum = max(abs(actual[name] - float(value))
+                      for name, value in zip(names, expected))
+        if maximum &gt; tolerance:
+            raise ExecutionFault(f&#x27;{status}:error={maximum:.9f}&#x27;)
+
+    @staticmethod
+    def trajectory_message(record):
+        message = JointTrajectory()
+        message.joint_names = list(record[&#x27;joint_names&#x27;])
+        for value in record[&#x27;points&#x27;]:
+            point = JointTrajectoryPoint()
+            point.positions = [float(item) for item in value[&#x27;positions&#x27;]]
+            point.velocities = [float(item) for item in value[&#x27;velocities&#x27;]]
+            point.accelerations = [
+                float(item) for item in value[&#x27;accelerations&#x27;]]
+            point.effort = [float(item) for item in value[&#x27;effort&#x27;]]
+            point.time_from_start.sec = int(value[&#x27;time_from_start&#x27;][&#x27;sec&#x27;])
+            point.time_from_start.nanosec = int(
+                value[&#x27;time_from_start&#x27;][&#x27;nanosec&#x27;])
+            message.points.append(point)
+        return message
+
+    @staticmethod
+    def trajectory_suffix(record, point_index):
+        &quot;&quot;&quot;Return an exact certified suffix with time rebased to zero.&quot;&quot;&quot;
+        if not 0 &lt;= point_index &lt; len(record[&#x27;points&#x27;]) - 1:
+            raise ExecutionFault(&#x27;TRAJECTORY_SUFFIX_INDEX&#x27;)
+        result = copy.deepcopy(record)
+        base_ns = point_duration_ns(record[&#x27;points&#x27;][point_index])
+        result[&#x27;points&#x27;] = result[&#x27;points&#x27;][point_index:]
+        for point in result[&#x27;points&#x27;]:
+            value_ns = point_duration_ns(point) - base_ns
+            point[&#x27;time_from_start&#x27;] = {
+                &#x27;sec&#x27;: int(value_ns // 1_000_000_000),
+                &#x27;nanosec&#x27;: int(value_ns % 1_000_000_000),
+            }
+        return result
+
+    def wait_for_stable_cabinet_after_hold(self, plan, certificate):
+        &quot;&quot;&quot;Wait a bounded interval for stable tags while all joints hold.&quot;&quot;&quot;
+        deadline = time.monotonic() + self.tag_reacquisition_timeout
+        while time.monotonic() &lt; deadline:
+            try:
+                self.runtime_gate(
+                    plan, certificate, require_cabinet=True,
+                    allow_raw_cabinet=False)
+                return
+            except ExecutionFault as error:
+                if str(error) not in (
+                        &#x27;STALE_CABINET_TAG&#x27;, &#x27;CABINET_TAG_STAMP&#x27;):
+                    raise
+            time.sleep(0.01)
+        raise ExecutionFault(&#x27;CABINET_TAG_PERSISTENT_LOSS&#x27;)
+
+    def nearest_certified_point(self, record, minimum_index):
+        &quot;&quot;&quot;Bind a held joint state to the remaining certified message path.&quot;&quot;&quot;
+        with self.lock:
+            positions = dict(self.joint_positions)
+        names = record[&#x27;joint_names&#x27;]
+        if any(name not in positions for name in names):
+            raise ExecutionFault(&#x27;TAG_HOLD_RESUME_MISSING_JOINT&#x27;)
+        errors = [
+            max(abs(positions[name] - float(value))
+                for name, value in zip(names, point[&#x27;positions&#x27;]))
+            for point in record[&#x27;points&#x27;][minimum_index:]
+        ]
+        relative_index = min(range(len(errors)), key=errors.__getitem__)
+        index = minimum_index + relative_index
+        error = errors[relative_index]
+        return index, error
+
+    @staticmethod
+    def position_only_point(positions, value_ns):
+        &quot;&quot;&quot;Return one finite position-only point for recovery auditing.&quot;&quot;&quot;
+        return {
+            &#x27;positions&#x27;: list(map(float, positions)),
+            &#x27;velocities&#x27;: [],
+            &#x27;accelerations&#x27;: [],
+            &#x27;effort&#x27;: [],
+            &#x27;time_from_start&#x27;: {
+                &#x27;sec&#x27;: int(value_ns // 1_000_000_000),
+                &#x27;nanosec&#x27;: int(value_ns % 1_000_000_000),
+            },
+        }
+
+    def audited_tag_resume_connector(self, plan, record, stage_index,
+                                     minimum_index):
+        &quot;&quot;&quot;
+        C++-audit a dense measured-state connector to a plan suffix.
+
+        The method is used only after a tag-triggered measured hold.  It does
+        not loosen the 3 mrad exact-suffix gate: if controller dynamics leave
+        the measured hold farther from the nearest certified point, the short
+        connector and every remaining suffix point are replayed against the
+        frozen scene with the same C++ collision and 10 mm clearance auditor.
+        &quot;&quot;&quot;
+        if self.active_result_path is None:
+            raise ExecutionFault(&#x27;TAG_RESUME_RESULT_PATH&#x27;)
+        with self.lock:
+            joints = dict(self.joint_positions)
+        names = record[&#x27;joint_names&#x27;]
+        if any(name not in joints for name in names):
+            raise ExecutionFault(&#x27;TAG_RESUME_MISSING_JOINT&#x27;)
+        actual = np.asarray([joints[name] for name in names], dtype=float)
+        candidates = record[&#x27;points&#x27;][minimum_index:]
+        errors = [
+            float(np.max(np.abs(
+                actual - np.asarray(point[&#x27;positions&#x27;], dtype=float))))
+            for point in candidates
+        ]
+        relative_index = min(range(len(errors)), key=errors.__getitem__)
+        source_index = minimum_index + relative_index
+        error = errors[relative_index]
+        if error &gt; math.radians(4.9):
+            raise ExecutionFault(
+                f&#x27;TAG_RESUME_CONNECTOR_TOO_LARGE:{error:.9f}&#x27;)
+        target = np.asarray(
+            record[&#x27;points&#x27;][source_index][&#x27;positions&#x27;], dtype=float)
+        connector_count = max(
+            2, int(math.ceil(error / math.radians(0.049))) + 1)
+        # Keep the connector within the audited plan&#x27;s observed timing
+        # envelope while making a milliradian-scale correction short enough
+        # to complete between camera occlusion checks.  Smoothstep has peak
+        # speed 1.5*delta/T and peak acceleration 6*delta/T^2; the bounds
+        # below are stricter than the certified plan&#x27;s observed 1.35 rad/s
+        # and 2.47 rad/s^2 maxima.
+        connector_duration_s = max(
+            0.05, 1.5 * error / 1.0,
+            math.sqrt(6.0 * error / 2.0))
+        connector_duration_ns = int(math.ceil(
+            connector_duration_s * 1_000_000_000.0))
+        points = []
+        for index in range(connector_count):
+            fraction = index / (connector_count - 1)
+            smooth = fraction * fraction * (3.0 - 2.0 * fraction)
+            points.append(self.position_only_point(
+                actual + smooth * (target - actual),
+                int(round(connector_duration_ns * fraction))))
+        source_time_ns = point_duration_ns(record[&#x27;points&#x27;][source_index])
+        for point in record[&#x27;points&#x27;][source_index + 1:]:
+            points.append(self.position_only_point(
+                point[&#x27;positions&#x27;],
+                connector_duration_ns + point_duration_ns(point) -
+                source_time_ns))
+        active_record = copy.deepcopy(record)
+        active_record[&#x27;points&#x27;] = points
+
+        all_names = [
+            name for controller_names in CONTROLLER_JOINTS.values()
+            for name in controller_names
+        ]
+        if any(name not in joints for name in all_names):
+            raise ExecutionFault(&#x27;TAG_RESUME_FULL_STATE&#x27;)
+        full_state = self.position_only_point(
+            [joints[name] for name in all_names], 0)
+        q0_message = plan[&#x27;stages&#x27;][0][&#x27;messages&#x27;][0]
+        q0_point = self.position_only_point(
+            q0_message[&#x27;points&#x27;][0][&#x27;positions&#x27;], 0)
+        audit_stages = []
+        for index, stage in enumerate(plan[&#x27;stages&#x27;]):
+            if index == stage_index:
+                messages = [
+                    {&#x27;joint_names&#x27;: all_names, &#x27;points&#x27;: [full_state]},
+                    {&#x27;joint_names&#x27;: list(names), &#x27;points&#x27;: points},
+                ]
+            else:
+                messages = [{
+                    &#x27;joint_names&#x27;: list(q0_message[&#x27;joint_names&#x27;]),
+                    &#x27;points&#x27;: [q0_point],
+                }]
+            audit_stages.append({
+                &#x27;name&#x27;: stage[&#x27;name&#x27;],
+                &#x27;messages&#x27;: messages,
+            })
+        audit_plan = {
+            &#x27;scene_epoch_id&#x27;: plan[&#x27;scene_epoch_id&#x27;],
+            &#x27;scene_hash&#x27;: plan[&#x27;scene_hash&#x27;],
+            &#x27;candidate3_only&#x27;: True,
+            &#x27;contains_partial&#x27;: False,
+            &#x27;door_arc_target_count&#x27;: 601,
+            &#x27;stages&#x27;: audit_stages,
+        }
+        audit_hash = canonical_hash(audit_plan)
+        self.tag_resume_audit_count += 1
+        prefix = f&#x27;tag_resume_audit_{self.tag_resume_audit_count:03d}&#x27;
+        input_path = self.run_directory / f&#x27;{prefix}.input.json&#x27;
+        result_path = self.run_directory / f&#x27;{prefix}.result.json&#x27;
+        self.write_exclusive(
+            input_path,
+            json.dumps(
+                {&#x27;plan&#x27;: audit_plan, &#x27;plan_hash&#x27;: audit_hash},
+                sort_keys=True, indent=2, allow_nan=False) + &#x27;\n&#x27;)
+        source_directory = self.active_result_path.parent
+        executable = (
+            Path(get_package_prefix(&#x27;h1_2_moveit_demo&#x27;)) / &#x27;lib&#x27; /
+            &#x27;h1_2_moveit_demo&#x27; / &#x27;candidate3_clearance_auditor&#x27;)
+        completed = subprocess.run(
+            [
+                str(executable),
+                &#x27;--scene&#x27;, str(source_directory / &#x27;scene.cdr&#x27;),
+                &#x27;--plan&#x27;, str(input_path),
+                &#x27;--urdf&#x27;, str(source_directory / &#x27;clearance_audit_robot.urdf&#x27;),
+                &#x27;--srdf&#x27;, str(source_directory / &#x27;clearance_audit_robot.srdf&#x27;),
+                &#x27;--output&#x27;, str(result_path),
+            ],
+            stdin=subprocess.DEVNULL, capture_output=True, text=True,
+            timeout=120.0, check=False)
+        self.write_exclusive(
+            self.run_directory / f&#x27;{prefix}.stdout.log&#x27;, completed.stdout)
+        self.write_exclusive(
+            self.run_directory / f&#x27;{prefix}.stderr.log&#x27;, completed.stderr)
+        if completed.returncode not in (0, 2) or not result_path.is_file():
+            raise ExecutionFault(
+                f&#x27;TAG_RESUME_CPP_EXIT:{completed.returncode}&#x27;)
+        audit = json.loads(result_path.read_text(encoding=&#x27;utf-8&#x27;))
+        os.chmod(result_path, 0o400)
+        expected_scene = (
+            f&#x27;h1_scene_epoch:{plan[&quot;scene_epoch_id&quot;]}:&#x27;
+            f&#x27;{plan[&quot;scene_hash&quot;]}&#x27;)
+        if (audit.get(&#x27;schema&#x27;) !=
+                &#x27;h1_candidate3_cpp_clearance_audit/v1&#x27; or
+                audit.get(&#x27;scene_name&#x27;) != expected_scene or
+                audit.get(&#x27;plan_hash&#x27;) != audit_hash or
+                audit.get(&#x27;status&#x27;) != &#x27;PASS&#x27; or
+                audit.get(&#x27;collision_free&#x27;) is not True or
+                audit.get(&#x27;clearance_passed&#x27;) is not True or
+                float(audit.get(&#x27;minimum_environment_clearance_m&#x27;, 0.0)) &lt;
+                0.010):
+            raise ExecutionFault(
+                f&#x27;TAG_RESUME_CPP_AUDIT:{audit.get(&quot;status&quot;, &quot;INVALID&quot;)}&#x27;)
+        # The robot remained held while the file-only replay ran.  Bind the
+        # first published point back to fresh live telemetry.
+        with self.lock:
+            current = dict(self.joint_positions)
+        live_error = max(abs(current[name] - float(value))
+                         for name, value in zip(names, actual))
+        if live_error &gt; self.start_tolerance:
+            raise ExecutionFault(
+                f&#x27;TAG_RESUME_LIVE_STATE_CHANGED:{live_error:.9f}&#x27;)
+        self.event(
+            &#x27;CABINET_TAG_RESUME_CONNECTOR_CPP_AUDIT_PASS&#x27;,
+            stage_index=stage_index, source_point_index=source_index,
+            connector_error_rad=error,
+            connector_point_count=connector_count,
+            connector_duration_s=connector_duration_ns * 1e-9,
+            audit_hash=audit_hash, samples=audit[&#x27;samples&#x27;],
+            minimum_environment_clearance_m=(
+                audit[&#x27;minimum_environment_clearance_m&#x27;]))
+        return active_record, source_index, error
+
+    def execute_plan(self, plan, certificate):
+        for stage_index, stage in enumerate(plan[&#x27;stages&#x27;]):
+            self.event(&#x27;STAGE_START&#x27;, stage_index=stage_index,
+                       stage=stage[&#x27;name&#x27;])
+            for message_index, message in enumerate(stage[&#x27;messages&#x27;]):
+                self.execute_message(
+                    plan, certificate, stage_index, message_index, message)
+                self.support_checkpoint(stage_index, message_index)
+            self.stage_checkpoint(stage_index)
+            self.event(&#x27;STAGE_PASS&#x27;, stage_index=stage_index,
+                       stage=stage[&#x27;name&#x27;])
+
+    def execute_message(self, plan, certificate, stage_index,
+                        message_index, record, initial_override=None,
+                        initial_source_index=0):
+        self.runtime_gate(
+            plan, certificate, require_cabinet=True,
+            allow_raw_cabinet=True)
+        if initial_override is None:
+            self.require_close_to_start(record)
+        publisher = self.trajectory_publishers[record[&#x27;topic&#x27;]]
+        if (publisher.get_subscription_count() != 1 or
+                self.count_publishers(record[&#x27;topic&#x27;]) != 1):
+            raise ExecutionFault(&#x27;CONTROLLER_TOPOLOGY_CHANGED&#x27;)
+        self.motion_started = True
+        expected = record[&#x27;points&#x27;][-1][&#x27;positions&#x27;]
+        if stage_index == 3 and message_index == 1:
+            expected = [-0.014942, -0.014942]
+        source_index = initial_source_index
+        tag_holds = 0
+        active_override = initial_override
+        while True:
+            if active_override is not None:
+                active_record = active_override
+                active_override = None
+            else:
+                active_record = (
+                    record if source_index == 0 else
+                    self.trajectory_suffix(record, source_index))
+            self.require_close_to_start(active_record)
+            outgoing = self.trajectory_message(active_record)
+            publish_wall_ns = time.monotonic_ns()
+            publish_sim_ns = self.get_clock().now().nanoseconds
+            publisher.publish(outgoing)
+            duration_ns = point_duration_ns(active_record[&#x27;points&#x27;][-1])
+            wall_deadline = time.monotonic() + max(
+                self.maximum_age_s,
+                duration_ns * 1e-9 * self.timeout_factor +
+                self.timeout_padding)
+            stable_count = 0
+            resume_after_hold = False
+            while time.monotonic() &lt; wall_deadline:
+                try:
+                    self.runtime_gate(
+                        plan, certificate, require_cabinet=True,
+                        allow_raw_cabinet=True)
+                except ExecutionFault as error:
+                    if str(error) != &#x27;STALE_CABINET_TAG&#x27;:
+                        raise
+                    tag_holds += 1
+                    if tag_holds &gt; self.maximum_tag_occlusion_holds:
+                        raise ExecutionFault(
+                            &#x27;CABINET_TAG_OCCLUSION_HOLD_LIMIT&#x27;)
+                    hold_status = self.publish_measured_hold()
+                    if hold_status != &#x27;HOLD_PASS&#x27;:
+                        raise ExecutionFault(
+                            f&#x27;TAG_OCCLUSION_{hold_status}&#x27;)
+                    self.event(
+                        &#x27;CABINET_TAG_OCCLUSION_HOLD&#x27;,
+                        stage_index=stage_index,
+                        message_index=message_index,
+                        hold_count=tag_holds)
+                    self.wait_for_stable_cabinet_after_hold(plan, certificate)
+                    index, error_rad = self.nearest_certified_point(
+                        record, source_index)
+                    if (error_rad &lt;= self.start_tolerance and
+                            index &gt;= len(record[&#x27;points&#x27;]) - 1):
+                        with self.lock:
+                            positions = dict(self.joint_positions)
+                        self.require_close(
+                            positions, record[&#x27;joint_names&#x27;], expected,
+                            self.endpoint_tolerance, &#x27;TRAJECTORY_ENDPOINT&#x27;)
+                        self.event(
+                            &#x27;CABINET_TAG_REACQUIRED_AT_ENDPOINT&#x27;,
+                            stage_index=stage_index,
+                            message_index=message_index,
+                            error_rad=error_rad)
+                        return
+                    if error_rad &lt;= self.start_tolerance:
+                        source_index = index
+                        self.event(
+                            &#x27;CABINET_TAG_REACQUIRED_RESUME_SUFFIX&#x27;,
+                            stage_index=stage_index,
+                            message_index=message_index,
+                            source_point_index=source_index,
+                            error_rad=error_rad)
+                    else:
+                        active_override, source_index, error_rad = (
+                            self.audited_tag_resume_connector(
+                                plan, record, stage_index, source_index))
+                        self.event(
+                            &#x27;CABINET_TAG_REACQUIRED_RESUME_CPP_CONNECTOR&#x27;,
+                            stage_index=stage_index,
+                            message_index=message_index,
+                            source_point_index=source_index,
+                            error_rad=error_rad)
+                    resume_after_hold = True
+                    break
+                sim_elapsed = (
+                    self.get_clock().now().nanoseconds - publish_sim_ns)
+                if sim_elapsed &lt; 0:
+                    raise ExecutionFault(&#x27;SIMULATION_CLOCK_REVERSED&#x27;)
+                if sim_elapsed &gt;= duration_ns:
+                    with self.lock:
+                        positions = dict(self.joint_positions)
+                        received = self.joint_receive_ns
+                    try:
+                        if received &gt; publish_wall_ns:
+                            self.require_close(
+                                positions, record[&#x27;joint_names&#x27;], expected,
+                                self.endpoint_tolerance,
+                                &#x27;TRAJECTORY_ENDPOINT&#x27;)
+                            stable_count += 1
+                        else:
+                            stable_count = 0
+                    except ExecutionFault:
+                        stable_count = 0
+                    if stable_count &gt;= 3:
+                        self.event(
+                            &#x27;TRAJECTORY_PASS&#x27;, stage_index=stage_index,
+                            message_index=message_index,
+                            topic=record[&#x27;topic&#x27;],
+                            points=len(record[&#x27;points&#x27;]),
+                            duration_s=point_duration_ns(
+                                record[&#x27;points&#x27;][-1]) * 1e-9,
+                            tag_occlusion_holds=tag_holds)
+                        return
+                time.sleep(0.005)
+            if resume_after_hold:
+                continue
+            raise ExecutionFault(
+                f&#x27;TRAJECTORY_TIMEOUT:stage={stage_index}:&#x27;
+                f&#x27;message={message_index}&#x27;)
+
+    def support_checkpoint(self, stage_index, message_index):
+        if (stage_index, message_index) == (2, 2):
+            self.run_support_helper(&#x27;door_attach&#x27;, &#x27;door&#x27;, &#x27;attach&#x27;)
+            self.wait_support(&#x27;right&#x27;, &#x27;attached&#x27;, 2.0)
+        elif (stage_index, message_index) == (3, 1):
+            self.run_support_helper(&#x27;cube_attach&#x27;, &#x27;cube&#x27;, &#x27;attach&#x27;)
+            self.wait_support(&#x27;left&#x27;, &#x27;attached&#x27;, 2.0)
+        elif (stage_index, message_index) == (3, 2):
+            if ((self.resume_stage_index, self.resume_message_index) ==
+                    (3, 2) and self.cube_recovery_preload_file is not None):
+                self.run_support_helper(
+                    &#x27;cube_detach_recovery&#x27;, &#x27;cube&#x27;, &#x27;recover_detach&#x27;)
+            else:
+                self.run_support_helper(&#x27;cube_detach&#x27;, &#x27;cube&#x27;, &#x27;detach&#x27;)
+            self.wait_support(&#x27;left&#x27;, &#x27;detached&#x27;, 2.0)
+        elif (stage_index, message_index) == (4, 0):
+            self.run_support_helper(
+                &#x27;door_detach&#x27;, &#x27;door_detach&#x27;, &#x27;detach&#x27;)
+            self.wait_support(&#x27;right&#x27;, &#x27;detached&#x27;, 2.0)
+
+    def wait_latch(self, expected, timeout_s):
+        deadline = time.monotonic() + timeout_s
+        while time.monotonic() &lt; deadline:
+            with self.lock:
+                value = self.latch_state
+                received = self.latch_receive_ns
+            if (value == expected and received and
+                    time.monotonic_ns() - received &lt;=
+                    int(self.maximum_age_s * 1e9)):
+                return
+            time.sleep(0.02)
+        raise ExecutionFault(f&#x27;LATCH_STATE:{expected}&#x27;)
+
+    def wait_mechanism(self, door, handle, timeout_s):
+        deadline = time.monotonic() + timeout_s
+        while time.monotonic() &lt; deadline:
+            with self.lock:
+                positions = dict(self.mechanism_positions)
+                velocities = dict(self.mechanism_velocities)
+                received = self.mechanism_receive_ns
+            if (received and time.monotonic_ns() - received &lt;=
+                    int(self.maximum_age_s * 1e9) and
+                    abs(positions.get(&#x27;door_hinge_joint&#x27;, math.inf) - door) &lt;=
+                    math.radians(0.5) and
+                    abs(positions.get(&#x27;handle_latch_joint&#x27;, math.inf) - handle)
+                    &lt;= math.radians(3.0) and
+                    abs(velocities.get(&#x27;door_hinge_joint&#x27;, math.inf)) &lt;= 0.01 and
+                    abs(velocities.get(&#x27;handle_latch_joint&#x27;, math.inf)) &lt;= 0.01):
+                return
+            time.sleep(0.02)
+        raise ExecutionFault(&#x27;MECHANISM_CHECKPOINT&#x27;)
+
+    def stage_checkpoint(self, stage_index):
+        if stage_index == 0:
+            self.wait_latch(&#x27;unlocked&#x27;, 2.0)
+            self.wait_mechanism(0.0, math.pi / 2.0, 2.0)
+        elif stage_index == 2:
+            self.wait_support(&#x27;right&#x27;, &#x27;attached&#x27;, 1.0)
+            self.wait_mechanism(math.pi / 3.0, math.pi / 2.0, 2.0)
+        elif stage_index == 3:
+            self.wait_support(&#x27;left&#x27;, &#x27;detached&#x27;, 1.0)
+        elif stage_index == 4:
+            self.wait_support(&#x27;right&#x27;, &#x27;detached&#x27;, 1.0)
+            self.wait_mechanism(0.0, math.pi / 2.0, 2.0)
+        elif stage_index == 6:
+            self.wait_latch(&#x27;locked&#x27;, 2.0)
+            # The latch return is a passive Gazebo joint response after the
+            # gripper releases.  At the admitted RTF floor, ten wall seconds
+            # provide the same two seconds of simulation settling used by the
+            # mechanism contract; the unchanged positional/velocity gates are
+            # still enforced by wait_mechanism().
+            self.wait_mechanism(0.0, 0.0, 10.0)
+
+    def publish_measured_hold(self):
+        try:
+            required = {name for names in CONTROLLER_JOINTS.values()
+                        for name in names}
+            # A first hold can arrest a moving controller outside the 3 mrad
+            # endpoint band.  One bounded second measured hold is permitted;
+            # it targets the now-arrested telemetry and never resumes motion.
+            for hold_attempt in (1, 2):
+                deadline = time.monotonic() + min(1.0, self.maximum_age_s)
+                while time.monotonic() &lt; deadline:
+                    with self.lock:
+                        positions = dict(self.joint_positions)
+                        received = self.joint_receive_ns
+                    if (required &lt;= positions.keys() and received and
+                            time.monotonic_ns() - received &lt;=
+                            int(self.maximum_age_s * 1e9)):
+                        break
+                    time.sleep(0.01)
+                else:
+                    return &#x27;HOLD_FAIL:NO_FRESH_JOINT_STATE&#x27;
+                targets = {}
+                for topic, names in CONTROLLER_JOINTS.items():
+                    if (self.trajectory_publishers[
+                            topic].get_subscription_count() != 1):
+                        return f&#x27;HOLD_FAIL:SUBSCRIBER:{topic}&#x27;
+                    message = JointTrajectory()
+                    message.joint_names = list(names)
+                    point = JointTrajectoryPoint()
+                    point.positions = [positions[name] for name in names]
+                    point.time_from_start.sec = 0
+                    point.time_from_start.nanosec = 100_000_000
+                    message.points.append(point)
+                    targets[topic] = (names, list(point.positions), message)
+                for _ in range(3):
+                    for topic, (_, _, message) in targets.items():
+                        self.trajectory_publishers[topic].publish(message)
+                    time.sleep(0.05)
+                verify_deadline = time.monotonic() + 1.0
+                while time.monotonic() &lt; verify_deadline:
+                    with self.lock:
+                        actual = dict(self.joint_positions)
+                    try:
+                        for names, expected, _ in targets.values():
+                            self.require_close(
+                                actual, names, expected,
+                                self.endpoint_tolerance, &#x27;HOLD_ENDPOINT&#x27;)
+                        self.event(
+                            &#x27;STOP_AND_HOLD_PASS&#x27;,
+                            hold_attempt=hold_attempt)
+                        return &#x27;HOLD_PASS&#x27;
+                    except ExecutionFault:
+                        time.sleep(0.02)
+            return &#x27;HOLD_FAIL:ENDPOINT&#x27;
+        except Exception as error:
+            return f&#x27;HOLD_FAIL:{type(error).__name__}:{error}&#x27;
+
+    def finalize_success(self, result, result_path):
+        self.final_status = &#x27;PASS&#x27;
+        self.event(&#x27;COMPLETE_PASS&#x27;)
+        payload = self.evidence_payload(
+            &#x27;PASS&#x27;, result=result, result_path=result_path)
+        self.write_exclusive(
+            self.run_directory / &#x27;execution_result.json&#x27;,
+            json.dumps(payload, sort_keys=True, indent=2, allow_nan=False) + &#x27;\n&#x27;)
+        self.publish_status(
+            &#x27;PASS&#x27;, plan_hash=result[&#x27;plan_hash&#x27;], gazebo_only=True,
+            evidence=str(self.run_directory / &#x27;execution_result.json&#x27;))
+        self.done.set()
+
+    def finalize_failure(self, reason, result=None):
+        if self.done.is_set():
+            return
+        self.final_status = reason
+        try:
+            self.event(&#x27;FAIL_CLOSED&#x27;, reason=reason,
+                       motion_started=self.motion_started)
+            if self.run_directory is not None:
+                payload = self.evidence_payload(&#x27;FAIL_CLOSED&#x27;, result=result)
+                payload[&#x27;reason&#x27;] = reason
+                self.write_exclusive(
+                    self.run_directory / &#x27;execution_result.json&#x27;,
+                    json.dumps(
+                        payload, sort_keys=True, indent=2,
+                        allow_nan=False) + &#x27;\n&#x27;)
+        except Exception as evidence_error:
+            self.get_logger().error(f&#x27;evidence failure: {evidence_error}&#x27;)
+        self.publish_status(
+            &#x27;FAIL_CLOSED&#x27;, reason=reason,
+            motion_started=self.motion_started, gazebo_only=True)
+        self.done.set()
+
+    def evidence_payload(self, status, result=None, result_path=None):
+        with self.lock:
+            events = list(self.events)
+            latch = self.latch_state
+            right = self.right_support_state
+            left = self.left_support_state
+            mechanism = dict(self.mechanism_positions)
+            raw_cabinet_tag_id = self.raw_cabinet_tag_id
+            raw_cabinet_observation_count = (
+                self.raw_cabinet_observation_count)
+        return {
+            &#x27;schema&#x27;: SCHEMA,
+            &#x27;status&#x27;: status,
+            &#x27;gazebo_only&#x27;: True,
+            &#x27;execute_was_explicit&#x27;: self.execute_enabled,
+            &#x27;execution_mode&#x27;: self.execution_mode,
+            &#x27;resume_enabled&#x27;: self.resume_enabled,
+            &#x27;resume_stage_index&#x27;: self.resume_stage_index,
+            &#x27;resume_message_index&#x27;: self.resume_message_index,
+            &#x27;plan_hash&#x27;: result.get(&#x27;plan_hash&#x27;, &#x27;&#x27;) if result else &#x27;&#x27;,
+            &#x27;certificate_hash&#x27;: (
+                result.get(&#x27;certificate_hash&#x27;, &#x27;&#x27;) if result else &#x27;&#x27;),
+            &#x27;source_result&#x27;: str(result_path) if result_path else &#x27;&#x27;,
+            &#x27;motion_started&#x27;: self.motion_started,
+            &#x27;final_latch_state&#x27;: latch,
+            &#x27;final_right_door_support_state&#x27;: right,
+            &#x27;final_left_cube_support_state&#x27;: left,
+            &#x27;final_mechanism_positions&#x27;: mechanism,
+            &#x27;raw_cabinet_tag_id&#x27;: raw_cabinet_tag_id,
+            &#x27;raw_cabinet_observation_count&#x27;: raw_cabinet_observation_count,
+            &#x27;events&#x27;: events,
+        }
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = Candidate3ExecutionSupervisor()
+    executor = MultiThreadedExecutor(num_threads=4)
+    executor.add_node(node)
+    try:
+        while rclpy.ok() and not node.done.is_set():
+            executor.spin_once(timeout_sec=0.1)
+    except KeyboardInterrupt:
+        if node.motion_started:
+            node.publish_measured_hold()
+        node.finalize_failure(&#x27;KEYBOARD_INTERRUPT&#x27;)
+    finally:
+        node.stop_support_bridge()
+        executor.shutdown()
+        node.destroy_node()
+        if rclpy.ok():
+            rclpy.shutdown()
+
+
+if __name__ == &#x27;__main__&#x27;:
+    main()
+</pre></body></html>

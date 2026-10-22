@@ -1,0 +1,29 @@
+{
+  "schema": "h1_candidate3_post_nav_open_matrix/v1",
+  "baseline_cdr_sha256": {
+    "epoch": "98a0e2f9e4b030059721c29bc95ea373d3db65bcf67fdafe3a6f96bc84829c17",
+    "scene": "78f41904253a7e30d3f04fd3e58dafb227a42c01b18d680d2e8fcdea73a9dca2"
+  },
+  "cases": [
+    {"case": "xy_mm", "base_x_mm": -1.0, "base_y_mm": -1.0},
+    {"case": "xy_mp", "base_x_mm": -1.0, "base_y_mm": 1.0},
+    {"case": "xy_pm", "base_x_mm": 1.0, "base_y_mm": -1.0},
+    {"case": "xy_pp", "base_x_mm": 1.0, "base_y_mm": 1.0},
+    {"case": "xyyaw_mmm", "base_x_mm": -1.0, "base_y_mm": -1.0, "base_yaw_deg": -0.1},
+    {"case": "xyyaw_mmp", "base_x_mm": -1.0, "base_y_mm": -1.0, "base_yaw_deg": 0.1},
+    {"case": "xyyaw_mpm", "base_x_mm": -1.0, "base_y_mm": 1.0, "base_yaw_deg": -0.1},
+    {"case": "xyyaw_mpp", "base_x_mm": -1.0, "base_y_mm": 1.0, "base_yaw_deg": 0.1},
+    {"case": "xyyaw_pmm", "base_x_mm": 1.0, "base_y_mm": -1.0, "base_yaw_deg": -0.1},
+    {"case": "xyyaw_pmp", "base_x_mm": 1.0, "base_y_mm": -1.0, "base_yaw_deg": 0.1},
+    {"case": "xyyaw_ppm", "base_x_mm": 1.0, "base_y_mm": 1.0, "base_yaw_deg": -0.1},
+    {"case": "xyyaw_ppp", "base_x_mm": 1.0, "base_y_mm": 1.0, "base_yaw_deg": 0.1},
+    {"case": "xyz_yaw_all_minus", "base_x_mm": -1.0, "base_y_mm": -1.0, "base_z_mm": -1.0, "base_yaw_deg": -0.1},
+    {"case": "xyz_yaw_z_plus", "base_x_mm": -1.0, "base_y_mm": -1.0, "base_z_mm": 1.0, "base_yaw_deg": -0.1},
+    {"case": "xyz_yaw_z_minus", "base_x_mm": 1.0, "base_y_mm": 1.0, "base_z_mm": -1.0, "base_yaw_deg": 0.1},
+    {"case": "xyz_yaw_all_plus", "base_x_mm": 1.0, "base_y_mm": 1.0, "base_z_mm": 1.0, "base_yaw_deg": 0.1},
+    {"case": "roll_minus_0p05deg", "base_roll_deg": -0.05},
+    {"case": "roll_plus_0p05deg", "base_roll_deg": 0.05},
+    {"case": "pitch_minus_0p05deg", "base_pitch_deg": -0.05},
+    {"case": "pitch_plus_0p05deg", "base_pitch_deg": 0.05}
+  ]
+}

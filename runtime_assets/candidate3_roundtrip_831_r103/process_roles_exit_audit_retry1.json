@@ -1,0 +1,69 @@
+{
+  "checked_at": "2026-09-16T04:46:24.138481+00:00",
+  "checks": {
+    "flow_absent": true,
+    "gz_gui_present": true,
+    "gz_server_present": true,
+    "launch_present": true,
+    "recorder_absent": true,
+    "support_absent": true,
+    "video_absent": true
+  },
+  "counts": {
+    "flow": 0,
+    "gz_gui": 1,
+    "gz_server": 1,
+    "launch": 1,
+    "recorder": 0,
+    "support_daemon": 0,
+    "video_recorder": 0
+  },
+  "excluded_ancestor_pids": [
+    1,
+    1925,
+    2408,
+    39992,
+    40038,
+    812893,
+    813717,
+    814106,
+    814122,
+    1780409,
+    1780410
+  ],
+  "initial_audit_note": "The first audit counted its own and ancestor command lines.",
+  "matched_processes": {
+    "flow": [],
+    "gz_gui": [
+      {
+        "cmd": "gz sim gui",
+        "pid": 1644284,
+        "ppid": 1644041,
+        "stat": "Sl"
+      }
+    ],
+    "gz_server": [
+      {
+        "cmd": "gz sim server",
+        "pid": 1644281,
+        "ppid": 1644041,
+        "stat": "Rl"
+      }
+    ],
+    "launch": [
+      {
+        "cmd": "/usr/bin/python3 /opt/ros/jazzy/bin/ros2 launch -n /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_authority_v24/gazebo.launch.py spawn_incubator:=true table_x:=0.600 cube_x:=0.334 incubator_x:=0.590 incubator_y:=0.00 incubator_z:=0.815 bridge_support_states:=false robot_joint_state_relay_source:=/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_authority_v24/h1_robot_joint_state_relay_829.py robot_joint_state_relay_sha256:=5055b923daaf322cfcf7a7dbb738359c5e4d702010be539c4ce75b8f5b8f193c telemetry_bridge_config:=/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_authority_v24/candidate3_telemetry_bridge_829.yaml telemetry_bridge_config_sha256:=615231d3fc7d810f38165cbc679e4044263d4000cace8b56cc0ed35705ec9b0d",
+        "pid": 1643933,
+        "ppid": 814122,
+        "stat": "Ssl+"
+      }
+    ],
+    "recorder": [],
+    "support_daemon": [],
+    "video_recorder": []
+  },
+  "schema": "h1_candidate3_roundtrip_process_roles_exit_audit/831-r103-v1-retry1",
+  "status": "PASS",
+  "supersedes": "process_roles_exit_audit.json",
+  "support_socket_absent": true
+}

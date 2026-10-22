@@ -1,0 +1,149 @@
+{
+  "authority": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_authority_v23",
+  "camera_pose": {
+    "orientation": {
+      "w": -0.5487785935401917,
+      "x": 0.15099482238292694,
+      "y": -0.10155720263719559,
+      "z": -0.8159220218658447
+    },
+    "position": {
+      "x": 0.612566351890564,
+      "y": -0.7572689056396484,
+      "z": 1.4472222328186035
+    }
+  },
+  "commands_sha256": "e7aaabf28a523e1b39e8c4f8bd5ee8fa3f5018624b5105ae32cee114a2cad29e",
+  "conditions": {
+    "authority_action_payload_audit_pass": true,
+    "both_supports_detached": true,
+    "camera_pose_unchanged": true,
+    "controller_counts_16_16_16_4_8": true,
+    "cube_at_origin": true,
+    "cycle1_pass": true,
+    "door_hinge_q0": true,
+    "five_trajectory_publishers_zero": true,
+    "flow_completion_pass": true,
+    "flow_under_180_s": true,
+    "four_walls_visible": true,
+    "handle_contact_zero": true,
+    "handle_q0": true,
+    "latch_locked": true,
+    "left_handle_commands_zero": true,
+    "localization_rms_below_3cm": true,
+    "localization_valid": true,
+    "navigation_enclosure_present": true,
+    "preparation_exact_pass": true,
+    "robot_launch_pose": true,
+    "rosbag_audit_pass": true,
+    "support_flow_recorder_video_absent": true,
+    "support_plugin_matches_contract": true,
+    "support_socket_absent": true,
+    "terminal_flow_pass": true,
+    "torso_command_below_45_deg": true,
+    "torso_measured_below_45_deg": true,
+    "video_decode_pass": true,
+    "video_dimensions_and_rate": true
+  },
+  "cube_origin_xyz_m": [
+    0.334,
+    0.377,
+    0.83
+  ],
+  "cube_position_error_m": 0.0005300700159671292,
+  "errors": [],
+  "final_entities": {
+    "green_cube": {
+      "orientation": {
+        "w": 0.707282344275572,
+        "x": 0.3334700256681415,
+        "y": 0.37701006201328,
+        "z": 0.8299995695499438
+      },
+      "position": {
+        "x": 0.3334700256681415,
+        "y": 0.37701006201328,
+        "z": 0.8299995695499438
+      }
+    }
+  },
+  "incubator_joint_positions_rad": {
+    "door_hinge_joint": -2.3251219838253058e-22,
+    "handle_latch_joint": -2.852694480363416e-16
+  },
+  "latch": "locked",
+  "localization": {
+    "inlier_fraction": 1.0,
+    "inlier_rms_m": 0.01801446925910032,
+    "map_to_odom_published": false,
+    "point_count": 720,
+    "pose": {
+      "x": 0.0,
+      "y": 0.0,
+      "yaw": 0.0
+    },
+    "reason": "pass",
+    "robust_rms_m": 0.014279130273725025,
+    "valid": true,
+    "visible_wall_count": 4,
+    "wall_point_counts": [
+      306,
+      57,
+      178,
+      179
+    ]
+  },
+  "manifest_sha256": "6bed442e7351876079796ca03d94f2657e7c4c086659fabf5e805691c1b53d68",
+  "rosbag_summary": {
+    "controller_total": 60,
+    "duration_s": 319.819288933,
+    "handle_contact_messages": 0,
+    "maximum_commanded_torso_deg": 44.25,
+    "maximum_measured_torso_deg": 44.25000000101826,
+    "topic_counts": {
+      "/clock": 62091,
+      "/incubator/handle/contacts": 0,
+      "/incubator/joint_states": 61727,
+      "/joint_states": 30854,
+      "/left_arm_controller/joint_trajectory": 16,
+      "/left_gripper_controller/joint_trajectory": 4,
+      "/right_arm_controller/joint_trajectory": 16,
+      "/right_gripper_controller/joint_trajectory": 8,
+      "/torso_controller/joint_trajectory": 16
+    },
+    "total_messages": 154732
+  },
+  "run_id": "edb3a20aaadcc3823add641210bed5d1d62b7a6fbe1dc549d3613f455788648d",
+  "run_root": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_r33",
+  "schema": "h1_candidate3_roundtrip_combined_scene_final_audit/831-r33-v1",
+  "status": "PASS",
+  "timing": {
+    "completion_ns": 92425077530758,
+    "invocation_ns": 92248138755590,
+    "invocation_to_motion_start_s": 2.520964533,
+    "invocation_to_terminal_pass_s": 176.938775168,
+    "motion_end_ns": 92425077513528,
+    "motion_start_ns": 92250659720123,
+    "motion_window_s": 174.417793405
+  },
+  "video_sha256": "503a05a2f09123ae77366f44f35bb1abc1d523a3cacfc6b18f47bb4943ea8ab3",
+  "video_summary": {
+    "format": {
+      "duration": "192.400000",
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "size": "8519535"
+    },
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "duration": "192.400000",
+        "height": 1518,
+        "index": 0,
+        "nb_read_frames": "1924",
+        "r_frame_rate": "10/1",
+        "width": 1160
+      }
+    ]
+  }
+}

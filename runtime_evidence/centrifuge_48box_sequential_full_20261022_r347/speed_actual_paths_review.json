@@ -1,0 +1,496 @@
+{
+  "status": "PASS_ACTUAL_SEQUENTIAL_COMMAND_PATHS_NOT_ABSOLUTE_COLLISION_GUARANTEE",
+  "authority": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347",
+  "identity_sha256": "12127f531a60c98a0cc0075958c894d07ffb98df2940d4f225f19549b947c985",
+  "records": [
+    {
+      "mode": "park",
+      "hand": "left",
+      "payload": "left",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 451,
+      "maximum_active_basket_from_down_deg": null,
+      "endpoint_errors": [],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "1_park_left_request.json",
+      "request_sha256": "cff2cde23927cd467dd6c076c2ca6e86d31d295d8a3b31cb0408fc8ae38a5e36",
+      "result_sha256": "d8c8198e8aca6cd2c78e0669ac6e817d0176b570e159807ffb4a107659efbc71"
+    },
+    {
+      "mode": "load_pickup",
+      "hand": "left",
+      "payload": "left",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 1953,
+      "maximum_active_basket_from_down_deg": null,
+      "endpoint_errors": [],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "2_load_pickup_left_request.json",
+      "request_sha256": "896051c0b8bfcdbfb375940ab4b0ce779a100b337951bd332d959878abc67c7e",
+      "result_sha256": "e2d2a8c611463cc3ab212b1f8bbd77428948b8ec2f72fb9bda41d742b4258a84"
+    },
+    {
+      "mode": "load_pilot",
+      "hand": "left",
+      "payload": "left",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 82,
+      "maximum_active_basket_from_down_deg": null,
+      "endpoint_errors": [
+        {
+          "phase": "single_pilot",
+          "position_m": 3.373435997854253e-12,
+          "angle_deg": 1.1187706444700878e-09
+        }
+      ],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "3_load_pilot_left_request.json",
+      "request_sha256": "1b9c9e887e8ee9f6cd20cfbb70ebbf99bad835fabcaac2d52dfb8613daecd61b",
+      "result_sha256": "589d2c60f06e6df4c9b1d1d5e98c1ea4d688bfa9a3c657573235c78eee7403f1"
+    },
+    {
+      "mode": "load_transport",
+      "hand": "left",
+      "payload": "left",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 2165,
+      "maximum_active_basket_from_down_deg": 14.185175790907195,
+      "endpoint_errors": [
+        {
+          "phase": "load_lift",
+          "position_m": 2.84005581544369e-09,
+          "angle_deg": 8.91777718431435e-07
+        },
+        {
+          "phase": "load_transfer",
+          "position_m": 1.9638577106794817e-12,
+          "angle_deg": 5.970937540137696e-10
+        },
+        {
+          "phase": "load_lower",
+          "position_m": 2.170014159659024e-12,
+          "angle_deg": 7.292949679418961e-10
+        }
+      ],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "4_load_transport_left_request.json",
+      "request_sha256": "ba8cfc44b694c61fca4794d208cd03da7ff346f639f6242cfe5774f68f96ef95",
+      "result_sha256": "841446cb384bfb8e985d6633abbea0574105684d644838234fec3480a4a26d4d"
+    },
+    {
+      "mode": "load_release_align",
+      "hand": "left",
+      "payload": "left",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 42,
+      "maximum_active_basket_from_down_deg": 7.490499785465307,
+      "endpoint_errors": [
+        {
+          "phase": "load_release_pilot_align",
+          "position_m": 1.182325998675161e-12,
+          "angle_deg": 3.96310222730923e-10
+        }
+      ],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "5_load_release_align_left_request.json",
+      "request_sha256": "9125ddb17a249ba5dfb1c31dea8f9dada20d358b220c1b79402dd767e0f21a55",
+      "result_sha256": "8b4bd11a898b25f9ff1eea9fa10f458f17b4936a79d9db6e4d34fb089ae38299"
+    },
+    {
+      "mode": "empty_retreat",
+      "hand": "left",
+      "payload": "left",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 1716,
+      "maximum_active_basket_from_down_deg": null,
+      "endpoint_errors": [],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "6_empty_retreat_left_request.json",
+      "request_sha256": "67c7714cbc4c4a64344310efef8c33a59bfd340e922c91cdaca60cf1275330d0",
+      "result_sha256": "56f63faf0e5adbe1a895488936ee0478341165b18ec967eade1582f0b9a70e52"
+    },
+    {
+      "mode": "load_pickup",
+      "hand": "right",
+      "payload": "right",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 1983,
+      "maximum_active_basket_from_down_deg": null,
+      "endpoint_errors": [],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "7_load_pickup_right_request.json",
+      "request_sha256": "2c0cc87310a5c5a0c8d603930319471e7d9f9bf356b76835f41ce9c568e0a903",
+      "result_sha256": "dab2b74c8f3edc7fc0a68d18aebde6de63ccd0dfd07d7507c83d5907b41d71b0"
+    },
+    {
+      "mode": "load_pilot",
+      "hand": "right",
+      "payload": "right",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 82,
+      "maximum_active_basket_from_down_deg": null,
+      "endpoint_errors": [
+        {
+          "phase": "single_pilot",
+          "position_m": 3.450147554599078e-12,
+          "angle_deg": 1.300751153250452e-09
+        }
+      ],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "8_load_pilot_right_request.json",
+      "request_sha256": "d6579566b03d8c1aa973704de2f950adb9ef84757e1c42134dd19705240d9de9",
+      "result_sha256": "8927658da59c84832217ffbbd9ea8ee7e76b0498ceee2d68fdb7a69dd48ee843"
+    },
+    {
+      "mode": "load_transport",
+      "hand": "right",
+      "payload": "right",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 1612,
+      "maximum_active_basket_from_down_deg": 16.8240302002168,
+      "endpoint_errors": [
+        {
+          "phase": "load_lift",
+          "position_m": 1.622758206482557e-12,
+          "angle_deg": 3.932298492660673e-10
+        },
+        {
+          "phase": "load_transfer",
+          "position_m": 1.2647457888187252e-12,
+          "angle_deg": 3.6115326951577403e-10
+        },
+        {
+          "phase": "load_lower",
+          "position_m": 1.648420908823979e-12,
+          "angle_deg": 4.3979001910745146e-10
+        }
+      ],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "9_load_transport_right_request.json",
+      "request_sha256": "b67ad5d8914cdce474edb400d16eb8f91072bc3bbccf421a4ea8d57222414310",
+      "result_sha256": "38a36ef6630f503b6bf2e7b28e4a9f32ef44410a1861c4bab776ba56004abb8d"
+    },
+    {
+      "mode": "load_release_align",
+      "hand": "right",
+      "payload": "right",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 42,
+      "maximum_active_basket_from_down_deg": 4.684707891492969,
+      "endpoint_errors": [
+        {
+          "phase": "load_release_pilot_align",
+          "position_m": 1.0195318976899033e-12,
+          "angle_deg": 3.1782174203580186e-10
+        }
+      ],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "10_load_release_align_right_request.json",
+      "request_sha256": "b085520619320591840dafaa35d034a3b35ae703548888766b0840efa0351523",
+      "result_sha256": "92c9415c0b8687408d02dcac6a6a97e1a3ae63f653a942ca811909d912eb060b"
+    },
+    {
+      "mode": "empty_retreat",
+      "hand": "right",
+      "payload": "right",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 1826,
+      "maximum_active_basket_from_down_deg": null,
+      "endpoint_errors": [],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "11_empty_retreat_right_request.json",
+      "request_sha256": "a658fd2985fc9f3640bcd510cd988abe34e5387f047055b53dd7f35b559fc497",
+      "result_sha256": "1d7b398aa6beb2083e82b633d4d3b322e1ddcc185dfd5e92849c654851f8a78c"
+    },
+    {
+      "mode": "neutral",
+      "hand": "left",
+      "payload": "left",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 385,
+      "maximum_active_basket_from_down_deg": null,
+      "endpoint_errors": [],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "12_neutral_left_request.json",
+      "request_sha256": "2c7776123f50507b477ff09150be65a50d9c3584cd15f3cce16b66d3e64bf57d",
+      "result_sha256": "9adaddc7271cb36d031794a39c24701ae81b74b69119b61ebae412070b6823dc"
+    },
+    {
+      "mode": "park",
+      "hand": "left",
+      "payload": "left",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 651,
+      "maximum_active_basket_from_down_deg": null,
+      "endpoint_errors": [],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "13_park_left_request.json",
+      "request_sha256": "46a40c474321a4fe76eaae41f6b0acdca14efc3927539ecd7e2f2518453713f6",
+      "result_sha256": "b2b3562e307ba9c368fe152f0fe77eec4f4b5c7fd799be54d1c3b7e0ee519efa"
+    },
+    {
+      "mode": "retrieval_pickup",
+      "hand": "left",
+      "payload": "left",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 1862,
+      "maximum_active_basket_from_down_deg": 9.103779637783617,
+      "endpoint_errors": [],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "14_retrieval_pickup_left_request.json",
+      "request_sha256": "79bedc33355025536c854127041e3c5c8bd95e4f3b2dc548af1b8070f210781b",
+      "result_sha256": "cf9c5d5210d5635d6489308cda3586ff9364cf45ec882d661a954ae66c4dfc16"
+    },
+    {
+      "mode": "retrieval_pilot",
+      "hand": "left",
+      "payload": "left",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 62,
+      "maximum_active_basket_from_down_deg": 9.77349313866181,
+      "endpoint_errors": [
+        {
+          "phase": "single_pilot",
+          "position_m": 2.0273906620289674e-12,
+          "angle_deg": 5.462787703191534e-10
+        }
+      ],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "15_retrieval_pilot_left_request.json",
+      "request_sha256": "b2dbf721222b72471b53503608ab7ab42538688a889d0fd99888783747566c23",
+      "result_sha256": "fb3dc1b10efe2abe027a71df89663d976c4d894ded176c1753af7cb44f01a492"
+    },
+    {
+      "mode": "retrieval_transport",
+      "hand": "left",
+      "payload": "left",
+      "retrieval_commanded_tilt_limit_deg": 5.0,
+      "maximum_retrieval_planned_tilt_deg": 1.1853409559990926,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 2223,
+      "maximum_active_basket_from_down_deg": 21.567673641105703,
+      "endpoint_errors": [
+        {
+          "phase": "retrieve_axis_exit",
+          "position_m": 2.7410908760118845e-10,
+          "angle_deg": 1.845200993291405e-07
+        },
+        {
+          "phase": "retrieve_lift",
+          "position_m": 2.404983002039512e-10,
+          "angle_deg": 1.9568025494751529e-07
+        },
+        {
+          "phase": "retrieve_outboard",
+          "position_m": 1.3000954017665279e-10,
+          "angle_deg": 1.5680541171147924e-07
+        },
+        {
+          "phase": "retrieve_transfer",
+          "position_m": 2.2405953855438188e-11,
+          "angle_deg": 7.19057370165719e-09
+        },
+        {
+          "phase": "retrieve_setdown",
+          "position_m": 3.629023826650024e-11,
+          "angle_deg": 1.1397299704658874e-08
+        }
+      ],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "16_retrieval_transport_left_request.json",
+      "request_sha256": "dc01822355308cb3fa7cd6ae7408e4837273113b29302e5b6621562cc8e89720",
+      "result_sha256": "c95849cadf575701e25043179dc2dac26fa6f7f2bdd58eb0cd50cc3521734d01"
+    },
+    {
+      "mode": "empty_retreat",
+      "hand": "left",
+      "payload": "left",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 1812,
+      "maximum_active_basket_from_down_deg": null,
+      "endpoint_errors": [],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "17_empty_retreat_left_request.json",
+      "request_sha256": "d1657b388c7ac4fe233e1a6aa34104c7be7bdc9f09d80e80008ee00f8a20697e",
+      "result_sha256": "d743e16c21dbf7b47884f59ab2e73b4902b13787ea236b3bc21d091fd79361ee"
+    },
+    {
+      "mode": "retrieval_pickup",
+      "hand": "right",
+      "payload": "right",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 1721,
+      "maximum_active_basket_from_down_deg": 11.974790718264291,
+      "endpoint_errors": [],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [
+        {
+          "stage": "empty_descend",
+          "maximum_joint_difference_rad": 5.551115123125783e-17
+        }
+      ],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "18_retrieval_pickup_right_request.json",
+      "request_sha256": "fe19fb13e5091e51cc1e929b9e5bbe1bb31648adadccebf9b574eec7f3996baa",
+      "result_sha256": "fd1440399d83ab4809466467a62a259a8ef9f768f043b1be4fa4082cad83eab3"
+    },
+    {
+      "mode": "retrieval_pilot",
+      "hand": "right",
+      "payload": "right",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 62,
+      "maximum_active_basket_from_down_deg": 12.476991761156103,
+      "endpoint_errors": [
+        {
+          "phase": "single_pilot",
+          "position_m": 2.1665912047304277e-12,
+          "angle_deg": 5.856500524712741e-10
+        }
+      ],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "19_retrieval_pilot_right_request.json",
+      "request_sha256": "71b8233c6797ba7f08f635af5ff94d6d779145c7b807ecac5d21f69833ad9078",
+      "result_sha256": "286aa187838a1b3036fe29630e848e70c4add52620e6601f4d9f283fc36ada20"
+    },
+    {
+      "mode": "retrieval_transport",
+      "hand": "right",
+      "payload": "right",
+      "retrieval_commanded_tilt_limit_deg": 5.0,
+      "maximum_retrieval_planned_tilt_deg": 0.9813678342538596,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 2565,
+      "maximum_active_basket_from_down_deg": 15.378250896448817,
+      "endpoint_errors": [
+        {
+          "phase": "retrieve_axis_exit",
+          "position_m": 2.1131906396249943e-10,
+          "angle_deg": 2.3611877029143443e-07
+        },
+        {
+          "phase": "retrieve_lift",
+          "position_m": 1.5088428248164005e-10,
+          "angle_deg": 2.4710569490101625e-07
+        },
+        {
+          "phase": "retrieve_outboard",
+          "position_m": 1.4833642990241727e-10,
+          "angle_deg": 2.0369341767391794e-07
+        },
+        {
+          "phase": "retrieve_transfer",
+          "position_m": 1.1386894459708131e-10,
+          "angle_deg": 3.1487707096202276e-08
+        },
+        {
+          "phase": "retrieve_setdown",
+          "position_m": 3.5170790159873604e-12,
+          "angle_deg": 1.1630818465256107e-09
+        }
+      ],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "20_retrieval_transport_right_request.json",
+      "request_sha256": "bc8c4b9f218bdbda17497afbcb33d21f5b232829780c387402ffafc61895222b",
+      "result_sha256": "39012795f15a0432076f9a015801d1a7d701e19f0c0448b06322f875c245d228"
+    },
+    {
+      "mode": "retrieval_table_alignment",
+      "hand": "right",
+      "payload": "right",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 42,
+      "maximum_active_basket_from_down_deg": null,
+      "endpoint_errors": [
+        {
+          "phase": "table_alignment_pilot",
+          "position_m": 3.3102585994714725e-13,
+          "angle_deg": 9.919189177240781e-11
+        }
+      ],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "21_retrieval_table_alignment_right_request.json",
+      "request_sha256": "f61c9b643be3e0736b69cded063942f77eae1ef8b587d1eea6240c77af38df8c",
+      "result_sha256": "b1ee05ecda5c1c2a39f7357a993c38e87b08a4fe73e609beb03212b8e4736279"
+    },
+    {
+      "mode": "empty_retreat",
+      "hand": "right",
+      "payload": "right",
+      "retrieval_commanded_tilt_limit_deg": 2.0,
+      "maximum_retrieval_planned_tilt_deg": null,
+      "original_dense_step_rad": 0.002,
+      "final_path_dense_checks": 1235,
+      "maximum_active_basket_from_down_deg": null,
+      "endpoint_errors": [],
+      "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+      "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+      "request": "22_empty_retreat_right_request.json",
+      "request_sha256": "88e4b9aeebc839a10d2edcda2e3f26c7ac776d08ae1b007477d047d93dc84605",
+      "result_sha256": "86e30e5352f0d51f164ec8e28962fbcd2d487987e9c0873db67172c9386e402d"
+    }
+  ],
+  "final_path_dense_checks": 24574,
+  "exact_published_paths": true,
+  "elapsed_wall_s": 37.342271432993584,
+  "model_visual_only_wrist_collision_limitation_preserved": true,
+  "no_physical_action": true,
+  "no_claim_perfect_vertical_or_real_robot_or_three_minutes": true
+}

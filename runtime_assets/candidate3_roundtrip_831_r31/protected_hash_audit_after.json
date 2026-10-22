@@ -1,0 +1,36 @@
+{
+  "checks": {
+    "/home/liu/h1_moveit/backups/914.tar.zst": {
+      "actual": "96ea710307e598a023503cc6361dd0795b924fb51e992dd3c51a1f6763f0ca48",
+      "expected": "96ea710307e598a023503cc6361dd0795b924fb51e992dd3c51a1f6763f0ca48",
+      "match": true
+    },
+    "candidate3_roundtrip_831_authority_v19/manifest.json": {
+      "actual": "43c765450228557c1930787e25e9661eeed5fe34ffe2b80318ed3152aab8d7ff",
+      "expected": "43c765450228557c1930787e25e9661eeed5fe34ffe2b80318ed3152aab8d7ff",
+      "match": true
+    },
+    "candidate3_roundtrip_831_authority_v9/manifest.json": {
+      "actual": "b9e49b32c60979eb5a97d8ed3d5dc325a5d73e10b1985a45fd99c61f8848cd29",
+      "expected": "b9e49b32c60979eb5a97d8ed3d5dc325a5d73e10b1985a45fd99c61f8848cd29",
+      "match": true
+    },
+    "candidate3_roundtrip_831_r17/RUN_SUMMARY.md": {
+      "actual": "859e626d9ad77fe9b164fc64856bb8f5ac6b7ab785e3ed1361114fea66561000",
+      "expected": "859e626d9ad77fe9b164fc64856bb8f5ac6b7ab785e3ed1361114fea66561000",
+      "match": true
+    },
+    "candidate3_roundtrip_831_r29/RUN_SUMMARY.md": {
+      "actual": "17f1f16b63e9727589d7e31d875b7474fd436a163af677bc25706dd0183c1c60",
+      "expected": "17f1f16b63e9727589d7e31d875b7474fd436a163af677bc25706dd0183c1c60",
+      "match": true
+    },
+    "src/h1_2_description/models/incubator/model.sdf": {
+      "actual": "44ff23fc7077f0c232e2e69ff9d73aba336140d6a7951968c9c4241a97e73db9",
+      "expected": "44ff23fc7077f0c232e2e69ff9d73aba336140d6a7951968c9c4241a97e73db9",
+      "match": true
+    }
+  },
+  "schema": "h1_protected_hash_audit/20260914-r31-v1",
+  "status": "PASS"
+}

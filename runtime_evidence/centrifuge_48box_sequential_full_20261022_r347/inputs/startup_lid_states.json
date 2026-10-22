@@ -1,0 +1,39 @@
+{
+  "status": "STATIC_INITIAL_LID_SWEEP_PASS_NOT_FRESH_HEALTH",
+  "rows": [
+    {
+      "lid_deg": 0,
+      "collision": false,
+      "static_full_initial_joints": true,
+      "no_attachments_or_touch_exemptions": true
+    },
+    {
+      "lid_deg": 30,
+      "collision": false,
+      "static_full_initial_joints": true,
+      "no_attachments_or_touch_exemptions": true
+    },
+    {
+      "lid_deg": 60,
+      "collision": false,
+      "static_full_initial_joints": true,
+      "no_attachments_or_touch_exemptions": true
+    },
+    {
+      "lid_deg": 90,
+      "collision": false,
+      "static_full_initial_joints": true,
+      "no_attachments_or_touch_exemptions": true
+    },
+    {
+      "lid_deg": 120,
+      "collision": false,
+      "static_full_initial_joints": true,
+      "no_attachments_or_touch_exemptions": true
+    }
+  ],
+  "world_model_x_m": 0.12,
+  "proposed_device_x_m": 0.52,
+  "no_formal_model_scene_or_controller_changed": true,
+  "gui_and_controller_health_still_required": true
+}

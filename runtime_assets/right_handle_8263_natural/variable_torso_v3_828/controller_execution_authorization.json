@@ -1,0 +1,60 @@
+{
+  "schema": "h1_right_handle_controller_execution_authorization/v1",
+  "controller_execution_authorized": true,
+  "execution_ready": false,
+  "live_execution_passed": false,
+  "live_result": null,
+  "controller_commands_issued": 0,
+  "offline_only": true,
+  "bindings": {
+    "contact_path": {
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v3_828/contact_path_v3.json",
+      "sha256": "19d7db327498b1d14f9fe5ebfb2ed3fe741e7ed166cf4b01eade6fc369cf2e98"
+    },
+    "ingress_path": {
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v3_828/q0_ingress_torso38_A0_rrt.json",
+      "sha256": "2e61bc02c8d5ac3baf0e373b5668cfd7cd66e88fc4197a92d1e8cce9ac1942ff"
+    },
+    "exact_audit": {
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v3_828/full_topology_exact_audit.json",
+      "sha256": "042ae8ce8c20e15b35222854f84583d1e4cc88ada2e0d8d4bfdd7e53ab4235f2"
+    },
+    "scene_snapshot": {
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v3_828/scene.cdr",
+      "sha256": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568"
+    }
+  },
+  "controller_topics": [
+    "/torso_controller/joint_trajectory",
+    "/left_arm_controller/joint_trajectory",
+    "/right_arm_controller/joint_trajectory",
+    "/left_gripper_controller/joint_trajectory",
+    "/right_gripper_controller/joint_trajectory"
+  ],
+  "stage_order": {
+    "prefix": [
+      "prepare_left_park",
+      "ingress_open_to_q0",
+      "close_q0_right_hand",
+      "contact_arc_q0_to_q90_hold"
+    ],
+    "suffix": [
+      "contact_arc_q90_hold_to_q0",
+      "release_q0_right_hand",
+      "egress_open_from_q0",
+      "return_left_launch_seam"
+    ]
+  },
+  "limits": {
+    "maximum_abs_torso_rad": 0.7853981633974483,
+    "dense_angular_step_rad": 0.0017453292519943296,
+    "dense_prismatic_step_m": 0.0001,
+    "start_tolerance_rad": 0.003,
+    "endpoint_tolerance_rad": 0.003,
+    "gripper_tolerance_m": 0.001,
+    "lead_time_s": 0.25,
+    "point_dt_s": 0.02
+  },
+  "auditor_version": "h1_right_handle_path_exact_auditor/828-a2-variable-torso",
+  "execution_topology": "right_q0_q90_hold_middle_hold_q90_q0_release/v1"
+}

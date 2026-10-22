@@ -1,0 +1,86 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[1] 8月7日步态训练复核记录</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>[1] 8月7日步态训练复核记录</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="HANDOFF_TO_CODEX.md">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/test/h1_2_train/HANDOFF_TO_CODEX.md</p><pre># H1_2 步态训练 —— 交接文档（给 Codex）
+
+写于 2026-08-07。本文档汇总目前的训练成果、踩过的坑、代码现状和建议的下一步，方便接手继续工作。详细历史见同目录下 `PROGRESS.md`（调参时间线）和 `MODEL_VERSIONS.md`（每个版本的完整配置和评估数据）。
+
+## 项目是什么
+
+在 `/home/liu/test/h1_2_train` 下，用 MuJoCo Playground + Brax PPO 训练 H1_2 人形机器人的步态强化学习策略。
+
+- 只训练 12 个腿部关节（左右各 6 个：hip_yaw/pitch/roll, knee, ankle_pitch/roll）
+- 上半身（torso + 双臂）锁定在 keyframe 姿态，靠 position actuator 的 kp/kd 维持不动
+- 环境类：`h1_2_env/joystick_gait_tracking.py` 的 `JoystickGaitTracking`（基于 mujoco_playground 的 H1 模型改造）
+
+## 当前最佳 checkpoint
+
+```
+/home/liu/test/h1_2_train/logs/H1_2JoystickGaitTracking-20260731-181343-48h-dutyratio0.6-cont5/checkpoints/031227904000
+```
+
+- 312 亿步（48h 续训过程中的中间峰值点，注意**不是**这次训练的最终checkpoint；在 250亿/312亿/375亿三个相邻批量评估点中稳定性最好）
+- 批量评估（256 并行环境 × 2000 步，`eval_checkpoint.py`）：**摔倒率 29.4%**，平均回合奖励 144.78，满分回合平均奖励 186.45
+
+奖励函数当前配置（`h1_2_env/joystick_gait_tracking.py` 的 `reward_config.scales`）：
+```python
+feet_phase=5.0, tracking_lin_vel=5.0, tracking_ang_vel=0.75,
+feet_air_time=0.0, ang_vel_xy=-0.0, lin_vel_z=-0.0,
+pose=-2.5, foot_slip=-0.05, action_rate=-0.01,
+duty_ratio=0.6  # 在 env_config 里，不在 reward scales 里
+```
+
+48h 训练已经**跑完**（`train_logs/train_48h.log` 显示 `Done training.`），目前没有训练进程和 TensorBoard 在跑。48h 训练的完整 checkpoint 序列（每个约62亿步一个点）：
+
+| 步数 | eval/episode_reward（训练内置评估，非批量口径） | 批量评估（256并行环境×2000步，同口径） |
+|---|---|---|
+| 0（起点=版本8的117亿步） | 158.07 | 38.5%（已知） |
+| 62.5亿 | 150.09 | 未评估 |
+| 125亿 | 145.58 | 未评估 |
+| 187亿 | 161.81 | **33.0%**（已评估） |
+| 24,982,323,200（约250亿） | 158.67 | 650回合；提前终止（摔倒）率34.8%；平均奖励137.46；满分回合平均186.74 |
+| **31,227,904,000（约312亿，峰值）** | **165.41** | **提前终止（摔倒）率29.4%；平均奖励144.78；满分回合平均186.45** |
+| 37,473,484,800（约375亿） | 150.19 | 666回合；提前终止（摔倒）率36.0%；平均奖励132.60；满分回合平均185.25 |
+| 437亿 | 152.43 | 未评估 |
+| 500亿 | 161.12 | 未评估 |
+| 562亿（最终） | 149.29 | 35.9%（已评估，训练过头回退） |
+
+250亿和375亿两个相邻点已补跑。按提前终止率这一稳定性主指标和平均回合奖励，312亿步均优于这两个相邻点，因此可确认它是**这三个相邻采样点中的最优点**；这不等于证明它是整条 `duty_ratio=0.6` 连续训练曲线的全局最优点，其他未评估 checkpoint 仍可能更好。
+
+## 关键教训（非常重要，别重复踩坑）
+
+1. **判断策略稳定性/摔倒率只能用批量评估，不能用 MuJoCo viewer 人工看几个回合。** 早期多次用 viewer 看 3-12 个回合得出的结论（例如&quot;1.1B 步基线零摔倒最稳&quot;）后来被批量评估证明是错的——真实摔倒率其实是当时评估过的所有版本中最差的（75.2%）。小样本容易被运气误导。批量评估工具是 `eval_checkpoint.py`（见下）。
+
+2. **TensorBoard 里 `eval/episode_reward` 训练自带评估用的并行环境数偏少（约128个），峰值后的下降可能只是统计噪声**，不能直接当作&quot;策略变差&quot;的证据，但作为初筛/挑候选点还是有用的，最终判断要过一遍批量评估。
+
+3. **奖励权重调整前，先搞清楚问题的物理根因，不要凭直觉调权重方向。** 之前误判&quot;单脚长时间着地&quot;的原因是缺乏双脚交替奖励，加大了 `feet_air_time` 权重，结果这个奖励其实是在鼓励滞空/跳跃，方向反了，摔倒率反而从0%飙升到58%（小样本，24回合14次摔倒）。真正根因是 mujoco_playground 库自带的 `gait.get_rz()` 函数本身没有贴地支撑相，全程都在空中运动。修复是重写了 `_get_rz_with_stance()`（`joystick_gait_tracking.py:389-413`），引入 `duty_ratio=0.6` 让脚有 60% 的相位周期贴地不动。这个改动被批量评估证实方向是对的（摔倒率75.2%→29.4%）。
+
+4. **duty_ratio=0.6 这个方向似乎已经接近收敛。** 同口径批量评估中，250亿/312亿/375亿步的摔倒率分别为34.8%/29.4%/36.0%，562亿步为35.9%；312亿步是这三个相邻点中的局部最佳采样点。**不建议无脑再堆更多训练步数**，下一步应该考虑其他改动方向（见下面&quot;建议的下一步&quot;）。
+
+## 工具脚本
+
+- **`eval_checkpoint.py &lt;checkpoint_path&gt; --num_envs=256 --num_steps=2000 --episode_length=1000`**：批量评估稳定性的正确工具。内部用 `wrapper.wrap_for_brax_training` 保证摔倒后自动重置，只在 done 的 0→1 跳变边沿计数一次（早期版本有重复计数 bug，已修复）。输出摔倒率、平均/满分回合奖励。**挑 checkpoint 一定用这个，不要用下面这个脚本人工数回合。**
+- `run_h1_2_walking.py`：加载指定 checkpoint 在 MuJoCo viewer 里跑单回合，改文件里的 `CHECKPOINT_PATH` 常量。只适合看视觉效果，不能用来判断稳定性。之前遇到过 viewer 窗口不显示的问题，原因未查明，不影响训练/批量评估。
+- `train.py --load_checkpoint_path=&lt;路径&gt; --suffix=&lt;后缀&gt;`：从指定 checkpoint 续训。注意 checkpoint 目录下有 `ocdbt.process_0` 等非数字命名的子目录会干扰按数字排序，已在 `train.py` 里修复（过滤 `c.name.isdigit()`）。
+- TensorBoard：`tensorboard --logdir logs --port 6006`（目前没在跑，需要自己起）。核心看的 scalar：`eval/episode_reward`（主曲线）、`eval/episode_reward_std`（越低说明并行环境间越一致）、`eval/episode_reward/&lt;分项名&gt;`（tracking_lin_vel/tracking_ang_vel/feet_phase/pose/action_rate等，用于诊断具体哪部分学得好/差）。
+
+## 磁盘状态
+
+- `logs/` 下保留 7 个训练目录，共约 65MB，都不大，不用清理。
+- 早期 4 个已删除的实验版本（10分钟快测、pose=-4.0、+foot_slip、duty_ratio=0.6首个1h版本）打包在 `/home/liu/test/h1_2_train_deprecated_versions_backup.tar.gz`（约44MB），需要时 `tar -xzf` 到 `logs/` 下即可恢复。
+- 没有正在运行的 train.py 或 tensorboard 进程。
+
+## 建议的下一步（供参考，非强制）
+
+1. **已完成**：250亿、312亿、375亿三个相邻 checkpoint 的同口径批量评估摔倒率分别为34.8%、29.4%、36.0%，312亿步在这三个相邻点中最优；尚不能据此声称它是整条连续曲线的全局最优点。
+2. `duty_ratio=0.6` 方向看起来接近收敛（29.4%摔倒率），如果要继续降摔倒率，可能需要换方向而不是继续堆训练步数，例如：
+   - 尝试其他 `duty_ratio` 值（比如0.5或0.7），目前只试过0.6一个值
+   - `foot_slip=-0.05` 惩罚的实际效果从未单独隔离评估过（一直和 duty_ratio 耦合在一起训练），可以做对照实验
+   - 检查是否是 `pose=-2.5` 这个姿态约束限制了脚部可用的调整空间
+3. 摔倒的具体失败模式还没有细分过（比如是被侧向推倒、还是前进时绊倒、还是转向时失衡），如果有便于复现的分类方法，可以针对性设计奖励项。
+
+## 与其他项目的关系
+
+参考了同用户的 OpenLoong 系列机器人训练项目经验，但 H1_2 这个项目是独立的 12-DOF 简化版本（上半身锁定），用于快速验证步态奖励设计思路，不要和 OpenLoong 项目的代码/checkpoint混在一起。
+</pre></body></html>

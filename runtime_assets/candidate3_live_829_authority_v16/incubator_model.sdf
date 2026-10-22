@@ -1,0 +1,305 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <model name="incubator">
+    <!--
+      The cabinet is fixed to the world while the door remains dynamic.  All
+      component poses are derived from the SolidWorks swTransform data in
+      incubator_assembly.SLDASM; the STL files use millimetres.
+    -->
+    <static>false</static>
+
+    <link name="body_link">
+      <inertial>
+        <!-- The exact value is immaterial dynamically because this link is
+             fixed to world, but a valid inertia keeps the model well formed. -->
+        <pose>0 0 0.20 0 0 0</pose>
+        <mass>24.1</mass>
+        <inertia>
+          <ixx>0.82</ixx><iyy>0.62</iyy><izz>0.72</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+
+      <visual name="body_visual">
+        <pose>0.189890542898 0.250472606667 0 1.570796326795 0 -1.570796326795</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/incubator/meshes/incubator_body.STL</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.72 0.75 0.78 1</ambient>
+          <diffuse>0.72 0.75 0.78 1</diffuse>
+          <specular>0.30 0.30 0.30 1</specular>
+        </material>
+      </visual>
+      <collision name="body_collision">
+        <pose>0.189890542898 0.250472606667 0 1.570796326795 0 -1.570796326795</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/incubator/meshes/incubator_body.STL</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction><ode><mu>0.8</mu><mu2>0.8</mu2></ode></friction>
+        </surface>
+      </collision>
+
+      <visual name="tray_visual">
+        <pose>0.151890542898 0.146472606667 0.160407057555 1.570796326795 0 -1.570796326795</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/incubator/meshes/incubator_tray.STL</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.62 0.64 0.66 1</ambient>
+          <diffuse>0.62 0.64 0.66 1</diffuse>
+          <specular>0.50 0.50 0.50 1</specular>
+        </material>
+      </visual>
+      <collision name="tray_collision">
+        <pose>0.151890542898 0.146472606667 0.160407057555 1.570796326795 0 -1.570796326795</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/incubator/meshes/incubator_tray.STL</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <!-- Separated fixed-frame bundle on the cabinet top.  Both planes are
+           visual-only and sit 0.5 mm above the unchanged body STL. -->
+      <visual name="apriltag_10_cabinet_top_visual">
+        <pose>-0.080 0.140 0.4055 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane><normal>0 0 1</normal><size>0.100 0.100</size></plane>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse>
+          <pbr><metal>
+            <albedo_map>model://h1_2_description/models/incubator/materials/textures/tag36h11_10.png</albedo_map>
+            <metalness>0</metalness><roughness>1</roughness>
+          </metal></pbr>
+        </material>
+      </visual>
+      <visual name="apriltag_12_cabinet_top_visual">
+        <pose>-0.060 -0.140 0.4055 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane><normal>0 0 1</normal><size>0.100 0.100</size></plane>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse>
+          <pbr><metal>
+            <albedo_map>model://h1_2_description/models/incubator/materials/textures/tag36h11_12.png</albedo_map>
+            <metalness>0</metalness><roughness>1</roughness>
+          </metal></pbr>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Door link origin is the exact lower hinge axis.  Joint q=0 is the
+         supplied closed assembly pose, including its 2.442 degree offset. -->
+    <link name="door_link">
+      <pose>-0.140045922147 -0.247963042272 0.020000000000 0 0 0</pose>
+      <inertial>
+        <pose>0.001837580000 0.203220900000 0.190000000000 0 0 0</pose>
+        <mass>3.68961497690</mass>
+        <inertia>
+          <ixx>0.0914460537</ixx>
+          <iyy>0.0401292525</iyy>
+          <izz>0.0518883990</izz>
+          <ixy>0.00219531948</ixy>
+          <ixz>-0.000000000030</ixz>
+          <iyz>0.000000001827</iyz>
+        </inertia>
+      </inertial>
+
+      <visual name="door_visual">
+        <pose>0.005592142864 0.408609505443 0 1.570796326795 0 -1.528168312093</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/incubator/meshes/incubator_door.STL</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.25 0.36 0.50 1</ambient>
+          <diffuse>0.25 0.36 0.50 1</diffuse>
+          <specular>0.35 0.35 0.35 1</specular>
+        </material>
+      </visual>
+      <collision name="door_collision">
+        <pose>0.005592142864 0.408609505443 0 1.570796326795 0 -1.528168312093</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/incubator/meshes/incubator_door.STL</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction><ode><mu>0.8</mu><mu2>0.8</mu2></ode></friction>
+        </surface>
+      </collision>
+
+      <!-- Outer-door tag, away from the original handle sweep.  Its rotation
+           is exactly the original door STL rotation and its origin is 0.5 mm
+           outside that STL surface. -->
+      <visual name="apriltag_11_door_outer_visual">
+        <pose>-0.01794338 0.12735103 0.2900 1.570796326795 0 -1.528168312093</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane><normal>0 0 1</normal><size>0.0875 0.0875</size></plane>
+        </geometry>
+        <material>
+          <ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse>
+          <pbr><metal>
+            <albedo_map>model://h1_2_description/models/incubator/materials/textures/tag36h11_11.png</albedo_map>
+            <metalness>0</metalness><roughness>1</roughness>
+          </metal></pbr>
+        </material>
+      </visual>
+
+    </link>
+
+    <!-- The handle link origin is the simulated rotation axis.  The unchanged
+         SolidWorks mesh is rigidly zeroed about that axis so q=0 is vertical
+         down and positive q appears counterclockwise from the robot/front
+         view.  No grasp geometry is added and the pivot is unchanged. -->
+    <link name="handle_link">
+      <pose relative_to="door_link">-0.019105784513 0.377528763146 0.189999998514 0 0 1.613424341497</pose>
+      <inertial>
+        <!-- SolidWorks part mass properties, expressed in handle_link. -->
+        <pose>-0.000012261668 0.020269512428 -0.040571812382 0 0 0</pose>
+        <mass>0.034402463808</mass>
+        <inertia>
+          <ixx>0.000056550263027</ixx>
+          <iyy>0.000055661917673</iyy>
+          <izz>0.000002894796253</izz>
+          <ixy>-0.000000002014690</ixy>
+          <ixz>-0.000000027018640</ixz>
+          <iyz>0.000003367196236</iyz>
+        </inertia>
+      </inertial>
+
+      <visual name="handle_visual">
+        <pose>-0.009999668689 0.000027284668 -0.119003896682 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/incubator/meshes/incubator_handle.STL</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.12 0.12 0.13 1</ambient>
+          <diffuse>0.12 0.12 0.13 1</diffuse>
+          <specular>0.45 0.45 0.45 1</specular>
+        </material>
+      </visual>
+      <collision name="handle_collision">
+        <!-- Collision is the unchanged SolidWorks-exported handle itself.
+             Do not add grasp sleeves or substitute convenience primitives. -->
+        <pose>-0.009999668689 0.000027284668 -0.119003896682 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/incubator/meshes/incubator_handle.STL</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction><ode><mu>1.0</mu><mu2>1.0</mu2></ode></friction>
+        </surface>
+      </collision>
+      <!-- Raw Gazebo contact authority for the unchanged handle STL.  Each
+           gz.msgs.Contacts sample names both collision entities and includes
+           positions, normals, penetration depths, and body wrenches.  The
+           sensor is read-only and is intentionally scoped to handle_collision
+           so left-hand, right-pad, and right-nonpad contacts remain
+           distinguishable in posterior evidence. -->
+      <sensor name="handle_contact_829" type="contact">
+        <always_on>true</always_on>
+        <update_rate>1000</update_rate>
+        <contact>
+          <collision>handle_collision</collision>
+          <topic>/incubator/handle/contacts</topic>
+        </contact>
+      </sensor>
+    </link>
+
+    <joint name="body_world_joint" type="fixed">
+      <parent>world</parent>
+      <child>body_link</child>
+    </joint>
+
+    <joint name="door_hinge_joint" type="revolute">
+      <parent>body_link</parent>
+      <child>door_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.308996939</upper>
+          <effort>50</effort>
+          <velocity>0.5</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.20</damping>
+          <friction>0.05</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <joint name="handle_latch_joint" type="revolute">
+      <parent>door_link</parent>
+      <child>handle_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>3.141592654</upper>
+          <effort>5</effort>
+          <velocity>0.35</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.05</damping>
+          <friction>0.02</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <plugin filename="libh1_incubator_latch_system.so"
+            name="h1_2::IncubatorLatchSystem">
+      <door_joint>door_hinge_joint</door_joint>
+      <handle_joint>handle_latch_joint</handle_joint>
+      <!-- The verified task terminal is 90 deg.  Unlock at 89 deg so the
+           measured 89.831 deg physical endpoint releases the door without
+           changing either revolute axis or adding latch geometry. -->
+      <unlock_angle>1.553343034275</unlock_angle>
+      <relock_handle_angle>0.174532925199</relock_handle_angle>
+      <relock_door_angle>0.034906585040</relock_door_angle>
+      <!-- Keep the verified 0.08 N m two-position detent while the latch is
+           unlocked (and while deliberately turning a locked handle above the
+           10 deg relock region), so the arm can still reach the 89 deg unlock
+           threshold.  Only after an unlocked-to-locked transition inside the
+           existing 10 deg relock region, 0.40 N m produces 0.0418 N m at
+           3 deg.  The 826 attempt-10 measured terminal at 0.065008 rad showed
+           that 0.20 N m remained statically balanced by the unchanged joint
+           friction plus handle load, so the doubled return is required to
+           settle inside the unchanged three-degree q0 gate. -->
+      <handle_detent_torque>0.08</handle_detent_torque>
+      <locked_handle_return_torque>0.40</locked_handle_return_torque>
+      <handle_detent_damping>0.01</handle_detent_damping>
+      <state_topic>/incubator/latch/state</state_topic>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-state-publisher-system"
+            name="gz::sim::systems::JointStatePublisher">
+      <joint_name>door_hinge_joint</joint_name>
+      <joint_name>handle_latch_joint</joint_name>
+    </plugin>
+  </model>
+</sdf>

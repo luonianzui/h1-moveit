@@ -1,0 +1,14 @@
+The H1-2 URDF geometry and mesh assets in this package are derived from:
+
+  https://github.com/unitreerobotics/unitree_ros
+  revision f3772ce
+
+Copyright (c) 2016-2022 HangZhou YuShu TECHNOLOGY CO.,LTD.
+("Unitree Robotics"). Distributed under the BSD 3-Clause License included in
+this package.
+
+Local ROS 2 adaptations:
+
+- package-based mesh resource URLs
+- a Xacro wrapper
+- mock ros2_control interfaces for visualization and trajectory execution

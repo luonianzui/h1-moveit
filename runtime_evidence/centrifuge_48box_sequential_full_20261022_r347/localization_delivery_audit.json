@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "task_status": "PASS",
+  "failures": [],
+  "consumed_pose_count": 1188,
+  "delivery_count": 2376,
+  "invalid_health": [],
+  "unchanged_maximum_source_age_sim_s": 1.0,
+  "maximum_observed_health_age_sim_s": 0.2915000000000134,
+  "maximum_callback_source_age_sim_s": 0.03249999999999886,
+  "validated_bootstrap_preclock_events": [],
+  "maximum_transport_wall_s": 0.000309202,
+  "maximum_callback_queue_wall_s": 0.036183857,
+  "unavailable_dds_timestamp_count": 0,
+  "no_timestamp_rewriting": true,
+  "original_timeout_not_widened": true,
+  "historical_r332_root_cause_not_proven_by_a_successful_new_run": true
+}

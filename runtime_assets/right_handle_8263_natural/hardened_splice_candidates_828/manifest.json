@@ -1,0 +1,92 @@
+{
+  "schema": "h1_right_handle_hardened_splice_candidates/v1",
+  "status": "CANDIDATE_ONLY",
+  "execution_ready": false,
+  "controller_commands_issued": 0,
+  "offline_only": true,
+  "scope": "open-right-gripper free-space q0/q90 ingress and reversible egress splices only",
+  "not_certified": [
+    "complete q0-to-q90 contact arc",
+    "mid-arc release, branch swap, and regrasp",
+    "ordered whole-workflow execution asset"
+  ],
+  "bindings": {
+    "scene_cdr": {
+      "path": "runtime_evidence/right_natural_828_table_xplus100_incubator_original_20260828/middle_v1/scene.cdr",
+      "sha256": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568"
+    },
+    "contact_path": {
+      "path": "runtime_assets/right_handle_8263_natural/right_handle_q0_q90_fixed_torso_natural_v2_path.json",
+      "sha256": "afcec0b5c675019157e4339dd41d15728233fdce6344501db6a50d20a0d58088"
+    },
+    "contact_schedule": {
+      "path": "runtime_assets/right_handle_8263_natural/natural_pad2_schedule.json",
+      "sha256": "f90a5bf4d1123bba1da3ed669c143b4e5e0b6e29b700a8240f6f54acbe310828"
+    },
+    "original_handle_stl": {
+      "path": "src/h1_2_description/models/incubator/meshes/incubator_handle.STL",
+      "sha256": "ad6670185fa5756ba5dabdee7e542db2df3346973fea4eb887288f54a6b6f59e"
+    },
+    "robot_urdf": {
+      "path": "runtime_evidence/826_apriltag_plan_only_20260826/stage_h_nominal_pass/clearance_audit_robot.urdf",
+      "sha256": "3aad4bdc038ff6cde3bef221bb15b8134bb45f7a87ef5dfa0fadc2126bd44929"
+    },
+    "robot_srdf": {
+      "path": "runtime_evidence/826_apriltag_plan_only_20260826/stage_h_nominal_pass/clearance_audit_robot.srdf",
+      "sha256": "2f268a57406fcea301cd1a58c3912b91aa9a3a676e2ae42b9f9c741fac30d79d"
+    },
+    "splice_search_source_sha256": "bafa45a03e9eda7e310e465103a5c74fbf3f116cae499508ed2c93417d96f8bd",
+    "ik_branch_search_source_sha256": "3127348cfece894649e0f836216e8d09d6d9ef15e94e4b153770c9f2bc7ac156",
+    "exact_gate_source_sha256": "4fa1ea39cff7ddbdfb4fd7f1b156926dfaee6087354a8f16e5a13e5cf7460c2d",
+    "dynamic_move_uaf_fix_source_sha256": "7d06ed0de8fa1871d9db2e8ed7abd07b90273d0aae0c23b63ca4731571856062"
+  },
+  "candidates": [
+    {
+      "id": "q0_ingress_torso45_A0",
+      "path": "q0_ingress_torso45_A0_candidate.json",
+      "sha256": "628c8467005e66a95689f0b4fb6efaa85a7ff7531d070b04b250f602c4859adf",
+      "raw_search_output_sha256": "33ad15649f67b0f5b163a4072c91a29480fea43422d2fdfda6d7d091f9c938c3",
+      "handle_angle_deg": 0.0,
+      "goal_torso_deg": 45.0,
+      "waypoints": 4,
+      "iterations": 56,
+      "strict_collision_samples": 25252,
+      "strict_edge_step_deg": 0.1,
+      "goal_right_arm_rad": [-0.14590890409780025, 0.15022053092544321, 0.35893300624450669, 0.581998803037025, 0.026528288913425842, -0.3486319286613882, -1.1506581032340752],
+      "closed_contact_endpoint_gate": {
+        "geometry": "A0",
+        "arm_margin_deg": 6.5241599089970315,
+        "nonpad_handle_mm": 0.87242512425961793,
+        "left_handle_mm_lower_bound": 50.0,
+        "shoulder_torso_signed_mm": 1.4227048649033665,
+        "elbow_torso_signed_mm": 8.1465148017285642
+      }
+    },
+    {
+      "id": "q90_ingress_torso0_high_clearance",
+      "path": "q90_ingress_torso0_high_clearance_candidate.json",
+      "sha256": "32f1fb9fc3dd252f64adf9ce4f84e6040f5050d416fc5a74cf8f213f6557a8fb",
+      "raw_search_output_sha256": "f933601dd0ef3bf9faf2774025fd4f3a5ae27aa2df6e4c500ddb41917b06adbe",
+      "handle_angle_deg": 90.0,
+      "goal_torso_deg": 0.0,
+      "waypoints": 5,
+      "iterations": 59,
+      "strict_collision_samples": 60981,
+      "strict_edge_step_deg": 0.1,
+      "goal_right_arm_rad": [-0.4275386406074958, 0.2347605883246737, -2.0447717210465419, 2.2088432485182912, 2.9196863945411518, 0.39531199255340921, -1.0405217904126611],
+      "closed_contact_endpoint_gate": {
+        "geometry": "endpoint_dense",
+        "arm_margin_deg": 3.8495892605832003,
+        "nonpad_handle_mm": 0.70353545181120691,
+        "left_handle_mm_lower_bound": 50.0,
+        "shoulder_torso_signed_mm": 15.329339308323734,
+        "elbow_torso_signed_mm": 10.874070317633812
+      }
+    }
+  ],
+  "boundary_regression": {
+    "q0_A0_torso_45_deg": "PASS",
+    "q0_A0_torso_44_5_deg": "FAIL:right_shoulder_yaw_link:torso_link",
+    "q0_A0_torso_44_5_shoulder_torso_signed_mm": -17.438728315788911
+  }
+}

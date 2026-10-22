@@ -1,0 +1,37 @@
+{
+  "all_selected_numeric_payloads_finite": true,
+  "controller_total": 60,
+  "database": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_r33/rosbag_831/rosbag_831_0.db3",
+  "duration_s": 319.819288933,
+  "errors": [],
+  "expected_controller_counts": {
+    "/left_arm_controller/joint_trajectory": 16,
+    "/left_gripper_controller/joint_trajectory": 4,
+    "/right_arm_controller/joint_trajectory": 16,
+    "/right_gripper_controller/joint_trajectory": 8,
+    "/torso_controller/joint_trajectory": 16
+  },
+  "finite_values_checked": 3552364,
+  "handle_contact_messages": 0,
+  "maximum_commanded_torso_deg": 44.25,
+  "maximum_commanded_torso_rad": 0.7723081940074908,
+  "maximum_measured_torso_deg": 44.25000000101826,
+  "maximum_measured_torso_rad": 0.7723081940252627,
+  "maximum_timestamp_ns": 1789437023941223102,
+  "minimum_timestamp_ns": 1789436704121934169,
+  "schema": "h1_candidate3_roundtrip_rosbag_audit/831-r33-v1",
+  "sqlite_integrity": "ok",
+  "status": "PASS",
+  "topic_counts": {
+    "/clock": 62091,
+    "/incubator/handle/contacts": 0,
+    "/incubator/joint_states": 61727,
+    "/joint_states": 30854,
+    "/left_arm_controller/joint_trajectory": 16,
+    "/left_gripper_controller/joint_trajectory": 4,
+    "/right_arm_controller/joint_trajectory": 16,
+    "/right_gripper_controller/joint_trajectory": 8,
+    "/torso_controller/joint_trajectory": 16
+  },
+  "total_messages": 154732
+}

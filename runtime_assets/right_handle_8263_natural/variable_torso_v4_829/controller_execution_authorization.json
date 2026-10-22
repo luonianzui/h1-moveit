@@ -1,0 +1,60 @@
+{
+  "schema": "h1_right_handle_controller_execution_authorization/v1",
+  "controller_execution_authorized": true,
+  "execution_ready": false,
+  "live_execution_passed": false,
+  "live_result": null,
+  "controller_commands_issued": 0,
+  "offline_only": true,
+  "bindings": {
+    "contact_path": {
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/contact_path_v4_44p25_candidate.json",
+      "sha256": "92d0f131324db1755ecdf2a1e03b102b450fbd783a647625e9baf9dfb0a0fb98"
+    },
+    "ingress_path": {
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v3_828/q0_ingress_torso38_A0_rrt.json",
+      "sha256": "2e61bc02c8d5ac3baf0e373b5668cfd7cd66e88fc4197a92d1e8cce9ac1942ff"
+    },
+    "exact_audit": {
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/full_topology_exact_audit.json",
+      "sha256": "0e0ec724187063f92578c9903df820c3aa66a87563dd7a5201e62be728272c17"
+    },
+    "scene_snapshot": {
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v3_828/scene.cdr",
+      "sha256": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568"
+    }
+  },
+  "controller_topics": [
+    "/torso_controller/joint_trajectory",
+    "/left_arm_controller/joint_trajectory",
+    "/right_arm_controller/joint_trajectory",
+    "/left_gripper_controller/joint_trajectory",
+    "/right_gripper_controller/joint_trajectory"
+  ],
+  "stage_order": {
+    "prefix": [
+      "prepare_left_park",
+      "ingress_open_to_q0",
+      "close_q0_right_hand",
+      "contact_arc_q0_to_q90_hold"
+    ],
+    "suffix": [
+      "contact_arc_q90_hold_to_q0",
+      "release_q0_right_hand",
+      "egress_open_from_q0",
+      "return_left_launch_seam"
+    ]
+  },
+  "limits": {
+    "maximum_abs_torso_rad": 0.7766715171374766,
+    "dense_angular_step_rad": 0.0017453292519943296,
+    "dense_prismatic_step_m": 0.0001,
+    "start_tolerance_rad": 0.003,
+    "endpoint_tolerance_rad": 0.003,
+    "gripper_tolerance_m": 0.001,
+    "lead_time_s": 0.25,
+    "point_dt_s": 0.02
+  },
+  "auditor_version": "h1_right_handle_path_exact_auditor/829-a1-torso-margin",
+  "execution_topology": "right_q0_q90_hold_middle_hold_q90_q0_release/v1"
+}

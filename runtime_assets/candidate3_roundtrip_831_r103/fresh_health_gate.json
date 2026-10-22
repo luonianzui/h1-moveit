@@ -1,0 +1,100 @@
+{
+  "authority_root": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_authority_v24",
+  "authority_run_id": "7ec6d3ba4ce65b1beb14d7e0dde24aa3d3df0cd3d44a1895da442fbb7a7335c8",
+  "checked_at": "2026-09-16T04:31:51.279448+00:00",
+  "checks": {
+    "controllers": true,
+    "cube_pose": true,
+    "enclosure_pose": true,
+    "gazebo_gui_present": true,
+    "incubator_pose": true,
+    "initial_joints": true,
+    "initial_latch": true,
+    "launch_is_fresh": true,
+    "mid360": true,
+    "plugin": true,
+    "robot_pose": true,
+    "rosbag_root_absent": true,
+    "support_socket_absent": true,
+    "table_pose": true,
+    "trajectory_topics": true
+  },
+  "controller_commands_issued": 0,
+  "controllers": {
+    "all_expected_active": true,
+    "expected_active_count": 6,
+    "observed_active_count": 6
+  },
+  "gazebo_gui_present": true,
+  "initial_state": {
+    "cube_xyz": [
+      0.334,
+      0.377,
+      0.83
+    ],
+    "door_hinge_rad": -2.325287419947816e-22,
+    "handle_latch_rad": -2.8526938027507305e-16,
+    "incubator_xyz": [
+      0.59,
+      0.0,
+      0.815
+    ],
+    "latch": "locked",
+    "navigation_enclosure_xyz": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "robot_xyz": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "table_xyz": [
+      0.6,
+      0.0,
+      0.0
+    ]
+  },
+  "launch_is_fresh": true,
+  "mid360": {
+    "inlier_fraction": 1.0,
+    "inlier_rms_m": 0.0179550780633197,
+    "native_topic_has_publisher_and_subscriber": true,
+    "point_count": 720,
+    "pose_xy_yaw": [
+      0.0,
+      0.0,
+      -0.001745329251994221
+    ],
+    "reason": "pass",
+    "robust_rms_m": 0.013996677308673997,
+    "valid": true,
+    "visible_wall_count": 4,
+    "wall_point_counts": [
+      305,
+      57,
+      180,
+      178
+    ]
+  },
+  "raw_evidence": "fresh_health_raw.txt",
+  "result": "PASS",
+  "rosbag_root_absent": true,
+  "run_root": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_r103",
+  "schema": "candidate3_roundtrip_831_fresh_health_gate/v1",
+  "support_plugin_matches_contract": true,
+  "support_plugin_sha256": "eb85e8b833a6cbaa0fa26eab09e6a983ba2e36243bf37a12ebb9001c19e95d8b",
+  "support_socket_absent": true,
+  "trajectory_topics": {
+    "all_five_match": true,
+    "expected_publisher_count_each": 0,
+    "observed_publisher_counts": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

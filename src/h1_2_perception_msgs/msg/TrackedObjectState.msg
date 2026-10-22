@@ -1,0 +1,15 @@
+std_msgs/Header header
+string object_name
+string object_frame
+geometry_msgs/PoseWithCovariance pose_world
+int32[] contributing_tag_ids
+uint32 consecutive_frames
+builtin_interfaces/Duration observation_age
+float64 maximum_reprojection_error_px
+float64 maximum_depth_residual_m
+string source_mode
+string config_hash
+bool stable
+bool valid
+string status
+

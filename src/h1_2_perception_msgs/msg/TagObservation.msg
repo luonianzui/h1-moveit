@@ -1,0 +1,18 @@
+std_msgs/Header header
+int32 id
+string family
+string object_name
+string camera_frame
+string world_frame
+geometry_msgs/PoseWithCovariance pose_camera
+geometry_msgs/PoseWithCovariance pose_world
+float64 tag_size_m
+float64 reprojection_error_px
+float64 depth_residual_m
+uint32 depth_samples
+uint32 consecutive_frames
+builtin_interfaces/Duration observation_age
+string config_hash
+bool valid
+string status
+

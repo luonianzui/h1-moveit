@@ -1,0 +1,44 @@
+{
+  "authorization_scope": "candidate3_roundtrip_831_cycle2_return",
+  "bindings": {
+    "middle_certificate": {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_middle_e0_828/candidate3_middle_certificate_828.json",
+      "schema": "h1_candidate3_middle_certificate/828-e0-v1",
+      "sha256": "58a683347c95be35c7c9c39e814c7be23dfab7311a037a0a0e6d7bb5f62aaade"
+    },
+    "middle_exact_result": {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_middle_e0_828/candidate3_middle_exact_result_828.json",
+      "schema": "h1_candidate3_middle_exact_result/828-e0-v1",
+      "sha256": "3e49dd9a34b206da4699545cff5656fb0db3fb38796ffd9a9435ebf55048e1fb"
+    },
+    "middle_plan": {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_middle_e0_828/candidate3_middle_plan_828.json",
+      "schema": "h1_candidate3_middle_plan/828-e0-v1",
+      "sha256": "cb20f8303cb2e75a5fe45025ea4a119fa5ba81054c8cda55442d320052d1634e"
+    },
+    "return_plan": {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_authority_v4/candidate3_return_plan_831.json",
+      "schema": "h1_candidate3_return_plan/831-c2-v1",
+      "sha256": "24767afddc9101094a419d9ab00c04db352e344b1aae90b287d86ca4773ebb21"
+    }
+  },
+  "controller_commands_issued": 0,
+  "controller_execution_authorized": true,
+  "execution_contract": {
+    "all_segments_required": true,
+    "controller_message_count": 60,
+    "exact_inverse": true,
+    "hard_maximum_abs_torso_deg": 44.5,
+    "inverse_transform": "reverse_points_mirror_time",
+    "left_hand_handle_contact_forbidden": true,
+    "partial_execution_allowed": false,
+    "requires_live_final_validation": true,
+    "terminal_cube_pose": "origin",
+    "terminal_door_state": "locked"
+  },
+  "live_execution_passed": false,
+  "run_id": "84239abadb954ae208603e20ce681db8797be321b2ff25f57295d2293eafed42",
+  "schema": "h1_candidate3_return_execution_authorization/831-v1",
+  "status": "READY",
+  "valid": true
+}

@@ -1,0 +1,101 @@
+schema: h1_2_apriltag_map/v1
+version: "826-b1"
+family: tag36h11
+world_frame: world
+camera_frame: realsense_camera_color_optical_frame
+dictionary: DICT_APRILTAG_36h11
+quiet_zone_modules: 1
+marker_modules: 8
+
+# size_m is the outer black-border edge used by pose estimation.  visual_size_m
+# includes the one-module white quiet zone rendered by the SDF visual.
+objects:
+  cabinet:
+    frame: incubator::body_link
+    stable_translation_m: 0.0025
+    stable_rotation_rad: 0.017453292519943295
+    # 50-frame Gazebo D435 calibration, 2026-08-26. This is an object-frame
+    # optical correction; it does not alter tag placement or model pose.
+    pose_correction_in_object:
+      xyz: [-0.003518085542, 0.000684203399, -0.000667793238]
+      rpy: [0.001527828501, 0.007747014867, 0.001055641530]
+    tags:
+      - id: 10
+        size_m: 0.080
+        visual_size_m: 0.100
+        pose_in_object:
+          xyz: [-0.080, 0.140, 0.4055]
+          rpy: [0.0, 0.0, 0.0]
+        texture: tag36h11_10.png
+      - id: 12
+        size_m: 0.080
+        visual_size_m: 0.100
+        pose_in_object:
+          xyz: [-0.060, -0.140, 0.4055]
+          rpy: [0.0, 0.0, 0.0]
+        texture: tag36h11_12.png
+
+  door:
+    frame: incubator::door_link
+    stable_translation_m: 0.0030
+    stable_rotation_rad: 0.017453292519943295
+    pose_correction_in_object:
+      xyz: [0.000366454152, -0.000009694074, -0.001036235094]
+      rpy: [0.000937673970, 0.001998964875, 0.004215771604]
+    tags:
+      - id: 11
+        size_m: 0.070
+        visual_size_m: 0.0875
+        pose_in_object:
+          xyz: [-0.01794338, 0.12735103, 0.2900]
+          rpy: [1.570796326795, 0.0, -1.528168312093]
+        texture: tag36h11_11.png
+
+  cube:
+    frame: green_cube::link
+    stable_translation_m: 0.0030
+    stable_rotation_rad: 0.03490658503988659
+    pose_correction_in_object:
+      xyz: [0.000193859849, 0.000589030748, -0.000583967876]
+      rpy: [0.004796617993, -0.015922530858, 0.005535434874]
+    tags:
+      - id: 20
+        size_m: 0.045
+        visual_size_m: 0.05625
+        pose_in_object:
+          xyz: [0.0, 0.045, 0.0155]
+          rpy: [0.0, 0.0, 0.0]
+        texture: tag36h11_20.png
+      - id: 21
+        size_m: 0.020
+        visual_size_m: 0.025
+        pose_in_object:
+          xyz: [0.0405, 0.0, 0.0]
+          rpy: [0.0, 1.5707963267948966, 0.0]
+        texture: tag36h11_21.png
+      - id: 22
+        size_m: 0.020
+        visual_size_m: 0.025
+        pose_in_object:
+          xyz: [-0.0405, 0.0, 0.0]
+          rpy: [0.0, -1.5707963267948966, 0.0]
+        texture: tag36h11_22.png
+      - id: 23
+        size_m: 0.030
+        visual_size_m: 0.0375
+        pose_in_object:
+          xyz: [-0.020, -0.061, 0.0155]
+          rpy: [0.0, 0.0, 0.0]
+        texture: tag36h11_23.png
+
+stability:
+  consecutive_frames: 7
+  observation_max_age_s: 0.25
+  rgb_info_max_skew_s: 0.010
+  rgb_depth_max_skew_s: 0.050
+  # Frames wait in a bounded non-blocking queue for exact-time TF.  They are
+  # dropped after 0.5 simulation seconds and never fall back to latest TF.
+  tf_queue_max_age_s: 0.500
+  maximum_reprojection_error_px: 2.0
+  maximum_depth_residual_m: 0.020
+  minimum_depth_samples: 20

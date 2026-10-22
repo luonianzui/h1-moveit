@@ -1,0 +1,36 @@
+{
+  "positions": {
+    "left_hip_yaw_joint": -0.0006820783347054704,
+    "left_hip_pitch_joint": -0.006738004897772717,
+    "left_hip_roll_joint": 0.0008386775483049911,
+    "left_knee_joint": -2.6950738338349654e-06,
+    "left_ankle_pitch_joint": 0.09730889673450745,
+    "left_ankle_roll_joint": -0.018243787663438996,
+    "right_hip_yaw_joint": -0.0010815164714264418,
+    "right_hip_pitch_joint": -0.006900721112082221,
+    "right_hip_roll_joint": 0.0008400186943777271,
+    "right_knee_joint": -2.8953534663859334e-06,
+    "right_ankle_pitch_joint": 0.09746433270149103,
+    "right_ankle_roll_joint": -0.018282342029613687
+  },
+  "range": {
+    "left_hip_yaw_joint": 0.0003280402348336077,
+    "left_hip_pitch_joint": 0.00022023001726141807,
+    "left_hip_roll_joint": 0.00019501013059822095,
+    "left_knee_joint": 2.1246850236424065e-09,
+    "left_ankle_pitch_joint": 0.0035635415026873812,
+    "left_ankle_roll_joint": 0.004335820597378248,
+    "right_hip_yaw_joint": 0.0005511512785875998,
+    "right_hip_pitch_joint": 0.00029881194123062074,
+    "right_hip_roll_joint": 0.0002844823090239389,
+    "right_knee_joint": 2.340725795209555e-09,
+    "right_ankle_pitch_joint": 0.0036092388551334786,
+    "right_ankle_roll_joint": 0.006247099306595444
+  },
+  "samples": 34,
+  "source": "runtime_evidence/centrifuge_robot_press_20260922_r117/run/robot_cycle_trace.jsonl",
+  "source_sha256": "6816feab8878e388d944f267e9698cbf1a5d6baea26bcacc6185251e4c2ed248",
+  "sim_time_first": 8.31,
+  "sim_time_last": 10.13,
+  "note": "Recorded passive leg observations after r117 preflight hold; no arm approach or button action occurred. Fresh r118 still must match this baseline within original 0.02 rad gate."
+}

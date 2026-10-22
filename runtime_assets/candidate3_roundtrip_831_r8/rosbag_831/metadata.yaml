@@ -1,0 +1,150 @@
+rosbag2_bagfile_information:
+  version: 9
+  storage_identifier: sqlite3
+  duration:
+    nanoseconds: 295860220906
+  starting_time:
+    nanoseconds_since_epoch: 1788228186706499633
+  message_count: 143436
+  topics_with_message_count:
+    - topic_metadata:
+        name: /right_arm_controller/joint_trajectory
+        type: trajectory_msgs/msg/JointTrajectory
+        serialization_format: cdr
+        offered_qos_profiles:
+          []
+        type_description_hash: ""
+      message_count: 16
+    - topic_metadata:
+        name: /left_arm_controller/joint_trajectory
+        type: trajectory_msgs/msg/JointTrajectory
+        serialization_format: cdr
+        offered_qos_profiles:
+          []
+        type_description_hash: ""
+      message_count: 16
+    - topic_metadata:
+        name: /right_gripper_controller/joint_trajectory
+        type: trajectory_msgs/msg/JointTrajectory
+        serialization_format: cdr
+        offered_qos_profiles:
+          []
+        type_description_hash: ""
+      message_count: 8
+    - topic_metadata:
+        name: /incubator/handle/contacts
+        type: ros_gz_interfaces/msg/Contacts
+        serialization_format: cdr
+        offered_qos_profiles:
+          - history: unknown
+            depth: 0
+            reliability: reliable
+            durability: volatile
+            deadline:
+              sec: 9223372036
+              nsec: 854775807
+            lifespan:
+              sec: 9223372036
+              nsec: 854775807
+            liveliness: automatic
+            liveliness_lease_duration:
+              sec: 9223372036
+              nsec: 854775807
+            avoid_ros_namespace_conventions: false
+        type_description_hash: RIHS01_2cf36dd51e105580839fb7d6c028846a6342a8dfd62fde733d05f3e0c9ec4b5b
+      message_count: 0
+    - topic_metadata:
+        name: /left_gripper_controller/joint_trajectory
+        type: trajectory_msgs/msg/JointTrajectory
+        serialization_format: cdr
+        offered_qos_profiles:
+          []
+        type_description_hash: ""
+      message_count: 4
+    - topic_metadata:
+        name: /incubator/joint_states
+        type: sensor_msgs/msg/JointState
+        serialization_format: cdr
+        offered_qos_profiles:
+          - history: unknown
+            depth: 0
+            reliability: reliable
+            durability: volatile
+            deadline:
+              sec: 9223372036
+              nsec: 854775807
+            lifespan:
+              sec: 9223372036
+              nsec: 854775807
+            liveliness: automatic
+            liveliness_lease_duration:
+              sec: 9223372036
+              nsec: 854775807
+            avoid_ros_namespace_conventions: false
+        type_description_hash: RIHS01_a13ee3a330e346c9d87b5aa18d24e11690752bd33a0350f11c5882bc9179260e
+      message_count: 57191
+    - topic_metadata:
+        name: /clock
+        type: rosgraph_msgs/msg/Clock
+        serialization_format: cdr
+        offered_qos_profiles:
+          - history: unknown
+            depth: 0
+            reliability: reliable
+            durability: transient_local
+            deadline:
+              sec: 9223372036
+              nsec: 854775807
+            lifespan:
+              sec: 9223372036
+              nsec: 854775807
+            liveliness: automatic
+            liveliness_lease_duration:
+              sec: 9223372036
+              nsec: 854775807
+            avoid_ros_namespace_conventions: false
+        type_description_hash: RIHS01_692f7a66e93a3c83e71765d033b60349ba68023a8c689a79e48078bcb5c58564
+      message_count: 57589
+    - topic_metadata:
+        name: /torso_controller/joint_trajectory
+        type: trajectory_msgs/msg/JointTrajectory
+        serialization_format: cdr
+        offered_qos_profiles:
+          []
+        type_description_hash: ""
+      message_count: 16
+    - topic_metadata:
+        name: /joint_states
+        type: sensor_msgs/msg/JointState
+        serialization_format: cdr
+        offered_qos_profiles:
+          - history: unknown
+            depth: 0
+            reliability: reliable
+            durability: volatile
+            deadline:
+              sec: 9223372036
+              nsec: 854775807
+            lifespan:
+              sec: 9223372036
+              nsec: 854775807
+            liveliness: automatic
+            liveliness_lease_duration:
+              sec: 9223372036
+              nsec: 854775807
+            avoid_ros_namespace_conventions: false
+        type_description_hash: RIHS01_a13ee3a330e346c9d87b5aa18d24e11690752bd33a0350f11c5882bc9179260e
+      message_count: 28596
+  compression_format: ""
+  compression_mode: ""
+  relative_file_paths:
+    - rosbag_831_0.db3
+  files:
+    - path: rosbag_831_0.db3
+      starting_time:
+        nanoseconds_since_epoch: 1788228186706499633
+      duration:
+        nanoseconds: 295860220906
+      message_count: 143436
+  custom_data: ~
+  ros_distro: jazzy

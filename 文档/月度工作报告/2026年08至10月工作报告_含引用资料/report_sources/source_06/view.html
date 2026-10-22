@@ -1,0 +1,181 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>抬肘优化：约束与搬运前瞻</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>抬肘优化：约束与搬运前瞻</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="elbow_posture.py">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_elbow_full_20261016_r291/elbow_posture.py</p><pre>import copy
+import itertools
+import math
+import time
+
+import numpy as np
+from scipy.optimize import minimize
+from scipy.spatial.transform import Rotation
+
+
+ELBOW_CONTRACT = &#x27;paired_elbow_up_fixed_grasp_v1&#x27;
+ACTIVE_MODES = frozenset((&#x27;load_pickup&#x27;, &#x27;retrieval_pickup&#x27;, &#x27;pilot&#x27;, &#x27;load_transport&#x27;,
+                          &#x27;load_alignment&#x27;, &#x27;retrieval_transport&#x27;))
+
+
+def active(request):
+    marker = request.get(&#x27;elbow_posture_contract&#x27;)
+    if marker is not None and marker != ELBOW_CONTRACT:
+        raise ValueError(&#x27;Unknown elbow posture contract&#x27;)
+    return marker == ELBOW_CONTRACT and request.get(&#x27;mode&#x27;) in ACTIVE_MODES
+
+
+def wrist_errors(planner, targets, vector):
+    if not np.isfinite(vector).all():
+        raise ValueError(&#x27;Nonfinite elbow IK joints&#x27;)
+    planner.planner.state.joint_positions = dict(planner.initial, **dict(zip(planner.names, vector.tolist())))
+    planner.planner.state.update()
+    errors = []
+    for hand in (&#x27;left&#x27;, &#x27;right&#x27;):
+        wrist = planner.planner.state.get_global_link_transform(hand + &#x27;_wrist_yaw_link&#x27;)
+        errors.extend(20 * (wrist[:3, 3] - targets[hand][:3, 3]))
+        errors.extend(Rotation.from_matrix(targets[hand][:3, :3] @ wrist[:3, :3].T).as_rotvec())
+    return np.array(errors)
+
+
+def accurate(errors):
+    return bool(np.asarray(errors).shape == (12,) and np.isfinite(errors).all() and
+                all(np.linalg.norm(errors[offset:offset + 3]) / 20 &lt;= .00002 and
+                    math.degrees(float(np.linalg.norm(errors[offset + 3:offset + 6]))) &lt;= .01
+                    for offset in (0, 6)))
+
+
+def posture_metrics(planner, joints):
+    planner.planner.state.joint_positions = dict(planner.initial, **joints)
+    planner.planner.state.update()
+    hands = {}
+    for hand in (&#x27;left&#x27;, &#x27;right&#x27;):
+        elbow = planner.planner.state.get_global_link_transform(hand + &#x27;_elbow_link&#x27;)[:3, 3]
+        wrist = planner.planner.state.get_global_link_transform(hand + &#x27;_wrist_yaw_link&#x27;)[:3, 3]
+        vector = elbow - wrist
+        length = float(np.linalg.norm(vector))
+        if length &lt; 1e-9 or not math.isfinite(length):
+            raise ValueError(&#x27;Degenerate elbow-to-wrist direction&#x27;)
+        hands[hand] = dict(elbow_xyz_m=elbow.tolist(), wrist_xyz_m=wrist.tolist(),
+                           from_down_deg=math.degrees(math.acos(float(np.clip(vector[2] / length, -1, 1)))))
+    return hands
+
+
+def refine(planner, bodies, seed, original_solver):
+    if not active(planner.request):
+        return original_solver(bodies, seed)
+    solved = original_solver(bodies, seed)
+    targets = {hand: np.asarray(body) @ np.linalg.inv(planner.references[hand]) for hand, body in bodies.items()}
+    origin = np.array([solved[name] for name in planner.names])
+    lower = np.maximum(planner.lower, origin - .045)
+    upper = np.minimum(planner.upper, origin + .045)
+
+    def constraint(vector):
+        return wrist_errors(planner, targets, vector)
+
+    def objective(vector):
+        constraint(vector)
+        score = .00004 * float(np.sum((vector - origin) ** 2))
+        for hand in (&#x27;left&#x27;, &#x27;right&#x27;):
+            elbow = planner.planner.state.get_global_link_transform(hand + &#x27;_elbow_link&#x27;)[:3, 3]
+            preferred = targets[hand][:3, 3] + [0, 0, .24]
+            score += float(np.sum((elbow - preferred) ** 2))
+        return score
+
+    candidate = minimize(objective, origin, method=&#x27;SLSQP&#x27;, bounds=list(zip(lower, upper)),
+                         constraints=[dict(type=&#x27;eq&#x27;, fun=constraint)],
+                         options=dict(maxiter=45, ftol=1e-10))
+    if candidate.success and accurate(constraint(candidate.x)) and objective(candidate.x) &lt; objective(origin):
+        return dict(zip(planner.names, candidate.x.tolist()))
+    return solved
+
+
+def pickup_seeds(worker, planner, request):
+    guide = worker.json.loads((worker.EVIDENCE / &#x27;inputs/dual_route.json&#x27;).read_text())[&#x27;forward_stages&#x27;][0][&#x27;samples&#x27;][0]
+    seeds = [guide, {name: request[&#x27;positions&#x27;][name] for name in planner.names}]
+    hints = worker.json.loads((worker.EVIDENCE / &#x27;inputs/elbow_seed_hints.json&#x27;).read_text())
+    seeds.append(hints[&#x27;hints&#x27;][&#x27;retrieval_pickup&#x27;][&#x27;grip&#x27;])
+    generator = np.random.default_rng(286)
+    for unused in range(3):
+        vector = np.clip(np.array([seeds[-1][name] for name in planner.names]) +
+                         generator.normal(0, .7, len(planner.names)), planner.lower, planner.upper)
+        seeds.append(dict(zip(planner.names, vector.tolist())))
+    return seeds
+
+
+def choose_elbow_pickup(request, worker):
+    from minimum_turn import compact_qualified_approach, minimum_turn_connector, motion_metrics, prospective_transport
+    if not active(request) or request[&#x27;mode&#x27;] not in (&#x27;load_pickup&#x27;, &#x27;retrieval_pickup&#x27;):
+        raise ValueError(&#x27;Elbow pickup requires the declared empty-hand contract&#x27;)
+    if request.get(&#x27;original_runtime_holder_references&#x27;) != {}:
+        raise ValueError(&#x27;Cannot choose a different grasp while actually holding a box&#x27;)
+    started = time.monotonic()
+    hints = worker.json.loads((worker.EVIDENCE / &#x27;inputs/elbow_seed_hints.json&#x27;).read_text())
+    if hints[&#x27;scope&#x27;] != &#x27;PLANNING_HINTS_ONLY_REQUIRE_CURRENT_FULL_DENSE_FCL&#x27;:
+        raise ValueError(&#x27;Invalid elbow planning hint scope&#x27;)
+    baseline = dict(stages=[dict(samples=hints[&#x27;hints&#x27;][request[&#x27;mode&#x27;]][&#x27;approach&#x27;])])
+    home = {name: request[&#x27;positions&#x27;][name] for name in worker.TASK_JOINTS}
+    candidates, diagnostics = [], []
+    for flips in itertools.product((0, 180), repeat=2):
+        references, targets = {}, {}
+        for hand, flip in zip((&#x27;left&#x27;, &#x27;right&#x27;), flips):
+            rotation = np.eye(4)
+            rotation[:3, :3] = Rotation.from_euler(&#x27;z&#x27;, -flip, degrees=True).as_matrix()
+            references[hand] = worker.nominal_references()[hand] @ rotation
+            targets[hand] = worker.pose_matrix(request[&#x27;poses&#x27;][&#x27;box48_&#x27; + request[&#x27;assignment&#x27;][hand]])
+            if request.get(&#x27;retrieval&#x27;):
+                offset = request.get(&#x27;retrieval_grip_height_offset_m&#x27;, .010)
+                if not 0 &lt;= offset &lt;= .020:
+                    raise ValueError(&#x27;Original retrieval height bound exceeded&#x27;)
+                targets[hand][2, 3] += offset
+        planner = worker.PairedPlanner(request, references)
+        unique = []
+        for seed_index, seed in enumerate(pickup_seeds(worker, planner, request)):
+            try:
+                grip = planner.solve(targets, seed)
+                if any(max(abs(grip[name] - prior[name]) for name in planner.names) &lt; .05 for prior in unique):
+                    continue
+                unique.append(grip)
+                if planner.planner.check(grip)[&#x27;collision&#x27;]:
+                    continue
+                metrics = posture_metrics(planner, grip)
+                motion = motion_metrics(home, [grip], planner.names)
+                candidates.append(dict(flips=list(flips), seed_index=seed_index, grip=grip,
+                                       references=references, targets=targets,
+                                       score=sum(row[&#x27;from_down_deg&#x27;] for row in metrics.values()) + .2 * motion[&#x27;score&#x27;]))
+            except (ValueError, RuntimeError) as error:
+                diagnostics.append(dict(flips=list(flips), seed_index=seed_index, error=str(error)))
+    candidates.sort(key=lambda value: value[&#x27;score&#x27;])
+    best = None
+    for candidate in candidates[:6]:
+        if best is not None and time.monotonic() - started &gt; 85:
+            break
+        planner = worker.PairedPlanner(request, candidate[&#x27;references&#x27;])
+        try:
+            above = copy.deepcopy(candidate[&#x27;targets&#x27;])
+            for body in above.values():
+                body[2, 3] += .12
+            pre = planner.solve(above, candidate[&#x27;grip&#x27;])
+            approach = minimum_turn_connector(planner, home, pre, baseline[&#x27;stages&#x27;][0][&#x27;samples&#x27;])
+            descent = planner.checked_stage(above, candidate[&#x27;targets&#x27;], pre, &#x27;descend&#x27;, count=81)
+            lookahead = prospective_transport(worker, request, planner, descent)
+            evaluation = lookahead.get(&#x27;elbow_posture&#x27;, {})
+            score = float(evaluation.get(&#x27;basket_max_from_down_deg&#x27;, 180))
+            record = dict(status=&#x27;PASS&#x27;, stages=[dict(phase=&#x27;approach&#x27;, samples=approach), descent],
+                          checked_samples=planner.checked, maximum_joint_step_rad=.002, planning_only_attachment=False,
+                          assignment=request[&#x27;assignment&#x27;], flips_deg=candidate[&#x27;flips&#x27;], diagnostics=diagnostics,
+                          exact_actual_full_state_used=True, no_physical_attachment=True,
+                          prospective_retrieval_lookahead=lookahead if request.get(&#x27;retrieval&#x27;) else None,
+                          prospective_loading_lookahead=lookahead if not request.get(&#x27;retrieval&#x27;) else None,
+                          elbow_posture_selection=dict(contract=ELBOW_CONTRACT, basket_max_from_down_deg=score,
+                              seed_index=candidate[&#x27;seed_index&#x27;], observed_current_grasp_reference_not_rebased=True))
+            if best is None or score &lt; best[&#x27;elbow_posture_selection&#x27;][&#x27;basket_max_from_down_deg&#x27;]:
+                best = record
+            if score &lt; 45:
+                break
+        except (ValueError, RuntimeError) as error:
+            diagnostics.append(dict(flips=candidate[&#x27;flips&#x27;], seed_index=candidate[&#x27;seed_index&#x27;], error=str(error)))
+    if best is None:
+        raise RuntimeError(&#x27;No fully checked elbow-up pickup and carry: &#x27; + worker.json.dumps(diagnostics))
+    best[&#x27;elbow_posture_selection&#x27;][&#x27;elapsed_wall_s&#x27;] = time.monotonic() - started
+    return best
+</pre></body></html>

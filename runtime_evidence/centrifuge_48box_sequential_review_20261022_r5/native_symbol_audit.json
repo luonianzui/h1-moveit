@@ -1,0 +1,259 @@
+{
+  "status": "PASS_EXACT_EXPORTED_SYMBOL_SIZE_AND_PROCESS_MAP_AUDIT",
+  "samples": 53572,
+  "sample_period_us": 10000,
+  "binary_sha256": {
+    "/opt/ros/jazzy/opt/gz_physics_vendor/lib/gz-physics-7/engine-plugins/libgz-physics7-dartsim-plugin.so.7.6.0": "9f4ae6736fc6d4751b937ca7c14b056baf423553e20530f6d10d3ec8fd28bdd9",
+    "/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/libgz-sim8-physics-system.so.8.11.0": "c359e1cc8ddd768a926048a0dbf86e8186419b27a625a8073127bb83c89c2f5a",
+    "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2": "cb4f008188d1ea13cba9b43470c9d46cf819e8df0e4fdc818fa1e4f81b396426",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/inputs/libDartConstraintCache.so": "6438de4d7bb463de104cc20a65078be4157fc64cd171849c118cd7f87fce1d3c"
+  },
+  "symbols": [
+    {
+      "name": "gz::sim::v8::systems::Physics::Update(gz::sim::v8::UpdateInfo const&, gz::sim::v8::EntityComponentManager&)",
+      "library": "/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/libgz-sim8-physics-system.so.8.11.0",
+      "lower": 131243738301664,
+      "upper": 131243738302282,
+      "bytes": 618,
+      "flat": 10,
+      "cumulative": 47329,
+      "flat_pct": 0.018666467557679384,
+      "cumulative_pct": 88.34652430374076
+    },
+    {
+      "name": "gz::sim::v8::systems::PhysicsPrivate::Step(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&)",
+      "library": "/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/libgz-sim8-physics-system.so.8.11.0",
+      "lower": 131243738327888,
+      "upper": 131243738329562,
+      "bytes": 1674,
+      "flat": 18,
+      "cumulative": 39532,
+      "flat_pct": 0.033599641603822894,
+      "cumulative_pct": 73.79227954901815
+    },
+    {
+      "name": "gz::physics::dartsim::SimulationFeatures::WorldForwardStep(gz::physics::Identity const&, gz::physics::SpecifyData<gz::physics::RequireData<gz::physics::WorldPoses>, gz::physics::ExpectData<gz::physics::ChangedWorldPoses, gz::physics::Contacts, gz::physics::JointPositions> >&, gz::physics::CompositeData&, gz::physics::ExpectData<gz::physics::ApplyExternalForceTorques, gz::physics::ApplyGeneralizedForces, gz::physics::VelocityControlCommands, gz::physics::ServoControlCommands, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&)",
+      "library": "/opt/ros/jazzy/opt/gz_physics_vendor/lib/gz-physics-7/engine-plugins/libgz-physics7-dartsim-plugin.so.7.6.0",
+      "lower": 131243351660016,
+      "upper": 131243351663890,
+      "bytes": 3874,
+      "flat": 71,
+      "cumulative": 39244,
+      "flat_pct": 0.13253191965952363,
+      "cumulative_pct": 73.25468528335698
+    },
+    {
+      "name": "dart::constraint::ConstraintSolver::solveConstrainedGroups()",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001403312,
+      "upper": 131244001403393,
+      "bytes": 81,
+      "flat": 0,
+      "cumulative": 28662,
+      "flat_pct": 0.0,
+      "cumulative_pct": 53.50182931382065
+    },
+    {
+      "name": "dart::constraint::BoxedLcpConstraintSolver::solveConstrainedGroup(dart::constraint::ConstrainedGroup&)",
+      "library": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/inputs/libDartConstraintCache.so",
+      "lower": 131244013190896,
+      "upper": 131244013200822,
+      "bytes": 9926,
+      "flat": 655,
+      "cumulative": 28662,
+      "flat_pct": 1.2226536250279998,
+      "cumulative_pct": 53.50182931382065
+    },
+    {
+      "name": "non-virtual thunk to gz::sim::v8::systems::Physics::Update(gz::sim::v8::UpdateInfo const&, gz::sim::v8::EntityComponentManager&)",
+      "library": "/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/libgz-sim8-physics-system.so.8.11.0",
+      "lower": 131243738302288,
+      "upper": 131243738302301,
+      "bytes": 13,
+      "flat": 1,
+      "cumulative": 1,
+      "flat_pct": 0.0018666467557679385,
+      "cumulative_pct": 0.0018666467557679385
+    },
+    {
+      "name": "virtual thunk to gz::physics::dartsim::SimulationFeatures::WorldForwardStep(gz::physics::Identity const&, gz::physics::SpecifyData<gz::physics::RequireData<gz::physics::WorldPoses>, gz::physics::ExpectData<gz::physics::ChangedWorldPoses, gz::physics::Contacts, gz::physics::JointPositions> >&, gz::physics::CompositeData&, gz::physics::ExpectData<gz::physics::ApplyExternalForceTorques, gz::physics::ApplyGeneralizedForces, gz::physics::VelocityControlCommands, gz::physics::ServoControlCommands, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&)",
+      "library": "/opt/ros/jazzy/opt/gz_physics_vendor/lib/gz-physics-7/engine-plugins/libgz-physics7-dartsim-plugin.so.7.6.0",
+      "lower": 131243351663904,
+      "upper": 131243351663920,
+      "bytes": 16,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "dart::constraint::BoxedLcpConstraintSolver::solveConstrainedGroup(dart::constraint::ConstrainedGroup&)",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001388400,
+      "upper": 131244001392348,
+      "bytes": 3948,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "dart::simulation::World::bake()",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001529056,
+      "upper": 131244001530920,
+      "bytes": 1864,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "dart::common::LocalResourceRetriever::exists(dart::common::Uri const&)",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131243999513936,
+      "upper": 131243999514045,
+      "bytes": 109,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "virtual thunk to dart::common::LocalResourceRetriever::exists(dart::common::Uri const&)",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131243999530464,
+      "upper": 131243999530575,
+      "bytes": 111,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    }
+  ],
+  "flat_libraries": [
+    [
+      "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      25109
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      7084
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart-external-odelcpsolver.so.6.13.2",
+      6190
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libode.so.8.0.2",
+      4467
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_sim_vendor/lib/libgz-sim8.so.8.11.0",
+      3660
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/libgz-sim8-physics-system.so.8.11.0",
+      2343
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+      1075
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_physics_vendor/lib/gz-physics-7/engine-plugins/libgz-physics7-dartsim-plugin.so.7.6.0",
+      812
+    ],
+    [
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/inputs/libDartConstraintCache.so",
+      703
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_msgs_vendor/lib/libgz-msgs10.so.10.3.2",
+      437
+    ],
+    [
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/inputs/libCentrifugeInterlockStartupRampProbeR1.so",
+      434
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_physics_vendor/lib/libgz-physics7.so.7.6.0",
+      160
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_plugin_vendor/lib/libgz-plugin2.so.2.0.4",
+      133
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart-collision-ode.so.6.13.2",
+      104
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12",
+      102
+    ]
+  ],
+  "cumulative_libraries": [
+    [
+      "/usr/lib/x86_64-linux-gnu/libffi.so.8.1.4",
+      53572
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libruby-3.2.so.3.2.3",
+      53572
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/ruby/3.2.0/fiddle.so",
+      53572
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_sim_vendor/lib/libgz-sim8-gz.so.8.11.0",
+      53572
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_sim_vendor/lib/libgz-sim8.so.8.11.0",
+      53572
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      53572
+    ],
+    [
+      "/usr/bin/ruby3.2",
+      53572
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/libgz-sim8-physics-system.so.8.11.0",
+      47330
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_physics_vendor/lib/gz-physics-7/engine-plugins/libgz-physics7-dartsim-plugin.so.7.6.0",
+      40653
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      39286
+    ],
+    [
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/inputs/libDartConstraintCache.so",
+      28662
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart-external-odelcpsolver.so.6.13.2",
+      6427
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart-collision-ode.so.6.13.2",
+      6070
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libode.so.8.0.2",
+      5855
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+      4184
+    ]
+  ],
+  "caveat": "Only exact exported symbol address ranges counted. Unexported local functions remain unresolved; nearest-symbol pprof labels may be wrong. Inclusive percentages overlap and are not wall time."
+}

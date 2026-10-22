@@ -1,0 +1,86 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>效率方案运行报告</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>效率方案运行报告</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="REPORT.md">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_optional_micro_full_20261015_r283/REPORT.md</p><pre># r283完整双盒流程：179.129仿真秒，三分钟目标PASS
+
+日期：2026-10-15 CST。全新身份 `centrifuge_48box_optional_micro_full_20261015_r283`，固定骨盆、仅Gazebo手部仿真。
+首条有限非空trace sim 10.1915 → 同身份完整实际PASS 189.3205，
+精确差值 **179.1290仿真秒**；`complete_speed_audit.json` 独立验收PASS。
+真实wall为2324.616083秒，约38分45秒；三分钟是仿真时间，
+不是实际电脑等待时间或影片播放时长，不是规划预算或快放产生的成绩。
+
+## 实际完成的全流程
+
+- 两桌面85%48box由左右夹爪实际中部对夹，双盒各完成不少于10sim秒保持，
+  原松夹后自然落入两个原摇篮并各稳定至少3sim秒。装篮PASS sim59.6205。
+- 机器人实际指尖接触蓝/绿按钮；事件顺序开盖、关盖、启动、停止、开盖，
+  五次来源均为`gazebo_physics_contact`，并非调用按钮服务替代机器人动作。
+- 关盖互锁有效，30rpm稳速实际 **30.258000sim秒**，停稳后开盖120°。
+  机器子流程PASS sim130.216，实际只有一次start和一次stop。
+- 按本run实际停转后的姿态重规划；桶轴退出lift的82原关节点、0.4rad/s原时序
+  与已执行command逐点一致，lift指令1.740sim秒，完整transport共2477次FCL。
+  取回完整抬离后两盒各保持至少10sim秒，再放回两个不同桌槽，正常松夹并各
+  自然稳定至少3sim秒。双返桌sim179.3205，最终无持物保持10sim秒至完整PASS。
+- `cycle_audit.json` **28/28 PASS**，无fault/FAIL、holder registry为空。
+  提取净空最小0.037019643m；放桌至原篮净空最小
+  0.146809459m。最终盒位置约(.440061,+.380213,.844750)
+  和(.440178,-.380247,.844750)，不宣称各自返回原出生槽或双臂neutral。
+
+## 独立守卫与速度改动范围
+
+`independent_dual_grip.json` 原实际关节时间括号重算FK和原生腕/盒刚体参考，
+每手2566检查、双持物5130检查、4次建立/4次正常释放，未以指令值或当前盒姿态
+重置参考。独立FK峰0.001232205503m、原生峰
+0.001232182749m、角峰0.531667626°；即时
+原生峰0.001275164542m与对齐独立峰的口径不同。
+取回转子残速峰0.001351935667rpm，无原0.02rpm超界采样；原2°
+角门本次也满足，但合同仍是此前用户授权5°/2mm及仅取回制动瞬时0.1rpm，
+不冒称重新建立旧严格全证书。原力/速度/接触/20msfloor/FCL2mrad/3、10、30观察
+证书保持。原0.30粗下放与0.6sim弧长时间坡度按actual command精确重算，指令
+5.286229513360sim秒；离散时序不等于连续加速度完整证书。
+
+父r282及两个离线原型按SHA/0444派生，当前1320全部局部测试/26新测试、两包
+7.03秒隔离构建、原专项/配置46/旧装载122/6CTest通过，六Conda库精确恢复。
+本轮加入本run可选alignment的完整逆退路合同、两个inside都原0.13，以及仅
+实际双holder且位移≤5mm/转角≤1°的11目标微对齐provider；其他默认仍原81目标/
+历史guide。**本次实际未触发可选loading alignment**，正常三段退路通过。
+四段退路与微对齐仍仅单元/离线资格，不能把0.597861sim预算当本次真实节省。
+桶轴退出则在本次真实lift/完整10sim保持/双返桌中通过，不再只是失败快照探针。
+上一完整r279184.358sim秒保持原字节；r283较其快5.229sim秒，本次是单次fresh
+完整成功，不宣称重复运行稳定性、自由站立、RL步态或Nav2联动完成。
+原导航111通过/2项V12原训练缺源仍保留，未冒充补回原checkpoint。
+
+## 原始录像与无损trace
+
+`run/full_cycle.mp4` **90410172字节**，1200×900原窗、12fps、
+28473真实采集帧、零重复，最大采集间隔0.147611200002wall秒。
+视频正常SIGINT/encoder退出/完整MP4解码PASS；原片保留，不通过快放替代动作提速。
+从原片抽取20实际阶段，`run/actual_phase_contact_sheet.png`和原分辨率14/17/20
+已在独立图像工具实际检查；机器人/桌/设备始终在画面。远侧手/盒自然部分遮挡，
+关盖后看不到盖下转子，旋转时长及装载留篮由完整物理日志认证。末俯视在视频
+SIGINT前实际录入原片，显示两盒位于不同桌槽、两篮为空，非另拼末态图片。
+时间抽帧按近似wall相位，未声称逐帧exact sim同步。
+
+无损gzip trace 939668行，逻辑3004844139字节，压缩
+638421176字节，原UTF8 SHA-256：
+`9d4681b4fc6cd60602a9ac711ab688e3e491c464898b6e9b179de929cf69b5dd`。CRC/SHA/完整行数和字节数全PASS，无采样删日志。
+
+## 收尾、保护与接续
+
+视频先正常SIGINT刷盘/独立decode，之后场景正常SIGINT。四收尾步骤PASS，
+executor/guard/disk/supervisor均0，原九PID/ctime均退休，现场无该run仿真。
+前六posthoc步骤exit0；首个保护复核shell以143退出且未产生任何after文件，
+随后nohup尝试也未留完成/after文件，不能据此认证。未重跑动作或已完成审计，
+仅缺失保护步骤另开前台PTY审计并完整结束，新日志保留；七组before/after逐对象
+完全相等，原十备份/785正式src/10262历史文件/
+后续正式证据和父563/原型14/10保持，旧已记录额外历史差异未改写或伪称消失。
+399密封成员SHA/0444、315selected resources、36无损归档外依赖均再次核验。
+三个正式模型SHA不变；终态总核验见`run/terminal_integrity_review.json`。
+
+本run/claim/路径已用，只读封存，不得直接重跑；未来须新未用身份、普通mkdir
+独占、隔离构建测试/前后保护/一次seal/fresh健康/新录像/完整独立审计。
+本轮未修改正式模型/源码、旧authority/run/视频/报告/rosbag/builder链/备份，
+无导航、真机、reset、detach、异常松夹、清理或新备份。920永久箱子版本继续保留。
+包内旧README、PROVENANCE和日常入口不改；本报告不是正式默认自动执行授权。
+</pre></body></html>

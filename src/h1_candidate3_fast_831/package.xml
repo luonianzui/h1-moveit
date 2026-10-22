@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>h1_candidate3_fast_831</name>
+  <version>0.1.0</version>
+  <description>Non-overwriting 5 ms Gazebo launch authority for fast-831.</description>
+  <maintainer email="liu@example.com">liu</maintainer>
+  <license>Proprietary</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>h1_2_description</exec_depend>
+  <exec_depend>h1_2_moveit_config</exec_depend>
+  <exec_depend>h1_2_moveit_demo</exec_depend>
+  <exec_depend>h1_2_vision</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

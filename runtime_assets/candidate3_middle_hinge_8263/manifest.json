@@ -1,0 +1,92 @@
+{
+  "schema": "h1_candidate3_hinge_candidate_bundle/v1",
+  "status": "CANDIDATE_ONLY",
+  "execution_ready": false,
+  "offline_only": true,
+  "controller_commands_issued": 0,
+  "scope": "strict-index2 handle-q90 door hinge plus the fully-open rigid-grip torso seam; open/close and both seam directions exact-audited",
+  "not_certified": [
+    "complete 11-phase middle workflow",
+    "right prefix and handle contact arc",
+    "cube-phase coexistence after seam_to_cube",
+    "ordered controller execution"
+  ],
+  "bindings": {
+    "scene_cdr": {
+      "path": "runtime_evidence/right_natural_828_table_xplus100_incubator_original_20260828/middle_v1/scene.cdr",
+      "sha256": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568"
+    },
+    "original_handle_stl": {
+      "path": "src/h1_2_description/models/incubator/meshes/incubator_handle.STL",
+      "sha256": "ad6670185fa5756ba5dabdee7e542db2df3346973fea4eb887288f54a6b6f59e"
+    },
+    "robot_urdf": {
+      "path": "runtime_evidence/826_apriltag_plan_only_20260826/stage_h_nominal_pass/clearance_audit_robot.urdf",
+      "sha256": "3aad4bdc038ff6cde3bef221bb15b8134bb45f7a87ef5dfa0fadc2126bd44929"
+    },
+    "robot_srdf": {
+      "path": "runtime_evidence/826_apriltag_plan_only_20260826/stage_h_nominal_pass/clearance_audit_robot.srdf",
+      "sha256": "2f268a57406fcea301cd1a58c3912b91aa9a3a676e2ae42b9f9c741fac30d79d"
+    },
+    "exact_auditor_source_sha256": "481f5293b6e1988e257bc0aa0c237f957bcd11514a59088232dab1a967ede9ae",
+    "exact_auditor_binary_sha256": "f1007f0dcfb048e01e92193e515a9111f2ceb71d5843982dd83aa949bdec13a3",
+    "hinge_generator_source_sha256": "d7de95707f54b605778097c27f12ebdb464de19dd5aad9de074c6104e3a689fb",
+    "seam_generator_source_sha256": "ff4aecee89fb19187adbfe97b41043fae2f198663b6858004338de766b854cf9",
+    "included_path_auditor_source_sha256": "4fa1ea39cff7ddbdfb4fd7f1b156926dfaee6087354a8f16e5a13e5cf7460c2d",
+    "included_middle_auditor_source_sha256": "7d06ed0de8fa1871d9db2e8ed7abd07b90273d0aae0c23b63ca4731571856062"
+  },
+  "invariants": {
+    "table_x_m": 0.6,
+    "incubator_x_m": 0.59,
+    "cube_spawn_x_m": 0.334,
+    "park_left_shoulder_roll_rad": 0.316,
+    "left_hand_grabs_handle": false,
+    "right_handle_nonpad_minimum_m": 0.0006,
+    "environment_minimum_m": 0.01,
+    "torso_allowed_abs_max_deg": 43.0,
+    "hinge_torso_schedule": "door 0..15 deg: torso 0..-8 deg linear; door 15..60 deg: torso -8 deg",
+    "cube_seam_torso_schedule": "door fixed 60 deg: torso -8..0 deg with rigid right-hand TCP"
+  },
+  "motions": [
+    {
+      "id": "strict_q90_door_hinge_open_ramp15_neg8",
+      "direction": "open",
+      "path": "runtime_assets/candidate3_middle_hinge_8263/door_hinge_open_ramp15_neg8_candidate.json",
+      "sha256": "8b2c3f48a09756c191d53d0666d363ee62257615192f2df1e8923846a6d67341",
+      "row_count": 601,
+      "exact_evidence_path": "runtime_evidence/candidate3_middle_hinge_8263_20260828/door_hinge_open_exact.json",
+      "exact_evidence_sha256": "eb83be8b9c0be62ba25185ded437d5a444744f037053ec4dd5e74924a74cae14",
+      "exact_samples": 1197
+    },
+    {
+      "id": "strict_q90_door_hinge_close_ramp15_neg8",
+      "direction": "close",
+      "path": "runtime_assets/candidate3_middle_hinge_8263/door_hinge_close_ramp15_neg8_candidate.json",
+      "sha256": "2fa5b91e3821ad3be6c7dd1400206d5bf949867bc5316b3c9600adcf51474031",
+      "row_count": 601,
+      "exact_evidence_path": "runtime_evidence/candidate3_middle_hinge_8263_20260828/door_hinge_close_exact.json",
+      "exact_evidence_sha256": "0b649f0638db9e4d29a15b5822789f7ecb8db20790906278161ce676e35e63fa",
+      "exact_samples": 1197
+    },
+    {
+      "id": "door60_rigid_grip_torso_neg8_to_zero",
+      "direction": "seam_to_cube",
+      "path": "runtime_assets/candidate3_middle_hinge_8263/door60_seam_to_cube_candidate.json",
+      "sha256": "8b02fa773989f217247e70de8a702f8a5c5c3f50c34f69cc5ac97abc9e3d5f5c",
+      "row_count": 81,
+      "exact_evidence_path": "runtime_evidence/candidate3_middle_hinge_8263_20260828/door60_seam_to_cube_exact.json",
+      "exact_evidence_sha256": "f45bc0cfffcd097df63e72439abcb0b07aabb97b20e1b0fee61725ad9c58ed0e",
+      "exact_samples": 134
+    },
+    {
+      "id": "door60_rigid_grip_torso_zero_to_neg8",
+      "direction": "seam_to_hinge",
+      "path": "runtime_assets/candidate3_middle_hinge_8263/door60_seam_to_hinge_candidate.json",
+      "sha256": "f001c71db9dba420bbb0830903ff97ca6ab128fb5fe8b04cac90ed02f7637e22",
+      "row_count": 81,
+      "exact_evidence_path": "runtime_evidence/candidate3_middle_hinge_8263_20260828/door60_seam_to_hinge_exact.json",
+      "exact_evidence_sha256": "b026f2443612accc42d4ffa9a375e5a01ae9bce0f308014f44d70fcf32e38974",
+      "exact_samples": 134
+    }
+  ]
+}

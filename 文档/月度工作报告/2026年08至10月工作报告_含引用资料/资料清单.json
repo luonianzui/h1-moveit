@@ -1,0 +1,412 @@
+[
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_dependencies/nav2_jazzy_1.3.12/README.md",
+    "copy": "report_sources/source_01/README.md",
+    "view": "report_sources/source_01/view.html",
+    "sha256": "29db4f11151152f992d9c60c369d745a0cff19f165f230062cd4a51831659622",
+    "labels": [
+      "导航依赖来源"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/826_apriltag_execution_20260827/REPORT.md",
+    "copy": "report_sources/source_02/REPORT.md",
+    "view": "report_sources/source_02/view.html",
+    "sha256": "4eba37f1b96585cb9c3428138bb4630761e5c7dc846578e372ca242fa12987e3",
+    "labels": [
+      "[14] 8月27日Gazebo执行验收报告"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_coupled_path_20261013_r240/coupled_path.py",
+    "copy": "report_sources/source_03/coupled_path.py",
+    "view": "report_sources/source_03/view.html",
+    "sha256": "a2a9919b97463d314b6481e71eebdcbf29f22ac61d7f2a09c1b2c22e986b2b11",
+    "labels": [
+      "联合求解：目标插值与逆运动学"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_elbow_full_20261016_r291/REPORT.md",
+    "copy": "report_sources/source_04/REPORT.md",
+    "view": "report_sources/source_04/view.html",
+    "sha256": "0b93d1ba128db5cdee2346b8105f0276395ff43fa8751c3caa2e5cf168ec2c3f",
+    "labels": [
+      "完整流程与最终状态",
+      "抬肘方案：10月16日完整报告"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_elbow_full_20261016_r291/build_scene.sh",
+    "copy": "report_sources/source_05/build_scene.sh",
+    "view": "report_sources/source_05/view.html",
+    "sha256": "72a8baa9d78cefcd121c91333b88d8e40f1a61e8400a0dc662a84dfec85717dd",
+    "labels": [
+      "构建与启动：隔离构建脚本"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_elbow_full_20261016_r291/elbow_posture.py",
+    "copy": "report_sources/source_06/elbow_posture.py",
+    "view": "report_sources/source_06/view.html",
+    "sha256": "342a58c27a45b3a32a353d45498a2a644f6e14cd177d98b092e42889d0d7f9da",
+    "labels": [
+      "抬肘优化：约束与搬运前瞻"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_elbow_full_20261016_r291/execute_dual.py",
+    "copy": "report_sources/source_07/execute_dual.py",
+    "view": "report_sources/source_07/view.html",
+    "sha256": "f2c825566343b4982bece5107a7e1810d28700f441c01b6dce6a85aad01a44e7",
+    "labels": [
+      "双臂执行与物理反馈",
+      "执行控制：双臂流程与反馈"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_elbow_full_20261016_r291/minimum_turn.py",
+    "copy": "report_sources/source_08/minimum_turn.py",
+    "view": "report_sources/source_08/view.html",
+    "sha256": "d86fb8d1096958266ed3e9f148d2796ccee2b94e9477bd47cc4124a85c04f8f9",
+    "labels": [
+      "转动优化：路径评分与筛选"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_elbow_independent_review_20261016_r1/REPORT.md",
+    "copy": "report_sources/source_09/REPORT.md",
+    "view": "report_sources/source_09/view.html",
+    "sha256": "32c268c4c06b5d5b049de609c954a788af84cd4596b32266452410dcb3bf6faf",
+    "labels": [
+      "抬肘独立复核报告",
+      "抬肘方案：独立复核报告"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_minimum_turn_full_20261015_r285/REPORT.md",
+    "copy": "report_sources/source_10/REPORT.md",
+    "view": "report_sources/source_10/view.html",
+    "sha256": "712377afb67bc470af66ee4935fa405510f2eb2c99594a06102147d92293a26c",
+    "labels": [
+      "肩腕转动优化报告",
+      "肩腕优化：10月15日完整报告"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_optional_micro_full_20261015_r283/REPORT.md",
+    "copy": "report_sources/source_11/REPORT.md",
+    "view": "report_sources/source_11/view.html",
+    "sha256": "f40a4d741ed3040ff969626be3a416996f76d0113606337ab0b0d434e1709404",
+    "labels": [
+      "效率方案运行报告",
+      "速度基线：10月15日完整报告"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_robot_press_20260922_r119/REPORT.md",
+    "copy": "report_sources/source_12/REPORT.md",
+    "view": "report_sources/source_12/view.html",
+    "sha256": "85a8999c5694c7514e6d6b84054868063f5fc61cd86348a21371b53d76985867",
+    "labels": [
+      "9月22日按钮操作记录",
+      "离心机按钮验证"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_robot_press_20260922_r119/run/launch_pid.json",
+    "copy": "report_sources/source_13/launch_pid.json",
+    "view": "report_sources/source_13/view.html",
+    "sha256": "1510d3db8aba1f42d7607ac91c7eff832b6747019631760211572d5dc90a4cac",
+    "labels": [
+      "历史场景启动命令"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_robot_press_20260922_r119/source_snapshot/src/h1_2_moveit_config/scripts/centrifuge_contact_button.py",
+    "copy": "report_sources/source_14/centrifuge_contact_button.py",
+    "view": "report_sources/source_14/view.html",
+    "sha256": "340a75c96f192fc4dd5405509e203218ca5762b6db784fa2d2033a183103d224",
+    "labels": [
+      "按钮接触识别"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_robot_press_20260922_r119/source_snapshot/src/h1_2_moveit_config/scripts/centrifuge_press_plan.py",
+    "copy": "report_sources/source_15/centrifuge_press_plan.py",
+    "view": "report_sources/source_15/view.html",
+    "sha256": "629c2be623ea064c9570a0df9502b6a2022b40c7d3f192d207c277261b37ecef",
+    "labels": [
+      "按钮离线规划"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_robot_press_20260922_r119/source_snapshot/src/h1_2_moveit_config/scripts/centrifuge_robot_cycle.py",
+    "copy": "report_sources/source_16/centrifuge_robot_cycle.py",
+    "view": "report_sources/source_16/view.html",
+    "sha256": "224eb440c92f907ec4fa32c96193620ba77f449bd226f7f6e716668beaf8e9a0",
+    "labels": [
+      "按钮周期执行"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_lstm_entry_reset_20260911_r17/REPORT.md",
+    "copy": "report_sources/source_17/REPORT.md",
+    "view": "report_sources/source_17/view.html",
+    "sha256": "a097e27959c1926d32c8338ae188d5214e836a9cd1d0dabddf061290c1e673db",
+    "labels": [
+      "9月11日步态导航记录",
+      "官方步态导航验证"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/v12_offline_runtime_integration_20260909/REPORT.md",
+    "copy": "report_sources/source_18/REPORT.md",
+    "view": "report_sources/source_18/view.html",
+    "sha256": "b546d669542de697ad69954391298035fb89a25532b6411b38f42a24ff17463c",
+    "labels": [
+      "离线模型导出验证"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/models/centrifuge/PROVENANCE.json",
+    "copy": "report_sources/source_19/PROVENANCE.json",
+    "view": "report_sources/source_19/view.html",
+    "sha256": "e229a62c1fa240805e91416744aeb4c11d3fc55651c588321d8c904f9e4e971c",
+    "labels": [
+      "模型来源：离心机导入记录"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/models/lab_48box/PROVENANCE.json",
+    "copy": "report_sources/source_20/PROVENANCE.json",
+    "view": "report_sources/source_20/view.html",
+    "sha256": "ec4f842bfa466b21e3e2d83362d3ed6f3d4c89b1c3cc49f379c6025da5648b0d",
+    "labels": [
+      "模型来源：48孔盒导入记录"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/vendor/dex1_1/README.md",
+    "copy": "report_sources/source_21/README.md",
+    "view": "report_sources/source_21/view.html",
+    "sha256": "1f04c9cfc43dc0c83c8436dcfe4b4a939f1f8004e5b74c6d9f5aba381b404223",
+    "labels": [
+      "模型来源：Dex1适配说明"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_navigation/README.md",
+    "copy": "report_sources/source_22/README.md",
+    "view": "report_sources/source_22/view.html",
+    "sha256": "8ae0e89b0e33ea758c08762baff1cc982cb0f8fed92635056f9ede1da8337196",
+    "labels": [
+      "导航运行说明"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_navigation/h1_2_navigation/square_localization.py",
+    "copy": "report_sources/source_23/square_localization.py",
+    "view": "report_sources/source_23/view.html",
+    "sha256": "351f6e2eeb5c3d1cc89d28e3301a5cff5c6c22c18b94e9b07d9d0d34149b005f",
+    "labels": [
+      "方墙定位算法"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_navigation/h1_2_navigation/unitree_h12_runtime.py",
+    "copy": "report_sources/source_24/unitree_h12_runtime.py",
+    "view": "report_sources/source_24/view.html",
+    "sha256": "673e7d03bb9a38455751c5ad2e666ad1bb60f07608100d49a17d36dbbdef9a7c",
+    "labels": [
+      "官方步态运行时"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_vision/h1_2_vision/candidate3_execution_supervisor.py",
+    "copy": "report_sources/source_25/candidate3_execution_supervisor.py",
+    "view": "report_sources/source_25/view.html",
+    "sha256": "39bc09de371d9af3c7475449e22671986022513a7ad9c5ef476296dfe2241bc5",
+    "labels": [
+      "[13] 执行监督与遮挡恢复程序"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_vision/h1_2_vision/candidate3_worker.py",
+    "copy": "report_sources/source_26/candidate3_worker.py",
+    "view": "report_sources/source_26/view.html",
+    "sha256": "589523cdbe258b1e3432589d3ec8cf208a7eb702504c4ed6dbf5de9a69bbf21b",
+    "labels": [
+      "[12] 相对路径求解与完整审计程序"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_vision/h1_2_vision/cube_detector.py",
+    "copy": "report_sources/source_27/cube_detector.py",
+    "view": "report_sources/source_27/view.html",
+    "sha256": "d6dc78d2f0d005719110580874d602b7dca636d0c64ccb41da8ecdbeaabf351a",
+    "labels": [
+      "[10] 彩色与深度联合定位程序"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_vision/h1_2_vision/tag_localizer.py",
+    "copy": "report_sources/source_28/tag_localizer.py",
+    "view": "report_sources/source_28/view.html",
+    "sha256": "dfcc869f173e1c6d5fca65b68333b7d8fa0076ddf7d6a39e1de59c4afa788251",
+    "labels": [
+      "[11] 视觉标签定位与质量检查程序"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/文档/AGENTS.md",
+    "copy": "report_sources/source_29/AGENTS.md",
+    "view": "report_sources/source_29/view.html",
+    "sha256": "67ce289fafc7da00023403315d98b4b950e8802fcfa2b0a97336f55da0f9c3d5",
+    "labels": [
+      "8月视觉双臂研发日志",
+      "[9] 8月视觉双臂研发日志",
+      "导航及模型接入日志"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/文档/BACKUP_831_RELEASE.md",
+    "copy": "report_sources/source_30/BACKUP_831_RELEASE.md",
+    "view": "report_sources/source_30/view.html",
+    "sha256": "46db82e28c8990ddb589447fb34276d885fdb0618bdea9d315ca8fc2287faf77",
+    "labels": [
+      "8月31日慢速基线发布说明",
+      "[15] 8月31日慢速认证基线发布说明"
+    ]
+  },
+  {
+    "original_path": "/home/liu/h1_moveit/hengwen/fyx/incubator_assembly.SLDASM",
+    "copy": "report_sources/source_31/incubator_assembly.SLDASM",
+    "view": "report_sources/source_31/view.html",
+    "sha256": "f151aa9f12b56664dfd54fc92fc5fd81b878f5c083a62ad140cf59248e17e93f",
+    "labels": [
+      "孵育箱原始SolidWorks装配文件"
+    ]
+  },
+  {
+    "original_path": "/home/liu/moveit_ws/src/h1_2_description/urdf/h1_2.urdf",
+    "copy": "report_sources/source_32/h1_2.urdf",
+    "view": "report_sources/source_32/view.html",
+    "sha256": "bc4c1c8226c39d325381c2a52b0745d840020f1d8963ec29f156b4fab7cf0606",
+    "labels": [
+      "H1_2原始URDF模型"
+    ]
+  },
+  {
+    "original_path": "/home/liu/test/h1_2_isaaclab/HANDOFF_TO_CODEX.md",
+    "copy": "report_sources/source_33/HANDOFF_TO_CODEX.md",
+    "view": "report_sources/source_33/view.html",
+    "sha256": "ccf2fc510e7052b9e6ab29b255567edda1537aca2d148c5b7463acc174fd98c1",
+    "labels": [
+      "8月11日训练与验收交接",
+      "[3] 8月11日训练及验收交接记录"
+    ]
+  },
+  {
+    "original_path": "/home/liu/test/h1_2_isaaclab/README.md",
+    "copy": "report_sources/source_34/README.md",
+    "view": "report_sources/source_34/view.html",
+    "sha256": "722db1761ec95e32e66fb12b97bb35e0de73f1e08e83b7b30ef0298fdc3948c4",
+    "labels": [
+      "步态环境与资产说明",
+      "[2] Isaac Lab环境与运行说明"
+    ]
+  },
+  {
+    "original_path": "/home/liu/test/h1_2_isaaclab/eval_logs/v12_model17250_scale015_m30_transition_strict_singlecycle_256x2000.log",
+    "copy": "report_sources/source_35/v12_model17250_scale015_m30_transition_strict_singlecycle_256x2000.log",
+    "view": "report_sources/source_35/view.html",
+    "sha256": "da6447c7d50f9b59cb89479200db4109b16c960a3bcf919c7f8f432fee53761f",
+    "labels": [
+      "[5] 256次低速平地严格评估原始日志"
+    ]
+  },
+  {
+    "original_path": "/home/liu/test/h1_2_isaaclab/scripts/eval_h12_omni_transitions.py",
+    "copy": "report_sources/source_36/eval_h12_omni_transitions.py",
+    "view": "report_sources/source_36/view.html",
+    "sha256": "65c10c396eeb4219669d183bf630eccdd357bffe0f2a82aa6dde58d4be6f74ae",
+    "labels": [
+      "[8] 独立批量评估程序"
+    ]
+  },
+  {
+    "original_path": "/home/liu/test/h1_2_isaaclab/scripts/train_h12_omni_recover_stop_v12.sh",
+    "copy": "report_sources/source_37/train_h12_omni_recover_stop_v12.sh",
+    "view": "report_sources/source_37/view.html",
+    "sha256": "9c24659687eecf6af7185608682008c3886a92f5e9b7deceb08486d38fcea76f",
+    "labels": [
+      "[4] 16小时停车策略训练启动脚本"
+    ]
+  },
+  {
+    "original_path": "/home/liu/test/h1_2_isaaclab/source/h1_2_isaaclab/h1_2_isaaclab/tasks/manager_based/h1_2_omni_context_stop_velocity/agents/frozen_motion_adapter.py",
+    "copy": "report_sources/source_38/frozen_motion_adapter.py",
+    "view": "report_sources/source_38/view.html",
+    "sha256": "b240f2072ea972f70950c086b6f5a8f3ce1410d0b956190304f56b7ea70e3d76",
+    "labels": [
+      "[7] 冻结移动策略与停止分支实现"
+    ]
+  },
+  {
+    "original_path": "/home/liu/test/h1_2_isaaclab/source/h1_2_isaaclab/h1_2_isaaclab/tasks/manager_based/h1_2_omni_recover_stop_velocity/mdp/actions.py",
+    "copy": "report_sources/source_39/actions.py",
+    "view": "report_sources/source_39/view.html",
+    "sha256": "082c8e3645b44daab3426c871c8a6a79a8cbce8c5abddad389bd00ae136a52b0",
+    "labels": [
+      "[6] 停车状态捕获与恢复实现"
+    ]
+  },
+  {
+    "original_path": "/home/liu/test/h1_2_train/HANDOFF_TO_CODEX.md",
+    "copy": "report_sources/source_40/HANDOFF_TO_CODEX.md",
+    "view": "report_sources/source_40/view.html",
+    "sha256": "192ee6c29a7720691f0fcd96352aa21dc6122c00290d8935c0fba52cd94dc288",
+    "labels": [
+      "[1] 8月7日步态训练复核记录"
+    ]
+  },
+  {
+    "original_path": "/home/liu/vision/station/deploy/BUILD_WINDOWS.md",
+    "copy": "report_sources/source_41/BUILD_WINDOWS.md",
+    "view": "report_sources/source_41/view.html",
+    "sha256": "b80196288fce1eaad937fb4da8ad0cc93938343a33e4df81e48b0f924c42e677",
+    "labels": [
+      "视觉离线包构建依据",
+      "Windows离线构建说明"
+    ]
+  },
+  {
+    "original_path": "/home/liu/vision/station/dist/station_tcp_windows/VALIDATION.txt",
+    "copy": "report_sources/source_42/VALIDATION.txt",
+    "view": "report_sources/source_42/view.html",
+    "sha256": "3519f89f0ab756cd3b5bc9aa256030987cad49aa30470d4265c242907b11c11e",
+    "labels": [
+      "9月17日视觉验证记录",
+      "9月17日交付验证"
+    ]
+  },
+  {
+    "original_path": "/home/liu/vision/station/dist/station_tcp_windows/detect_tcp.py",
+    "copy": "report_sources/source_43/detect_tcp.py",
+    "view": "report_sources/source_43/view.html",
+    "sha256": "710a6a297ed3d0feca2606a48ac73a01063d5d734bc8198ad8d2a6beb4ce9e37",
+    "labels": [
+      "视觉检测与TCP程序"
+    ]
+  },
+  {
+    "original_path": "/home/liu/vision/station/dist/station_tcp_windows/manifest.json",
+    "copy": "report_sources/source_44/manifest.json",
+    "view": "report_sources/source_44/view.html",
+    "sha256": "a78cc19f2560aacf084f50f1ba4d7a7f60b4e43dad090b3da24ab2b572c6f2e4",
+    "labels": [
+      "视觉软件发布清单"
+    ]
+  }
+]

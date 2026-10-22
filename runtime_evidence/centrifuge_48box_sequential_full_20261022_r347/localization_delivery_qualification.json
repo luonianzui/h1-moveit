@@ -1,0 +1,46 @@
+{
+  "status": "PASS_REAL_DDS_LATEST_SAMPLE_COMPATIBILITY_NOT_GAZEBO_TASK",
+  "original_timeout_reproduction_rejected": true,
+  "unchanged_sources": {
+    "localization_freshness.py": "c0bf32b4a9012075de98493f55669472a217218b86c084e7f4d2ae2d659d9dd8",
+    "execute_cycle.py": "b39e7f90dc8dd7db8fde5a1b45d331723c0e4c39a5fcee4cee68aa2400de525d",
+    "execute_loading.py": "8231dcc374e243a92c326e450589957f42ada1918673d21aa115afcc78190e12",
+    "sequential_speed_cycle.py": "a5a944a174469c92b0e62286203defd4c04bb09deda86e495d4d6f602bf6ff02",
+    "speed_feedback_cycle.py": "60c50dab29ee51184d431d9366fca83fa5b549e9709f10a75d036f034a41d987",
+    "speed_policy.py": "a9c5d2b77a78148e68c9d0772a3f7303045b2db5d98ccf2b9224f247b98033c8",
+    "sequential_cycle.py": "e544b3c2dd0be6e6a1ef47b9ab6bb3b84bbe044b1c1261c221cfd34bd482c2c2",
+    "preload_observation.py": "355014beb077b8b9678fc5bb48eb6eba278bcadf7b13fc521776ca5424e85c46",
+    "loaded_retention.py": "cb41c4f2d482ca3645cc166877dfb426159498ecd8a72c0360c8c584c26a0731"
+  },
+  "real_dds_messages": [
+    {
+      "kind": "pose",
+      "source_sim": 38.9,
+      "clock_sim": 39.901,
+      "source_timestamp_ns": 1792645102969203395,
+      "received_timestamp_ns": 1792645102969221235,
+      "callback_wall_ns": 1792645102969430916,
+      "callback_monotonic_ns": 75640887780048,
+      "transport_wall_s": 1.784e-05,
+      "callback_queue_wall_s": 0.000209681,
+      "dds_timestamps_available": true,
+      "source_stamp_not_rewritten": true
+    },
+    {
+      "kind": "status",
+      "source_sim": null,
+      "clock_sim": 39.901,
+      "source_timestamp_ns": 1792645102969230445,
+      "received_timestamp_ns": 1792645102969233165,
+      "callback_wall_ns": 1792645102969472286,
+      "callback_monotonic_ns": 75640887820058,
+      "transport_wall_s": 2.72e-06,
+      "callback_queue_wall_s": 0.000239121,
+      "dds_timestamps_available": true,
+      "source_stamp_not_rewritten": true
+    }
+  ],
+  "reliable_publishers_compatible": true,
+  "static_compatibility_warning": "WARNING: Publisher liveliness is system_default and subscription liveliness is system_default;",
+  "dropped_messages_are_not_substituted_or_freshened": true
+}

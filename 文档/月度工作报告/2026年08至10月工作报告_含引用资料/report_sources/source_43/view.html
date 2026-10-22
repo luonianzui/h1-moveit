@@ -1,0 +1,355 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>视觉检测与TCP程序</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>视觉检测与TCP程序</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="detect_tcp.py">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/vision/station/dist/station_tcp_windows/detect_tcp.py</p><pre>&quot;&quot;&quot;
+YOLOv5 检测 + TCP 上报
+- 从摄像头/视频/图片进行推理
+- 统计每帧各类别数量
+- 通过 TCP 发送给上位机，JSON 格式（每行一个 JSON，\n 分隔）
+
+TCP 数据包格式：
+  {&quot;frame_id&quot;: 42, &quot;timestamp&quot;: 1718000000.123, &quot;counts&quot;: {&quot;ls_board&quot;: 1, &quot;antibody_kit&quot;: 0, &quot;tip_box&quot;: 2, &quot;96_board&quot;: 1}, &quot;total&quot;: 4}\n
+&quot;&quot;&quot;
+import sys
+import os
+import json
+import socket
+import time
+import argparse
+import threading
+import pathlib
+import math
+from pathlib import Path
+from unittest.mock import patch
+
+BASE_DIR = Path(__file__).resolve().parent
+# The release includes all dependencies and must never install/download at startup.
+os.environ[&#x27;YOLO_OFFLINE&#x27;] = &#x27;true&#x27;
+os.environ[&#x27;YOLO_AUTOINSTALL&#x27;] = &#x27;false&#x27;
+os.environ[&#x27;YOLOv5_AUTOINSTALL&#x27;] = &#x27;false&#x27;
+os.environ.setdefault(&#x27;GIT_PYTHON_REFRESH&#x27;, &#x27;quiet&#x27;)
+os.environ.setdefault(&#x27;MPLBACKEND&#x27;, &#x27;Agg&#x27;)
+CACHE_DIR = (Path(os.environ[&#x27;LOCALAPPDATA&#x27;]) / &#x27;StationTCP&#x27;
+             if os.name == &#x27;nt&#x27; and os.environ.get(&#x27;LOCALAPPDATA&#x27;) else BASE_DIR / &#x27;cache&#x27;)
+os.environ.setdefault(&#x27;YOLO_CONFIG_DIR&#x27;, str(CACHE_DIR / &#x27;ultralytics&#x27;))
+os.environ.setdefault(&#x27;MPLCONFIGDIR&#x27;, str(CACHE_DIR / &#x27;matplotlib&#x27;))
+Path(os.environ[&#x27;YOLO_CONFIG_DIR&#x27;]).mkdir(parents=True, exist_ok=True)
+Path(os.environ[&#x27;MPLCONFIGDIR&#x27;]).mkdir(parents=True, exist_ok=True)
+
+import cv2
+import torch
+import numpy as np
+
+YOLOV5_PATH = str(BASE_DIR / &#x27;vendor&#x27; / &#x27;yolov5&#x27;)
+sys.path.insert(0, YOLOV5_PATH)
+
+WEIGHT_PATH = str(BASE_DIR / &#x27;weight&#x27; / &#x27;last.pt&#x27;)
+
+
+# ── TCP 发送器（后台线程，自动重连） ─────────────────────────────────────────
+
+class TCPSender:
+    def __init__(self, host: str, port: int, reconnect_interval: float = 3.0):
+        self.host = host
+        self.port = port
+        self.reconnect_interval = reconnect_interval
+        self._sock = None
+        self._lock = threading.Lock()
+        self._stop = threading.Event()
+        self._thread = threading.Thread(target=self._keep_alive, daemon=True)
+        self._thread.start()
+
+    def _keep_alive(self):
+        while not self._stop.is_set():
+            if self._sock is None:
+                s = None
+                try:
+                    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    s.settimeout(1.0)
+                    s.connect((self.host, self.port))
+                    with self._lock:
+                        if self._stop.is_set():
+                            s.close()
+                            break
+                        self._sock = s
+                    print(f&quot;[TCP] 已连接 {self.host}:{self.port}&quot;)
+                except Exception as e:
+                    if s is not None:
+                        s.close()
+                    print(f&quot;[TCP] 连接失败: {e}，{self.reconnect_interval}s 后重试&quot;)
+                    self._stop.wait(self.reconnect_interval)
+            else:
+                self._stop.wait(0.2)
+
+    def send(self, data: dict) -&gt; bool:
+        payload = (json.dumps(data, ensure_ascii=False) + &#x27;\n&#x27;).encode(&#x27;utf-8&#x27;)
+        with self._lock:
+            sock = self._sock
+        if sock is None:
+            return False
+        try:
+            sock.sendall(payload)
+            return True
+        except Exception as e:
+            print(f&quot;[TCP] 发送失败: {e}，触发重连&quot;)
+            with self._lock:
+                try:
+                    self._sock.close()
+                except Exception:
+                    pass
+                self._sock = None
+            return False
+
+    def stop(self):
+        self._stop.set()
+        with self._lock:
+            if self._sock:
+                self._sock.close()
+                self._sock = None
+        self._thread.join(timeout=2.0)
+
+
+# ── 模型加载 ─────────────────────────────────────────────────────────────────
+
+def load_model(weight: str, device: str):
+    if not Path(weight).is_file():
+        raise FileNotFoundError(f&#x27;模型文件不存在: {weight}&#x27;)
+    if not (Path(YOLOV5_PATH) / &#x27;models&#x27; / &#x27;common.py&#x27;).is_file():
+        raise FileNotFoundError(f&#x27;缺少包内 YOLOv5 源码: {YOLOV5_PATH}&#x27;)
+    from models.common import DetectMultiBackend
+    from utils.torch_utils import select_device
+    dev = select_device(device)
+    # The original trusted checkpoint was saved on Linux and contains PosixPath.
+    # Limit the compatibility alias to deserialization instead of changing pathlib globally.
+    if os.name == &#x27;nt&#x27;:
+        with patch.object(pathlib, &#x27;PosixPath&#x27;, pathlib.WindowsPath):
+            model = DetectMultiBackend(weight, device=dev)
+    else:
+        model = DetectMultiBackend(weight, device=dev)
+    model.eval()
+    return model, dev
+
+
+# ── 推理（单帧） ─────────────────────────────────────────────────────────────
+
+def infer(model, dev, frame_bgr, imgsz: int, conf_thres: float, iou_thres: float):
+    from utils.augmentations import letterbox
+    from utils.general import non_max_suppression, scale_boxes
+
+    stride = int(model.stride)
+    img, ratio, (dw, dh) = letterbox(frame_bgr, imgsz, stride=stride, auto=True)
+    img = img[:, :, ::-1].transpose(2, 0, 1)          # BGR→RGB, HWC→CHW
+    img = np.ascontiguousarray(img)
+    img_t = torch.from_numpy(img).to(dev).float() / 255.0
+    if img_t.ndim == 3:
+        img_t = img_t.unsqueeze(0)
+
+    with torch.no_grad():
+        pred = model(img_t, augment=False, visualize=False)
+
+    pred = non_max_suppression(pred, conf_thres, iou_thres)
+
+    # 把框坐标映射回原图
+    results = []
+    for det in pred:
+        if det is not None and len(det):
+            det[:, :4] = scale_boxes(img_t.shape[2:], det[:, :4], frame_bgr.shape).round()
+            for *xyxy, conf, cls in det:
+                results.append({
+                    &#x27;x1&#x27;: int(xyxy[0]), &#x27;y1&#x27;: int(xyxy[1]),
+                    &#x27;x2&#x27;: int(xyxy[2]), &#x27;y2&#x27;: int(xyxy[3]),
+                    &#x27;conf&#x27;: round(float(conf), 3),
+                    &#x27;cls&#x27;: int(cls),
+                    &#x27;name&#x27;: model.names[int(cls)],
+                })
+    return results
+
+
+# ── 统计 &amp; 绘图 ──────────────────────────────────────────────────────────────
+
+def count_classes(detections: list, class_names: list) -&gt; dict:
+    counts = {n: 0 for n in class_names}
+    for d in detections:
+        name = d[&#x27;name&#x27;]
+        if name in counts:
+            counts[name] += 1
+    return counts
+
+
+def draw(frame, detections, counts):
+    for d in detections:
+        cv2.rectangle(frame, (d[&#x27;x1&#x27;], d[&#x27;y1&#x27;]), (d[&#x27;x2&#x27;], d[&#x27;y2&#x27;]), (0, 255, 0), 2)
+        cv2.putText(frame, f&quot;{d[&#x27;name&#x27;]} {d[&#x27;conf&#x27;]:.2f}&quot;,
+                    (d[&#x27;x1&#x27;], d[&#x27;y1&#x27;] - 6),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 255, 0), 1)
+    y = 24
+    for name, cnt in counts.items():
+        cv2.putText(frame, f&quot;{name}: {cnt}&quot;, (10, y),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.65, (0, 200, 255), 2)
+        y += 26
+    total = sum(counts.values())
+    cv2.putText(frame, f&quot;total: {total}&quot;, (10, y),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.65, (0, 200, 255), 2)
+    return frame
+
+
+# ── 主循环 ───────────────────────────────────────────────────────────────────
+
+def run(args):
+    device = args.device
+    torch.set_num_threads(args.threads)
+    print(f&quot;[INFO] 设备: {device}&quot;)
+
+    model, dev = load_model(args.weight, device)
+    class_names = list(model.names.values()) if isinstance(model.names, dict) else list(model.names)
+    print(f&quot;[INFO] 类别: {class_names}&quot;)
+
+    src = int(args.source) if args.source.isdigit() else args.source
+    backend = {&#x27;auto&#x27;: cv2.CAP_ANY, &#x27;dshow&#x27;: cv2.CAP_DSHOW,
+               &#x27;msmf&#x27;: cv2.CAP_MSMF}[args.camera_backend]
+    cap = cv2.VideoCapture(src, backend) if isinstance(src, int) else cv2.VideoCapture(src)
+    if not cap.isOpened():
+        cap.release()
+        raise RuntimeError(f&#x27;无法打开摄像头/视频: {args.source}。请检查 config.json、设备连接及 Windows 相机权限。&#x27;)
+
+    sender = TCPSender(args.host, args.port) if not args.no_tcp else None
+
+    frame_id = 0
+    send_interval = 1.0 / args.send_fps
+    last_send = 0.0
+    failed_reads = 0
+
+    print(&quot;[INFO] 开始推理，按 q 退出&quot;)
+    try:
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                if isinstance(src, str):
+                    break
+                failed_reads += 1
+                if failed_reads &gt;= 30:
+                    raise RuntimeError(&#x27;摄像头连续读取失败，请重新连接设备后启动。&#x27;)
+                time.sleep(0.1)
+                continue
+
+            failed_reads = 0
+            frame_id += 1
+            detections = infer(model, dev, frame, args.imgsz, args.conf, args.iou)
+            counts = count_classes(detections, class_names)
+            total = sum(counts.values())
+
+            now = time.monotonic()
+            if sender and (now - last_send) &gt;= send_interval:
+                packet = {
+                    &#x27;frame_id&#x27;: frame_id,
+                    &#x27;timestamp&#x27;: round(time.time(), 3),
+                    &#x27;counts&#x27;: counts,
+                    &#x27;total&#x27;: total,
+                }
+                ok = sender.send(packet)
+                if ok:
+                    print(f&quot;[TCP] frame={frame_id} {counts} total={total}&quot;)
+                last_send = now
+
+            if not args.no_display:
+                vis = draw(frame.copy(), detections, counts)
+                cv2.imshow(&#x27;YOLOv5 Detection&#x27;, vis)
+                if cv2.waitKey(1) &amp; 0xFF == ord(&#x27;q&#x27;):
+                    break
+            if args.max_frames and frame_id &gt;= args.max_frames:
+                break
+    finally:
+        cap.release()
+        if not args.no_display:
+            cv2.destroyAllWindows()
+        if sender:
+            sender.stop()
+        print(&quot;[INFO] 退出&quot;)
+
+
+# ── CLI ──────────────────────────────────────────────────────────────────────
+
+def parse_args(argv=None):
+    pre = argparse.ArgumentParser(add_help=False, allow_abbrev=False)
+    pre.add_argument(&#x27;--config&#x27;, default=str(BASE_DIR / &#x27;config.json&#x27;))
+    config_arg, _ = pre.parse_known_args(argv)
+    config_path = Path(config_arg.config).resolve()
+    defaults = {}
+    if config_path.is_file():
+        with config_path.open(encoding=&#x27;utf-8-sig&#x27;) as f:
+            config = json.load(f)
+        if not isinstance(config, dict):
+            pre.error(&#x27;config.json 必须是 JSON 对象&#x27;)
+        allowed = {&#x27;source&#x27;, &#x27;weight&#x27;, &#x27;device&#x27;, &#x27;imgsz&#x27;, &#x27;conf&#x27;, &#x27;iou&#x27;, &#x27;host&#x27;,
+                   &#x27;port&#x27;, &#x27;send_fps&#x27;, &#x27;display&#x27;, &#x27;tcp&#x27;, &#x27;camera_backend&#x27;, &#x27;threads&#x27;}
+        unknown = set(config) - allowed
+        if unknown:
+            pre.error(f&#x27;配置中有未知字段: {sorted(unknown)}&#x27;)
+        defaults = dict(config)
+        for key in (&#x27;display&#x27;, &#x27;tcp&#x27;):
+            if key in defaults:
+                if not isinstance(defaults[key], bool):
+                    pre.error(f&#x27;{key} 必须是 true 或 false&#x27;)
+                defaults[&#x27;no_&#x27; + key] = not defaults.pop(key)
+        if &#x27;source&#x27; in defaults:
+            defaults[&#x27;source&#x27;] = str(defaults[&#x27;source&#x27;])
+            source_path = Path(defaults[&#x27;source&#x27;])
+            if not defaults[&#x27;source&#x27;].isdigit() and &#x27;://&#x27; not in defaults[&#x27;source&#x27;] and not source_path.is_absolute():
+                defaults[&#x27;source&#x27;] = str(config_path.parent / source_path)
+        if &#x27;weight&#x27; in defaults:
+            weight = Path(defaults[&#x27;weight&#x27;])
+            defaults[&#x27;weight&#x27;] = str(weight if weight.is_absolute() else config_path.parent / weight)
+    elif any(a == &#x27;--config&#x27; or a.startswith(&#x27;--config=&#x27;) for a in (argv if argv is not None else sys.argv[1:])):
+        pre.error(f&#x27;配置文件不存在: {config_path}&#x27;)
+    p = argparse.ArgumentParser(description=&#x27;YOLOv5 检测 + TCP 上报&#x27;, allow_abbrev=False)
+    p.add_argument(&#x27;--config&#x27;, default=str(config_path), help=&#x27;配置文件路径&#x27;)
+    p.add_argument(&#x27;--source&#x27;,      default=&#x27;0&#x27;,
+                   help=&#x27;输入源：摄像头编号(0/1…) 或 视频/图片路径&#x27;)
+    p.add_argument(&#x27;--weight&#x27;,      default=WEIGHT_PATH,
+                   help=&#x27;模型权重路径&#x27;)
+    p.add_argument(&#x27;--imgsz&#x27;,       type=int,   default=640)
+    p.add_argument(&#x27;--conf&#x27;,        type=float, default=0.25, help=&#x27;置信度阈值&#x27;)
+    p.add_argument(&#x27;--iou&#x27;,         type=float, default=0.45, help=&#x27;NMS IOU 阈值&#x27;)
+    p.add_argument(&#x27;--host&#x27;,        default=&#x27;127.0.0.1&#x27;, help=&#x27;上位机 IP&#x27;)
+    p.add_argument(&#x27;--port&#x27;,        type=int,   default=9000, help=&#x27;上位机 TCP 端口&#x27;)
+    p.add_argument(&#x27;--send-fps&#x27;,    type=float, default=10.0, help=&#x27;TCP 发送频率(帧/秒)&#x27;)
+    p.add_argument(&#x27;--device&#x27;, default=&#x27;cpu&#x27;, help=&#x27;默认 CPU，离线包不需要 CUDA&#x27;)
+    p.add_argument(&#x27;--threads&#x27;, type=int, default=4, help=&#x27;CPU 推理线程数&#x27;)
+    p.add_argument(&#x27;--camera-backend&#x27;, choices=[&#x27;auto&#x27;, &#x27;dshow&#x27;, &#x27;msmf&#x27;], default=&#x27;auto&#x27;)
+    p.add_argument(&#x27;--max-frames&#x27;, type=int, default=0, help=&#x27;处理指定帧数后退出，0 为持续运行&#x27;)
+    p.add_argument(&#x27;--no-tcp&#x27;,      action=&#x27;store_true&#x27;, help=&#x27;禁用 TCP（本地调试）&#x27;)
+    p.add_argument(&#x27;--tcp&#x27;, dest=&#x27;no_tcp&#x27;, action=&#x27;store_false&#x27;, default=argparse.SUPPRESS)
+    p.add_argument(&#x27;--no-display&#x27;,  action=&#x27;store_true&#x27;, help=&#x27;无头模式，不显示画面&#x27;)
+    p.add_argument(&#x27;--display&#x27;, dest=&#x27;no_display&#x27;, action=&#x27;store_false&#x27;, default=argparse.SUPPRESS)
+    p.set_defaults(**defaults)
+    args = p.parse_args(argv)
+    if not isinstance(args.host, str) or not args.host.strip():
+        p.error(&#x27;host 必须是有效的 IP 地址或主机名&#x27;)
+    try:
+        integers = all(type(getattr(args, k)) is int for k in (&#x27;port&#x27;, &#x27;imgsz&#x27;, &#x27;threads&#x27;, &#x27;max_frames&#x27;))
+        numbers = all(type(getattr(args, k)) in (int, float) and math.isfinite(getattr(args, k))
+                      for k in (&#x27;conf&#x27;, &#x27;iou&#x27;, &#x27;send_fps&#x27;))
+        valid = (integers and numbers and 0 &lt; args.conf &lt; 1 and 0 &lt; args.iou &lt; 1 and args.send_fps &gt; 0
+                 and 1 &lt;= args.port &lt;= 65535 and args.imgsz &gt; 0 and args.imgsz % 32 == 0
+                 and args.threads &gt; 0 and args.max_frames &gt;= 0)
+    except TypeError:
+        valid = False
+    if not valid:
+        p.error(&#x27;检查配置数值：conf/iou 在 0~1 内，端口 1~65535，imgsz 为 32 的正整数倍，send_fps/threads &gt; 0&#x27;)
+    if args.camera_backend not in (&#x27;auto&#x27;, &#x27;dshow&#x27;, &#x27;msmf&#x27;):
+        p.error(&#x27;camera_backend 必须为 auto、dshow 或 msmf&#x27;)
+    if not isinstance(args.device, str):
+        p.error(&#x27;device 必须是字符串，离线包使用 cpu&#x27;)
+    return args
+
+
+if __name__ == &#x27;__main__&#x27;:
+    try:
+        run(parse_args())
+    except KeyboardInterrupt:
+        print(&#x27;\n[INFO] 已停止&#x27;)
+    except Exception as exc:
+        print(f&#x27;[ERROR] {exc}&#x27;, file=sys.stderr)
+        raise SystemExit(1)
+</pre></body></html>

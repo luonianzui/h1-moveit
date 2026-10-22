@@ -1,0 +1,24 @@
+build/
+install/
+log/
+__pycache__/
+*.py[cod]
+
+# GitHub source snapshot: large evidence remains in local storage.
+**/__pycache__/
+**/.pytest_cache/
+**/build/
+**/colcon_log/
+/install*/
+*.mp4
+*.db3
+*.mcap
+*.cdr
+*.jsonl
+*.jsonl.gz
+*.tar
+*.tar.gz
+*.tar.zst
+*.so
+*.o
+!LOCAL_DATA_INVENTORY.jsonl.gz

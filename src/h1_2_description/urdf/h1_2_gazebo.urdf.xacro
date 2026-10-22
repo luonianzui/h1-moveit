@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="h1_2">
+  <!-- 包含主模型 -->
+  <xacro:include filename="$(find h1_2_description)/urdf/h1_2_model.urdf.xacro"/>
+
+  <!-- 包含 Dex1-1 夹爪 (右手) -->
+  <xacro:include filename="$(find h1_2_description)/urdf/right_dex1_1_gripper.urdf.xacro"/>
+
+  <!-- 包含 Dex1-1 夹爪 (左手) -->
+  <xacro:include filename="$(find h1_2_description)/urdf/left_dex1_1_gripper.urdf.xacro"/>
+
+  <!-- 包含 RealSense D435 相机 -->
+  <xacro:include filename="$(find h1_2_description)/urdf/realsense_d435.urdf.xacro"/>
+  <xacro:realsense_d435 parent="camera_link" name="realsense_camera">
+    <!--
+      复用 H1-2 原模型预留的上方相机位，并在槽内向下俯仰约 17°，
+      让桌面操作区完整进入画面；安装中心保持在原 camera_link。
+    -->
+    <origin xyz="0 0 0" rpy="0 0.30 0"/>
+  </xacro:realsense_d435>
+
+  <xacro:include filename="$(find h1_2_description)/urdf/livox_mid360.urdf.xacro"/>
+  <xacro:livox_mid360 parent="lidar_link" name="livox_mid360">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:livox_mid360>
+
+  <!-- Gazebo 专用的 ros2_control -->
+  <xacro:include filename="$(find h1_2_description)/urdf/h1_2.gazebo.ros2_control.xacro"/>
+  <xacro:h1_2_gazebo_ros2_control
+    initial_positions_file="$(find h1_2_moveit_config)/config/initial_positions.yaml"/>
+
+  <!-- Gazebo 世界固定连接 -->
+  <link name="world"/>
+  <joint name="world_joint" type="fixed">
+    <parent link="world"/>
+    <child link="pelvis"/>
+    <origin xyz="0 0 1.0" rpy="0 0 0"/>
+  </joint>
+</robot>

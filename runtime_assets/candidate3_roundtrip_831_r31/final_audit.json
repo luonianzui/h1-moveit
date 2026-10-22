@@ -1,0 +1,196 @@
+{
+  "camera_pose": {
+    "orientation": {
+      "w": -0.5487785935401917,
+      "x": 0.15099482238292694,
+      "y": -0.10155720263719559,
+      "z": -0.8159220218658447
+    },
+    "position": {
+      "x": 0.612566351890564,
+      "y": -0.7572689056396484,
+      "z": 1.4472222328186035
+    }
+  },
+  "conditions": {
+    "camera_pose_unchanged": true,
+    "cube_at_origin": true,
+    "cycle1_pass": true,
+    "door_hinge_q0": true,
+    "door_support_detached": true,
+    "five_trajectory_publishers_zero": true,
+    "flow_under_180_s": true,
+    "four_walls_visible": true,
+    "handle_q0": true,
+    "latch_locked": true,
+    "localization_rms_below_3cm": true,
+    "localization_valid": true,
+    "navigation_enclosure_present": true,
+    "robot_launch_pose": true,
+    "rosbag_audit_pass": true,
+    "support_flow_recorder_video_absent": true,
+    "support_socket_absent": true,
+    "terminal_flow_pass": true,
+    "video_decode_pass": true,
+    "video_started_before_flow": true,
+    "video_stopped_after_flow": true
+  },
+  "cube_origin_xyz_m": [
+    0.334,
+    0.377,
+    0.83
+  ],
+  "cube_position_error_m": 0.00024517952909929963,
+  "final_entities": {
+    "green_cube": {
+      "id": 193,
+      "name": "green_cube",
+      "orientation": {
+        "w": 0.7070349723405411,
+        "x": 1.169500258600635e-07,
+        "y": -7.688741902568447e-07,
+        "z": 0.7071785827404597
+      },
+      "position": {
+        "x": 0.3342385086783221,
+        "y": 0.3770568008633533,
+        "z": 0.8299994767632246
+      }
+    },
+    "h1_2": {
+      "id": 20,
+      "name": "h1_2",
+      "orientation": {
+        "w": 1
+      },
+      "position": {}
+    },
+    "incubator": {
+      "id": 201,
+      "name": "incubator",
+      "orientation": {
+        "w": 1
+      },
+      "position": {
+        "x": 0.59,
+        "z": 0.815
+      }
+    },
+    "navigation_enclosure": {
+      "id": 8,
+      "name": "navigation_enclosure",
+      "orientation": {
+        "w": 1
+      },
+      "position": {}
+    },
+    "table": {
+      "id": 181,
+      "name": "table",
+      "orientation": {
+        "w": 1
+      },
+      "position": {
+        "x": 0.6
+      }
+    }
+  },
+  "incubator_joint_positions_rad": {
+    "door_hinge_joint": -2.3251219838253058e-22,
+    "handle_latch_joint": -2.85269448041167e-16
+  },
+  "initial_audit_note": "The first process check matched its own shell command text; no runtime role was actually present.",
+  "latch": "locked",
+  "localization": {
+    "inlier_fraction": 1.0,
+    "inlier_rms_m": 0.01782649341095856,
+    "map_to_odom_published": false,
+    "point_count": 720,
+    "pose": {
+      "x": 0.0,
+      "y": -0.005,
+      "yaw": 0.0
+    },
+    "reason": "pass",
+    "robust_rms_m": 0.013824920886346324,
+    "valid": true,
+    "visible_wall_count": 4,
+    "wall_point_counts": [
+      304,
+      58,
+      181,
+      177
+    ]
+  },
+  "process_audit": {
+    "roles": {
+      "flow": {
+        "pid": 747773,
+        "proc_entry_present": false
+      },
+      "recorder": {
+        "pid": 700931,
+        "proc_entry_present": false
+      },
+      "support_daemon": {
+        "pid": 703235,
+        "proc_entry_present": false
+      },
+      "video_recorder": {
+        "pid": 743963,
+        "proc_entry_present": false
+      }
+    },
+    "schema": "h1_candidate3_roundtrip_role_exit_audit/831-r31-v1",
+    "status": "PASS"
+  },
+  "rosbag_summary": {
+    "controller_total": 60,
+    "duration_s": 583.744043463,
+    "maximum_commanded_torso_deg": 44.25,
+    "maximum_measured_torso_deg": 44.25000000101826,
+    "topic_counts": {
+      "/clock": 114956,
+      "/incubator/handle/contacts": 0,
+      "/incubator/joint_states": 114759,
+      "/joint_states": 57280,
+      "/left_arm_controller/joint_trajectory": 16,
+      "/left_gripper_controller/joint_trajectory": 4,
+      "/right_arm_controller/joint_trajectory": 16,
+      "/right_gripper_controller/joint_trajectory": 8,
+      "/torso_controller/joint_trajectory": 16
+    },
+    "total_messages": 287055
+  },
+  "schema": "h1_candidate3_roundtrip_combined_scene_final_audit/831-r31-v1-retry1",
+  "status": "PASS",
+  "timing": {
+    "completion_ns": 9944999068274,
+    "invocation_ns": 9777696637585,
+    "invocation_to_motion_start_s": 2.706699317,
+    "invocation_to_terminal_pass_s": 167.302430689,
+    "motion_end_ns": 9944999045954,
+    "motion_start_ns": 9780403336902,
+    "motion_window_s": 164.595709052
+  },
+  "video_summary": {
+    "format": {
+      "duration": "222.100000",
+      "size": "8727790"
+    },
+    "programs": [],
+    "streams": [
+      {
+        "avg_frame_rate": "10/1",
+        "codec_name": "h264",
+        "duration": "222.100000",
+        "height": 1518,
+        "nb_frames": "2221",
+        "pix_fmt": "yuv420p",
+        "profile": "Main",
+        "r_frame_rate": "10/1",
+        "width": 1160
+      }
+    ]
+  }
+}

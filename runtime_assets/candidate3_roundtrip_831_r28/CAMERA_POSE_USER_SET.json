@@ -1,0 +1,25 @@
+{
+  "schema": "h1_candidate3_user_set_gui_camera_pose/831-v1",
+  "source_topic": "/gui/camera/pose",
+  "position": {
+    "x": 0.612566351890564,
+    "y": -0.7572689056396484,
+    "z": 1.4472222328186035
+  },
+  "orientation_requested": {
+    "x": 0.15099482238292694,
+    "y": -0.10155720263719559,
+    "z": -0.8159220218658447,
+    "w": -0.5487785935401917
+  },
+  "orientation_restored": {
+    "x": 0.15099482238292694,
+    "y": -0.10155720263719559,
+    "z": -0.8159220218658447,
+    "w": -0.5487785935401917
+  },
+  "restored_by_service": "/gui/move_to/pose",
+  "final_pose_reverified": true,
+  "status": "PASS",
+  "valid": true
+}

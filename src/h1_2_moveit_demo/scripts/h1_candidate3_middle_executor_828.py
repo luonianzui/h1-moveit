@@ -1,0 +1,1458 @@
+#!/usr/bin/python3
+"""Execute the sealed 826.3 E0-held candidate-3 middle in Gazebo only.
+
+All files, phase semantics, controller topics, points, and support hooks are
+validated before ROS is imported.  The right gripper is never commanded by
+the middle: fresh feedback must show that it remains closed throughout.  Any
+runtime fault publishes a measured-position hold on all five robot
+controllers and exits nonzero.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import hmac
+import json
+import math
+import os
+import re
+import stat
+import subprocess
+import sys
+import threading
+import time
+import types
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Dict, Iterable, Mapping, Sequence, Tuple
+
+
+PLAN_SCHEMA = "h1_candidate3_middle_plan/828-e0-v1"
+CERTIFICATE_SCHEMA = "h1_candidate3_middle_certificate/828-e0-v1"
+RESULT_SCHEMA = "h1_candidate3_middle_exact_result/828-e0-v1"
+AUDITOR_VERSION = "h1_candidate3_middle_e0_exact_auditor/828-e0-v1"
+ASSET_SCHEMA = "h1_candidate3_middle_trajectory_asset/828-e0-v1"
+SUPPORT_MANIFEST_SCHEMA = "h1_support_orchestration_828/v1"
+SUPPORT_CONTRACT_SCHEMA = "h1_support_contract_828/v1"
+RELEASE_OWNER = "suffix_after_q90_to_q0"
+PHASE_NAMES = (
+    "door_pre_support",
+    "door_open_supported",
+    "door60_seam_to_cube",
+    "left_cube_ready",
+    "cube_contact",
+    "cube_carry_place",
+    "cube_release",
+    "cube_retreat",
+    "left_cube_park",
+    "door60_seam_to_hinge",
+    "door_close_supported",
+)
+
+LEFT_ARM_JOINTS = (
+    "left_shoulder_pitch_joint", "left_shoulder_roll_joint",
+    "left_shoulder_yaw_joint", "left_elbow_joint",
+    "left_wrist_roll_joint", "left_wrist_pitch_joint",
+    "left_wrist_yaw_joint",
+)
+RIGHT_ARM_JOINTS = tuple(
+    name.replace("left_", "right_", 1) for name in LEFT_ARM_JOINTS)
+LEFT_GRIPPER_JOINTS = (
+    "left_dex1_finger_1_joint", "left_dex1_finger_2_joint",
+)
+RIGHT_GRIPPER_JOINTS = (
+    "right_dex1_finger_1_joint", "right_dex1_finger_2_joint",
+)
+CONTROLLER_JOINTS: Mapping[str, Tuple[str, ...]] = {
+    "/torso_controller/joint_trajectory": ("torso_joint",),
+    "/left_arm_controller/joint_trajectory": LEFT_ARM_JOINTS,
+    "/right_arm_controller/joint_trajectory": RIGHT_ARM_JOINTS,
+    "/left_gripper_controller/joint_trajectory": LEFT_GRIPPER_JOINTS,
+    "/right_gripper_controller/joint_trajectory": RIGHT_GRIPPER_JOINTS,
+}
+CANONICAL_CONTROLLER_TOPICS = tuple(CONTROLLER_JOINTS)
+
+PHASE_COMMAND_TOPICS = (
+    (),
+    ("/torso_controller/joint_trajectory",
+     "/right_arm_controller/joint_trajectory"),
+    ("/torso_controller/joint_trajectory",
+     "/right_arm_controller/joint_trajectory"),
+    ("/left_arm_controller/joint_trajectory",),
+    ("/left_arm_controller/joint_trajectory",
+     "/left_gripper_controller/joint_trajectory"),
+    ("/left_arm_controller/joint_trajectory",
+     "/left_arm_controller/joint_trajectory"),
+    ("/left_gripper_controller/joint_trajectory",),
+    ("/left_arm_controller/joint_trajectory",),
+    ("/left_arm_controller/joint_trajectory",),
+    ("/torso_controller/joint_trajectory",
+     "/right_arm_controller/joint_trajectory"),
+    ("/torso_controller/joint_trajectory",
+     "/right_arm_controller/joint_trajectory"),
+)
+SYNCHRONIZED_PHASES = frozenset((1, 2, 9, 10))
+SUPPORT_EXPECTATIONS = (
+    (False, True, False, False),
+    (True, True, False, False),
+    (True, True, False, False),
+    (True, True, False, False),
+    (True, True, False, True),
+    (True, True, True, False),
+    (True, True, False, False),
+    (True, True, False, False),
+    (True, True, False, False),
+    (True, True, False, False),
+    (True, True, False, False),
+)
+HOOK_EXPECTATIONS = (
+    ("before_phase", 0, "door_attach", "detached", "attached"),
+    ("after_phase", 4, "cube_attach", "detached", "attached"),
+    ("after_phase", 5, "cube_detach", "attached", "detached"),
+    ("terminal_post", 10, "door_detach", "attached", "detached"),
+)
+SUPPORT_CLI_ACTION = {
+    "door_attach": "door-attach",
+    "cube_attach": "cube-attach",
+    "cube_detach": "cube-detach",
+    "door_detach": "door-detach",
+}
+
+E0_TORSO_RAD = math.radians(-2.7349115403864994)
+E0_RIGHT_ARM_RAD = (
+    -0.41373146194762, 0.23755434038212944, 1.1008080707922079,
+    0.8747783439736734, -0.3046852067271319, 0.4094159191441438,
+    -0.9999635680199944,
+)
+E0_RIGHT_GRIPPER = (0.0108, 0.007)
+E0_LEFT_ARM_RAD = (
+    -0.000012933885986937658, 0.316, 0.000023774721497885907,
+    0.6000753185207717, 0.000023572560034304773,
+    -0.00008730492997967213, -0.00001654021997178485,
+)
+E0_LEFT_GRIPPER = (-0.019, -0.019)
+
+HARD_MAX_TORSO_RAD = math.radians(45.0)
+HARD_START_TOLERANCE_RAD = 0.004
+HARD_ENDPOINT_TOLERANCE_RAD = 0.004
+HARD_GRIPPER_TOLERANCE_M = 0.001
+HARD_ENDPOINT_SETTLE_SIM_NS = 500_000_000
+HARD_ENDPOINT_CONSECUTIVE_SAMPLES = 3
+HARD_MIN_LEAD_TIME_S = 0.25
+HARD_MAX_PHASE_DURATION_S = 120.0
+HARD_MIN_SPEED_SCALE = 0.05
+HARD_SIM_CLOCK_STALL_S = 1.0
+HARD_RIGHT_GRASP_FEEDBACK_MAX_AGE_S = 1.0
+HARD_MAX_DISCOVERY_TIMEOUT_S = 60.0
+HARD_MAX_WALL_TIMEOUT_FACTOR = 100.0
+HARD_MIN_SUPPORT_TIMEOUT_S = 3.0
+HARD_MAX_SUPPORT_TIMEOUT_S = 30.0
+REQUIRED_CONTROLLER_AND_RECORDER_SUBSCRIPTIONS = 2
+# The support CLI timeout bounds each child command; a live hook contains a
+# finite sequence of those commands and receives this separate outer bound.
+SUPPORT_PROCESS_WALL_TIMEOUT_S = 300.0
+MAX_PROTECTED_BYTES = 1024 * 1024 * 1024
+SHA256_RE = re.compile(r"[0-9a-f]{64}\Z")
+FORBIDDEN_TEXT = ("right_release", "right_retreat")
+
+JOINT_LIMITS: Mapping[str, Tuple[float, float]] = {
+    "torso_joint": (-HARD_MAX_TORSO_RAD, HARD_MAX_TORSO_RAD),
+    "left_shoulder_pitch_joint": (-3.14, 1.57),
+    "left_shoulder_roll_joint": (-0.38, 3.4),
+    "left_shoulder_yaw_joint": (-2.66, 3.01),
+    "left_elbow_joint": (-0.95, 3.18),
+    "left_wrist_roll_joint": (-3.01, 2.75),
+    "left_wrist_pitch_joint": (-0.4625, 0.4625),
+    "left_wrist_yaw_joint": (-1.27, 1.27),
+    "right_shoulder_pitch_joint": (-3.14, 1.57),
+    "right_shoulder_roll_joint": (-3.4, 0.38),
+    "right_shoulder_yaw_joint": (-3.01, 2.66),
+    "right_elbow_joint": (-0.95, 3.18),
+    "right_wrist_roll_joint": (-2.75, 3.01),
+    "right_wrist_pitch_joint": (-0.4625, 0.4625),
+    "right_wrist_yaw_joint": (-1.27, 1.27),
+    "left_dex1_finger_1_joint": (-0.020, 0.0245),
+    "left_dex1_finger_2_joint": (-0.020, 0.0245),
+    "right_dex1_finger_1_joint": (-0.020, 0.0245),
+    "right_dex1_finger_2_joint": (-0.020, 0.0245),
+}
+
+
+class MiddleExecutionError(RuntimeError):
+    """A fail-closed admission, support, or runtime failure."""
+
+
+@dataclass(frozen=True)
+class SealedDocument:
+    path: Path
+    sha256: str
+    value: Mapping[str, Any]
+
+
+@dataclass(frozen=True)
+class Point:
+    positions: Tuple[float, ...]
+    time_from_start_ns: int
+
+
+@dataclass(frozen=True)
+class Command:
+    topic: str
+    joint_names: Tuple[str, ...]
+    points: Tuple[Point, ...]
+
+
+@dataclass(frozen=True)
+class Phase:
+    index: int
+    name: str
+    commands: Tuple[Command, ...]
+
+
+@dataclass(frozen=True)
+class ValidatedMiddle:
+    workspace: Path
+    scene_path: Path
+    scene_sha256: str
+    plan: SealedDocument
+    certificate: SealedDocument
+    result: SealedDocument
+    phases: Tuple[Phase, ...]
+    support_orchestrator: Path
+    support_manifest: Path
+    support_manifest_sha256: str
+    support_certificate: Path
+    support_certificate_sha256: str
+
+
+def _require(condition: bool, status: str) -> None:
+    if not condition:
+        raise MiddleExecutionError(status)
+
+
+def _exact_keys(value: Any, keys: Iterable[str], status: str) -> Mapping[str, Any]:
+    _require(type(value) is dict, f"{status}_TYPE")
+    _require(frozenset(value) == frozenset(keys), f"{status}_KEYS")
+    return value
+
+
+def _finite(value: Any, status: str) -> float:
+    _require(type(value) in (int, float) and type(value) is not bool, status)
+    result = float(value)
+    _require(math.isfinite(result), status)
+    return result
+
+
+def _sha(value: Any, status: str) -> str:
+    _require(type(value) is str and SHA256_RE.fullmatch(value) is not None,
+             status)
+    return value
+
+
+def _reject_duplicate_keys(pairs: Sequence[Tuple[str, Any]]) -> Dict[str, Any]:
+    output: Dict[str, Any] = {}
+    for key, value in pairs:
+        if key in output:
+            raise MiddleExecutionError(f"JSON_DUPLICATE_KEY:{key}")
+        output[key] = value
+    return output
+
+
+def _reject_constant(value: str) -> None:
+    raise MiddleExecutionError(f"JSON_NONFINITE:{value}")
+
+
+def _identity(metadata: os.stat_result) -> Tuple[int, int, int, int, int]:
+    return (metadata.st_dev, metadata.st_ino, metadata.st_size,
+            metadata.st_mtime_ns, metadata.st_ctime_ns)
+
+
+def _read_sealed_bytes(path: Path, expected_sha256: str, mode: int) -> bytes:
+    _sha(expected_sha256, "EXPECTED_SHA256")
+    path = Path(path)
+    _require(path.is_absolute(), "SEALED_PATH_NOT_ABSOLUTE")
+    try:
+        metadata = path.lstat()
+    except OSError as error:
+        raise MiddleExecutionError(f"SEALED_LSTAT:{error}") from error
+    _require(stat.S_ISREG(metadata.st_mode), "SEALED_NOT_REGULAR")
+    _require(not path.is_symlink(), "SEALED_SYMLINK")
+    _require(metadata.st_uid == os.geteuid(), "SEALED_OWNER")
+    _require(stat.S_IMODE(metadata.st_mode) == mode, "SEALED_MODE")
+    _require(metadata.st_nlink == 1, "SEALED_NLINK")
+    _require(0 < metadata.st_size <= MAX_PROTECTED_BYTES, "SEALED_SIZE")
+    flags = (os.O_RDONLY | getattr(os, "O_CLOEXEC", 0) |
+             getattr(os, "O_NOFOLLOW", 0))
+    try:
+        descriptor = os.open(path, flags)
+    except OSError as error:
+        raise MiddleExecutionError(f"SEALED_OPEN:{error}") from error
+    try:
+        before = os.fstat(descriptor)
+        _require(_identity(before) == _identity(metadata), "SEALED_RACE_BEFORE")
+        remaining = before.st_size
+        digest = hashlib.sha256()
+        chunks = []
+        while remaining:
+            block = os.read(descriptor, min(1024 * 1024, remaining))
+            _require(bool(block), "SEALED_SHORT_READ")
+            digest.update(block)
+            chunks.append(block)
+            remaining -= len(block)
+        _require(not os.read(descriptor, 1), "SEALED_GREW")
+        _require(_identity(before) == _identity(os.fstat(descriptor)),
+                 "SEALED_RACE_AFTER")
+    finally:
+        os.close(descriptor)
+    _require(hmac.compare_digest(digest.hexdigest(), expected_sha256),
+             "SEALED_SHA256")
+    return b"".join(chunks)
+
+
+def _exec_verified_module(
+    module_name: str, package_name: str, source: Path, source_bytes: bytes,
+) -> Any:
+    """Execute only already verified source bytes, never a path loader or pyc."""
+    try:
+        code = compile(source_bytes, str(source), "exec", dont_inherit=True)
+    except (SyntaxError, ValueError, TypeError) as error:
+        raise MiddleExecutionError(
+            f"VERIFIED_SOURCE_COMPILE:{module_name}:{error}") from error
+    module = types.ModuleType(module_name)
+    module.__file__ = str(source)
+    module.__package__ = package_name
+    module.__loader__ = None
+    module.__spec__ = None
+    previous = sys.modules.get(module_name)
+    sys.modules[module_name] = module
+    try:
+        exec(code, module.__dict__)
+    except BaseException as error:
+        if previous is None:
+            sys.modules.pop(module_name, None)
+        else:
+            sys.modules[module_name] = previous
+        raise MiddleExecutionError(
+            f"VERIFIED_SOURCE_EXEC:{module_name}:{error}") from error
+    return module
+
+
+def _load_semantic_authority(args: argparse.Namespace) -> Tuple[Any, Any]:
+    """Load the exact contract then admission from their verified bytes."""
+    contract_bytes = _read_sealed_bytes(
+        args.middle_contract, args.middle_contract_sha256, 0o500)
+    admission_bytes = _read_sealed_bytes(
+        args.middle_admission, args.middle_admission_sha256, 0o500)
+    _require(args.middle_contract.resolve() == args.middle_contract,
+             "MIDDLE_CONTRACT_PATH_ALIAS")
+    _require(args.middle_admission.resolve() == args.middle_admission,
+             "MIDDLE_ADMISSION_PATH_ALIAS")
+    package = types.ModuleType("h1_2_vision")
+    package.__package__ = "h1_2_vision"
+    package.__path__ = []
+    package.__loader__ = None
+    package.__spec__ = None
+    sys.modules[package.__name__] = package
+    contract = _exec_verified_module(
+        "h1_2_vision.candidate3_middle_execution_contract_828",
+        package.__name__, args.middle_contract, contract_bytes)
+    setattr(package, "candidate3_middle_execution_contract_828", contract)
+    admission = _exec_verified_module(
+        "h1_2_vision.candidate3_middle_admission",
+        package.__name__, args.middle_admission, admission_bytes)
+    setattr(package, "candidate3_middle_admission", admission)
+    return contract, admission
+
+
+def _read_sealed_json(path: Path, expected_sha256: str) -> SealedDocument:
+    raw = _read_sealed_bytes(path, expected_sha256, 0o400)
+    try:
+        value = json.loads(
+            raw.decode("utf-8"), object_pairs_hook=_reject_duplicate_keys,
+            parse_constant=_reject_constant)
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise MiddleExecutionError(f"SEALED_JSON:{error}") from error
+    _require(type(value) is dict, "SEALED_JSON_ROOT")
+    return SealedDocument(Path(path), expected_sha256, value)
+
+
+def _canonical_sha256(value: Any) -> str:
+    try:
+        encoded = json.dumps(
+            value, sort_keys=True, separators=(",", ":"),
+            ensure_ascii=True, allow_nan=False).encode("utf-8")
+    except (TypeError, ValueError) as error:
+        raise MiddleExecutionError(f"CANONICAL_JSON:{error}") from error
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def _bound_path(workspace: Path, relative: Any, status: str) -> Path:
+    _require(type(relative) is str and relative and not relative.startswith("/"),
+             status)
+    candidate = workspace / relative
+    try:
+        resolved = candidate.resolve(strict=True)
+    except OSError as error:
+        raise MiddleExecutionError(f"{status}:{error}") from error
+    _require(resolved == candidate, f"{status}_ALIAS")
+    _require(workspace in resolved.parents, f"{status}_ESCAPE")
+    return resolved
+
+
+def _all_strings(value: Any):
+    if type(value) is str:
+        yield value
+    elif type(value) is list:
+        for item in value:
+            yield from _all_strings(item)
+    elif type(value) is dict:
+        for key, item in value.items():
+            yield key
+            yield from _all_strings(item)
+
+
+def _validate_hooks(plan: Mapping[str, Any]) -> None:
+    hooks = plan.get("hooks")
+    _require(type(hooks) is list and len(hooks) == 4, "PLAN_HOOKS")
+    identifiers = set()
+    for index, (hook, expected) in enumerate(zip(hooks, HOOK_EXPECTATIONS)):
+        item = _exact_keys(hook, (
+            "id", "boundary", "action", "pre_state", "post_state",
+            "require_verified",
+        ), f"PLAN_HOOK:{index}")
+        identifier = item["id"]
+        _require(type(identifier) is str and identifier and
+                 identifier not in identifiers, f"PLAN_HOOK_ID:{index}")
+        identifiers.add(identifier)
+        boundary = _exact_keys(item["boundary"], (
+            "kind", "phase_index", "phase_name",
+        ), f"PLAN_HOOK_BOUNDARY:{index}")
+        kind, phase_index, action, pre_state, post_state = expected
+        _require(boundary["kind"] == kind and
+                 boundary["phase_index"] == phase_index and
+                 boundary["phase_name"] == PHASE_NAMES[phase_index],
+                 f"PLAN_HOOK_BOUNDARY:{index}")
+        _require(item["action"] == action and
+                 item["pre_state"] == pre_state and
+                 item["post_state"] == post_state and
+                 item["require_verified"] is True,
+                 f"PLAN_HOOK_CONTRACT:{index}")
+
+
+def _validate_asset(
+    workspace: Path, value: Any, cache: Dict[Tuple[str, str], SealedDocument],
+    status: str,
+) -> Mapping[str, Any]:
+    item = _exact_keys(value, (
+        "path", "file_sha256", "payload_sha256", "schema",
+    ), status)
+    file_sha = _sha(item["file_sha256"], f"{status}_FILE_SHA")
+    payload_sha = _sha(item["payload_sha256"], f"{status}_PAYLOAD_SHA")
+    _require(type(item["schema"]) is str and item["schema"],
+             f"{status}_SCHEMA")
+    _require(type(item["path"]) is str and item["path"],
+             f"{status}_PATH")
+    key = (item["path"], file_sha)
+    document = cache.get(key)
+    if document is None:
+        path = _bound_path(workspace, item["path"], f"{status}_PATH")
+        document = _read_sealed_json(path, file_sha)
+        cache[key] = document
+    root = document.value
+    _require(frozenset(root) == frozenset(("payload", "sha256")),
+             f"{status}_WRAPPER")
+    payload = root["payload"]
+    _require(type(payload) is dict, f"{status}_PAYLOAD")
+    _require(root["sha256"] == payload_sha == _canonical_sha256(payload),
+             f"{status}_PAYLOAD_SHA")
+    _require(payload.get("schema") == item["schema"],
+             f"{status}_PAYLOAD_SCHEMA")
+    _require(item["schema"] == ASSET_SCHEMA, f"{status}_SCHEMA_CONTRACT")
+    payload = _exact_keys(payload, (
+        "schema", "asset_id", "messages", "synchronization_groups",
+    ), f"{status}_PAYLOAD")
+    _require(type(payload["asset_id"]) is str and payload["asset_id"],
+             f"{status}_ASSET_ID")
+    messages = payload["messages"]
+    _require(type(messages) is list, f"{status}_MESSAGES")
+    for index, message in enumerate(messages):
+        _require(type(message) is dict and
+                 message.get("topic") in CONTROLLER_JOINTS,
+                 f"{status}_MESSAGE_TOPIC:{index}")
+        _validate_command(
+            message, message["topic"], f"{status}_MESSAGE:{index}")
+    groups = payload["synchronization_groups"]
+    _require(type(groups) is list, f"{status}_SYNCHRONIZATION_GROUPS")
+    grouped_indices = set()
+    for group_index, group in enumerate(groups):
+        group_value = _exact_keys(group, (
+            "message_indices", "shared_time_from_start_ns",
+        ), f"{status}_SYNC_GROUP:{group_index}")
+        indices = group_value["message_indices"]
+        _require(type(indices) is list and len(indices) >= 2 and
+                 all(type(index) is int and 0 <= index < len(messages)
+                     for index in indices) and
+                 len(indices) == len(frozenset(indices)) and
+                 not grouped_indices.intersection(indices),
+                 f"{status}_SYNC_INDICES:{group_index}")
+        grouped_indices.update(indices)
+        shared = group_value["shared_time_from_start_ns"]
+        _require(type(shared) is list and shared and
+                 all(type(item) is int and item >= 0 for item in shared),
+                 f"{status}_SYNC_TIME:{group_index}")
+        for index in indices:
+            actual = [point["time_from_start_ns"]
+                      for point in messages[index]["points"]]
+            _require(actual == shared, f"{status}_SYNC_GRID:{group_index}")
+    return payload
+
+
+def _validate_point(value: Any, names: Sequence[str], status: str) -> Point:
+    item = _exact_keys(value, ("positions", "time_from_start_ns"), status)
+    positions = item["positions"]
+    _require(type(positions) is list and len(positions) == len(names),
+             f"{status}_POSITIONS")
+    vector = tuple(_finite(position, f"{status}_POSITION")
+                   for position in positions)
+    for name, position in zip(names, vector):
+        lower, upper = JOINT_LIMITS[name]
+        _require(lower - 1e-12 <= position <= upper + 1e-12,
+                 f"{status}_JOINT_LIMIT:{name}")
+    duration = item["time_from_start_ns"]
+    _require(type(duration) is int and duration >= 0,
+             f"{status}_TIME")
+    return Point(vector, duration)
+
+
+def _validate_command(value: Any, expected_topic: str, status: str) -> Command:
+    item = _exact_keys(value, ("topic", "joint_names", "points"), status)
+    _require(item["topic"] == expected_topic, f"{status}_TOPIC")
+    names = item["joint_names"]
+    _require(type(names) is list and tuple(names) ==
+             CONTROLLER_JOINTS[expected_topic], f"{status}_JOINT_NAMES")
+    points = item["points"]
+    _require(type(points) is list and points, f"{status}_POINTS")
+    output = tuple(_validate_point(point, names, f"{status}_POINT:{index}")
+                   for index, point in enumerate(points))
+    previous = -1
+    for point in output:
+        _require(point.time_from_start_ns > previous, f"{status}_TIME_ORDER")
+        previous = point.time_from_start_ns
+    _require(previous / 1e9 <= HARD_MAX_PHASE_DURATION_S,
+             f"{status}_DURATION")
+    return Command(expected_topic, tuple(names), output)
+
+
+def _validate_phases(
+    workspace: Path, plan: Mapping[str, Any],
+) -> Tuple[Phase, ...]:
+    phases = plan.get("phases")
+    _require(type(phases) is list and len(phases) == len(PHASE_NAMES),
+             "PLAN_PHASES")
+    assets: Dict[Tuple[str, str], SealedDocument] = {}
+    output = []
+    for index, (value, name, expected_topics, support_values) in enumerate(zip(
+            phases, PHASE_NAMES, PHASE_COMMAND_TOPICS, SUPPORT_EXPECTATIONS)):
+        item = _exact_keys(value, (
+            "name", "commanded", "asset", "message_range", "commands",
+            "support", "entry_state_sha256", "exit_state_sha256",
+        ), f"PLAN_PHASE:{index}")
+        _require(item["name"] == name, f"PLAN_PHASE_NAME:{index}")
+        _require(item["commanded"] is bool(expected_topics),
+                 f"PLAN_PHASE_COMMANDED:{index}")
+        asset_payload = _validate_asset(
+            workspace, item["asset"], assets, f"PLAN_PHASE_ASSET:{index}")
+        message_range = item["message_range"]
+        _require(type(message_range) is list and len(message_range) == 2 and
+                 all(type(number) is int and number >= 0
+                     for number in message_range) and
+                 message_range[0] <= message_range[1],
+                 f"PLAN_PHASE_RANGE:{index}")
+        _sha(item["entry_state_sha256"], f"PLAN_PHASE_ENTRY:{index}")
+        _sha(item["exit_state_sha256"], f"PLAN_PHASE_EXIT:{index}")
+        support = _exact_keys(item["support"], (
+            "door_pre", "door_post", "cube_pre", "cube_post",
+        ), f"PLAN_PHASE_SUPPORT:{index}")
+        actual_support = tuple(support[key] for key in (
+            "door_pre", "door_post", "cube_pre", "cube_post"))
+        _require(actual_support == support_values,
+                 f"PLAN_PHASE_SUPPORT:{index}")
+        commands = item["commands"]
+        _require(type(commands) is list and len(commands) == len(expected_topics),
+                 f"PLAN_PHASE_COMMANDS:{index}")
+        _require(message_range[1] - message_range[0] == len(commands),
+                 f"PLAN_PHASE_RANGE_COMMAND_COUNT:{index}")
+        _require(message_range[1] <= len(asset_payload["messages"]),
+                 f"PLAN_PHASE_RANGE_ASSET:{index}")
+        _require(commands == asset_payload["messages"][
+            message_range[0]:message_range[1]],
+            f"PLAN_PHASE_ASSET_COMMAND_IDENTITY:{index}")
+        overlapping_groups = [
+            group for group in asset_payload["synchronization_groups"]
+            if set(group["message_indices"]).intersection(
+                range(message_range[0], message_range[1]))
+        ]
+        if index in SYNCHRONIZED_PHASES:
+            _require(len(overlapping_groups) == 1 and
+                     set(overlapping_groups[0]["message_indices"]) ==
+                     set(range(message_range[0], message_range[1])),
+                     f"PLAN_PHASE_SYNCHRONIZATION:{index}")
+        else:
+            _require(not overlapping_groups,
+                     f"PLAN_PHASE_UNEXPECTED_SYNCHRONIZATION:{index}")
+        parsed = tuple(_validate_command(
+            command, topic, f"PLAN_PHASE_COMMAND:{index}:{command_index}")
+            for command_index, (command, topic) in enumerate(
+                zip(commands, expected_topics)))
+        output.append(Phase(index, name, parsed))
+    return tuple(output)
+
+
+def _validate_support_contract_offline(args: argparse.Namespace) -> None:
+    command = [
+        str(args.support_orchestrator), "validate",
+        "--manifest", str(args.support_manifest),
+        "--manifest-sha256", args.support_manifest_sha256,
+        "--certificate", str(args.support_certificate),
+        "--certificate-sha256", args.support_certificate_sha256,
+        "--workspace", str(args.workspace),
+        "--timeout", str(args.support_timeout),
+    ]
+    try:
+        process = subprocess.Popen(
+            command, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,
+            stderr=sys.stderr, text=True, start_new_session=True)
+        try:
+            stdout, _ = process.communicate(timeout=args.support_timeout)
+        except subprocess.TimeoutExpired as error:
+            _kill_process_group(process)
+            raise MiddleExecutionError(
+                f"SUPPORT_VALIDATE_TIMEOUT:{error}") from error
+    except OSError as error:
+        raise MiddleExecutionError(
+            f"SUPPORT_VALIDATE_PROCESS:{error}") from error
+    _require(process.returncode == 0, "SUPPORT_VALIDATE_EXIT")
+    _require(stdout.strip() ==
+             "H1_SUPPORT_ORCHESTRATOR_828=PASS operation=validate "
+             "execution=none", "SUPPORT_VALIDATE_MARKER")
+
+
+def _kill_process_group(process: subprocess.Popen) -> None:
+    if process.poll() is None:
+        try:
+            os.killpg(process.pid, 9)
+        except ProcessLookupError:
+            pass
+        try:
+            process.wait(timeout=1.0)
+        except subprocess.TimeoutExpired:
+            pass
+
+
+def _validate_support_dag(
+    *,
+    manifest: SealedDocument,
+    support_certificate: SealedDocument,
+    plan: SealedDocument,
+    certificate: SealedDocument,
+    result: SealedDocument,
+) -> None:
+    """Cross-bind the final support manifest to this exact invocation.
+
+    This validation is intentionally local and precedes the support adapter
+    subprocess.  An individually valid manifest/certificate from another
+    bundle therefore cannot be swapped into this execution.
+    """
+    value = _exact_keys(manifest.value, (
+        "schema", "controller_execution_authorized", "live_execution_passed",
+        "bindings", "support_contract",
+    ), "SUPPORT_MANIFEST")
+    _require(value["schema"] == SUPPORT_MANIFEST_SCHEMA,
+             "SUPPORT_MANIFEST_SCHEMA")
+    _require(value["controller_execution_authorized"] is True,
+             "SUPPORT_MANIFEST_NOT_AUTHORIZED")
+    _require(value["live_execution_passed"] is False,
+             "SUPPORT_MANIFEST_NOT_PRERUN")
+    bindings = _exact_keys(value["bindings"], (
+        "plan_sha256", "plan_schema", "certificate_sha256",
+        "certificate_schema", "exact_result_sha256", "exact_result_schema",
+        "auditor_version", "support_contract_sha256",
+    ), "SUPPORT_BINDINGS")
+    expected = {
+        "plan_sha256": plan.sha256,
+        "plan_schema": PLAN_SCHEMA,
+        "certificate_sha256": certificate.sha256,
+        "certificate_schema": CERTIFICATE_SCHEMA,
+        "exact_result_sha256": result.sha256,
+        "exact_result_schema": RESULT_SCHEMA,
+        "auditor_version": AUDITOR_VERSION,
+    }
+    for name, expected_value in expected.items():
+        _require(bindings[name] == expected_value,
+                 f"SUPPORT_BINDING_{name.upper()}")
+    contract = value["support_contract"]
+    _require(type(contract) is dict and
+             contract.get("schema") == SUPPORT_CONTRACT_SCHEMA,
+             "SUPPORT_CONTRACT_SCHEMA")
+    contract_sha256 = _canonical_sha256(contract)
+    _require(bindings["support_contract_sha256"] == contract_sha256,
+             "SUPPORT_BINDING_SUPPORT_CONTRACT_SHA256")
+    _require(plan.value.get("support_contract_sha256") == contract_sha256,
+             "PLAN_SUPPORT_CONTRACT_SHA256")
+    _require(result.value.get("support_contract_sha256") == contract_sha256,
+             "RESULT_SUPPORT_CONTRACT_SHA256")
+    _require(certificate.value.get("support_contract_sha256") ==
+             contract_sha256, "CERTIFICATE_SUPPORT_CONTRACT_SHA256")
+    _require(support_certificate.path.resolve(strict=True) ==
+             certificate.path.resolve(strict=True),
+             "SUPPORT_CERTIFICATE_PATH_IDENTITY")
+    _require(support_certificate.sha256 == certificate.sha256,
+             "SUPPORT_CERTIFICATE_SHA256_IDENTITY")
+    _require(support_certificate.value == certificate.value,
+             "SUPPORT_CERTIFICATE_CONTENT_IDENTITY")
+
+
+def validate_bundle(args: argparse.Namespace) -> ValidatedMiddle:
+    """Validate every immutable input without importing ROS."""
+    workspace = Path(args.workspace)
+    _require(workspace.is_absolute(), "WORKSPACE_NOT_ABSOLUTE")
+    try:
+        workspace = workspace.resolve(strict=True)
+    except OSError as error:
+        raise MiddleExecutionError(f"WORKSPACE:{error}") from error
+    _require(workspace.is_dir(), "WORKSPACE_NOT_DIRECTORY")
+
+    plan = _read_sealed_json(args.plan, args.plan_sha256)
+    certificate = _read_sealed_json(
+        args.certificate, args.certificate_sha256)
+    result = _read_sealed_json(args.result, args.result_sha256)
+    _read_sealed_bytes(args.scene, args.scene_sha256, 0o400)
+    _read_sealed_bytes(
+        args.support_orchestrator, args.support_orchestrator_sha256, 0o500)
+    support_manifest = _read_sealed_json(
+        args.support_manifest, args.support_manifest_sha256)
+    support_certificate = _read_sealed_json(
+        args.support_certificate, args.support_certificate_sha256)
+
+    # This is the sole external semantic authority.  It is deliberately
+    # called only after all explicit file hashes and identities pass.
+    contract, admission = _load_semantic_authority(args)
+    try:
+        admitted_plan = admission.admit_result(
+            args.result, args.result_sha256)
+    except Exception as error:
+        raise MiddleExecutionError(f"RESULT_ADMISSION:{error}") from error
+    _require(plan.value == admitted_plan, "PLAN_RESULT_IDENTITY")
+    _require(result.value.get("schema") == RESULT_SCHEMA, "RESULT_SCHEMA")
+    _require(result.value.get("plan") == plan.value, "RESULT_PLAN")
+    _require("certificate" not in result.value, "RESULT_CERTIFICATE_FORBIDDEN")
+    _require(result.value.get("plan_file_sha256") == plan.sha256,
+             "RESULT_PLAN_FILE_SHA256")
+    _require(plan.value.get("schema") == PLAN_SCHEMA, "PLAN_SCHEMA")
+    scene_binding = plan.value.get("scene_binding")
+    _require(type(scene_binding) is dict, "PLAN_SCENE_BINDING")
+    _require(scene_binding.get("scene_cdr_sha256") == args.scene_sha256,
+             "PLAN_SCENE_SHA")
+    support_contract_sha256 = plan.value.get("support_contract_sha256")
+    try:
+        contract.validate_certificate(
+            certificate.value,
+            plan_file_sha256=plan.sha256,
+            exact_result_file_sha256=result.sha256,
+            result=result.value,
+            support_contract_sha256=support_contract_sha256,
+        )
+    except Exception as error:
+        raise MiddleExecutionError(f"CERTIFICATE_CONTRACT:{error}") from error
+    _validate_support_dag(
+        manifest=support_manifest,
+        support_certificate=support_certificate,
+        plan=plan,
+        certificate=certificate,
+        result=result,
+    )
+    _validate_support_contract_offline(args)
+    _require(tuple(plan.value.get("phase_names", ())) == PHASE_NAMES,
+             "PLAN_PHASE_NAMES")
+    _require(plan.value.get("release_owner") == RELEASE_OWNER,
+             "PLAN_RELEASE_OWNER")
+    for key, item in plan.value.items():
+        if key == "terminal_seam":
+            continue
+        for text in (key, *_all_strings(item)):
+            _require(not any(forbidden in text for forbidden in FORBIDDEN_TEXT),
+                     "PLAN_FORBIDDEN_RIGHT_RELEASE_RETREAT")
+    _validate_hooks(plan.value)
+    phases = _validate_phases(workspace, plan.value)
+    return ValidatedMiddle(
+        workspace, args.scene, args.scene_sha256, plan, certificate, result,
+        phases, args.support_orchestrator, args.support_manifest,
+        args.support_manifest_sha256, args.support_certificate,
+        args.support_certificate_sha256)
+
+
+class _JointFeedback:
+    def __init__(self) -> None:
+        self._condition = threading.Condition()
+        self._positions: Dict[str, float] = {}
+        self._receipt_ns: Dict[str, int] = {}
+        self._torso_violation: float | None = None
+        self._right_grasp_armed = False
+        self._right_grasp_violation: Tuple[str, float] | None = None
+
+    def update(self, message: Any) -> None:
+        if len(message.name) != len(message.position):
+            return
+        values = {}
+        for name, position in zip(message.name, message.position):
+            if not math.isfinite(position):
+                return
+            values[name] = float(position)
+        with self._condition:
+            receipt_ns = time.monotonic_ns()
+            self._positions.update(values)
+            for name in values:
+                self._receipt_ns[name] = receipt_ns
+            torso = values.get("torso_joint")
+            if (torso is not None and
+                    abs(torso) > HARD_MAX_TORSO_RAD + 1e-12):
+                self._torso_violation = torso
+            if self._right_grasp_armed:
+                for name, expected in zip(
+                        RIGHT_GRIPPER_JOINTS, E0_RIGHT_GRIPPER):
+                    actual = values.get(name)
+                    if (actual is not None and
+                            abs(actual - expected) >
+                            HARD_GRIPPER_TOLERANCE_M):
+                        self._right_grasp_violation = (name, actual)
+            self._condition.notify_all()
+
+    def arm_right_grasp_watchdog(self) -> None:
+        with self._condition:
+            self._right_grasp_armed = True
+
+    def require_torso_safe(self) -> None:
+        with self._condition:
+            if self._torso_violation is not None:
+                raise MiddleExecutionError(
+                    f"RUNTIME_TORSO_LIMIT:{self._torso_violation}")
+            if self._right_grasp_violation is not None:
+                name, actual = self._right_grasp_violation
+                raise MiddleExecutionError(
+                    f"RUNTIME_RIGHT_GRASP_VIOLATION:{name}:{actual}")
+            if self._right_grasp_armed:
+                now_ns = time.monotonic_ns()
+                maximum_age_ns = int(
+                    HARD_RIGHT_GRASP_FEEDBACK_MAX_AGE_S * 1_000_000_000)
+                for name in RIGHT_GRIPPER_JOINTS:
+                    receipt_ns = self._receipt_ns.get(name)
+                    if receipt_ns is None:
+                        raise MiddleExecutionError(
+                            f"RUNTIME_RIGHT_GRASP_FEEDBACK_MISSING:{name}")
+                    age_ns = now_ns - receipt_ns
+                    if age_ns > maximum_age_ns:
+                        raise MiddleExecutionError(
+                            f"RUNTIME_RIGHT_GRASP_FEEDBACK_STALE:{name}:"
+                            f"{age_ns / 1_000_000_000:.9g}")
+
+    def snapshot(
+        self, names: Sequence[str], newer_than_ns: int,
+    ) -> Dict[str, float] | None:
+        sample = self.snapshot_with_receipt(names, newer_than_ns)
+        return None if sample is None else sample[0]
+
+    def snapshot_with_receipt(
+        self, names: Sequence[str], newer_than_ns: int,
+    ) -> Tuple[Dict[str, float], int] | None:
+        with self._condition:
+            if any(name not in self._positions or
+                   self._receipt_ns.get(name, 0) <= newer_than_ns
+                   for name in names):
+                return None
+            # Advancing the next lower bound to the newest component receipt
+            # forces every requested joint to be refreshed for the next
+            # complete sample; a partially refreshed aggregate cannot count
+            # twice toward endpoint convergence.
+            receipt_ns = max(self._receipt_ns[name] for name in names)
+            return ({name: self._positions[name] for name in names},
+                    receipt_ns)
+
+    def latest(self, names: Sequence[str]) -> Dict[str, float] | None:
+        with self._condition:
+            if any(name not in self._positions for name in names):
+                return None
+            return {name: self._positions[name] for name in names}
+
+
+def _wait_feedback(
+    executor: Any, feedback: _JointFeedback, names: Sequence[str],
+    newer_than_ns: int, timeout_s: float, *, allow_unsafe_torso: bool = False,
+) -> Dict[str, float]:
+    deadline = time.monotonic() + timeout_s
+    while time.monotonic() < deadline:
+        if not allow_unsafe_torso:
+            feedback.require_torso_safe()
+        values = feedback.snapshot(names, newer_than_ns)
+        if values is not None:
+            return values
+        executor.spin_once(timeout_sec=0.02)
+    raise MiddleExecutionError("JOINT_FEEDBACK_TIMEOUT")
+
+
+def _feedback_tolerance(name: str, *, start: bool = False) -> float:
+    return (HARD_GRIPPER_TOLERANCE_M if "finger" in name else
+            (HARD_START_TOLERANCE_RAD if start
+             else HARD_ENDPOINT_TOLERANCE_RAD))
+
+
+def _close_feedback(
+    measured: Mapping[str, float], expected: Mapping[str, float],
+    names: Sequence[str], status: str, *, start: bool = False,
+) -> None:
+    for name in names:
+        tolerance = _feedback_tolerance(name, start=start)
+        _require(abs(measured[name] - expected[name]) <= tolerance,
+                 f"{status}:{name}")
+
+
+def _worst_endpoint_error(
+    measured: Mapping[str, float], expected: Mapping[str, float],
+    names: Sequence[str], command_indices: Mapping[str, int],
+) -> Tuple[int, str, float, float, float, float]:
+    ranked = []
+    for name in names:
+        tolerance = _feedback_tolerance(name)
+        actual = measured[name]
+        target = expected[name]
+        error = abs(actual - target)
+        ranked.append((
+            error / tolerance, error, name, command_indices[name],
+            actual, target, tolerance))
+    _, error, name, command_index, actual, target, tolerance = max(ranked)
+    return command_index, name, actual, target, error, tolerance
+
+
+def _endpoint_failure(
+    *, phase_name: str, reason: str, measured: Mapping[str, float],
+    expected: Mapping[str, float], names: Sequence[str],
+    command_indices: Mapping[str, int], consecutive: int,
+    fresh_samples: int,
+) -> MiddleExecutionError:
+    (command_index, name, actual, target, error,
+     tolerance) = _worst_endpoint_error(
+         measured, expected, names, command_indices)
+    return MiddleExecutionError(
+        f"PHASE_ENDPOINT:{phase_name}:reason={reason}:"
+        f"command_index={command_index}:worst_joint={name}:"
+        f"measured={actual:.17g}:expected={target:.17g}:"
+        f"abs_error={error:.17g}:tolerance={tolerance:.17g}:"
+        f"consecutive={consecutive}:"
+        f"required={HARD_ENDPOINT_CONSECUTIVE_SAMPLES}:"
+        f"fresh_samples={fresh_samples}")
+
+
+def _wait_endpoint_convergence(
+    executor: Any, node: Any, feedback: _JointFeedback,
+    names: Sequence[str], expected: Mapping[str, float],
+    command_indices: Mapping[str, int], phase_name: str,
+    sim_target_ns: int, wall_deadline: float, last_clock_ns: int,
+    last_clock_wall: float,
+) -> None:
+    settle_start_sim_ns = node.get_clock().now().nanoseconds
+    _require(settle_start_sim_ns >= sim_target_ns,
+             f"PHASE_ENDPOINT:{phase_name}:SIM_TARGET_NOT_REACHED")
+    settle_start_wall = time.monotonic()
+    if settle_start_sim_ns > last_clock_ns:
+        last_clock_ns = settle_start_sim_ns
+        last_clock_wall = settle_start_wall
+
+    # This lower bound is deliberately captured only after the simulation
+    # target has been observed.  Feedback received during trajectory travel
+    # can never satisfy even the first endpoint sample.
+    newer_than_ns = time.monotonic_ns()
+    settle_deadline_sim_ns = sim_target_ns + HARD_ENDPOINT_SETTLE_SIM_NS
+    latest = feedback.latest(names)
+    _require(latest is not None,
+             f"PHASE_ENDPOINT:{phase_name}:FEEDBACK_MISSING")
+    consecutive = 0
+    fresh_samples = 0
+
+    while True:
+        wall_now = time.monotonic()
+        if wall_now >= wall_deadline:
+            raise _endpoint_failure(
+                phase_name=phase_name, reason="WALL_TIMEOUT",
+                measured=latest, expected=expected, names=names,
+                command_indices=command_indices, consecutive=consecutive,
+                fresh_samples=fresh_samples)
+        feedback.require_torso_safe()
+        _require_unique_controller_publishers(
+            node, f"PHASE_ENDPOINT_SETTLE:{phase_name}")
+        clock_now = node.get_clock().now().nanoseconds
+        if clock_now > last_clock_ns:
+            last_clock_ns = clock_now
+            last_clock_wall = wall_now
+        elif wall_now - last_clock_wall > HARD_SIM_CLOCK_STALL_S:
+            raise MiddleExecutionError(
+                f"PHASE_SIM_CLOCK_STALL:{phase_name}:ENDPOINT_SETTLE")
+        if clock_now > settle_deadline_sim_ns:
+            raise _endpoint_failure(
+                phase_name=phase_name, reason="SIM_SETTLE_TIMEOUT",
+                measured=latest, expected=expected, names=names,
+                command_indices=command_indices, consecutive=consecutive,
+                fresh_samples=fresh_samples)
+
+        sample = feedback.snapshot_with_receipt(names, newer_than_ns)
+        if sample is not None:
+            latest, newer_than_ns = sample
+            fresh_samples += 1
+            in_tolerance = all(
+                abs(latest[name] - expected[name]) <=
+                _feedback_tolerance(name)
+                for name in names)
+            consecutive = consecutive + 1 if in_tolerance else 0
+            if consecutive >= HARD_ENDPOINT_CONSECUTIVE_SAMPLES:
+                return
+        executor.spin_once(timeout_sec=0.02)
+
+
+def _e0_expected() -> Dict[str, float]:
+    output = {"torso_joint": E0_TORSO_RAD}
+    output.update(zip(LEFT_ARM_JOINTS, E0_LEFT_ARM_RAD))
+    output.update(zip(RIGHT_ARM_JOINTS, E0_RIGHT_ARM_RAD))
+    output.update(zip(LEFT_GRIPPER_JOINTS, E0_LEFT_GRIPPER))
+    output.update(zip(RIGHT_GRIPPER_JOINTS, E0_RIGHT_GRIPPER))
+    return output
+
+
+def _require_fresh_e0(
+    executor: Any, feedback: _JointFeedback, timeout_s: float, status: str,
+) -> None:
+    expected = _e0_expected()
+    names = tuple(expected)
+    requested = time.monotonic_ns()
+    measured = _wait_feedback(
+        executor, feedback, names, requested, timeout_s)
+    _close_feedback(measured, expected, names, status, start=True)
+
+
+def _require_fresh_right_grasp(
+    executor: Any, feedback: _JointFeedback, timeout_s: float, status: str,
+) -> None:
+    expected = dict(zip(RIGHT_GRIPPER_JOINTS, E0_RIGHT_GRIPPER))
+    requested = time.monotonic_ns()
+    measured = _wait_feedback(
+        executor, feedback, RIGHT_GRIPPER_JOINTS, requested, timeout_s)
+    _close_feedback(
+        measured, expected, RIGHT_GRIPPER_JOINTS, status, start=True)
+
+
+def _duration_parts(nanoseconds: int) -> Tuple[int, int]:
+    return nanoseconds // 1_000_000_000, nanoseconds % 1_000_000_000
+
+
+def _require_unique_controller_publishers(node: Any, status: str) -> None:
+    for topic in CANONICAL_CONTROLLER_TOPICS:
+        publishers = node.get_publishers_info_by_topic(topic)
+        _require(len(publishers) == 1,
+                 f"{status}:PUBLISHER_COUNT:{topic}:{len(publishers)}")
+        _require(publishers[0].node_name == node.get_name(),
+                 f"{status}:PUBLISHER_OWNER:{topic}")
+
+
+def _controller_and_recorder_ready(
+    publishers: Mapping[str, Any],
+) -> bool:
+    """Require both the trajectory controller and sealed rosbag recorder."""
+    return all(
+        publisher.get_subscription_count() >=
+        REQUIRED_CONTROLLER_AND_RECORDER_SUBSCRIPTIONS
+        for publisher in publishers.values())
+
+
+def _run_support_hook(
+    node: Any, executor: Any, feedback: _JointFeedback,
+    bundle: ValidatedMiddle,
+    action: str, timeout_s: float,
+) -> None:
+    _require_unique_controller_publishers(
+        node, f"SUPPORT_PRE:{action}")
+    cli_action = SUPPORT_CLI_ACTION[action]
+    command = [
+        str(bundle.support_orchestrator), cli_action,
+        "--manifest", str(bundle.support_manifest),
+        "--manifest-sha256", bundle.support_manifest_sha256,
+        "--certificate", str(bundle.support_certificate),
+        "--certificate-sha256", bundle.support_certificate_sha256,
+        "--workspace", str(bundle.workspace),
+        "--timeout", str(timeout_s),
+    ]
+    try:
+        process = subprocess.Popen(
+            command, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,
+            stderr=sys.stderr, text=True, start_new_session=True)
+    except OSError as error:
+        raise MiddleExecutionError(f"SUPPORT_SPAWN:{action}:{error}") from error
+    deadline = time.monotonic() + SUPPORT_PROCESS_WALL_TIMEOUT_S
+    try:
+        while process.poll() is None:
+            if time.monotonic() >= deadline:
+                _kill_process_group(process)
+                raise MiddleExecutionError(f"SUPPORT_TIMEOUT:{action}")
+            executor.spin_once(timeout_sec=0.02)
+            feedback.require_torso_safe()
+            _require_unique_controller_publishers(
+                node, f"SUPPORT_ACTIVE:{action}")
+        stdout, _ = process.communicate(timeout=1.0)
+    finally:
+        _kill_process_group(process)
+    expected = {
+        "door_attach": "H1_SUPPORT_ORCHESTRATOR_828=PASS "
+                       "operation=door-attach door=attached cube=detached "
+                       "boundary=E0_ENTRY",
+        "cube_attach": "H1_SUPPORT_ORCHESTRATOR_828=PASS "
+                       "operation=cube-attach door=attached cube=attached "
+                       "boundary=CUBE_CONTACT",
+        "cube_detach": "H1_SUPPORT_ORCHESTRATOR_828=PASS "
+                       "operation=cube-detach door=attached cube=detached "
+                       "boundary=CUBE_RELEASE",
+        "door_detach": "H1_SUPPORT_ORCHESTRATOR_828=PASS "
+                       "operation=door-detach door=detached cube=detached "
+                       "boundary=E0_RETURN",
+    }[action]
+    _require(process.returncode == 0, f"SUPPORT_EXIT:{action}")
+    _require(stdout.strip() == expected, f"SUPPORT_MARKER:{action}")
+    _require_unique_controller_publishers(
+        node, f"SUPPORT_POST:{action}")
+    print(expected, flush=True)
+
+
+def _execute_ros(
+    bundle: ValidatedMiddle, speed_scale: float, discovery_timeout: float,
+    wall_timeout_factor: float, support_timeout: float,
+) -> None:
+    import rclpy
+    from rclpy.context import Context
+    from rclpy.executors import SingleThreadedExecutor
+    from rclpy.node import Node
+    from rclpy.parameter import Parameter
+    from rclpy.qos import QoSProfile, ReliabilityPolicy, DurabilityPolicy
+    from rclpy.signals import SignalHandlerOptions
+    from sensor_msgs.msg import JointState
+    from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
+
+    context = Context()
+    rclpy.init(context=context, signal_handler_options=SignalHandlerOptions.NO)
+    executor = SingleThreadedExecutor(context=context)
+    node = Node(
+        f"h1_candidate3_middle_executor_828_{os.getpid()}",
+        parameter_overrides=[Parameter(
+            "use_sim_time", Parameter.Type.BOOL, True)],
+        automatically_declare_parameters_from_overrides=True,
+        context=context)
+    executor.add_node(node)
+    qos = QoSProfile(
+        depth=10, reliability=ReliabilityPolicy.RELIABLE,
+        durability=DurabilityPolicy.VOLATILE)
+    feedback = _JointFeedback()
+    subscription = node.create_subscription(
+        JointState, "/joint_states", feedback.update, 10)
+    publishers = {
+        topic: node.create_publisher(JointTrajectory, topic, qos)
+        for topic in CANONICAL_CONTROLLER_TOPICS
+    }
+    last_commanded = _e0_expected()
+
+    def hold_current() -> None:
+        names = tuple(
+            name for group in CONTROLLER_JOINTS.values() for name in group)
+        requested = time.monotonic_ns()
+        try:
+            measured = _wait_feedback(
+                executor, feedback, names, requested, 0.5,
+                allow_unsafe_torso=True)
+        except MiddleExecutionError:
+            measured = feedback.latest(names)
+            if measured is None:
+                measured = {name: last_commanded[name] for name in names}
+        for topic, topic_names in CONTROLLER_JOINTS.items():
+            message = JointTrajectory()
+            message.joint_names = list(topic_names)
+            point = JointTrajectoryPoint()
+            point.positions = [measured[name] for name in topic_names]
+            point.velocities = [0.0] * len(topic_names)
+            point.accelerations = [0.0] * len(topic_names)
+            point.effort = []
+            point.time_from_start.sec = 0
+            point.time_from_start.nanosec = 100_000_000
+            message.points = [point]
+            publishers[topic].publish(message)
+        until = time.monotonic() + 0.3
+        while time.monotonic() < until:
+            executor.spin_once(timeout_sec=0.02)
+        print("CANDIDATE3_MIDDLE_828_FAILURE_HOLD=PASS", flush=True)
+
+    def execute_group(
+        phase: Phase,
+        indexed_commands: Sequence[Tuple[int, Command]],
+    ) -> None:
+        nonlocal last_commanded
+        commands = tuple(command for _, command in indexed_commands)
+        names = tuple(
+            name for command in commands for name in command.joint_names)
+        _require(len(names) == len(frozenset(names)),
+                 f"RUNTIME_SYNC_JOINT_DUPLICATE:{phase.name}")
+        command_indices = {
+            name: command_index
+            for command_index, command in indexed_commands
+            for name in command.joint_names
+        }
+        expected_start = {
+            name: value for command in commands
+            for name, value in zip(command.joint_names,
+                                   command.points[0].positions)
+        }
+        requested = time.monotonic_ns()
+        measured = _wait_feedback(
+            executor, feedback, names, requested, discovery_timeout)
+        _close_feedback(
+            measured, expected_start, names,
+            f"PHASE_START:{phase.name}", start=True)
+        _require_fresh_right_grasp(
+            executor, feedback, discovery_timeout,
+            f"RIGHT_GRASP_PRE:{phase.name}")
+        outgoing = []
+        maximum_ns = 0
+        for command in commands:
+            message = JointTrajectory()
+            message.joint_names = list(command.joint_names)
+            for sealed_point in command.points:
+                point = JointTrajectoryPoint()
+                point.positions = list(sealed_point.positions)
+                point.velocities = [0.0] * len(command.joint_names)
+                point.accelerations = [0.0] * len(command.joint_names)
+                point.effort = []
+                scaled_ns = int(round(
+                    sealed_point.time_from_start_ns / speed_scale))
+                scheduled_ns = int(HARD_MIN_LEAD_TIME_S * 1e9) + scaled_ns
+                point.time_from_start.sec, point.time_from_start.nanosec = (
+                    _duration_parts(scheduled_ns))
+                message.points.append(point)
+                maximum_ns = max(maximum_ns, scheduled_ns)
+            outgoing.append((command.topic, message))
+        sim_start = node.get_clock().now().nanoseconds
+        for topic, message in outgoing:
+            publishers[topic].publish(message)
+        for command in commands:
+            last_commanded.update(zip(
+                command.joint_names, command.points[-1].positions))
+        sim_target = sim_start + maximum_ns + 50_000_000
+        wall_deadline = time.monotonic() + max(
+            discovery_timeout,
+            (maximum_ns + 50_000_000 + HARD_ENDPOINT_SETTLE_SIM_NS) /
+            1e9 * wall_timeout_factor)
+        last_clock = sim_start
+        last_clock_wall = time.monotonic()
+        while time.monotonic() < wall_deadline:
+            executor.spin_once(timeout_sec=0.02)
+            feedback.require_torso_safe()
+            _require_unique_controller_publishers(
+                node, f"PHASE_ACTIVE:{phase.name}")
+            clock_now = node.get_clock().now().nanoseconds
+            if clock_now > last_clock:
+                last_clock = clock_now
+                last_clock_wall = time.monotonic()
+            elif time.monotonic() - last_clock_wall > HARD_SIM_CLOCK_STALL_S:
+                raise MiddleExecutionError(
+                    f"PHASE_SIM_CLOCK_STALL:{phase.name}")
+            if clock_now >= sim_target:
+                break
+        else:
+            raise MiddleExecutionError(f"PHASE_SIM_TIMEOUT:{phase.name}")
+        expected_end = {
+            name: value for command in commands
+            for name, value in zip(command.joint_names,
+                                   command.points[-1].positions)
+        }
+        _wait_endpoint_convergence(
+            executor, node, feedback, names, expected_end,
+            command_indices, phase.name, sim_target, wall_deadline,
+            last_clock, last_clock_wall)
+        _require_fresh_right_grasp(
+            executor, feedback, discovery_timeout,
+            f"RIGHT_GRASP_POST:{phase.name}")
+
+    try:
+        discovery_deadline = time.monotonic() + discovery_timeout
+        while time.monotonic() < discovery_deadline:
+            executor.spin_once(timeout_sec=0.02)
+            feedback.require_torso_safe()
+            if _controller_and_recorder_ready(publishers):
+                break
+        else:
+            raise MiddleExecutionError(
+                "CONTROLLER_AND_RECORDER_DISCOVERY")
+        _require_unique_controller_publishers(node, "EXECUTOR_READY")
+        clock_deadline = time.monotonic() + discovery_timeout
+        first_clock = 0
+        while time.monotonic() < clock_deadline:
+            executor.spin_once(timeout_sec=0.02)
+            feedback.require_torso_safe()
+            now = node.get_clock().now().nanoseconds
+            if (bool(getattr(node.get_clock(), "ros_time_is_active", False))
+                    and now > 0):
+                if first_clock == 0:
+                    first_clock = now
+                elif now > first_clock:
+                    break
+        else:
+            raise MiddleExecutionError("SIM_CLOCK_NOT_ADVANCING")
+
+        _require_fresh_e0(
+            executor, feedback, discovery_timeout, "MIDDLE_ENTRY_E0")
+        feedback.arm_right_grasp_watchdog()
+        for phase in bundle.phases:
+            _require_unique_controller_publishers(
+                node, f"PHASE_PRE:{phase.name}")
+            if phase.index == 0:
+                _run_support_hook(
+                    node, executor, feedback, bundle,
+                    "door_attach", support_timeout)
+            if phase.commands:
+                if phase.index in SYNCHRONIZED_PHASES:
+                    execute_group(phase, tuple(enumerate(phase.commands)))
+                else:
+                    for command_index, command in enumerate(phase.commands):
+                        execute_group(
+                            phase, ((command_index, command),))
+            else:
+                _require_fresh_right_grasp(
+                    executor, feedback, discovery_timeout,
+                    f"RIGHT_GRASP_EMPTY_PHASE:{phase.name}")
+            if phase.index == 4:
+                _run_support_hook(
+                    node, executor, feedback, bundle,
+                    "cube_attach", support_timeout)
+            elif phase.index == 5:
+                _run_support_hook(
+                    node, executor, feedback, bundle,
+                    "cube_detach", support_timeout)
+            if phase.index == 10:
+                _require_fresh_e0(
+                    executor, feedback, discovery_timeout,
+                    "MIDDLE_TERMINAL_E0_BEFORE_DOOR_DETACH")
+                _run_support_hook(
+                    node, executor, feedback, bundle,
+                    "door_detach", support_timeout)
+            print(
+                f"CANDIDATE3_MIDDLE_828_PHASE=PASS index={phase.index} "
+                f"name={phase.name} commands={len(phase.commands)}",
+                flush=True)
+        _require_fresh_e0(
+            executor, feedback, discovery_timeout, "MIDDLE_TERMINAL_E0")
+        print(
+            "CANDIDATE3_MIDDLE_828=PASS phases=11 "
+            "right_gripper_commands=0 terminal_e0_held=true",
+            flush=True)
+    except BaseException:
+        try:
+            hold_current()
+        except BaseException as hold_error:
+            print(
+                f"CANDIDATE3_MIDDLE_828_FAILURE_HOLD=FAIL:{hold_error}",
+                file=sys.stderr, flush=True)
+        raise
+    finally:
+        node.destroy_subscription(subscription)
+        for publisher in publishers.values():
+            node.destroy_publisher(publisher)
+        executor.remove_node(node)
+        try:
+            executor.shutdown()
+        finally:
+            try:
+                node.destroy_node()
+            finally:
+                rclpy.shutdown(context=context)
+
+
+def _parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--workspace", type=Path, required=True)
+    parser.add_argument("--scene", type=Path, required=True)
+    parser.add_argument("--scene-sha256", required=True)
+    parser.add_argument("--plan", type=Path, required=True)
+    parser.add_argument("--plan-sha256", required=True)
+    parser.add_argument("--certificate", type=Path, required=True)
+    parser.add_argument("--certificate-sha256", required=True)
+    parser.add_argument("--result", type=Path, required=True)
+    parser.add_argument("--result-sha256", required=True)
+    parser.add_argument("--middle-admission", type=Path, required=True)
+    parser.add_argument("--middle-admission-sha256", required=True)
+    parser.add_argument("--middle-contract", type=Path, required=True)
+    parser.add_argument("--middle-contract-sha256", required=True)
+    parser.add_argument("--support-orchestrator", type=Path, required=True)
+    parser.add_argument("--support-orchestrator-sha256", required=True)
+    parser.add_argument("--support-manifest", type=Path, required=True)
+    parser.add_argument("--support-manifest-sha256", required=True)
+    parser.add_argument("--support-certificate", type=Path, required=True)
+    parser.add_argument("--support-certificate-sha256", required=True)
+    parser.add_argument("--speed-scale", type=float, default=1.0)
+    parser.add_argument("--discovery-timeout", type=float, default=10.0)
+    parser.add_argument("--wall-timeout-factor", type=float, default=20.0)
+    parser.add_argument("--support-timeout", type=float, default=30.0)
+    parser.add_argument("--execute", action="store_true")
+    return parser
+
+
+def main(argv: Sequence[str] | None = None) -> int:
+    args = _parser().parse_args(argv)
+    try:
+        for name in (
+            "workspace", "scene", "plan", "certificate", "result",
+            "middle_admission", "middle_contract",
+            "support_orchestrator", "support_manifest",
+            "support_certificate",
+        ):
+            _require(getattr(args, name).is_absolute(),
+                     f"{name.upper()}_NOT_ABSOLUTE")
+        _require(type(args.speed_scale) is float and
+                 math.isfinite(args.speed_scale) and
+                 HARD_MIN_SPEED_SCALE <= args.speed_scale <= 1.0,
+                 "SPEED_SCALE_MAY_NOT_ACCELERATE")
+        _require(math.isfinite(args.discovery_timeout) and
+                 0.0 < args.discovery_timeout <=
+                 HARD_MAX_DISCOVERY_TIMEOUT_S,
+                 "DISCOVERY_TIMEOUT_INVALID")
+        _require(math.isfinite(args.wall_timeout_factor) and
+                 1.0 <= args.wall_timeout_factor <=
+                 HARD_MAX_WALL_TIMEOUT_FACTOR,
+                 "WALL_TIMEOUT_FACTOR")
+        _require(
+            math.isfinite(args.support_timeout) and
+            HARD_MIN_SUPPORT_TIMEOUT_S <= args.support_timeout <=
+            HARD_MAX_SUPPORT_TIMEOUT_S,
+            "SUPPORT_TIMEOUT_INVALID")
+        bundle = validate_bundle(args)
+        command_count = sum(len(phase.commands) for phase in bundle.phases)
+        point_count = sum(
+            len(command.points) for phase in bundle.phases
+            for command in phase.commands)
+        if not args.execute:
+            print(
+                "CANDIDATE3_MIDDLE_828_VALIDATE=PASS phases=11 "
+                f"commands={command_count} points={point_count} "
+                "right_gripper_commands=0 ros_imports=0 support_calls=0")
+            return 0
+        _execute_ros(
+            bundle, args.speed_scale, args.discovery_timeout,
+            args.wall_timeout_factor, args.support_timeout)
+        return 0
+    except MiddleExecutionError as error:
+        print(f"CANDIDATE3_MIDDLE_828=FAIL:{error}", file=sys.stderr)
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

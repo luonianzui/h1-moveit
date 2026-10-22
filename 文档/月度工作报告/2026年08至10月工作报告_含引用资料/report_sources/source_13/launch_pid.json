@@ -1,0 +1,5 @@
+{
+  "pid": 56601,
+  "created": 1790061403.34,
+  "command": "source /opt/ros/jazzy/setup.bash; source install/setup.bash; source install_lab_scene_robot_press_20260922_r119/local_setup.bash; exec ros2 launch h1_2_moveit_config lab_scene.launch.py scene:=centrifuge enable_robot_press:=true allow_open_lid_demo:=false"
+}

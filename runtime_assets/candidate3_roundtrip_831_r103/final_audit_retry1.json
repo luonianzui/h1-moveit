@@ -1,0 +1,170 @@
+{
+  "authority": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_authority_v24",
+  "camera_pose": {
+    "orientation": {
+      "w": 0.9709726572036743,
+      "x": 0.01379689946770668,
+      "y": 0.23168650269508362,
+      "z": -0.057820722460746765
+    },
+    "position": {
+      "x": -0.28384125232696533,
+      "y": 0.3367283046245575,
+      "z": 1.9589565992355347
+    }
+  },
+  "commands_sha256": "de524b0b0c70a6c5938b65bb787152723c6acc14760dd84d7f6dd79a894cae0e",
+  "conditions": {
+    "authority_action_payload_audit_pass": true,
+    "both_supports_detached": true,
+    "controller_counts_16_16_16_4_8": true,
+    "cube_at_origin": true,
+    "cycle1_pass": true,
+    "door_hinge_q0": true,
+    "five_trajectory_publishers_zero": true,
+    "flow_completion_pass": true,
+    "flow_under_180_s": true,
+    "four_walls_visible": true,
+    "fresh_health_gate_pass": true,
+    "gazebo_gui_left_open": true,
+    "handle_contact_zero": true,
+    "handle_q0": true,
+    "latch_locked": true,
+    "left_handle_commands_zero": true,
+    "localization_rms_below_3cm": true,
+    "localization_valid": true,
+    "navigation_enclosure_present": true,
+    "preparation_exact_pass": true,
+    "protected_hashes_unchanged": true,
+    "recorder_started_before_flow": true,
+    "recorder_stopped_after_flow": true,
+    "robot_launch_pose": true,
+    "rosbag_audit_pass": true,
+    "support_flow_recorder_video_absent": true,
+    "support_plugin_matches_contract": true,
+    "support_socket_absent": true,
+    "terminal_flow_pass": true,
+    "torso_command_below_45_deg": true,
+    "torso_measured_below_45_deg": true,
+    "video_decode_pass": true,
+    "video_dimensions_and_rate": true,
+    "video_started_before_flow": true,
+    "video_stopped_after_flow": true,
+    "video_viewpoint_stable": true
+  },
+  "cube_origin_xyz_m": [
+    0.334,
+    0.377,
+    0.83
+  ],
+  "cube_position_error_m": 0.0005006679608470025,
+  "derived_flow_completion_wall_time": "2026-09-16T12:38:32.219095+08:00",
+  "errors": [],
+  "final_entities": {
+    "green_cube": {
+      "orientation": {
+        "w": 0.7069730968745905,
+        "x": -7.688099791368039e-07,
+        "y": -7.375223880744876e-07,
+        "z": 0.707240440228368
+      },
+      "position": {
+        "x": 0.33350218878240956,
+        "y": 0.37705340399715637,
+        "z": 0.8299993583244417
+      }
+    }
+  },
+  "incubator_joint_positions_rad": {
+    "door_hinge_joint": -4.766049253408035e-22,
+    "handle_latch_joint": 5.332543533807687e-06
+  },
+  "initial_audit_note": "The first audit looked for operation=finalize in the daemon request log instead of the sealed flow log; no simulation condition failed.",
+  "latch": "locked",
+  "localization": {
+    "inlier_fraction": 1.0,
+    "inlier_rms_m": 0.017840225306276748,
+    "map_to_odom_published": false,
+    "point_count": 720,
+    "pose": {
+      "x": 0.0,
+      "y": 0.0,
+      "yaw": 0.001745329251994221
+    },
+    "reason": "pass",
+    "robust_rms_m": 0.013591709888403108,
+    "valid": true,
+    "visible_wall_count": 4,
+    "wall_point_counts": [
+      305,
+      58,
+      179,
+      178
+    ]
+  },
+  "manifest_sha256": "8710dcbe597c78b96b0afa658ecbf30730feeb1188c2ca2b7df067f31e8617cf",
+  "rosbag_summary": {
+    "controller_total": 60,
+    "duration_s": 389.390481354,
+    "handle_contact_messages": 0,
+    "maximum_commanded_torso_deg": 44.25,
+    "maximum_measured_torso_deg": 44.25000000101488,
+    "topic_counts": {
+      "/clock": 76002,
+      "/incubator/handle/contacts": 0,
+      "/incubator/joint_states": 75605,
+      "/joint_states": 37802,
+      "/left_arm_controller/joint_trajectory": 16,
+      "/left_gripper_controller/joint_trajectory": 4,
+      "/right_arm_controller/joint_trajectory": 16,
+      "/right_gripper_controller/joint_trajectory": 8,
+      "/torso_controller/joint_trajectory": 16
+    },
+    "total_messages": 189469
+  },
+  "run_id": "7ec6d3ba4ce65b1beb14d7e0dde24aa3d3df0cd3d44a1895da442fbb7a7335c8",
+  "run_root": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_r103",
+  "schema": "h1_candidate3_roundtrip_combined_scene_final_audit/831-r103-v1-retry1",
+  "status": "PASS",
+  "supersedes": "final_audit.json",
+  "support_plugin_sha256": "eb85e8b833a6cbaa0fa26eab09e6a983ba2e36243bf37a12ebb9001c19e95d8b",
+  "timing": {
+    "completion_ns": 14921492786303,
+    "invocation_ns": 14752163725982,
+    "invocation_to_motion_start_s": 2.540501456,
+    "invocation_to_terminal_pass_s": 169.329060321,
+    "motion_end_ns": 14921492766503,
+    "motion_start_ns": 14754704227438,
+    "motion_window_s": 166.788539065
+  },
+  "video_sha256": "a5944e34a5db992faa0d628f1e5d7e398ce38dfbf14ff4e07bd5ec49c39de8c8",
+  "video_summary": {
+    "format": {
+      "duration": "204.500000",
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "size": "9291492"
+    },
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "duration": "204.500000",
+        "height": 1518,
+        "index": 0,
+        "nb_read_frames": "2045",
+        "r_frame_rate": "10/1",
+        "width": 1160
+      }
+    ]
+  },
+  "video_viewpoint_audit": {
+    "dimensions": [
+      1160,
+      1518
+    ],
+    "fraction_pixels_channel_mae_gt_5": 0.0021171232565535413,
+    "max_abs_difference": 79,
+    "mean_abs_difference": 0.2962603925310072,
+    "viewpoint_stable": true
+  }
+}

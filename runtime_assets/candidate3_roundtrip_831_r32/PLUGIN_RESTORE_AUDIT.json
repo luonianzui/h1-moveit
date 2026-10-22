@@ -1,0 +1,16 @@
+{
+  "schema": "h1_support_plugin_restore_audit/20260915-v1",
+  "source_archive": "/home/liu/h1_moveit/backups/914.tar.zst",
+  "source_member": "h1_2_ros2_ws/build/h1_2_moveit_demo/libh1_gazebo_compliant_grasp_system.so",
+  "source_archive_sha256": "96ea710307e598a023503cc6361dd0795b924fb51e992dd3c51a1f6763f0ca48",
+  "pre_restore_sha256": "1a81b048369ad16de5723d6ac987dfaedb8b00cfe4d10c90a0de2d5c41badcd7",
+  "pre_restore_preserved_path": "runtime_assets/candidate3_roundtrip_831_r32/libh1_gazebo_compliant_grasp_system.before_914_restore.so",
+  "restored_sha256": "eb85e8b833a6cbaa0fa26eab09e6a983ba2e36243bf37a12ebb9001c19e95d8b",
+  "support_contract_expected_sha256": "eb85e8b833a6cbaa0fa26eab09e6a983ba2e36243bf37a12ebb9001c19e95d8b",
+  "source_cpp_unchanged_against_914": true,
+  "object_file_unchanged_against_914": true,
+  "link_command_unchanged_against_914": true,
+  "gazebo_processes_during_restore": 0,
+  "controller_commands_issued": 0,
+  "result": "PASS"
+}

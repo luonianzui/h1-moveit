@@ -1,0 +1,113 @@
+{
+  "controller_commands_issued": 0,
+  "exact_fcl_authority": {
+    "file_count": 9,
+    "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v4_31j/manifest.json",
+    "sha256": "f44efe1dcb9147c49cafa74d387ccbe0096c5e21cfe3c69be259bd0dd1d90c40"
+  },
+  "execution_contract": {
+    "baseline": "826.3",
+    "hard_maximum_abs_torso_deg": 44.5,
+    "incubator_joint_state_exact_gap_ns": 1000000,
+    "incubator_x_m": 0.59,
+    "left_hand_handle_contact_forbidden": true,
+    "middle_speed_scale": 0.5,
+    "planned_maximum_abs_torso_deg": 44.25,
+    "public_joint_state_exact_gap_ns": 10000000,
+    "raw_clock_exact_gap_ns": 1000000,
+    "right_handle_only": true,
+    "right_time_scale": 2.0,
+    "table_x_m": 0.6,
+    "terminal_cube_rotation_tolerance_deg": 2.0,
+    "terminal_cube_target_orientation_xyzw": [
+      0.0,
+      0.0,
+      0.7071067811865475,
+      0.7071067811865476
+    ],
+    "terminal_cube_target_position_m": [
+      0.611,
+      -0.03,
+      0.995
+    ],
+    "terminal_cube_translation_tolerance_m": 0.003
+  },
+  "files": {
+    "certificate_source": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v10/h1_candidate3_live_certificate_829.py",
+      "sha256": "044c90875dd6a129d10ed13fcbbeb3bcc77d05c18e1101e41d50eb1a186344a2"
+    },
+    "commands": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v11/commands_829.json",
+      "sha256": "da921cc87b69e63b3c36b63624012158dfaa770d462472180e09e0fbd9b65c9c"
+    },
+    "gazebo_launch_source": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v10/gazebo.launch.py",
+      "sha256": "fcc16f3f775ac7864b185348608a7073e15b9b49f8b65ad873b29241b124a733"
+    },
+    "gazebo_world_sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v10/h1_world.sdf",
+      "sha256": "78e53275f8bace37c45fb0acf7ccd3164a665a7cb05eb4fc7a937a531792b335"
+    },
+    "incubator_model_sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v10/incubator_model.sdf",
+      "sha256": "44ff23fc7077f0c232e2e69ff9d73aba336140d6a7951968c9c4241a97e73db9"
+    },
+    "robot_gazebo_control_xacro": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v10/h1_2.gazebo.ros2_control.xacro",
+      "sha256": "3c865dcf19fec32403aac51365702afdf8232111840fcffb8ee80eb2923f1535"
+    },
+    "robot_joint_state_relay_source": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v10/h1_robot_joint_state_relay_829.py",
+      "sha256": "a48a4d9672b2169bf717b6ec9a3c4a0600df48b1e5293783e13451bbd5494c00"
+    },
+    "ros2_controllers_config": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v10/ros2_controllers.yaml",
+      "sha256": "612722d2143e39ef467219c67b9fb4bbfba9cb90a6bf047701308b4ff6279795"
+    },
+    "rosbag_qos_overrides": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v10/candidate3_rosbag_qos_overrides_829.yaml",
+      "sha256": "da086156e2c7599f05e8c3ccc9066af8e4c6acc8210451de4ecc8b20bc0a6f1c"
+    },
+    "supervisor_source": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v10/h1_candidate3_live_supervisor_829.py",
+      "sha256": "53c3c9a5a771b49e90a5dbc683ea5cb99cca2d96fd9d77cc0ac9965b9d706c22"
+    },
+    "telemetry_bridge_config": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v10/candidate3_telemetry_bridge_829.yaml",
+      "sha256": "615231d3fc7d810f38165cbc679e4044263d4000cace8b56cc0ed35705ec9b0d"
+    }
+  },
+  "run_id": "32169d9a46974ba47b18d1bc9d95db76ce5ad553da43473c71b080fb02c473df",
+  "run_root": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_live_829_final_r10",
+  "schema": "h1_candidate3_live_production_authority/829-v11",
+  "sealed": true,
+  "status": "READY",
+  "supersedes": {
+    "path": "runtime_assets/candidate3_live_829_authority_v10",
+    "reason": "v11 preserves every v10 execution and evidence contract while correcting the preparation lifecycle so the bound r10 run root remains absent until the sealed supervisor prepare operation creates it"
+  },
+  "valid": true
+}

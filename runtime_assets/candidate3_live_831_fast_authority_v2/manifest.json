@@ -1,0 +1,156 @@
+{
+  "controller_commands_issued": 0,
+  "exact_fcl_authority": {
+    "file_count": 9,
+    "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v6_31j/manifest.json",
+    "sha256": "c267d29253e0b68e14fd085f5ba4e024104664a5fe699ea76377dd976160bfbb"
+  },
+  "execution_contract": {
+    "baseline": "826.3",
+    "hard_maximum_abs_torso_deg": 44.5,
+    "incubator_x_m": 0.59,
+    "left_hand_handle_contact_forbidden": true,
+    "maximum_wall_motion_window_ns": 90000000000,
+    "middle_non_left_gripper_time_divisor": 7.0,
+    "middle_speed_scale": 1.0,
+    "physics_step_ns": 5000000,
+    "planned_maximum_abs_torso_deg": 44.25,
+    "public_joint_state_exact_gap_ns": 10000000,
+    "right_dense_point_dt_s": 0.004,
+    "right_handle_only": true,
+    "right_time_scale": 1.0,
+    "slow_mode_enabled": false,
+    "table_x_m": 0.6
+  },
+  "files": {
+    "candidate3_rosbag_qos_overrides_829.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/candidate3_rosbag_qos_overrides_829.yaml",
+      "sha256": "da086156e2c7599f05e8c3ccc9066af8e4c6acc8210451de4ecc8b20bc0a6f1c",
+      "size_bytes": 1031
+    },
+    "candidate3_telemetry_bridge_829.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/candidate3_telemetry_bridge_829.yaml",
+      "sha256": "615231d3fc7d810f38165cbc679e4044263d4000cace8b56cc0ed35705ec9b0d",
+      "size_bytes": 481
+    },
+    "commands_829.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/commands_829.json",
+      "sha256": "0e50a5e65c4d728cae5b9e545eeb365b12684e66c0f9095ee1cae90911642a43",
+      "size_bytes": 14230
+    },
+    "controller_execution_authorization.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/controller_execution_authorization.json",
+      "sha256": "a22fc6220a7ac63cd44f0e1964d627440ae2242ab4dec69c0254573ea4c71827",
+      "size_bytes": 2201
+    },
+    "fast_90_schedule_831.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/fast_90_schedule_831.json",
+      "sha256": "ec1e00012df1796e6225aee50c7ac69bd6bb4ccdaa9a338525b101ccc7cd2000",
+      "size_bytes": 920
+    },
+    "gazebo.launch.py": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/gazebo.launch.py",
+      "sha256": "4f2a3da2f03716a8905738d1c10c6b41600a44fc6a5b725fed961419bb514bf5",
+      "size_bytes": 21931
+    },
+    "h1_2.gazebo.ros2_control.xacro": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/h1_2.gazebo.ros2_control.xacro",
+      "sha256": "3c865dcf19fec32403aac51365702afdf8232111840fcffb8ee80eb2923f1535",
+      "size_bytes": 7695
+    },
+    "h1_candidate3_flow_828.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/h1_candidate3_flow_828.py",
+      "sha256": "56962917480adfaccb0b0be88c38173b435fa3684de36ff2042e206eb2608987",
+      "size_bytes": 18936
+    },
+    "h1_candidate3_live_certificate_829.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/h1_candidate3_live_certificate_829.py",
+      "sha256": "ad2ed24789e1153a1d04976477c97751a1d98138c85d74c742e53a289a140269",
+      "size_bytes": 196036
+    },
+    "h1_candidate3_live_supervisor_829.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/h1_candidate3_live_supervisor_829.py",
+      "sha256": "54cb91fa1e6cb6c637939503e1d4a2063bc8148febff9c0cfdbddb08811c6120",
+      "size_bytes": 147436
+    },
+    "h1_candidate3_middle_executor_828.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/h1_candidate3_middle_executor_828.py",
+      "sha256": "251ff3757f655f99e2f837f6e5986a4d6be88c47d6ae06fd8d169396980132f8",
+      "size_bytes": 65719
+    },
+    "h1_right_handle_executor_828.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/h1_right_handle_executor_828.py",
+      "sha256": "ad74202a8ac8dac3bc622531cf603589dc64fa6fb738e598968a43cfe15785fb",
+      "size_bytes": 69247
+    },
+    "h1_robot_joint_state_relay_829.py": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/h1_robot_joint_state_relay_829.py",
+      "sha256": "5055b923daaf322cfcf7a7dbb738359c5e4d702010be539c4ce75b8f5b8f193c",
+      "size_bytes": 12374
+    },
+    "h1_world.sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/h1_world.sdf",
+      "sha256": "4b61050f468df5f81a6805d410dd63daeb8b7c9d0aa9143b00b90282c38eb96c",
+      "size_bytes": 2264
+    },
+    "incubator_model.sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/incubator_model.sdf",
+      "sha256": "44ff23fc7077f0c232e2e69ff9d73aba336140d6a7951968c9c4241a97e73db9",
+      "size_bytes": 12085
+    },
+    "right_handle_manifest.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/right_handle_manifest.json",
+      "sha256": "a7d0c5cfbbe819ae332ae3dc52ca6f5e78b5e5551e1685efbbfbf7707dd9079e",
+      "size_bytes": 7301
+    },
+    "ros2_controllers.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/ros2_controllers.yaml",
+      "sha256": "612722d2143e39ef467219c67b9fb4bbfba9cb90a6bf047701308b4ff6279795",
+      "size_bytes": 2654
+    }
+  },
+  "run_id": "6d3b3e6f635a83b0760c42d029e14eff1c82ac7d2549a920a93f8024f4d2abd6",
+  "run_root": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_live_831_fast_r2",
+  "schema": "h1_candidate3_live_fast_authority/831-v2",
+  "sealed": true,
+  "status": "READY",
+  "supersedes": {
+    "path": "runtime_assets/candidate3_live_831_fast_authority_v1",
+    "reason": "v2 raises only the sealed right-finger cubic acceleration audit bound from 30 to 40 m/s^2; it preserves the accepted 826.3 geometry and right-only handle workflow while adding a separately sealed 5 ms physics and <=90 s timing contract"
+  },
+  "valid": true
+}

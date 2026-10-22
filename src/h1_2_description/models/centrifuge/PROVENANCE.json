@@ -1,0 +1,213 @@
+{
+  "import_date": "2026-09-20",
+  "source_directory": "/home/liu/交付",
+  "source_assembly": {
+    "path": "/home/liu/交付/装配体2.SLDASM",
+    "sha256": "5fda560b35cd1bcc6cc0dfd101af78088c2b1953baa5e570116daa2b339543b8"
+  },
+  "unit_assumption": "mm, inferred from assembled geometry; STL has no embedded units",
+  "scale": [
+    0.001,
+    0.001,
+    0.001
+  ],
+  "cad_up_axis": "+Y",
+  "cad_front_axis": "+Z",
+  "mesh_pose_xyz_rpy": [
+    0.2975815011262894,
+    0.2272500004768372,
+    0,
+    1.5707963267948966,
+    0,
+    -1.5707963267948966
+  ],
+  "default_world_pose_xyz_rpy": [
+    0.6,
+    0,
+    0.815,
+    0,
+    0,
+    0
+  ],
+  "lid_state": "open, as delivered",
+  "static": true,
+  "articulation_validated": false,
+  "parts": [
+    {
+      "source": "/home/liu/交付/装配体2 - 盒子-1.STL",
+      "mesh": "meshes/bucket_left.stl",
+      "sha256": "582f79f41b20066c0c2925ede6bbdb108ac2f7c3469e94679b3188d859013675",
+      "triangles": 420,
+      "minimum_mm": [
+        71.90142059326172,
+        199.32627868652344,
+        214.22767639160156
+      ],
+      "maximum_mm": [
+        211.7572021484375,
+        265.6948547363281,
+        374.3809509277344
+      ]
+    },
+    {
+      "source": "/home/liu/交付/装配体2 - 盒子-2.STL",
+      "mesh": "meshes/bucket_right.stl",
+      "sha256": "99366066850fb451a1c5cd1891647874c1bb81e9e9f766b2fe0ff7e4d3f4e0ec",
+      "triangles": 420,
+      "minimum_mm": [
+        236.38174438476562,
+        187.7511749267578,
+        158.43109130859375
+      ],
+      "maximum_mm": [
+        386.3818664550781,
+        277.8286437988281,
+        321.8257141113281
+      ]
+    },
+    {
+      "source": "/home/liu/交付/装配体2 - 按钮-1.STL",
+      "mesh": "meshes/button.stl",
+      "sha256": "8b0dc1b2bc51c3e6fa5fcc320d0644430a0472fb053b7b35c37ba28539ef7bf9",
+      "triangles": 12,
+      "minimum_mm": [
+        394.78076171875,
+        321.6939697265625,
+        543.3934936523438
+      ],
+      "maximum_mm": [
+        414.78076171875,
+        334.5430908203125,
+        560.1177368164062
+      ]
+    },
+    {
+      "source": "/home/liu/交付/装配体2 - 面板-1.STL",
+      "mesh": "meshes/front_panel.stl",
+      "sha256": "b81d431c496c416041d02421b1285f92bdd9f8807184e10bc1006b820ecf070d",
+      "triangles": 828,
+      "minimum_mm": [
+        2.250006675720215,
+        1.9073486328125e-06,
+        507.01043701171875
+      ],
+      "maximum_mm": [
+        452.25,
+        352.0,
+        592.5193481445312
+      ]
+    },
+    {
+      "source": "/home/liu/交付/装配体2 - 合页1- 副本-1.STL",
+      "mesh": "meshes/hinge_base_left.stl",
+      "sha256": "d221666d6bf89c4147ffd54547e097478e203560ed009d99575c7a61ff338333",
+      "triangles": 336,
+      "minimum_mm": [
+        67.24999237060547,
+        299.0,
+        27.01045036315918
+      ],
+      "maximum_mm": [
+        97.24999237060547,
+        309.491455078125,
+        47.01045227050781
+      ]
+    },
+    {
+      "source": "/home/liu/交付/装配体2 - 合页1- 副本-2.STL",
+      "mesh": "meshes/hinge_base_right.stl",
+      "sha256": "8e85841c0c2978acf0573b86d22b92f7e7969cd7fbeedab9183eb8e169cdd083",
+      "triangles": 336,
+      "minimum_mm": [
+        357.25,
+        299.0,
+        27.01045036315918
+      ],
+      "maximum_mm": [
+        387.25,
+        309.491455078125,
+        47.01045227050781
+      ]
+    },
+    {
+      "source": "/home/liu/交付/装配体2 - 合页2-1.STL",
+      "mesh": "meshes/hinge_lid_left.stl",
+      "sha256": "854ad36865a1fe3d82e1a318a8f65f73dba0b03412eb8a9e54d6d2fdf8a00854",
+      "triangles": 252,
+      "minimum_mm": [
+        67.24999237060547,
+        304.500732421875,
+        23.173601150512695
+      ],
+      "maximum_mm": [
+        97.24999237060547,
+        323.0140075683594,
+        42.28386688232422
+      ]
+    },
+    {
+      "source": "/home/liu/交付/装配体2 - 合页2-2.STL",
+      "mesh": "meshes/hinge_lid_right.stl",
+      "sha256": "0b4d89cf1ebcc00ce8feb855f0d60b94989c1f092b996c1e387fef640956c995",
+      "triangles": 252,
+      "minimum_mm": [
+        357.25,
+        304.500732421875,
+        23.173601150512695
+      ],
+      "maximum_mm": [
+        387.25,
+        323.0140075683594,
+        42.28386688232422
+      ]
+    },
+    {
+      "source": "/home/liu/交付/装配体2 - 箱体-1.STL",
+      "mesh": "meshes/housing.stl",
+      "sha256": "008feaf556ed3f5e6d121f2f5a62d12e406576ee6372b04ce345f8905c0d3175",
+      "triangles": 4218,
+      "minimum_mm": [
+        2.2500009536743164,
+        1.1213252548714081e-13,
+        27.010456085205078
+      ],
+      "maximum_mm": [
+        452.25,
+        312.0,
+        507.01043701171875
+      ]
+    },
+    {
+      "source": "/home/liu/交付/装配体2 - 盖子-1.STL",
+      "mesh": "meshes/lid.stl",
+      "sha256": "6d904b7ef5d9dc1a53aea7444510d487636944acaa775e614c1a14e9bbc68551",
+      "triangles": 44,
+      "minimum_mm": [
+        2.2500009536743164,
+        311.6355895996094,
+        2.6436541080474854
+      ],
+      "maximum_mm": [
+        452.25,
+        593.0570678710938,
+        423.308837890625
+      ]
+    },
+    {
+      "source": "/home/liu/交付/装配体2 - 支架-1.STL",
+      "mesh": "meshes/rotor_support.stl",
+      "sha256": "b0ad2d4e11226362b873cf24ee18be83bf272ce85893a25cececbb23bddd608d",
+      "triangles": 804,
+      "minimum_mm": [
+        92.0324935913086,
+        225.0,
+        138.27487182617188
+      ],
+      "maximum_mm": [
+        362.4674987792969,
+        250.0,
+        395.74603271484375
+      ]
+    }
+  ]
+}

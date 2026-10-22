@@ -1,0 +1,25 @@
+{
+  "status": "PASS_ACTUAL_TRACE_CORNERS_EXACT_ORIGINAL_BYTES_NOT_WHOLE_TASK",
+  "comparisons": 21852,
+  "event_kinds": {
+    "state": 16012,
+    "lower_release_gate_pass": 4,
+    "LOADING_PASS": 2,
+    "loaded_retention": 4416,
+    "support_continuity_sample": 32,
+    "table_setdown_bucket_clearance": 1312,
+    "terminal_table_hold_sample": 72,
+    "PASS": 2
+  },
+  "original_function_sha256": "670488b8153dbee3c929f17f50f1b0309bd5c9db69495370791b415ac97cd82a",
+  "runtime_cache_stats": {
+    "hits": 1620384,
+    "misses": 14937,
+    "maxsize": 512,
+    "currsize": 512,
+    "no_contact_force_time_or_verdict_cached": true,
+    "no_geometry_quantization": true
+  },
+  "no_force_contact_or_guard_decimation": true,
+  "complete_task_separately_required": true
+}

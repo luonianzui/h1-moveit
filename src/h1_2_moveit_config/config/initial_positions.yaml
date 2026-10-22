@@ -1,0 +1,38 @@
+initial_positions:
+  left_hip_yaw_joint: 0.0
+  left_hip_pitch_joint: 0.0
+  left_hip_roll_joint: 0.0
+  left_knee_joint: 0.0
+  left_ankle_pitch_joint: 0.0
+  left_ankle_roll_joint: 0.0
+  right_hip_yaw_joint: 0.0
+  right_hip_pitch_joint: 0.0
+  right_hip_roll_joint: 0.0
+  right_knee_joint: 0.0
+  right_ankle_pitch_joint: 0.0
+  right_ankle_roll_joint: 0.0
+  torso_joint: 0.0
+
+  left_shoulder_pitch_joint: 0.0
+  left_shoulder_roll_joint: 0.25
+  left_shoulder_yaw_joint: 0.0
+  left_elbow_joint: 0.60
+  left_wrist_roll_joint: 0.0
+  left_wrist_pitch_joint: 0.0
+  left_wrist_yaw_joint: 0.0
+
+  right_shoulder_pitch_joint: 0.0
+  right_shoulder_roll_joint: -0.25
+  right_shoulder_yaw_joint: 0.0
+  right_elbow_joint: 0.60
+  right_wrist_roll_joint: 0.0
+  right_wrist_pitch_joint: 0.0
+  right_wrist_yaw_joint: 0.0
+
+  # 右手夹爪初始值（稍微小于下限 -0.02 以避免浮点数边界问题）
+  right_dex1_finger_1_joint: -0.019
+  right_dex1_finger_2_joint: -0.019
+
+  # 左手夹爪初始值（稍微小于下限 -0.02 以避免浮点数边界问题）
+  left_dex1_finger_1_joint: -0.019
+  left_dex1_finger_2_joint: -0.019

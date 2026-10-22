@@ -1,0 +1,391 @@
+{
+  "status": "PASS_EXACT_EXPORTED_SYMBOL_SIZE_AND_PROCESS_MAP_AUDIT",
+  "samples": 53572,
+  "sample_period_us": 10000,
+  "binary_sha256": {
+    "/opt/ros/jazzy/opt/gz_physics_vendor/lib/gz-physics-7/engine-plugins/libgz-physics7-dartsim-plugin.so.7.6.0": "9f4ae6736fc6d4751b937ca7c14b056baf423553e20530f6d10d3ec8fd28bdd9",
+    "/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/libgz-sim8-physics-system.so.8.11.0": "c359e1cc8ddd768a926048a0dbf86e8186419b27a625a8073127bb83c89c2f5a",
+    "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2": "cb4f008188d1ea13cba9b43470c9d46cf819e8df0e4fdc818fa1e4f81b396426",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/inputs/libDartConstraintCache.so": "6438de4d7bb463de104cc20a65078be4157fc64cd171849c118cd7f87fce1d3c"
+  },
+  "symbols": [
+    {
+      "name": "dart::constraint::BoxedLcpConstraintSolver::solveConstrainedGroup(dart::constraint::ConstrainedGroup&)",
+      "library": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/inputs/libDartConstraintCache.so",
+      "lower": 131244013190896,
+      "upper": 131244013200822,
+      "bytes": 9926,
+      "flat": 655,
+      "cumulative": 28662,
+      "flat_pct": 1.2226536250279998,
+      "cumulative_pct": 53.50182931382065
+    },
+    {
+      "name": "dart::constraint::ContactConstraint::applyUnitImpulse(unsigned long)",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001424592,
+      "upper": 131244001425283,
+      "bytes": 691,
+      "flat": 38,
+      "cumulative": 9801,
+      "flat_pct": 0.07093257671918166,
+      "cumulative_pct": 18.295004853281565
+    },
+    {
+      "name": "dart::dynamics::Skeleton::updateVelocityChange()",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244000974320,
+      "upper": 131244000974378,
+      "bytes": 58,
+      "flat": 50,
+      "cumulative": 9790,
+      "flat_pct": 0.09333233778839692,
+      "cumulative_pct": 18.274471738968117
+    },
+    {
+      "name": "dart::dynamics::BodyNode::updateVelocityChangeFD()",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131243999923344,
+      "upper": 131243999923637,
+      "bytes": 293,
+      "flat": 626,
+      "cumulative": 9536,
+      "flat_pct": 1.1685208691107294,
+      "cumulative_pct": 17.80034346300306
+    },
+    {
+      "name": "dart::constraint::ConstraintSolver::updateConstraints()",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001425296,
+      "upper": 131244001432191,
+      "bytes": 6895,
+      "flat": 94,
+      "cumulative": 7433,
+      "flat_pct": 0.1754647950421862,
+      "cumulative_pct": 13.874785335623086
+    },
+    {
+      "name": "dart::constraint::ContactConstraint::getVelocityChange(double*, bool)",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001439104,
+      "upper": 131244001439803,
+      "bytes": 699,
+      "flat": 449,
+      "cumulative": 4959,
+      "flat_pct": 0.8381243933398044,
+      "cumulative_pct": 9.256701261853207
+    },
+    {
+      "name": "dart::dynamics::BodyNode::getArticulatedInertia() const",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131243999895072,
+      "upper": 131243999895397,
+      "bytes": 325,
+      "flat": 1486,
+      "cumulative": 3854,
+      "flat_pct": 2.7738370790711566,
+      "cumulative_pct": 7.194056596729635
+    },
+    {
+      "name": "dart::dynamics::BodyNode::updateBiasImpulse()",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131243999922496,
+      "upper": 131243999922724,
+      "bytes": 228,
+      "flat": 155,
+      "cumulative": 2930,
+      "flat_pct": 0.28933024714403044,
+      "cumulative_pct": 5.46927499440006
+    },
+    {
+      "name": "dart::dynamics::Skeleton::updateBiasImpulse(dart::dynamics::BodyNode*, Eigen::Matrix<double, 6, 1, 0, 6, 1> const&)",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244000942304,
+      "upper": 131244000942673,
+      "bytes": 369,
+      "flat": 20,
+      "cumulative": 2311,
+      "flat_pct": 0.03733293511535877,
+      "cumulative_pct": 4.313820652579706
+    },
+    {
+      "name": "dart::constraint::JointConstraint::getVelocityChange(double*, bool)",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001447632,
+      "upper": 131244001448049,
+      "bytes": 417,
+      "flat": 770,
+      "cumulative": 1458,
+      "flat_pct": 1.4373180019413125,
+      "cumulative_pct": 2.721570969909654
+    },
+    {
+      "name": "dart::dynamics::Skeleton::updateBiasImpulse(dart::dynamics::BodyNode*)",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244000942048,
+      "upper": 131244000942297,
+      "bytes": 249,
+      "flat": 5,
+      "cumulative": 699,
+      "flat_pct": 0.009333233778839692,
+      "cumulative_pct": 1.304786082281789
+    },
+    {
+      "name": "dart::dynamics::BodyNode::getArticulatedInertiaImplicit() const",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131243999895408,
+      "upper": 131243999895733,
+      "bytes": 325,
+      "flat": 28,
+      "cumulative": 662,
+      "flat_pct": 0.052266109161502275,
+      "cumulative_pct": 1.2357201523183752
+    },
+    {
+      "name": "dart::constraint::BallJointConstraint::getVelocityChange(double*, bool)",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001385440,
+      "upper": 131244001386251,
+      "bytes": 811,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "dart::constraint::WeldJointConstraint::getVelocityChange(double*, bool)",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001504928,
+      "upper": 131244001505435,
+      "bytes": 507,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "dart::constraint::SoftContactConstraint::applyUnitImpulse(unsigned long)",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001477680,
+      "upper": 131244001479063,
+      "bytes": 1383,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "dart::constraint::SoftContactConstraint::getVelocityChange(double*, bool)",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001479072,
+      "upper": 131244001480053,
+      "bytes": 981,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "dart::constraint::BoxedLcpConstraintSolver::solveConstrainedGroup(dart::constraint::ConstrainedGroup&)",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001388400,
+      "upper": 131244001392348,
+      "bytes": 3948,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "dart::dynamics::SoftBodyNode::updateBiasImpulse()",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001017344,
+      "upper": 131244001017835,
+      "bytes": 491,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "dart::dynamics::SoftBodyNode::updateVelocityChangeFD()",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001017856,
+      "upper": 131244001017926,
+      "bytes": 70,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "dart::dynamics::Skeleton::updateBiasImpulse(dart::dynamics::SoftBodyNode*, dart::dynamics::PointMass*, Eigen::Matrix<double, 3, 1, 0, 3, 1> const&)",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244000983088,
+      "upper": 131244000983258,
+      "bytes": 170,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "dart::dynamics::Skeleton::updateBiasImpulse(dart::dynamics::BodyNode*, Eigen::Matrix<double, 6, 1, 0, 6, 1> const&, dart::dynamics::BodyNode*, Eigen::Matrix<double, 6, 1, 0, 6, 1> const&)",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244000981616,
+      "upper": 131244000982255,
+      "bytes": 639,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "non-virtual thunk to dart::dynamics::SoftBodyNode::updateBiasImpulse()",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001017840,
+      "upper": 131244001017856,
+      "bytes": 16,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "non-virtual thunk to dart::dynamics::SoftBodyNode::updateVelocityChangeFD()",
+      "library": "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      "lower": 131244001017936,
+      "upper": 131244001018006,
+      "bytes": 70,
+      "flat": 0,
+      "cumulative": 0,
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    }
+  ],
+  "flat_libraries": [
+    [
+      "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      25109
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      7084
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart-external-odelcpsolver.so.6.13.2",
+      6190
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libode.so.8.0.2",
+      4467
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_sim_vendor/lib/libgz-sim8.so.8.11.0",
+      3660
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/libgz-sim8-physics-system.so.8.11.0",
+      2343
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+      1075
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_physics_vendor/lib/gz-physics-7/engine-plugins/libgz-physics7-dartsim-plugin.so.7.6.0",
+      812
+    ],
+    [
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/inputs/libDartConstraintCache.so",
+      703
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_msgs_vendor/lib/libgz-msgs10.so.10.3.2",
+      437
+    ],
+    [
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/inputs/libCentrifugeInterlockStartupRampProbeR1.so",
+      434
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_physics_vendor/lib/libgz-physics7.so.7.6.0",
+      160
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_plugin_vendor/lib/libgz-plugin2.so.2.0.4",
+      133
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart-collision-ode.so.6.13.2",
+      104
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12",
+      102
+    ]
+  ],
+  "cumulative_libraries": [
+    [
+      "/opt/ros/jazzy/opt/gz_sim_vendor/lib/libgz-sim8.so.8.11.0",
+      53572
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      53572
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libruby-3.2.so.3.2.3",
+      53572
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/ruby/3.2.0/fiddle.so",
+      53572
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_sim_vendor/lib/libgz-sim8-gz.so.8.11.0",
+      53572
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libffi.so.8.1.4",
+      53572
+    ],
+    [
+      "/usr/bin/ruby3.2",
+      53572
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_sim_vendor/lib/gz-sim-8/plugins/libgz-sim8-physics-system.so.8.11.0",
+      47330
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_physics_vendor/lib/gz-physics-7/engine-plugins/libgz-physics7-dartsim-plugin.so.7.6.0",
+      40653
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13.2",
+      39286
+    ],
+    [
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/inputs/libDartConstraintCache.so",
+      28662
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart-external-odelcpsolver.so.6.13.2",
+      6427
+    ],
+    [
+      "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart-collision-ode.so.6.13.2",
+      6070
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libode.so.8.0.2",
+      5855
+    ],
+    [
+      "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+      4184
+    ]
+  ],
+  "caveat": "Only exact exported symbol address ranges counted. Unexported local functions remain unresolved; nearest-symbol pprof labels may be wrong. Inclusive percentages overlap and are not wall time."
+}

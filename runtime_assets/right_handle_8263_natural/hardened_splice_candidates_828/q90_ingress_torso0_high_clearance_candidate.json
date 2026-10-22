@@ -1,0 +1,40 @@
+{
+  "schema": "h1_right_handle_splice_search/v1",
+  "status": "PASS",
+  "valid": true,
+  "execution_ready": false,
+  "candidate_scope": "q90 open-right-gripper free-space ingress or reversed egress only",
+  "not_certified": ["complete contact arc", "mid-arc regrasp", "whole-workflow execution"],
+  "controller_commands_issued": 0,
+  "offline_only": true,
+  "provenance": {
+    "candidate_id": "q90_ingress_torso0_strict_index2",
+    "strict_contact_branch_index": 2,
+    "strict_contact_geometry": "endpoint_dense_g22",
+    "producer": "right_handle_splice_search",
+    "producer_source_sha256": "bafa45a03e9eda7e310e465103a5c74fbf3f116cae499508ed2c93417d96f8bd",
+    "original_handle_stl_sha256": "ad6670185fa5756ba5dabdee7e542db2df3346973fea4eb887288f54a6b6f59e",
+    "robot_urdf_sha256": "3aad4bdc038ff6cde3bef221bb15b8134bb45f7a87ef5dfa0fadc2126bd44929",
+    "robot_srdf_sha256": "2f268a57406fcea301cd1a58c3912b91aa9a3a676e2ae42b9f9c741fac30d79d"
+  },
+  "path_sha256": "afcec0b5c675019157e4339dd41d15728233fdce6344501db6a50d20a0d58088",
+  "scene_cdr_sha256": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568",
+  "handle_angle_deg": 90,
+  "park_left_shoulder_roll_rad": 0.316,
+  "goal_right_arm_rad": [-0.4275386406074958,0.2347605883246737,-2.0447717210465419,2.2088432485182912,2.9196863945411518,0.39531199255340921,-1.0405217904126611],
+  "seed": 826792,
+  "iterations_used": 59,
+  "collision_samples": 60981,
+  "search_edge_step_rad": 0.0043633231299858239,
+  "strict_revalidation_step_rad": 0.0017453292519943296,
+  "waypoint_count": 5,
+  "configuration_order": ["torso_joint","right_shoulder_pitch_joint","right_shoulder_roll_joint","right_shoulder_yaw_joint","right_elbow_joint","right_wrist_roll_joint","right_wrist_pitch_joint","right_wrist_yaw_joint"],
+  "right_fingers_rad_or_m": {"right_dex1_finger_1_joint":-0.019,"right_dex1_finger_2_joint":-0.019},
+  "waypoints": [
+    [-5.8531626352353771e-09,-1.2987093771888247e-05,-0.24998661177769557,-2.3207553469753264e-05,0.60007541209796322,-2.3309352663120176e-05,-8.7367028120395409e-05,1.5958788753965433e-05],
+    [-0.012204181339979062,-0.59577561979306082,-0.52568771550717686,-0.77310075761873009,1.4591765696770025,0.88615798296919346,0.14661031740383568,-0.45537362222247957],
+    [-0.0032158106363445182,-0.69442622744453342,-0.40267202542616209,-0.98716599661465199,1.6909449953320626,1.4970232211672085,0.18939326363342421,-0.58042579935257388],
+    [-0.035928246821728654,-0.71082904415298209,-0.28143663580405665,-0.94836356112675535,1.7935596850501137,1.6191962688068116,0.19728639574924978,-0.64958623849867758],
+    [0,-0.4275386406074958,0.2347605883246737,-2.0447717210465419,2.2088432485182912,2.9196863945411518,0.39531199255340921,-1.0405217904126611]
+  ]
+}

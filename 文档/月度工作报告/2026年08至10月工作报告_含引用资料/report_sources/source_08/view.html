@@ -1,0 +1,278 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>转动优化：路径评分与筛选</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>转动优化：路径评分与筛选</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="minimum_turn.py">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_elbow_full_20261016_r291/minimum_turn.py</p><pre>import copy
+import itertools
+import time
+
+import numpy as np
+from scipy.spatial.transform import Rotation
+from bounded_connector import bounded_free_path
+
+
+CONTRACT = &#x27;current_pose_symmetric_grasp_v1&#x27;
+CONTINUOUS_MODES = frozenset((&#x27;load_pickup&#x27;, &#x27;retrieval_pickup&#x27;, &#x27;pilot&#x27;,
+                              &#x27;load_transport&#x27;, &#x27;load_alignment&#x27;, &#x27;retrieval_transport&#x27;))
+MAXIMUM_PATH_CANDIDATES = 8
+
+
+def branch_seed(request, phase, seed, guides, index):
+    marker = request.get(&#x27;minimum_turn_contract&#x27;)
+    if marker is not None and marker != CONTRACT:
+        raise ValueError(&#x27;Unknown minimum-turn planning contract&#x27;)
+    if marker == CONTRACT and request.get(&#x27;mode&#x27;) in CONTINUOUS_MODES:
+        return seed
+    return seed if guides is None else guides[min(index, len(guides) - 1)]
+
+
+def motion_metrics(first, points, names):
+    names = sorted(names)
+    if not points or any(set(point) != set(names) for point in points):
+        raise ValueError(&#x27;Minimum-turn score requires complete nonempty joint paths&#x27;)
+    matrix = np.array([[first[name] for name in names]] +
+                      [[point[name] for name in names] for point in points], dtype=float)
+    if not np.isfinite(matrix).all():
+        raise ValueError(&#x27;Nonfinite minimum-turn joint path&#x27;)
+    travel = np.abs(np.diff(matrix, axis=0)).sum(axis=0)
+    axial = [index for index, name in enumerate(names)
+             if any(suffix in name for suffix in (&#x27;shoulder_yaw&#x27;, &#x27;wrist_roll&#x27;, &#x27;wrist_yaw&#x27;))]
+    excursion = np.ptp(matrix, axis=0)
+    return dict(total_rad=float(travel.sum()), axial_rad=float(travel[axial].sum()),
+                peak_excursion_rad=float(excursion.max()),
+                score=float(travel.sum() + travel[axial].sum() + excursion.max()),
+                joint_excursion_rad=dict(zip(names, excursion.tolist())))
+
+
+def seed_candidates(planner, home, guide, legacy):
+    candidates = [home, guide, legacy]
+    for fraction in (.25, .5, .75):
+        candidates.append({name: home[name] + fraction * (guide[name] - home[name])
+                           for name in planner.names})
+    for hand in (&#x27;left&#x27;, &#x27;right&#x27;):
+        candidates.append({name: guide[name] if name.startswith(hand + &#x27;_&#x27;) else home[name]
+                           for name in planner.names})
+    generator = np.random.default_rng(285)
+    for unused in range(4):
+        values = np.clip(np.array([home[name] for name in planner.names]) +
+                         generator.normal(0, 1., len(planner.names)), planner.lower, planner.upper)
+        candidates.append(dict(zip(planner.names, values)))
+    return candidates
+
+
+def direct_empty_connector(planner, first, last):
+    names = planner.names
+    origin = np.array([first[name] for name in names])
+    goal = np.array([last[name] for name in names])
+    count = max(2, int(np.ceil(np.max(np.abs(goal - origin)) / .002)) + 1)
+    for vector in np.linspace(origin, goal, count):
+        if np.any(vector &lt; planner.lower - 1e-12) or np.any(vector &gt; planner.upper + 1e-12):
+            raise ValueError(&#x27;Minimum-turn connector exceeds original joint margins&#x27;)
+        planner.checked += 1
+        if planner.planner.check(dict(zip(names, vector.tolist())))[&#x27;collision&#x27;]:
+            raise ValueError(&#x27;Minimum-turn direct empty connector collision&#x27;)
+    samples = max(2, int(np.ceil(np.max(np.abs(goal - origin)) / .02)) + 1)
+    return [dict(zip(names, vector.tolist())) for vector in np.linspace(origin, goal, samples)]
+
+
+def minimum_turn_connector(planner, first, last, legacy_approach):
+    best = None
+    best_score = float(&#x27;inf&#x27;)
+    for fraction in (0., .1, .2, .35, .5, .7):
+        index = round(fraction * (len(legacy_approach) - 1))
+        prefix = [dict(first)] + [dict(point) for point in legacy_approach[:index + 1]]
+        try:
+            for start, end in zip(prefix, prefix[1:]):
+                direct_empty_connector(planner, start, end)
+            tail = direct_empty_connector(planner, prefix[-1], last)
+            path = prefix + tail[1:]
+            score = motion_metrics(first, path, planner.names)[&#x27;score&#x27;]
+            if score &lt; best_score:
+                best, best_score = path, score
+        except ValueError:
+            continue
+    bound = motion_metrics(first, [last], planner.names)[&#x27;score&#x27;]
+    if best is None or best_score &gt; bound * 1.1:
+        try:
+            alternate = bounded_free_path(planner.planner, first, last)
+            score = motion_metrics(first, alternate, planner.names)[&#x27;score&#x27;]
+            if score &lt; best_score:
+                best, best_score = alternate, score
+        except ValueError:
+            pass
+    if best is None:
+        raise ValueError(&#x27;No original-dense collision-free minimum-turn connector&#x27;)
+    return best
+
+
+def compact_qualified_approach(planner, first, original):
+    waypoints = [dict(first)] + [dict(point) for point in original]
+    path = [dict(first)]
+    index = 0
+    while index &lt; len(waypoints) - 1:
+        remaining = len(waypoints) - 1 - index
+        stride = max(1, remaining // 12)
+        targets = list(range(len(waypoints) - 1, index, -stride))
+        if index + 1 not in targets:
+            targets.append(index + 1)
+        for target in targets:
+            try:
+                connector = direct_empty_connector(planner, waypoints[index], waypoints[target])
+                path.extend(connector[1:])
+                index = target
+                break
+            except ValueError:
+                continue
+        else:
+            raise ValueError(&#x27;Original approach no longer valid in exact current scene&#x27;)
+    return path
+
+
+def prospective_transport(worker, request, planner, descent):
+    from elbow_posture import active, posture_metrics
+    positions = dict(request[&#x27;positions&#x27;], **descent[&#x27;samples&#x27;][-1])
+    planner.planner.state.joint_positions = positions
+    planner.planner.state.update()
+    references = {hand: (np.linalg.inv(planner.planner.state.get_global_link_transform(hand + &#x27;_wrist_yaw_link&#x27;)) @
+                         worker.pose_matrix(request[&#x27;poses&#x27;][&#x27;box48_&#x27; + payload])).tolist()
+                  for hand, payload in request[&#x27;assignment&#x27;].items()}
+    pilot_request = dict(request, mode=&#x27;pilot&#x27;, positions=positions, planning_references=references)
+    pilot = worker.plan_transport(pilot_request)
+    positions.update(pilot[&#x27;stages&#x27;][-1][&#x27;samples&#x27;][-1])
+    planner.planner.state.joint_positions = positions
+    planner.planner.state.update()
+    poses = copy.deepcopy(request[&#x27;poses&#x27;])
+    for hand, payload in request[&#x27;assignment&#x27;].items():
+        body = planner.planner.state.get_global_link_transform(hand + &#x27;_wrist_yaw_link&#x27;) @ np.array(references[hand])
+        poses[&#x27;box48_&#x27; + payload][&#x27;position&#x27;] = dict(zip(&#x27;xyz&#x27;, body[:3, 3].tolist()))
+        poses[&#x27;box48_&#x27; + payload][&#x27;orientation&#x27;] = dict(zip(&#x27;xyzw&#x27;, Rotation.from_matrix(body[:3, :3]).as_quat().tolist()))
+    mode = &#x27;retrieval_transport&#x27; if request[&#x27;retrieval&#x27;] else &#x27;load_transport&#x27;
+    carry = worker.plan_transport(dict(request, mode=mode, positions=positions, poses=poses,
+                                       planning_references=references))
+    elbow_summary = None
+    if active(request):
+        summary = {hand: max(posture_metrics(planner, point)[hand][&#x27;from_down_deg&#x27;] for point in carry[&#x27;stages&#x27;][0 if request[&#x27;retrieval&#x27;] else -1][&#x27;samples&#x27;]) for hand in (&#x27;left&#x27;, &#x27;right&#x27;)}
+        elbow_summary = dict(basket_max_from_down_deg=max(summary.values()), by_hand_from_down_deg=summary)
+    return dict(status=&#x27;PROSPECTIVE_RIGID_GEOMETRY_PASS_NOT_ACTUAL_GRASP&#x27;,
+                elbow_posture=elbow_summary,
+                pilot_checks=pilot[&#x27;checked_samples&#x27;], carry_checks=carry[&#x27;checked_samples&#x27;],
+                no_command_or_native_reference_freeze_from_prediction=True,
+                actual_post_grasp_plan_and_guards_still_required=True)
+
+
+def choose_pickup(request, worker):
+    from elbow_posture import active, choose_elbow_pickup
+    if active(request):
+        return choose_elbow_pickup(request, worker)
+    if request.get(&#x27;minimum_turn_contract&#x27;) != CONTRACT:
+        return worker.legacy_plan_pickup(request)
+    if request.get(&#x27;mode&#x27;) not in (&#x27;load_pickup&#x27;, &#x27;retrieval_pickup&#x27;):
+        raise ValueError(&#x27;Minimum-turn choice is only an empty pickup planner&#x27;)
+    if request.get(&#x27;original_runtime_holder_references&#x27;) != {}:
+        raise ValueError(&#x27;Minimum-turn choice cannot alter an actual held reference&#x27;)
+    began = time.monotonic()
+    legacy_request = dict(request)
+    legacy_request.pop(&#x27;minimum_turn_contract&#x27;)
+    baseline = worker.legacy_plan_pickup(legacy_request)
+    first = request[&#x27;positions&#x27;]
+    baseline_metrics = motion_metrics(first, [point for stage in baseline[&#x27;stages&#x27;]
+                                             for point in stage[&#x27;samples&#x27;]], worker.TASK_JOINTS)
+    guide = worker.json.loads((worker.EVIDENCE / &#x27;inputs/dual_route.json&#x27;).read_text())[&#x27;forward_stages&#x27;][0][&#x27;samples&#x27;][0]
+    legacy_goal = baseline[&#x27;stages&#x27;][-1][&#x27;samples&#x27;][-1]
+    candidates, diagnostics = [], []
+    for flips in itertools.product((0, 180), repeat=2):
+        references, targets = {}, {}
+        for hand, flip in zip((&#x27;left&#x27;, &#x27;right&#x27;), flips):
+            rotation = np.eye(4)
+            rotation[:3, :3] = Rotation.from_euler(&#x27;z&#x27;, -flip, degrees=True).as_matrix()
+            references[hand] = worker.nominal_references()[hand] @ rotation
+            targets[hand] = worker.pose_matrix(request[&#x27;poses&#x27;][&#x27;box48_&#x27; + request[&#x27;assignment&#x27;][hand]])
+            if request[&#x27;mode&#x27;] == &#x27;retrieval_pickup&#x27;:
+                offset = request.get(&#x27;retrieval_grip_height_offset_m&#x27;, .010)
+                if not 0 &lt;= offset &lt;= .020:
+                    raise ValueError(&#x27;Original retrieval grip offset bound exceeded&#x27;)
+                targets[hand][2, 3] += offset
+        planner = worker.PairedPlanner(request, references)
+        unique = []
+        for index, seed in enumerate(seed_candidates(planner, first, guide, legacy_goal)):
+            try:
+                solved = planner.solve(targets, seed)
+                if any(max(abs(solved[name] - prior[name]) for name in planner.names) &lt; .03 for prior in unique):
+                    continue
+                unique.append(solved)
+                bound = motion_metrics(first, [solved], worker.TASK_JOINTS)
+                if bound[&#x27;score&#x27;] &lt; baseline_metrics[&#x27;score&#x27;] * .99 and bound[&#x27;axial_rad&#x27;] &lt; baseline_metrics[&#x27;axial_rad&#x27;] * .99:
+                    candidates.append(dict(flips=flips, seed_index=index, grip=solved,
+                                           references=references, targets=targets, lower_bound=bound))
+            except RuntimeError:
+                pass
+    best, best_metrics = baseline, baseline_metrics
+    baseline_references = {}
+    for hand, flip in zip((&#x27;left&#x27;, &#x27;right&#x27;), baseline[&#x27;flips_deg&#x27;]):
+        rotation = np.eye(4)
+        rotation[:3, :3] = Rotation.from_euler(&#x27;z&#x27;, -flip, degrees=True).as_matrix()
+        baseline_references[hand] = worker.nominal_references()[hand] @ rotation
+    try:
+        planner = worker.PairedPlanner(request, baseline_references)
+        compact = compact_qualified_approach(planner, {name: first[name] for name in planner.names},
+                                              baseline[&#x27;stages&#x27;][0][&#x27;samples&#x27;])
+        stages = [dict(phase=&#x27;approach&#x27;, samples=compact)] + baseline[&#x27;stages&#x27;][1:]
+        metrics = motion_metrics(first, [point for stage in stages for point in stage[&#x27;samples&#x27;]], worker.TASK_JOINTS)
+        if (metrics[&#x27;score&#x27;] &lt; baseline_metrics[&#x27;score&#x27;] * .99 and
+                metrics[&#x27;axial_rad&#x27;] &lt;= baseline_metrics[&#x27;axial_rad&#x27;] + 1e-9 and
+                metrics[&#x27;peak_excursion_rad&#x27;] &lt;= baseline_metrics[&#x27;peak_excursion_rad&#x27;] + 1e-9):
+            best = dict(baseline, stages=stages, checked_samples=baseline[&#x27;checked_samples&#x27;] + planner.checked,
+                        original_grasp_endpoint_and_descent_exactly_preserved=True)
+            best_metrics = metrics
+    except ValueError as error:
+        diagnostics.append(dict(rejected=&#x27;baseline approach compaction&#x27;, error=str(error)))
+    ordered = sorted(candidates, key=lambda item: item[&#x27;lower_bound&#x27;][&#x27;score&#x27;])
+    diverse = []
+    for limit in (1, 2):
+        for candidate in ordered:
+            if any(candidate is previous for previous in diverse):
+                continue
+            if sum(previous[&#x27;flips&#x27;] == candidate[&#x27;flips&#x27;] for previous in diverse) &lt; limit:
+                diverse.append(candidate)
+    evaluated = 0
+    for candidate in diverse[:MAXIMUM_PATH_CANDIDATES]:
+        if time.monotonic() - began &gt; 80.:
+            break
+        evaluated += 1
+        try:
+            planner = worker.PairedPlanner(request, candidate[&#x27;references&#x27;])
+            home = {name: first[name] for name in planner.names}
+            above = copy.deepcopy(candidate[&#x27;targets&#x27;])
+            for body in above.values():
+                body[2, 3] += .12
+            pre = planner.solve(above, candidate[&#x27;grip&#x27;])
+            approach = minimum_turn_connector(planner, home, pre, baseline[&#x27;stages&#x27;][0][&#x27;samples&#x27;])
+            descent = planner.checked_stage(above, candidate[&#x27;targets&#x27;], pre, &#x27;descend&#x27;, count=81)
+            stages = [dict(phase=&#x27;approach&#x27;, samples=approach), descent]
+            metrics = motion_metrics(first, [point for stage in stages for point in stage[&#x27;samples&#x27;]], worker.TASK_JOINTS)
+            if (metrics[&#x27;score&#x27;] &gt;= best_metrics[&#x27;score&#x27;] * .99 or
+                    metrics[&#x27;axial_rad&#x27;] &gt;= best_metrics[&#x27;axial_rad&#x27;] * .99 or
+                    metrics[&#x27;peak_excursion_rad&#x27;] &gt; baseline_metrics[&#x27;peak_excursion_rad&#x27;] + 1e-9):
+                diagnostics.append(dict(flips_deg=list(candidate[&#x27;flips&#x27;]), seed_index=candidate[&#x27;seed_index&#x27;],
+                                        rejected=&#x27;not a measured full-path improvement&#x27;, metrics=metrics))
+                continue
+            lookahead = prospective_transport(worker, request, planner, descent)
+            best_metrics = metrics
+            best = dict(status=&#x27;PASS&#x27;, stages=stages, checked_samples=planner.checked,
+                        maximum_joint_step_rad=.002, planning_only_attachment=False,
+                        assignment=request[&#x27;assignment&#x27;], flips_deg=list(candidate[&#x27;flips&#x27;]),
+                        exact_actual_full_state_used=True, no_physical_attachment=True,
+                        prospective_retrieval_lookahead=lookahead if request[&#x27;retrieval&#x27;] else None,
+                        prospective_loading_lookahead=lookahead if not request[&#x27;retrieval&#x27;] else None)
+        except (RuntimeError, ValueError) as error:
+            diagnostics.append(dict(flips_deg=list(candidate[&#x27;flips&#x27;]), seed_index=candidate[&#x27;seed_index&#x27;], error=str(error)))
+    best = dict(best)
+    best[&#x27;minimum_turn_selection&#x27;] = dict(contract=CONTRACT, baseline=baseline_metrics,
+        selected=best_metrics, improved=best_metrics[&#x27;score&#x27;] &lt; baseline_metrics[&#x27;score&#x27;] * .99,
+        exact_grasp_contact_frames_and_original_limits_preserved=True,
+        candidate_paths_evaluated=evaluated, lower_bound_candidates=len(candidates),
+        maximum_candidate_paths=MAXIMUM_PATH_CANDIDATES, diagnostics=diagnostics,
+        selection_wall_s=time.monotonic() - began,
+        old_rrt_fallback_preserved_not_all_solutions_claimed_optimal=True)
+    return best
+</pre></body></html>

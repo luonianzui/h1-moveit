@@ -1,0 +1,207 @@
+{
+  "controller_commands_issued": 0,
+  "exact_fcl_authority": {
+    "file_count": 9,
+    "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v8_31j/manifest.json",
+    "sha256": "b73f57d3d7d5a02ead65e3fdbdd6b6d0c71ec136a8334c1f41b3bd6de85b4d67"
+  },
+  "execution_contract": {
+    "baseline": "826.3",
+    "final_plugin_proof": "pinned_server_and_binary_plus_double_startup_topology_four_unique_transitions_and_final_fresh_heartbeats",
+    "gazebo_setproctitle_nul_tail_cleanup": true,
+    "hard_maximum_abs_torso_deg": 44.5,
+    "incubator_x_m": 0.59,
+    "left_hand_handle_contact_forbidden": true,
+    "lifecycle_guardian": true,
+    "maximum_wall_motion_window_ns": 90000000000,
+    "middle_non_left_gripper_time_divisor": 7.0,
+    "middle_speed_scale": 1.0,
+    "nested_control_pdeath": true,
+    "persistent_support_daemon": true,
+    "physics_step_ns": 5000000,
+    "planned_maximum_abs_torso_deg": 44.25,
+    "public_joint_state_exact_gap_ns": 10000000,
+    "right_contact_marker_settle_sim_ns": 100000000,
+    "right_dense_point_dt_s": 0.004,
+    "right_handle_only": true,
+    "right_time_scale": 1.0,
+    "slow_mode_enabled": false,
+    "support_daemon_prewarmed_before_motion": true,
+    "table_x_m": 0.6
+  },
+  "files": {
+    "candidate3_rosbag_qos_overrides_829.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/candidate3_rosbag_qos_overrides_829.yaml",
+      "sha256": "da086156e2c7599f05e8c3ccc9066af8e4c6acc8210451de4ecc8b20bc0a6f1c",
+      "size_bytes": 1031
+    },
+    "candidate3_telemetry_bridge_829.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/candidate3_telemetry_bridge_829.yaml",
+      "sha256": "615231d3fc7d810f38165cbc679e4044263d4000cace8b56cc0ed35705ec9b0d",
+      "size_bytes": 481
+    },
+    "commands_829.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/commands_829.json",
+      "sha256": "a5e98b868220c63c67e59ce0fdef4c1b11aafbcfe8a1893425d7986718de08aa",
+      "size_bytes": 16077
+    },
+    "controller_execution_authorization.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/controller_execution_authorization.json",
+      "sha256": "a22fc6220a7ac63cd44f0e1964d627440ae2242ab4dec69c0254573ea4c71827",
+      "size_bytes": 2201
+    },
+    "fast_90_schedule_831.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/fast_90_schedule_831.json",
+      "sha256": "90a848ac72f94d14b60dddeb43f40bc09854a01da593d149423112d55173c76c",
+      "size_bytes": 1273
+    },
+    "gazebo.launch.py": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/gazebo.launch.py",
+      "sha256": "4f2a3da2f03716a8905738d1c10c6b41600a44fc6a5b725fed961419bb514bf5",
+      "size_bytes": 21931
+    },
+    "h1_2.gazebo.ros2_control.xacro": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/h1_2.gazebo.ros2_control.xacro",
+      "sha256": "3c865dcf19fec32403aac51365702afdf8232111840fcffb8ee80eb2923f1535",
+      "size_bytes": 7695
+    },
+    "h1_candidate3_fast90_certificate_831.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/h1_candidate3_fast90_certificate_831.py",
+      "sha256": "22ec332c3965c5682a36faf35b88fef8229f71dc555bc18d870e0c268e2e3ef1",
+      "size_bytes": 40025
+    },
+    "h1_candidate3_flow_828.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/h1_candidate3_flow_828.py",
+      "sha256": "55ae8343ad152ef75a6cb4db54123fea1c36c078a8c3725f41c808b991c1095f",
+      "size_bytes": 33932
+    },
+    "h1_candidate3_live_certificate_829.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/h1_candidate3_live_certificate_829.py",
+      "sha256": "c1a9989e77baa4cb981789d2ccc86bfe010c2a7e2b89b437168ada08cabe5f45",
+      "size_bytes": 202727
+    },
+    "h1_candidate3_live_supervisor_829.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/h1_candidate3_live_supervisor_829.py",
+      "sha256": "1f30167d32a974ddbd88cac644bb8348b6c9b4b0ccd330c131abcc7610069751",
+      "size_bytes": 176708
+    },
+    "h1_candidate3_middle_executor_828.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/h1_candidate3_middle_executor_828.py",
+      "sha256": "710ceeab2163ba23ffdf8ba8ec84e68f6174f64d31ade4c81430f89451e81293",
+      "size_bytes": 67182
+    },
+    "h1_fast_support_daemon_831.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/h1_fast_support_daemon_831.py",
+      "sha256": "cd5e768806dd48cd126b708a7d73fd3748c094acb2e94dbc8f6ed29da6f229ed",
+      "size_bytes": 66807
+    },
+    "h1_right_handle_executor_828.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/h1_right_handle_executor_828.py",
+      "sha256": "914aa9bbd30776a58faea7095b27e8f9819e366f224d4a9e37dc287bed2fd6aa",
+      "size_bytes": 70568
+    },
+    "h1_robot_joint_state_relay_829.py": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/h1_robot_joint_state_relay_829.py",
+      "sha256": "5055b923daaf322cfcf7a7dbb738359c5e4d702010be539c4ce75b8f5b8f193c",
+      "size_bytes": 12374
+    },
+    "h1_support_orchestrator_828.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/h1_support_orchestrator_828.py",
+      "sha256": "31ee7673e090a8fcf4da184c75b6c62efcb54575fa95589958e33d17f3345b37",
+      "size_bytes": 65248
+    },
+    "h1_world.sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/h1_world.sdf",
+      "sha256": "4b61050f468df5f81a6805d410dd63daeb8b7c9d0aa9143b00b90282c38eb96c",
+      "size_bytes": 2264
+    },
+    "incubator_model.sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/incubator_model.sdf",
+      "sha256": "44ff23fc7077f0c232e2e69ff9d73aba336140d6a7951968c9c4241a97e73db9",
+      "size_bytes": 12085
+    },
+    "right_handle_manifest.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/right_handle_manifest.json",
+      "sha256": "4169de2088aabf44d96798e0002211db93ff29a03450f9368667006caa4e59a8",
+      "size_bytes": 7302
+    },
+    "ros2_controllers.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v11/ros2_controllers.yaml",
+      "sha256": "612722d2143e39ef467219c67b9fb4bbfba9cb90a6bf047701308b4ff6279795",
+      "size_bytes": 2654
+    }
+  },
+  "formal_authority_ids": [
+    "right_execution_authorization",
+    "right_manifest",
+    "middle_plan",
+    "middle_exact_result",
+    "middle_certificate",
+    "middle_support_manifest",
+    "right_executor_source",
+    "middle_executor_source",
+    "flow_source",
+    "fast_support_daemon_source",
+    "support_source",
+    "middle_admission",
+    "middle_execution_contract",
+    "gazebo_launch_source",
+    "gazebo_world_sdf",
+    "incubator_model_sdf",
+    "robot_gazebo_control_xacro",
+    "ros2_controllers_config",
+    "robot_joint_state_relay_source",
+    "telemetry_bridge_config",
+    "rosbag_qos_overrides"
+  ],
+  "run_id": "afbb8db341f1f94d8417511e4dd91bd8ed2ab149b682276f6acf714327e1d76e",
+  "run_root": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_live_831_fast_r11",
+  "schema": "h1_candidate3_live_fast_authority/831-v11",
+  "sealed": true,
+  "status": "READY",
+  "supersedes": {
+    "path": "runtime_assets/candidate3_live_831_fast_authority_v10",
+    "reason": "v11 retains the unchanged v10 motion geometry, timing, mechanism thresholds, and original three-sample gates. r10 completed every robot stage at 83.811 seconds but correctly failed at 97.839 seconds because finalization repeated six slow Gazebo topology discovery processes. v11 replaces only that duplicate discovery with a strict composite proof: the same pinned Gazebo process and plugin binary, topology checked twice before READY, all four unique native state transitions, and newer final detached heartbeats.  It also parses only the two exact NUL-padded Ruby setproctitle server/gui identities before cleanup, closing the observed r10 orphan path without increasing joint speed or relaxing any gate"
+  },
+  "valid": true
+}

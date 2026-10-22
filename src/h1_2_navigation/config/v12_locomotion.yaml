@@ -1,0 +1,286 @@
+schema_version: 1
+
+deployment:
+  enabled: false
+  movement_authorized: false
+  input_topic: /cmd_vel_nav
+  output_topic: /cmd_vel_rl_safe
+  required_gates:
+    - enabled
+    - movement_authorized
+    - policy_ready
+    - state_estimate_ready
+    - contact_sensors_ready
+    - leg_controller_ready
+
+policy:
+  task: H12-Human-Omni-Recover-Stop-Gait-Flat-v12
+  iteration: 17250
+  observation_dimension: 78
+  action_dimension: 12
+  observation_normalization: true
+  action_clip: 1.0
+  motion_hidden_dimensions: [128, 128, 128, 128]
+  stop_hidden_dimensions: [64, 64]
+  command_slice: [42, 45]
+  context_slice: [45, 57]
+  checkpoint:
+    path: /home/liu/robot/gym_sim/IsaacLab-3.0-beta2/logs/rsl_rl/h1_2_human_omni_recover_stop_gait_v12/2026-08-10_18-09-30_omni_recover_stop_v12_v11m150_16h_8192_r1/model_17250.pt
+    size: 3799642
+    sha256: 92ae9d9e945ed72e5aca91370acf94673d57181113ca89ab4f1c6639e0e87405
+
+assets:
+  isaac_source_urdf:
+    path: /home/liu/test/h1_2_isaaclab/assets/h1_2_feetonly.urdf
+    size: 25253
+    sha256: ba77f005045baf14385efdffdef40f9e809bf50722015dc6f309cf9372ee0544
+  isaac_usd:
+    path: /home/liu/test/h1_2_isaaclab/assets/usd/h1_2_feetonly/h1_2_feetonly.usda
+    size: 40794978
+    sha256: d1d0111e8ca112bea366c14859dce38f8aa72b0fe7bd2b6f619071bdaf9a0a59
+  isaac_env_snapshot:
+    path: /home/liu/robot/gym_sim/IsaacLab-3.0-beta2/logs/rsl_rl/h1_2_human_omni_recover_stop_gait_v12/2026-08-10_18-09-30_omni_recover_stop_v12_v11m150_16h_8192_r1/params/env.yaml
+    sha256: dc87a8323a7b9ab87a70fdd80c258ee307c85a99de540236e713ac45ece05198
+  isaac_agent_snapshot:
+    path: /home/liu/robot/gym_sim/IsaacLab-3.0-beta2/logs/rsl_rl/h1_2_human_omni_recover_stop_gait_v12/2026-08-10_18-09-30_omni_recover_stop_v12_v11m150_16h_8192_r1/params/agent.yaml
+    sha256: 6e273eb7b3d61a61b3211fa90b7dd77944934108f3978765e050e6cec2f5bd7a
+  gazebo_model_urdf:
+    path: /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/urdf/h1_2_model.urdf.xacro
+    size: 30299
+    sha256: 5807be5243b51f6e07cfa9151aa273fd2e39bc2c2605af4c966770e3f446d464
+  gazebo_spawn_xacro:
+    path: /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/urdf/h1_2_gazebo.urdf.xacro
+    size: 1600
+    sha256: 45dd63834358209da5ac370de51880c54332a24fa65a06ad24d848bfca782064
+  gazebo_initial_positions:
+    path: /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_moveit_config/config/initial_positions.yaml
+    size: 1116
+    sha256: aa36726078609a1e37787917027e4ca49328479f3004d18e0695a9bb10bace6b
+  gazebo_controllers:
+    path: /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_moveit_config/config/ros2_controllers.yaml
+    size: 2654
+    sha256: 612722d2143e39ef467219c67b9fb4bbfba9cb90a6bf047701308b4ff6279795
+  expected_exports:
+    - /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_navigation/policy/v12_model_17250_policy.npz
+    - /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_navigation/policy/v12_model_17250_policy.pt
+  v12_numpy_policy:
+    path: /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_navigation/policy/v12_model_17250_policy.npz
+    size: 270033
+    sha256: 4891a943e6347c580c25224192523753649763fb083cb5a6fdcfe71c62e66b1c
+  v12_torchscript_policy:
+    path: /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_navigation/policy/v12_model_17250_policy.pt
+    size: 307178
+    sha256: f206a6247b737c95406339ca47a25e19c86ecd35afd967d655a024b00501bf16
+  v12_policy_golden:
+    path: /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_navigation/policy/v12_model_17250_golden.npz
+    size: 85298
+    sha256: 0630c714126687d30cf82bf1156b9f8aea610da1014fcb2e1820699c8f4b0a24
+  task_source_sha256: 9395bc00d19cea9699c0d86589a14defe517da4a0c4b4ee7020580bd00b726ba
+
+control:
+  control_period: 0.02
+  action_scale: 0.3
+  leg_limit_fraction: 0.9
+  command_deadband: [0.01, 0.01, 0.01]
+  motion_onset_threshold: [0.03, 0.0225, 0.03]
+  command_timeout: 0.30
+  training_limits:
+    vx: [-1.5, 1.5]
+    vy: [-0.5, 0.5]
+    yaw_rate: [-1.0, 1.0]
+  safety_limits:
+    vx: [-0.15, 0.15]
+    vy: [-0.10, 0.10]
+    yaw_rate: [-0.05, 0.05]
+    linear_acceleration: 0.15
+    angular_acceleration: 0.20
+
+stop_controller:
+  contact_force_threshold: 5.0
+  stop_residual_scale:
+    [0.06, 0.12, 0.08, 0.15, 0.08, 0.05,
+     0.06, 0.12, 0.08, 0.15, 0.08, 0.05]
+  stop_target_rate_limit:
+    [0.010, 0.020, 0.014, 0.025, 0.012, 0.008,
+     0.010, 0.020, 0.014, 0.025, 0.012, 0.008]
+  stop_age_scale_steps: 400
+  stop_shoulder_rate_limit: 0.005
+  capture_planar_speed_threshold: 0.10
+  capture_yaw_speed_threshold: 0.12
+  capture_minimum_up_z: 0.98
+  capture_dwell_steps: 10
+  capture_angular_velocity_xy_threshold: 0.30
+  capture_vertical_velocity_threshold: 0.12
+  recovery_minimum_up_z: 0.96
+  recovery_planar_speed_threshold: 0.18
+  recovery_yaw_speed_threshold: 0.24
+  recovery_angular_velocity_xy_threshold: 0.55
+  recovery_vertical_velocity_threshold: 0.25
+
+deployment_gait:
+  stationary_threshold: 1.0e-6
+  frequency_bias: 0.75
+  frequency_speed_gain: 0.35
+  frequency_yaw_gain: 0.08
+  frequency_limits: [0.75, 1.25]
+  height_bias: 0.06
+  height_speed_gain: 0.035
+  height_limits: [0.06, 0.11]
+  gait_index: 0.0
+  gazebo_adapter:
+    frequency_scale: 0.6574621959237344
+    minimum_foot_height: 0.08
+
+shoulder_pitch:
+  joints: [left_shoulder_pitch_joint, right_shoulder_pitch_joint]
+  default_positions: [0.4, 0.4]
+  position_limits: [[-3.14, 1.57], [-3.14, 1.57]]
+  peak: 0.20
+  full_speed: 1.0
+
+leg_joints:
+  - left_hip_yaw_joint
+  - left_hip_pitch_joint
+  - left_hip_roll_joint
+  - left_knee_joint
+  - left_ankle_pitch_joint
+  - left_ankle_roll_joint
+  - right_hip_yaw_joint
+  - right_hip_pitch_joint
+  - right_hip_roll_joint
+  - right_knee_joint
+  - right_ankle_pitch_joint
+  - right_ankle_roll_joint
+
+training_default_positions:
+  left_hip_yaw_joint: 0.0
+  left_hip_pitch_joint: -0.16
+  left_hip_roll_joint: 0.0
+  left_knee_joint: 0.36
+  left_ankle_pitch_joint: -0.20
+  left_ankle_roll_joint: 0.0
+  right_hip_yaw_joint: 0.0
+  right_hip_pitch_joint: -0.16
+  right_hip_roll_joint: 0.0
+  right_knee_joint: 0.36
+  right_ankle_pitch_joint: -0.20
+  right_ankle_roll_joint: 0.0
+
+joint_position_limits:
+  left_hip_yaw_joint: [-0.43, 0.43]
+  left_hip_pitch_joint: [-3.14, 2.5]
+  left_hip_roll_joint: [-0.43, 3.14]
+  left_knee_joint: [-0.12, 2.19]
+  left_ankle_pitch_joint: [-0.897334, 0.523598]
+  left_ankle_roll_joint: [-0.261799, 0.261799]
+  right_hip_yaw_joint: [-0.43, 0.43]
+  right_hip_pitch_joint: [-3.14, 2.5]
+  right_hip_roll_joint: [-3.14, 0.43]
+  right_knee_joint: [-0.12, 2.19]
+  right_ankle_pitch_joint: [-0.897334, 0.523598]
+  right_ankle_roll_joint: [-0.261799, 0.261799]
+
+training_actuator:
+  controlled_joints:
+    [left_hip_yaw_joint, left_hip_pitch_joint, left_hip_roll_joint,
+     left_knee_joint, left_ankle_pitch_joint, left_ankle_roll_joint,
+     right_hip_yaw_joint, right_hip_pitch_joint, right_hip_roll_joint,
+     right_knee_joint, right_ankle_pitch_joint, right_ankle_roll_joint,
+     torso_joint,
+     left_shoulder_pitch_joint, left_shoulder_roll_joint,
+     left_shoulder_yaw_joint, left_elbow_joint, left_wrist_roll_joint,
+     left_wrist_pitch_joint, left_wrist_yaw_joint,
+     right_shoulder_pitch_joint, right_shoulder_roll_joint,
+     right_shoulder_yaw_joint, right_elbow_joint, right_wrist_roll_joint,
+     right_wrist_pitch_joint, right_wrist_yaw_joint]
+  default_positions:
+    [0.0, -0.16, 0.0, 0.36, -0.20, 0.0,
+     0.0, -0.16, 0.0, 0.36, -0.20, 0.0,
+     0.0,
+     0.4, 0.0, 0.0, 0.3, 0.0, 0.0, 0.0,
+     0.4, 0.0, 0.0, 0.3, 0.0, 0.0, 0.0]
+  stiffness:
+    [800.0, 800.0, 800.0, 800.0, 800.0, 800.0,
+     800.0, 800.0, 800.0, 800.0, 800.0, 800.0,
+     800.0,
+     400.0, 400.0, 400.0, 400.0, 400.0, 400.0, 400.0,
+     400.0, 400.0, 400.0, 400.0, 400.0, 400.0, 400.0]
+  damping:
+    [24.7899609719, 84.1845812665, 84.0154477712,
+     36.3059522395, 18.3381338568, 17.9634667172,
+     24.7899609719, 84.1845812665, 84.0154477712,
+     36.3059522395, 18.3381338568, 17.9634667172,
+     53.5834059089,
+     26.3920239698, 24.7345552489, 15.9982482654,
+     15.7897181662, 12.6825890145, 12.6952516973, 12.6606032148,
+     26.4082188950, 24.7345552489, 15.9982482654,
+     15.7897181662, 12.6825890145, 12.6952516973, 12.6606032148]
+  effort_limits:
+    [200.0, 200.0, 200.0, 300.0, 60.0, 40.0,
+     200.0, 200.0, 200.0, 300.0, 60.0, 40.0,
+     200.0,
+     40.0, 40.0, 18.0, 18.0, 19.0, 19.0, 19.0,
+     40.0, 40.0, 18.0, 18.0, 19.0, 19.0, 19.0]
+  joint_velocity_limit: 17453.2925199433
+  armature: 0.1
+  friction: 0.2
+  dynamic_friction: 0.2
+  viscous_friction: 1.0
+
+gazebo_runtime:
+  joint_state_topic: /joint_states
+  imu_topic: /h1_2_navigation/imu
+  left_load_topic: /h1_2_navigation/left_foot/wrench
+  right_load_topic: /h1_2_navigation/right_foot/wrench
+  ground_truth_odom_topic: /h1_2_navigation/ground_truth/odom
+  odom_topic: /odom
+  standby_controller_name: v12_standby_position_controller
+  standby_controller_topic: /v12_standby_position_controller/commands
+  effort_controller_name: v12_effort_pid_controller
+  controller_topic: /v12_effort_pid_controller/reference
+  controller_mode: effort_pid
+  load_contact_threshold: 5.0
+  armature_scale: 4.0
+  effort_stiffness_scale: 1.0
+  effort_damping_scale: 0.4
+  captured_effort_hold: true
+  captured_hold_return_rate: 0.0
+  captured_hold_angular_speed: 0.10
+  captured_hold_vertical_speed: 0.02
+  position_target_rate_limit: 0.02
+  position_stop_target_rate_limit: 0.001
+  effort_target_rate_limit: 0.001
+  effort_settle_steps: 100
+  position_proportional_gain: 1.0
+  deterministic_stop_adapter: false
+  stop_capture_dwell_steps: 10
+  motion_burst_steps: 15
+  motion_burst_planar_speed: 0.04
+  burst_restart_dwell_steps: 50
+  burst_restart_planar_speed: 0.02
+  burst_restart_minimum_up_z: 0.995
+  switch_service: /controller_manager/switch_controller
+  switch_timeout: 2.0
+  status_topic: /h1_2_navigation/v12/status
+  odom_frame: odom
+  base_frame: base_footprint
+  body_frame: pelvis
+  state_timeout: 0.25
+  fall_minimum_up_z: 0.60
+  fall_minimum_height: 0.55
+  truth_aided_odometry: true
+
+observation_layout:
+  - {name: imu_gyro, start: 0, end: 3}
+  - {name: imu_up_vector, start: 3, end: 6}
+  - {name: joint_position, start: 6, end: 18}
+  - {name: joint_velocity, start: 18, end: 30}
+  - {name: previous_action, start: 30, end: 42}
+  - {name: velocity_command, start: 42, end: 45}
+  - {name: joint_velocity_or_stop_context, start: 45, end: 57}
+  - {name: joint_position_target_error, start: 57, end: 69}
+  - {name: foot_contacts, start: 69, end: 71}
+  - {name: gait_phase, start: 71, end: 75}
+  - {name: gait_frequency, start: 75, end: 76}
+  - {name: gait_index, start: 76, end: 77}
+  - {name: foot_height, start: 77, end: 78}

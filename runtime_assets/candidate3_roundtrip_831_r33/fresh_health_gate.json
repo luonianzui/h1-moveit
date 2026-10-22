@@ -1,0 +1,47 @@
+{
+  "schema": "candidate3_roundtrip_831_fresh_health_gate/v1",
+  "checked_at": "2026-09-15T09:44:31.277212942+08:00",
+  "authority_run_id": "edb3a20aaadcc3823add641210bed5d1d62b7a6fbe1dc549d3613f455788648d",
+  "authority_root": "runtime_assets/candidate3_roundtrip_831_authority_v23",
+  "run_root": "runtime_assets/candidate3_roundtrip_831_r33",
+  "launch_is_fresh": true,
+  "gazebo_gui_present": true,
+  "controllers": {
+    "expected_active_count": 6,
+    "observed_active_count": 6,
+    "all_expected_active": true
+  },
+  "trajectory_topics": {
+    "expected_publisher_count_each": 0,
+    "all_five_match": true
+  },
+  "initial_state": {
+    "latch": "locked",
+    "door_hinge_rad": -2.325287419947816e-22,
+    "handle_latch_rad": -2.8526938027507305e-16,
+    "robot_xyz": [0.0, 0.0, 0.0],
+    "table_xyz": [0.6, 0.0, 0.0],
+    "cube_xyz": [0.334, 0.377, 0.83],
+    "incubator_xyz": [0.59, 0.0, 0.815],
+    "navigation_enclosure_xyz": [0.0, 0.0, 0.0]
+  },
+  "mid360": {
+    "valid": true,
+    "reason": "pass",
+    "point_count": 720,
+    "visible_wall_count": 4,
+    "pose_xy_yaw": [0.005, 0.0, 0.0],
+    "inlier_fraction": 1.0,
+    "inlier_rms_m": 0.018030845479661425,
+    "robust_rms_m": 0.01414294479279665,
+    "wall_point_counts": [305, 58, 178, 179],
+    "native_topic_has_publisher_and_subscriber": true
+  },
+  "support_socket_absent": true,
+  "rosbag_root_absent": true,
+  "support_plugin_sha256": "eb85e8b833a6cbaa0fa26eab09e6a983ba2e36243bf37a12ebb9001c19e95d8b",
+  "support_plugin_matches_contract": true,
+  "controller_commands_issued": 0,
+  "raw_evidence": "fresh_health_raw.txt",
+  "result": "PASS"
+}

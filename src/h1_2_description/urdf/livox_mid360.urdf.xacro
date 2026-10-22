@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="livox_mid360" params="parent *origin name:=livox_mid360">
+    <xacro:property name="lidar_width" value="0.065"/>
+    <xacro:property name="lidar_depth" value="0.065"/>
+    <xacro:property name="lidar_height" value="0.060"/>
+    <xacro:property name="lidar_mass" value="0.265"/>
+    <xacro:property name="lower_height" value="0.035"/>
+    <xacro:property name="upper_height" value="${lidar_height - lower_height}"/>
+    <xacro:property name="sensor_height" value="0.045"/>
+
+    <joint name="${name}_joint" type="fixed">
+      <xacro:insert_block name="origin"/>
+      <parent link="${parent}"/>
+      <child link="${name}_link"/>
+    </joint>
+
+    <link name="${name}_link">
+      <visual name="${name}_lower_body">
+        <origin xyz="0 0 ${lower_height / 2.0}" rpy="0 0 0"/>
+        <geometry>
+          <box size="${lidar_width} ${lidar_depth} ${lower_height}"/>
+        </geometry>
+        <material name="${name}_lower_material">
+          <color rgba="0.10 0.11 0.12 1.0"/>
+        </material>
+      </visual>
+
+      <visual name="${name}_upper_body">
+        <origin xyz="0 0 ${lower_height + upper_height / 2.0}" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="${lidar_width / 2.0}" length="${upper_height}"/>
+        </geometry>
+        <material name="${name}_upper_material">
+          <color rgba="0.035 0.040 0.045 1.0"/>
+        </material>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 ${lidar_height / 2.0}" rpy="0 0 0"/>
+        <geometry>
+          <box size="${lidar_width} ${lidar_depth} ${lidar_height}"/>
+        </geometry>
+      </collision>
+
+      <inertial>
+        <origin xyz="0 0 ${lidar_height / 2.0}" rpy="0 0 0"/>
+        <mass value="${lidar_mass}"/>
+        <inertia
+          ixx="${lidar_mass * (lidar_depth * lidar_depth + lidar_height * lidar_height) / 12.0}"
+          ixy="0.0"
+          ixz="0.0"
+          iyy="${lidar_mass * (lidar_width * lidar_width + lidar_height * lidar_height) / 12.0}"
+          iyz="0.0"
+          izz="${lidar_mass * (lidar_width * lidar_width + lidar_depth * lidar_depth) / 12.0}"/>
+      </inertial>
+    </link>
+
+    <joint name="${name}_frame_joint" type="fixed">
+      <origin xyz="0 0 ${sensor_height}" rpy="0 0 0"/>
+      <parent link="${name}_link"/>
+      <child link="${name}_frame"/>
+    </joint>
+
+    <link name="${name}_frame"/>
+
+    <gazebo reference="${name}_link">
+      <sensor name="${name}" type="gpu_lidar">
+        <pose>0 0 ${sensor_height} 0 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>10</update_rate>
+        <topic>/livox/mid360</topic>
+        <gz_frame_id>${name}_frame</gz_frame_id>
+        <visualize>false</visualize>
+        <lidar>
+          <scan>
+            <horizontal>
+              <samples>1024</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.141592653589793</min_angle>
+              <max_angle>3.141592653589793</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>20</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.12217304763960307</min_angle>
+              <max_angle>0.9075712110370514</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.1</min>
+            <max>40.0</max>
+            <resolution>0.01</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.02</stddev>
+          </noise>
+        </lidar>
+      </sensor>
+    </gazebo>
+  </xacro:macro>
+</robot>

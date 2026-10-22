@@ -1,0 +1,42 @@
+{
+  "schema": "h1_candidate3_user_set_gui_camera_pose/831-v1",
+  "run_id": "dc2f34a6572037e52b3c770b878d15f07ad3e6843461577fd599e39fad375269",
+  "authority": "candidate3_roundtrip_831_authority_v19",
+  "source_topic": "/gui/camera/pose",
+  "position": {
+    "x": 0.612566351890564,
+    "y": -0.7572689056396484,
+    "z": 1.4472222328186035
+  },
+  "orientation_requested": {
+    "x": 0.15099482238292694,
+    "y": -0.10155720263719559,
+    "z": -0.8159220218658447,
+    "w": -0.5487785935401917
+  },
+  "orientation_restored": {
+    "x": 0.15099482238292694,
+    "y": -0.10155720263719559,
+    "z": -0.8159220218658447,
+    "w": -0.5487785935401917
+  },
+  "restored_by_service": "/gui/move_to/pose",
+  "copied_from": "candidate3_roundtrip_831_r28/CAMERA_POSE_USER_SET.json",
+  "final_pose_reverified_before_recording": true,
+  "final_pose_reverified_after_flow": true,
+  "final_pose_sample": {
+    "position": {
+      "x": 0.612566351890564,
+      "y": -0.7572689056396484,
+      "z": 1.4472222328186035
+    },
+    "orientation": {
+      "x": 0.15099482238292694,
+      "y": -0.10155720263719559,
+      "z": -0.8159220218658447,
+      "w": -0.5487785935401917
+    }
+  },
+  "status": "PASS",
+  "valid": true
+}

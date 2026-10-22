@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <model name="table">
+    <static>true</static>
+    <link name="link">
+      <!-- 桌面 -->
+      <collision name="surface">
+        <pose>0 0 0.8 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.8 1.2 0.03</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="surface">
+        <pose>0 0 0.8 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.8 1.2 0.03</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.8 0.6 0.4 1</ambient>
+          <diffuse>0.8 0.6 0.4 1</diffuse>
+          <specular>0.3 0.3 0.3 1</specular>
+        </material>
+      </visual>
+
+      <!-- 桌腿1 -->
+      <collision name="leg1">
+        <pose>0.35 0.55 0.4 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.8</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="leg1">
+        <pose>0.35 0.55 0.4 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.8</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5 1</ambient>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 桌腿2 -->
+      <collision name="leg2">
+        <pose>0.35 -0.55 0.4 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.8</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="leg2">
+        <pose>0.35 -0.55 0.4 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.8</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5 1</ambient>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 桌腿3 -->
+      <collision name="leg3">
+        <pose>-0.35 0.55 0.4 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.8</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="leg3">
+        <pose>-0.35 0.55 0.4 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.8</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5 1</ambient>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+        </material>
+      </visual>
+
+      <!-- 桌腿4 -->
+      <collision name="leg4">
+        <pose>-0.35 -0.55 0.4 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.8</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="leg4">
+        <pose>-0.35 -0.55 0.4 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.02</radius>
+            <length>0.8</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5 1</ambient>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

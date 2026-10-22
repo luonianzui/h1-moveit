@@ -1,0 +1,195 @@
+{
+  "schema": "h1_candidate3_middle_e0_raw_combined_exact/828-e0-v1",
+  "auditor_version": "h1_candidate3_middle_e0_exact_auditor/828-e0-raw-v1",
+  "audit_method": "FCL_UNPADDED_DYNAMIC_EXACT_STL_DENSE_INTERPOLATION",
+  "raw_asset_manifest_sha256": "cf15eebffedbbb6c5ec0fd7fb14abc013fa213d8e96013031f4f5cdfec3119f6",
+  "raw_scene_hash": "03e5d0a3b9e53e47736f4297605b55f10f3fa3c54ab6f93b506ea563a9d6ebb2",
+  "physical_scene_hash": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568",
+  "raw_scene_cdr_sha256": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568",
+  "entry_projection": "prefix_certified_endpoint_projection_to_canonical_e0_q90_held",
+  "robot_model_snapshot": {
+    "inventory_sha256": "320942fbd0a1607c585e247fbc43ce9cc876a616afe0565dd3c48af1aaaaa8fe",
+    "urdf_sha256": "5a2f06ab759564c451882ec52e3ef23655aa95a32e62e479c9f63333ae06d576",
+    "srdf_sha256": "2f268a57406fcea301cd1a58c3912b91aa9a3a676e2ae42b9f9c741fac30d79d",
+    "mesh_count": 35
+  },
+  "controller_commands_issued": 0,
+  "offline_only": true,
+  "sample_count": 13489,
+  "subdivision_count": 13489,
+  "collision_free": true,
+  "cube_bump": {
+    "reference_file_sha256": "09919a92a65b5ca90b3a11420bc9209ceead1e90112f94da2c4c18711af8e134",
+    "reference_payload_sha256": "acaec97384f16a736f6b246a3fa1a0897b7aad93e72a6204701610ebf4f7e705",
+    "only_modified_joint": "left_shoulder_roll_joint",
+    "comparison": "same_start_state_dense_interpolation_max_of_modified_and_reference_subdivisions",
+    "maximum_tcp_translation_m": 0.0058106100468689401,
+    "maximum_tcp_rotation_rad": 0.011344640137963213,
+    "translation_limit_m": 0.006,
+    "rotation_limit_rad": 0.013962634015954637
+  },
+  "final_target": {
+    "translation_error_m": 0.0010186574650258191,
+    "rotation_error_rad": 1.6875223605974413e-07,
+    "translation_limit_m": 0.003,
+    "rotation_limit_rad": 0.03490658503988659
+  },
+  "minimum_clearances_m": {
+    "unauthorized_environment": 0.010000999999999999,
+    "table": 0.010000999999999999,
+    "door": 0.010000999999999999,
+    "handle": 0.010000999999999999,
+    "cube": 0.010000999999999999,
+    "self": 0.00080768130385439258,
+    "right_handle_nonpad": 0.00065169507708570369,
+    "left_handle": 0.084579549838792414
+  },
+  "cube_guard_exact_refinement_samples": 0,
+  "minimum_cube_exact_noncontact_clearance_m": null,
+  "minimum_environment_clearance_is_lower_bound": true,
+  "park_roll_rad": 0.316,
+  "environment_clearance_derivation": {
+    "exact_world_objects": "direct_unpadded_FCL_distance",
+    "environment_table_10mm_margin": "0.010_plus_guard_distance",
+    "green_cube_10mm_guard": "0.010_plus_guard_distance",
+    "self_pairs_excluded": true
+  },
+  "park_static_clearance_required_m": 0.010500000000000001,
+  "initial_park_exact_door_clearance": {"link":"right_dex1_finger_2_link","distance_m":0.0123934084363325},
+  "final_park_exact_door_clearance": {"link":"right_dex1_finger_2_link","distance_m":0.0123934084363325},
+  "right_handle_nonpad_clearance_required_m": 0.00059999999999999995,
+  "left_handle_clearance_required_m": 0.050000000000000003,
+  "dynamic_handle_exact": {
+    "id": "incubator_handle_exact",
+    "geometry_type": "mesh",
+    "mesh_count": 1,
+    "primitive_count": 0,
+    "geometry_sha256": "ad6670185fa5756ba5dabdee7e542db2df3346973fea4eb887288f54a6b6f59e",
+    "retained_every_phase": true,
+    "audited_phases": ["door_pre_support","door_open_supported","door60_seam_to_cube","left_cube_ready","cube_contact","cube_carry_place","cube_release","cube_retreat","left_cube_park","door60_seam_to_hinge","door_close_supported"],
+    "angle_rad": 1.5707963267948966,
+    "door_angle_min_rad": 0,
+    "door_angle_max_rad": 1.0471975511965976
+  },
+  "right_handle_allowed_contact_pairs": [
+    ["incubator_handle_exact","right_dex1_finger_1_pad_link"],
+    ["incubator_handle_exact","right_dex1_finger_2_pad_link"]
+  ],
+  "right_door_allowed_contact_pairs": [],
+  "left_cube_allowed_contact_links": [
+    "left_dex1_finger_1_slider_link","left_dex1_finger_1_link",
+    "left_dex1_finger_1_pad_link","left_dex1_finger_2_slider_link",
+    "left_dex1_finger_2_link","left_dex1_finger_2_pad_link"
+  ],
+  "left_cube_object_ids": ["green_cube_dynamic_exact","green_cube_10mm_guard"],
+  "contact_window_measurements": {
+    "right_handle_hold": {
+      "authorized_sample_count": 13489,
+      "maximum_observed_penetration_m": 0,
+      "penetration_geometry": "physical_exact_incubator_handle_mesh",
+      "observed_pair_semantics": "nearest_signed_distance_observation_not_collision_event",
+      "observed_pairs": [["incubator_handle_exact","right_dex1_finger_1_pad_link"]]
+    },
+    "cube_grasp_carry_release": {
+      "authorized_sample_count": 5389,
+      "maximum_observed_penetration_m": 0.00026279301665222879,
+      "penetration_geometry": "green_cube_dynamic_exact_physical_only",
+      "observed_pair_semantics": "nearest_signed_distance_observation_not_collision_event",
+      "observed_pairs": [["green_cube_dynamic_exact","left_dex1_finger_1_link"]],
+      "guard_observation_geometry": "green_cube_10mm_guard_conservative_nonphysical",
+      "guard_nearest_pairs": [["green_cube_10mm_guard","left_dex1_finger_1_link"],["green_cube_10mm_guard","left_dex1_finger_1_pad_link"],["green_cube_10mm_guard","left_dex1_finger_2_link"],["green_cube_10mm_guard","left_dex1_finger_2_pad_link"]],
+      "minimum_guard_physical_lower_bound_m": -0.0037618143464675374
+    },
+    "cube_release_retreat": {
+      "authorized_sample_count": 237,
+      "maximum_observed_penetration_m": 0,
+      "penetration_geometry": "green_cube_dynamic_exact_physical_only",
+      "observed_pair_semantics": "nearest_signed_distance_observation_not_collision_event",
+      "observed_pairs": [["green_cube_dynamic_exact","left_dex1_finger_1_link"],["green_cube_dynamic_exact","left_dex1_finger_2_link"]],
+      "guard_observation_geometry": "green_cube_10mm_guard_conservative_nonphysical",
+      "guard_nearest_pairs": [["green_cube_10mm_guard","left_dex1_finger_1_link"],["green_cube_10mm_guard","left_dex1_finger_1_pad_link"],["green_cube_10mm_guard","left_dex1_finger_2_link"],["green_cube_10mm_guard","left_dex1_finger_2_pad_link"]]
+    }
+  },
+  "torso_joint": {
+    "commanded": true,
+    "minimum_rad": -0.13962634015954636,
+    "maximum_rad": 0,
+    "maximum_absolute_rad": 0.13962634015954636
+  },
+  "left_handle": {
+    "allowed_contact_pairs": [],
+    "contact_count": 0,
+    "minimum_clearance_m": 0.084579549838792414
+  },
+  "mask_projection": {
+    "raw_scene_hash": "03e5d0a3b9e53e47736f4297605b55f10f3fa3c54ab6f93b506ea563a9d6ebb2",
+    "physical_scene_hash": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568",
+    "removed_visual_mask_ids": [],
+    "unknown_visual_mask_ids": [],
+    "classification": "RAW_SCENE_ALREADY_PHYSICAL",
+    "handle_exact_retained": true
+  },
+  "mask_conflict_recheck": {
+    "visual_pair": ["incubator_handle_visual_mask","left_dex1_finger_2_visual_mask"],
+    "phase": "cube_release",
+    "source_wrapper_message_index": 5,
+    "dense_sample_index": 527,
+    "dense_index_scope": "cube_asset_global_release_recheck_grid_v1",
+    "dense_grid_max_angular_step_rad": 0.052359877559829883,
+    "dense_grid_max_prismatic_step_m": 0.0001,
+    "observed_visual_distance_m": null,
+    "classification": "RAW_SCENE_ALREADY_PHYSICAL",
+    "physical_exact_stl_neighborhood": [
+      {"offset":-1,"dense_sample_index":526,"exact_stl":true,"pair":["incubator_handle_exact","left_dex1_finger_2_slider_link"],"distance_m":0.27218925791434651},
+      {"offset":0,"dense_sample_index":527,"exact_stl":true,"pair":["incubator_handle_exact","left_dex1_finger_2_slider_link"],"distance_m":0.27221567437088595},
+      {"offset":1,"dense_sample_index":528,"exact_stl":true,"pair":["incubator_handle_exact","left_dex1_finger_2_slider_link"],"distance_m":0.27221567437088595}
+    ]
+  },
+  "cube_release_retreat": {
+    "phase_name": "cube_retreat",
+    "message_index": 6,
+    "start_point_index": 0,
+    "start_subdivision": 0,
+    "window_sample_count": 237,
+    "gate_point_index": 25,
+    "gate_subdivision": 10,
+    "gate_ordinal": 237,
+    "last_below_gate_ordinal": 236,
+    "gate_reached": true,
+    "minimum_exact_distance_m": 0.0038909541734959232,
+    "maximum_exact_distance_m": 0.34708772389375803,
+    "final_exact_distance_m": 0.34708772389375803,
+    "maximum_exact_penetration_m": 0,
+    "minimum_time_step_ns": 25694918,
+    "minimum_path_parameter_step": 0.045454545454545456,
+    "minimum_tcp_separation_projection_step_m": -0.00028088837260609179,
+    "final_tcp_projection_m": 0.46955368672651249,
+    "post_gate_minimum_exact_distance_m": 0.010932098923924103,
+    "post_gate_minimum_guard_physical_lower_bound_m": 0.010162188398686199,
+    "penetration_geometry": "green_cube_dynamic_exact_physical_only",
+    "guard_geometry": "green_cube_10mm_guard_conservative_nonphysical",
+    "observed_pair_semantics": "nearest_signed_distance_observation_not_collision_event",
+    "observed_exact_pairs": [["green_cube_dynamic_exact","left_dex1_finger_1_link"],["green_cube_dynamic_exact","left_dex1_finger_2_link"]],
+    "observed_guard_pairs": [["green_cube_10mm_guard","left_dex1_finger_1_link"],["green_cube_10mm_guard","left_dex1_finger_1_pad_link"],["green_cube_10mm_guard","left_dex1_finger_2_link"],["green_cube_10mm_guard","left_dex1_finger_2_pad_link"]],
+    "observed_exact_links": ["left_dex1_finger_1_link","left_dex1_finger_2_link"],
+    "observed_guard_links": ["left_dex1_finger_1_link","left_dex1_finger_1_pad_link","left_dex1_finger_2_link","left_dex1_finger_2_pad_link"],
+    "gate_never_regressed": true
+  },
+  "per_phase_metrics": [
+    {"phase":"door_pre_support","asset_id":"door_open","message_range":[0,0],"samples":1,"subdivisions":1,"right_handle_authorized_samples":1,"minimum_is_lower_bound":true,"minimum_environment_clearance_m":0.010000999999999999,"minimum_table_clearance_m":0.010000999999999999,"minimum_door_clearance_m":0.010000999999999999,"minimum_handle_clearance_m":0.010000999999999999,"minimum_cube_clearance_m":0.010000999999999999,"minimum_self_clearance_m":0.0010000054836272754,"minimum_left_handle_clearance_m":0.19007711910360883,"minimum_torso_rad":-0.047733211130534289,"maximum_torso_rad":-0.047733211130534289,"minimum_right_handle_nonpad_clearance_m":0.00065192085764335472},
+    {"phase":"door_open_supported","asset_id":"door_open","message_range":[0,2],"samples":1217,"subdivisions":1217,"right_handle_authorized_samples":1217,"minimum_is_lower_bound":true,"minimum_environment_clearance_m":0.010000999999999999,"minimum_table_clearance_m":0.010000999999999999,"minimum_door_clearance_m":0.010000999999999999,"minimum_handle_clearance_m":0.010000999999999999,"minimum_cube_clearance_m":0.010000999999999999,"minimum_self_clearance_m":0.00080768130385439258,"minimum_left_handle_clearance_m":0.14914469740309713,"minimum_torso_rad":-0.13962634015954636,"maximum_torso_rad":-0.047733211130534289,"minimum_right_handle_nonpad_clearance_m":0.00065169507708570369},
+    {"phase":"door60_seam_to_cube","asset_id":"door60_seam_to_cube","message_range":[0,2],"samples":134,"subdivisions":134,"right_handle_authorized_samples":134,"minimum_is_lower_bound":true,"minimum_environment_clearance_m":0.010000999999999999,"minimum_table_clearance_m":0.010000999999999999,"minimum_door_clearance_m":0.010000999999999999,"minimum_handle_clearance_m":0.010000999999999999,"minimum_cube_clearance_m":0.010000999999999999,"minimum_self_clearance_m":0.0010000054836272476,"minimum_left_handle_clearance_m":0.22602680310020831,"minimum_torso_rad":-0.13962634015954636,"maximum_torso_rad":0,"minimum_right_handle_nonpad_clearance_m":0.000651920855612673},
+    {"phase":"left_cube_ready","asset_id":"cube","message_range":[0,1],"samples":11,"subdivisions":11,"right_handle_authorized_samples":11,"minimum_is_lower_bound":true,"minimum_environment_clearance_m":0.010000999999999999,"minimum_table_clearance_m":0.010000999999999999,"minimum_door_clearance_m":0.010000999999999999,"minimum_handle_clearance_m":0.010000999999999999,"minimum_cube_clearance_m":0.010000999999999999,"minimum_self_clearance_m":0.0010000054836273101,"minimum_left_handle_clearance_m":0.22602680310020831,"minimum_torso_rad":0,"maximum_torso_rad":0,"minimum_right_handle_nonpad_clearance_m":0.0006519208556148787},
+    {"phase":"cube_contact","asset_id":"cube","message_range":[1,3],"samples":364,"subdivisions":364,"right_handle_authorized_samples":364,"minimum_is_lower_bound":true,"minimum_environment_clearance_m":0.010000999999999999,"minimum_table_clearance_m":0.010000999999999999,"minimum_door_clearance_m":0.010000999999999999,"minimum_handle_clearance_m":0.010000999999999999,"minimum_cube_clearance_m":0.010000999999999999,"minimum_self_clearance_m":0.0010000054836273101,"minimum_left_handle_clearance_m":0.22602680310020831,"minimum_torso_rad":0,"maximum_torso_rad":0,"minimum_right_handle_nonpad_clearance_m":0.0006519208556148787},
+    {"phase":"cube_carry_place","asset_id":"cube","message_range":[3,5],"samples":4972,"subdivisions":4972,"right_handle_authorized_samples":4972,"minimum_is_lower_bound":true,"minimum_environment_clearance_m":0.010000999999999999,"minimum_table_clearance_m":0.010000999999999999,"minimum_door_clearance_m":0.010000999999999999,"minimum_handle_clearance_m":0.010000999999999999,"minimum_cube_clearance_m":0.010000999999999999,"minimum_self_clearance_m":0.0010000054836273101,"minimum_left_handle_clearance_m":0.084584030380629449,"minimum_torso_rad":0,"maximum_torso_rad":0,"minimum_right_handle_nonpad_clearance_m":0.0006519208556148787},
+    {"phase":"cube_release","asset_id":"cube","message_range":[5,6],"samples":53,"subdivisions":53,"right_handle_authorized_samples":53,"minimum_is_lower_bound":true,"minimum_environment_clearance_m":0.010000999999999999,"minimum_table_clearance_m":0.010000999999999999,"minimum_door_clearance_m":0.010000999999999999,"minimum_handle_clearance_m":0.010000999999999999,"minimum_cube_clearance_m":0.010000999999999999,"minimum_self_clearance_m":0.0010000054836273135,"minimum_left_handle_clearance_m":0.17020907307234173,"minimum_torso_rad":0,"maximum_torso_rad":0,"minimum_right_handle_nonpad_clearance_m":0.0006519208556148787},
+    {"phase":"cube_retreat","asset_id":"cube","message_range":[6,7],"samples":5375,"subdivisions":5375,"right_handle_authorized_samples":5375,"minimum_is_lower_bound":true,"minimum_environment_clearance_m":0.010000999999999999,"minimum_table_clearance_m":0.010000999999999999,"minimum_door_clearance_m":0.010000999999999999,"minimum_handle_clearance_m":0.010000999999999999,"minimum_cube_clearance_m":0.010000999999999999,"minimum_self_clearance_m":0.0010000054836273101,"minimum_left_handle_clearance_m":0.084579549838792414,"minimum_torso_rad":0,"maximum_torso_rad":0,"minimum_right_handle_nonpad_clearance_m":0.0006519208556148787},
+    {"phase":"left_cube_park","asset_id":"cube","message_range":[7,8],"samples":11,"subdivisions":11,"right_handle_authorized_samples":11,"minimum_is_lower_bound":true,"minimum_environment_clearance_m":0.010000999999999999,"minimum_table_clearance_m":0.010000999999999999,"minimum_door_clearance_m":0.010000999999999999,"minimum_handle_clearance_m":0.010000999999999999,"minimum_cube_clearance_m":0.010000999999999999,"minimum_self_clearance_m":0.0010000054836273101,"minimum_left_handle_clearance_m":0.22602680310020831,"minimum_torso_rad":0,"maximum_torso_rad":0,"minimum_right_handle_nonpad_clearance_m":0.0006519208556148787},
+    {"phase":"door60_seam_to_hinge","asset_id":"door60_seam_to_hinge","message_range":[0,2],"samples":134,"subdivisions":134,"right_handle_authorized_samples":134,"minimum_is_lower_bound":true,"minimum_environment_clearance_m":0.010000999999999999,"minimum_table_clearance_m":0.010000999999999999,"minimum_door_clearance_m":0.010000999999999999,"minimum_handle_clearance_m":0.010000999999999999,"minimum_cube_clearance_m":0.010000999999999999,"minimum_self_clearance_m":0.0010000054836272476,"minimum_left_handle_clearance_m":0.22602680310020831,"minimum_torso_rad":-0.13962634015954636,"maximum_torso_rad":0,"minimum_right_handle_nonpad_clearance_m":0.000651920855612673},
+    {"phase":"door_close_supported","asset_id":"door_close","message_range":[0,2],"samples":1217,"subdivisions":1217,"right_handle_authorized_samples":1217,"minimum_is_lower_bound":true,"minimum_environment_clearance_m":0.010000999999999999,"minimum_table_clearance_m":0.010000999999999999,"minimum_door_clearance_m":0.010000999999999999,"minimum_handle_clearance_m":0.010000999999999999,"minimum_cube_clearance_m":0.010000999999999999,"minimum_self_clearance_m":0.00080768130385439258,"minimum_left_handle_clearance_m":0.14914469740309713,"minimum_torso_rad":-0.13962634015954636,"maximum_torso_rad":-0.047733211130534289,"minimum_right_handle_nonpad_clearance_m":0.00065169507708570369}
+  ],
+  "raw_audit_complete": true,
+  "geometry_valid": true,
+  "valid": false,
+  "status": "RAW_EXACT_PASS_NOT_SEALED_RESULT"
+}

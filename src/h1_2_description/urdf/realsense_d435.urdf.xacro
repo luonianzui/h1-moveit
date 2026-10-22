@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!--
+    RealSense D435 仿真模型。外形网格和标称外参来自 ROS 2
+    realsense2_description（Apache-2.0），传感器部分保留本项目已验证的
+    Gazebo Sim 彩色/深度话题。
+  -->
+  <xacro:macro name="realsense_d435" params="parent *origin name:=camera">
+    <xacro:property name="M_PI" value="3.1415926535897931"/>
+    <xacro:property name="camera_width" value="0.090"/>
+    <xacro:property name="camera_height" value="0.025"/>
+    <xacro:property name="camera_depth" value="0.02505"/>
+    <xacro:property name="camera_mass" value="0.072"/>
+    <xacro:property name="depth_to_color_offset" value="0.015"/>
+    <xacro:property name="depth_axis_y" value="0.0175"/>
+    <xacro:property name="glass_to_front" value="0.1e-3"/>
+    <xacro:property name="zero_depth_to_glass" value="4.2e-3"/>
+    <xacro:property name="front_surface_x" value="${zero_depth_to_glass + glass_to_front + 0.00035}"/>
+    <!--
+      Gazebo 的深度渲染器会把本相机的实体前玻璃当成近裁剪面内遮挡。
+      将仿真射线原点放在玻璃外 1 mm，并让 depth TF 使用同一原点。
+    -->
+    <xacro:property name="render_origin_x" value="${front_surface_x + 0.0010}"/>
+
+    <!-- 相机基座链接 -->
+    <joint name="${name}_joint" type="fixed">
+      <xacro:insert_block name="origin"/>
+      <parent link="${parent}"/>
+      <child link="${name}_link"/>
+    </joint>
+
+    <link name="${name}_link">
+      <!-- 官方 D435 外形；本 link 原点是左红外/深度零点。 -->
+      <visual>
+        <origin
+          xyz="${zero_depth_to_glass + glass_to_front} ${-depth_axis_y} 0"
+          rpy="${M_PI/2} 0 ${M_PI/2}"/>
+        <geometry>
+          <mesh filename="package://realsense2_description/meshes/d435.dae"/>
+        </geometry>
+        <!-- 官方实物是银灰色铝壳；显式覆盖，避免 Ogre 把 DAE 渲染成纯白。 -->
+        <material name="${name}_aluminum_material">
+          <color rgba="0.56 0.58 0.60 1.0"/>
+        </material>
+      </visual>
+
+      <!--
+        官方 DAE 只有单一银灰材质，没有表现实物的黑色正面玻璃。
+        下面的薄面板和四个光学窗口补齐 D435 的可辨识外观：RGB、左红外、
+        红外投射器、右红外。尺寸与标称外参对应，不参与碰撞或动力学。
+      -->
+      <visual name="${name}_front_glass">
+        <origin xyz="${front_surface_x} ${-depth_axis_y} 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.0006 0.083 0.0175"/>
+        </geometry>
+        <material name="${name}_front_glass_material">
+          <color rgba="0.018 0.020 0.024 1.0"/>
+        </material>
+      </visual>
+
+      <visual name="${name}_rgb_window">
+        <origin xyz="${front_surface_x + 0.00045} ${depth_to_color_offset} 0" rpy="0 ${M_PI/2} 0"/>
+        <geometry>
+          <cylinder radius="0.0037" length="0.0005"/>
+        </geometry>
+        <material name="${name}_rgb_glass_material">
+          <color rgba="0.035 0.065 0.095 1.0"/>
+        </material>
+      </visual>
+
+      <visual name="${name}_infra1_window">
+        <origin xyz="${front_surface_x + 0.00045} 0 0" rpy="0 ${M_PI/2} 0"/>
+        <geometry>
+          <cylinder radius="0.0040" length="0.0005"/>
+        </geometry>
+        <material name="${name}_infrared_glass_material">
+          <color rgba="0.025 0.030 0.038 1.0"/>
+        </material>
+      </visual>
+
+      <visual name="${name}_projector_window">
+        <origin xyz="${front_surface_x + 0.00045} -0.025 0" rpy="0 ${M_PI/2} 0"/>
+        <geometry>
+          <cylinder radius="0.0038" length="0.0005"/>
+        </geometry>
+        <material name="${name}_projector_glass_material">
+          <color rgba="0.045 0.040 0.050 1.0"/>
+        </material>
+      </visual>
+
+      <visual name="${name}_infra2_window">
+        <origin xyz="${front_surface_x + 0.00045} -0.050 0" rpy="0 ${M_PI/2} 0"/>
+        <geometry>
+          <cylinder radius="0.0040" length="0.0005"/>
+        </geometry>
+        <material name="${name}_infrared_glass_material"/>
+      </visual>
+
+      <collision>
+        <origin xyz="0 ${-depth_axis_y} 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${camera_depth} ${camera_width} ${camera_height}"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="${camera_mass}"/>
+        <inertia
+          ixx="${camera_mass * (camera_height*camera_height + camera_depth*camera_depth) / 12.0}"
+          ixy="0.0"
+          ixz="0.0"
+          iyy="${camera_mass * (camera_depth*camera_depth + camera_width*camera_width) / 12.0}"
+          iyz="0.0"
+          izz="${camera_mass * (camera_width*camera_width + camera_height*camera_height) / 12.0}"/>
+      </inertial>
+    </link>
+
+    <!-- 与 realsense2_description 一致的标称光学坐标系。 -->
+    <joint name="${name}_depth_joint" type="fixed">
+      <origin xyz="${render_origin_x} 0 0" rpy="0 0 0"/>
+      <parent link="${name}_link"/>
+      <child link="${name}_depth_frame"/>
+    </joint>
+
+    <link name="${name}_depth_frame"/>
+
+    <joint name="${name}_depth_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}"/>
+      <parent link="${name}_depth_frame"/>
+      <child link="${name}_depth_optical_frame"/>
+    </joint>
+
+    <link name="${name}_depth_optical_frame"/>
+
+    <!-- RGB 相机光学框架 -->
+    <joint name="${name}_color_joint" type="fixed">
+      <origin xyz="${render_origin_x} ${depth_to_color_offset} 0" rpy="0 0 0"/>
+      <parent link="${name}_link"/>
+      <child link="${name}_color_frame"/>
+    </joint>
+
+    <link name="${name}_color_frame"/>
+
+    <joint name="${name}_color_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}"/>
+      <parent link="${name}_color_frame"/>
+      <child link="${name}_color_optical_frame"/>
+    </joint>
+
+    <link name="${name}_color_optical_frame"/>
+
+    <!-- Gazebo 插件配置 -->
+    <gazebo reference="${name}_link">
+      <sensor name="${name}_depth" type="depth_camera">
+        <pose>${render_origin_x} 0 0 0 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>15</update_rate>
+        <topic>${name}/depth</topic>
+        <gz_frame_id>${name}_depth_optical_frame</gz_frame_id>
+        <camera>
+          <horizontal_fov>1.5184</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R_FLOAT32</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>10.0</far>
+          </clip>
+          <depth_camera>
+            <output>depths</output>
+          </depth_camera>
+        </camera>
+      </sensor>
+
+      <sensor name="${name}_color" type="camera">
+        <!-- 渲染光心必须与 color_frame 的标称 15 mm 基线一致。深度核验通过
+             精确时间戳的 color->depth TF 投影，不能用共光心渲染冒充对齐。 -->
+        <pose>${render_origin_x} ${depth_to_color_offset} 0 0 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>15</update_rate>
+        <topic>${name}/color</topic>
+        <gz_frame_id>${name}_color_optical_frame</gz_frame_id>
+        <camera>
+          <camera_info_topic>${name}/color/camera_info</camera_info_topic>
+          <horizontal_fov>1.211</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+        </camera>
+      </sensor>
+    </gazebo>
+  </xacro:macro>
+</robot>

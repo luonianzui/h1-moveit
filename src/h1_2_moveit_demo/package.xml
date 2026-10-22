@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>h1_2_moveit_demo</name>
+  <version>0.1.0</version>
+  <description>Dual-arm motion, bilateral visual grasping, and tabletop relay demos for the Unitree H1-2.</description>
+
+  <maintainer email="local@example.com">Local User</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>geometry_msgs</depend>
+  <depend>geometric_shapes</depend>
+  <depend>gz_msgs_vendor</depend>
+  <depend>gz_plugin_vendor</depend>
+  <depend>gz_sim_vendor</depend>
+  <depend>gz_transport_vendor</depend>
+  <depend>moveit_msgs</depend>
+  <depend>moveit_kinematics</depend>
+  <depend>moveit_ros_planning</depend>
+  <depend>moveit_ros_planning_interface</depend>
+  <depend>pluginlib</depend>
+  <depend>rclcpp</depend>
+  <depend>rcutils</depend>
+  <depend>sensor_msgs</depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>python3-pykdl</exec_depend>
+  <depend>shape_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>trajectory_msgs</depend>
+  <depend>urdf</depend>
+  <depend>visualization_msgs</depend>
+  <depend>yaml_cpp_vendor</depend>
+  <exec_depend>h1_2_description</exec_depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>ament_cmake_pytest</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

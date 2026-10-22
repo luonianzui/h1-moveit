@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Only this command and its descendants inherit the archive view.
+set -euo pipefail
+trace_tools_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+trace_workspace="$(cd -- "${trace_tools_dir}/../.." && pwd)"
+trace_registry="${H1_TRACE_ARCHIVE_REGISTRY:-${trace_workspace}/runtime_evidence/trace_archive_20261014_r1/registry.json}"
+if [[ "${1:-}" == "--registry" ]]; then
+  [[ $# -ge 2 ]] || { echo 'Missing --registry path' >&2; exit 2; }
+  trace_registry="$2"
+  shift 2
+fi
+if [[ "${1:-}" == "--" ]]; then shift; fi
+[[ $# -gt 0 ]] || { echo 'Usage: tools/trace_archive/run [--registry PATH] -- COMMAND [ARG ...]' >&2; exit 2; }
+[[ -f "${trace_registry}" ]] || { echo "Trace archive registry is missing: ${trace_registry}" >&2; exit 78; }
+trace_registry="$(realpath -- "${trace_registry}")"
+# No shell startup files, system Python installation or global environment changes.
+export H1_TRACE_ARCHIVE_REGISTRY="${trace_registry}"
+export PYTHONDONTWRITEBYTECODE=1
+export PYTHONPATH="${trace_tools_dir}${PYTHONPATH:+:${PYTHONPATH}}"
+/usr/bin/python3 -c 'import os; from compat import install; install(os.environ["H1_TRACE_ARCHIVE_REGISTRY"])'
+exec "$@"

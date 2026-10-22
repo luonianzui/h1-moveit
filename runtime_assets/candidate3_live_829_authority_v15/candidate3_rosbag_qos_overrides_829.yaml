@@ -1,0 +1,45 @@
+/clock:
+  history: keep_last
+  depth: 20000
+  reliability: reliable
+  durability: transient_local
+/joint_states:
+  history: keep_last
+  depth: 20000
+  reliability: reliable
+  durability: volatile
+/incubator/joint_states:
+  history: keep_last
+  depth: 20000
+  reliability: reliable
+  durability: volatile
+/torso_controller/joint_trajectory:
+  history: keep_last
+  depth: 1000
+  reliability: reliable
+  durability: volatile
+/right_arm_controller/joint_trajectory:
+  history: keep_last
+  depth: 1000
+  reliability: reliable
+  durability: volatile
+/left_arm_controller/joint_trajectory:
+  history: keep_last
+  depth: 1000
+  reliability: reliable
+  durability: volatile
+/left_gripper_controller/joint_trajectory:
+  history: keep_last
+  depth: 1000
+  reliability: reliable
+  durability: volatile
+/right_gripper_controller/joint_trajectory:
+  history: keep_last
+  depth: 1000
+  reliability: reliable
+  durability: volatile
+/h1_candidate3/live_829/markers:
+  history: keep_last
+  depth: 1000
+  reliability: reliable
+  durability: volatile

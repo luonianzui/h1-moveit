@@ -1,0 +1,36 @@
+{
+  "schema": "h1_candidate3_post_nav_open_matrix/v1",
+  "baseline_cdr_sha256": {
+    "epoch": "98a0e2f9e4b030059721c29bc95ea373d3db65bcf67fdafe3a6f96bc84829c17",
+    "scene": "78f41904253a7e30d3f04fd3e58dafb227a42c01b18d680d2e8fcdea73a9dca2"
+  },
+  "cases": [
+    {"case": "nominal", "expected": "OBSERVE"},
+    {"case": "x_minus_1mm", "base_x_mm": -1.0, "expected": "OBSERVE"},
+    {"case": "x_plus_1mm", "base_x_mm": 1.0, "expected": "OBSERVE"},
+    {"case": "x_minus_5mm", "base_x_mm": -5.0, "expected": "OBSERVE"},
+    {"case": "x_plus_5mm", "base_x_mm": 5.0, "expected": "OBSERVE"},
+    {"case": "x_minus_10mm", "base_x_mm": -10.0, "expected": "OBSERVE"},
+    {"case": "x_plus_10mm", "base_x_mm": 10.0, "expected": "OBSERVE"},
+    {"case": "y_minus_1mm", "base_y_mm": -1.0, "expected": "OBSERVE"},
+    {"case": "y_plus_1mm", "base_y_mm": 1.0, "expected": "OBSERVE"},
+    {"case": "y_minus_5mm", "base_y_mm": -5.0, "expected": "OBSERVE"},
+    {"case": "y_plus_5mm", "base_y_mm": 5.0, "expected": "OBSERVE"},
+    {"case": "y_minus_10mm", "base_y_mm": -10.0, "expected": "OBSERVE"},
+    {"case": "y_plus_10mm", "base_y_mm": 10.0, "expected": "OBSERVE"},
+    {"case": "z_minus_1mm", "base_z_mm": -1.0, "expected": "OBSERVE"},
+    {"case": "z_plus_1mm", "base_z_mm": 1.0, "expected": "OBSERVE"},
+    {"case": "z_minus_2mm", "base_z_mm": -2.0, "expected": "OBSERVE"},
+    {"case": "z_plus_2mm", "base_z_mm": 2.0, "expected": "OBSERVE"},
+    {"case": "yaw_minus_0p1deg", "base_yaw_deg": -0.1, "expected": "OBSERVE"},
+    {"case": "yaw_plus_0p1deg", "base_yaw_deg": 0.1, "expected": "OBSERVE"},
+    {"case": "yaw_minus_0p5deg", "base_yaw_deg": -0.5, "expected": "OBSERVE"},
+    {"case": "yaw_plus_0p5deg", "base_yaw_deg": 0.5, "expected": "OBSERVE"},
+    {"case": "yaw_minus_1deg", "base_yaw_deg": -1.0, "expected": "OBSERVE"},
+    {"case": "yaw_plus_1deg", "base_yaw_deg": 1.0, "expected": "OBSERVE"},
+    {"case": "roll_minus_0p25deg", "base_roll_deg": -0.25, "expected": "OBSERVE"},
+    {"case": "roll_plus_0p25deg", "base_roll_deg": 0.25, "expected": "OBSERVE"},
+    {"case": "pitch_minus_0p25deg", "base_pitch_deg": -0.25, "expected": "OBSERVE"},
+    {"case": "pitch_plus_0p25deg", "base_pitch_deg": 0.25, "expected": "OBSERVE"}
+  ]
+}

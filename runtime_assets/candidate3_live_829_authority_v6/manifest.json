@@ -1,0 +1,80 @@
+{
+  "controller_commands_issued": 0,
+  "exact_fcl_authority": {
+    "file_count": 9,
+    "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v3_31j/manifest.json",
+    "sha256": "f7877f4742ab170b4eadd1aad5bdeeb33f553aca4266ce2804e0e0c9448d1b06"
+  },
+  "execution_contract": {
+    "baseline": "826.3",
+    "hard_maximum_abs_torso_deg": 44.5,
+    "incubator_x_m": 0.59,
+    "left_hand_handle_contact_forbidden": true,
+    "middle_speed_scale": 0.5,
+    "planned_maximum_abs_torso_deg": 44.25,
+    "right_handle_only": true,
+    "right_time_scale": 2.0,
+    "table_x_m": 0.6,
+    "terminal_cube_rotation_tolerance_deg": 2.0,
+    "terminal_cube_target_orientation_xyzw": [
+      0.0,
+      0.0,
+      0.7071067811865475,
+      0.7071067811865476
+    ],
+    "terminal_cube_target_position_m": [
+      0.611,
+      -0.03,
+      0.995
+    ],
+    "terminal_cube_translation_tolerance_m": 0.003
+  },
+  "files": {
+    "certificate_source": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v6/h1_candidate3_live_certificate_829.py",
+      "sha256": "4fbf89e739e78a9579706feec051742190a59f816b80485fe452c1a477c8ae00"
+    },
+    "commands": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v6/commands_829.json",
+      "sha256": "57876fb758443495e7accde2f06e5e30cf144ecaba8173ff4a13e247941d4100"
+    },
+    "gazebo_launch_source": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v6/gazebo.launch.py",
+      "sha256": "d8c322c95a38bdf2c0796d4ec52e04b561eeb8015f684b9245b82a8784d1b1ab"
+    },
+    "gazebo_world_sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v6/h1_world.sdf",
+      "sha256": "78e53275f8bace37c45fb0acf7ccd3164a665a7cb05eb4fc7a937a531792b335"
+    },
+    "incubator_model_sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v6/incubator_model.sdf",
+      "sha256": "44ff23fc7077f0c232e2e69ff9d73aba336140d6a7951968c9c4241a97e73db9"
+    },
+    "supervisor_source": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_829_authority_v6/h1_candidate3_live_supervisor_829.py",
+      "sha256": "3663890ef105015cfe374d3e28a84929af1cb685dfb4b898a407c6f81070d1c6"
+    }
+  },
+  "run_id": "63597880b86433295b1d2408fdc185d46c71e42df0e827a5b992692011bd2c03",
+  "run_root": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_live_829_final_r5",
+  "schema": "h1_candidate3_live_production_authority/829-v6",
+  "sealed": true,
+  "status": "READY",
+  "supersedes": {
+    "path": "runtime_assets/candidate3_live_829_authority_v5",
+    "reason": "v6 fixes marker sequencing to bind duplicate-regex evidence strictly to the current expected marker while preserving fail-closed out-of-order detection"
+  },
+  "valid": true
+}

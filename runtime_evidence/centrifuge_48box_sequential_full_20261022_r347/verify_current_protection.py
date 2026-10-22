@@ -1,0 +1,151 @@
+import json
+from pathlib import Path
+import sys
+
+from verify_protected_offline import MANIFESTS, MODELS, digest
+
+
+ROOT = Path(__file__).resolve().parent
+phase = sys.argv[1]
+assert phase in ('before', 'after')
+manifests = dict(MANIFESTS)
+manifests['centrifuge_48box_sequential_full_20261022_r346/SHA256SUMS'] = '146c98b87ae549edd06b86cac4d6ba31fcd5de0295f39559396063f7d34e381e'
+manifests['centrifuge_48box_sequential_full_20261022_r345/SHA256SUMS'] = '8029db4d7b0523d504eee48d4b05bfeb8571f55f8df4de76a076f6ee2e17c16a'
+manifests['centrifuge_48box_sequential_review_20261022_r1/SHA256SUMS'] = '95eeba620b68e20aea5cf026474e62eaf2a6a3602dc67836ed407c02c2e3ee1c'
+manifests['centrifuge_48box_sequential_review_20261022_r2/SHA256SUMS'] = 'b2003df5fa384a044ba686f9c6ac0135bcf287d356d41dec86ee7d52e04cfc9f'
+manifests['centrifuge_48box_sequential_review_20261022_r3/SHA256SUMS'] = 'f274ccb3f179fa7fba3df499b450a27602c7605455ce393c050b28cdee6afd7c'
+manifests['centrifuge_48box_sequential_full_20261022_r344/SHA256SUMS'] = '2d13a9a5bc709a918976fb0cd4bd63c518276f0aa961d9649dca03ad2e948e54'
+manifests['centrifuge_48box_sequential_elbow_20261017_r292/SHA256SUMS'] = 'f2486180fbc2653a236b43f0eaec87f14965ceed1cfd7510cdfb01d35b0f5b35'
+manifests['centrifuge_48box_sequential_full_20261017_r293/SHA256SUMS'] = '16d08b9de0e5f6ae54ef0c570be2fc9e29518a74528975e318de156592c18e36'
+manifests['centrifuge_48box_sequential_full_20261017_r294/SHA256SUMS'] = 'cb663b28037d73108494ad416116acf7c0c17c6e2ec318347d77a73601673aa7'
+manifests['centrifuge_48box_sequential_full_20261017_r295/SHA256SUMS'] = '353d13cbfab1a4eb0450fa39d36f5a5673f4690c38f7459b7137907fb9040005'
+manifests['centrifuge_48box_sequential_full_20261017_r296/SHA256SUMS'] = 'dc500742044e5e513bf9730085a842fe7686586f905477ff171f029a805bbcc3'
+manifests['centrifuge_48box_sequential_recovery_20261019_r1/SHA256SUMS'] = '3762c0c573c9d5e6cf720736c2d78009632c102fd620bdfa71ba773f41ec1deb'
+manifests['centrifuge_48box_sequential_full_20261019_r297/SHA256SUMS'] = 'f3d6e004e8f36f576d30ce411b88d1e8c3110ccfec4425b8390cad5eea8d0f29'
+manifests['centrifuge_48box_sequential_review_20261019_r1/SHA256SUMS'] = '1cac137585ac424b2ace618bb804b041692c8e413d6898ffb2b73a53a3c21623'
+manifests['centrifuge_48box_sequential_full_20261019_r298/SHA256SUMS'] = '82f5607647736123f93a399f8f3c9bb40157e06ff320ef74d3305d654c35c59f'
+manifests['centrifuge_48box_sequential_review_20261019_r2/SHA256SUMS'] = '7c1254e32511dd1f209168c92cc4a7a8931b8231a21d72a86691c528f4339837'
+manifests['centrifuge_48box_sequential_full_20261019_r299/SHA256SUMS'] = '9b473a8ad0672b19affba2694cb0591ca4bd2189fb06b2615b9e59cf8e2171e2'
+manifests['centrifuge_camera_readback_20261019_r1/SHA256SUMS'] = 'fef6e8c1948615a33ad36f299e86f47c0d7680775b107f54a56edba2066b695d'
+manifests['centrifuge_48box_sequential_full_20261019_r300/SHA256SUMS'] = '5c6d7049d3fb81a22a96773402bfd814928ad97eb4a075bf7750fe9491c97cbe'
+manifests['centrifuge_48box_sequential_review_20261019_r4/SHA256SUMS'] = '331d5fda88e46cf621917a3743b93117c2b325193c9f7994d85cb154972c12cb'
+manifests['centrifuge_48box_sequential_full_20261019_r301/SHA256SUMS'] = 'a0f51eb8e82269e3609847117c1bcfd44bb38f72bd36b53cdd39a71d9b234126'
+manifests['centrifuge_48box_sequential_review_20261019_r5/SHA256SUMS'] = '0c7df1ea123f718a904cd7abb1969c47d446307ef723d19c41b829428456c18d'
+manifests['centrifuge_48box_sequential_full_20261019_r302/SHA256SUMS'] = 'f1f96a25e2a14581ba83cd7b206226c1b182ce45ada21f09bb484a3e51339e5f'
+manifests['centrifuge_48box_sequential_review_20261019_r6/SHA256SUMS'] = '87ed2d2bdf4546ecdba37bc1e9fecdd3f41556dae6646a1f31c2fa74619fe9ba'
+manifests['centrifuge_48box_sequential_full_20261019_r303/SHA256SUMS'] = '4f301c07886bc9114518afa3bc3a7f5eef5643129b5a0ffea6764d9e97076299'
+manifests['centrifuge_48box_sequential_review_20261019_r7/SHA256SUMS'] = '0a374be5042bc48114cf14517fece9fbd20e03bb6e5bc6d8cf5f3d2d17464de3'
+manifests['centrifuge_48box_sequential_full_20261019_r304/SHA256SUMS'] = 'f887bab0f8f5e30b809ad0b2a51886dab7ab3b179b7b8ec7dd32be849fd7d5b6'
+manifests['centrifuge_48box_sequential_recovery_20261019_r2/SHA256SUMS'] = 'c9fefd9804155b967d53b8c4cd7919107e8aa131b5fac2f93e8b9a19452abdeb'
+manifests['centrifuge_48box_sequential_full_20261019_r305/SHA256SUMS'] = 'e05f25af761b1de992ee42f92b63b2cff57f730daa62513adaac9400db9a5c06'
+manifests['centrifuge_48box_sequential_review_20261019_r8/SHA256SUMS'] = 'ed6131f4ff0206c523fc7dc521e72bd78e13e371676ccea50b9c2a7e4fb5fd04'
+manifests['centrifuge_48box_sequential_full_20261019_r306/SHA256SUMS'] = '6573390fd3beaf2a0dd3545618201d620de5a29213fe8f9b1728a246b42f85ec'
+manifests['centrifuge_48box_sequential_review_20261019_r9/SHA256SUMS'] = 'bbaa00230d32b22c2da6bcfb0ec17efccbd227b7b7da0cd8218412579675653f'
+manifests['centrifuge_48box_sequential_full_20261019_r307/SHA256SUMS'] = 'a5d02db098dfe55fa651523df06c7ca0da431cdcb6088b5854c8f69d9113e3af'
+manifests['centrifuge_48box_sequential_review_20261019_r10/SHA256SUMS'] = 'b4a5231144c1354bab47f0713275ea4ce03d261cecc59a8e19b8a42e92a7f4d1'
+manifests['centrifuge_48box_sequential_full_20261019_r308/SHA256SUMS'] = '3aff27d1d6fab256b1177349ea538f0f59d1c01a3ef2249e849310b202d05a8e'
+manifests['centrifuge_48box_sequential_review_20261019_r11/SHA256SUMS'] = '875e30049724fdf07e032f85c455096a039494380d1b8748980b02515160de28'
+manifests['centrifuge_48box_sequential_full_20261019_r309/SHA256SUMS'] = 'bd3adb6e85b713d18b8e4542aef733c0b8cfabe7f3c69c3ae8d26b9ed761cc4c'
+manifests['centrifuge_48box_sequential_review_20261019_r12/SHA256SUMS'] = 'a332086a89b2ded821ddfdcd52647eeae4138ce70e888d9a681b4f440c0635ff'
+manifests['centrifuge_48box_sequential_full_20261019_r310/SHA256SUMS'] = '5a51e2cd7721ac580c22c54bc4e88de2366ab2b6ca5f1288d1f3d7402e5d0510'
+manifests['centrifuge_48box_sequential_review_20261019_r13/SHA256SUMS'] = '010248079d84c111a2a1a410253273d1435ef4495006d126d958df8021d627c9'
+manifests['centrifuge_48box_sequential_full_20261019_r311/SHA256SUMS'] = '18dc34a6be471f05f4bc8f3bfa1e444618ebd331ed4351fcd757fbb8b9e9b6b7'
+manifests['centrifuge_48box_sequential_review_20261019_r14/SHA256SUMS'] = '90af17e783e1780d2bfae2f10a3334475e48b0235a34924f684bd757915d5e3b'
+manifests['centrifuge_48box_sequential_full_20261019_r312/SHA256SUMS'] = '836bbc2615f56380457d7c098f7579382a4847ee4e4b05f1a8cc1b88022096c0'
+manifests['centrifuge_48box_sequential_review_20261019_r15/SHA256SUMS'] = '67031b3f296bcd33cdb74ee453d2bfc39cfc7d2fb086299f7da5ab291228fda9'
+manifests['centrifuge_48box_sequential_full_20261020_r313/SHA256SUMS'] = '0c877d8383005885306e541ff957c2a5dddcd0e506def670d5aefdf58372840c'
+manifests['centrifuge_48box_sequential_review_20261020_r1/SHA256SUMS'] = '44f85251186c8de6bf79e8bfeac830fd11fbadc6e11fee677fce03453238810b'
+manifests['centrifuge_48box_sequential_full_20261020_r314/SHA256SUMS'] = 'ec7bf605e75c6f65424c59a73a3bd659c45f3afb9e1cfd4268766e0484d527bc'
+manifests['centrifuge_48box_sequential_review_20261020_r2/SHA256SUMS'] = 'b63c3fa3320673c157ed7b3689adfce7b88ff07a9002dce7a062d42ddb14de54'
+manifests['centrifuge_48box_sequential_full_20261020_r315/SHA256SUMS'] = '31588c8d29ca694cddc0ab153544a81982816a3a89421852bdf0264f9795ca61'
+manifests['centrifuge_48box_sequential_review_20261020_r3/SHA256SUMS'] = 'fab2035c759fd59774638d8ead1fa2d4145ababa919b37437d010fa3d75c162f'
+manifests['centrifuge_48box_sequential_full_20261020_r316/SHA256SUMS'] = '47a3f58ab5ac451e6695d91699910f243e62707b607209bc4cee4bf68a1cbb46'
+manifests['centrifuge_48box_sequential_review_20261020_r4/SHA256SUMS'] = 'c0087e43b78ce9ababffb054945ab90e2bfce35d16c48462ab8488088cd4bc95'
+manifests['centrifuge_48box_sequential_full_20261020_r317/SHA256SUMS'] = '819567f81796055c4e9c0cc5d1813e7c15cb1cd639645cbe195b6e355b324d80'
+manifests['centrifuge_48box_sequential_review_20261020_r5/SHA256SUMS'] = 'd7f728584e24ac9afeac70d5fd09d78097cd6758406a1c2df6de4ff3cb7f82c0'
+manifests['centrifuge_48box_sequential_full_20261020_r318/SHA256SUMS'] = '4bdfd4c608f56f0ed0c7b1c4396e727f0986d6b8df0bb7d10c1d3a3c8116823f'
+manifests['centrifuge_48box_sequential_review_20261020_r6/SHA256SUMS'] = 'a7ebcc60dfca91c9365b6f26caaeb2267b89b3e0bdfdcc9e129f4bc059570ccf'
+manifests['centrifuge_48box_sequential_view_20261020_r1/SHA256SUMS'] = '5ba619caa96173e5f81e6165983532299d04b402520fe8f09dd75e754d529b2e'
+manifests['centrifuge_48box_sequential_perf_20261020_r1/SHA256SUMS'] = '5dc8c6cd20550e9465d06eb5db4ed04b2276ec11f416e300c88ec516a88ac01a'
+manifests['centrifuge_48box_sequential_perf_20261020_r2/SHA256SUMS'] = '39207928683d047c0a3158376189503931c0d3d897e2665a13fbc06e7eaf32b5'
+manifests['centrifuge_48box_sequential_planning_perf_20261020_r1/SHA256SUMS'] = 'bc1b9dca7bc2005c16e8348ab11691e033750873c086c00a90fae72b647784e4'
+manifests['centrifuge_48box_sequential_init_20261020_r1/SHA256SUMS'] = '67d75d010a812ca910ae9493dde6359952453dce49694fd360afc3920c5ea745'
+manifests['centrifuge_48box_sequential_init_20261020_r2/SHA256SUMS'] = 'b9de4b1cae8bea6274e017bb0f7beebd043d6ad787bf64b94ea4ef4ccdd36775'
+manifests['centrifuge_48box_sequential_init_20261020_r3/SHA256SUMS'] = '8869e9d96de2c5bded49c7268ca84c9d31000251835263c87d222e03c7ad3d66'
+manifests['centrifuge_48box_sequential_full_20261020_r319/SHA256SUMS'] = 'a5a81c5ff302f0b1b0fb11d283f61837f05fe991e93bf894bff5c4b74896f59e'
+manifests['centrifuge_48box_sequential_review_20261020_r7/SHA256SUMS'] = '0dbc843e16a43a84a07a45c296da4dbc3f268bfa52415045f7c8698e0764a062'
+manifests['centrifuge_48box_sequential_full_20261020_r320/SHA256SUMS'] = 'b1f63980783fe4eed2d77a03d8397412012a762eb80fb39440e80964f417bfe3'
+manifests['centrifuge_48box_sequential_review_20261020_r8/SHA256SUMS'] = 'f4c79687573fed1c28fc244e27a02a72206975c365fdd2a4099ea9fe46f6d340'
+manifests['centrifuge_48box_sequential_full_20261020_r321/SHA256SUMS'] = 'b703cc5bc6299c25fee9a0d13f2576312b9a9d8f4f48e0e6e953f0638a343636'
+manifests['centrifuge_48box_sequential_review_20261020_r9/SHA256SUMS'] = 'd3f2813697147e4c84195a7f8944659d238202429336dea7ef98718b7d8b65c5'
+manifests['centrifuge_48box_sequential_full_20261020_r322/SHA256SUMS'] = '50191433350285cbc4850808a54b831d62b87c410ba6ed5b810cc844b3df923c'
+manifests['centrifuge_48box_sequential_review_20261020_r10/SHA256SUMS'] = '1658554180b3c3b476f04e9507c132e0dd9ca4c63e8f8a02e97efd274580a1d9'
+manifests['centrifuge_48box_sequential_full_20261020_r323/SHA256SUMS'] = 'bf028e4290a24caaa69f65f3e899b99ef46ce4d86fdbc9aeb9bbfaf9e58c6583'
+manifests['centrifuge_48box_sequential_review_20261020_r11/SHA256SUMS'] = '2b31d3bf652ca28e8d85162393338a0cf87cc141fe55e87820f1b3e682f9ce9d'
+manifests['centrifuge_48box_sequential_full_20261020_r324/SHA256SUMS'] = 'faab903ecdf9526a216007dbedf59e4f395cd22c9d92ecf1293c1b6f2570b112'
+manifests['centrifuge_48box_sequential_review_20261020_r12/SHA256SUMS'] = 'a8b68b550419a33dab3324a92b8147ad3c454eac149e2188420c1bc822d88a79'
+manifests['centrifuge_48box_sequential_full_20261020_r325/SHA256SUMS'] = 'd116e01e7d9728aae6b2733a7e73b6797cd2d777bbe3d4f81bf7f4916d947d55'
+manifests['centrifuge_48box_sequential_review_20261020_r13/SHA256SUMS'] = '2a83b98126e0a06a437fd31aaf97d624941f6f4cf132d98b86b2774c6961a5f0'
+manifests['centrifuge_48box_sequential_full_20261020_r326/SHA256SUMS'] = '38fc7c10e1dfdc7efd16294393b37f91a43678a87ed9a744fa2ba70928a99b32'
+manifests['centrifuge_48box_sequential_review_20261020_r14/SHA256SUMS'] = '77ec1ae20d9c2f3fd598fcf6ba2ee9d423efe5de60c54f94f9389f56daa72530'
+manifests['centrifuge_48box_sequential_full_20261020_r327/SHA256SUMS'] = '8039813de5340b87c6adb2638222355fe3c2131bf6a9ba99274e9635ab6b652a'
+manifests['centrifuge_48box_sequential_review_20261020_r15/SHA256SUMS'] = '35ab3bf41c30c01e4b405ce689971097af474f188470ffe64923a9b36f3e61ad'
+manifests['documentation_roundup_20261020_r1/SHA256SUMS'] = '964185bab6b8c2545231a5d940702a50cb2bc8ca01129ffab606b960ec717d19'
+manifests['centrifuge_48box_sequential_full_20261020_r328/SHA256SUMS'] = '19f0dadae90f05d5d29c46000d42cb9ade52b16b27927417286820c9df18c7ef'
+manifests['centrifuge_48box_sequential_review_20261020_r16/SHA256SUMS'] = 'f6832f7caa207b0b466affea206ac99174b7b92f90d4129abb42644278fe5984'
+manifests['centrifuge_48box_sequential_full_20261020_r329/SHA256SUMS'] = '964b3c01ed60b0afdccee1f16d275b54ec6ac1f8f7406a76ea4841a24caf086a'
+manifests['centrifuge_48box_sequential_review_20261020_r17/SHA256SUMS'] = 'a29f8b5499e0ba8fa22ec4869b77170b3846761d7f65fb14544482973881a55a'
+manifests['centrifuge_48box_sequential_full_20261020_r330/SHA256SUMS'] = 'f8e8d80f9f48f2ac231db4683c9af7070f00d5e7ecec92b2136e4ecfba0b0e13'
+manifests['centrifuge_48box_sequential_review_20261020_r18/SHA256SUMS'] = 'f0cbc7ecbab33651eba1e04141376c84f657a7c0a098d0a5a28804bc09cbb9b4'
+manifests['centrifuge_48box_sequential_runtime_perf_20261020_r1/SHA256SUMS'] = 'e73b67a62d972c092cc7ccd966b9baf663c43ae90fbcb3693d99c6bbf209a887'
+manifests['centrifuge_48box_sequential_full_20261020_r331/SHA256SUMS'] = '5dedec3f942ce59e9a51bb4b2cbd15b3c1aa09eead8c0a77613880d9b9a66d6c'
+manifests['centrifuge_48box_sequential_review_20261020_r19/SHA256SUMS'] = '74439505241590e5797ae68e25a44eb4e53d518e546ede3912ad1d2754610a38'
+manifests['centrifuge_48box_sequential_full_20261020_r332/SHA256SUMS'] = '264922674410b674892def9e93b244f05f23a50221c9038e1e0ef3cbe52ae5a1'
+manifests['centrifuge_48box_sequential_review_20261020_r20/SHA256SUMS'] = '34cf37edeeedf54a169b232bdb437f240637f93d1c96d7b9521281cca46edf86'
+counts, failures = {}, []
+manifests['centrifuge_48box_sequential_full_20261021_r340/SHA256SUMS'] = 'b8440c5ade95acdfb8d68d83456b147d94c36221e8b57b41c751e38398c8bd86'
+manifests['centrifuge_48box_sequential_review_20261021_r6/SHA256SUMS'] = '29777d4ea68b36a023a5d7c84a86ef7ef92cdea6c42439be1ebaf63e22b36211'
+manifests['centrifuge_48box_sequential_review_20261021_r7/SHA256SUMS'] = '29cabd386f6c255d7109623ae61102b3892f3a1e92ea6c1e2e6808ba9ddd98cc'
+manifests['centrifuge_48box_sequential_review_20261021_r8/SHA256SUMS'] = '440bb95523d8657d29bc39a5775a6c410cb76bdbf1775e96c6dca8903c0b6f5a'
+manifests['centrifuge_48box_sequential_full_20261021_r339/SHA256SUMS'] = '1be9321c798e06d44657ee3e90f1f21f55cd3d6b7c168a8fbe1cf0185727d0dd'
+manifests['centrifuge_48box_sequential_full_20261021_r338/SHA256SUMS'] = 'ef6abf813bad96b83fa42aa0dab9362f18057503590cbe1047b3b74eac59963a'
+manifests['centrifuge_48box_sequential_full_20261021_r337/SHA256SUMS'] = '81ccc8cbeb799e110797d930f576b70d8425ca93a93c04e5088b98518410fb9f'
+manifests['centrifuge_48box_sequential_review_20261021_r5/SHA256SUMS'] = 'c3b560e0bc152b1f264d4163615bd07f3c6a44f26eea1b4a8806168ce2f5a2a5'
+manifests['centrifuge_48box_sequential_full_20261021_r336/SHA256SUMS'] = 'd74883c058f3b87550bd4c50d348f1f8f2b8cf2ea68f03c09364ab1ed0560bb7'
+manifests['centrifuge_48box_sequential_review_20261021_r2/SHA256SUMS'] = '7d1f0497f000592b30ad5d6fd09c8162d26641c602399a656461e576ef92821f'
+manifests['centrifuge_48box_sequential_review_20261021_r3/SHA256SUMS'] = 'a31311fdb092037534faa18b7f59e91fa33a79aafd9e729254fe97cae63b0c34'
+manifests['centrifuge_48box_sequential_review_20261021_r4/SHA256SUMS'] = '7b4015964953120cc074c555112d3dc23b809f3b09477752de792597b1106f0f'
+manifests['centrifuge_48box_sequential_full_20261021_r335/SHA256SUMS'] = 'edb31bcd7ff1b68625b5f19273437efbd8f714ebb5f83029d821e6bad68fa2f3'
+manifests['centrifuge_48box_sequential_full_20261021_r334/SHA256SUMS'] = '0795abc80ec0bd7b458851216ff89b0c94ba85962631b48ae0c2c0745b2982fe'
+manifests['centrifuge_48box_sequential_full_20261021_r333/SHA256SUMS'] = 'a1caf853a13ef2eb852764741f8fd6b01ab9403794fc07a96f741c0dee0bd53f'
+manifests['centrifuge_48box_sequential_review_20261021_r1/SHA256SUMS'] = '16666df08dab7c66cee76837c0765efd8cd5ab6cd177ecb7d4a8064d39da9c17'
+manifests['centrifuge_48box_sequential_full_20261021_r341/SHA256SUMS'] = 'b7dd33d41565ebbdfa3c2fdade076a6ba40dae8c9774ceadf7f42f2408083a46'
+manifests['centrifuge_48box_sequential_full_20261021_r342/SHA256SUMS'] = '9702e1f49ee2b2a81d88821bd08a829a133fc97f28ad21b08d60dcd287f07ead'
+manifests['centrifuge_48box_sequential_review_20261021_r9/SHA256SUMS'] = '4cc51aa85a1e716eceb12dd92e0f9c78891b2ee0ee0654c2de6bc1a791dad796'
+manifests['centrifuge_48box_sequential_review_20261021_r10/SHA256SUMS'] = 'd76a38316f80271b2f66b8e9465124ba1a4aab744e10a0ea38822a94ab4f5749'
+manifests['centrifuge_48box_native_profile_20261021_r1/SHA256SUMS'] = '8f5ba5800e0750c40621f2200a1d48be68c72ec9c04f617f8987b3f96d70aed1'
+manifests['centrifuge_48box_sequential_full_20261022_r343/SHA256SUMS'] = '21d120d6491d90db38c8c788cbe354496ca14110f81f3d05171e4bcc35bee5c1'
+manifests['centrifuge_48box_dart_cache_20261022_r1/SHA256SUMS'] = '66165f95b5eaf2d70a460822cf3ba90d8f2a10f317c0d0a30b3a20814673bc4a'
+for relative, expected in manifests.items():
+    manifest = ROOT.parent / relative
+    assert digest(manifest) == expected
+    rows = manifest.read_text().splitlines()
+    counts[relative] = len(rows)
+    for row in rows:
+        expected_member, member = row.split(maxsplit=1)
+        path = manifest.parent / member.lstrip('*')
+        if digest(path) != expected_member or path.stat().st_mode & 0o777 != 0o444:
+            failures.append(str(path))
+models = {}
+for name, expected in MODELS.items():
+    path = ROOT.parents[1] / f'src/h1_2_description/models/{name}/model.sdf'
+    models[name] = digest(path)
+    if models[name] != expected:
+        failures.append(str(path))
+result = dict(status='PASS' if not failures else 'FAIL', manifests=manifests, counts=counts, models=models, failures=failures)
+if phase == 'after':
+    assert result == json.loads((ROOT / 'current_protected_before.json').read_text())
+with (ROOT / ('current_protected_' + phase + '.json')).open('x') as stream:
+    json.dump(result, stream, indent=2)
+assert not failures
+print('CURRENT_PROTECTION_PASS', phase, counts, flush=True)

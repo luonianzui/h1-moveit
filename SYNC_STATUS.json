@@ -1,0 +1,62 @@
+{
+  "repository": "https://github.com/luonianzui/h1-moveit",
+  "snapshot_baseline": "r347 (latest accepted baseline in source handoff documents at selection time)",
+  "prepared_at": "2026-10-22T09:01:34.841487+00:00",
+  "snapshot_kind": "reviewable source and selected evidence archive; not a portable verified release",
+  "source_files": 2943,
+  "source_bytes": 239662138,
+  "data_storage": "Full videos and historical data retained at original local locations. No external large-file storage configured or uploaded.",
+  "excluded_binary_files": [
+    {
+      "path": "install_lab_scene_48box_sequential_full_20261022_r347/h1_2_moveit_config/lib/libCentrifugeButton.so",
+      "reason": "Generated install/overlay binary listed by scene audit; rebuild from source rather than commit generated binary or symlink"
+    },
+    {
+      "path": "install_lab_scene_48box_sequential_full_20261022_r347/h1_2_moveit_config/lib/libCentrifugeInterlock.so",
+      "reason": "Generated install/overlay binary listed by scene audit; rebuild from source rather than commit generated binary or symlink"
+    },
+    {
+      "path": "runtime_dependencies/gperftools_profile_20261015_r1/extracted/usr/lib/x86_64-linux-gnu/libprofiler.so.0.5.11",
+      "reason": "Binary dependency preserved by original hash metadata only; omitted from source snapshot"
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_dart_cache_20261022_r1/build/unique_prefix/h12_dart_cache_r1/libDartConstraintCache.so",
+      "reason": "Binary dependency preserved by original hash metadata only; omitted from source snapshot"
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_native_profile_20261021_r1/build/unique_prefix/h12_task_cpu_profile_r1/libTaskCpuProfile.so",
+      "reason": "Binary dependency preserved by original hash metadata only; omitted from source snapshot"
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/inputs/libCentrifugeInterlockBrakeR189.so",
+      "reason": "Generated install/overlay binary listed by scene audit; rebuild from source rather than commit generated binary or symlink"
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/inputs/libCentrifugeInterlockStartupRampProbeR1.so",
+      "reason": "Generated install/overlay binary listed by scene audit; rebuild from source rather than commit generated binary or symlink"
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/inputs/libDartConstraintCache.so",
+      "reason": "Binary dependency preserved by original hash metadata only; omitted from source snapshot"
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/inputs/libTaskCpuProfile.so",
+      "reason": "Generated install/overlay binary listed by scene audit; rebuild from source rather than commit generated binary or symlink"
+    }
+  ],
+  "limitations": [
+    "Includes all 651 non-.so members of the original 655-member r347 identity; all 651 bytes were independently SHA-256 checked against the unchanged identity manifest when this proposal was created.",
+    "Original SHA256SUMS, identity and dependency manifests retain historical references, including excluded binaries and absent large evidence. The selected snapshot does not materialize every manifest member and must not be described as a complete original-manifest verification.",
+    "Base src/, tools/ and root documentation are selected separately by the parent sync task; this proposal specifies the additional r347 snapshot and exact reviewed historical code/input dependencies.",
+    "Run and result files are archival evidence, not reusable execution claims. A new execution requires a new identity, build/install overlay and runtime paths, plus revalidated dependencies and safety checks.",
+    "Absolute workstation paths, Gazebo/ROS Jazzy system dependencies and historical source/protection references remain. Rebuilding on another machine has not been demonstrated.",
+    "Some derivation and regression scripts reference additional historical evidence directories and large compressed traces outside this proposal. This snapshot does not guarantee every historical builder or regression suite can run independently.",
+    "Historical full videos, raw traces, rosbag/profile data and full historical archives are excluded from this Git selection and require the separately authorized large-file publication plan.",
+    "Credential scan is heuristic on these selected UTF-8 files only, reports filenames and finding types without matched values, and is not a guarantee that all sensitive material has been identified."
+  ],
+  "checks": {
+    "source_copy_sha256": "each selected file hashed during copy",
+    "secret_pattern_scan_findings": [],
+    "builds_or_simulation_run": false
+  }
+}

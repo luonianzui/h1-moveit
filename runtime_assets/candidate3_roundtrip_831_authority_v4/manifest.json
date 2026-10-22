@@ -1,0 +1,253 @@
+{
+  "authority_root": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_authority_v4",
+  "base_authority": {
+    "manifest_sha256": "0344f0725198ed7773ac45feb45dbf29e75fc4e26514b97ef9a6de28615546cd",
+    "path": "runtime_assets/candidate3_live_831_fast_authority_v14",
+    "schema": "h1_candidate3_live_fast_authority/831-v14"
+  },
+  "commands": {
+    "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/commands_831.json",
+    "schema": "h1_candidate3_roundtrip_commands/831-v4",
+    "sha256": "3eb59fd526a936f073ec03e00084aa89783e5a905ce5db1db2468578d734c7e0"
+  },
+  "controller_commands_issued": 0,
+  "controller_execution_authorized": true,
+  "execution_contract": {
+    "controller_message_count": 60,
+    "cycles": 2,
+    "exact_inverse_return": true,
+    "hard_maximum_abs_torso_deg": 44.5,
+    "inverse_transform": "reverse_points_mirror_time",
+    "left_hand_handle_contact_forbidden": true,
+    "live_certificate_required": false,
+    "live_supervisor_required": false,
+    "operation": "roundtrip",
+    "requires_live_final_validation": true,
+    "right_handle_only": true,
+    "sequence": [
+      "open",
+      "insert_cube",
+      "close_and_lock",
+      "reopen",
+      "return_cube_to_origin",
+      "close_and_relock"
+    ]
+  },
+  "external_middle_support_bindings": {
+    "middle_admission": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "src/h1_2_vision/h1_2_vision/candidate3_middle_admission.py",
+      "sha256": "3292d0cb1da48cd4083770cd930d5f6cc8aa5e7686d8f9ee60918300a18de352",
+      "size_bytes": 8871
+    },
+    "middle_certificate": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_certificate_828.json",
+      "sha256": "58a683347c95be35c7c9c39e814c7be23dfab7311a037a0a0e6d7bb5f62aaade",
+      "size_bytes": 2708
+    },
+    "middle_contract": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "src/h1_2_vision/h1_2_vision/candidate3_middle_execution_contract_828.py",
+      "sha256": "681df3fce9b12c23388fed7cd4a62cccaba87353ef44a1e82234ec8d1864392a",
+      "size_bytes": 47439
+    },
+    "middle_exact_result": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_exact_result_828.json",
+      "sha256": "3e49dd9a34b206da4699545cff5656fb0db3fb38796ffd9a9435ebf55048e1fb",
+      "size_bytes": 552608
+    },
+    "middle_plan": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_plan_828.json",
+      "sha256": "cb20f8303cb2e75a5fe45025ea4a119fa5ba81054c8cda55442d320052d1634e",
+      "size_bytes": 533286
+    },
+    "scene": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_middle_e0_828/scene.cdr",
+      "sha256": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568",
+      "size_bytes": 1371569
+    },
+    "support_manifest": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_support_manifest_828.json",
+      "sha256": "a93ec01822bf6edb86531d281ba43e655c4a0e9f694c2058faa372a0e5bde1eb",
+      "size_bytes": 6233
+    }
+  },
+  "files": {
+    "candidate3_return_plan_831.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/candidate3_return_plan_831.json",
+      "sha256": "24767afddc9101094a419d9ab00c04db352e344b1aae90b287d86ca4773ebb21",
+      "size_bytes": 531123
+    },
+    "candidate3_rosbag_qos_overrides_829.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/candidate3_rosbag_qos_overrides_829.yaml",
+      "sha256": "da086156e2c7599f05e8c3ccc9066af8e4c6acc8210451de4ecc8b20bc0a6f1c",
+      "size_bytes": 1031
+    },
+    "candidate3_telemetry_bridge_829.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/candidate3_telemetry_bridge_829.yaml",
+      "sha256": "615231d3fc7d810f38165cbc679e4044263d4000cace8b56cc0ed35705ec9b0d",
+      "size_bytes": 481
+    },
+    "commands_831.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/commands_831.json",
+      "sha256": "3eb59fd526a936f073ec03e00084aa89783e5a905ce5db1db2468578d734c7e0",
+      "size_bytes": 9584
+    },
+    "controller_execution_authorization.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/controller_execution_authorization.json",
+      "sha256": "a22fc6220a7ac63cd44f0e1964d627440ae2242ab4dec69c0254573ea4c71827",
+      "size_bytes": 2201
+    },
+    "gazebo.launch.py": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/gazebo.launch.py",
+      "sha256": "4f2a3da2f03716a8905738d1c10c6b41600a44fc6a5b725fed961419bb514bf5",
+      "size_bytes": 21931
+    },
+    "h1_2.gazebo.ros2_control.xacro": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/h1_2.gazebo.ros2_control.xacro",
+      "sha256": "3c865dcf19fec32403aac51365702afdf8232111840fcffb8ee80eb2923f1535",
+      "size_bytes": 7695
+    },
+    "h1_candidate3_flow_fast_831_v3.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/h1_candidate3_flow_fast_831_v3.py",
+      "sha256": "c286ea4e9ae52c61ce24e7c6fc3da3afd76487a02481b26904b300d64b7985bf",
+      "size_bytes": 40774
+    },
+    "h1_candidate3_middle_executor_fast_831_v3.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/h1_candidate3_middle_executor_fast_831_v3.py",
+      "sha256": "e88dd07c1de79585c1e2534f870e0422394d227744ac2d4fafa0fc9267ab4246",
+      "size_bytes": 89102
+    },
+    "h1_fast_support_daemon_831.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/h1_fast_support_daemon_831.py",
+      "sha256": "2f2913abac73d06b16f73f744245692ebc2b9e09bcb1e659c0b383ca1f1915f1",
+      "size_bytes": 76278
+    },
+    "h1_right_handle_executor_828.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/h1_right_handle_executor_828.py",
+      "sha256": "914aa9bbd30776a58faea7095b27e8f9819e366f224d4a9e37dc287bed2fd6aa",
+      "size_bytes": 70568
+    },
+    "h1_robot_joint_state_relay_829.py": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/h1_robot_joint_state_relay_829.py",
+      "sha256": "5055b923daaf322cfcf7a7dbb738359c5e4d702010be539c4ce75b8f5b8f193c",
+      "size_bytes": 12374
+    },
+    "h1_support_orchestrator_828.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/h1_support_orchestrator_828.py",
+      "sha256": "76b016bc26e57fb6f2f8e1cf5a51b72a0a302c64ae2b47c51238a89dacd605ac",
+      "size_bytes": 72929
+    },
+    "h1_world.sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/h1_world.sdf",
+      "sha256": "4b61050f468df5f81a6805d410dd63daeb8b7c9d0aa9143b00b90282c38eb96c",
+      "size_bytes": 2264
+    },
+    "incubator_model.sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/incubator_model.sdf",
+      "sha256": "44ff23fc7077f0c232e2e69ff9d73aba336140d6a7951968c9c4241a97e73db9",
+      "size_bytes": 12085
+    },
+    "return_execution_authorization.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/return_execution_authorization.json",
+      "sha256": "e9806bd555334b1378edc3ab88154826e7ba226ba65e22feb2e48bab525887d1",
+      "size_bytes": 2149
+    },
+    "right_handle_manifest.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/right_handle_manifest.json",
+      "sha256": "d4260f136a2a699683516b4c55d74c7546beea59f4f7c5c3d925583d307ff6e0",
+      "size_bytes": 7302
+    },
+    "ros2_controllers.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/ros2_controllers.yaml",
+      "sha256": "612722d2143e39ef467219c67b9fb4bbfba9cb90a6bf047701308b4ff6279795",
+      "size_bytes": 2654
+    }
+  },
+  "live_execution_passed": false,
+  "process_roles": [
+    "launch",
+    "recorder",
+    "support_daemon",
+    "flow"
+  ],
+  "provenance": {
+    "candidate3_return_plan_831.json": "runtime_assets/candidate3_return_c2_831/candidate3_return_plan_831.json",
+    "candidate3_rosbag_qos_overrides_829.yaml": "runtime_assets/candidate3_live_831_fast_authority_v14/candidate3_rosbag_qos_overrides_829.yaml",
+    "candidate3_telemetry_bridge_829.yaml": "runtime_assets/candidate3_live_831_fast_authority_v14/candidate3_telemetry_bridge_829.yaml",
+    "commands_831.json": "generated",
+    "controller_execution_authorization.json": "runtime_assets/candidate3_live_831_fast_authority_v14/controller_execution_authorization.json",
+    "gazebo.launch.py": "runtime_assets/candidate3_live_831_fast_authority_v14/gazebo.launch.py",
+    "h1_2.gazebo.ros2_control.xacro": "runtime_assets/candidate3_live_831_fast_authority_v14/h1_2.gazebo.ros2_control.xacro",
+    "h1_candidate3_flow_fast_831_v3.py": "src/h1_2_moveit_demo/scripts/h1_candidate3_flow_fast_831_v3.py",
+    "h1_candidate3_middle_executor_fast_831_v3.py": "src/h1_2_moveit_demo/scripts/h1_candidate3_middle_executor_fast_831_v3.py",
+    "h1_fast_support_daemon_831.py": "src/h1_2_moveit_demo/scripts/h1_fast_support_daemon_831.py",
+    "h1_right_handle_executor_828.py": "runtime_assets/candidate3_live_831_fast_authority_v14/h1_right_handle_executor_828.py",
+    "h1_robot_joint_state_relay_829.py": "runtime_assets/candidate3_live_831_fast_authority_v14/h1_robot_joint_state_relay_829.py",
+    "h1_support_orchestrator_828.py": "src/h1_2_moveit_demo/scripts/h1_support_orchestrator_828.py",
+    "h1_world.sdf": "runtime_assets/candidate3_live_831_fast_authority_v14/h1_world.sdf",
+    "incubator_model.sdf": "runtime_assets/candidate3_live_831_fast_authority_v14/incubator_model.sdf",
+    "return_execution_authorization.json": "generated",
+    "right_handle_manifest.json": "runtime_assets/candidate3_live_831_fast_authority_v14/right_handle_manifest.json",
+    "ros2_controllers.yaml": "runtime_assets/candidate3_live_831_fast_authority_v14/ros2_controllers.yaml"
+  },
+  "return_execution_authorization": {
+    "path": "runtime_assets/candidate3_roundtrip_831_authority_v4/return_execution_authorization.json",
+    "schema": "h1_candidate3_return_execution_authorization/831-v1",
+    "sha256": "e9806bd555334b1378edc3ab88154826e7ba226ba65e22feb2e48bab525887d1"
+  },
+  "run_id": "84239abadb954ae208603e20ce681db8797be321b2ff25f57295d2293eafed42",
+  "run_root": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_r12",
+  "schema": "h1_candidate3_roundtrip_authority/831-v4",
+  "sealed": true,
+  "status": "READY",
+  "valid": true
+}

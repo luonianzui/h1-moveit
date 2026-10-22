@@ -1,0 +1,13 @@
+# 独立Gazebo主线程只观测插件
+
+独立隔离构建h12_task_cpu_profile_r1，原六Conda库归位一致；仅链接本地已有gperftools，不改系统perf权限。
+源TaskCpuProfile.cc SHA-256 `9a5dcfe9163273c2e47584e7076f8178b61344bfcaa3908ea7196707f16186d1`。
+构建libTaskCpuProfile.so SHA-256 `73e5ded5e007c63d69274f346709efebddd34e94512e8e60d10946f85257c634`，实际副本在r342/inputs中随635项源identity密封。
+本目录build/unique_prefix中的该库被r342/native_profiler_dependencies.json显式引用，不能当无用构建缓存删除。
+
+首次实际使用只在新r342，通过typed entity/system/add加入观察器，独占claim，原机器人/世界/机器模型及物理不变。
+任务PID/TID1179887、59609CPU样本、649.371709wall，在真实结果写入后停止，完整任务执行器PASS。
+真main线程已确认；调用栈Physics::Update89.4211%、BoxedLcp求解58.2395%，精确动态符号区间验证。
+pprof部分无调试符号的近邻函数标签错误；不使用World::bake和exists的错误命名归因。
+细节、二进制/映射/符号审计、原始profile在相邻sequential_review_20261021_r10及sequential_full_20261021_r342。
+原成功r337和失败r341未加载插件，数据只对r342本次观测有效；不承诺1倍、三分钟、无开销或因果A/B收益。

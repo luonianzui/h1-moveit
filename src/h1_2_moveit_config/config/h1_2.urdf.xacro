@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="h1_2">
+  <xacro:arg
+    name="initial_positions_file"
+    default="$(find h1_2_moveit_config)/config/initial_positions.yaml"/>
+
+  <!-- Low-poly geometry keeps RViz responsive on WSLg software rendering.
+       The untouched high-detail model remains at h1_2_model.urdf.xacro. -->
+  <xacro:include filename="$(find h1_2_description)/urdf/h1_2_lowpoly_model.urdf.xacro"/>
+  <xacro:include filename="$(find h1_2_description)/urdf/left_dex1_1_gripper.urdf.xacro"/>
+  <xacro:include filename="$(find h1_2_description)/urdf/right_dex1_1_gripper.urdf.xacro"/>
+  <xacro:include filename="$(find h1_2_description)/urdf/h1_2.ros2_control.xacro"/>
+
+  <xacro:h1_2_ros2_control initial_positions_file="$(arg initial_positions_file)"/>
+</robot>

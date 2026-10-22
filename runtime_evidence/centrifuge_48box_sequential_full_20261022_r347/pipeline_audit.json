@@ -1,0 +1,145 @@
+{
+  "status": "PASS",
+  "actual_single_process": 534953,
+  "actual_planning_requests": 22,
+  "actual_joined_pairs": 4,
+  "planning_intervals": [
+    {
+      "mode": "park",
+      "hand": "left",
+      "wall_s": 1.738945484161377,
+      "sim_s": 1.3129999999999953
+    },
+    {
+      "mode": "load_pickup",
+      "hand": "left",
+      "wall_s": 3.943213701248169,
+      "sim_s": 2.9369999999999976
+    },
+    {
+      "mode": "load_pilot",
+      "hand": "left",
+      "wall_s": 3.4638819694519043,
+      "sim_s": 0.7545000000000002
+    },
+    {
+      "mode": "load_transport",
+      "hand": "left",
+      "wall_s": 6.714053392410278,
+      "sim_s": 1.5174999999999983
+    },
+    {
+      "mode": "load_release_align",
+      "hand": "left",
+      "wall_s": 3.199678659439087,
+      "sim_s": 0.813999999999993
+    },
+    {
+      "mode": "empty_retreat",
+      "hand": "left",
+      "wall_s": 5.817516803741455,
+      "sim_s": 3.347999999999999
+    },
+    {
+      "mode": "load_pickup",
+      "hand": "right",
+      "wall_s": 3.808804750442505,
+      "sim_s": 2.7535000000000025
+    },
+    {
+      "mode": "load_pilot",
+      "hand": "right",
+      "wall_s": 3.2583253383636475,
+      "sim_s": 0.9879999999999995
+    },
+    {
+      "mode": "load_transport",
+      "hand": "right",
+      "wall_s": 5.459027528762817,
+      "sim_s": 1.6460000000000008
+    },
+    {
+      "mode": "load_release_align",
+      "hand": "right",
+      "wall_s": 3.1179416179656982,
+      "sim_s": 1.0030000000000001
+    },
+    {
+      "mode": "empty_retreat",
+      "hand": "right",
+      "wall_s": 4.411899566650391,
+      "sim_s": 2.3940000000000055
+    },
+    {
+      "mode": "neutral",
+      "hand": "left",
+      "wall_s": 1.5785794258117676,
+      "sim_s": 1.0365000000000038
+    },
+    {
+      "mode": "park",
+      "hand": "left",
+      "wall_s": 1.8527500629425049,
+      "sim_s": 1.2390000000000043
+    },
+    {
+      "mode": "retrieval_pickup",
+      "hand": "left",
+      "wall_s": 4.830278396606445,
+      "sim_s": 3.082499999999982
+    },
+    {
+      "mode": "retrieval_pilot",
+      "hand": "left",
+      "wall_s": 3.1907050609588623,
+      "sim_s": 0.5614999999999952
+    },
+    {
+      "mode": "retrieval_transport",
+      "hand": "left",
+      "wall_s": 14.00473403930664,
+      "sim_s": 4.829000000000008
+    },
+    {
+      "mode": "empty_retreat",
+      "hand": "left",
+      "wall_s": 4.323609113693237,
+      "sim_s": 2.9654999999999916
+    },
+    {
+      "mode": "retrieval_pickup",
+      "hand": "right",
+      "wall_s": 2.8706510066986084,
+      "sim_s": 1.8839999999999861
+    },
+    {
+      "mode": "retrieval_pilot",
+      "hand": "right",
+      "wall_s": 3.413935661315918,
+      "sim_s": 0.5949999999999989
+    },
+    {
+      "mode": "retrieval_transport",
+      "hand": "right",
+      "wall_s": 13.748183012008667,
+      "sim_s": 4.070999999999998
+    },
+    {
+      "mode": "retrieval_table_alignment",
+      "hand": "right",
+      "wall_s": 3.153303384780884,
+      "sim_s": 0.9000000000000341
+    },
+    {
+      "mode": "empty_retreat",
+      "hand": "right",
+      "wall_s": 4.810170650482178,
+      "sim_s": 3.6299999999999955
+    }
+  ],
+  "actual_planning_wall_s": 102.71018862724304,
+  "r333_planning_wall_s": 114.8373875617981,
+  "observed_planning_difference_s": 12.127198934555054,
+  "not_a_same_state_performance_benchmark": true,
+  "steady_spin_and_grip_observations_not_shortened": true
+}

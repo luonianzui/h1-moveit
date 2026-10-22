@@ -1,0 +1,16 @@
+sensors:
+  - d435_depth
+
+d435_depth:
+  sensor_plugin: occupancy_map_monitor/PointCloudOctomapUpdater
+  point_cloud_topic: /realsense_camera/depth/points
+  max_range: 2.0
+  point_subsample: 1
+  padding_scale: 1.0
+  # This is only a residual self-mask allowance, not the environment safety
+  # gate.  Seven millimetres covers the measured 5.143 mm render / collision
+  # mismatch plus the observed sub-millimetre 5 mm voxel-edge overlap, while
+  # remaining below the independent 10 mm obstacle gate.
+  padding_offset: 0.007
+  max_update_rate: 5.0
+  filtered_cloud_topic: /move_group/d435_filtered_cloud

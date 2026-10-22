@@ -1,0 +1,49 @@
+{
+  "authority": "runtime_assets/candidate3_roundtrip_831_authority_v21",
+  "capture": {
+    "display": ":0",
+    "gazebo_child_window": "0x4e0000e",
+    "input_geometry": "2000x1690",
+    "output_crop": "1160x1518+0+86"
+  },
+  "expected_pose": {
+    "orientation": {
+      "w": -0.5487785935401917,
+      "x": 0.15099482238292694,
+      "y": -0.10155720263719559,
+      "z": -0.8159220218658447
+    },
+    "position": {
+      "x": 0.612566351890564,
+      "y": -0.7572689056396484,
+      "z": 1.4472222328186035
+    }
+  },
+  "final_pose": {
+    "orientation": {
+      "w": -0.5487785935401917,
+      "x": 0.15099482238292694,
+      "y": -0.10155720263719559,
+      "z": -0.8159220218658447
+    },
+    "position": {
+      "x": 0.612566351890564,
+      "y": -0.7572689056396484,
+      "z": 1.4472222328186035
+    }
+  },
+  "maximum_absolute_component_drift": 0.0,
+  "restored_by_service": "/gui/move_to/pose",
+  "run": "runtime_assets/candidate3_roundtrip_831_r31",
+  "run_id": "1072ae8ba1a4e59fe19caa14b958d5f1365e04e9fa77e7be0909acee5b33a54a",
+  "schema": "h1_candidate3_combined_map_camera_pose/831-r31-v1",
+  "service_response": "data: true",
+  "source_pose": "runtime_assets/candidate3_roundtrip_831_r29/CAMERA_POSE_POST_MID360_R29.json",
+  "status": "PASS",
+  "visual_context": {
+    "incubator_visible": true,
+    "navigation_enclosure_visible": true,
+    "robot_and_both_grippers_visible": true,
+    "table_visible": true
+  }
+}

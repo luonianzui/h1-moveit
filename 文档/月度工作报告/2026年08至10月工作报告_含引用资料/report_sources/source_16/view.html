@@ -1,0 +1,301 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>按钮周期执行</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>按钮周期执行</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="centrifuge_robot_cycle.py">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_robot_press_20260922_r119/source_snapshot/src/h1_2_moveit_config/scripts/centrifuge_robot_cycle.py</p><pre>#!/usr/bin/python3
+import argparse
+import hashlib
+import json
+import math
+from pathlib import Path
+import time
+
+import numpy as np
+import rclpy
+from rclpy.qos import qos_profile_sensor_data
+from ros_gz_interfaces.msg import Contacts
+from rosgraph_msgs.msg import Clock
+from sensor_msgs.msg import JointState
+from std_msgs.msg import Bool, String
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
+
+
+class RobotCycle:
+    def __init__(self, plan, evidence):
+        self.plan = plan
+        self.evidence = evidence
+        self.node = rclpy.create_node(&#x27;centrifuge_robot_press_cycle&#x27;)
+        self.trace = (evidence / &#x27;robot_cycle_trace.jsonl&#x27;).open(&#x27;x&#x27;)
+        self.sim = None
+        self.phase = &#x27;preflight&#x27;
+        self.positions = {}
+        self.latest = {}
+        self.values = {}
+        self.events = []
+        self.raw_count = 0
+        self.deep_contact = False
+        self.armed = False
+        self.watch_run = False
+        self.steady_start = None
+        self.motion_count = {&#x27;left&#x27;: 0, &#x27;right&#x27;: 0}
+        self.last_joint_record = -1.0
+        self.publishers = {
+            side: self.node.create_publisher(JointTrajectory, &#x27;/&#x27; + side + &#x27;_arm_controller/joint_trajectory&#x27;, 10)
+            for side in (&#x27;left&#x27;, &#x27;right&#x27;)}
+        self.emergency_stop = self.node.create_publisher(Bool, &#x27;/centrifuge/rotor/enable&#x27;, 10)
+        self.node.create_subscription(Clock, &#x27;/clock&#x27;, self.receive_clock, qos_profile_sensor_data)
+        self.node.create_subscription(JointState, &#x27;/joint_states&#x27;, self.receive_joint, qos_profile_sensor_data)
+        for kind, topic in [(&#x27;machine&#x27;, &#x27;/centrifuge/machine/status&#x27;),
+                            (&#x27;button&#x27;, &#x27;/centrifuge/button/status&#x27;),
+                            (&#x27;contact_status&#x27;, &#x27;/centrifuge/button/contact_status&#x27;),
+                            (&#x27;localization&#x27;, &#x27;/mid360_localization/status&#x27;)]:
+            self.node.create_subscription(String, topic,
+                lambda message, kind=kind: self.receive(kind, json.loads(message.data)), 10)
+        self.node.create_subscription(String, &#x27;/centrifuge/button/contact_event&#x27;,
+                                      self.receive_event, 10)
+        for button in (&#x27;lid&#x27;, &#x27;rotor&#x27;):
+            self.node.create_subscription(Contacts, &#x27;/centrifuge/&#x27; + button + &#x27;_button/contacts&#x27;,
+                lambda message, button=button: self.raw_contacts(button, message),
+                qos_profile_sensor_data)
+
+    def record(self, kind, payload):
+        self.trace.write(json.dumps(dict(kind=kind, phase=self.phase, sim_time=self.sim,
+                                        wall_time=time.time(), payload=payload), allow_nan=False) + &#x27;\n&#x27;)
+        self.trace.flush()
+
+    def receive_clock(self, message):
+        stamp = message.clock.sec + message.clock.nanosec * 1e-9
+        if self.sim is not None and stamp &lt; self.sim - .001:
+            raise RuntimeError(&#x27;Simulation clock moved backwards&#x27;)
+        self.sim = stamp
+        self.latest[&#x27;clock&#x27;] = time.monotonic()
+
+    def receive_joint(self, message):
+        self.positions.update(zip(message.name, message.position))
+        self.latest[&#x27;joint&#x27;] = time.monotonic()
+        if self.sim is not None and self.sim - self.last_joint_record &gt;= .05:
+            self.last_joint_record = self.sim
+            self.record(&#x27;robot_joint&#x27;, self.positions)
+
+    def receive(self, kind, value):
+        self.values[kind] = value
+        self.latest[kind] = time.monotonic()
+        self.record(kind, value)
+        if (kind == &#x27;machine&#x27; and self.watch_run and self.steady_start is None and
+                value[&#x27;rotor_enabled&#x27;] and 29.8 &lt;= value[&#x27;rotor_rpm&#x27;] &lt;= 30.2):
+            self.steady_start = self.sim
+            self.record(&#x27;steady_start&#x27;, dict(sim_time=self.steady_start))
+
+    def receive_event(self, message):
+        event = json.loads(message.data)
+        self.events.append(event)
+        self.record(&#x27;physical_press&#x27;, event)
+
+    def raw_contacts(self, button, message):
+        if not message.contacts:
+            return
+        pairs = []
+        for contact in message.contacts:
+            depths = list(contact.depths)
+            if any(not math.isfinite(depth) or depth &gt; .002 for depth in depths):
+                self.deep_contact = True
+            pairs.append(dict(first=contact.collision1.name, second=contact.collision2.name,
+                              depths=depths, force_norms=[
+                                  math.sqrt(wrench.body_1_wrench.force.x ** 2 +
+                                            wrench.body_1_wrench.force.y ** 2 +
+                                            wrench.body_1_wrench.force.z ** 2)
+                                  for wrench in contact.wrenches]))
+        self.raw_count += 1
+        self.record(&#x27;raw_physics_contact&#x27;, dict(button=button, pairs=pairs,
+            sensor_stamp=message.header.stamp.sec + message.header.stamp.nanosec * 1e-9))
+
+    def guard(self):
+        if not self.armed:
+            return
+        now = time.monotonic()
+        for kind, maximum in [(&#x27;clock&#x27;, 1), (&#x27;joint&#x27;, 1), (&#x27;machine&#x27;, 1),
+                              (&#x27;button&#x27;, 1), (&#x27;contact_status&#x27;, 2), (&#x27;localization&#x27;, 4)]:
+            assert now - self.latest.get(kind, -math.inf) &lt; maximum, &#x27;Stale &#x27; + kind
+        assert self.values[&#x27;machine&#x27;][&#x27;ready&#x27;]
+        assert not self.values[&#x27;machine&#x27;][&#x27;open_lid_demo&#x27;]
+        assert self.values[&#x27;button&#x27;][&#x27;fault&#x27;] is None
+        assert self.values[&#x27;localization&#x27;][&#x27;valid&#x27;]
+        assert not self.deep_contact, &#x27;Button penetration exceeds 2 mm&#x27;
+        for name, expected in self.plan[&#x27;initial_positions&#x27;].items():
+            if any(token in name for token in (&#x27;hip_&#x27;, &#x27;knee_&#x27;, &#x27;ankle_&#x27;, &#x27;torso_&#x27;, &#x27;dex1_&#x27;)):
+                tolerance = .003 if &#x27;dex1_&#x27; in name else .02
+                assert abs(self.positions[name] - expected) &lt; tolerance, &#x27;Uncommanded joint moved: &#x27; + name
+        for side in (&#x27;left&#x27;, &#x27;right&#x27;):
+            assert self.node.count_publishers(&#x27;/&#x27; + side + &#x27;_arm_controller/joint_trajectory&#x27;) == 1
+
+    def wait(self, predicate, wall_timeout=180):
+        deadline = time.monotonic() + wall_timeout
+        while time.monotonic() &lt; deadline:
+            rclpy.spin_once(self.node, timeout_sec=.01)
+            self.guard()
+            if predicate():
+                return
+        raise RuntimeError(&#x27;Timeout in &#x27; + self.phase)
+
+    def move(self, side, points, fixed_interval=None, scheduled=None):
+        self.guard()
+        start = self.sim + .3 if scheduled is None else scheduled
+        assert start &gt;= self.sim + .15, &#x27;Missed motion schedule&#x27;
+        message = JointTrajectory()
+        message.joint_names = self.plan[&#x27;arms&#x27;][side][&#x27;joints&#x27;]
+        nanoseconds = round(start * 1e9)
+        message.header.stamp.sec, message.header.stamp.nanosec = divmod(nanoseconds, 1000000000)
+        elapsed = .05
+        previous = None
+        for values in points:
+            positions = np.array(values)
+            if previous is not None:
+                elapsed += fixed_interval if fixed_interval is not None else max(
+                    .02, float(np.max(np.abs(positions - previous))) / .22)
+            point = JointTrajectoryPoint()
+            point.positions = positions.tolist()
+            point.time_from_start.sec, point.time_from_start.nanosec = divmod(
+                round(elapsed * 1e9), 1000000000)
+            message.points.append(point)
+            previous = positions
+        self.motion_count[side] += 1
+        self.record(&#x27;arm_command&#x27;, dict(side=side, start=start, duration=elapsed,
+                                       points=[dict(positions=list(point.positions),
+                                           seconds=point.time_from_start.sec + point.time_from_start.nanosec * 1e-9)
+                                           for point in message.points]))
+        self.publishers[side].publish(message)
+        target = dict(zip(message.joint_names, points[-1]))
+        self.wait(lambda: self.sim &gt;= start + elapsed + .1 and all(
+            abs(self.positions.get(name, math.inf) - value) &lt; .005 for name, value in target.items()))
+        return start
+
+    def press(self, side, return_home=True, scheduled=None):
+        arm = self.plan[&#x27;arms&#x27;][side]
+        button = arm[&#x27;button&#x27;]
+        if scheduled is None:
+            self.phase = side + &#x27;_approach_&#x27; + button
+            self.move(side, arm[&#x27;approach&#x27;])
+        else:
+            assert all(abs(self.positions[name] - value) &lt; .005
+                       for name, value in zip(arm[&#x27;joints&#x27;], arm[&#x27;pre&#x27;]))
+        self.wait(lambda: self.values[&#x27;contact_status&#x27;][&#x27;buttons&#x27;][button][&#x27;armed&#x27;])
+        previous = len(self.events)
+        self.phase = side + &#x27;_press_&#x27; + button
+        start = self.move(side, arm[&#x27;push&#x27;], fixed_interval=.1, scheduled=scheduled)
+        self.wait(lambda: len(self.events) &gt; previous, wall_timeout=10)
+        assert len(self.events) == previous + 1
+        event = self.events[-1]
+        assert event[&#x27;button&#x27;] == button and event[&#x27;source&#x27;] == &#x27;gazebo_physics_contact&#x27;
+        assert event[&#x27;sequence&#x27;] == len(self.events)
+        self.phase = side + &#x27;_withdraw_&#x27; + button
+        self.move(side, list(reversed(arm[&#x27;push&#x27;])), fixed_interval=.07)
+        self.wait(lambda: self.values[&#x27;contact_status&#x27;][&#x27;buttons&#x27;][button][&#x27;armed&#x27;])
+        if return_home:
+            self.move(side, list(reversed(arm[&#x27;approach&#x27;])))
+        return event, start
+
+    def lid_ready(self, angle):
+        machine = self.values.get(&#x27;machine&#x27;, {})
+        return (abs(machine.get(&#x27;lid_rad&#x27;, -100) - angle) &lt; math.radians(.2) and
+                not self.values.get(&#x27;button&#x27;, {}).get(&#x27;busy&#x27;, True))
+
+    def execute(self):
+        self.wait(lambda: self.sim is not None and all(kind in self.latest for kind in (
+                      &#x27;clock&#x27;, &#x27;joint&#x27;, &#x27;machine&#x27;, &#x27;button&#x27;, &#x27;contact_status&#x27;, &#x27;localization&#x27;)) and
+                  all(name in self.positions for name in self.plan[&#x27;initial_positions&#x27;]) and
+                  all(publisher.get_subscription_count() &gt; 0 for publisher in self.publishers.values()))
+        self.armed = True
+        self.guard()
+        assert not self.values[&#x27;machine&#x27;][&#x27;rotor_enabled&#x27;] and self.lid_ready(0)
+        assert self.values[&#x27;contact_status&#x27;][&#x27;sequence&#x27;] == 0 and not self.events
+        assert all(abs(self.positions[name] - value) &lt; .02
+                   for name, value in self.plan[&#x27;initial_positions&#x27;].items())
+        self.phase = &#x27;robot_opens_for_initial_preparation&#x27;
+        self.record(&#x27;task_note&#x27;, &#x27;Fresh scene is closed; robot first opens it, then performs the requested close/run/stop/open cycle.&#x27;)
+        self.press(&#x27;left&#x27;)
+        self.phase = &#x27;wait_preparation_open&#x27;
+        self.wait(lambda: self.lid_ready(math.radians(120)))
+        self.record(&#x27;requested_cycle_begin&#x27;, dict(sim_time=self.sim))
+        self.press(&#x27;left&#x27;)
+        self.phase = &#x27;wait_closed&#x27;
+        self.wait(lambda: self.lid_ready(0) and self.values[&#x27;machine&#x27;][&#x27;can_start&#x27;])
+        self.watch_run = True
+        start_event, start_stamp = self.press(&#x27;right&#x27;, return_home=False)
+        self.wait(lambda: self.steady_start is not None)
+        observed_offset = start_event[&#x27;sim_time&#x27;] - start_stamp
+        stop_stamp = self.steady_start + 30.0 - observed_offset + .05
+        self.phase = &#x27;rotor_steady_30_sim_seconds&#x27;
+        self.record(&#x27;stop_schedule&#x27;, dict(steady_start=self.steady_start, measured_press_offset=observed_offset,
+                                          stop_stroke_start=stop_stamp, target_stop=self.steady_start + 30.0))
+        self.wait(lambda: self.sim &gt;= stop_stamp - .5)
+        stop_event, _ = self.press(&#x27;right&#x27;, return_home=True, scheduled=stop_stamp)
+        duration = stop_event[&#x27;sim_time&#x27;] - self.steady_start
+        assert 30.0 &lt;= duration &lt;= 30.3, &#x27;Steady run duration not within 30.0..30.3 simulation seconds&#x27;
+        self.phase = &#x27;wait_rotor_stopped&#x27;
+        self.wait(lambda: self.values[&#x27;machine&#x27;][&#x27;can_open&#x27;] and
+                  not self.values[&#x27;machine&#x27;][&#x27;rotor_enabled&#x27;] and
+                  abs(self.values[&#x27;machine&#x27;][&#x27;rotor_rad_s&#x27;]) &lt; .02)
+        self.record(&#x27;rotor_stopped_before_lid&#x27;, self.values[&#x27;machine&#x27;])
+        self.press(&#x27;left&#x27;)
+        self.phase = &#x27;wait_final_open&#x27;
+        self.wait(lambda: self.lid_ready(math.radians(120)) and self.values[&#x27;machine&#x27;][&#x27;can_open&#x27;])
+        assert [event[&#x27;button&#x27;] for event in self.events] == [&#x27;lid&#x27;, &#x27;lid&#x27;, &#x27;rotor&#x27;, &#x27;rotor&#x27;, &#x27;lid&#x27;]
+        assert self.values[&#x27;machine&#x27;][&#x27;starts&#x27;] == 1 and self.values[&#x27;machine&#x27;][&#x27;stops&#x27;] == 1
+        result = dict(status=&#x27;PASS&#x27;, steady_run_sim_seconds=duration,
+                      physical_press_events=self.events, raw_contact_messages=self.raw_count,
+                      arm_command_counts=self.motion_count, final_machine=self.values[&#x27;machine&#x27;],
+                      final_robot_positions=self.positions, final_localization=self.values[&#x27;localization&#x27;],
+                      simulation_only=True, no_gripper_torso_leg_commands=True)
+        with (self.evidence / &#x27;robot_cycle_result.json&#x27;).open(&#x27;x&#x27;) as stream:
+            json.dump(result, stream, indent=2)
+        self.record(&#x27;PASS&#x27;, result)
+        print(json.dumps(result), flush=True)
+
+    def stop_and_hold(self, error):
+        self.record(&#x27;FAIL_STOP_AND_HOLD&#x27;, dict(error=str(error)))
+        self.emergency_stop.publish(Bool(data=False))
+        for side, publisher in self.publishers.items():
+            names = self.plan[&#x27;arms&#x27;][side][&#x27;joints&#x27;]
+            if not all(name in self.positions for name in names):
+                continue
+            message = JointTrajectory(joint_names=names)
+            point = JointTrajectoryPoint(positions=[self.positions[name] for name in names])
+            point.time_from_start.nanosec = 300000000
+            message.points = [point]
+            publisher.publish(message)
+        deadline = time.monotonic() + 5
+        while time.monotonic() &lt; deadline:
+            rclpy.spin_once(self.node, timeout_sec=.05)
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(&#x27;--root&#x27;, type=Path, required=True)
+    parser.add_argument(&#x27;--plan&#x27;, type=Path, required=True)
+    parser.add_argument(&#x27;--evidence&#x27;, type=Path, required=True)
+    parser.add_argument(&#x27;--execute-gazebo-only&#x27;, action=&#x27;store_true&#x27;, required=True)
+    arguments = parser.parse_args()
+    plan = json.loads(arguments.plan.read_text())
+    assert plan[&#x27;status&#x27;] == &#x27;PASS&#x27;
+    for name, expected in plan[&#x27;source_hashes&#x27;].items():
+        assert hashlib.sha256((arguments.root / name).read_bytes()).hexdigest() == expected, name
+    with (arguments.evidence / &#x27;execution_claim.json&#x27;).open(&#x27;x&#x27;) as stream:
+        json.dump(dict(plan_sha256=hashlib.sha256(arguments.plan.read_bytes()).hexdigest(),
+                       claimed_wall_time=time.time()), stream)
+    from rclpy.signals import SignalHandlerOptions
+    rclpy.init(signal_handler_options=SignalHandlerOptions.NO)
+    cycle = RobotCycle(plan, arguments.evidence)
+    try:
+        cycle.execute()
+    except BaseException as error:
+        cycle.stop_and_hold(error)
+        raise
+    finally:
+        cycle.trace.close()
+        cycle.node.destroy_node()
+        rclpy.try_shutdown()
+
+
+if __name__ == &#x27;__main__&#x27;:
+    main()
+</pre></body></html>

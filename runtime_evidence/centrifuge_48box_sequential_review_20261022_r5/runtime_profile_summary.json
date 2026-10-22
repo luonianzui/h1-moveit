@@ -1,0 +1,2370 @@
+{
+  "status": "READ_ONLY_STACK_AND_CPU_OBSERVATIONS_NOT_CAUSAL_SPEED_PROOF",
+  "samples": 27916,
+  "main_samples": 27916,
+  "errors": [],
+  "sample_interval_wall_s": 0.02,
+  "sampler_thread_cpu_s": 1.5890547150000087,
+  "sampled_wall_s": 583.2626501659979,
+  "exact_gazebo_roles_cpu": {
+    "server": {
+      "mean_cores": 1.4629784734071953,
+      "peak_cores": 1.8005538228991411,
+      "samples": 583
+    },
+    "gui": {
+      "mean_cores": 1.4494928564777605,
+      "peak_cores": 1.6351258179762234,
+      "samples": 582
+    }
+  },
+  "main_leaves": [
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+      "count": 8779,
+      "fraction": 0.3144791517409371
+    },
+    {
+      "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+      "count": 7953,
+      "fraction": 0.28489038544204043
+    },
+    {
+      "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+      "count": 2714,
+      "fraction": 0.09722023212494627
+    },
+    {
+      "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+      "count": 2263,
+      "fraction": 0.08106462243874481
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+      "count": 2151,
+      "fraction": 0.07705258633041984
+    },
+    {
+      "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+      "count": 1734,
+      "fraction": 0.062114916177102734
+    },
+    {
+      "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+      "count": 677,
+      "fraction": 0.024251325404785785
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:119:safety",
+      "count": 507,
+      "fraction": 0.01816162774036395
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+      "count": 445,
+      "fraction": 0.015940679180398338
+    },
+    {
+      "frame": "/usr/lib/python3.12/subprocess.py:1990:_internal_poll",
+      "count": 283,
+      "fraction": 0.010137555523713999
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:13:matrix_from_bytes",
+      "count": 86,
+      "fraction": 0.003080670583178106
+    },
+    {
+      "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/geometry_msgs/msg/_vector3.py:87:__init__",
+      "count": 60,
+      "fraction": 0.0021493050580312367
+    },
+    {
+      "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:45:_amin",
+      "count": 46,
+      "fraction": 0.0016478005444906148
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/batched_trace.py:16:commit_pending",
+      "count": 42,
+      "fraction": 0.0015045135406218655
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_loading.py:233:receive_contacts",
+      "count": 38,
+      "fraction": 0.0013612265367531164
+    },
+    {
+      "frame": "<frozen importlib._bootstrap>:1412:_handle_fromlist",
+      "count": 23,
+      "fraction": 0.0008239002722453074
+    },
+    {
+      "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/std_msgs/msg/_u_int32.py:79:__init__",
+      "count": 23,
+      "fraction": 0.0008239002722453074
+    },
+    {
+      "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/geometry_msgs/msg/_wrench.py:86:__init__",
+      "count": 16,
+      "fraction": 0.0005731480154749964
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:84:_check_speed_coherent_grip",
+      "count": 15,
+      "fraction": 0.0005373262645078092
+    },
+    {
+      "frame": "/usr/lib/python3.12/gzip.py:314:_write_raw",
+      "count": 15,
+      "fraction": 0.0005373262645078092
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_loading.py:232:receive_contacts",
+      "count": 10,
+      "fraction": 0.00035821750967187277
+    },
+    {
+      "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/ros_gz_interfaces/msg/_joint_wrench.py:113:__init__",
+      "count": 6,
+      "fraction": 0.00021493050580312365
+    },
+    {
+      "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/std_msgs/msg/_string.py:79:__init__",
+      "count": 5,
+      "fraction": 0.00017910875483593638
+    },
+    {
+      "frame": "/usr/lib/python3.12/pathlib.py:1378:replace",
+      "count": 5,
+      "fraction": 0.00017910875483593638
+    },
+    {
+      "frame": "/usr/lib/python3.12/gzip.py:375:flush",
+      "count": 5,
+      "fraction": 0.00017910875483593638
+    },
+    {
+      "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/builtin_interfaces/msg/_time.py:82:__init__",
+      "count": 4,
+      "fraction": 0.0001432870038687491
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_loading.py:231:receive_contacts",
+      "count": 3,
+      "fraction": 0.00010746525290156182
+    },
+    {
+      "frame": "/usr/lib/python3.12/json/encoder.py:258:iterencode",
+      "count": 2,
+      "fraction": 7.164350193437455e-05
+    },
+    {
+      "frame": "/usr/lib/python3.12/pathlib.py:1049:write_text",
+      "count": 2,
+      "fraction": 7.164350193437455e-05
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:162:single_plan",
+      "count": 1,
+      "fraction": 3.5821750967187274e-05
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/batched_trace.py:22:write",
+      "count": 1,
+      "fraction": 3.5821750967187274e-05
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_support.py:72:<genexpr>",
+      "count": 1,
+      "fraction": 3.5821750967187274e-05
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:238:_readonly_open",
+      "count": 1,
+      "fraction": 3.5821750967187274e-05
+    }
+  ],
+  "main_inclusive": [
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+      "count": 26100,
+      "fraction": 0.9349477002435879
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+      "count": 25981,
+      "fraction": 0.9306849118784927
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+      "count": 25863,
+      "fraction": 0.9264579452643645
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>",
+      "count": 24832,
+      "fraction": 0.8895257200171944
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/preload_observation.py:104:safety",
+      "count": 14225,
+      "fraction": 0.509564407508239
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:30:spin",
+      "count": 14224,
+      "fraction": 0.5095285857572718
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:451:run_complete",
+      "count": 11521,
+      "fraction": 0.4127023928929646
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_alignment_cycle.py:18:execute_stages",
+      "count": 10940,
+      "fraction": 0.3918899555810288
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:300:move",
+      "count": 10094,
+      "fraction": 0.36158475426278835
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_loading.py:77:pose_matrix",
+      "count": 8830,
+      "fraction": 0.31630606104026365
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+      "count": 8830,
+      "fraction": 0.31630606104026365
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:24:execute_stages",
+      "count": 8206,
+      "fraction": 0.2939532884367388
+    },
+    {
+      "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+      "count": 8189,
+      "fraction": 0.2933443186702966
+    },
+    {
+      "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+      "count": 8177,
+      "fraction": 0.29291445765869034
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+      "count": 8140,
+      "fraction": 0.29158905287290443
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:449:run_complete",
+      "count": 8074,
+      "fraction": 0.28922481730907007
+    },
+    {
+      "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+      "count": 7953,
+      "fraction": 0.28489038544204043
+    },
+    {
+      "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+      "count": 7953,
+      "fraction": 0.28489038544204043
+    },
+    {
+      "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+      "count": 7953,
+      "fraction": 0.28489038544204043
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:53:safety",
+      "count": 7665,
+      "fraction": 0.2745737211634905
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:450:run_complete",
+      "count": 6010,
+      "fraction": 0.21528872331279553
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:293:execute_stages",
+      "count": 5086,
+      "fraction": 0.18218942541911448
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:157:wait_until_sim",
+      "count": 5075,
+      "fraction": 0.18179538615847543
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:229:retrieve",
+      "count": 4836,
+      "fraction": 0.17323398767731768
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:167:single_plan",
+      "count": 4737,
+      "fraction": 0.16968763433156614
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:77:safety",
+      "count": 4152,
+      "fraction": 0.14873191001576158
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:34:check_coherent_grip",
+      "count": 3777,
+      "fraction": 0.13529875340306635
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:193:safety",
+      "count": 3777,
+      "fraction": 0.13529875340306635
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/loaded_retention.py:60:retention_metrics",
+      "count": 3166,
+      "fraction": 0.11341166356211492
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/loaded_retention.py:61:retention_metrics",
+      "count": 2949,
+      "fraction": 0.10563834360223527
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:291:execute_stages",
+      "count": 2879,
+      "fraction": 0.10313082103453217
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:567:machine_cycle",
+      "count": 2865,
+      "fraction": 0.10262931652099154
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:33:execute_stages",
+      "count": 2736,
+      "fraction": 0.09800831064622438
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:350:load_pair",
+      "count": 2723,
+      "fraction": 0.09754262788365095
+    },
+    {
+      "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+      "count": 2714,
+      "fraction": 0.09722023212494627
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/loaded_retention.py:56:supported_corner_retention",
+      "count": 2476,
+      "fraction": 0.0886946553947557
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planner_client.py:47:execute",
+      "count": 2356,
+      "fraction": 0.08439604527869322
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:229:single_gripper",
+      "count": 2321,
+      "fraction": 0.08314228399484166
+    },
+    {
+      "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+      "count": 2263,
+      "fraction": 0.08106462243874481
+    },
+    {
+      "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:168:dwell",
+      "count": 2208,
+      "fraction": 0.07909442613554951
+    }
+  ],
+  "main_stacks": [
+    {
+      "stack": [
+        "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "/usr/lib/python3.12/gzip.py:130:write",
+        "/usr/lib/python3.12/gzip.py:300:write",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/batched_trace.py:15:commit_pending",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/batched_trace.py:30:write",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_loading.py:174:record",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_cycle.py:111:record",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_fast.py:17:record",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:439:record",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:147:record",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/right_setdown_cycle.py:56:record",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_loading.py:236:receive_contacts",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_loading.py:162:<lambda>",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:115:await_or_execute",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:480:_execute",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:592:handler",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/task.py:286:_execute_coroutine_step",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/task.py:270:__call__"
+      ],
+      "count": 1576,
+      "fraction": 0.05645507952428715
+    },
+    {
+      "stack": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:157:wait_until_sim",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:567:machine_cycle",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:450:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 842,
+      "fraction": 0.030161914314371686
+    },
+    {
+      "stack": [
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_loading.py:77:pose_matrix",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/loaded_retention.py:60:retention_metrics",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:77:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/preload_observation.py:104:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:30:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:157:wait_until_sim",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:567:machine_cycle",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:450:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 586,
+      "fraction": 0.020991546066771744
+    },
+    {
+      "stack": [
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "/usr/lib/python3.12/pathlib.py:842:stat",
+        "/usr/lib/python3.12/pathlib.py:862:exists",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planner_client.py:32:execute",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:167:single_plan",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:228:retrieve",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:451:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 520,
+      "fraction": 0.018627310502937384
+    },
+    {
+      "stack": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:300:move",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:33:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_alignment_cycle.py:18:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:350:load_pair",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:449:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 508,
+      "fraction": 0.018197449491331136
+    },
+    {
+      "stack": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:229:single_gripper",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:222:retrieve",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:451:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 471,
+      "fraction": 0.01687204470554521
+    },
+    {
+      "stack": [
+        "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/loaded_retention.py:56:supported_corner_retention",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/loaded_retention.py:61:retention_metrics",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_cycle.py:236:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:176:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:53:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/preload_observation.py:104:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:30:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:157:wait_until_sim",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:567:machine_cycle",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:450:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 439,
+      "fraction": 0.015725748674595214
+    },
+    {
+      "stack": [
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_loading.py:77:pose_matrix",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/loaded_retention.py:60:retention_metrics",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_cycle.py:236:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:176:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:53:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/preload_observation.py:104:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:30:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:157:wait_until_sim",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:567:machine_cycle",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:450:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 396,
+      "fraction": 0.01418541338300616
+    },
+    {
+      "stack": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:300:move",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/single_setdown.py:55:execute_single_setdown",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:291:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:24:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_alignment_cycle.py:18:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:229:retrieve",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:451:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 375,
+      "fraction": 0.013433156612695228
+    },
+    {
+      "stack": [
+        "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/loaded_retention.py:56:supported_corner_retention",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/loaded_retention.py:61:retention_metrics",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:77:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/preload_observation.py:104:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:30:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:157:wait_until_sim",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:567:machine_cycle",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:450:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 357,
+      "fraction": 0.012788365095285857
+    },
+    {
+      "stack": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:300:move",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:293:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:24:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_alignment_cycle.py:18:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:333:load_pair",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:449:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 291,
+      "fraction": 0.010424129531451498
+    },
+    {
+      "stack": [
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_loading.py:77:pose_matrix",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:106:_check_speed_coherent_grip",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:34:check_coherent_grip",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:193:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:53:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/preload_observation.py:104:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:30:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:300:move",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:33:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_alignment_cycle.py:18:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:350:load_pair",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:449:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 289,
+      "fraction": 0.010352486029517122
+    },
+    {
+      "stack": [
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "/usr/lib/python3.12/pathlib.py:842:stat",
+        "/usr/lib/python3.12/pathlib.py:862:exists",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planner_client.py:32:execute",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:167:single_plan",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:362:load_pair",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:449:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 289,
+      "fraction": 0.010352486029517122
+    },
+    {
+      "stack": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:300:move",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:33:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_alignment_cycle.py:18:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:229:retrieve",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:451:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 282,
+      "fraction": 0.010101733772746813
+    },
+    {
+      "stack": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:300:move",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:293:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:24:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_alignment_cycle.py:18:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:362:load_pair",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:449:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 277,
+      "fraction": 0.009922625017910875
+    },
+    {
+      "stack": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:300:move",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:293:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:24:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_alignment_cycle.py:18:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:220:retrieve",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:451:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 274,
+      "fraction": 0.009815159765009313
+    },
+    {
+      "stack": [
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_loading.py:77:pose_matrix",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:106:_check_speed_coherent_grip",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:34:check_coherent_grip",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:193:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:53:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/preload_observation.py:104:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:30:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:300:move",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/single_setdown.py:55:execute_single_setdown",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:291:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:24:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_alignment_cycle.py:18:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:229:retrieve",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:451:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main"
+      ],
+      "count": 252,
+      "fraction": 0.009027081243731194
+    },
+    {
+      "stack": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:229:single_gripper",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:357:load_pair",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:449:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 246,
+      "fraction": 0.00881215073792807
+    },
+    {
+      "stack": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:229:single_gripper",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:243:retrieve",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:451:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 226,
+      "fraction": 0.008095715718584324
+    },
+    {
+      "stack": [
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "/usr/lib/python3.12/pathlib.py:842:stat",
+        "/usr/lib/python3.12/pathlib.py:862:exists",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planner_client.py:32:execute",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:167:single_plan",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:258:retrieve",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:451:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 224,
+      "fraction": 0.00802407221664995
+    },
+    {
+      "stack": [
+        "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_bucket_clearance.py:50:footprint_clearance",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_bucket_clearance.py:76:table_bucket_clearance",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:201:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:53:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/preload_observation.py:104:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:30:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:300:move",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/single_setdown.py:55:execute_single_setdown",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:291:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:24:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_alignment_cycle.py:18:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:229:retrieve",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:451:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 214,
+      "fraction": 0.007665854706978077
+    },
+    {
+      "stack": [
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "/usr/lib/python3.12/pathlib.py:842:stat",
+        "/usr/lib/python3.12/pathlib.py:862:exists",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planner_client.py:32:execute",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:167:single_plan",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:220:retrieve",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:451:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 213,
+      "fraction": 0.0076300329560108895
+    },
+    {
+      "stack": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:300:move",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:293:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:24:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_alignment_cycle.py:18:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:229:retrieve",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:451:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 205,
+      "fraction": 0.007343458948273392
+    },
+    {
+      "stack": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:300:move",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:293:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:24:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_alignment_cycle.py:18:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:258:retrieve",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:451:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 203,
+      "fraction": 0.007271815446339017
+    },
+    {
+      "stack": [
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "/usr/lib/python3.12/pathlib.py:842:stat",
+        "/usr/lib/python3.12/pathlib.py:862:exists",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planner_client.py:32:execute",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:167:single_plan",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:350:load_pair",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:449:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 203,
+      "fraction": 0.007271815446339017
+    },
+    {
+      "stack": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:229:single_gripper",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:336:load_pair",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:449:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 186,
+      "fraction": 0.006662845679896833
+    },
+    {
+      "stack": [
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "/usr/lib/python3.12/pathlib.py:842:stat",
+        "/usr/lib/python3.12/pathlib.py:862:exists",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planner_client.py:32:execute",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:167:single_plan",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:332:load_pair",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:449:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 177,
+      "fraction": 0.0063404499211921475
+    },
+    {
+      "stack": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/alignment_wait.py:9:wait_for_planner",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/stop_handover_cycle.py:45:check_actual_stop_handover",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/stop_handover_cycle.py:65:press",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:575:machine_cycle",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:450:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 175,
+      "fraction": 0.0062688064192577735
+    },
+    {
+      "stack": [
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_loading.py:77:pose_matrix",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_bucket_clearance.py:70:table_bucket_clearance",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_dual.py:201:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:53:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/preload_observation.py:104:safety",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:30:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:300:move",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/single_setdown.py:55:execute_single_setdown",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:291:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:24:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/table_alignment_cycle.py:18:execute_stages",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:229:retrieve",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:451:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 163,
+      "fraction": 0.005838945407651526
+    },
+    {
+      "stack": [
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:877:wait_for_ready_callbacks",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:907:_spin_once_impl",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:926:spin_once",
+        "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/__init__.py:226:spin_once",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/speed_feedback_cycle.py:17:spin",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planner_client.py:47:execute",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:167:single_plan",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_speed_cycle.py:228:retrieve",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:451:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/runtime_performance.py:20:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/planning_pipeline.py:11:run_complete",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:47:main",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/execute_sequential.py:67:<module>"
+      ],
+      "count": 161,
+      "fraction": 0.005767301905717151
+    }
+  ],
+  "phases": {
+    "machine_running_steady": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 1075
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 900
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 831
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 191
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 144
+      }
+    ],
+    "seq_retrieval_single_pilot": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 727
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 520
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 387
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 243
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 153
+      }
+    ],
+    "seq_load_load_lift_and_load_transfer": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 851
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 510
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 279
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 205
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 28
+      }
+    ],
+    "paired_retrieval_setdown": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 1122
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 378
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 251
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 250
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 136
+      }
+    ],
+    "seq_retrieval_retrieve_outboard_and_retrieve_transfer": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 479
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 282
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 115
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 82
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:119:safety",
+        "count": 47
+      }
+    ],
+    "right_retrieval_grasp": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 335
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 135
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 88
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 57
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 43
+      }
+    ],
+    "left_retrieval_grasp": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 323
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 149
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 93
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 66
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 47
+      }
+    ],
+    "seq_retrieval_empty_park": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 215
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 213
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 139
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 75
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 43
+      }
+    ],
+    "seq_load_empty_park": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 291
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 223
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 158
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 109
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 81
+      }
+    ],
+    "machine_stop_handover_collision_check": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 208
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 175
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 141
+      },
+      {
+        "frame": "/usr/lib/python3.12/subprocess.py:1990:_internal_poll",
+        "count": 46
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 28
+      }
+    ],
+    "seq_retrieval_empty_approach": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 165
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 103
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 60
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:119:safety",
+        "count": 19
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 14
+      }
+    ],
+    "left_drop_settling": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 159
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 73
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 30
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 23
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 20
+      }
+    ],
+    "paired_retrieval_setdown_fine": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 374
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 157
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 127
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 91
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 76
+      }
+    ],
+    "seq_load_empty_approach": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 147
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 70
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 70
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 24
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 9
+      }
+    ],
+    "seq_load_empty_descend": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 148
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 86
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 70
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 34
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 17
+      }
+    ],
+    "seq_retrieval_retrieve_axis_exit": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 217
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 137
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 82
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 48
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:119:safety",
+        "count": 18
+      }
+    ],
+    "right_drop_settling": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 130
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 73
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 24
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 16
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 10
+      }
+    ],
+    "seq_load_load_lower": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 371
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 212
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 128
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 102
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 91
+      }
+    ],
+    "left_release_above_bucket": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 143
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 41
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 22
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 18
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:119:safety",
+        "count": 1
+      }
+    ],
+    "left_retrieval_release_on_table": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 187
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 114
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 49
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 38
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 22
+      }
+    ],
+    "right_release_above_bucket": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 144
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 20
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 15
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 12
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 4
+      }
+    ],
+    "right_retrieval_release_on_table": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 173
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 110
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 66
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 48
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:119:safety",
+        "count": 33
+      }
+    ],
+    "seq_retrieval_empty_descend": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 115
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 56
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 35
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 8
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 8
+      }
+    ],
+    "left_seq_load_static_grip_hold": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 186
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 108
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 78
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 73
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 43
+      }
+    ],
+    "seq_load_single_pilot": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 267
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 152
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 88
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 61
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 32
+      }
+    ],
+    "machine_preparation": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 97
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 3
+      }
+    ],
+    "right_seq_load_grasp": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 159
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 77
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 55
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 35
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 35
+      }
+    ],
+    "right_seq_load_static_grip_hold": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 139
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 95
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 78
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 37
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 33
+      }
+    ],
+    "seq_load_empty_vertical_retreat": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 99
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 45
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 30
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 12
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 4
+      }
+    ],
+    "seq_retrieval_empty_vertical_retreat": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 94
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 63
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:119:safety",
+        "count": 20
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 18
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 9
+      }
+    ],
+    "machine_preparation_open_withdraw": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 169
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 62
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 9
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/batched_trace.py:16:commit_pending",
+        "count": 3
+      }
+    ],
+    "left_seq_load_grasp": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 133
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 116
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 91
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 61
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 61
+      }
+    ],
+    "machine_preparation_open_press": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 79
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 5
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 2
+      }
+    ],
+    "seq_retrieval_retrieve_lift": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 96
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 74
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 35
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 18
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:119:safety",
+        "count": 10
+      }
+    ],
+    "machine_preparation_open_approach": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 67
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 44
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 5
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/batched_trace.py:16:commit_pending",
+        "count": 1
+      }
+    ],
+    "seq_retrieval_static_grip_hold": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 121
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 65
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 35
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:119:safety",
+        "count": 19
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 8
+      }
+    ],
+    "machine_stop_wait_quiet": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 60
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 58
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 38
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 22
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 10
+      }
+    ],
+    "machine_wait_final_open": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 93
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 58
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 47
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 8
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 6
+      }
+    ],
+    "machine_sequential_empty_grippers": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 97
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 65
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 48
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 14
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 9
+      }
+    ],
+    "right_retrieval_open_empty": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 75
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 53
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 35
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 30
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 7
+      }
+    ],
+    "left_retrieval_open_empty": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 65
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 27
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 17
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 6
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 3
+      }
+    ],
+    "right_seq_load_open_empty": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 61
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py:265:_logical_stat",
+        "count": 48
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 39
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 27
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 6
+      }
+    ],
+    "seq_load_load_release_pilot_align": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 140
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 79
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 51
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 25
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 14
+      }
+    ],
+    "machine_stop_press": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 57
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 45
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 41
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 13
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 6
+      }
+    ],
+    "machine_start_approach": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 55
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 33
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 24
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 18
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 7
+      }
+    ],
+    "machine_final_open_withdraw": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 97
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 62
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 60
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 32
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 15
+      }
+    ],
+    "left_seq_load_open_empty": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 44
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 27
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 26
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 4
+      },
+      {
+        "frame": "/usr/lib/python3.12/pathlib.py:1378:replace",
+        "count": 1
+      }
+    ],
+    "machine_close_withdraw": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 97
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 60
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 54
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 25
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 16
+      }
+    ],
+    "machine_stop_withdraw": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 48
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 45
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 33
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 9
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 7
+      }
+    ],
+    "machine_close_press": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 36
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 30
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 21
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 4
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 4
+      }
+    ],
+    "machine_start_withdraw": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 38
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 30
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 28
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 4
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 2
+      }
+    ],
+    "machine_final_open_approach": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 40
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 37
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 27
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 23
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 7
+      }
+    ],
+    "machine_close_approach": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 47
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 26
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 25
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 23
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 7
+      }
+    ],
+    "machine_final_open_press": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 32
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 30
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 26
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 4
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 4
+      }
+    ],
+    "machine_start_press": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 43
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 25
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 23
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 4
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:45:_amin",
+        "count": 1
+      }
+    ],
+    "machine_sequential_empty_neutral": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 26
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 20
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 16
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/lib/function_base.py:1599:interp",
+        "count": 6
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_bucket.py:41:cached_bucket_corners",
+        "count": 4
+      }
+    ],
+    "terminal_table_hold": [
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 22
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 20
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 15
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:119:safety",
+        "count": 2
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 2
+      }
+    ],
+    "seq_retrieval_table_alignment_pilot": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 41
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 29
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/linalg/linalg.py:2552:norm",
+        "count": 18
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 14
+      },
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/sequential_cycle.py:119:safety",
+        "count": 7
+      }
+    ],
+    "machine_wait_preparation_open": [
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 16
+      }
+    ],
+    "machine_wait_closed": [
+      {
+        "frame": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/cached_pose.py:26:cached_pose_matrix",
+        "count": 6
+      },
+      {
+        "frame": "/usr/lib/python3/dist-packages/numpy/core/_methods.py:41:_amax",
+        "count": 2
+      },
+      {
+        "frame": "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/executors.py:781:_wait_for_ready_callbacks",
+        "count": 1
+      },
+      {
+        "frame": "/usr/lib/python3.12/gzip.py:312:_write_raw",
+        "count": 1
+      }
+    ]
+  },
+  "cpu": {
+    "executor:python3": {
+      "mean_cores": 1.0276679885532696,
+      "peak_cores": 1.0572664516523682,
+      "samples": 570
+    },
+    "guard:python3": {
+      "mean_cores": 0.00023943716500612723,
+      "peak_cores": 0.009790197468332693,
+      "samples": 570
+    },
+    "disk:python3": {
+      "mean_cores": 1.7117336499785256e-05,
+      "peak_cores": 0.009756881804877595,
+      "samples": 570
+    },
+    "supervisor:python3": {
+      "mean_cores": 6.702248209450024e-05,
+      "peak_cores": 0.009867172212676023,
+      "samples": 583
+    },
+    "launch:ros2": {
+      "mean_cores": 6.760483349962429e-05,
+      "peak_cores": 0.01980398969498773,
+      "samples": 583
+    },
+    "launch_child:robot_state_publisher": {
+      "mean_cores": 0.022870928242863377,
+      "peak_cores": 0.04947372023320781,
+      "samples": 582
+    },
+    "launch_child:sh": {
+      "mean_cores": 0.0,
+      "peak_cores": 0.0,
+      "samples": 583
+    },
+    "launch_child:image_bridge": {
+      "mean_cores": 0.02895751732022407,
+      "peak_cores": 0.049524185982968656,
+      "samples": 582
+    },
+    "launch_child:parameter_bridge": {
+      "mean_cores": 0.04265427229928747,
+      "peak_cores": 0.1483170847495434,
+      "samples": 4074
+    },
+    "launch_child:python3": {
+      "mean_cores": 0.549708392470872,
+      "peak_cores": 0.9795826072011858,
+      "samples": 1177
+    },
+    "launch_child:centrifuge_cont": {
+      "mean_cores": 0.20414495493199833,
+      "peak_cores": 0.5089419226481893,
+      "samples": 582
+    },
+    "launch_child:centrifuge_butt": {
+      "mean_cores": 0.18908555108225794,
+      "peak_cores": 0.34572166842197766,
+      "samples": 582
+    },
+    "launch_child:ruby": {
+      "mean_cores": 0.9705499384819517,
+      "peak_cores": 1.8005538228991411,
+      "samples": 1748
+    },
+    "executor_child:gz-transport-topic": {
+      "mean_cores": 0.031855866280084806,
+      "peak_cores": 0.04873996349749793,
+      "samples": 569
+    },
+    "executor_child:python3": {
+      "mean_cores": 0.1928960561144875,
+      "peak_cores": 1.012888426710304,
+      "samples": 580
+    },
+    "supervisor_child:python3": {
+      "mean_cores": 0.0,
+      "peak_cores": 0.0,
+      "samples": 7
+    },
+    "supervisor_child:ffprobe": {
+      "mean_cores": 0.9965293264353464,
+      "peak_cores": 1.0003785006313932,
+      "samples": 5
+    },
+    "supervisor_child:ffmpeg": {
+      "mean_cores": 6.715048036328271,
+      "peak_cores": 6.715048036328271,
+      "samples": 1
+    }
+  }
+}

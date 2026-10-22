@@ -1,0 +1,683 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>双臂执行与物理反馈</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>双臂执行与物理反馈</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="execute_dual.py">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_elbow_full_20261016_r291/execute_dual.py</p><pre>import copy
+import itertools
+import json
+import math
+from pathlib import Path
+import subprocess
+import time
+
+import numpy as np
+import rclpy
+from control_msgs.action import FollowJointTrajectory
+from control_msgs.msg import JointTolerance
+from moveit.core.robot_model import RobotModel
+from moveit.core.robot_state import RobotState
+from scipy.spatial.transform import Rotation
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
+
+from alignment_wait import wait_for_planner
+from coherent_time import newest_pair
+from contact_phase_policy import bounded_motion, table_birth_violation
+from dual_motion import HoldRegistry, TASK_JOINTS, common_arm_timing, validate_common_start
+from execute_coherent import CoherentCycle
+from execute_cycle import FullCycle
+from execute_loading import GROUP_JOINTS, pose_matrix, midband_contacts, fully_inside_bucket, bucket_relative_corners
+from extraction_clearance import clearance_metrics
+from table_bucket_clearance import bucket_collision_bounds, table_bucket_clearance, TABLE_SETDOWN_PHASES
+from grip_limits import grip_exceeds_limits
+from motion_clock_watch import SimulationProgressWatch
+from paired_setdown_braking import split_paired_setdown
+from stop_phase import schedule_nominal_phase
+from table_return_goal import table_orientation_error
+
+
+EVIDENCE = Path(__file__).resolve().parent
+ROOT = EVIDENCE.parents[1]
+CONTEXT_FIELDS = (&#x27;coherent_reference_key&#x27;, &#x27;coherent_reference&#x27;, &#x27;reference_native_bytes&#x27;,
+                  &#x27;last_coherent_record&#x27;, &#x27;grasp_transform&#x27;, &#x27;native_grasp_transform&#x27;)
+
+
+class DualCycle(CoherentCycle):
+    def require_gripper_endpoint(self, hand, value, result_clock):
+        assert max(abs(self.positions[name] - value) for name in GROUP_JOINTS[hand + &#x27;_gripper&#x27;]) &lt; .00025
+
+    def __init__(self, plan, buttons):
+        self.holders = HoldRegistry()
+        self.holder_contexts = {}
+        self.pair_goal_handles = {}
+        self.pair_goal_futures = {}
+        self.pair_clearance_payloads = set()
+        self.worker_sequence = 0
+        self.load_table_guard_active = False
+        self.qualified_empty_retreat_guides = None
+        super().__init__(plan, buttons)
+        self.table_bucket_bounds = bucket_collision_bounds(ROOT / &#x27;src/h1_2_description/models/centrifuge/model.sdf&#x27;)
+        self.model = RobotModel(str(EVIDENCE / &#x27;inputs/robot_dual.urdf&#x27;), str(ROOT / &#x27;src/h1_2_moveit_config/config/h1_2.srdf&#x27;))
+        self.state = RobotState(self.model)
+
+    def synchronize_primary(self):
+        if not self.holders.rows:
+            self.holding, self.held_payload = None, None
+            return
+        hand = next(iter(self.holders.rows))
+        payload = self.holders.rows[hand][&#x27;payload&#x27;]
+        self.holding = hand
+        self.held_payload = payload if self.holder_contexts[hand][&#x27;retrieval&#x27;] else None
+        for name in CONTEXT_FIELDS:
+            setattr(self, name, self.holder_contexts[hand][name])
+
+    def latest_native_guard(self):
+        for hand, held in self.holders.rows.items():
+            expected = pose_matrix(self.poses[hand + &#x27;_wrist_yaw_link&#x27;]) @ held[&#x27;native_reference&#x27;]
+            actual = pose_matrix(self.poses[&#x27;box48_&#x27; + held[&#x27;payload&#x27;]])
+            slip = float(np.linalg.norm(expected[:3, 3] - actual[:3, 3]))
+            angle = math.degrees(Rotation.from_matrix(expected[:3, :3].T @ actual[:3, :3]).magnitude())
+            if grip_exceeds_limits(slip, angle):
+                self.record(&#x27;paired_immediate_native_fault&#x27;, dict(hand=hand, payload=held[&#x27;payload&#x27;],
+                            slip_m=slip, angle_deg=angle, source_sim=self.pose_time))
+                raise RuntimeError(&#x27;Paired immediate native grip exceeds original 2mm/5deg&#x27;)
+
+    def refresh_native(self):
+        with self.native_lock:
+            if self.pose_snapshot is not None:
+                self.pose_time, self.pose_wall, self.poses = self.pose_snapshot
+
+    def spin(self, guarded=True):
+        self.refresh_native()
+        rclpy.spin_once(self.node, timeout_sec=.01)
+        self.refresh_native()
+        if guarded and self.holders.rows:
+            deadline = time.monotonic() + .010
+            for attempt in range(64):
+                self.latest_native_guard()
+                with self.native_lock:
+                    pair = newest_pair(list(self.native_frames), self.joint_timeline, self.pose_time)
+                if pair is not None or time.monotonic() &gt;= deadline:
+                    break
+                rclpy.spin_once(self.node, timeout_sec=0)
+                self.refresh_native()
+        if guarded:
+            self.safety()
+
+    def check_coherent_grip(self, hand, payload, retrieval):
+        try:
+            return super().check_coherent_grip(hand, payload, retrieval)
+        except RuntimeError as error:
+            if &#x27;No recent actual joint/native bracket&#x27; in str(error):
+                with self.native_lock:
+                    frames = list(self.native_frames)
+                    pair = newest_pair(frames, self.joint_timeline, self.pose_time)
+                self.record(&#x27;paired_feedback_pair_fault&#x27;, dict(hand=hand, payload=payload,
+                    exact_requested_native_stamp=self.pose_time, joint_stamp=self.joint_time,
+                    clock_sim=self.sim, history_length=len(self.joint_timeline.rows),
+                    history_first=self.joint_timeline.rows[0][0] if self.joint_timeline.rows else None,
+                    history_last=self.joint_timeline.rows[-1][0] if self.joint_timeline.rows else None,
+                    last_native_stamps=[frame[0] for frame in frames[-8:]],
+                    no_actual_bracket=pair is None,
+                    actual_pair_wall_age_s=None if pair is None else time.monotonic() - pair[&#x27;pose_wall&#x27;],
+                    original_maximum_bracket_and_lag_sim_s=.012, original_pair_age_wall_s=2,
+                    no_extrapolation_command_substitution_or_reference_rebase=True))
+            raise
+
+    def measured_pair(self):
+        deadline = time.monotonic() + .010
+        for attempt in range(65):
+            if self.holders.rows:
+                self.spin()
+            else:
+                rclpy.spin_once(self.node, timeout_sec=0)
+                self.refresh_native()
+                self.safety()
+            with self.native_lock:
+                pair = newest_pair(list(self.native_frames), self.joint_timeline, self.pose_time)
+            if pair is not None and time.monotonic() - pair[&#x27;pose_wall&#x27;] &lt;= 2:
+                return pair
+            if attempt == 64 or time.monotonic() &gt;= deadline:
+                break
+            rclpy.spin_once(self.node, timeout_sec=0)
+        self.record(&#x27;paired_snapshot_pair_fault&#x27;, dict(requested_native_stamp=self.pose_time,
+                    last_joint_stamp=self.joint_time, no_extrapolation=True,
+                    no_actual_bracket=pair is None,
+                    actual_pair_wall_age_s=None if pair is None else time.monotonic() - pair[&#x27;pose_wall&#x27;],
+                    original_bracket_and_lag_limit_sim_s=.012, bounded_actual_callbacks=64))
+        raise RuntimeError(&#x27;No actual bracket for paired snapshot after bounded real callbacks&#x27;)
+
+    def wait_until_sim(self, target_sim):
+        if not math.isfinite(target_sim) or target_sim &lt; self.sim:
+            raise ValueError(&#x27;Finite future actual simulation target required&#x27;)
+        if target_sim == self.sim:
+            self.safety()
+            return
+        duration = target_sim - self.sim
+        watcher = SimulationProgressWatch(duration, self.sim, time.monotonic())
+        self.record(&#x27;paired_sim_wait_wall_budget&#x27;, dict(target_sim=target_sim, required_duration_sim_s=duration,
+                    budget_wall_s=watcher.budget_wall_s, actual_simulation_duration_not_shortened=True,
+                    unchanged_physical_freshness_and_holding_guards=True))
+        while self.sim &lt; target_sim:
+            self.spin()
+            try:
+                watcher.observe(self.sim, time.monotonic())
+            except (TimeoutError, ValueError) as error:
+                self.record(&#x27;paired_sim_wait_clock_fault&#x27;, dict(error=str(error), actual_sim=self.sim,
+                            required_target_sim=target_sim, budget_wall_s=watcher.budget_wall_s))
+                raise
+
+    def dwell(self, seconds):
+        if not math.isfinite(seconds) or seconds &lt;= 0:
+            raise ValueError(&#x27;Positive finite actual simulation hold duration required&#x27;)
+        self.wait_until_sim(self.sim + seconds)
+
+    def safety(self):
+        if self.native_stream_fault:
+            raise RuntimeError(self.native_stream_fault)
+        primary = (self.holding, self.held_payload)
+        self.holding, self.held_payload = None, None
+        try:
+            FullCycle.safety(self)
+        finally:
+            self.holding, self.held_payload = primary
+        self.latest_native_guard()
+        if self.load_table_guard_active:
+            for payload in (&#x27;left&#x27;, &#x27;right&#x27;):
+                body = pose_matrix(self.poses[&#x27;box48_&#x27; + payload])
+                angle = Rotation.from_matrix(body[:3, :3]).magnitude()
+                violation = table_birth_violation(payload, body[:3, 3], angle)
+                if violation:
+                    self.record(&#x27;paired_empty_table_pose_fault&#x27;, dict(payload=payload, reason=violation,
+                                position=body[:3, 3].tolist(), angle_rad=float(angle), source_sim=self.pose_time))
+                    raise RuntimeError(violation)
+        for hand, held in self.holders.rows.items():
+            context = self.holder_contexts[hand]
+            for name in CONTEXT_FIELDS:
+                setattr(self, name, context[name])
+            self.check_coherent_grip(hand, held[&#x27;payload&#x27;], context[&#x27;retrieval&#x27;])
+            for name in CONTEXT_FIELDS:
+                context[name] = getattr(self, name)
+        self.synchronize_primary()
+        for payload in self.pair_clearance_payloads:
+            if self.phase in TABLE_SETDOWN_PHASES:
+                poses = copy.deepcopy(self.poses)
+                pairs = copy.deepcopy(self.contacts[payload])
+                clearance = table_bucket_clearance(poses, payload, pairs, self.table_bucket_bounds)
+                data = dict(payload=payload, clearance=clearance, poses=poses,
+                            contacts=pairs, native_pose_sim=self.pose_time)
+                if not clearance[&#x27;valid&#x27;]:
+                    self.record(&#x27;table_setdown_bucket_clearance_fault&#x27;, data)
+                    raise RuntimeError(&#x27;Paired table setdown lost three-mm clearance from both baskets&#x27;)
+                if self.pose_time - self.last_clearance_record &gt;= .025:
+                    self.record(&#x27;table_setdown_bucket_clearance&#x27;, data)
+                continue
+            clearance = clearance_metrics(self.poses, payload, self.contacts[payload], self.bucket_rim_z[payload])
+            if not clearance[&#x27;valid&#x27;]:
+                self.record(&#x27;extraction_clearance_fault&#x27;, dict(payload=payload, clearance=clearance,
+                            poses=copy.deepcopy(self.poses), contacts=self.contacts[payload]))
+                raise RuntimeError(&#x27;Paired full extraction clearance lost&#x27;)
+            if self.pose_time - self.last_clearance_record &gt;= .025:
+                self.record(&#x27;extraction_clearance&#x27;, dict(payload=payload, clearance=clearance))
+        if self.pair_clearance_payloads and self.pose_time - self.last_clearance_record &gt;= .025:
+            self.last_clearance_record = self.pose_time
+
+    def prepare_loading_grippers(self):
+        for target, phase in ((-.0199, &#x27;paired_load_open_empty&#x27;), (-.01901, &#x27;paired_load_close_empty_check&#x27;),
+                              (-.0199, &#x27;paired_load_reopen_empty&#x27;)):
+            self.paired_grippers(target, 0, phase)
+
+    def paired_gripper_post_action_dwell(self):
+        return .3
+
+    def paired_grippers(self, value, effort, phase, retrieval=False):
+        self.phase = phase
+        self.safety()
+        start = self.sim + self.future_start_offset()
+        seconds, nanoseconds = validate_common_start(self.sim, start)
+        self.retrieval_closing = retrieval
+        pending, complete = {}, {}
+        for hand in (&#x27;left&#x27;, &#x27;right&#x27;):
+            assert self.gripper_actions[hand].server_is_ready()
+            goal = FollowJointTrajectory.Goal()
+            goal.trajectory.joint_names = GROUP_JOINTS[hand + &#x27;_gripper&#x27;]
+            goal.trajectory.header.stamp.sec, goal.trajectory.header.stamp.nanosec = seconds, nanoseconds
+            legacy_phase = hand + &#x27;_grasp&#x27; if effort == 16 else hand + &#x27;_paired_empty&#x27;
+            goal.trajectory.points = self.gripper_trajectory_points(hand, value, legacy_phase, effort)
+            goal.goal_tolerance = [JointTolerance(name=name, position=.0002) for name in goal.trajectory.joint_names]
+            goal.goal_time_tolerance.sec = 6 if effort else 3
+            pending[hand] = self.gripper_actions[hand].send_goal_async(goal)
+        self.pair_goal_futures = pending
+        deadline = time.monotonic() + (240 if retrieval else 90)
+        while not all(future.done() for future in pending.values()):
+            self.spin()
+            if time.monotonic() &gt; deadline:
+                raise TimeoutError(&#x27;Paired gripper acceptance timeout&#x27;)
+        for hand, future in pending.items():
+            handle = future.result()
+            assert handle.accepted, hand + &#x27; paired gripper goal rejected&#x27;
+            self.pair_goal_handles[hand] = handle
+            self.accepted_gripper_targets[hand] = value
+            self.accepted_gripper_efforts[hand] = float(effort)
+            self.motion_count += 1
+            self.record(&#x27;gripper_goal_accepted&#x27;, dict(side=hand, target=value, feedforward_N=effort,
+                        common_start_sim=start, actual_pair_action=True))
+            complete[hand] = handle.get_result_async()
+        while not all(future.done() for future in complete.values()):
+            self.spin()
+            if time.monotonic() &gt; deadline:
+                raise TimeoutError(&#x27;Paired gripper result timeout&#x27;)
+        result_clock = self.sim
+        for hand, future in complete.items():
+            response = future.result()
+            self.record(&#x27;gripper_result&#x27;, dict(side=hand, target=value, status=response.status,
+                        error_code=response.result.error_code, error=response.result.error_string))
+            assert response.result.error_code == 0, response.result.error_string
+            self.require_gripper_endpoint(hand, value, result_clock)
+        self.pair_goal_handles.clear()
+        self.pair_goal_futures.clear()
+        self.retrieval_closing = False
+        self.dwell(self.paired_gripper_post_action_dwell())
+
+    def capture_pair(self, assignment, retrieval=False):
+        self.dwell(.25)
+        pair = self.measured_pair()
+        self.state.joint_positions = pair[&#x27;joints&#x27;][&#x27;positions&#x27;]
+        self.state.update()
+        for hand, payload in assignment.items():
+            pairs = self.contacts[payload]
+            loads = {str(number): sum(abs(float(np.dot(force, normal))) for contact in pairs
+                if hand + f&#x27;_dex1_finger_{number}_&#x27; in contact[&#x27;first&#x27;] + contact[&#x27;second&#x27;]
+                for force, normal in zip(contact[&#x27;force_vectors&#x27;], contact[&#x27;normals&#x27;])) for number in (1, 2)}
+            alias = dict(self.poses)
+            alias[&#x27;box48_&#x27; + hand] = self.poses[&#x27;box48_&#x27; + payload]
+            band = midband_contacts(alias, pairs, hand)
+            body = pose_matrix(pair[&#x27;poses&#x27;][&#x27;box48_&#x27; + payload])
+            if not retrieval:
+                expected = np.array([.44, .38 if payload == &#x27;left&#x27; else -.38, .84475])
+                assert np.linalg.norm(body[:3, 3] - expected) &lt; .0003
+                assert Rotation.from_matrix(body[:3, :3]).magnitude() &lt; math.radians(.2)
+            native = np.linalg.inv(pose_matrix(pair[&#x27;poses&#x27;][hand + &#x27;_wrist_yaw_link&#x27;])) @ body
+            fk = np.linalg.inv(self.state.get_global_link_transform(hand + &#x27;_wrist_yaw_link&#x27;)) @ body
+            proof = dict(source=&#x27;gazebo_physics_contact&#x27;, midband_verified=True, normal_loads_N=loads)
+            self.holders.begin(hand, payload, native, fk, pair[&#x27;pose_stamp&#x27;], proof)
+            self.holder_contexts[hand] = dict(retrieval=retrieval, coherent_reference_key=None,
+                coherent_reference=None, reference_native_bytes=None, last_coherent_record=-1.,
+                grasp_transform=self.holders.rows[hand][&#x27;fk_reference&#x27;],
+                native_grasp_transform=self.holders.rows[hand][&#x27;native_reference&#x27;])
+            self.record(&#x27;grip_preload&#x27;, dict(side=hand, payload=payload, normal_loads_N=loads))
+            self.record(&#x27;midband_contact_pass&#x27;, dict(side=hand, payload=payload, fingers=band))
+            self.record(&#x27;dual_holder_begin&#x27;, dict(hand=hand, payload=payload, certificate=proof,
+                        actual_joint_pair=pair[&#x27;joints&#x27;], paired_poses=pair[&#x27;poses&#x27;], frozen=self.holders.snapshot()[hand]))
+        self.synchronize_primary()
+        self.safety()
+
+    def maximum_loaded_rate(self, phase):
+        return .25
+
+    def fine_setdown_rate(self):
+        return .03
+
+    def paired_feedback_overlap_enabled(self):
+        return False
+
+    def paired_endpoint_stamp(self, target, not_before):
+        return self.sim if all(abs(self.positions[name] - value) &lt; .0003 for name, value in target.items()) else None
+
+    def common_timing(self, actual, samples, rate):
+        return common_arm_timing(actual, samples, rate)
+
+    def motion_limits(self, phase, requested_rate):
+        return bounded_motion(phase, requested_rate)
+
+    def coarse_setdown_rate(self):
+        return .20
+
+    def move(self, samples, phase, rate):
+        self.phase = phase
+        self.safety()
+        rate, tracking_limit = self.motion_limits(phase, rate)
+        if self.holders.rows and rate &gt; self.maximum_loaded_rate(phase):
+            raise ValueError(&#x27;Paired loaded rate cannot exceed its declared phase cap&#x27;)
+        timing = self.common_timing(self.positions, samples, rate)
+        start = self.sim + self.future_start_offset()
+        seconds, nanoseconds = validate_common_start(self.sim, start)
+        for group, names in timing[&#x27;groups&#x27;].items():
+            message = JointTrajectory(joint_names=names)
+            message.header.stamp.sec, message.header.stamp.nanosec = seconds, nanoseconds
+            for values, stamp in zip(timing[&#x27;points&#x27;], timing[&#x27;times&#x27;]):
+                point = JointTrajectoryPoint(positions=[float(values[name]) for name in names])
+                point.time_from_start.sec, point.time_from_start.nanosec = divmod(round(stamp * 1e9), 1000000000)
+                message.points.append(point)
+            self.publishers[group].publish(message)
+            self.motion_count += 1
+        self.record(&#x27;command&#x27;, dict(names=list(samples[0]), samples=samples, start=start, times=timing[&#x27;times&#x27;],
+                    initial=timing[&#x27;points&#x27;][0], actual_rate_rad_s=rate, groups=timing[&#x27;groups&#x27;],
+                    simultaneous_physical_controllers=True, holders=self.holders.snapshot()))
+        wall_watch = SimulationProgressWatch(timing[&#x27;duration_sim_s&#x27;], self.sim, time.monotonic())
+        self.record(&#x27;paired_motion_wall_budget&#x27;, dict(duration_sim_s=timing[&#x27;duration_sim_s&#x27;],
+                    budget_wall_s=wall_watch.budget_wall_s, seconds_per_sim_second=50,
+                    future_start_and_completion_margin_sim_s=self.future_start_offset() + .15, minimum_wall_s=60,
+                    maximum_wall_s=900, simulation_clock_must_advance_within_wall_s=2,
+                    command_paths_rates_and_sim_timestamps_unchanged=self.future_start_offset() == .3))
+        stable = None
+        while self.sim &lt; start + timing[&#x27;duration_sim_s&#x27;] + .15:
+            self.spin()
+            try:
+                wall_watch.observe(self.sim, time.monotonic())
+            except (TimeoutError, ValueError) as error:
+                self.record(&#x27;paired_motion_clock_fault&#x27;, dict(error=str(error), clock_sim=self.sim,
+                            required_finish_sim=start + timing[&#x27;duration_sim_s&#x27;] + .15,
+                            budget_wall_s=wall_watch.budget_wall_s))
+                raise
+            relative = self.joint_time - start
+            if relative &gt;= timing[&#x27;times&#x27;][0]:
+                for name in samples[0]:
+                    reference = float(np.interp(relative, timing[&#x27;times&#x27;], [point[name] for point in timing[&#x27;points&#x27;]]))
+                    if abs(self.positions[name] - reference) &gt; tracking_limit:
+                        self.record(&#x27;tracking_fault_sample&#x27;, dict(joint=name, actual=self.positions[name], reference=reference,
+                                    error_rad=self.positions[name] - reference, limit_rad=tracking_limit, joint_sim=self.joint_time))
+                        if tracking_limit == .002:
+                            raise RuntimeError(&#x27;Paired near-contact tracking exceeds stricter .002rad&#x27;)
+                        raise RuntimeError(&#x27;Paired actual tracking exceeds original .015rad&#x27;)
+            if self.paired_feedback_overlap_enabled():
+                stamp = self.paired_endpoint_stamp(samples[-1], start + timing[&#x27;duration_sim_s&#x27;])
+                if stamp is None or (stable is not None and stamp &lt; stable):
+                    stable = None
+                elif stable is None:
+                    stable = stamp
+        begin = self.sim
+        while self.sim - begin &lt; 5:
+            self.spin()
+            stamp = self.paired_endpoint_stamp(samples[-1], start + timing[&#x27;duration_sim_s&#x27;])
+            if stamp is not None:
+                stable = stamp if stable is None else stable
+                if stamp - stable &gt; .2:
+                    return
+            else:
+                stable = None
+        raise RuntimeError(&#x27;Paired actual endpoint failed original precision gate&#x27;)
+
+    def actual_plan(self, mode, assignment, retrieval=False):
+        self.safety()
+        self.worker_sequence += 1
+        pair = self.measured_pair()
+        positions, poses = dict(pair[&#x27;joints&#x27;][&#x27;positions&#x27;]), copy.deepcopy(pair[&#x27;poses&#x27;])
+        self.state.joint_positions = positions
+        self.state.update()
+        references = {hand: (np.linalg.inv(self.state.get_global_link_transform(hand + &#x27;_wrist_yaw_link&#x27;)) @
+                      pose_matrix(poses[&#x27;box48_&#x27; + payload])).tolist() for hand, payload in assignment.items()}
+        request = dict(mode=mode, assignment=assignment, positions=positions, poses=poses, retrieval=retrieval,
+                       source_sim=pair[&#x27;pose_stamp&#x27;], planning_references=references,
+                       original_runtime_holder_references=self.holders.snapshot(), runtime_reference_not_rebased=True)
+        if mode in (&#x27;empty_gripper_after_retreat&#x27;, &#x27;empty_return_after_gripper&#x27;):
+            request[&#x27;completed_empty_retreat_stages&#x27;] = list(self.completed_empty_retreat_stages)
+            request[&#x27;accepted_gripper_efforts&#x27;] = dict(self.accepted_gripper_efforts)
+        if mode in (&#x27;empty_return&#x27;, &#x27;empty_gripper_after_retreat&#x27;, &#x27;empty_return_after_gripper&#x27;):
+            if self.holders.rows or self.qualified_empty_retreat_guides is None:
+                raise ValueError(&#x27;Actual loaded-and-released guides required before empty retreat&#x27;)
+            request[&#x27;current_run_executed_loading_guides&#x27;] = copy.deepcopy(self.qualified_empty_retreat_guides)
+            request[&#x27;current_run_guide_identity&#x27;] = EVIDENCE.name
+        prefix = str(self.worker_sequence) + &#x27;_&#x27; + mode
+        source, output = EVIDENCE / &#x27;run&#x27; / (prefix + &#x27;_request.json&#x27;), EVIDENCE / &#x27;run&#x27; / (prefix + &#x27;_result.json&#x27;)
+        with source.open(&#x27;x&#x27;) as stream:
+            json.dump(request, stream, indent=2)
+        self.record(&#x27;paired_actual_planning_started&#x27;, dict(mode=mode, request=str(source), source_sim=pair[&#x27;pose_stamp&#x27;]))
+        with (EVIDENCE / &#x27;run&#x27; / (prefix + &#x27;_worker.log&#x27;)).open(&#x27;x&#x27;) as stream:
+            process = subprocess.Popen([&#x27;/usr/bin/python3&#x27;, str(EVIDENCE / &#x27;dual_worker.py&#x27;), str(source), str(output)],
+                stdin=subprocess.DEVNULL, stdout=stream, stderr=subprocess.STDOUT, start_new_session=True)
+            wait_for_planner(process, self.spin, timeout_s=120)
+        result = json.loads(output.read_text())
+        assert result[&#x27;status&#x27;] == &#x27;PASS&#x27; and result[&#x27;maximum_joint_step_rad&#x27;] == .002, result
+        joint_drift = max(abs(self.positions[name] - positions[name]) for name in TASK_JOINTS)
+        pose_drift = max(float(np.linalg.norm(pose_matrix(self.poses[&#x27;box48_&#x27; + payload])[:3, 3] -
+                    pose_matrix(poses[&#x27;box48_&#x27; + payload])[:3, 3])) for payload in assignment.values())
+        angle_drift = max(math.degrees(Rotation.from_matrix(pose_matrix(poses[&#x27;box48_&#x27; + payload])[:3, :3].T @
+                    pose_matrix(self.poses[&#x27;box48_&#x27; + payload])[:3, :3]).magnitude()) for payload in assignment.values())
+        self.record(&#x27;paired_actual_snapshot_checked&#x27;, dict(mode=mode, joint_drift_rad=joint_drift,
+                    pose_drift_m=pose_drift, angle_drift_deg=angle_drift))
+        assert joint_drift &lt;= .0003 and pose_drift &lt;= .0003 and angle_drift &lt;= .1
+        if mode in (&#x27;empty_gripper_after_retreat&#x27;, &#x27;empty_return_after_gripper&#x27;):
+            from gripper_return_geometry import verify_finger_snapshot
+            finger_drift = verify_finger_snapshot(self.positions, positions)
+            self.record(&#x27;post_retreat_actual_finger_snapshot_checked&#x27;, dict(mode=mode, maximum_drift_m=finger_drift, original_bound_m=.0003))
+        self.record(&#x27;paired_actual_collision_plan&#x27;, result)
+        return result
+
+    def check_pair_release(self):
+        for hand, held in self.holders.rows.items():
+            payload = held[&#x27;payload&#x27;]
+            body = pose_matrix(self.poses[&#x27;box48_&#x27; + payload])
+            bucket = pose_matrix(self.poses[&#x27;centrifuge&#x27;]) @ pose_matrix(self.poses[&#x27;bucket_&#x27; + payload])
+            assert np.linalg.norm(body[:2, 3] - bucket[:2, 3]) &lt;= .0005
+            assert abs(body[2, 3] - 1.07525) &lt;= .0005
+            assert Rotation.from_matrix(Rotation.from_euler(&#x27;z&#x27;, .309270119).as_matrix().T @ body[:3, :3]).magnitude() &lt;= math.radians(.25)
+            corners = np.array(list(itertools.product((-1, 1), repeat=3))) * np.array([.1187450051085, .08814010043, .0595]) / 2
+            local = (corners @ body[:3, :3].T + body[:3, 3] - bucket[:3, 3]) @ bucket[:3, :3]
+            assert np.max(np.abs(local[:, 0])) &lt;= .0448 and np.max(np.abs(local[:, 1])) &lt;= .0668
+            self.record(&#x27;lower_release_gate_pass&#x27;, dict(side=payload, hand=hand, poses=copy.deepcopy(self.poses),
+                        nominal_floor_gap_m=.023, no_physical_attachment=True))
+
+    def forget_released_pair(self, reason):
+        for hand in tuple(self.holders.rows):
+            payload = self.holders.rows[hand][&#x27;payload&#x27;]
+            self.record(&#x27;dual_holder_normal_release&#x27;, dict(hand=hand, payload=payload, reason=reason))
+            self.record(&#x27;coherent_guard_scope_end&#x27;, dict(previous_key=[hand, payload], hand=hand,
+                        source=&#x27;qualified_normal_release_not_preclaimed_empty_physics&#x27;))
+            self.holders.release(hand)
+            self.holder_contexts.pop(hand)
+        self.synchronize_primary()
+
+    def observe_pair_drop(self):
+        self.phase = &#x27;paired_load_drop_settling&#x27;
+        start = self.sim
+        stable, references, accepted = {}, {}, set()
+        while self.sim - start &lt; 8:
+            self.spin()
+            for payload in (&#x27;left&#x27;, &#x27;right&#x27;):
+                contacts = self.contacts[payload]
+                qualified = fully_inside_bucket(self.poses, payload) and abs(self.values[&#x27;machine&#x27;][&#x27;rotor_rpm&#x27;]) &lt;= .02
+                qualified = qualified and any(&#x27;bucket_&#x27; + payload in item[&#x27;first&#x27;] + item[&#x27;second&#x27;] for item in contacts)
+                qualified = qualified and not any(&#x27;dex1&#x27; in item[&#x27;first&#x27;] + item[&#x27;second&#x27;] for item in contacts)
+                corners = bucket_relative_corners(self.poses, payload)
+                if not qualified:
+                    accepted.discard(payload)
+                    stable.pop(payload, None)
+                    references.pop(payload, None)
+                elif payload not in references or np.max(np.abs(corners - references[payload])) &gt; .0005:
+                    accepted.discard(payload)
+                    references[payload], stable[payload] = corners, self.sim
+                elif payload not in accepted and self.sim - stable[payload] &gt;= 3:
+                    accepted.add(payload)
+                    self.record(&#x27;drop_acceptance_pass&#x27;, dict(side=payload, duration_sim_s=self.sim - stable[payload],
+                                corners_bucket_m=corners.tolist(), rotor_rpm=self.values[&#x27;machine&#x27;][&#x27;rotor_rpm&#x27;]))
+            if len(accepted) == 2:
+                self.drop_window_until = None
+                return
+        raise RuntimeError(&#x27;Both payloads did not naturally fall completely into their own baskets&#x27;)
+
+    def load_pair(self):
+        assignment = dict(left=&#x27;left&#x27;, right=&#x27;right&#x27;)
+        self.load_table_guard_active = True
+        self.prepare_loading_grippers()
+        pickup = self.actual_plan(&#x27;load_pickup&#x27;, assignment)
+        for stage in pickup[&#x27;stages&#x27;]:
+            self.move(stage[&#x27;samples&#x27;], &#x27;paired_load_&#x27; + stage[&#x27;phase&#x27;], .8)
+        self.paired_grippers(-.01901, 16, &#x27;paired_load_grasp&#x27;)
+        self.capture_pair(assignment)
+        self.load_table_guard_active = False
+        pilot = self.actual_plan(&#x27;pilot&#x27;, assignment)
+        self.move(pilot[&#x27;stages&#x27;][0][&#x27;samples&#x27;], &#x27;paired_load_pilot_lift&#x27;, .03)
+        self.dwell(.5)
+        for payload in assignment.values():
+            assert pose_matrix(self.poses[&#x27;box48_&#x27; + payload])[2, 3] &gt; .85475
+            assert not any(&#x27;table::&#x27; in item[&#x27;first&#x27;] + item[&#x27;second&#x27;] for item in self.contacts[payload])
+        self.phase = &#x27;paired_load_static_grip_hold&#x27;
+        began = self.sim
+        self.dwell(10)
+        for hand, payload in assignment.items():
+            self.record(&#x27;static_grip_hold_pass&#x27;, dict(side=hand, payload=payload, duration_sim_s=self.sim - began,
+                        each_actual_holder_guarded=True, native_slip_m=self.max_native_slip))
+        transport = self.actual_plan(&#x27;load_transport&#x27;, assignment)
+        retreat_guides = copy.deepcopy(transport[&#x27;stages&#x27;])
+        for index, stage in enumerate(transport[&#x27;stages&#x27;]):
+            self.move(stage[&#x27;samples&#x27;], &#x27;paired_load_&#x27; + stage[&#x27;phase&#x27;], .08 if index == len(transport[&#x27;stages&#x27;]) - 1 else .25)
+        self.dwell(.5)
+        try:
+            self.check_pair_release()
+        except AssertionError:
+            correction = self.actual_plan(&#x27;load_alignment&#x27;, assignment)
+            self.move(correction[&#x27;stages&#x27;][0][&#x27;samples&#x27;], &#x27;paired_load_alignment_correction&#x27;, .10)
+            retreat_guides.extend(copy.deepcopy(correction[&#x27;stages&#x27;]))
+            self.dwell(.5)
+            self.check_pair_release()
+        self.forget_released_pair(&#x27;both_actual_overhead_gates_passed&#x27;)
+        self.drop_window_until = self.sim + 8
+        self.paired_grippers(-.0199, 0, &#x27;paired_load_release_above_bucket&#x27;)
+        self.observe_pair_drop()
+        self.qualified_empty_retreat_guides = retreat_guides
+        self.record(&#x27;empty_retreat_current_run_guides_qualified&#x27;, dict(identity=EVIDENCE.name,
+                    loading_and_optional_correction_executed=True, both_actual_drops_passed=True,
+                    guides_only_route_proposals_not_measured_state_or_grip_reference=True,
+                    stages=len(retreat_guides)))
+        self.record(&#x27;LOADING_PASS&#x27;, dict(scope=&#x27;two_box_overhead_loading&#x27;, loading_complete=True,
+                    actual_two_holder_cycle=True, poses=copy.deepcopy(self.poses), motions=self.motion_count,
+                    max_slip_m=self.max_slip))
+
+    def return_neutral(self):
+        assert not self.holders.rows
+        planned = self.actual_plan(&#x27;empty_return&#x27;, dict(left=&#x27;left&#x27;, right=&#x27;right&#x27;))
+        for index, stage in enumerate(planned[&#x27;stages&#x27;]):
+            self.move(stage[&#x27;samples&#x27;], &#x27;machine_paired_&#x27; + stage[&#x27;phase&#x27;], .13 if index == 0 else .8)
+        self.paired_grippers(-.019, 0, &#x27;machine_paired_empty_grippers&#x27;)
+
+    def machine_cycle(self):
+        self.loaded = True
+        self.return_neutral()
+        self.press(&#x27;left&#x27;, &#x27;machine_close&#x27;)
+        self.phase = &#x27;machine_wait_closed&#x27;
+        self.wait(lambda: self.lid_ready(0) and self.values[&#x27;machine&#x27;][&#x27;can_start&#x27;])
+        self.record(&#x27;closed_loaded_pass&#x27;, self.values[&#x27;machine&#x27;])
+        self.watch_rotor = True
+        start_event, start_stamp = self.press(&#x27;right&#x27;, &#x27;machine_start&#x27;, return_home=False)
+        self.phase = &#x27;machine_running_steady&#x27;
+        self.wait(lambda: self.steady_start is not None)
+        self.spin()
+        rotor = pose_matrix(self.poses[&#x27;rotor&#x27;])
+        phase = math.atan2(rotor[1, 0], rotor[0, 0])
+        planned = schedule_nominal_phase(self.steady_start, self.pose_time, phase,
+                                        self.values[&#x27;machine&#x27;][&#x27;rotor_rad_s&#x27;], start_event[&#x27;sim_time&#x27;] - start_stamp)
+        self.record(&#x27;phase_aligned_stop_schedule&#x27;, planned)
+        stop_stamp = planned[&#x27;stroke_start_sim&#x27;]
+        self.wait_until_sim(stop_stamp - .5)
+        stop_event, unused = self.press(&#x27;right&#x27;, &#x27;machine_stop&#x27;, scheduled=stop_stamp)
+        duration = stop_event[&#x27;sim_time&#x27;] - self.steady_start
+        assert duration &gt;= 30 and duration &lt;= 32.4, duration
+        self.phase = &#x27;machine_stop_wait_quiet&#x27;
+        self.wait(lambda: self.values[&#x27;machine&#x27;][&#x27;can_open&#x27;] and not self.values[&#x27;machine&#x27;][&#x27;rotor_enabled&#x27;] and
+                  abs(self.values[&#x27;machine&#x27;][&#x27;rotor_rad_s&#x27;]) &lt; .02)
+        self.record(&#x27;rotor_stopped_before_lid&#x27;, self.values[&#x27;machine&#x27;])
+        self.press(&#x27;left&#x27;, &#x27;machine_final_open&#x27;)
+        self.phase = &#x27;machine_wait_final_open&#x27;
+        self.wait(lambda: self.lid_ready(math.radians(120)))
+        self.dwell(3)
+        self.record(&#x27;MACHINE_CYCLE_PASS&#x27;, dict(steady_run_sim_seconds=duration, final_machine=self.values[&#x27;machine&#x27;],
+                    retention_checks=self.retention_checks, retention_peaks=self.retention_peaks,
+                    maximum_zero_force_gap_sim_s={payload: guard.maximum_gap_s for payload, guard in self.support_continuity.items()},
+                    phase_aligned_by_real_physical_stop_button=True, original_30_3_window_passed=duration &lt;= 30.3,
+                    user_required_minimum_thirty_steady_seconds_preserved=True,
+                    actual_final_phase_not_assumed_equal_prediction=True))
+        self.loaded = False
+
+    def retrieve(self):
+        payloads = sorted((&#x27;left&#x27;, &#x27;right&#x27;), key=lambda payload: pose_matrix(self.poses[&#x27;box48_&#x27; + payload])[1, 3])
+        assignment = dict(right=payloads[0], left=payloads[1])
+        self.phase = &#x27;paired_retrieval_pickup_planning&#x27;
+        self.paired_grippers(-.0199, 0, &#x27;paired_retrieval_open_empty&#x27;)
+        pickup = self.actual_plan(&#x27;retrieval_pickup&#x27;, assignment, retrieval=True)
+        for stage in pickup[&#x27;stages&#x27;]:
+            self.move(stage[&#x27;samples&#x27;], &#x27;paired_retrieval_&#x27; + stage[&#x27;phase&#x27;], .8)
+        self.paired_grippers(-.01901, 16, &#x27;paired_retrieval_grasp&#x27;, retrieval=True)
+        self.capture_pair(assignment, retrieval=True)
+        pilot = self.actual_plan(&#x27;pilot&#x27;, assignment, retrieval=True)
+        self.move(pilot[&#x27;stages&#x27;][0][&#x27;samples&#x27;], &#x27;paired_retrieval_pilot_lift&#x27;, .03)
+        transport = self.actual_plan(&#x27;retrieval_transport&#x27;, assignment, retrieval=True)
+        for stage in transport[&#x27;stages&#x27;]:
+            phase = stage[&#x27;phase&#x27;]
+            if phase == &#x27;setdown&#x27;:
+                coarse, fine, split = split_paired_setdown(stage)
+                for hand, payload in assignment.items():
+                    self.record(&#x27;retrieval_setdown_braking&#x27;, dict(phase=hand + &#x27;_retrieval_setdown&#x27;, payload=payload,
+                                split_index=split, original_points=len(stage[&#x27;samples&#x27;]), unchanged_path=True,
+                                fine_rate_rad_s=self.fine_setdown_rate(), coarse_rate_rad_s=self.coarse_setdown_rate(), simultaneous_common_path=True))
+                self.move(coarse, &#x27;paired_retrieval_setdown&#x27;, self.coarse_setdown_rate())
+                self.move(fine, &#x27;paired_retrieval_setdown_fine&#x27;, self.fine_setdown_rate())
+                continue
+            self.move(stage[&#x27;samples&#x27;], &#x27;paired_retrieval_&#x27; + phase, .25)
+            if phase == &#x27;lift&#x27;:
+                self.pair_clearance_payloads = set(assignment.values())
+                self.safety()
+                self.phase = &#x27;paired_retrieval_static_grip_hold&#x27;
+                began = self.sim
+                self.dwell(10)
+                for hand, payload in assignment.items():
+                    self.record(&#x27;retrieval_static_grip_hold_pass&#x27;, dict(hand=hand, payload=payload,
+                        duration_sim_s=self.sim - began, hold_after_full_lift=True,
+                        clearance=clearance_metrics(self.poses, payload, self.contacts[payload], self.bucket_rim_z[payload])))
+        self.pair_clearance_payloads.clear()
+        self.return_hands = {payload: hand for hand, payload in assignment.items()}
+        self.return_table_yaws = transport[&#x27;table_yaws&#x27;]
+        self.dwell(.5)
+        for hand, payload in assignment.items():
+            expected = np.array([.44, .38 if hand == &#x27;left&#x27; else -.38, .84475])
+            assert np.linalg.norm(pose_matrix(self.poses[&#x27;box48_&#x27; + payload])[:3, 3] - expected) &lt; .002
+            assert any(&#x27;table::&#x27; in item[&#x27;first&#x27;] + item[&#x27;second&#x27;] for item in self.contacts[payload])
+            assert table_orientation_error(pose_matrix(self.poses[&#x27;box48_&#x27; + payload]), self.return_table_yaws[payload]) &lt; math.radians(2)
+            self.record(&#x27;return_table_target&#x27;, dict(hand=hand, payload=payload,
+                        yaw_rad=self.return_table_yaws[payload], actual_target_not_runtime_reference_rebase=True))
+        self.forget_released_pair(&#x27;both_actual_table_support_and_pose_gates_passed&#x27;)
+        self.paired_grippers(-.0199, 0, &#x27;paired_retrieval_release_on_table&#x27;)
+        references = {payload: pose_matrix(self.poses[&#x27;box48_&#x27; + payload]) for payload in assignment.values()}
+        start = self.sim
+        while self.sim - start &lt; 3:
+            self.spin()
+            for payload in assignment.values():
+                body = pose_matrix(self.poses[&#x27;box48_&#x27; + payload])
+                assert any(&#x27;table::&#x27; in item[&#x27;first&#x27;] + item[&#x27;second&#x27;] for item in self.contacts[payload])
+                assert not any(&#x27;dex1&#x27; in item[&#x27;first&#x27;] + item[&#x27;second&#x27;] for item in self.contacts[payload])
+                assert np.linalg.norm(body[:3, 3] - references[payload][:3, 3]) &lt; .0005
+        for payload in assignment.values():
+            self.verified_table_payloads.add(payload)
+            self.record(&#x27;table_return_pass&#x27;, dict(payload=payload, hand=self.return_hands[payload], duration_sim_s=self.sim - start))
+        self.terminal_hold(10)
+        assert not self.holders.rows and self.holding is None and self.held_payload is None
+        assert set(self.return_hands.values()) == {&#x27;left&#x27;, &#x27;right&#x27;}
+        assert [event[&#x27;button&#x27;] for event in self.events] == [&#x27;lid&#x27;, &#x27;lid&#x27;, &#x27;rotor&#x27;, &#x27;rotor&#x27;, &#x27;lid&#x27;]
+        assert self.values[&#x27;machine&#x27;][&#x27;starts&#x27;] == self.values[&#x27;machine&#x27;][&#x27;stops&#x27;] == 1
+        self.record(&#x27;PASS&#x27;, dict(scope=&#x27;two_box_load_close_spin_open_retrieve&#x27;, paired_actual_cycle=True,
+                    physical_press_events=self.events, final_machine=self.values[&#x27;machine&#x27;], poses=self.poses,
+                    motions=self.motion_count, max_slip_m=self.max_slip, max_native_slip_m=self.max_native_slip,
+                    actual_holder_registry=self.holders.snapshot()))
+
+    def run_complete(self):
+        self.record(&#x27;simulation_relaxation_declared&#x27;, dict(user_authorized=True, retrieval_transient_limit_rpm=.1,
+                    carry_angle_limit_deg=5, original_strict_certificate_not_claimed=True))
+        self.record(&#x27;paired_runtime_declared&#x27;, dict(physical_controllers=True, fixed_pelvis_x_m=.12,
+                    device_x_m=.52, two_independent_actual_holders=True, no_physical_attach_detach=True,
+                    common_arm_timestamps=True, original_20ms_2mm_5deg_and_3_10_30_certificates=True,
+                    actual_history_capacity=256, missing_pair_real_callback_drain_bound_wall_s=.010,
+                    maximum_actual_callback_drain=64, no_extrapolation_reference_rebase_or_ignored_native=True))
+        self.prepare_open()
+        self.load_pair()
+        self.machine_cycle()
+        self.retrieve()
+
+    def hold(self, error):
+        self.record(&#x27;paired_failure_holder_state&#x27;, dict(actual_holders=self.holders.snapshot(),
+                    accepted_gripper_targets=self.accepted_gripper_targets, accepted_efforts=self.accepted_gripper_efforts))
+        for handle in self.pair_goal_handles.values():
+            handle.cancel_goal_async()
+        for future in self.pair_goal_futures.values():
+            if future.done() and future.result().accepted:
+                future.result().cancel_goal_async()
+        return super().hold(error)
+</pre></body></html>

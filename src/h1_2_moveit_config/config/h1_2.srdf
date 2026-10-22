@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="h1_2">
+  <group name="left_arm">
+    <chain base_link="torso_link" tip_link="left_dex1_tcp"/>
+  </group>
+  <group name="right_arm">
+    <chain base_link="torso_link" tip_link="right_dex1_tcp"/>
+  </group>
+  <group name="right_arm_torso">
+    <joint name="torso_joint"/>
+    <group name="right_arm"/>
+  </group>
+  <group name="right_gripper">
+    <joint name="right_dex1_finger_1_joint"/>
+    <joint name="right_dex1_finger_2_joint"/>
+  </group>
+  <group name="left_gripper">
+    <joint name="left_dex1_finger_1_joint"/>
+    <joint name="left_dex1_finger_2_joint"/>
+  </group>
+  <group name="both_arms">
+    <group name="left_arm"/>
+    <group name="right_arm"/>
+  </group>
+
+  <end_effector
+    name="right_dex1_1"
+    parent_link="right_dex1_base_link"
+    group="right_gripper"
+    parent_group="right_arm"/>
+  <end_effector
+    name="left_dex1_1"
+    parent_link="left_dex1_base_link"
+    group="left_gripper"
+    parent_group="left_arm"/>
+
+  <group_state name="neutral" group="left_arm">
+    <joint name="left_shoulder_pitch_joint" value="0.0"/>
+    <joint name="left_shoulder_roll_joint" value="0.25"/>
+    <joint name="left_shoulder_yaw_joint" value="0.0"/>
+    <joint name="left_elbow_joint" value="0.60"/>
+    <joint name="left_wrist_roll_joint" value="0.0"/>
+    <joint name="left_wrist_pitch_joint" value="0.0"/>
+    <joint name="left_wrist_yaw_joint" value="0.0"/>
+  </group_state>
+  <group_state name="neutral" group="right_arm">
+    <joint name="right_shoulder_pitch_joint" value="0.0"/>
+    <joint name="right_shoulder_roll_joint" value="-0.25"/>
+    <joint name="right_shoulder_yaw_joint" value="0.0"/>
+    <joint name="right_elbow_joint" value="0.60"/>
+    <joint name="right_wrist_roll_joint" value="0.0"/>
+    <joint name="right_wrist_pitch_joint" value="0.0"/>
+    <joint name="right_wrist_yaw_joint" value="0.0"/>
+  </group_state>
+  <group_state name="neutral" group="right_arm_torso">
+    <joint name="torso_joint" value="0.0"/>
+    <joint name="right_shoulder_pitch_joint" value="0.0"/>
+    <joint name="right_shoulder_roll_joint" value="-0.25"/>
+    <joint name="right_shoulder_yaw_joint" value="0.0"/>
+    <joint name="right_elbow_joint" value="0.60"/>
+    <joint name="right_wrist_roll_joint" value="0.0"/>
+    <joint name="right_wrist_pitch_joint" value="0.0"/>
+    <joint name="right_wrist_yaw_joint" value="0.0"/>
+  </group_state>
+  <group_state name="neutral" group="both_arms">
+    <joint name="left_shoulder_pitch_joint" value="0.0"/>
+    <joint name="left_shoulder_roll_joint" value="0.25"/>
+    <joint name="left_shoulder_yaw_joint" value="0.0"/>
+    <joint name="left_elbow_joint" value="0.60"/>
+    <joint name="left_wrist_roll_joint" value="0.0"/>
+    <joint name="left_wrist_pitch_joint" value="0.0"/>
+    <joint name="left_wrist_yaw_joint" value="0.0"/>
+    <joint name="right_shoulder_pitch_joint" value="0.0"/>
+    <joint name="right_shoulder_roll_joint" value="-0.25"/>
+    <joint name="right_shoulder_yaw_joint" value="0.0"/>
+    <joint name="right_elbow_joint" value="0.60"/>
+    <joint name="right_wrist_roll_joint" value="0.0"/>
+    <joint name="right_wrist_pitch_joint" value="0.0"/>
+    <joint name="right_wrist_yaw_joint" value="0.0"/>
+  </group_state>
+  <group_state name="open" group="right_gripper">
+    <joint name="right_dex1_finger_1_joint" value="-0.019"/>
+    <joint name="right_dex1_finger_2_joint" value="-0.019"/>
+  </group_state>
+  <group_state name="closed" group="right_gripper">
+    <joint name="right_dex1_finger_1_joint" value="0.0245"/>
+    <joint name="right_dex1_finger_2_joint" value="0.0245"/>
+  </group_state>
+  <group_state name="open" group="left_gripper">
+    <joint name="left_dex1_finger_1_joint" value="-0.019"/>
+    <joint name="left_dex1_finger_2_joint" value="-0.019"/>
+  </group_state>
+  <group_state name="closed" group="left_gripper">
+    <joint name="left_dex1_finger_1_joint" value="0.0245"/>
+    <joint name="left_dex1_finger_2_joint" value="0.0245"/>
+  </group_state>
+
+  <virtual_joint name="fixed_base" type="fixed" parent_frame="world" child_link="pelvis"/>
+
+  <disable_collisions link1="pelvis" link2="left_hip_yaw_link" reason="Adjacent"/>
+  <disable_collisions link1="left_hip_yaw_link" link2="left_hip_pitch_link" reason="Adjacent"/>
+  <disable_collisions link1="left_hip_pitch_link" link2="left_hip_roll_link" reason="Adjacent"/>
+  <disable_collisions link1="left_hip_roll_link" link2="left_knee_link" reason="Adjacent"/>
+  <disable_collisions link1="left_knee_link" link2="left_ankle_pitch_link" reason="Adjacent"/>
+  <disable_collisions link1="left_ankle_pitch_link" link2="left_ankle_roll_link" reason="Adjacent"/>
+  <disable_collisions link1="pelvis" link2="right_hip_yaw_link" reason="Adjacent"/>
+  <disable_collisions link1="right_hip_yaw_link" link2="right_hip_pitch_link" reason="Adjacent"/>
+  <disable_collisions link1="right_hip_pitch_link" link2="right_hip_roll_link" reason="Adjacent"/>
+  <disable_collisions link1="right_hip_roll_link" link2="right_knee_link" reason="Adjacent"/>
+  <disable_collisions link1="right_knee_link" link2="right_ankle_pitch_link" reason="Adjacent"/>
+  <disable_collisions link1="right_ankle_pitch_link" link2="right_ankle_roll_link" reason="Adjacent"/>
+  <disable_collisions link1="pelvis" link2="torso_link" reason="Adjacent"/>
+  <disable_collisions link1="torso_link" link2="left_shoulder_pitch_link" reason="Adjacent"/>
+  <disable_collisions link1="left_shoulder_pitch_link" link2="left_shoulder_roll_link" reason="Adjacent"/>
+  <disable_collisions link1="left_shoulder_roll_link" link2="left_shoulder_yaw_link" reason="Adjacent"/>
+  <disable_collisions link1="left_shoulder_yaw_link" link2="left_elbow_link" reason="Adjacent"/>
+  <disable_collisions link1="left_elbow_link" link2="left_wrist_roll_link" reason="Adjacent"/>
+  <disable_collisions link1="left_wrist_roll_link" link2="left_wrist_pitch_link" reason="Adjacent"/>
+  <disable_collisions link1="left_wrist_pitch_link" link2="left_wrist_yaw_link" reason="Adjacent"/>
+  <disable_collisions link1="left_wrist_yaw_link" link2="left_dex1_adapter_link" reason="Adjacent"/>
+  <disable_collisions link1="left_wrist_yaw_link" link2="left_dex1_base_link" reason="Never"/>
+  <disable_collisions link1="left_dex1_adapter_link" link2="left_dex1_base_link" reason="Adjacent"/>
+  <disable_collisions link1="left_dex1_base_link" link2="left_dex1_finger_1_slider_link" reason="Adjacent"/>
+  <disable_collisions link1="left_dex1_base_link" link2="left_dex1_finger_1_link" reason="Never"/>
+  <disable_collisions link1="left_dex1_base_link" link2="left_dex1_finger_1_pad_link" reason="Never"/>
+  <disable_collisions link1="left_dex1_base_link" link2="left_dex1_finger_2_slider_link" reason="Adjacent"/>
+  <disable_collisions link1="left_dex1_base_link" link2="left_dex1_finger_2_link" reason="Never"/>
+  <disable_collisions link1="left_dex1_base_link" link2="left_dex1_finger_2_pad_link" reason="Never"/>
+  <disable_collisions link1="left_dex1_finger_1_slider_link" link2="left_dex1_finger_1_link" reason="Adjacent"/>
+  <disable_collisions link1="left_dex1_finger_1_link" link2="left_dex1_finger_1_pad_link" reason="Adjacent"/>
+  <disable_collisions link1="left_dex1_finger_2_slider_link" link2="left_dex1_finger_2_link" reason="Adjacent"/>
+  <disable_collisions link1="left_dex1_finger_2_link" link2="left_dex1_finger_2_pad_link" reason="Adjacent"/>
+  <disable_collisions link1="torso_link" link2="right_shoulder_pitch_link" reason="Adjacent"/>
+  <disable_collisions link1="right_shoulder_pitch_link" link2="right_shoulder_roll_link" reason="Adjacent"/>
+  <disable_collisions link1="right_shoulder_roll_link" link2="right_shoulder_yaw_link" reason="Adjacent"/>
+  <disable_collisions link1="right_shoulder_yaw_link" link2="right_elbow_link" reason="Adjacent"/>
+  <disable_collisions link1="right_elbow_link" link2="right_wrist_roll_link" reason="Adjacent"/>
+  <disable_collisions link1="right_wrist_roll_link" link2="right_wrist_pitch_link" reason="Adjacent"/>
+  <disable_collisions link1="right_wrist_pitch_link" link2="right_wrist_yaw_link" reason="Adjacent"/>
+  <disable_collisions link1="right_wrist_yaw_link" link2="right_dex1_adapter_link" reason="Adjacent"/>
+  <disable_collisions link1="right_wrist_yaw_link" link2="right_dex1_base_link" reason="Never"/>
+  <disable_collisions link1="right_dex1_adapter_link" link2="right_dex1_base_link" reason="Adjacent"/>
+  <disable_collisions link1="right_dex1_base_link" link2="right_dex1_finger_1_slider_link" reason="Adjacent"/>
+  <disable_collisions link1="right_dex1_base_link" link2="right_dex1_finger_1_link" reason="Never"/>
+  <disable_collisions link1="right_dex1_base_link" link2="right_dex1_finger_1_pad_link" reason="Never"/>
+  <disable_collisions link1="right_dex1_base_link" link2="right_dex1_finger_2_slider_link" reason="Adjacent"/>
+  <disable_collisions link1="right_dex1_base_link" link2="right_dex1_finger_2_link" reason="Never"/>
+  <disable_collisions link1="right_dex1_base_link" link2="right_dex1_finger_2_pad_link" reason="Never"/>
+  <disable_collisions link1="right_dex1_finger_1_slider_link" link2="right_dex1_finger_1_link" reason="Adjacent"/>
+  <disable_collisions link1="right_dex1_finger_1_link" link2="right_dex1_finger_1_pad_link" reason="Adjacent"/>
+  <disable_collisions link1="right_dex1_finger_2_slider_link" link2="right_dex1_finger_2_link" reason="Adjacent"/>
+  <disable_collisions link1="right_dex1_finger_2_link" link2="right_dex1_finger_2_pad_link" reason="Adjacent"/>
+  <disable_collisions link1="torso_link" link2="logo_link" reason="Adjacent"/>
+  <disable_collisions link1="torso_link" link2="imu_link" reason="Adjacent"/>
+  <disable_collisions link1="torso_link" link2="camera_link" reason="Adjacent"/>
+  <disable_collisions link1="torso_link" link2="lidar_link" reason="Adjacent"/>
+</robot>

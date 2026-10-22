@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <model name="lab_48box">
+    <static>false</static>
+    <link name="body">
+      <gravity>true</gravity>
+      <inertial>
+        <mass>0.122825</mass>
+        <inertia>
+          <ixx>0.00011575158300754358</ixx>
+          <iyy>0.00018055915980909063</iyy>
+          <izz>0.0002238388751083009</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="48box_visual">
+        <pose>-0.053550002635 -0.03825244848450001 -0.01955 1.5707963267948966 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/lab_48box/meshes/48box.stl</uri>
+            <scale>0.00085 0.00085 0.00085</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.18 0.55 0.72 1</ambient>
+          <diffuse>0.18 0.55 0.72 1</diffuse>
+          <specular>0.15 0.15 0.15 1</specular>
+        </material>
+      </visual>
+      <collision name="48box_outer_envelope">
+        <geometry>
+          <box><size>0.1187450051085 0.08814010043 0.0595</size></box>
+        </geometry>
+        <surface>
+          <friction><ode><mu>0.6</mu><mu2>0.6</mu2></ode></friction>
+        </surface>
+      </collision>
+      <sensor name="payload_contact" type="contact">
+        <always_on>true</always_on>
+        <update_rate>100</update_rate>
+        <contact>
+          <collision>48box_outer_envelope</collision>
+          <topic>/lab_48box/contacts</topic>
+        </contact>
+      </sensor>
+    </link>
+  </model>
+</sdf>

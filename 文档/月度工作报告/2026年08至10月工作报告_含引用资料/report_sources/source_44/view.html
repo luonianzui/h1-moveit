@@ -1,0 +1,291 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>视觉软件发布清单</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>视觉软件发布清单</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="manifest.json">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/vision/station/dist/station_tcp_windows/manifest.json</p><pre>{
+  &quot;application&quot;: &quot;Station TCP detector&quot;,
+  &quot;target&quot;: &quot;Windows 10/11 x64&quot;,
+  &quot;python&quot;: &quot;3.11.9 embeddable x64&quot;,
+  &quot;backend&quot;: &quot;PyTorch CPU&quot;,
+  &quot;python_download&quot;: &quot;https://www.python.org/ftp/python/3.11.9/python-3.11.9-embed-amd64.zip&quot;,
+  &quot;python_archive_sha256&quot;: &quot;009d6bf7e3b2ddca3d784fa09f90fe54336d5b60f0e0f305c37f400bf83cfd3b&quot;,
+  &quot;yolov5_commit&quot;: &quot;70b964b6d5067fff621f724c85d0e39e6b4c8e4e&quot;,
+  &quot;model_sha256&quot;: &quot;92cc0fdcc3a14fd86f9ccd08178d41c3ce9729b218189b5d193a6726d1d4fa9a&quot;,
+  &quot;classes&quot;: [
+    &quot;ls_board&quot;,
+    &quot;antibody_kit&quot;,
+    &quot;tip_box&quot;,
+    &quot;96_board&quot;
+  ],
+  &quot;created_utc&quot;: &quot;2026-09-17T09:18:47.588470+00:00&quot;,
+  &quot;packages&quot;: [
+    {
+      &quot;name&quot;: &quot;certifi&quot;,
+      &quot;version&quot;: &quot;2026.7.22&quot;,
+      &quot;wheel&quot;: &quot;certifi-2026.7.22-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775&quot;
+    },
+    {
+      &quot;name&quot;: &quot;charset-normalizer&quot;,
+      &quot;version&quot;: &quot;3.5.1&quot;,
+      &quot;wheel&quot;: &quot;charset_normalizer-3.5.1-cp311-cp311-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;f9b1e28d0e8dbfa858abdba91d6b547beaf2df1a59bec6da6faae7b96a4991a9&quot;
+    },
+    {
+      &quot;name&quot;: &quot;colorama&quot;,
+      &quot;version&quot;: &quot;0.4.6&quot;,
+      &quot;wheel&quot;: &quot;colorama-0.4.6-py2.py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6&quot;
+    },
+    {
+      &quot;name&quot;: &quot;contourpy&quot;,
+      &quot;version&quot;: &quot;1.3.3&quot;,
+      &quot;wheel&quot;: &quot;contourpy-1.3.3-cp311-cp311-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;3519428f6be58431c56581f1694ba8e50626f2dd550af225f82fb5f5814d2a42&quot;
+    },
+    {
+      &quot;name&quot;: &quot;cycler&quot;,
+      &quot;version&quot;: &quot;0.12.1&quot;,
+      &quot;wheel&quot;: &quot;cycler-0.12.1-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30&quot;
+    },
+    {
+      &quot;name&quot;: &quot;filelock&quot;,
+      &quot;version&quot;: &quot;4.0.0&quot;,
+      &quot;wheel&quot;: &quot;filelock-4.0.0-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;a850aa9ec2acba8db9ca2e9fcf8a327fbc2f85e432725715b37bd76b7dd1f798&quot;
+    },
+    {
+      &quot;name&quot;: &quot;fonttools&quot;,
+      &quot;version&quot;: &quot;4.65.0&quot;,
+      &quot;wheel&quot;: &quot;fonttools-4.65.0-cp311-cp311-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;9f201796c8e24e657be77c16fa664e798a46122144217f90838982937a964f0a&quot;
+    },
+    {
+      &quot;name&quot;: &quot;fsspec&quot;,
+      &quot;version&quot;: &quot;2026.7.0&quot;,
+      &quot;wheel&quot;: &quot;fsspec-2026.7.0-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;b57ddbafedfaef7018c1ecab32aa200a9d7ca26b77965f64e48b70061249d279&quot;
+    },
+    {
+      &quot;name&quot;: &quot;gitdb&quot;,
+      &quot;version&quot;: &quot;4.0.12&quot;,
+      &quot;wheel&quot;: &quot;gitdb-4.0.12-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;67073e15955400952c6565cc3e707c554a4eea2e428946f7a4c162fab9bd9bcf&quot;
+    },
+    {
+      &quot;name&quot;: &quot;GitPython&quot;,
+      &quot;version&quot;: &quot;3.1.62&quot;,
+      &quot;wheel&quot;: &quot;gitpython-3.1.62-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;7002251225e10e29d2e1f49e6532613fe5d5d9f0b6f1f02997a52b38fe56899e&quot;
+    },
+    {
+      &quot;name&quot;: &quot;idna&quot;,
+      &quot;version&quot;: &quot;3.19&quot;,
+      &quot;wheel&quot;: &quot;idna-3.19-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;815e7be7a7806d54abb586dc943addc79e8b2ee16915059658cbeff4b1b43bf4&quot;
+    },
+    {
+      &quot;name&quot;: &quot;Jinja2&quot;,
+      &quot;version&quot;: &quot;3.1.6&quot;,
+      &quot;wheel&quot;: &quot;jinja2-3.1.6-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67&quot;
+    },
+    {
+      &quot;name&quot;: &quot;kiwisolver&quot;,
+      &quot;version&quot;: &quot;1.5.1&quot;,
+      &quot;wheel&quot;: &quot;kiwisolver-1.5.1-cp311-cp311-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;1a7587dc335f2c0f5bd577fd0540bd16c66006bdb60f759a1059f025e6c4f071&quot;
+    },
+    {
+      &quot;name&quot;: &quot;MarkupSafe&quot;,
+      &quot;version&quot;: &quot;3.0.3&quot;,
+      &quot;wheel&quot;: &quot;markupsafe-3.0.3-cp311-cp311-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;de8a88e63464af587c950061a5e6a67d3632e36df62b986892331d4620a35c01&quot;
+    },
+    {
+      &quot;name&quot;: &quot;matplotlib&quot;,
+      &quot;version&quot;: &quot;3.9.4&quot;,
+      &quot;wheel&quot;: &quot;matplotlib-3.9.4-cp311-cp311-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;1f6882828231eca17f501c4dcd98a05abb3f03d157fbc0769c6911fe08b6cfd3&quot;
+    },
+    {
+      &quot;name&quot;: &quot;mpmath&quot;,
+      &quot;version&quot;: &quot;1.3.0&quot;,
+      &quot;wheel&quot;: &quot;mpmath-1.3.0-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c&quot;
+    },
+    {
+      &quot;name&quot;: &quot;networkx&quot;,
+      &quot;version&quot;: &quot;3.6.1&quot;,
+      &quot;wheel&quot;: &quot;networkx-3.6.1-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;d47fbf302e7d9cbbb9e2555a0d267983d2aa476bac30e90dfbe5669bd57f3762&quot;
+    },
+    {
+      &quot;name&quot;: &quot;numpy&quot;,
+      &quot;version&quot;: &quot;1.26.4&quot;,
+      &quot;wheel&quot;: &quot;numpy-1.26.4-cp311-cp311-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;cd25bcecc4974d09257ffcd1f098ee778f7834c3ad767fe5db785be9a4aa9cb2&quot;
+    },
+    {
+      &quot;name&quot;: &quot;opencv-python&quot;,
+      &quot;version&quot;: &quot;4.11.0.86&quot;,
+      &quot;wheel&quot;: &quot;opencv_python-4.11.0.86-cp37-abi3-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;085ad9b77c18853ea66283e98affefe2de8cc4c1f43eda4c100cf9b2721142ec&quot;
+    },
+    {
+      &quot;name&quot;: &quot;packaging&quot;,
+      &quot;version&quot;: &quot;26.3&quot;,
+      &quot;wheel&quot;: &quot;packaging-26.3-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c&quot;
+    },
+    {
+      &quot;name&quot;: &quot;pandas&quot;,
+      &quot;version&quot;: &quot;2.2.3&quot;,
+      &quot;wheel&quot;: &quot;pandas-2.2.3-cp311-cp311-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;3fc6873a41186404dad67245896a6e440baacc92f5b716ccd1bc9ed2995ab2c5&quot;
+    },
+    {
+      &quot;name&quot;: &quot;pillow&quot;,
+      &quot;version&quot;: &quot;11.3.0&quot;,
+      &quot;wheel&quot;: &quot;pillow-11.3.0-cp311-cp311-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;1a992e86b0dd7aeb1f053cd506508c0999d710a8f07b4c791c63843fc6a807ac&quot;
+    },
+    {
+      &quot;name&quot;: &quot;polars&quot;,
+      &quot;version&quot;: &quot;1.44.2&quot;,
+      &quot;wheel&quot;: &quot;polars-1.44.2-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;1bb331f17a40d9d931101533dcd33637b66edc61eb377b07020dac16a0f0377b&quot;
+    },
+    {
+      &quot;name&quot;: &quot;polars-runtime-32&quot;,
+      &quot;version&quot;: &quot;1.44.2&quot;,
+      &quot;wheel&quot;: &quot;polars_runtime_32-1.44.2-cp310-abi3-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;8598e7a20efba70bb74978c7df7af7c606ff4d79b9b48fdd808250b189bc9a13&quot;
+    },
+    {
+      &quot;name&quot;: &quot;psutil&quot;,
+      &quot;version&quot;: &quot;7.2.2&quot;,
+      &quot;wheel&quot;: &quot;psutil-7.2.2-cp37-abi3-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;eb7e81434c8d223ec4a219b5fc1c47d0417b12be7ea866e24fb5ad6e84b3d988&quot;
+    },
+    {
+      &quot;name&quot;: &quot;pyparsing&quot;,
+      &quot;version&quot;: &quot;3.3.2&quot;,
+      &quot;wheel&quot;: &quot;pyparsing-3.3.2-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;850ba148bd908d7e2411587e247a1e4f0327839c40e2e5e6d05a007ecc69911d&quot;
+    },
+    {
+      &quot;name&quot;: &quot;python-dateutil&quot;,
+      &quot;version&quot;: &quot;2.9.0.post0&quot;,
+      &quot;wheel&quot;: &quot;python_dateutil-2.9.0.post0-py2.py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427&quot;
+    },
+    {
+      &quot;name&quot;: &quot;pytz&quot;,
+      &quot;version&quot;: &quot;2026.3.post1&quot;,
+      &quot;wheel&quot;: &quot;pytz-2026.3.post1-py2.py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;dd95840dd199baea12d9cc096a1d452caa6596a1c1e4b5f3dbd1541855d5e815&quot;
+    },
+    {
+      &quot;name&quot;: &quot;PyYAML&quot;,
+      &quot;version&quot;: &quot;6.0.3&quot;,
+      &quot;wheel&quot;: &quot;pyyaml-6.0.3-cp311-cp311-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;9f3bfb4965eb874431221a3ff3fdcddc7e74e3b07799e0e84ca4a0f867d449bf&quot;
+    },
+    {
+      &quot;name&quot;: &quot;requests&quot;,
+      &quot;version&quot;: &quot;2.32.5&quot;,
+      &quot;wheel&quot;: &quot;requests-2.32.5-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;2462f94637a34fd532264295e186976db0f5d453d1cdd31473c85a6a161affb6&quot;
+    },
+    {
+      &quot;name&quot;: &quot;scipy&quot;,
+      &quot;version&quot;: &quot;1.14.1&quot;,
+      &quot;wheel&quot;: &quot;scipy-1.14.1-cp311-cp311-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;716e389b694c4bb564b4fc0c51bc84d381735e0d39d3f26ec1af2556ec6aad94&quot;
+    },
+    {
+      &quot;name&quot;: &quot;seaborn&quot;,
+      &quot;version&quot;: &quot;0.13.2&quot;,
+      &quot;wheel&quot;: &quot;seaborn-0.13.2-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;636f8336facf092165e27924f223d3c62ca560b1f2bb5dff7ab7fad265361987&quot;
+    },
+    {
+      &quot;name&quot;: &quot;setuptools&quot;,
+      &quot;version&quot;: &quot;84.0.0&quot;,
+      &quot;wheel&quot;: &quot;setuptools-84.0.0-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;51a52592b3b99e102b609654876bd65f19f999935166d1352678931132b0c670&quot;
+    },
+    {
+      &quot;name&quot;: &quot;six&quot;,
+      &quot;version&quot;: &quot;1.17.0&quot;,
+      &quot;wheel&quot;: &quot;six-1.17.0-py2.py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274&quot;
+    },
+    {
+      &quot;name&quot;: &quot;smmap&quot;,
+      &quot;version&quot;: &quot;5.0.3&quot;,
+      &quot;wheel&quot;: &quot;smmap-5.0.3-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;c106e05d5a61449cf6ba9a1e650227ecfb141590d2a98412103ff35d89fc7b2f&quot;
+    },
+    {
+      &quot;name&quot;: &quot;sympy&quot;,
+      &quot;version&quot;: &quot;1.13.1&quot;,
+      &quot;wheel&quot;: &quot;sympy-1.13.1-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;db36cdc64bf61b9b24578b6f7bab1ecdd2452cf008f34faa33776680c26d66f8&quot;
+    },
+    {
+      &quot;name&quot;: &quot;torch&quot;,
+      &quot;version&quot;: &quot;2.5.1+cpu&quot;,
+      &quot;wheel&quot;: &quot;torch-2.5.1+cpu-cp311-cp311-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;81531d4d5ca74163dc9574b87396531e546a60cceb6253303c7db6a21e867fdf&quot;
+    },
+    {
+      &quot;name&quot;: &quot;torchvision&quot;,
+      &quot;version&quot;: &quot;0.20.1+cpu&quot;,
+      &quot;wheel&quot;: &quot;torchvision-0.20.1+cpu-cp311-cp311-win_amd64.whl&quot;,
+      &quot;sha256&quot;: &quot;ebdeb19a49da0b5d11cc512a76b24a43971e17cfb9c1ec42564d0e300670d5fa&quot;
+    },
+    {
+      &quot;name&quot;: &quot;tqdm&quot;,
+      &quot;version&quot;: &quot;4.70.1&quot;,
+      &quot;wheel&quot;: &quot;tqdm-4.70.1-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73&quot;
+    },
+    {
+      &quot;name&quot;: &quot;typing_extensions&quot;,
+      &quot;version&quot;: &quot;4.16.0&quot;,
+      &quot;wheel&quot;: &quot;typing_extensions-4.16.0-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8&quot;
+    },
+    {
+      &quot;name&quot;: &quot;tzdata&quot;,
+      &quot;version&quot;: &quot;2026.4&quot;,
+      &quot;wheel&quot;: &quot;tzdata-2026.4-py2.py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;c2169a8b0a7a5e9674da5a135ccdfb2b3e671b333ed9fed17b41f73c34476e81&quot;
+    },
+    {
+      &quot;name&quot;: &quot;ultralytics&quot;,
+      &quot;version&quot;: &quot;8.4.47&quot;,
+      &quot;wheel&quot;: &quot;ultralytics-8.4.47-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;0e2e0c0c85a90177db02816ae777649adbae234ae50cc40c057dd18b21211257&quot;
+    },
+    {
+      &quot;name&quot;: &quot;ultralytics-thop&quot;,
+      &quot;version&quot;: &quot;2.1.6&quot;,
+      &quot;wheel&quot;: &quot;ultralytics_thop-2.1.6-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;23f7b8ad124fa3432c1a7de9279102c4fdda699216032a7dff49f87ec3d1a3af&quot;
+    },
+    {
+      &quot;name&quot;: &quot;urllib3&quot;,
+      &quot;version&quot;: &quot;2.8.0&quot;,
+      &quot;wheel&quot;: &quot;urllib3-2.8.0-py3-none-any.whl&quot;,
+      &quot;sha256&quot;: &quot;0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3&quot;
+    }
+  ],
+  &quot;microsoft_runtime&quot;: &quot;14.44.35211.0&quot;,
+  &quot;validation_environment&quot;: &quot;Windows-native Python/wheels under Wine 9.0 on Linux; not physical Windows hardware&quot;,
+  &quot;camera_tested&quot;: false,
+  &quot;external_tcp_server_tested&quot;: false
+}</pre></body></html>

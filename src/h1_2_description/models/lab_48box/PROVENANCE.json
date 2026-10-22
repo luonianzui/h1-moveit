@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-23",
+  "source": "/home/liu/交付/48box.stl",
+  "source_sha256": "8a3b1ad5452064a92bc4d9b09233a1f433d63b9735b18f088f69a9cb7bac5720",
+  "triangles": 61074,
+  "raw_stl_unchanged": true,
+  "unit_assumption": "Millimetres, consistent with delivered centrifuge; STL has no embedded units",
+  "metric_scale": 0.001,
+  "fit_scaling": 0.85,
+  "fit_scaling_authorization": "2026-09-23 user explicitly chose 85 percent uniform scaling; keep centrifuge buckets unchanged",
+  "cad_minimum_mm": [-96.84999847, -12.0, -132.8500061],
+  "cad_maximum_mm": [6.84423733, 58.0, 6.8499999],
+  "original_model_size_xyz_m": [0.13970000601, 0.1036942358, 0.07],
+  "model_size_xyz_m": [0.1187450051085, 0.08814010043, 0.0595],
+  "cad_up_axis_assumption": "+Y",
+  "collision": "Conservative full outer AABB; wells and small bottom recesses are not free collision space",
+  "mass_kg_assumption": 0.122825,
+  "inertia_assumption": "Uniform solid cuboid matching conservative envelope, not measured CAD mass",
+  "table_spawn_world_xyz": {
+    "box48_left": [0.44, 0.38, 0.84575],
+    "box48_right": [0.44, -0.38, 0.84575]
+  },
+  "table_top_m": 0.815,
+  "initial_bottom_gap_m": 0.001,
+  "bucket_inner_short_long_m": [0.09, 0.134],
+  "fits_bucket_upright_original_size": false,
+  "robot_loading_validated": false,
+  "simulation_only": true
+}

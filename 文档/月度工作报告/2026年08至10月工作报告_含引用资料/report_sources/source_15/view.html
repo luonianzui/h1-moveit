@@ -1,0 +1,244 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>按钮离线规划</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>按钮离线规划</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="centrifuge_press_plan.py">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_robot_press_20260922_r119/source_snapshot/src/h1_2_moveit_config/scripts/centrifuge_press_plan.py</p><pre>#!/usr/bin/python3
+import argparse
+import hashlib
+import json
+import math
+from pathlib import Path
+import xml.etree.ElementTree as ET
+
+import numpy as np
+from scipy.optimize import least_squares
+from scipy.spatial.transform import Rotation
+import yaml
+
+
+def transform(values):
+    values = [float(value) for value in values.split()]
+    matrix = np.eye(4)
+    matrix[:3, :3] = Rotation.from_euler(&#x27;xyz&#x27;, values[3:]).as_matrix()
+    matrix[:3, 3] = values[:3]
+    return matrix
+
+
+def mesh_vertices(path):
+    records = np.frombuffer(path.read_bytes(), offset=84, dtype=np.dtype([
+        (&#x27;normal&#x27;, &#x27;&lt;f4&#x27;, (3,)), (&#x27;vertices&#x27;, &#x27;&lt;f4&#x27;, (3, 3)), (&#x27;attribute&#x27;, &#x27;&lt;u2&#x27;)]))
+    return records[&#x27;vertices&#x27;].astype(float)
+
+
+class PressPlanner:
+    def __init__(self, root, urdf, passive_state=None):
+        from moveit.core.robot_model import RobotModel
+        from moveit.core.robot_state import RobotState
+        from moveit.core.planning_scene import PlanningScene
+        from moveit.core.collision_detection import CollisionRequest
+        self.root = Path(root)
+        self.model = RobotModel(str(urdf), str(self.root / &#x27;src/h1_2_moveit_config/config/h1_2.srdf&#x27;))
+        self.state = RobotState(self.model)
+        self.initial = yaml.safe_load((self.root / &#x27;src/h1_2_moveit_config/config/initial_positions.yaml&#x27;).read_text())[&#x27;initial_positions&#x27;]
+        if passive_state is not None:
+            measured = json.loads(Path(passive_state).read_text())
+            assert measured[&#x27;samples&#x27;] &gt;= 20
+            assert max(measured[&#x27;range&#x27;].values()) &lt; .01
+            assert len(measured[&#x27;positions&#x27;]) == 12
+            for name, value in measured[&#x27;positions&#x27;].items():
+                assert any(token in name for token in (&#x27;hip_&#x27;, &#x27;ankle_&#x27;, &#x27;knee_&#x27;))
+                assert name in self.initial and math.isfinite(value) and abs(value) &lt; .2
+                self.initial[name] = value
+        self.state.joint_positions = self.initial
+        self.state.update()
+        self.scene = PlanningScene(self.model)
+        for mounted in (&#x27;livox_mid360_link&#x27;, &#x27;realsense_camera_link&#x27;):
+            self.scene.allowed_collision_matrix.set_entry(&#x27;torso_link&#x27;, mounted, True)
+        self.request = CollisionRequest()
+        self.request.distance = True
+        self.request.contacts = False
+        self.urdf = ET.parse(urdf).getroot()
+        self.description = self.root / &#x27;src/h1_2_description&#x27;
+        self.add_scene(&#x27;table&#x27;, [.6, 0, 0])
+        self.add_scene(&#x27;centrifuge&#x27;, [.6, 0, .815])
+
+    def add_scene(self, name, translation):
+        from geometry_msgs.msg import Point, Pose
+        from moveit_msgs.msg import CollisionObject
+        from shape_msgs.msg import Mesh, MeshTriangle, SolidPrimitive
+        model = ET.parse(self.description / &#x27;models&#x27; / name / &#x27;model.sdf&#x27;).getroot().find(&#x27;model&#x27;)
+        offset = np.eye(4)
+        offset[:3, 3] = translation
+        for link in model.findall(&#x27;link&#x27;):
+            if name == &#x27;centrifuge&#x27; and link.get(&#x27;name&#x27;) in (&#x27;rotor&#x27;, &#x27;bucket_left&#x27;, &#x27;bucket_right&#x27;):
+                continue
+            link_pose = transform(link.findtext(&#x27;pose&#x27;, &#x27;0 0 0 0 0 0&#x27;))
+            angles = [0, 30, 60, 90, 120] if link.get(&#x27;name&#x27;) == &#x27;lid&#x27; else [0]
+            for angle in angles:
+                hinge_rotation = np.eye(4)
+                hinge_rotation[:3, :3] = Rotation.from_euler(&#x27;y&#x27;, angle, degrees=True).as_matrix()
+                for collision in link.findall(&#x27;collision&#x27;):
+                    geometry = collision.find(&#x27;geometry&#x27;)
+                    matrix = offset @ link_pose @ hinge_rotation @ transform(collision.findtext(&#x27;pose&#x27;, &#x27;0 0 0 0 0 0&#x27;))
+                    pose = Pose()
+                    pose.position.x, pose.position.y, pose.position.z = matrix[:3, 3].tolist()
+                    quaternion = Rotation.from_matrix(matrix[:3, :3]).as_quat()
+                    pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w = quaternion.tolist()
+                    item = CollisionObject()
+                    item.header.frame_id = &#x27;world&#x27;
+                    item.id = name + &#x27;_&#x27; + link.get(&#x27;name&#x27;) + &#x27;_&#x27; + collision.get(&#x27;name&#x27;) + &#x27;_&#x27; + str(angle)
+                    item.operation = CollisionObject.ADD
+                    if geometry.find(&#x27;mesh&#x27;) is not None:
+                        uri = geometry.findtext(&#x27;mesh/uri&#x27;)
+                        path = self.description / uri.split(&#x27;h1_2_description/&#x27;, 1)[1]
+                        scale = np.array([float(value) for value in geometry.findtext(&#x27;mesh/scale&#x27;, &#x27;1 1 1&#x27;).split()])
+                        triangles = mesh_vertices(path) * scale
+                        mesh = Mesh()
+                        mesh.vertices = [Point(x=float(vertex[0]), y=float(vertex[1]), z=float(vertex[2]))
+                                         for vertex in triangles.reshape(-1, 3)]
+                        mesh.triangles = [MeshTriangle(vertex_indices=[index * 3, index * 3 + 1, index * 3 + 2])
+                                          for index in range(len(triangles))]
+                        item.meshes = [mesh]
+                        item.mesh_poses = [pose]
+                    else:
+                        primitive = SolidPrimitive()
+                        if geometry.find(&#x27;box&#x27;) is not None:
+                            primitive.type = SolidPrimitive.BOX
+                            primitive.dimensions = [float(value) for value in geometry.findtext(&#x27;box/size&#x27;).split()]
+                        else:
+                            primitive.type = SolidPrimitive.CYLINDER
+                            primitive.dimensions = [float(geometry.findtext(&#x27;cylinder/length&#x27;)),
+                                                    float(geometry.findtext(&#x27;cylinder/radius&#x27;))]
+                        item.primitives = [primitive]
+                        item.primitive_poses = [pose]
+                    self.scene.apply_collision_object(item)
+
+    def set_arm(self, side, positions):
+        self.state.joint_positions = self.initial
+        self.state.set_joint_group_positions(side + &#x27;_arm&#x27;, list(positions))
+        self.state.update()
+
+    def collision(self, side, positions, verbose=False):
+        from moveit.core.collision_detection import CollisionResult
+        self.set_arm(side, positions)
+        self.request.verbose = verbose
+        result = CollisionResult()
+        self.scene.check_collision(self.request, result, self.state)
+        return result.collision, result.distance
+
+    def solve(self, side, rotation, target, local_point, seed):
+        group = self.model.get_joint_model_group(side + &#x27;_arm&#x27;)
+        names = group.active_joint_model_names
+        limits = [self.urdf.find(f&quot;./joint[@name=&#x27;{name}&#x27;]/limit&quot;) for name in names]
+        lower = [float(limit.get(&#x27;lower&#x27;)) + .02 for limit in limits]
+        upper = [float(limit.get(&#x27;upper&#x27;)) - .02 for limit in limits]
+        finger = side + &#x27;_dex1_finger_&#x27; + (&#x27;1&#x27; if side == &#x27;left&#x27; else &#x27;2&#x27;) + &#x27;_link&#x27;
+
+        def residual(positions):
+            self.set_arm(side, positions)
+            pose = self.state.get_global_link_transform(finger)
+            wrist = self.state.get_global_link_transform(side + &#x27;_wrist_yaw_link&#x27;)
+            point = pose[:3, :3] @ local_point + pose[:3, 3]
+            return np.r_[20 * (point - target),
+                         Rotation.from_matrix(rotation @ wrist[:3, :3].T).as_rotvec(),
+                         .001 * (positions - seed)]
+
+        result = least_squares(residual, np.clip(seed, lower, upper), bounds=(lower, upper),
+                               max_nfev=300, ftol=1e-11, xtol=1e-11, gtol=1e-11)
+        error = residual(result.x)
+        if np.linalg.norm(error[:3]) / 20 &gt; .00005 or np.linalg.norm(error[3:6]) &gt; .001:
+            raise ValueError(&#x27;IK residual&#x27;)
+        return result.x
+
+    def generate(self):
+        contract = json.loads((self.description / &#x27;models/centrifuge/LID_MOTION.json&#x27;).read_text())
+        normal = np.array(contract[&#x27;button_outward_normal_model&#x27;])
+        plans = {}
+        diagnostics = []
+        for side, button in [(&#x27;left&#x27;, &#x27;lid&#x27;), (&#x27;right&#x27;, &#x27;rotor&#x27;)]:
+            names = self.model.get_joint_model_group(side + &#x27;_arm&#x27;).active_joint_model_names
+            home = np.array([self.initial[name] for name in names])
+            finger = side + &#x27;_dex1_finger_&#x27; + (&#x27;1&#x27; if side == &#x27;left&#x27; else &#x27;2&#x27;) + &#x27;_link&#x27;
+            cap_id = &#x27;centrifuge_assembly_&#x27; + button + &#x27;_button_collision_0&#x27;
+            self.scene.allowed_collision_matrix.set_entry(cap_id, finger, True)
+            surface = np.array(contract[button + &#x27;_button_model_m&#x27;]) + [.6, 0, .815] + .005 * normal
+            vertices = mesh_vertices(self.description / &#x27;meshes/dex1_1&#x27; /
+                                     (&#x27;Link1_2.STL&#x27; if side == &#x27;left&#x27; else &#x27;Link2_2.STL&#x27;)).reshape(-1, 3)
+            for yaw in [0, -.25, -.5, -.75, -1.0]:
+                yaw = yaw if side == &#x27;left&#x27; else -yaw
+                rotation = Rotation.from_euler(&#x27;xyz&#x27;, [0, .205395302728, yaw]).as_matrix()
+                finger_rotation = rotation @ Rotation.from_euler(&#x27;z&#x27;, -math.pi / 2).as_matrix()
+                projections = vertices @ (finger_rotation.T @ -normal)
+                local_point = vertices[projections &gt; projections.max() - 1e-6].mean(axis=0)
+                try:
+                    pre = self.solve(side, rotation, surface + .04 * normal, local_point, home)
+                    press = self.solve(side, rotation, surface - .0005 * normal, local_point, pre)
+                    self.set_arm(side, home)
+                    home_pose = self.state.get_global_link_transform(finger)
+                    home_rotation = self.state.get_global_link_transform(side + &#x27;_wrist_yaw_link&#x27;)[:3, :3]
+                    home_point = home_pose[:3, :3] @ local_point + home_pose[:3, 3]
+                    park = self.solve(side, home_rotation, home_point + [-.14, 0, .08], local_point, home)
+                    approach = [home + fraction * (park - home) for fraction in np.linspace(0, 1, 81)]
+                    approach += [park + fraction * (pre - park) for fraction in np.linspace(0, 1, 101)[1:]]
+                    push = []
+                    seed = pre
+                    for distance in np.linspace(.04, -.0005, 42):
+                        seed = self.solve(side, rotation, surface + distance * normal, local_point, seed)
+                        push.append(seed.copy())
+                    samples = approach + push
+                    checks = [self.collision(side, sample) for sample in samples]
+                    bad = [index for index, value in enumerate(checks) if value[0]]
+                    diagnostics.append(dict(side=side, yaw=yaw, bad_samples=bad,
+                                            min_distance_m=min(value[1] for value in checks)))
+                    if bad:
+                        self.collision(side, samples[bad[0]], verbose=True)
+                        continue
+                    if min(value[1] for value in checks) &lt; .005:
+                        raise ValueError(&#x27;Non-target clearance below 5 mm&#x27;)
+                    plans[side] = dict(button=button, joints=list(names), home=home.tolist(),
+                                       pre=pre.tolist(), press=push[-1].tolist(),
+                                       approach=[value.tolist() for value in approach],
+                                       push=[value.tolist() for value in push],
+                                       contact_link=finger, local_contact_point_m=local_point.tolist(),
+                                       surface_world_m=surface.tolist(), yaw=yaw,
+                                       min_nonallowed_distance_m=min(value[1] for value in checks))
+                    break
+                except ValueError as error:
+                    diagnostics.append(dict(side=side, yaw=yaw, error=str(error)))
+            self.scene.allowed_collision_matrix.set_entry(cap_id, finger, False)
+        return dict(status=&#x27;PASS&#x27; if len(plans) == 2 else &#x27;FAIL&#x27;, arms=plans,
+                    diagnostics=diagnostics, initial_positions=self.initial,
+                    structural_exemptions=[[&#x27;torso_link&#x27;, &#x27;livox_mid360_link&#x27;],
+                                           [&#x27;torso_link&#x27;, &#x27;realsense_camera_link&#x27;]],
+                    contact_penetration_m=.0005, torso_and_grippers_fixed=True)
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(&#x27;--root&#x27;, type=Path, required=True)
+    parser.add_argument(&#x27;--urdf&#x27;, type=Path, required=True)
+    parser.add_argument(&#x27;--output&#x27;, type=Path, required=True)
+    parser.add_argument(&#x27;--passive-state&#x27;, type=Path)
+    arguments = parser.parse_args()
+    assert not arguments.output.exists()
+    planner = PressPlanner(arguments.root, arguments.urdf, arguments.passive_state)
+    result = planner.generate()
+    result[&#x27;urdf_sha256&#x27;] = hashlib.sha256(arguments.urdf.read_bytes()).hexdigest()
+    if arguments.passive_state is not None:
+        result[&#x27;passive_state_sha256&#x27;] = hashlib.sha256(arguments.passive_state.read_bytes()).hexdigest()
+    result[&#x27;source_hashes&#x27;] = {
+        name: hashlib.sha256((arguments.root / name).read_bytes()).hexdigest() for name in [
+            &#x27;src/h1_2_description/models/centrifuge/model.sdf&#x27;,
+            &#x27;src/h1_2_description/models/table/model.sdf&#x27;,
+            &#x27;src/h1_2_moveit_config/config/h1_2.srdf&#x27;,
+            &#x27;src/h1_2_moveit_config/config/initial_positions.yaml&#x27;,
+            &#x27;src/h1_2_moveit_config/scripts/centrifuge_press_plan.py&#x27;]}
+    with arguments.output.open(&#x27;x&#x27;) as stream:
+        json.dump(result, stream, indent=2)
+    print(json.dumps({key: value for key, value in result.items() if key != &#x27;arms&#x27;}))
+    assert result[&#x27;status&#x27;] == &#x27;PASS&#x27;
+
+
+if __name__ == &#x27;__main__&#x27;:
+    main()
+</pre></body></html>

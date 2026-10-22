@@ -1,0 +1,224 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[7] 冻结移动策略与停止分支实现</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>[7] 冻结移动策略与停止分支实现</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="frozen_motion_adapter.py">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/test/h1_2_isaaclab/source/h1_2_isaaclab/h1_2_isaaclab/tasks/manager_based/h1_2_omni_context_stop_velocity/agents/frozen_motion_adapter.py</p><pre>&quot;&quot;&quot;Frozen V2 motion actor with a manually scaled V8 STOP context.&quot;&quot;&quot;
+
+from __future__ import annotations
+
+import copy
+import math
+
+import torch
+import torch.nn as nn
+from tensordict import TensorDict
+
+from rsl_rl.utils import unpad_trajectories
+
+from ...h1_2_omni_arrest_velocity.agents.frozen_motion_adapter import (
+    FrozenMotionPPO,
+    FrozenMotionStopAdapterModel,
+    GatedGaussianDistribution,
+)
+
+
+class FrozenMotionContextStopAdapterModel(FrozenMotionStopAdapterModel):
+    &quot;&quot;&quot;Keep frozen V2 normalization for motion and scale STOP context by hand.
+
+    The raw conditional context occupies policy indices ``45:57`` only at an
+    exact-zero command.  The V2 normalizer was trained on joint velocities at
+    those indices, so the STOP branch overwrites that normalized slice with a
+    fixed, documented affine scaling.  The frozen motion MLP always receives
+    the original V2-normalized latent tensor.
+    &quot;&quot;&quot;
+
+    def __init__(
+        self,
+        *args,
+        context_start: int = 45,
+        context_end: int = 57,
+        context_scale: tuple[float, ...] | list[float] = (
+            2.0 / 3.0,
+            4.0 / 3.0,
+            2.0 / 3.0,
+            4.0 / 3.0,
+            2.0 / 3.0,
+            2.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            2.0,
+            2.0,
+        ),
+        context_bias: tuple[float, ...] | list[float] = (
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0,
+            -1.0,
+        ),
+        context_clip: float = 3.0,
+        **kwargs,
+    ) -&gt; None:
+        super().__init__(*args, **kwargs)
+        if context_start &lt; 0 or context_end != context_start + 12:
+            raise ValueError(
+                &quot;V8 STOP context must select twelve values; received &quot;
+                f&quot;[{context_start}:{context_end}].&quot;
+            )
+        if len(context_scale) != 12 or len(context_bias) != 12:
+            raise ValueError(&quot;context_scale and context_bias must each contain 12 values.&quot;)
+        if any((not math.isfinite(value)) or value == 0.0 for value in context_scale):
+            raise ValueError(&quot;context_scale must contain finite non-zero values.&quot;)
+        if any(not math.isfinite(value) for value in context_bias):
+            raise ValueError(&quot;context_bias must contain finite values.&quot;)
+        if not math.isfinite(context_clip) or context_clip &lt;= 0.0:
+            raise ValueError(&quot;context_clip must be finite and positive.&quot;)
+
+        self.context_start = context_start
+        self.context_end = context_end
+        self.context_clip = context_clip
+        # Scaling is part of the task ABI, not learned checkpoint state.  Making
+        # these buffers non-persistent preserves strict legacy V2 migration.
+        self.register_buffer(
+            &quot;_context_scale&quot;,
+            torch.tensor(context_scale, dtype=torch.float32).unsqueeze(0),
+            persistent=False,
+        )
+        self.register_buffer(
+            &quot;_context_bias&quot;,
+            torch.tensor(context_bias, dtype=torch.float32).unsqueeze(0),
+            persistent=False,
+        )
+
+    def _stop_latent(
+        self, policy_obs: torch.Tensor, normalized_latent: torch.Tensor
+    ) -&gt; torch.Tensor:
+        stop_latent = normalized_latent.clone()
+        scaled_context = (
+            policy_obs[:, self.context_start : self.context_end]
+            * self._context_scale.to(dtype=policy_obs.dtype)
+            + self._context_bias.to(dtype=policy_obs.dtype)
+        )
+        stop_latent[:, self.context_start : self.context_end] = torch.clamp(
+            scaled_context,
+            min=-self.context_clip,
+            max=self.context_clip,
+        )
+        return stop_latent
+
+    def forward(
+        self,
+        obs: TensorDict,
+        masks: torch.Tensor | None = None,
+        hidden_state=None,
+        stochastic_output: bool = False,
+    ) -&gt; torch.Tensor:
+        if masks is not None and not self.is_recurrent:
+            obs = unpad_trajectories(obs, masks)
+        policy_obs = obs[&quot;policy&quot;]
+        zero_mask = self._exact_zero_mask(obs)
+        latent = self.get_latent(obs, masks=None, hidden_state=hidden_state)
+        motion_mean = self.mlp(latent)
+        zero_mean = self.zero_head(self._stop_latent(policy_obs, latent))
+        mixed_mean = torch.where(zero_mask[:, None], zero_mean, motion_mean)
+
+        if stochastic_output:
+            self.distribution.set_zero_mask(zero_mask)
+            self.distribution.update(mixed_mean)
+            return self.distribution.sample()
+        return mixed_mean
+
+    def as_jit(self) -&gt; nn.Module:
+        return _FrozenMotionContextStopAdapterJit(self)
+
+
+class _FrozenMotionContextStopAdapterJit(nn.Module):
+    &quot;&quot;&quot;TorchScript deterministic export with identical STOP preprocessing.&quot;&quot;&quot;
+
+    def __init__(self, model: FrozenMotionContextStopAdapterModel) -&gt; None:
+        super().__init__()
+        self.obs_normalizer = copy.deepcopy(model.obs_normalizer)
+        self.mlp = copy.deepcopy(model.mlp)
+        self.zero_head = copy.deepcopy(model.zero_head)
+        self.command_start = model.command_start
+        self.command_end = model.command_end
+        self.context_start = model.context_start
+        self.context_end = model.context_end
+        self.context_clip = model.context_clip
+        self.register_buffer(&quot;context_scale&quot;, model._context_scale.detach().clone())
+        self.register_buffer(&quot;context_bias&quot;, model._context_bias.detach().clone())
+
+    def forward(self, x: torch.Tensor) -&gt; torch.Tensor:
+        zero_mask = torch.all(
+            x[:, self.command_start : self.command_end] == 0.0, dim=-1
+        )
+        latent = self.obs_normalizer(x)
+        motion_mean = self.mlp(latent)
+        stop_latent = latent.clone()
+        scaled_context = (
+            x[:, self.context_start : self.context_end] * self.context_scale
+            + self.context_bias
+        )
+        stop_latent[:, self.context_start : self.context_end] = torch.clamp(
+            scaled_context, min=-self.context_clip, max=self.context_clip
+        )
+        zero_mean = self.zero_head(stop_latent)
+        return torch.where(zero_mask[:, None], zero_mean, motion_mean)
+
+    @torch.jit.export
+    def reset(self) -&gt; None:
+        pass
+
+
+class ContextStopPPO(FrozenMotionPPO):
+    &quot;&quot;&quot;V2-migration PPO with bounded, trainable exact-zero exploration.&quot;&quot;&quot;
+
+    def __init__(
+        self,
+        *args,
+        zero_std_min: float = 0.12,
+        zero_std_max: float = 0.35,
+        **kwargs,
+    ) -&gt; None:
+        if not (0.0 &lt; zero_std_min &lt;= zero_std_max):
+            raise ValueError(&quot;Require 0 &lt; zero_std_min &lt;= zero_std_max.&quot;)
+        self._zero_log_std_min = math.log(zero_std_min)
+        self._zero_log_std_max = math.log(zero_std_max)
+        super().__init__(*args, **kwargs)
+        self._clamp_zero_std()
+
+    def _clamp_zero_std(self) -&gt; None:
+        with torch.no_grad():
+            self.actor.distribution.zero_log_std_param.clamp_(
+                min=self._zero_log_std_min,
+                max=self._zero_log_std_max,
+            )
+
+    def update(self, *args, **kwargs) -&gt; dict[str, float]:
+        &quot;&quot;&quot;Clamp around an otherwise version-compatible PPO update call.&quot;&quot;&quot;
+        self._clamp_zero_std()
+        losses = super().update(*args, **kwargs)
+        self._clamp_zero_std()
+        return losses
+
+    def load(self, loaded_dict: dict, load_cfg: dict | None, strict: bool) -&gt; bool:
+        load_iteration = super().load(loaded_dict, load_cfg, strict)
+        self._clamp_zero_std()
+        return load_iteration
+
+
+__all__ = [
+    &quot;ContextStopPPO&quot;,
+    &quot;FrozenMotionContextStopAdapterModel&quot;,
+    &quot;GatedGaussianDistribution&quot;,
+]
+</pre></body></html>

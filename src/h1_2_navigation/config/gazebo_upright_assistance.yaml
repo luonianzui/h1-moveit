@@ -1,0 +1,22 @@
+h1_2_gazebo_upright_stabilizer:
+  ros__parameters:
+    enabled: true
+    movement_authorized: false
+    entity_name: h1_2_navigation::pelvis
+    odom_topic: /h1_2_navigation/ground_truth/odom
+    wrench_topic: /world/h1_world/wrench
+    status_topic: /h1_2_navigation/upright_assistance/status
+    v12_status_topic: /h1_2_navigation/v12/status
+    nominal_height: 1.08912
+    mass: 67.249
+    gravity: 9.8
+    vertical_stiffness: 2500.0
+    vertical_damping: 350.0
+    maximum_vertical_force_fraction: 0.30
+    planar_damping: 300.0
+    captured_planar_damping: 900.0
+    maximum_planar_damping_force: 300.0
+    attitude_stiffness: 350.0
+    attitude_damping: 60.0
+    maximum_attitude_torque: 120.0
+    minimum_up_z: 0.60

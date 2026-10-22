@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>h1_2_moveit_config</name>
+  <version>0.1.0</version>
+  <description>MoveIt 2 and mock ros2_control configuration for the Unitree H1-2 dual 7-DoF arms.</description>
+
+  <maintainer email="local@example.com">Local User</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>gz_gui_vendor</depend>
+  <depend>gz_rendering_vendor</depend>
+  <depend>gz_transport_vendor</depend>
+  <depend>gz_sim_vendor</depend>
+  <test_depend>ament_cmake_pytest</test_depend>
+
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>h1_2_description</exec_depend>
+  <exec_depend>h1_2_moveit_demo</exec_depend>
+  <exec_depend>h1_2_vision</exec_depend>
+  <exec_depend>h1_2_navigation</exec_depend>
+  <exec_depend>joint_state_broadcaster</exec_depend>
+  <exec_depend>joint_trajectory_controller</exec_depend>
+  <exec_depend>moveit_configs_utils</exec_depend>
+  <exec_depend>moveit_kinematics</exec_depend>
+  <exec_depend>moveit_planners_ompl</exec_depend>
+  <exec_depend>moveit_ros_move_group</exec_depend>
+  <exec_depend>moveit_ros_visualization</exec_depend>
+  <exec_depend>moveit_simple_controller_manager</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>ros_gz_interfaces</exec_depend>
+  <exec_depend>rosgraph_msgs</exec_depend>
+  <exec_depend>trajectory_msgs</exec_depend>
+  <exec_depend>moveit_py</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-scipy</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>ros2_control</exec_depend>
+  <exec_depend>ros2_controllers</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

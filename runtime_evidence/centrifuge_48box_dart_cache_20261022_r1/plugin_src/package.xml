@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>h12_dart_cache_r1</name>
+  <version>0.0.1</version>
+  <description>Isolated exact-order DART constraint pointer caching experiment</description>
+  <maintainer email="liu@example.invalid">liu</maintainer>
+  <license>BSD-2-Clause</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>gz_dartsim_vendor</depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

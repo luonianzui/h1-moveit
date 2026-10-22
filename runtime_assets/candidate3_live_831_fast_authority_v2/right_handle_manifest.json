@@ -1,0 +1,182 @@
+{
+  "$schema": "h1_moveit/right_handle_variable_torso_v4_sealed_bundle/v1",
+  "audited_state_identity": {
+    "endpoint_rows_unchanged_from_8263": true,
+    "q0": {
+      "handle_angle_deg": 0.0,
+      "right_arm_rad": [
+        -0.23359002197932188,
+        0.1487319232399474,
+        0.5403650323227978,
+        0.690453547533258,
+        0.12119399925860616,
+        -0.38224134972761653,
+        -1.1913700423890208
+      ],
+      "right_pad_slider_mm": [
+        15.3,
+        15.3
+      ],
+      "torso_yaw_deg": 38.0
+    },
+    "q90_canonical_e0": {
+      "handle_angle_deg": 90.0,
+      "right_arm_rad": [
+        -0.41373146194762,
+        0.23755434038212944,
+        1.1008080707922079,
+        0.8747783439736734,
+        -0.3046852067271319,
+        0.4094159191441438,
+        -0.9999635680199944
+      ],
+      "right_pad_slider_mm": [
+        10.8,
+        7.0
+      ],
+      "torso_yaw_deg": -2.7349115403864994
+    }
+  },
+  "bundle_id": "right_handle_829_table_xplus100.variable_torso_v4_44p25.sealed_offline_exact",
+  "created_at": "2026-08-29T00:00:00+08:00",
+  "dense_exact_metrics": {
+    "contact_samples": 5414,
+    "formal_torso_abs_limit_deg": 44.5,
+    "maximum_abs_torso_deg": 44.25,
+    "maximum_dense_handle_step_deg": 0.09999999999999377,
+    "maximum_dense_prismatic_step_mm": 0.10000000000000633,
+    "maximum_dense_revolute_step_deg": 0.09998951402748335,
+    "minimum_accepted_patch_radius_mm": 44.08611877423549,
+    "minimum_accepted_patch_span_mm": 7.007779307231149,
+    "minimum_accepted_patch_station_mm": 22.50704734018445,
+    "minimum_arm_joint_margin_deg": 2.0964583295280264,
+    "minimum_left_handle_clearance_mm": 50.0,
+    "minimum_nonpad_handle_clearance_mm": 0.6005992531377063,
+    "pad1_patch_samples": 5414,
+    "pad2_patch_samples": 2720,
+    "runtime_tracking_margin_deg": 0.25,
+    "total_samples": 7724
+  },
+  "exact_inputs": {
+    "original_handle_stl": {
+      "path": "src/h1_2_description/models/incubator/meshes/incubator_handle.STL",
+      "sha256": "ad6670185fa5756ba5dabdee7e542db2df3346973fea4eb887288f54a6b6f59e"
+    },
+    "robot_srdf": {
+      "path": "runtime_evidence/826_apriltag_plan_only_20260826/stage_h_nominal_pass/clearance_audit_robot.srdf",
+      "sha256": "2f268a57406fcea301cd1a58c3912b91aa9a3a676e2ae42b9f9c741fac30d79d"
+    },
+    "robot_urdf": {
+      "path": "runtime_evidence/826_apriltag_plan_only_20260826/stage_h_nominal_pass/clearance_audit_robot.urdf",
+      "sha256": "3aad4bdc038ff6cde3bef221bb15b8134bb45f7a87ef5dfa0fadc2126bd44929"
+    },
+    "scene_cdr": {
+      "path": "runtime_evidence/right_natural_828_table_xplus100_incubator_original_20260828/middle_v1/scene.cdr",
+      "sha256": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568"
+    }
+  },
+  "execution_topology": "right_q0_q90_hold_middle_hold_q90_q0_release/v1",
+  "schema_version": 1,
+  "sealed_bindings": {
+    "auditor_binary": {
+      "mode_octal": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/right_handle_path_exact_auditor_829.bin",
+      "provenance_only_not_executable_from_sealed_mode": true,
+      "sha256": "b601ef8ebd9b1e683d0ae340b210dd440cab488a23f0a941222e21837483917e"
+    },
+    "auditor_source": {
+      "mode_octal": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/right_handle_path_exact_auditor_829.cpp",
+      "sha256": "476b3714da8ecd459aed4892e5efa997b20ca28bcabd311375566736536dc309"
+    },
+    "batch_tsv": {
+      "mode_octal": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/contact_path_v4_44p25_batch.tsv",
+      "pointwise_evaluated": 921,
+      "pointwise_passed": 921,
+      "sha256": "d9c056697f7a0e9a8cf39a05859193b03ee5b96dd3be33b0f79fc11e140a404d"
+    },
+    "contact_path": {
+      "mode_octal": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/contact_path_v4_44p25_candidate.json",
+      "row_count": 921,
+      "schema": "h1_moveit/right_handle_variable_torso_path/v4",
+      "sha256": "92d0f131324db1755ecdf2a1e03b102b450fbd783a647625e9baf9dfb0a0fb98"
+    },
+    "controller_execution_authorization": {
+      "mode_octal": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_live_831_fast_authority_v2/controller_execution_authorization.json",
+      "schema": "h1_right_handle_controller_execution_authorization/v1",
+      "sha256": "a22fc6220a7ac63cd44f0e1964d627440ae2242ab4dec69c0254573ea4c71827"
+    },
+    "full_topology_exact_audit": {
+      "auditor_version": "h1_right_handle_path_exact_auditor/829-a1-torso-margin",
+      "mode_octal": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/full_topology_exact_audit.json",
+      "schema": "h1_right_handle_path_exact_audit/v2",
+      "sha256": "0e0ec724187063f92578c9903df820c3aa66a87563dd7a5201e62be728272c17"
+    },
+    "generation_summary": {
+      "mode_octal": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/torso_margin_generation_summary.json",
+      "schema": "h1_moveit/right_handle_torso_margin_summary/v1",
+      "sha256": "918635e13c489f88ac97fe4a1bdca6922cf9ec42818517ef54c9eec69d37b73a"
+    },
+    "generator_source": {
+      "mode_octal": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/h1_right_handle_torso_margin_829.py",
+      "sha256": "c7433edb86726fa3ceadc32a2c1239813162a588b51e689e539222a10dffded6"
+    },
+    "q0_ingress": {
+      "mode_octal": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v3_828/q0_ingress_torso38_A0_rrt.json",
+      "schema": "h1_right_handle_splice_search/v1",
+      "sha256": "2e61bc02c8d5ac3baf0e373b5668cfd7cd66e88fc4197a92d1e8cce9ac1942ff",
+      "strict_revalidation_step_deg": 0.1,
+      "waypoint_count": 4
+    }
+  },
+  "stage_contract": {
+    "left_hand_handle_contact_allowed": false,
+    "middle_seam": "q90 grasp remains continuously closed; zero release/regrasp commands",
+    "prefix": [
+      "prepare_left_park",
+      "ingress_open_to_q0",
+      "close_q0",
+      "contact_q0_to_q90_hold"
+    ],
+    "q90_regrasp_commands": 0,
+    "q90_release_commands": 0,
+    "suffix": [
+      "q90_continuous_grasp_seam",
+      "contact_reverse_q90_to_q0",
+      "release_q0",
+      "egress_open_from_q0",
+      "return_left"
+    ]
+  },
+  "status": {
+    "execution_ready": false,
+    "fail_closed_reason": "The path candidate does not self-authorize. The external exact audit authorizes the controller topology, while fresh Gazebo telemetry and exact-FCL replay remain mandatory for a live completion claim.",
+    "formal_maximum_abs_torso_deg": 44.5,
+    "forward_contact_arc_passed": true,
+    "gazebo_slow_contact_dynamics_passed": false,
+    "ik_retarget_complete": true,
+    "left_hand_handle_contact_forbidden_and_checked": true,
+    "offline_dense_full_topology_exact_passed": true,
+    "planned_maximum_abs_torso_deg": 44.25,
+    "q0_ingress_exact_reverse_egress_passed": true,
+    "q0_ingress_forward_passed": true,
+    "q90_continuous_grasp_seam_passed": true,
+    "reverse_contact_arc_passed": true
+  }
+}

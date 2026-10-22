@@ -1,0 +1,151 @@
+# 826 AprilTag 阶段 E/J/K/L Gazebo 执行报告
+
+日期：2026-08-27（Asia/Shanghai）  
+范围：仅 Gazebo 仿真。没有连接、启动或授权实体机器人。
+
+## 最终结论
+
+| 阶段 | 结论 | 权威证据 |
+|---|---|---|
+| E | PASS（实测可见性支持集） | `stage_e_live_moved/REPORT.md` |
+| J | PASS（单阶段物理动作均在同一 fresh attempt11 场景完成） | `stage_l_formal/attempt11/` |
+| K | PASS（停止/保持、tag 恢复和剩余路径重规划） | attempt11 的 supervisor、恢复段及 tag audit |
+| L | PASS（完整闭环、87.809 s 动作本体、录像） | attempt11 最终 `COMPLETE_PASS` 与视频 |
+
+attempt11 不是伪装成“单 supervisor 无中断”的结果。它在同一个 fresh Gazebo 世界中
+完成完整物理序列，但门/方块 support helper 和最终夹爪入口门触发了安全停止；每次都
+保留现场，在严格恢复输入、fresh 证书和 C++ 净距审计后从剩余路径继续。没有 reset、
+直接改 pose、支撑期间 detach 或夹持期间松夹。这个分段事实是阶段 K 的执行监督证据，
+也是解释阶段 L 录像时必须保留的限定。
+
+## 阶段 E：live 秽物体定位
+
+最终 live 数据包含机柜 X/Y `+15 mm`、方块 Y `+20 mm` 和恢复后的方块名义位姿。
+接受样本全部是 fresh、`valid=true`、`stable=true`、同步深度通过的
+`TrackedObjectState`。最大误差分别不超过 1.562 mm 平移、1.083 deg 旋转和
+1.965 mm 深度残差。
+
+方块 X `+20 mm`、Y `-20 mm`、Y `+10 mm` 和 yaw `+10 deg` 在当前单相机视角下没有
+可见 tag，均在有界窗口内 fail closed，且没有发布旧方块位姿。这是实测可见性边界，
+不能用 plan-only 可达性替代。完整方法、逐项数据和 SHA-256 见
+`stage_e_live_moved/REPORT.md`。
+
+## 阶段 J/L：attempt11 完整物理序列
+
+fresh scene epoch 为 1，scene hash 为
+`900a6b2ae3bdb39c936dead0763454ddc2dfe3c5907aaf8bc06d654331cc4551`。
+初始完整计划被明确执行入口接纳：
+
+```text
+plan hash         ef9c3af0278b67683cfb308b1d78013039529da5e8d3c42b1a65497ce23037dc
+certificate hash  c3e0c42e98e03209af0f3daef26b2aca420a11631714ff1f378502dd790de11f
+```
+
+完整物理动作由以下四个结果文件连续覆盖；中间 helper-only 恢复结果也全部保留在相邻
+目录中：
+
+| 结果文件 | 覆盖动作 | 终止语义 |
+|---|---|---|
+| `attempt11/supervisor/run_20260827T125533_54135d4b95ad418daaec21217917cb46/execution_result.json` | 把手解锁、左手让位 | 门 attach helper 后 `FAIL_CLOSED/HOLD_PASS` |
+| `attempt11/recovery_stage2_open/run_20260827T130204_d458c2394d124f08a7cca80483f16586/execution_result.json` | 601 目标开门 | 方块 attach helper 后 `FAIL_CLOSED/HOLD_PASS` |
+| `attempt11/recovery_stage3_carry/run_20260827T130441_d246e0c183a7478ab07500f5a542525b/execution_result.json` | 平行抓取/送入/释放、601 反向关门、左手重抓、向下回锁 | 最终夹爪入口误差 4.572 mrad，`FAIL_CLOSED/HOLD_PASS` |
+| `attempt11/recovery_stage6_release/run_20260827T131013_e3e22618171f443b95e3827006b51bae/execution_result.json` | 实测接触恢复、松夹和左臂撤离 | `PASS / COMPLETE_PASS` |
+
+四段中所有 `TRAJECTORY_PASS` 的合计与认证计划精确对应：
+
+```text
+trajectory messages       23
+audited/executed points    8713
+robot action duration      87.809367723 s
+tag occlusion holds        18
+```
+
+因此 90 秒指标按计划第 17 节采用“机器人动作本体”口径通过；978.9 秒录像墙钟时间包含
+约 0.2 RTF、感知稳定、证书生成、审计和安全恢复等待，不被误写成动作本体时长。
+
+最终 PASS 结果绑定新的剩余路径计划：
+
+```text
+plan hash         6be2ba3f2259c36c5cf38dc37cd2a0beafb5373c654ba2cd314bb5df3758cd86
+certificate hash  0275fbed763a35b79663bf13d366cdbe35230a0197bc655f756190b361826094
+resume             stage 6 / message 1
+latch              locked
+door support       detached
+cube support       detached
+door hinge         -2.9134545253758915e-20 rad
+handle             0.03554948666380859 rad (2.037 deg)
+cabinet tag        raw ID 12 / 294 observations
+```
+
+完成后的三次只读样本中，把手稳定为
+`0.0355494842385 / 0.0355494842009 / 0.0355494841065 rad`，速度约
+`-1.781e-10 rad/s`。方块三次样本相同，位置为
+`(0.611010491,-0.029496989,0.995406977) m`，yaw 为 `89.999968 deg`；latch locked，
+两个 support 均 detached。结构化记录在 `final_read_only_samples.json`。
+
+这三次终态样本只证明本次释放后的短期平行与静止，不外推为整夜长期稳定性。计划第
+15 节的长期接触稳定性仍是独立验收项，不由 AprilTag/重规划 PASS 替代。
+
+## 阶段 K：失败关闭和剩余路径恢复
+
+- attempt11 的所选完整路径中有 21 次 `STOP_AND_HOLD_PASS`，其中 18 次由 cabinet tag
+  遮挡触发；14 次在原后缀连续性门内恢复，4 次使用 C++ connector 恢复。
+- 所选四段共记录 7 次 `CABINET_TAG_RESUME_CONNECTOR_CPP_AUDIT_PASS`；attempt11 中
+  生成的 9 份 `tag_resume_audit_*.result.json` 全部为 PASS。最小环境净距为
+  10.001 mm，最大 connector 误差为 4.481 mrad，小于 4.9 deg 连续性上限。
+- 门和方块 helper 的恢复采用密封 owner/preload lineage；恢复 attach 后证书过期也会
+  拒绝运动，必须取得 fresh 计划才能继续。
+- 最终 `(stage=6,message=1)` 恢复先验证把手 2.037 deg 和夹爪 clamp 误差
+  4.572 mrad，再运行 4 点实测 connector；connector 误差 2.488 mrad、61 个审计样本、
+  最小环境净距 10.001 mm，之后才允许松夹和撤离。
+
+新增 cube `recover_attach/recover_detach` 只接受绝对、非 symlink、mode 0400、link count
+1、精确 owner 目录和文件名/内容匹配的密封 preload，并要求旧 parent PID 已死亡。
+恢复 detach 仍必须通过 rack/support 门后才消费 lineage。supervisor 只在显式
+`(stage=3,message=2)` 恢复范围接受这组参数。
+
+## attempt10 回归证据与修复边界
+
+attempt10 完成了门/方块/关门/回锁动作，但最终把手停在
+`0.06500816896276884 rad`（3.725 deg），超过 ±3 deg 终检门，因此结果正确为
+`FAIL_CLOSED / MECHANISM_CHECKPOINT;HOLD_PASS`，未被改写为 PASS。录像与全部执行证据
+继续保留。
+
+修复仅把“latch 已从 unlocked 回到 locked 后”的把手回位力矩从 0.20 提高到
+0.40 N m；初始 locked 场景仍使用 0.08 N m detent，因而没有放宽初始解锁动作。
+终检等待从 2 秒墙钟改为 10 秒墙钟，以覆盖当前约 0.2 RTF 下约 2 秒仿真时间；±3 deg
+位置和速度门没有放宽。原装 STL、collision、质量、惯量、铰链和 601 门目标均未改。
+
+## 视频
+
+权威成功录像：
+
+```text
+videos/h1_candidate3_apriltag_826_stage_l_attempt11_20260827_1255.mp4
+SHA-256 6ec063814742911250572af60320f2194fd213b079eb9195d865ad1ebba50b8d
+H.264 / 1160x1530 / 12 fps / 11747 frames / 978.916667 s / 3948762 bytes
+```
+
+ffmpeg 已完整解码且无错误。attempt10 的失败关闭录像也保留：
+
+```text
+videos/h1_candidate3_apriltag_826_stage_l_attempt10_20260827_1225.mp4
+SHA-256 9b29474212bd021fa9c0f84b97ab45cac4b0ff5f522590e571e72585ec6da124
+```
+
+## 构建、测试、关机和备份
+
+最终 `h1_2_description`、`h1_2_moveit_demo`、`h1_2_vision` 在规定的 Miniconda 六名称
+精确隔离下重建通过；完整测试为：
+
+```text
+150 tests, 0 errors, 0 failures, 1 skipped
+```
+
+细节见 `validation/FINAL_VALIDATION.md`。全部 Gazebo、MoveGroup、感知、规划、auditor
+和 recorder 进程在安全终态采样、MP4 trailer 写入和完整解码后正常停止。关机时的
+SIGINT/SIGTERM 日志不属于执行失败。
+
+本目录最终由 `SHA256SUMS` 自包含校验。新成果使用非覆盖只读归档
+`/home/liu/h1_moveit/backups/826.3.tar.zst`；归档哈希的唯一机器可校验记录是相邻
+`826.3.tar.zst.sha256`。历史 `826.2` 保持只读且 SHA-256 不变。

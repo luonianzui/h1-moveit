@@ -1,0 +1,1142 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[12] 相对路径求解与完整审计程序</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>[12] 相对路径求解与完整审计程序</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="candidate3_worker.py">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_vision/h1_2_vision/candidate3_worker.py</p><pre>&quot;&quot;&quot;
+Isolated MoveIt worker for candidate-3 planning and plan-only auditing.
+
+This process never creates a trajectory publisher, action client, or controller
+client.  It consumes an immutable SceneEpoch/PlanningScene pair and writes one
+content-addressed plan-and-certificate document before exiting.
+&quot;&quot;&quot;
+
+from __future__ import annotations
+
+import argparse
+import copy
+import faulthandler
+import json
+import math
+import os
+from pathlib import Path
+import subprocess
+import sys
+import time
+
+import numpy as np
+
+from .candidate3_alignment import (
+    recover_scene_alignment,
+    REFERENCE_CABINET,
+    REFERENCE_CUBE,
+)
+from .candidate3_contract import (
+    AUDITOR_VERSION,
+    canonical_hash,
+    dense_interpolate,
+    DENSE_RESOLUTION_RAD,
+    DOOR_ARC_TARGET_COUNT,
+    interpolate_transform,
+    load_sealed_assets,
+    MAXIMUM_ADJACENT_CHANGE_RAD,
+    PLANNER_VERSION,
+    reverse_stage,
+    SCHEMA,
+    select_knots,
+    stage_hash,
+    STAGE_NAMES,
+    TOPOLOGY,
+    yaw_transform,
+)
+
+
+__all__ = (&#x27;REFERENCE_CABINET&#x27;, &#x27;REFERENCE_CUBE&#x27;)
+
+
+ARM_VELOCITY = np.asarray([1.0, 1.0, 1.2, 1.2, 1.5, 1.5, 1.5])
+ARM_ACCELERATION = np.asarray([2.0, 2.0, 2.5, 2.5, 3.0, 3.0, 3.0])
+GRIPPER_VELOCITY = np.asarray([0.20, 0.20])
+GRIPPER_ACCELERATION = np.asarray([0.40, 0.40])
+MESSAGE_GAP_S = 0.0
+_MOVEIT_KEEPALIVE = None
+
+
+def matrix_pose(value):
+    from geometry_msgs.msg import Pose
+    from .candidate3_contract import quaternion_from_matrix
+
+    result = Pose()
+    result.position.x, result.position.y, result.position.z = value[:3, 3]
+    quaternion = quaternion_from_matrix(value[:3, :3])
+    result.orientation.x, result.orientation.y = quaternion[:2]
+    result.orientation.z, result.orientation.w = quaternion[2:]
+    return result
+
+
+def rotation_angle(value):
+    cosine = (float(np.trace(value[:3, :3])) - 1.0) * 0.5
+    return math.acos(min(1.0, max(-1.0, cosine)))
+
+
+def rotation_vector(value):
+    &quot;&quot;&quot;Return the deterministic axis-angle vector of a rotation matrix.&quot;&quot;&quot;
+    rotation = np.asarray(value, dtype=float)[:3, :3]
+    angle = math.acos(min(
+        1.0, max(-1.0, (float(np.trace(rotation)) - 1.0) * 0.5)))
+    skew = np.asarray([
+        rotation[2, 1] - rotation[1, 2],
+        rotation[0, 2] - rotation[2, 0],
+        rotation[1, 0] - rotation[0, 1],
+    ])
+    if angle &lt;= 1e-8:
+        return 0.5 * skew
+    sine = math.sin(angle)
+    if abs(sine) &lt;= 1e-8:
+        raise ValueError(&#x27;rotation vector singularity&#x27;)
+    return angle * skew / (2.0 * sine)
+
+
+def moveit_configuration():
+    from moveit_configs_utils import MoveItConfigsBuilder
+
+    value = (
+        MoveItConfigsBuilder(&#x27;h1_2&#x27;, package_name=&#x27;h1_2_moveit_config&#x27;)
+        .robot_description(file_path=&#x27;config/h1_2.urdf.xacro&#x27;)
+        .robot_description_semantic(file_path=&#x27;config/h1_2.srdf&#x27;)
+        .trajectory_execution(file_path=&#x27;config/moveit_controllers.yaml&#x27;)
+        .planning_scene_monitor(
+            publish_robot_description=False,
+            publish_robot_description_semantic=True)
+        .sensors_3d(file_path=&#x27;config/sensors_3d.yaml&#x27;)
+        .planning_pipelines(pipelines=[&#x27;ompl&#x27;])
+        .to_moveit_configs().to_dict())
+    # Jazzy MoveItPy expects this nested form even though the builder emits a
+    # flat pipeline-name list.  No plan/execution method is called here.
+    value[&#x27;planning_pipelines&#x27;] = {&#x27;pipeline_names&#x27;: [&#x27;ompl&#x27;]}
+    value.setdefault(&#x27;planning_scene_monitor_options&#x27;, {})[
+        &#x27;wait_for_initial_state_timeout&#x27;] = 0.0
+    return value
+
+
+def target_delta(stage_index, message_index, fraction,
+                 cabinet_delta, cube_delta):
+    identity = np.eye(4)
+    if stage_index == 0:
+        if message_index == 0:
+            return interpolate_transform(identity, cabinet_delta, fraction)
+        return cabinet_delta
+    if stage_index == 1:
+        return interpolate_transform(cabinet_delta, identity, fraction)
+    if stage_index == 2:
+        if message_index == 1:
+            return interpolate_transform(identity, cabinet_delta, fraction)
+        return cabinet_delta
+    if stage_index == 3:
+        if message_index == 0:
+            return interpolate_transform(identity, cube_delta, fraction)
+        if message_index == 2:
+            return interpolate_transform(cube_delta, cabinet_delta, fraction)
+        if message_index == 5:
+            return interpolate_transform(cabinet_delta, identity, fraction)
+        return cabinet_delta
+    raise ValueError(f&#x27;unknown forward stage index: {stage_index}&#x27;)
+
+
+class Replanner:
+    def __init__(self, robot_model, cabinet_delta, cube_delta):
+        &quot;&quot;&quot;Initialize deterministic FK/IK state for the frozen epoch.&quot;&quot;&quot;
+        from moveit.core.robot_state import RobotState
+
+        self.model = robot_model
+        self.cabinet_delta = cabinet_delta
+        self.cube_delta = cube_delta
+        self.reference = RobotState(robot_model)
+        self.solver = RobotState(robot_model)
+        self.reference.set_to_default_values()
+        self.solver.set_to_default_values()
+        self.ik_calls = 0
+        self.ik_failures = []
+        self.maximum_ik_translation_error_m = 0.0
+        self.maximum_ik_rotation_error_rad = 0.0
+        self.previous_by_group = {}
+        self.previous_source_by_group = {}
+
+    @staticmethod
+    def group_and_tip(message):
+        first = message[&#x27;joint_names&#x27;][0]
+        if first.startswith(&#x27;left_&#x27;):
+            return &#x27;left_arm&#x27;, &#x27;left_dex1_tcp&#x27;
+        if first.startswith(&#x27;right_&#x27;):
+            return &#x27;right_arm&#x27;, &#x27;right_dex1_tcp&#x27;
+        raise ValueError(&#x27;unknown arm group&#x27;)
+
+    def local_ik(self, group, tip, seed, target_tcp):
+        &quot;&quot;&quot;Track the nearby IK branch with deterministic damped least squares.&quot;&quot;&quot;
+        seed = np.asarray(seed, dtype=float)
+        state = self.solver
+        state.set_to_default_values()
+        state.set_joint_group_active_positions(group, seed)
+        state.update()
+        group_model = self.model.get_joint_model_group(group)
+        self.ik_calls += 1
+        for _ in range(80):
+            actual_tcp = state.get_global_link_transform(tip)
+            translation = target_tcp[:3, 3] - actual_tcp[:3, 3]
+            try:
+                rotation = rotation_vector(
+                    target_tcp[:3, :3] @ actual_tcp[:3, :3].T)
+            except ValueError:
+                return None
+            if (float(np.linalg.norm(translation)) &lt;= 1.0e-5 and
+                    float(np.linalg.norm(rotation)) &lt;= 1.0e-4):
+                solved = np.asarray(
+                    state.get_joint_group_positions(group), dtype=float)
+                try:
+                    bounded = bool(
+                        group_model.satisfies_position_bounds(solved))
+                except TypeError:
+                    bounded = True
+                return solved if bounded and np.isfinite(solved).all() else None
+            jacobian = np.asarray(state.get_jacobian(
+                group, tip, np.zeros(3), False), dtype=float)
+            if jacobian.shape != (6, len(seed)) or not np.isfinite(
+                    jacobian).all():
+                return None
+            error = np.concatenate((translation, rotation))
+            damping = 2.0e-3
+            try:
+                step = jacobian.T @ np.linalg.solve(
+                    jacobian @ jacobian.T +
+                    (damping * damping) * np.eye(6), error)
+            except np.linalg.LinAlgError:
+                return None
+            largest = float(np.max(np.abs(step)))
+            if largest &gt; 0.035:
+                step *= 0.035 / largest
+            current = np.asarray(
+                state.get_joint_group_positions(group), dtype=float)
+            candidate = current + step
+            try:
+                if not group_model.satisfies_position_bounds(candidate):
+                    return None
+            except TypeError:
+                pass
+            state.set_joint_group_active_positions(group, candidate)
+            state.update()
+        return None
+
+    def solve(
+            self, group, tip, source, delta, previous, label,
+            preserve_nominal=True, predicted=None):
+        source = np.asarray(source, dtype=float)
+        self.reference.set_joint_group_active_positions(group, source)
+        self.reference.update()
+        baseline_tcp = self.reference.get_global_link_transform(tip)
+        target_tcp = delta @ baseline_tcp
+        translation_residual = float(np.linalg.norm(
+            target_tcp[:3, 3] - baseline_tcp[:3, 3]))
+        rotation_residual = rotation_angle(
+            target_tcp @ np.linalg.inv(baseline_tcp))
+        nominal_branch_is_continuous = (
+            previous is None or
+            float(np.max(np.abs(source - previous))) &lt;=
+            MAXIMUM_ADJACENT_CHANGE_RAD)
+        if (preserve_nominal and nominal_branch_is_continuous and
+                translation_residual &lt;= 1e-6 and
+                rotation_residual &lt;= 1e-5):
+            # The relative planner&#x27;s exact nominal point is already a valid IK
+            # solution on the current continuous branch. Preserve it
+            # byte-for-byte instead of inviting a KDL null-space branch
+            # change at a redundant wrist posture.
+            return source.copy()
+        candidates = []
+        seeds = [previous, predicted, source]
+        seeds = [np.asarray(value, dtype=float) for value in seeds
+                 if value is not None]
+        unique_seeds = []
+        for seed in seeds:
+            if not any(np.allclose(seed, value, atol=1e-12, rtol=0)
+                       for value in unique_seeds):
+                unique_seeds.append(seed)
+        for seed in unique_seeds:
+            self.solver.set_to_default_values()
+            self.solver.set_joint_group_active_positions(
+                group, np.asarray(seed, dtype=float))
+            self.solver.update()
+            self.ik_calls += 1
+            if self.solver.set_from_ik(
+                    group, matrix_pose(target_tcp), tip, 0.035):
+                self.solver.update()
+                solved = np.asarray(
+                    self.solver.get_joint_group_positions(group), dtype=float)
+                if np.isfinite(solved).all():
+                    actual_tcp = self.solver.get_global_link_transform(tip)
+                    translation_error = float(np.linalg.norm(
+                        actual_tcp[:3, 3] - target_tcp[:3, 3]))
+                    rotation_error = rotation_angle(
+                        actual_tcp @ np.linalg.inv(target_tcp))
+                    if (translation_error &lt;= 1.0e-5 and
+                            rotation_error &lt;= 1.0e-4):
+                        reference = previous if previous is not None else source
+                        candidates.append((
+                            float(np.max(np.abs(solved - reference))),
+                            translation_error, rotation_error, solved))
+        candidates.sort(key=lambda value: value[0])
+        # Prefer MoveIt&#x27;s bounded KDL solution whenever it already remains on
+        # the continuous branch.  The local solver is a deterministic fallback
+        # for a failed or branch-jumping KDL result, not a nominal-path
+        # replacement; this avoids injecting redundant-joint micro-curvature.
+        if not candidates or candidates[0][0] &gt; MAXIMUM_ADJACENT_CHANGE_RAD:
+            for seed in unique_seeds:
+                local = self.local_ik(group, tip, seed, target_tcp)
+                if local is None:
+                    continue
+                self.solver.set_joint_group_active_positions(group, local)
+                self.solver.update()
+                actual_tcp = self.solver.get_global_link_transform(tip)
+                translation_error = float(np.linalg.norm(
+                    actual_tcp[:3, 3] - target_tcp[:3, 3]))
+                rotation_error = rotation_angle(
+                    actual_tcp @ np.linalg.inv(target_tcp))
+                reference = previous if previous is not None else source
+                candidates.append((
+                    float(np.max(np.abs(local - reference))),
+                    translation_error, rotation_error, local.copy()))
+        if not candidates:
+            self.ik_failures.append(label)
+            raise RuntimeError(f&#x27;IK_NO_SOLUTION:{label}&#x27;)
+        candidates.sort(key=lambda value: value[0])
+        selected = candidates[0]
+        self.maximum_ik_translation_error_m = max(
+            self.maximum_ik_translation_error_m, selected[1])
+        self.maximum_ik_rotation_error_rad = max(
+            self.maximum_ik_rotation_error_rad, selected[2])
+        return selected[3]
+
+    def solve_source_path(self, message, source_positions, deltas, label,
+                          knot_indices=None, preserve_nominal=True):
+        group, tip = self.group_and_tip(message)
+        source_positions = np.asarray(source_positions, dtype=float)
+        if knot_indices is None:
+            # The 2-degree asset simplification is sufficient for nominal
+            # replay but can cross a narrow IK basin after a 30 mm/5 degree
+            # object transform.  Keep IK seeds no farther apart than the same
+            # 0.49-degree resolution used by the final dense path.
+            knot_indices = select_knots(
+                source_positions, DENSE_RESOLUTION_RAD)
+        solved = []
+        # Preserve one continuous branch across adjacent trajectory-message
+        # envelopes and across stages for each arm.  Finger messages do not
+        # disturb the corresponding arm seed.
+        previous = self.previous_by_group.get(group)
+        previous_source = self.previous_source_by_group.get(group)
+        denominator = max(1, len(source_positions) - 1)
+        for sequence, index in enumerate(knot_indices):
+            fraction = index / denominator
+            delta = deltas(fraction)
+            source = source_positions[index]
+            predicted = None
+            if previous is not None and previous_source is not None:
+                # Transport the nominal joint increment onto the current IK
+                # branch.  This is a much better local seed near redundant or
+                # singular wrist postures than reusing the last state alone.
+                predicted = previous + (source - previous_source)
+            value = self.solve(
+                group, tip, source, delta, previous,
+                f&#x27;{label}:{sequence}/{len(knot_indices)}&#x27;, preserve_nominal,
+                predicted)
+            if previous is not None:
+                jump = float(np.max(np.abs(value - previous)))
+                if jump &gt; MAXIMUM_ADJACENT_CHANGE_RAD:
+                    raise RuntimeError(
+                        f&#x27;IK_CONTINUITY:{label}:{sequence}/&#x27;
+                        f&#x27;{len(knot_indices)}:{math.degrees(jump):.6f}&#x27;)
+            solved.append(value)
+            previous = value
+            previous_source = source
+        self.previous_by_group[group] = solved[-1].copy()
+        self.previous_source_by_group[group] = previous_source.copy()
+        return dense_interpolate(solved, DENSE_RESOLUTION_RAD)
+
+    def normal_message(self, stage_index, message_index, message):
+        positions = [point[&#x27;positions&#x27;] for point in message[&#x27;points&#x27;]]
+
+        def deltas(fraction):
+            return target_delta(
+                stage_index, message_index, fraction,
+                self.cabinet_delta, self.cube_delta)
+        solved = self.solve_source_path(
+            message, positions, deltas,
+            f&#x27;{STAGE_NAMES[stage_index]}/message_{message_index}&#x27;)
+        output = copy.deepcopy(message)
+        output[&#x27;points&#x27;] = [point_record(value) for value in solved]
+        return output
+
+    def door_arc(self, stage_index, messages):
+        source = []
+        for message_index, message in enumerate(messages):
+            positions = [point[&#x27;positions&#x27;] for point in message[&#x27;points&#x27;]]
+            if message_index:
+                positions = positions[1:]
+            source.extend(positions)
+        source = np.asarray(source, dtype=float)
+        sample_axis = np.linspace(0, len(source) - 1, DOOR_ARC_TARGET_COUNT)
+        sampled = []
+        for position in sample_axis:
+            lower = int(math.floor(position))
+            upper = min(len(source) - 1, lower + 1)
+            fraction = position - lower
+            sampled.append(
+                (1 - fraction) * source[lower] + fraction * source[upper])
+        template = messages[0]
+        solved = self.solve_source_path(
+            template, sampled, lambda _: self.cabinet_delta,
+            f&#x27;{STAGE_NAMES[stage_index]}/door_arc_601&#x27;,
+            knot_indices=list(range(DOOR_ARC_TARGET_COUNT)),
+            preserve_nominal=False)
+        # Each 10-degree segment contains 101 targets; adjacent segments share
+        # their boundary, yielding exactly 601 unique hinge targets.
+        output = []
+        for segment, envelope in enumerate(messages):
+            message = copy.deepcopy(envelope)
+            subset = solved[segment * 100:(segment + 1) * 100 + 1]
+            message[&#x27;points&#x27;] = [point_record(value) for value in subset]
+            output.append(message)
+        return output
+
+    def stage(self, stage_index, payload):
+        print(json.dumps({
+            &#x27;event&#x27;: &#x27;PLAN_STAGE_START&#x27;,
+            &#x27;stage&#x27;: STAGE_NAMES[stage_index],
+            &#x27;ik_calls&#x27;: self.ik_calls,
+        }, sort_keys=True), flush=True)
+        result = {&#x27;name&#x27;: STAGE_NAMES[stage_index], &#x27;messages&#x27;: []}
+        if stage_index == 2:
+            for index, message in enumerate(payload[&#x27;messages&#x27;][:7]):
+                if len(message[&#x27;joint_names&#x27;]) == 7:
+                    result[&#x27;messages&#x27;].append(
+                        self.normal_message(stage_index, index, message))
+                else:
+                    copied = copy.deepcopy(message)
+                    copied[&#x27;points&#x27;] = [
+                        point_record(point[&#x27;positions&#x27;])
+                        for point in message[&#x27;points&#x27;]]
+                    result[&#x27;messages&#x27;].append(copied)
+            result[&#x27;messages&#x27;].extend(
+                self.door_arc(stage_index, payload[&#x27;messages&#x27;][7:]))
+            return result
+        for index, message in enumerate(payload[&#x27;messages&#x27;]):
+            copied = copy.deepcopy(message)
+            if len(message[&#x27;joint_names&#x27;]) == 7:
+                copied = self.normal_message(stage_index, index, message)
+            else:
+                copied[&#x27;points&#x27;] = [
+                    point_record(point[&#x27;positions&#x27;])
+                    for point in message[&#x27;points&#x27;]]
+            result[&#x27;messages&#x27;].append(copied)
+        return result
+
+
+def point_record(positions):
+    return {
+        &#x27;positions&#x27;: [float(value) for value in positions],
+        &#x27;velocities&#x27;: [],
+        &#x27;accelerations&#x27;: [],
+        &#x27;effort&#x27;: [],
+        &#x27;time_from_start&#x27;: {&#x27;sec&#x27;: 0, &#x27;nanosec&#x27;: 0},
+    }
+
+
+def seconds_duration(seconds):
+    whole = int(math.floor(seconds))
+    nanoseconds = int(round((seconds - whole) * 1e9))
+    if nanoseconds &gt;= 1_000_000_000:
+        whole += 1
+        nanoseconds -= 1_000_000_000
+    return {&#x27;sec&#x27;: whole, &#x27;nanosec&#x27;: nanoseconds}
+
+
+def simplify_collinear_positions(positions, tolerance_rad=1.0e-4):
+    &quot;&quot;&quot;Remove numerically collinear audit samples without changing the path.&quot;&quot;&quot;
+    values = np.asarray(positions, dtype=float)
+    if values.ndim != 2 or len(values) == 0:
+        raise ValueError(&#x27;EMPTY_TIMING_PATH&#x27;)
+    if len(values) &lt;= 2:
+        return values.copy()
+    retained = {0, len(values) - 1}
+    pending = [(0, len(values) - 1)]
+    while pending:
+        begin, end = pending.pop()
+        if end &lt;= begin + 1:
+            continue
+        fractions = (
+            np.arange(1, end - begin, dtype=float) / (end - begin))
+        interpolated = (
+            values[begin][None, :] + fractions[:, None] *
+            (values[end] - values[begin])[None, :])
+        errors = np.max(
+            np.abs(values[begin + 1:end] - interpolated), axis=1)
+        local_index = int(np.argmax(errors))
+        if float(errors[local_index]) &gt; tolerance_rad:
+            index = begin + 1 + local_index
+            retained.add(index)
+            pending.extend(((begin, index), (index, end)))
+    return values[sorted(retained)].copy()
+
+
+def retime_message(message, robot_model):
+    &quot;&quot;&quot;Apply MoveIt&#x27;s TOTG and Ruckig without invoking a planning pipeline.&quot;&quot;&quot;
+    from moveit.core.robot_state import RobotState
+    from moveit.core.robot_trajectory import RobotTrajectory
+    from moveit_msgs.msg import RobotTrajectory as RobotTrajectoryMessage
+    from trajectory_msgs.msg import JointTrajectoryPoint
+
+    if not message[&#x27;points&#x27;]:
+        raise ValueError(&#x27;EMPTY_MESSAGE&#x27;)
+    first_name = message[&#x27;joint_names&#x27;][0]
+    if len(message[&#x27;joint_names&#x27;]) == 7:
+        group = &#x27;left_arm&#x27; if first_name.startswith(&#x27;left_&#x27;) else &#x27;right_arm&#x27;
+    else:
+        group = (&#x27;left_gripper&#x27; if first_name.startswith(&#x27;left_&#x27;)
+                 else &#x27;right_gripper&#x27;)
+    positions = np.asarray(
+        [record[&#x27;positions&#x27;] for record in message[&#x27;points&#x27;]], dtype=float)
+    positions = simplify_collinear_positions(positions)
+    boundaries = [0]
+    if len(positions) &gt; 2:
+        differences = np.diff(positions, axis=0)
+        for index in range(1, len(differences)):
+            before, after = differences[index - 1], differences[index]
+            denominator = float(np.linalg.norm(before) * np.linalg.norm(after))
+            if denominator &gt; 1e-12:
+                cosine = float(np.dot(before, after) / denominator)
+                if cosine &lt; -0.95:
+                    boundaries.append(index)
+    boundaries.append(len(positions) - 1)
+    boundaries = sorted(set(boundaries))
+    output_points = []
+    total_duration = 0.0
+    for piece_index, (begin, end) in enumerate(
+            zip(boundaries[:-1], boundaries[1:])):
+        if end &lt;= begin:
+            continue
+        reference = RobotState(robot_model)
+        reference.set_to_default_values()
+        reference.set_joint_group_active_positions(group, positions[begin])
+        reference.update()
+        payload = RobotTrajectoryMessage()
+        payload.joint_trajectory.joint_names = list(message[&#x27;joint_names&#x27;])
+        for values in positions[begin:end + 1]:
+            point = JointTrajectoryPoint()
+            point.positions = values.tolist()
+            payload.joint_trajectory.points.append(point)
+        trajectory = RobotTrajectory(robot_model)
+        trajectory.joint_model_group_name = group
+        trajectory.set_robot_trajectory_msg(reference, payload)
+        if not trajectory.apply_totg_time_parameterization(
+                0.90, 0.80, path_tolerance=0.001,
+                resample_dt=0.010, min_angle_change=0.00001):
+            piece = positions[begin:end + 1]
+            span = float(np.max(np.abs(piece[-1] - piece[0])))
+            maximum_step = float(np.max(np.abs(np.diff(piece, axis=0))))
+            raise RuntimeError(
+                f&#x27;TOTG:{group}:piece_{piece_index}/{len(boundaries) - 1}:&#x27;
+                f&#x27;points_{len(piece)}:span_{span:.9f}:&#x27;
+                f&#x27;max_step_{maximum_step:.9f}&#x27;)
+        result = trajectory.get_robot_trajectory_msg(
+            list(message[&#x27;joint_names&#x27;]))
+        if list(result.joint_trajectory.joint_names) != message[&#x27;joint_names&#x27;]:
+            raise RuntimeError(f&#x27;TIMING_JOINT_ORDER:{group}&#x27;)
+        sources = result.joint_trajectory.points
+        if piece_index:
+            sources = sources[1:]
+        for source in sources:
+            source_seconds = float(source.time_from_start.sec)
+            source_seconds += source.time_from_start.nanosec * 1e-9
+            shifted = total_duration + source_seconds
+            output_points.append({
+                &#x27;positions&#x27;: [float(value) for value in source.positions],
+                &#x27;velocities&#x27;: [float(value) for value in source.velocities],
+                &#x27;accelerations&#x27;: [
+                    float(value) for value in source.accelerations],
+                &#x27;effort&#x27;: [float(value) for value in source.effort],
+                &#x27;time_from_start&#x27;: seconds_duration(shifted),
+            })
+        total_duration += float(trajectory.duration)
+    message[&#x27;points&#x27;] = output_points
+    velocity_limit = (
+        ARM_VELOCITY if len(message[&#x27;joint_names&#x27;]) == 7
+        else GRIPPER_VELOCITY)
+    acceleration_limit = (
+        ARM_ACCELERATION if len(message[&#x27;joint_names&#x27;]) == 7
+        else GRIPPER_ACCELERATION)
+    velocity_ratio = acceleration_ratio = 0.0
+    for point in message[&#x27;points&#x27;]:
+        velocity = np.asarray(point[&#x27;velocities&#x27;], dtype=float)
+        acceleration = np.asarray(point[&#x27;accelerations&#x27;], dtype=float)
+        if len(velocity):
+            velocity_ratio = max(
+                velocity_ratio,
+                float(np.max(np.abs(velocity) / velocity_limit)))
+        if len(acceleration):
+            acceleration_ratio = max(
+                acceleration_ratio,
+                float(np.max(np.abs(acceleration) / acceleration_limit)))
+    factor = max(1.0, velocity_ratio, math.sqrt(acceleration_ratio))
+    factor *= 1.000001
+    if factor &gt; 1.0:
+        for point in message[&#x27;points&#x27;]:
+            seconds = duration_seconds(point[&#x27;time_from_start&#x27;]) * factor
+            point[&#x27;time_from_start&#x27;] = seconds_duration(seconds)
+            point[&#x27;velocities&#x27;] = [
+                value / factor for value in point[&#x27;velocities&#x27;]]
+            point[&#x27;accelerations&#x27;] = [
+                value / (factor * factor)
+                for value in point[&#x27;accelerations&#x27;]]
+        total_duration *= factor
+    return total_duration
+
+
+def merge_contiguous_messages(stage):
+    &quot;&quot;&quot;Merge adjacent commands for one controller before retiming.&quot;&quot;&quot;
+    merged = []
+    for source in stage[&#x27;messages&#x27;]:
+        same_controller = all((
+            bool(merged),
+            not merged or merged[-1][&#x27;joint_names&#x27;] == source[&#x27;joint_names&#x27;],
+            not merged or merged[-1][&#x27;topic&#x27;] == source[&#x27;topic&#x27;],
+        ))
+        if same_controller:
+            points = copy.deepcopy(source[&#x27;points&#x27;])
+            if (points and merged[-1][&#x27;points&#x27;] and np.allclose(
+                    points[0][&#x27;positions&#x27;],
+                    merged[-1][&#x27;points&#x27;][-1][&#x27;positions&#x27;],
+                    atol=1e-12, rtol=0)):
+                points = points[1:]
+            merged[-1][&#x27;points&#x27;].extend(points)
+        else:
+            merged.append(copy.deepcopy(source))
+    for sequence, message in enumerate(merged):
+        message[&#x27;sequence&#x27;] = sequence
+    stage[&#x27;messages&#x27;] = merged
+
+
+def retime_stage(stage, robot_model):
+    merge_contiguous_messages(stage)
+    offset = 0.0
+    for message in stage[&#x27;messages&#x27;]:
+        message[&#x27;sequence&#x27;] = int(message.get(&#x27;sequence&#x27;, 0))
+        message[&#x27;wall_offset_ns&#x27;] = int(round(offset * 1e9))
+        try:
+            duration = retime_message(message, robot_model)
+        except RuntimeError as error:
+            raise RuntimeError(
+                f&#x27;{error}:{stage[&quot;name&quot;]}:message_{message[&quot;sequence&quot;]}&#x27;) \
+                from error
+        offset += duration + MESSAGE_GAP_S
+    stage[&#x27;duration_s&#x27;] = max(0.0, offset - MESSAGE_GAP_S)
+    return stage[&#x27;duration_s&#x27;]
+
+
+def duration_seconds(value):
+    return value[&#x27;sec&#x27;] + value[&#x27;nanosec&#x27;] * 1e-9
+
+
+def mirror_reverse_timing(forward, reverse):
+    &quot;&quot;&quot;Mirror a retimed stage exactly, including velocity and acceleration.&quot;&quot;&quot;
+    forward_by_width = {
+        width: [message for message in forward[&#x27;messages&#x27;]
+                if len(message[&#x27;joint_names&#x27;]) == width]
+        for width in (2, 7)}
+    reverse_by_width = {
+        width: [message for message in reverse[&#x27;messages&#x27;]
+                if len(message[&#x27;joint_names&#x27;]) == width]
+        for width in (2, 7)}
+    for width in (2, 7):
+        sources = list(reversed(forward_by_width[width]))
+        targets = reverse_by_width[width]
+        if len(sources) != len(targets):
+            raise RuntimeError(&#x27;REVERSE_TIMING_TOPOLOGY&#x27;)
+        for source, target in zip(sources, targets):
+            duration = duration_seconds(
+                source[&#x27;points&#x27;][-1][&#x27;time_from_start&#x27;])
+            if len(source[&#x27;points&#x27;]) != len(target[&#x27;points&#x27;]):
+                raise RuntimeError(&#x27;REVERSE_TIMING_POINT_COUNT&#x27;)
+            for source_point, target_point in zip(
+                    reversed(source[&#x27;points&#x27;]), target[&#x27;points&#x27;]):
+                mirrored_time = duration - duration_seconds(
+                    source_point[&#x27;time_from_start&#x27;])
+                target_point[&#x27;time_from_start&#x27;] = seconds_duration(
+                    mirrored_time)
+                target_point[&#x27;velocities&#x27;] = [
+                    -float(value) for value in source_point[&#x27;velocities&#x27;]]
+                target_point[&#x27;accelerations&#x27;] = [
+                    float(value) for value in source_point[&#x27;accelerations&#x27;]]
+                target_point[&#x27;effort&#x27;] = [
+                    float(value) for value in source_point[&#x27;effort&#x27;]]
+    offset = 0.0
+    for message in reverse[&#x27;messages&#x27;]:
+        message[&#x27;wall_offset_ns&#x27;] = int(round(offset * 1e9))
+        offset += duration_seconds(
+            message[&#x27;points&#x27;][-1][&#x27;time_from_start&#x27;]) + MESSAGE_GAP_S
+    reverse[&#x27;duration_s&#x27;] = max(0.0, offset - MESSAGE_GAP_S)
+    return reverse[&#x27;duration_s&#x27;]
+
+
+def maximum_change(stages):
+    maximum = 0.0
+    previous = {}
+    for stage in stages:
+        for message in stage[&#x27;messages&#x27;]:
+            key = tuple(message[&#x27;joint_names&#x27;])
+            for point in message[&#x27;points&#x27;]:
+                value = np.asarray(point[&#x27;positions&#x27;], dtype=float)
+                if key in previous:
+                    maximum = max(
+                        maximum, float(np.max(np.abs(value - previous[key]))))
+                previous[key] = value
+    return maximum
+
+
+def timing_audit(stages):
+    maximum_velocity_ratio = maximum_acceleration_ratio = 0.0
+    valid = True
+    for stage in stages:
+        for message in stage[&#x27;messages&#x27;]:
+            width = len(message[&#x27;joint_names&#x27;])
+            velocity_limit = ARM_VELOCITY if width == 7 else GRIPPER_VELOCITY
+            acceleration_limit = (
+                ARM_ACCELERATION if width == 7 else GRIPPER_ACCELERATION)
+            last_time = -1.0
+            for point in message[&#x27;points&#x27;]:
+                duration = point[&#x27;time_from_start&#x27;]
+                current = duration[&#x27;sec&#x27;] + duration[&#x27;nanosec&#x27;] * 1e-9
+                valid = valid and current &gt;= last_time and current &gt;= 0
+                last_time = current
+                positions = np.asarray(point[&#x27;positions&#x27;], dtype=float)
+                valid = valid and np.isfinite(positions).all()
+                if width == 2:
+                    valid = valid and bool(np.all(positions &gt;= -0.0205))
+                    valid = valid and bool(np.all(positions &lt;= 0.0255))
+                else:
+                    valid = valid and bool(np.all(np.abs(positions) &lt; math.pi))
+                velocity = np.asarray(point[&#x27;velocities&#x27;], dtype=float)
+                acceleration = np.asarray(point[&#x27;accelerations&#x27;], dtype=float)
+                if len(velocity):
+                    maximum_velocity_ratio = max(
+                        maximum_velocity_ratio,
+                        float(np.max(np.abs(velocity) / velocity_limit)))
+                if len(acceleration):
+                    maximum_acceleration_ratio = max(
+                        maximum_acceleration_ratio,
+                        float(np.max(
+                            np.abs(acceleration) / acceleration_limit)))
+    valid = valid and maximum_velocity_ratio &lt;= 1.0 + 1e-6
+    valid = valid and maximum_acceleration_ratio &lt;= 1.0 + 1e-6
+    return valid, maximum_velocity_ratio, maximum_acceleration_ratio
+
+
+def reverse_audit(stages):
+    pairs = ((0, 6), (1, 5), (2, 4))
+    for forward_index, reverse_index in pairs:
+        forward = list(stages[forward_index][&#x27;messages&#x27;])
+        reverse = list(stages[reverse_index][&#x27;messages&#x27;])
+        forward_by_width = {
+            width: [message for message in forward
+                    if len(message[&#x27;joint_names&#x27;]) == width]
+            for width in (2, 7)}
+        reverse_by_width = {
+            width: [message for message in reverse
+                    if len(message[&#x27;joint_names&#x27;]) == width]
+            for width in (2, 7)}
+        for width in (2, 7):
+            expected = [
+                point[&#x27;positions&#x27;]
+                for message in forward_by_width[width]
+                for point in message[&#x27;points&#x27;]
+            ]
+            actual = [
+                point[&#x27;positions&#x27;]
+                for message in reverse_by_width[width]
+                for point in message[&#x27;points&#x27;]
+            ]
+            if len(expected) != len(actual):
+                return False
+            if expected and not np.allclose(
+                    np.asarray(expected), np.asarray(actual)[::-1],
+                    atol=1e-12, rtol=0):
+                return False
+    return True
+
+
+def hinge_audit(epoch, cabinet, door):
+    relative = np.linalg.inv(cabinet) @ door
+    nominal_translation = np.asarray([-0.140045922147, -0.247963042272, 0.020])
+    translation_error = float(np.linalg.norm(
+        relative[:3, 3] - nominal_translation))
+    try:
+        index = epoch.mechanism_state.name.index(&#x27;door_hinge_joint&#x27;)
+        hinge = float(epoch.mechanism_state.position[index])
+    except (ValueError, IndexError):
+        return False, translation_error, math.inf
+    expected = yaw_transform(nominal_translation, hinge)
+    rotation_error = rotation_angle(expected @ np.linalg.inv(relative))
+    passed = all((
+        translation_error &lt;= 0.005,
+        rotation_error &lt;= math.radians(2.0),
+    ))
+    return passed, translation_error, rotation_error
+
+
+def cpp_clearance_audit(args, moveit_config, epoch, stages):
+    &quot;&quot;&quot;Run the file-only C++ world-distance and collision replay.&quot;&quot;&quot;
+    run_directory = Path(args.output).parent
+    run_directory.mkdir(parents=True, exist_ok=True)
+    audit_plan = {
+        &#x27;scene_epoch_id&#x27;: int(epoch.epoch_id),
+        &#x27;scene_hash&#x27;: epoch.scene_hash,
+        &#x27;candidate3_only&#x27;: True,
+        &#x27;contains_partial&#x27;: False,
+        &#x27;door_arc_target_count&#x27;: DOOR_ARC_TARGET_COUNT,
+        &#x27;stages&#x27;: stages,
+    }
+    audit_hash = canonical_hash(audit_plan)
+    input_path = run_directory / &#x27;clearance_audit_input.json&#x27;
+    urdf_path = run_directory / &#x27;clearance_audit_robot.urdf&#x27;
+    srdf_path = run_directory / &#x27;clearance_audit_robot.srdf&#x27;
+    result_path = run_directory / &#x27;clearance_audit_result.json&#x27;
+    stdout_path = run_directory / &#x27;clearance_auditor.stdout.log&#x27;
+    stderr_path = run_directory / &#x27;clearance_auditor.stderr.log&#x27;
+    input_path.write_text(
+        json.dumps(
+            {&#x27;plan&#x27;: audit_plan, &#x27;plan_hash&#x27;: audit_hash},
+            sort_keys=True, indent=2, allow_nan=False) + &#x27;\n&#x27;,
+        encoding=&#x27;utf-8&#x27;)
+    urdf_path.write_text(moveit_config[&#x27;robot_description&#x27;], encoding=&#x27;utf-8&#x27;)
+    srdf_path.write_text(
+        moveit_config[&#x27;robot_description_semantic&#x27;], encoding=&#x27;utf-8&#x27;)
+    command = [
+        args.clearance_auditor,
+        &#x27;--scene&#x27;, args.scene,
+        &#x27;--plan&#x27;, str(input_path),
+        &#x27;--urdf&#x27;, str(urdf_path),
+        &#x27;--srdf&#x27;, str(srdf_path),
+        &#x27;--output&#x27;, str(result_path),
+    ]
+    with stdout_path.open(&#x27;wb&#x27;) as stdout_file, (
+            stderr_path.open(&#x27;wb&#x27;)) as stderr_file:
+        completed = subprocess.run(
+            command, stdin=subprocess.DEVNULL,
+            stdout=stdout_file, stderr=stderr_file,
+            timeout=args.clearance_timeout_s, check=False)
+    if completed.returncode not in (0, 2) or not result_path.is_file():
+        raise RuntimeError(
+            f&#x27;CPP_CLEARANCE_AUDITOR:exit={completed.returncode}&#x27;)
+    result = json.loads(result_path.read_text(encoding=&#x27;utf-8&#x27;))
+    expected_scene = f&#x27;h1_scene_epoch:{epoch.epoch_id}:{epoch.scene_hash}&#x27;
+    if any((
+            result.get(&#x27;schema&#x27;) !=
+            &#x27;h1_candidate3_cpp_clearance_audit/v1&#x27;,
+            result.get(&#x27;scene_name&#x27;) != expected_scene,
+            result.get(&#x27;plan_hash&#x27;) != audit_hash,
+            not isinstance(result.get(&#x27;samples&#x27;), int),
+            int(result.get(&#x27;samples&#x27;, 0)) &lt;= 0,
+            not isinstance(result.get(&#x27;collision_free&#x27;), bool),
+            not isinstance(result.get(&#x27;clearance_passed&#x27;), bool),
+            not math.isfinite(float(
+                result.get(&#x27;minimum_environment_clearance_m&#x27;, math.nan))),
+    )):
+        raise RuntimeError(&#x27;CPP_CLEARANCE_AUDITOR_CONTRACT&#x27;)
+    return result, audit_hash
+
+
+def build_result(args):
+    global _MOVEIT_KEEPALIVE
+    from h1_2_perception_msgs.msg import SceneEpoch
+    from moveit_msgs.msg import PlanningScene as PlanningSceneMessage
+    from rclpy.serialization import deserialize_message
+
+    epoch = deserialize_message(Path(args.epoch).read_bytes(), SceneEpoch)
+    scene_message = deserialize_message(
+        Path(args.scene).read_bytes(), PlanningSceneMessage)
+    expected_scene_name = f&#x27;h1_scene_epoch:{epoch.epoch_id}:{epoch.scene_hash}&#x27;
+    if not epoch.valid or not epoch.stable:
+        raise ValueError(f&#x27;EPOCH_INVALID:{epoch.status}&#x27;)
+    alignment_prefix = &#x27;FROZEN_POST_NAV_ALIGNMENT:&#x27;
+    post_nav_alignment_hash = &#x27;&#x27;
+    if epoch.status.startswith(alignment_prefix):
+        post_nav_alignment_hash = epoch.status[len(alignment_prefix):]
+        if (len(post_nav_alignment_hash) != 64 or any(
+                value not in &#x27;0123456789abcdef&#x27;
+                for value in post_nav_alignment_hash)):
+            raise ValueError(&#x27;POST_NAV_ALIGNMENT_HASH&#x27;)
+    if scene_message.name != expected_scene_name or scene_message.is_diff:
+        raise ValueError(&#x27;SCENE_EPOCH_BINDING&#x27;)
+    assets, cache_hash = load_sealed_assets(Path(args.asset_root))
+    alignment = recover_scene_alignment(epoch, scene_message)
+    cabinet = alignment[&#x27;world&#x27;][&#x27;cabinet&#x27;]
+    cube = alignment[&#x27;world&#x27;][&#x27;cube&#x27;]
+    door = alignment[&#x27;world&#x27;][&#x27;door&#x27;]
+    cabinet_delta = alignment[&#x27;cabinet_delta&#x27;]
+    cube_delta = alignment[&#x27;cube_delta&#x27;]
+
+    from moveit.planning import MoveItPy
+
+    moveit_config = moveit_configuration()
+    moveit = MoveItPy(
+        node_name=f&#x27;candidate3_worker_{os.getpid()}&#x27;,
+        config_dict=moveit_config)
+    # Retain the instance until os._exit(), including fail-closed paths.  Jazzy
+    # MoveItPy can fault if its executor is destroyed during exception unwind.
+    _MOVEIT_KEEPALIVE = moveit
+    planner = Replanner(moveit.get_robot_model(), cabinet_delta, cube_delta)
+    start = time.monotonic()
+    handle = planner.stage(0, assets[0][&#x27;payload&#x27;])
+    left_clear = planner.stage(1, assets[1][&#x27;payload&#x27;])
+    door_open = planner.stage(2, assets[2][&#x27;payload&#x27;])
+    cube_stage = planner.stage(3, assets[3][&#x27;payload&#x27;])
+    forward_stages = [handle, left_clear, door_open, cube_stage]
+    forward_duration = sum(
+        retime_stage(stage, moveit.get_robot_model())
+        for stage in forward_stages)
+    door_close = reverse_stage(
+        door_open, assets[4][&#x27;payload&#x27;], STAGE_NAMES[4])
+    left_regrasp = reverse_stage(
+        left_clear, assets[5][&#x27;payload&#x27;], STAGE_NAMES[5])
+    handle_relock = reverse_stage(
+        handle, assets[6][&#x27;payload&#x27;], STAGE_NAMES[6])
+    reverse_duration = sum((
+        mirror_reverse_timing(door_open, door_close),
+        mirror_reverse_timing(left_clear, left_regrasp),
+        mirror_reverse_timing(handle, handle_relock),
+    ))
+    stages = [handle, left_clear, door_open, cube_stage,
+              door_close, left_regrasp, handle_relock]
+    total_duration = forward_duration + reverse_duration
+    plan_seconds = time.monotonic() - start
+    adjacent_change = maximum_change(stages)
+    timing_passed, velocity_ratio, acceleration_ratio = timing_audit(stages)
+    reverse_passed = reverse_audit(stages)
+    hinge_passed, hinge_translation_error, hinge_rotation_error = hinge_audit(
+        epoch, cabinet, door)
+
+    cpp_audit, clearance_audit_hash = cpp_clearance_audit(
+        args, moveit_config, epoch, stages)
+    collision_free = bool(cpp_audit[&#x27;collision_free&#x27;])
+    clearance_passed = bool(cpp_audit[&#x27;clearance_passed&#x27;])
+    clearance = float(cpp_audit[&#x27;minimum_environment_clearance_m&#x27;])
+    collision_samples = int(cpp_audit[&#x27;samples&#x27;])
+    collision_status = str(cpp_audit[&#x27;status&#x27;])
+    support_passed = all((
+        epoch.latch_state.strip().lower() == &#x27;locked&#x27;,
+        epoch.right_door_support_state.startswith(&#x27;DETACHED&#x27;),
+        epoch.left_cube_support_state.startswith(&#x27;DETACHED&#x27;),
+    ))
+    continuity_passed = adjacent_change &lt;= MAXIMUM_ADJACENT_CHANGE_RAD
+    ik_complete = not planner.ik_failures
+    original_stl_contact_passed = all((
+        len(epoch.stl_hash) == 64,
+        cache_hash == assets[3][&#x27;payload&#x27;][
+            &#x27;cube_cache_contract&#x27;][&#x27;cache_sha256&#x27;],
+    ))
+    action_time_passed = total_duration &lt;= 90.0
+    all_passed = all((
+        ik_complete, continuity_passed, collision_free, clearance_passed,
+        original_stl_contact_passed, hinge_passed, reverse_passed,
+        timing_passed, support_passed, action_time_passed,
+    ))
+    if not ik_complete:
+        final_status = &#x27;IK_INCOMPLETE&#x27;
+    elif not continuity_passed:
+        final_status = &#x27;IK_CONTINUITY&#x27;
+    elif not collision_free or not clearance_passed:
+        final_status = collision_status
+    elif not original_stl_contact_passed:
+        final_status = &#x27;ORIGINAL_STL_CONTACT&#x27;
+    elif not hinge_passed:
+        final_status = &#x27;HINGE_CONTRACT&#x27;
+    elif not reverse_passed:
+        final_status = &#x27;REVERSE_PATH&#x27;
+    elif not timing_passed:
+        final_status = &#x27;TIMING_LIMITS&#x27;
+    elif not action_time_passed:
+        final_status = f&#x27;ACTION_TIME:{total_duration:.6f}s&#x27;
+    elif not support_passed:
+        final_status = &#x27;SUPPORT_TOPOLOGY&#x27;
+    else:
+        final_status = &#x27;PASS&#x27;
+
+    stage_hashes = [stage_hash(stage) for stage in stages]
+    stage_waypoints = [sum(len(message[&#x27;points&#x27;])
+                           for message in stage[&#x27;messages&#x27;])
+                       for stage in stages]
+    plan = {
+        &#x27;schema&#x27;: SCHEMA,
+        &#x27;scene_epoch_id&#x27;: int(epoch.epoch_id),
+        &#x27;scene_hash&#x27;: epoch.scene_hash,
+        &#x27;source_epoch_status&#x27;: epoch.status,
+        &#x27;post_nav_alignment_hash&#x27;: post_nav_alignment_hash,
+        &#x27;planner_version&#x27;: PLANNER_VERSION,
+        &#x27;topology&#x27;: TOPOLOGY,
+        &#x27;candidate3_only&#x27;: True,
+        &#x27;contains_partial&#x27;: False,
+        &#x27;door_arc_target_count&#x27;: DOOR_ARC_TARGET_COUNT,
+        &#x27;source_asset_hashes&#x27;: {
+            value[&#x27;name&#x27;]: value[&#x27;payload_hash&#x27;] for value in assets},
+        &#x27;source_cache_hash&#x27;: cache_hash,
+        &#x27;current_cabinet_pose&#x27;: cabinet.tolist(),
+        &#x27;current_cube_pose&#x27;: cube.tolist(),
+        &#x27;current_pelvis_cabinet_pose&#x27;:
+            alignment[&#x27;pelvis_cabinet&#x27;].tolist(),
+        &#x27;current_pelvis_door_pose&#x27;: alignment[&#x27;pelvis_door&#x27;].tolist(),
+        &#x27;current_pelvis_handle_pose&#x27;: alignment[&#x27;pelvis_handle&#x27;].tolist(),
+        &#x27;current_pelvis_cube_pose&#x27;: alignment[&#x27;pelvis_cube&#x27;].tolist(),
+        &#x27;planning_from_world&#x27;: alignment[&#x27;planning_from_world&#x27;].tolist(),
+        &#x27;base_pose_residual&#x27;: alignment[&#x27;base_residual&#x27;].tolist(),
+        &#x27;base_residual_metrics&#x27;: alignment[&#x27;base_metrics&#x27;],
+        &#x27;world_cabinet_delta&#x27;:
+            alignment[&#x27;world&#x27;][&#x27;cabinet_delta&#x27;].tolist(),
+        &#x27;world_cube_delta&#x27;: alignment[&#x27;world&#x27;][&#x27;cube_delta&#x27;].tolist(),
+        &#x27;stage_names&#x27;: list(STAGE_NAMES),
+        &#x27;stage_hashes&#x27;: stage_hashes,
+        &#x27;stage_waypoint_counts&#x27;: stage_waypoints,
+        &#x27;clearance_audited_trajectory_hash&#x27;: clearance_audit_hash,
+        &#x27;planned_action_duration_s&#x27;: total_duration,
+        &#x27;planning_wall_duration_s&#x27;: plan_seconds,
+        &#x27;ik_calls&#x27;: planner.ik_calls,
+        &#x27;maximum_ik_translation_error_m&#x27;:
+            planner.maximum_ik_translation_error_m,
+        &#x27;maximum_ik_rotation_error_rad&#x27;:
+            planner.maximum_ik_rotation_error_rad,
+        &#x27;stages&#x27;: stages,
+    }
+    plan_hash = canonical_hash(plan)
+    certificate_payload = {
+        &#x27;schema&#x27;: &#x27;h1_candidate3_plan_certificate/v1&#x27;,
+        &#x27;scene_epoch_id&#x27;: int(epoch.epoch_id),
+        &#x27;scene_hash&#x27;: epoch.scene_hash,
+        &#x27;source_epoch_status&#x27;: epoch.status,
+        &#x27;post_nav_alignment_hash&#x27;: post_nav_alignment_hash,
+        &#x27;plan_hash&#x27;: plan_hash,
+        &#x27;clearance_audited_trajectory_hash&#x27;: clearance_audit_hash,
+        &#x27;robot_model_hash&#x27;: epoch.robot_model_hash,
+        &#x27;stl_hash&#x27;: epoch.stl_hash,
+        &#x27;tag_config_hash&#x27;: epoch.tag_config_hash,
+        &#x27;planner_version&#x27;: PLANNER_VERSION,
+        &#x27;auditor_version&#x27;: AUDITOR_VERSION,
+        &#x27;door_arc_target_count&#x27;: DOOR_ARC_TARGET_COUNT,
+        &#x27;forward_dense_samples&#x27;: sum(stage_waypoints[:4]),
+        &#x27;reverse_dense_samples&#x27;: sum(stage_waypoints[4:]),
+        &#x27;minimum_environment_clearance_m&#x27;: clearance,
+        &#x27;maximum_adjacent_joint_change_rad&#x27;: adjacent_change,
+        &#x27;candidate3_only&#x27;: True,
+        &#x27;ik_complete&#x27;: ik_complete,
+        &#x27;collision_free&#x27;: collision_free,
+        &#x27;original_stl_contact_passed&#x27;: original_stl_contact_passed,
+        &#x27;hinge_contract_passed&#x27;: hinge_passed,
+        &#x27;forward_passed&#x27;: all_passed,
+        &#x27;reverse_passed&#x27;: reverse_passed,
+        &#x27;timing_passed&#x27;: timing_passed and action_time_passed,
+        &#x27;support_topology_passed&#x27;: support_passed,
+        &#x27;no_partial&#x27;: True,
+        &#x27;validity_s&#x27;: 0.50,
+        &#x27;valid&#x27;: all_passed,
+        &#x27;status&#x27;: final_status,
+        &#x27;audit_details&#x27;: {
+            &#x27;collision_samples&#x27;: collision_samples,
+            &#x27;cpp_clearance_audit&#x27;: cpp_audit,
+            &#x27;ik_calls&#x27;: planner.ik_calls,
+            &#x27;maximum_ik_translation_error_m&#x27;:
+                planner.maximum_ik_translation_error_m,
+            &#x27;maximum_ik_rotation_error_rad&#x27;:
+                planner.maximum_ik_rotation_error_rad,
+            &#x27;planning_wall_duration_s&#x27;: plan_seconds,
+            &#x27;planned_action_duration_s&#x27;: total_duration,
+            &#x27;maximum_velocity_ratio&#x27;: velocity_ratio,
+            &#x27;maximum_acceleration_ratio&#x27;: acceleration_ratio,
+            &#x27;hinge_translation_error_m&#x27;: hinge_translation_error,
+            &#x27;hinge_rotation_error_rad&#x27;: hinge_rotation_error,
+            &#x27;scene_handle_translation_error_m&#x27;:
+                alignment[&#x27;handle_translation_error_m&#x27;],
+            &#x27;scene_handle_rotation_error_rad&#x27;:
+                alignment[&#x27;handle_rotation_error_rad&#x27;],
+            &#x27;scoped_clearance_exclusions&#x27;: [
+                &#x27;incubator_handle_exact_after_handle_contact&#x27;,
+                &#x27;incubator_door_exact_while_right_hand_supports_door&#x27;,
+                &#x27;green_cube_dynamic_exact_while_left_hand_supports_cube&#x27;,
+                &#x27;green_cube_10mm_guard_while_left_hand_supports_cube&#x27;,
+                ],
+            &#x27;original_stl_contact_method&#x27;: (
+                &#x27;sealed exact-STL/cache hashes plus object-rigid TCP target &#x27;
+                &#x27;transform invariance&#x27;),
+        },
+    }
+    certificate_hash = canonical_hash(certificate_payload)
+    return {
+        &#x27;plan&#x27;: plan,
+        &#x27;plan_hash&#x27;: plan_hash,
+        &#x27;certificate&#x27;: certificate_payload,
+        &#x27;certificate_hash&#x27;: certificate_hash,
+    }
+
+
+def failure_result(status):
+    return {
+        &#x27;plan&#x27;: None,
+        &#x27;plan_hash&#x27;: &#x27;&#x27;,
+        &#x27;certificate&#x27;: {
+            &#x27;schema&#x27;: &#x27;h1_candidate3_plan_certificate/v1&#x27;,
+            &#x27;planner_version&#x27;: PLANNER_VERSION,
+            &#x27;auditor_version&#x27;: AUDITOR_VERSION,
+            &#x27;candidate3_only&#x27;: True,
+            &#x27;no_partial&#x27;: True,
+            &#x27;valid&#x27;: False,
+            &#x27;status&#x27;: status,
+        },
+        &#x27;certificate_hash&#x27;: &#x27;&#x27;,
+    }
+
+
+def parse_arguments(argv=None):
+    parser = argparse.ArgumentParser()
+    parser.add_argument(&#x27;--epoch&#x27;, required=True)
+    parser.add_argument(&#x27;--scene&#x27;, required=True)
+    parser.add_argument(&#x27;--asset-root&#x27;, required=True)
+    parser.add_argument(&#x27;--clearance-auditor&#x27;, required=True)
+    parser.add_argument(&#x27;--clearance-timeout-s&#x27;, type=float, default=300.0)
+    parser.add_argument(&#x27;--output&#x27;, required=True)
+    return parser.parse_args(argv)
+
+
+def main(argv=None):
+    faulthandler.enable()
+    args = parse_arguments(argv)
+    exit_code = 0
+    try:
+        result = build_result(args)
+    except Exception as error:
+        result = failure_result(f&#x27;{type(error).__name__}:{error}&#x27;)
+        exit_code = 2
+    output = Path(args.output)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(
+        json.dumps(result, sort_keys=True, indent=2, allow_nan=False) + &#x27;\n&#x27;,
+        encoding=&#x27;utf-8&#x27;)
+    print(json.dumps({
+        &#x27;valid&#x27;: result[&#x27;certificate&#x27;][&#x27;valid&#x27;],
+        &#x27;status&#x27;: result[&#x27;certificate&#x27;][&#x27;status&#x27;],
+        &#x27;plan_hash&#x27;: result[&#x27;plan_hash&#x27;],
+        &#x27;certificate_hash&#x27;: result[&#x27;certificate_hash&#x27;],
+        &#x27;output&#x27;: str(output),
+    }, sort_keys=True), flush=True)
+    sys.stdout.flush()
+    sys.stderr.flush()
+    # MoveItPy Jazzy can fault during interpreter teardown after its rclcpp
+    # executor is destroyed.  The worker has no controller clients and exits
+    # only after the immutable output has been flushed.
+    os._exit(exit_code)
+
+
+if __name__ == &#x27;__main__&#x27;:
+    main()
+</pre></body></html>

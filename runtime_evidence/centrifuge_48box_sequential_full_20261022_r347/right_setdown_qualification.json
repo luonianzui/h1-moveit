@@ -1,0 +1,31 @@
+{
+  "status": "PASS_ACTUAL_RIGHT_PATH_RETIMED_OFFLINE_NOT_PHYSICAL",
+  "records": [
+    {
+      "hand": "left",
+      "actual_parent_plan": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r315/run/15_retrieval_transport_left_result.json",
+      "plan_sha256": "5ad29319b83d74b993e0627c1d46057787d7055c400c3f152d95c96cafd4b40a",
+      "coarse_rate_rad_s": 0.13,
+      "ramp_sim_s": 0.6,
+      "coarse_duration_sim_s": 10.025619971045193,
+      "previous_coarse_duration_sim_s": 10.025619971045193,
+      "original_samples": 115,
+      "group_messages": 18,
+      "original_holder_unchanged": true
+    },
+    {
+      "hand": "right",
+      "actual_parent_plan": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r315/run/19_retrieval_transport_right_result.json",
+      "plan_sha256": "f64870dc2d1a508e4b3b0ed1666f9495fbc6ff0ff5ed4fa09ad19280b8662f05",
+      "coarse_rate_rad_s": 0.06,
+      "ramp_sim_s": 1.2,
+      "coarse_duration_sim_s": 32.76114378284952,
+      "previous_coarse_duration_sim_s": 15.242064742454867,
+      "original_samples": 115,
+      "group_messages": 18,
+      "original_holder_unchanged": true
+    }
+  ],
+  "mocks": "publishers, feedback, clearance; synthetic start at actual qualified first point",
+  "new_physical_success_claimed": false
+}

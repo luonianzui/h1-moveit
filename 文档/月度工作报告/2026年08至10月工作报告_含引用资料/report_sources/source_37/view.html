@@ -1,0 +1,111 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[4] 16小时停车策略训练启动脚本</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>[4] 16小时停车策略训练启动脚本</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="train_h12_omni_recover_stop_v12.sh">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/test/h1_2_isaaclab/scripts/train_h12_omni_recover_stop_v12.sh</p><pre>#!/usr/bin/env bash
+set -Eeuo pipefail
+
+isaaclab_root=&quot;/home/liu/robot/gym_sim/IsaacLab-3.0-beta2&quot;
+project_root=&quot;/home/liu/test/h1_2_isaaclab&quot;
+log_root=&quot;${project_root}/train_logs&quot;
+experiment_root=&quot;${isaaclab_root}/logs/rsl_rl/h1_2_human_omni_recover_stop_gait_v12&quot;
+bootstrap_name=&quot;bootstrap_focused_stop_v11_r2_model_150&quot;
+bootstrap_target=&quot;${isaaclab_root}/logs/rsl_rl/h1_2_human_omni_focused_stop_gait_v11/2026-08-10_17-37-19_omni_focused_stop_v11_v8r3m50_101it_8192_r2&quot;
+checkpoint_name=&quot;${H12_WARM_START_CHECKPOINT:-model_150.pt}&quot;
+
+duration=&quot;${H12_TRAIN_DURATION:-16h}&quot;
+num_envs=&quot;${H12_NUM_ENVS:-8192}&quot;
+max_iterations=&quot;${H12_MAX_ITERATIONS:-100000}&quot;
+run_name=&quot;${H12_RUN_NAME:-omni_recover_stop_v12_v11m150_16h_8192}&quot;
+warm_start=&quot;${H12_WARM_START:-1}&quot;
+
+mkdir -p &quot;${log_root}&quot; &quot;${experiment_root}&quot;
+launch_stamp=&quot;$(date +%Y-%m-%d_%H-%M-%S)&quot;
+launcher_log=&quot;${log_root}/${launch_stamp}_${run_name}.log&quot;
+status_file=&quot;${log_root}/${launch_stamp}_${run_name}.status&quot;
+
+exec &gt; &gt;(tee -a &quot;${launcher_log}&quot;) 2&gt;&amp;1
+
+write_status() {
+  local state=&quot;$1&quot;
+  local exit_status=&quot;$2&quot;
+  printf &#x27;state=%s\nupdated_at=%s\nduration=%s\nnum_envs=%s\nmax_iterations=%s\nrun_name=%s\nwarm_start=%s\ncheckpoint=%s\npid=%s\nexit_status=%s\n&#x27; \
+    &quot;${state}&quot; &quot;$(date --iso-8601=seconds)&quot; &quot;${duration}&quot; &quot;${num_envs}&quot; \
+    &quot;${max_iterations}&quot; &quot;${run_name}&quot; &quot;${warm_start}&quot; &quot;${checkpoint_name}&quot; \
+    &quot;$$&quot; &quot;${exit_status}&quot; &gt; &quot;${status_file}&quot;
+}
+
+write_status running 0
+
+train_args=(
+  train --rl_library rsl_rl
+  --external_callback h1_2_isaaclab.register_tasks
+  --task H12-Human-Omni-Recover-Stop-Gait-Flat-v12
+  --num_envs &quot;${num_envs}&quot;
+  --max_iterations &quot;${max_iterations}&quot;
+  --run_name &quot;${run_name}&quot;
+)
+
+if [[ &quot;${warm_start}&quot; == &quot;1&quot; ]]; then
+  if [[ ! -f &quot;${bootstrap_target}/${checkpoint_name}&quot; ]]; then
+    echo &quot;[H12-OMNI-RECOVER-STOP] missing V11 checkpoint: ${bootstrap_target}/${checkpoint_name}&quot; &gt;&amp;2
+    write_status failed_launch 2
+    exit 2
+  fi
+  bootstrap_link=&quot;${experiment_root}/${bootstrap_name}&quot;
+  if [[ -e &quot;${bootstrap_link}&quot; &amp;&amp; ! -L &quot;${bootstrap_link}&quot; ]]; then
+    echo &quot;[H12-OMNI-RECOVER-STOP] refusing to replace non-symlink bootstrap path: ${bootstrap_link}&quot; &gt;&amp;2
+    write_status failed_launch 2
+    exit 2
+  fi
+  ln -sfn &quot;${bootstrap_target}&quot; &quot;${bootstrap_link}&quot;
+  train_args+=(--resume --load_run &quot;${bootstrap_name}&quot; --checkpoint &quot;${checkpoint_name}&quot;)
+fi
+
+echo &quot;[H12-OMNI-RECOVER-STOP] launcher_log=${launcher_log}&quot;
+echo &quot;[H12-OMNI-RECOVER-STOP] status_file=${status_file}&quot;
+echo &quot;[H12-OMNI-RECOVER-STOP] starting V12 with ${num_envs} environments for ${duration}&quot;
+echo &quot;[H12-OMNI-RECOVER-STOP] V11 warm start=${bootstrap_target}/${checkpoint_name}&quot;
+
+cd &quot;${isaaclab_root}&quot;
+set +e
+timeout --signal=INT --kill-after=300s &quot;${duration}&quot; \
+  env -u CONDA_PREFIX -u CONDA_DEFAULT_ENV PYTHONUNBUFFERED=1 \
+  ./isaaclab.sh &quot;${train_args[@]}&quot; physics=physx --viz none
+train_status=$?
+set -e
+
+if grep -q &#x27;^Traceback (most recent call last):&#x27; &quot;${launcher_log}&quot;; then
+  echo &quot;[H12-OMNI-RECOVER-STOP] traceback detected despite process status ${train_status}&quot; &gt;&amp;2
+  train_status=1
+fi
+
+last_progress=&quot;$(
+  grep -oE &#x27;Learning iteration +[0-9]+/[0-9]+&#x27; &quot;${launcher_log}&quot; \
+    | tail -n 1 \
+    || true
+)&quot;
+last_iteration=&quot;$(sed -E &#x27;s/.* ([0-9]+)\/[0-9]+/\1/&#x27; &lt;&lt;&lt; &quot;${last_progress}&quot;)&quot;
+announced_total=&quot;$(sed -E &#x27;s/.* [0-9]+\/([0-9]+)/\1/&#x27; &lt;&lt;&lt; &quot;${last_progress}&quot;)&quot;
+
+if [[ ${train_status} -eq 124 ]]; then
+  final_state=&quot;completed_duration&quot;
+elif [[ ${train_status} -eq 0 ]]; then
+  if [[ &quot;${last_iteration}&quot; =~ ^[0-9]+$ ]] \
+      &amp;&amp; [[ &quot;${announced_total}&quot; =~ ^[0-9]+$ ]] \
+      &amp;&amp; (( last_iteration + 1 &gt;= announced_total )); then
+    final_state=&quot;completed_iterations&quot;
+  else
+    final_state=&quot;stopped_early&quot;
+  fi
+else
+  final_state=&quot;failed&quot;
+fi
+
+write_status &quot;${final_state}&quot; &quot;${train_status}&quot;
+echo &quot;[H12-OMNI-RECOVER-STOP] finished state=${final_state} train_status=${train_status}&quot;
+
+if [[ ${final_state} == &quot;failed&quot; ]]; then
+  exit &quot;${train_status}&quot;
+fi
+</pre></body></html>

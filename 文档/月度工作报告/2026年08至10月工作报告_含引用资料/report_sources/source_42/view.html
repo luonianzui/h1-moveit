@@ -1,0 +1,28 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>9月17日视觉验证记录</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>9月17日视觉验证记录</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="VALIDATION.txt">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/vision/station/dist/station_tcp_windows/VALIDATION.txt</p><pre>打包验证记录 — 2026-09-17
+
+目标平台：Windows 10/11，Intel/AMD 64 位，CPU 推理。
+验证环境：Linux 上 Wine 9.0，执行包内原生 Windows CPython 3.11.9、Windows wheels，强制使用包内 Microsoft CRT DLL。
+这不是物理 Windows 电脑的硬件验收。
+
+已通过：
+1. 44 个 Python 依赖的 Windows 条件依赖闭包，未包含 CUDA 或 Linux 二进制。
+2. 原生 torch、torchvision、OpenCV、NumPy 导入；原生 NMS 算子运行。
+3. 原始 last.pt 模型加载，4 类顺序和模型 SHA-256 一致。
+4. 样例图推理得到 6 个目标：ls_board=0, antibody_kit=1, tip_box=3, 96_board=2。
+5. 横、竖、方 3 张图，打包版和原版 infer 结果逐字段相同。
+6. 实际视频循环处理 sample.avi 的 30 帧，回环 TCP 接收 30 条完整 JSON，frame_id=1..30；文件结束正常退出，发送线程退出。
+7. 29 项配置/命令行检查：默认值、覆盖、相对路径、整数、范围、非有限值、缺失配置等。
+8. 搬到含中文和空格的目录，从 /tmp 启动仍可自检。
+9. START.cmd（示例视频）、DEMO.cmd（无窗口）及 SELF_CHECK.cmd 启动入口验证成功。
+10. Python socket 自检保护记录的外网访问尝试为 0。
+
+范围：自检不连接摄像头。图形窗口、真实 Windows 摄像头、目标电脑性能、外部上位机需现场验证。
+TCP 现场使用前，应把 config.json 的 host/port 改成实际接收端；默认 127.0.0.1:9000 用于本机。
+
+原始验证 JSON 和控制台日志保存在 validation/。
+新电脑执行 SELF_CHECK.cmd 会在 logs/ 生成该电脑自己的验证结果。
+</pre></body></html>

@@ -1,0 +1,85 @@
+{
+  "schema": "h1_moveit/right_handle_live_fcl_authority/829-v2-31j",
+  "status": "PASS",
+  "valid": true,
+  "sealed": true,
+  "controller_commands_issued": 0,
+  "scope": {
+    "right_handle_geometric_replay": true,
+    "all_31_robot_joints_replayed": true,
+    "leg_joint_order": [
+      "left_hip_yaw_joint",
+      "left_hip_pitch_joint",
+      "left_hip_roll_joint",
+      "left_knee_joint",
+      "left_ankle_pitch_joint",
+      "left_ankle_roll_joint",
+      "right_hip_yaw_joint",
+      "right_hip_pitch_joint",
+      "right_hip_roll_joint",
+      "right_knee_joint",
+      "right_ankle_pitch_joint",
+      "right_ankle_roll_joint"
+    ],
+    "left_hand_handle_clearance_checked": true,
+    "non_cube_world_collision_checked": true,
+    "dynamic_cube_objects_included": false,
+    "dynamic_cube_authority": "candidate3_middle_exact_result_and_certificate",
+    "gripper_transition_windows_included": false,
+    "force_or_wrench_claimed": false
+  },
+  "files": {
+    "scene": {
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v2_31j/scene.cdr",
+      "sha256": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568",
+      "mode": "0400",
+      "nlink": 1
+    },
+    "path": {
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v2_31j/contact_path_v4_44p25_candidate.json",
+      "sha256": "92d0f131324db1755ecdf2a1e03b102b450fbd783a647625e9baf9dfb0a0fb98",
+      "mode": "0400",
+      "nlink": 1
+    },
+    "urdf": {
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v2_31j/clearance_audit_robot.urdf",
+      "sha256": "3aad4bdc038ff6cde3bef221bb15b8134bb45f7a87ef5dfa0fadc2126bd44929",
+      "mode": "0400",
+      "nlink": 1
+    },
+    "srdf": {
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v2_31j/clearance_audit_robot.srdf",
+      "sha256": "2f268a57406fcea301cd1a58c3912b91aa9a3a676e2ae42b9f9c741fac30d79d",
+      "mode": "0400",
+      "nlink": 1
+    },
+    "handle_stl": {
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v2_31j/incubator_handle.STL",
+      "sha256": "ad6670185fa5756ba5dabdee7e542db2df3346973fea4eb887288f54a6b6f59e",
+      "mode": "0400",
+      "nlink": 1
+    },
+    "auditor_source": {
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v2_31j/right_handle_live_fcl_auditor_829.cpp",
+      "sha256": "6753896c10a27aad7460f7f2056cbc5fbbdcc1d55912e0353746ef056d98e8f1",
+      "mode": "0400",
+      "nlink": 1
+    },
+    "auditor_binary": {
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v2_31j/right_handle_live_fcl_auditor_829.bin",
+      "sha256": "12483870b7c6eb3546aaeddecb235dbe374ade78cf14f05f221e5643f197fc83",
+      "mode": "0500",
+      "nlink": 1
+    }
+  },
+  "delegated_dynamic_cube_bindings": {
+    "middle_exact_result": {
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_exact_result_828.json",
+      "sha256": "3e49dd9a34b206da4699545cff5656fb0db3fb38796ffd9a9435ebf55048e1fb"
+    },
+    "middle_certificate": {
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_certificate_828.json",
+      "sha256": "58a683347c95be35c7c9c39e814c7be23dfab7311a037a0a0e6d7bb5f62aaade"
+    }
+  }
+}

@@ -1,0 +1,126 @@
+# V12 离线策略与运行时集成报告
+
+日期：2026-09-09 CST  
+范围：Gazebo 导航成果线的离线策略导出、推理和状态机；不包含 Gazebo 启动或运动
+
+## 1. 用户授权与边界
+
+用户确认继续把 `/home/liu/test/h1_2_isaaclab` 中的 V12 运动控制接入 Mid-360/Nav2
+导航。本轮只实施上线前的离线安全阶段：没有启动 Gazebo、ROS 节点或 controller，没有
+发布速度、腿部目标、轨迹或导航目标，没有修改动作 authority/run，也没有连接真机。
+
+## 2. 冻结输入身份
+
+```text
+task        H12-Human-Omni-Recover-Stop-Gait-Flat-v12
+iteration   17250
+checkpoint  /home/liu/robot/gym_sim/IsaacLab-3.0-beta2/logs/rsl_rl/
+            h1_2_human_omni_recover_stop_gait_v12/
+            2026-08-10_18-09-30_omni_recover_stop_v12_v11m150_16h_8192_r1/
+            model_17250.pt
+size        3,799,642 bytes
+SHA-256     92ae9d9e945ed72e5aca91370acf94673d57181113ca89ab4f1c6639e0e87405
+task SHA    9395bc00d19cea9699c0d86589a14defe517da4a0c4b4ee7020580bd00b726ba
+```
+
+CPU `weights_only=True` 审计确认 actor 22 个张量全部 finite，normalizer 为 `(1,78)`，
+移动分支为 `78 -> 128 x 4 -> 12`，STOP 分支为 `78 -> 64 x 2 -> 12`。
+
+## 3. 非覆盖导出
+
+新增导出器先执行 `--self-test`，结果为：
+
+```text
+checkpoint_valid        true
+golden_sample_count     258
+maximum_absolute_error  3.0517578125e-05
+writes_performed        false
+```
+
+随后确认 `src/h1_2_navigation/policy` 不存在，再一次性创建目录和四个新文件。导出器在
+输出目录已存在时 fail closed，不覆盖既有资产。NumPy 文件采用固定 ZIP 时间戳和排序键，
+不使用 pickle。
+
+```text
+v12_model_17250_policy.npz
+  size    270,033 bytes
+  SHA-256 4891a943e6347c580c25224192523753649763fb083cb5a6fdcfe71c62e66b1c
+
+v12_model_17250_policy.pt
+  size    307,178 bytes
+  SHA-256 f206a6247b737c95406339ca47a25e19c86ecd35afd967d655a024b00501bf16
+
+v12_model_17250_golden.npz
+  size    85,298 bytes
+  SHA-256 0630c714126687d30cf82bf1156b9f8aea610da1014fcb2e1820699c8f4b0a24
+
+v12_model_17250_manifest.json
+  SHA-256 ecd4f7fbb830c20a5709e2f19b14e197bcb409a6881a944e349266938d8ffd4b
+```
+
+258 项 corpus 同时覆盖精确零命令、非零命令和最小正浮点非零命令。纯 NumPy 输出与
+PyTorch checkpoint 参考的最大绝对误差为 `3.0517578125e-05`、平均绝对误差为
+`7.822868752782597e-08`；TorchScript 与 PyTorch 参考输出最大误差为 `0.0`。
+
+## 4. 离线运行时
+
+新增 `v12_runtime.py`，保持 50 Hz 和 78-D/12-D ABI，并移植：
+
+- 训练默认屈膝姿态及 90% 关节位置范围；
+- `target[t] = clip(target[t-1] + 0.3 * action[t])` 移动目标；
+- 精确零命令分支选择和 12 维 STOP context；
+- 首个 STOP 动作、逐关节残差和目标变化率限制；
+- 10 个稳定周期 capture dwell、捕获姿态 HOLD；
+- 姿态、速度、角速度、垂直速度和双脚支撑 recovery hysteresis；
+- 训练一致的确定性肩 pitch 摆动；
+- 上一动作、目标误差、步态相位、步频、gait index 和抬脚高度观测。
+
+该运行时是纯计算类，不导入 `rclpy`，不创建 publisher，也不连接腿控制器。
+
+## 5. 构建与测试
+
+按 `AGENTS.md` 的 Miniconda 六库精确隔离规则和 `--base-paths src` 构建：
+
+```text
+log/build_2026-09-09_11-32-40  h1_2_navigation / PASS
+log/test_2026-09-09_11-32-41   37 tests / 0 errors / 0 failures / 0 skipped
+ament_flake8                    19 files / PASS
+```
+
+第一次 `colcon test` 没有进入测试收集，因为 shell 未加载工作空间保存的 Nav2 本地前缀；
+随后显式加载
+`runtime_dependencies/nav2_jazzy_1.3.12/root/opt/ros/jazzy/local_setup.bash` 后正式测试
+37/37 PASS。该环境问题不是源码或测试失败。
+
+安装后只读 `v12_asset_audit`：
+
+```text
+baseline_valid    true
+policy_export     true
+deployment_ready  false
+```
+
+policy export blocker 已解除。仍保留八项 blocker：`joint_velocity_limits`、`inertials`、
+`collision_geometry`、`default_leg_pose`、`free_root`、`leg_controller`、`imu_sensor`、
+`foot_contact_sensors`。
+
+## 6. 关键源码身份
+
+```text
+v12_locomotion.yaml      c013aec4573fbe1f67b397ba4e5e673140e8f242977fd56952f67716a75d82c4
+locomotion_contract.py   240266fce323edffaebbfd1ebd3d2193f8f350c469c3ef2ed989bca953f48986
+v12_policy.py            7b609ffc26fb26b3b586038a42247156b1c87a6892d7ff75739398a2bf7b81bf
+v12_policy_export.py     52779f76d5369f20b0cf1b1b84826d8f50704080a0717672080e17940db16951
+v12_runtime.py           449d6522760a581200977dec94f6e945dc10bb234acc2b832fe3f9c1a74ca4b2
+v12_asset_audit.py       7c533f194d583ac6b648d3df7c16c4bf6e930052f6719245325ef7d5a5ca4328
+test_v12_policy.py       35454cb5796d3bdfb7473c6a0e8d2d96d0edbe0cab420b4f84537863c5d79ca8
+test_v12_runtime.py      e43ff00b511c4ac43fb68523d9adc7017229a1ff71e37eabb2d2fa4ebdf71ee1
+```
+
+## 7. 下一安全门
+
+下一步不能直接接 Nav2 controller。必须先建立独立导航专用自由根模型，解决训练/Gazebo
+动力学与碰撞差异，添加 12 腿控制器、IMU、双足接触和同步状态估计；之后先做不接 Nav2
+controller 的精确零命令 Gazebo 站立。非零移动仍需在 fresh Gazebo 中单独授权和验收。
+
+909 仍是最新受保护备份，但不包含本报告和本轮新增策略/运行时；本轮没有创建备份。

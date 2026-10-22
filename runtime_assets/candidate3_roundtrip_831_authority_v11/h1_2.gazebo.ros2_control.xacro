@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="h1_2_gazebo_joint" params="joint_name initial_value">
+    <joint name="${joint_name}">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">${initial_value}</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="h1_2_gazebo_ros2_control" params="initial_positions_file">
+    <xacro:property
+      name="initial_positions"
+      value="${xacro.load_yaml(initial_positions_file)['initial_positions']}"/>
+
+    <ros2_control name="H1_2GazeboSystem" type="system">
+      <hardware>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      </hardware>
+
+      <xacro:h1_2_gazebo_joint joint_name="left_hip_yaw_joint" initial_value="${initial_positions['left_hip_yaw_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="left_hip_pitch_joint" initial_value="${initial_positions['left_hip_pitch_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="left_hip_roll_joint" initial_value="${initial_positions['left_hip_roll_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="left_knee_joint" initial_value="${initial_positions['left_knee_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="left_ankle_pitch_joint" initial_value="${initial_positions['left_ankle_pitch_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="left_ankle_roll_joint" initial_value="${initial_positions['left_ankle_roll_joint']}"/>
+
+      <xacro:h1_2_gazebo_joint joint_name="right_hip_yaw_joint" initial_value="${initial_positions['right_hip_yaw_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="right_hip_pitch_joint" initial_value="${initial_positions['right_hip_pitch_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="right_hip_roll_joint" initial_value="${initial_positions['right_hip_roll_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="right_knee_joint" initial_value="${initial_positions['right_knee_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="right_ankle_pitch_joint" initial_value="${initial_positions['right_ankle_pitch_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="right_ankle_roll_joint" initial_value="${initial_positions['right_ankle_roll_joint']}"/>
+
+      <xacro:h1_2_gazebo_joint joint_name="torso_joint" initial_value="${initial_positions['torso_joint']}"/>
+
+      <xacro:h1_2_gazebo_joint joint_name="left_shoulder_pitch_joint" initial_value="${initial_positions['left_shoulder_pitch_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="left_shoulder_roll_joint" initial_value="${initial_positions['left_shoulder_roll_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="left_shoulder_yaw_joint" initial_value="${initial_positions['left_shoulder_yaw_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="left_elbow_joint" initial_value="${initial_positions['left_elbow_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="left_wrist_roll_joint" initial_value="${initial_positions['left_wrist_roll_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="left_wrist_pitch_joint" initial_value="${initial_positions['left_wrist_pitch_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="left_wrist_yaw_joint" initial_value="${initial_positions['left_wrist_yaw_joint']}"/>
+
+      <xacro:h1_2_gazebo_joint joint_name="right_shoulder_pitch_joint" initial_value="${initial_positions['right_shoulder_pitch_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="right_shoulder_roll_joint" initial_value="${initial_positions['right_shoulder_roll_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="right_shoulder_yaw_joint" initial_value="${initial_positions['right_shoulder_yaw_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="right_elbow_joint" initial_value="${initial_positions['right_elbow_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="right_wrist_roll_joint" initial_value="${initial_positions['right_wrist_roll_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="right_wrist_pitch_joint" initial_value="${initial_positions['right_wrist_pitch_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="right_wrist_yaw_joint" initial_value="${initial_positions['right_wrist_yaw_joint']}"/>
+
+      <xacro:h1_2_gazebo_joint joint_name="right_dex1_finger_1_joint" initial_value="${initial_positions['right_dex1_finger_1_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="right_dex1_finger_2_joint" initial_value="${initial_positions['right_dex1_finger_2_joint']}"/>
+
+      <xacro:h1_2_gazebo_joint joint_name="left_dex1_finger_1_joint" initial_value="${initial_positions['left_dex1_finger_1_joint']}"/>
+      <xacro:h1_2_gazebo_joint joint_name="left_dex1_finger_2_joint" initial_value="${initial_positions['left_dex1_finger_2_joint']}"/>
+    </ros2_control>
+
+    <!-- Gazebo ros2_control plugin -->
+    <gazebo>
+      <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+        <robot_param_node>robot_state_publisher</robot_param_node>
+        <parameters>/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/install/h1_2_moveit_config/share/h1_2_moveit_config/config/ros2_controllers.yaml</parameters>
+      </plugin>
+
+      <!-- Publish simulator-native robot telemetry at every physics step.
+           The ROS bridge uses these source timestamps for /joint_states, so
+           a delayed /clock delivery cannot make controller-manager snapshots
+           repeat or skip simulation time.  Fixed world_joint is deliberately
+           excluded; the 31 movable joints are explicit and fail closed if the
+           robot model changes. -->
+      <plugin filename="gz-sim-joint-state-publisher-system"
+              name="gz::sim::systems::JointStatePublisher">
+        <topic>/h1_2/native_joint_state_829</topic>
+        <joint_name>left_hip_yaw_joint</joint_name>
+        <joint_name>left_hip_pitch_joint</joint_name>
+        <joint_name>left_hip_roll_joint</joint_name>
+        <joint_name>left_knee_joint</joint_name>
+        <joint_name>left_ankle_pitch_joint</joint_name>
+        <joint_name>left_ankle_roll_joint</joint_name>
+        <joint_name>right_hip_yaw_joint</joint_name>
+        <joint_name>right_hip_pitch_joint</joint_name>
+        <joint_name>right_hip_roll_joint</joint_name>
+        <joint_name>right_knee_joint</joint_name>
+        <joint_name>right_ankle_pitch_joint</joint_name>
+        <joint_name>right_ankle_roll_joint</joint_name>
+        <joint_name>torso_joint</joint_name>
+        <joint_name>left_shoulder_pitch_joint</joint_name>
+        <joint_name>left_shoulder_roll_joint</joint_name>
+        <joint_name>left_shoulder_yaw_joint</joint_name>
+        <joint_name>left_elbow_joint</joint_name>
+        <joint_name>left_wrist_roll_joint</joint_name>
+        <joint_name>left_wrist_pitch_joint</joint_name>
+        <joint_name>left_wrist_yaw_joint</joint_name>
+        <joint_name>left_dex1_finger_1_joint</joint_name>
+        <joint_name>left_dex1_finger_2_joint</joint_name>
+        <joint_name>right_shoulder_pitch_joint</joint_name>
+        <joint_name>right_shoulder_roll_joint</joint_name>
+        <joint_name>right_shoulder_yaw_joint</joint_name>
+        <joint_name>right_elbow_joint</joint_name>
+        <joint_name>right_wrist_roll_joint</joint_name>
+        <joint_name>right_wrist_pitch_joint</joint_name>
+        <joint_name>right_wrist_yaw_joint</joint_name>
+        <joint_name>right_dex1_finger_1_joint</joint_name>
+        <joint_name>right_dex1_finger_2_joint</joint_name>
+      </plugin>
+    </gazebo>
+  </xacro:macro>
+</robot>

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="h1_2_navigation_joint" params="joint_name initial_value effort_limit">
+    <joint name="${joint_name}">
+      <command_interface name="effort">
+        <param name="min">-${effort_limit}</param>
+        <param name="max">${effort_limit}</param>
+      </command_interface>
+      <command_interface name="position">
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">${initial_value}</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="h1_2_navigation_ros2_control" params="controller_parameters_file">
+    <ros2_control name="H1_2NavigationGazeboSystem" type="system">
+      <hardware>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      </hardware>
+
+      <xacro:h1_2_navigation_joint joint_name="left_hip_yaw_joint" initial_value="0.0" effort_limit="200.0"/>
+      <xacro:h1_2_navigation_joint joint_name="left_hip_pitch_joint" initial_value="-0.16" effort_limit="200.0"/>
+      <xacro:h1_2_navigation_joint joint_name="left_hip_roll_joint" initial_value="0.0" effort_limit="200.0"/>
+      <xacro:h1_2_navigation_joint joint_name="left_knee_joint" initial_value="0.36" effort_limit="300.0"/>
+      <xacro:h1_2_navigation_joint joint_name="left_ankle_pitch_joint" initial_value="-0.20" effort_limit="60.0"/>
+      <xacro:h1_2_navigation_joint joint_name="left_ankle_roll_joint" initial_value="0.0" effort_limit="40.0"/>
+      <xacro:h1_2_navigation_joint joint_name="right_hip_yaw_joint" initial_value="0.0" effort_limit="200.0"/>
+      <xacro:h1_2_navigation_joint joint_name="right_hip_pitch_joint" initial_value="-0.16" effort_limit="200.0"/>
+      <xacro:h1_2_navigation_joint joint_name="right_hip_roll_joint" initial_value="0.0" effort_limit="200.0"/>
+      <xacro:h1_2_navigation_joint joint_name="right_knee_joint" initial_value="0.36" effort_limit="300.0"/>
+      <xacro:h1_2_navigation_joint joint_name="right_ankle_pitch_joint" initial_value="-0.20" effort_limit="60.0"/>
+      <xacro:h1_2_navigation_joint joint_name="right_ankle_roll_joint" initial_value="0.0" effort_limit="40.0"/>
+
+      <xacro:h1_2_navigation_joint joint_name="torso_joint" initial_value="0.0" effort_limit="200.0"/>
+      <xacro:h1_2_navigation_joint joint_name="left_shoulder_pitch_joint" initial_value="0.4" effort_limit="40.0"/>
+      <xacro:h1_2_navigation_joint joint_name="left_shoulder_roll_joint" initial_value="0.0" effort_limit="40.0"/>
+      <xacro:h1_2_navigation_joint joint_name="left_shoulder_yaw_joint" initial_value="0.0" effort_limit="18.0"/>
+      <xacro:h1_2_navigation_joint joint_name="left_elbow_joint" initial_value="0.3" effort_limit="18.0"/>
+      <xacro:h1_2_navigation_joint joint_name="left_wrist_roll_joint" initial_value="0.0" effort_limit="19.0"/>
+      <xacro:h1_2_navigation_joint joint_name="left_wrist_pitch_joint" initial_value="0.0" effort_limit="19.0"/>
+      <xacro:h1_2_navigation_joint joint_name="left_wrist_yaw_joint" initial_value="0.0" effort_limit="19.0"/>
+      <xacro:h1_2_navigation_joint joint_name="right_shoulder_pitch_joint" initial_value="0.4" effort_limit="40.0"/>
+      <xacro:h1_2_navigation_joint joint_name="right_shoulder_roll_joint" initial_value="0.0" effort_limit="40.0"/>
+      <xacro:h1_2_navigation_joint joint_name="right_shoulder_yaw_joint" initial_value="0.0" effort_limit="18.0"/>
+      <xacro:h1_2_navigation_joint joint_name="right_elbow_joint" initial_value="0.3" effort_limit="18.0"/>
+      <xacro:h1_2_navigation_joint joint_name="right_wrist_roll_joint" initial_value="0.0" effort_limit="19.0"/>
+      <xacro:h1_2_navigation_joint joint_name="right_wrist_pitch_joint" initial_value="0.0" effort_limit="19.0"/>
+      <xacro:h1_2_navigation_joint joint_name="right_wrist_yaw_joint" initial_value="0.0" effort_limit="19.0"/>
+    </ros2_control>
+
+    <gazebo>
+      <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+        <parameters>${controller_parameters_file}</parameters>
+        <hold_joints>true</hold_joints>
+        <position_proportional_gain>1.0</position_proportional_gain>
+      </plugin>
+      <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+        <odom_frame>h1_2_navigation/ground_truth_odom</odom_frame>
+        <robot_base_frame>pelvis</robot_base_frame>
+        <dimensions>3</dimensions>
+        <odom_publish_frequency>250</odom_publish_frequency>
+        <odom_topic>/h1_2_navigation/ground_truth/odom</odom_topic>
+      </plugin>
+    </gazebo>
+  </xacro:macro>
+</robot>

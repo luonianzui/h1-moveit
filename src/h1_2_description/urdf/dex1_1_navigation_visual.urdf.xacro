@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="dex1_1_navigation_visual" params="side parent">
+    <link name="${side}_dex1_navigation_visual_link">
+      <visual name="${side}_dex1_adapter_visual">
+        <origin xyz="0.005 0 0" rpy="0 1.57079632679 0"/>
+        <geometry>
+          <cylinder radius="0.027" length="0.010"/>
+        </geometry>
+        <material name="${side}_dex1_adapter_dark">
+          <color rgba="0.10 0.11 0.13 1"/>
+        </material>
+      </visual>
+
+      <visual name="${side}_dex1_base_visual">
+        <origin xyz="0.010 0 0" rpy="0 0 -1.57079632679"/>
+        <geometry>
+          <mesh filename="package://h1_2_description/meshes/dex1_1/base_link.STL"/>
+        </geometry>
+        <material name="${side}_dex1_body">
+          <color rgba="0.79216 0.81961 0.93333 1"/>
+        </material>
+      </visual>
+
+      <visual name="${side}_dex1_finger_1_slider_visual">
+        <origin xyz="0.0693 -0.04055 0.0152" rpy="0 0 -1.57079632679"/>
+        <geometry>
+          <mesh filename="package://h1_2_description/meshes/dex1_1/Link1_1.STL"/>
+        </geometry>
+        <material name="${side}_dex1_body"/>
+      </visual>
+
+      <visual name="${side}_dex1_finger_1_visual">
+        <origin xyz="0.0823 -0.02755 0.0152" rpy="0 0 -1.57079632679"/>
+        <geometry>
+          <mesh filename="package://h1_2_description/meshes/dex1_1/Link1_2.STL"/>
+        </geometry>
+        <material name="${side}_dex1_finger">
+          <color rgba="0.89804 0.91765 0.92941 1"/>
+        </material>
+      </visual>
+
+      <visual name="${side}_dex1_finger_1_pad_visual">
+        <origin xyz="0.107343 -0.0250335 0.0142" rpy="0 0 -1.57079632679"/>
+        <geometry>
+          <mesh filename="package://h1_2_description/meshes/dex1_1/Link1_3.STL"/>
+        </geometry>
+        <material name="${side}_dex1_pad">
+          <color rgba="0.18 0.18 0.18 1"/>
+        </material>
+      </visual>
+
+      <visual name="${side}_dex1_finger_2_slider_visual">
+        <origin xyz="0.0693 0.04055 -0.0152" rpy="0 0 -1.57079632679"/>
+        <geometry>
+          <mesh filename="package://h1_2_description/meshes/dex1_1/Link2_1.STL"/>
+        </geometry>
+        <material name="${side}_dex1_body"/>
+      </visual>
+
+      <visual name="${side}_dex1_finger_2_visual">
+        <origin xyz="0.0823 0.02755 -0.0152" rpy="0 0 -1.57079632679"/>
+        <geometry>
+          <mesh filename="package://h1_2_description/meshes/dex1_1/Link2_2.STL"/>
+        </geometry>
+        <material name="${side}_dex1_finger"/>
+      </visual>
+
+      <visual name="${side}_dex1_finger_2_pad_visual">
+        <origin xyz="0.107343 0.0250335 0.0142" rpy="0 0 -1.57079632679"/>
+        <geometry>
+          <mesh filename="package://h1_2_description/meshes/dex1_1/Link2_3.STL"/>
+        </geometry>
+        <material name="${side}_dex1_pad"/>
+      </visual>
+    </link>
+
+    <joint name="${side}_dex1_navigation_visual_joint" type="fixed">
+      <origin xyz="0.045 0 0" rpy="0 0 0"/>
+      <parent link="${parent}"/>
+      <child link="${side}_dex1_navigation_visual_link"/>
+    </joint>
+  </xacro:macro>
+</robot>

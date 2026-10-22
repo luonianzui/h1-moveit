@@ -1,0 +1,215 @@
+schema_version: 1
+
+deployment:
+  enabled: false
+  movement_authorized: false
+  input_topic: /cmd_vel_nav
+  output_topic: /cmd_vel_unitree_h12_safe
+  required_gates:
+    - enabled
+    - movement_authorized
+    - policy_ready
+    - state_estimate_ready
+    - contact_sensors_ready
+    - leg_controller_ready
+
+policy:
+  task: Unitree-H1_2-Official-Recurrent-Motion
+  observation_dimension: 47
+  action_dimension: 12
+  recurrent_type: lstm
+  recurrent_hidden_dimension: 64
+  gait_period: 0.8
+  action_clip: 100.0
+  source:
+    path: /home/liu/robot/gym_sim/unitree_rl_gym-main/deploy/pre_train/h1_2/motion.pt
+    size: 145745
+    sha256: ea3003268d5d2e4b5004eb26d0969fbfdedced265ceeec7bf0b335309259cc80
+  export:
+    size: 118744
+    sha256: 68a1f2dff967fdc464451956eb6b4c60288cf375e38629092edab23b2adb014c
+  golden:
+    size: 56550
+    sha256: 78dfa9829caab78850304c64c9c0ca38c44660f6fb2df1e28200d1d4f178691b
+
+source_assets:
+  official_policy:
+    path: /home/liu/robot/gym_sim/unitree_rl_gym-main/deploy/pre_train/h1_2/motion.pt
+    size: 145745
+    sha256: ea3003268d5d2e4b5004eb26d0969fbfdedced265ceeec7bf0b335309259cc80
+  official_mujoco_config:
+    path: /home/liu/robot/gym_sim/unitree_rl_gym-main/deploy/deploy_mujoco/configs/h1_2.yaml
+    size: 735
+    sha256: 0a08fd46c4d12a35c74784441e682e94186348802f04659a293733239d301b14
+  official_mujoco_deployer:
+    path: /home/liu/robot/gym_sim/unitree_rl_gym-main/deploy/deploy_mujoco/deploy_mujoco.py
+    size: 4862
+    sha256: 48e9f7a6b8ba701e68dfa48f2e89944c9f2aac1ec39c0a9915d6fe14ec71a4da
+  official_mujoco_model:
+    path: /home/liu/robot/gym_sim/unitree_rl_gym-main/resources/robots/h1_2/h1_2_12dof.xml
+    size: 32914
+    sha256: 0e6179b89820f5de46cdffee25211e37a21af82fb0ab21845a939d53fc313598
+  official_training_config:
+    path: /home/liu/robot/gym_sim/unitree_rl_gym-main/legged_gym/envs/h1_2/h1_2_config.py
+    size: 4277
+    sha256: 10b27efb2d6eda02d426b4dabc7470613e762425fb002f00808823cc901ceee1
+  official_left_foot_mesh:
+    path: /home/liu/robot/gym_sim/unitree_rl_gym-main/resources/robots/h1_2/meshes/left_ankle_roll_link.STL
+    size: 200484
+    sha256: d27424a8eab6e4aa469bce2bdcdd349892a855913f388b7908fdac121a58b7eb
+  official_right_foot_mesh:
+    path: /home/liu/robot/gym_sim/unitree_rl_gym-main/resources/robots/h1_2/meshes/right_ankle_roll_link.STL
+    size: 200484
+    sha256: d27424a8eab6e4aa469bce2bdcdd349892a855913f388b7908fdac121a58b7eb
+  gazebo_source_urdf:
+    path: /home/liu/test/h1_2_isaaclab/assets/h1_2_feetonly.urdf
+    size: 25253
+    sha256: ba77f005045baf14385efdffdef40f9e809bf50722015dc6f309cf9372ee0544
+
+control:
+  control_period: 0.02
+  action_scale: 0.25
+  command_deadband: [0.01, 0.01, 0.01]
+  motion_onset_threshold: [0.03, 0.03, 0.03]
+  command_timeout: 0.30
+  scales:
+    angular_velocity: [0.25, 0.25, 0.25]
+    joint_position: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
+                     1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    joint_velocity: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05,
+                     0.05, 0.05, 0.05, 0.05, 0.05, 0.05]
+    velocity_command: [2.0, 2.0, 0.25]
+  training_limits:
+    vx: [-1.0, 1.0]
+    vy: [-1.0, 1.0]
+    yaw_rate: [-1.0, 1.0]
+  safety_limits:
+    vx: [-0.10, 0.10]
+    vy: [-0.08, 0.08]
+    yaw_rate: [-0.05, 0.05]
+    linear_acceleration: 0.10
+    angular_acceleration: 0.15
+
+zero_command:
+  mode: recurrent_station_keeping
+  preserve_recurrent_state: true
+  preserve_gait_phase: true
+  reset_recurrent_state_on_entry: true
+  direct_position_targets: true
+  position_gain: 2.0
+  yaw_gain: 1.0
+  linear_velocity_gain: 0.8
+  yaw_rate_gain: 0.5
+  policy_command_limits: [0.10, 0.08, 0.05]
+
+motion_tracking:
+  mode: recurrent_pose_tracking
+  feedforward_command: true
+  position_gain: 2.0
+  yaw_gain: 1.0
+  maximum_position_error: 0.10
+  maximum_yaw_error: 0.20
+  policy_command_limits: [0.10, 0.08, 0.05]
+
+leg_joints:
+  - left_hip_yaw_joint
+  - left_hip_pitch_joint
+  - left_hip_roll_joint
+  - left_knee_joint
+  - left_ankle_pitch_joint
+  - left_ankle_roll_joint
+  - right_hip_yaw_joint
+  - right_hip_pitch_joint
+  - right_hip_roll_joint
+  - right_knee_joint
+  - right_ankle_pitch_joint
+  - right_ankle_roll_joint
+
+training_default_positions:
+  left_hip_yaw_joint: 0.0
+  left_hip_pitch_joint: -0.16
+  left_hip_roll_joint: 0.0
+  left_knee_joint: 0.36
+  left_ankle_pitch_joint: -0.20
+  left_ankle_roll_joint: 0.0
+  right_hip_yaw_joint: 0.0
+  right_hip_pitch_joint: -0.16
+  right_hip_roll_joint: 0.0
+  right_knee_joint: 0.36
+  right_ankle_pitch_joint: -0.20
+  right_ankle_roll_joint: 0.0
+
+joint_position_limits:
+  left_hip_yaw_joint: [-0.43, 0.43]
+  left_hip_pitch_joint: [-3.14, 2.5]
+  left_hip_roll_joint: [-0.43, 3.14]
+  left_knee_joint: [-0.26, 2.05]
+  left_ankle_pitch_joint: [-0.897334, 0.523598]
+  left_ankle_roll_joint: [-0.261799, 0.261799]
+  right_hip_yaw_joint: [-0.43, 0.43]
+  right_hip_pitch_joint: [-3.14, 2.5]
+  right_hip_roll_joint: [-3.14, 0.43]
+  right_knee_joint: [-0.26, 2.05]
+  right_ankle_pitch_joint: [-0.897334, 0.523598]
+  right_ankle_roll_joint: [-0.261799, 0.261799]
+
+training_actuator:
+  controlled_joints:
+    [left_hip_yaw_joint, left_hip_pitch_joint, left_hip_roll_joint,
+     left_knee_joint, left_ankle_pitch_joint, left_ankle_roll_joint,
+     right_hip_yaw_joint, right_hip_pitch_joint, right_hip_roll_joint,
+     right_knee_joint, right_ankle_pitch_joint, right_ankle_roll_joint]
+  default_positions:
+    [0.0, -0.16, 0.0, 0.36, -0.20, 0.0,
+     0.0, -0.16, 0.0, 0.36, -0.20, 0.0]
+  stiffness:
+    [200.0, 200.0, 200.0, 300.0, 40.0, 40.0,
+     200.0, 200.0, 200.0, 300.0, 40.0, 40.0]
+  damping:
+    [2.5, 2.5, 2.5, 4.0, 2.0, 2.0,
+     2.5, 2.5, 2.5, 4.0, 2.0, 2.0]
+  effort_limits:
+    [200.0, 200.0, 200.0, 300.0, 60.0, 40.0,
+     200.0, 200.0, 200.0, 300.0, 60.0, 40.0]
+  armature: 0.01
+  friction: 0.1
+  viscous_friction: 0.001
+
+gazebo_runtime:
+  joint_state_topic: /joint_states
+  imu_topic: /h1_2_navigation/imu
+  left_load_topic: /h1_2_navigation/left_foot/wrench
+  right_load_topic: /h1_2_navigation/right_foot/wrench
+  ground_truth_odom_topic: /h1_2_navigation/ground_truth/odom
+  odom_topic: /odom
+  standby_controller_name: unitree_h12_standby_position_controller
+  standby_controller_topic: /unitree_h12_standby_position_controller/commands
+  effort_controller_name: unitree_h12_effort_pid_controller
+  controller_topic: /unitree_h12_effort_pid_controller/reference
+  switch_service: /controller_manager/switch_controller
+  status_topic: /h1_2_navigation/unitree_h12/status
+  odom_frame: odom
+  base_frame: base_footprint
+  body_frame: pelvis
+  direct_position_targets: true
+  armature_scale: 1.0
+  load_contact_threshold: 5.0
+  state_timeout: 0.25
+  switch_timeout: 2.0
+  effort_settle_steps: 5
+  fall_minimum_up_z: 0.60
+  fall_minimum_height: 0.55
+  truth_aided_odometry: true
+  upper_body_mode: fixed_at_official_zero
+  foot_collision_mode: official_mesh
+  spawn_height: 1.03
+  physics_step_size: 0.002
+
+observation_layout:
+  - {name: base_angular_velocity, start: 0, end: 3}
+  - {name: projected_gravity, start: 3, end: 6}
+  - {name: velocity_command, start: 6, end: 9}
+  - {name: joint_position, start: 9, end: 21}
+  - {name: joint_velocity, start: 21, end: 33}
+  - {name: previous_action, start: 33, end: 45}
+  - {name: gait_phase, start: 45, end: 47}

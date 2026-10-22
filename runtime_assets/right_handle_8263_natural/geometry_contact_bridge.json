@@ -1,0 +1,711 @@
+{
+  "$schema": "h1_moveit/offline_original_stl_contact_bridge/v1",
+  "schema_version": 1,
+  "asset_id": "right_handle_8263_natural.geometry_contact_bridge",
+  "created_at": "2026-08-28T13:04:07+08:00",
+  "scope": {
+    "robot": "h1_2",
+    "handle_arm": "right",
+    "right_hand_model": "dex1_1",
+    "left_hand_handle_contact_allowed": false,
+    "geometry_only": true,
+    "controller_or_robot_execution_performed": false
+  },
+  "status": {
+    "original_stl_discrete_bridge_nodes_valid": true,
+    "anchor_to_first_node_0_1_mm_exact_fcl_valid": true,
+    "inter_node_dense_original_stl_validation_complete": false,
+    "continuous_right_arm_ik_mapping_complete": false,
+    "environment_collision_validation_complete": false,
+    "execution_ready": false,
+    "reason": "This asset freezes contact geometry only. Door-angle mapping, continuous right-arm IK, full-robot/world collision, timing, and live-scene gates remain mandatory."
+  },
+  "units": {
+    "angles": "degree",
+    "distances": "millimetre",
+    "mesh_runtime_length": "metre",
+    "floating_point": "IEEE-754 binary64"
+  },
+  "parameterization": {
+    "phase_deg": "Rotation of the grasp frame about the original handle axis.",
+    "z_mm": "Grasp-frame local Z offset used by the offline relative-geometry scanner.",
+    "palm_down_tilt_deg": "Down-tilt of the grasp frame.",
+    "side_tilt_deg": "Side-tilt of the grasp frame; fixed at zero in this asset.",
+    "outward_offset_mm": "Outward offset from the original handle.",
+    "local_x_offset_mm": "Local-X translation of the complete hand frame.",
+    "q1_mm": "Dex first-finger prismatic position; pad 1 is the carrying pad.",
+    "q2_mm": "Dex second-finger prismatic position.",
+    "u_mm": "Invariant carrying-pad coordinate: local_x_offset_mm + 25.0335 - q1_mm."
+  },
+  "required_future_mapping_contract": {
+    "right_hand_only_on_handle": true,
+    "left_hand_handle_contact_forbidden": true,
+    "torso_joint_absolute_limit_deg": 45.0,
+    "arm_joint_limit_margin_min_deg": 2.0,
+    "continuous_ik_required": true,
+    "partial_path_forbidden": true
+  },
+  "geometry_bindings": [
+    {
+      "role": "original_incubator_handle",
+      "path": "src/h1_2_description/models/incubator/meshes/incubator_handle.STL",
+      "sha256": "ad6670185fa5756ba5dabdee7e542db2df3346973fea4eb887288f54a6b6f59e",
+      "size_bytes": 117184,
+      "scale_to_m": 0.001
+    },
+    {
+      "role": "dex_palm_base",
+      "path": "src/h1_2_description/meshes/dex1_1/base_link.STL",
+      "sha256": "0469151d67b4e8230337d649e783d756582545d27944dc49c945fb6fe397cc54",
+      "size_bytes": 2859084,
+      "scale_to_m": 1.0
+    },
+    {
+      "role": "dex_finger_1_slider",
+      "path": "src/h1_2_description/meshes/dex1_1/Link1_1.STL",
+      "sha256": "8b33ce21197f4079aa06b32e53d5597cded6f1663ee324bff9efd01d2dd2b454",
+      "size_bytes": 137084,
+      "scale_to_m": 1.0
+    },
+    {
+      "role": "dex_finger_1_body",
+      "path": "src/h1_2_description/meshes/dex1_1/Link1_2.STL",
+      "sha256": "4e126368246e95d6049931852d0bb30f32017229644e4920caa3f28e69a46123",
+      "size_bytes": 58784,
+      "scale_to_m": 1.0
+    },
+    {
+      "role": "dex_finger_1_pad",
+      "path": "src/h1_2_description/meshes/dex1_1/Link1_3.STL",
+      "sha256": "bd89d5cd8e5ca81e8dfc157328844c455f81c13a57fa21927952b7f49c85b66d",
+      "size_bytes": 4284,
+      "scale_to_m": 1.0
+    },
+    {
+      "role": "dex_finger_2_slider",
+      "path": "src/h1_2_description/meshes/dex1_1/Link2_1.STL",
+      "sha256": "3d9ef89185e57a06ecacfe6efc51289b0f7317cb017d2c9e9632b4ef0b711a15",
+      "size_bytes": 137084,
+      "scale_to_m": 1.0
+    },
+    {
+      "role": "dex_finger_2_body",
+      "path": "src/h1_2_description/meshes/dex1_1/Link2_2.STL",
+      "sha256": "4cc4ece9f2b95264928135c15923e6c34a6ee16c9055b665aecaf3094fcc4c2b",
+      "size_bytes": 58784,
+      "scale_to_m": 1.0
+    },
+    {
+      "role": "dex_finger_2_pad",
+      "path": "src/h1_2_description/meshes/dex1_1/Link2_3.STL",
+      "sha256": "bdba80d083133953bd53e8b74f9507d3466b0690c20d57111821713f0cbefeee",
+      "size_bytes": 4284,
+      "scale_to_m": 1.0
+    }
+  ],
+  "exact_original_stl_contract": {
+    "collision_engine": "FCL 0.7 double precision",
+    "bvh_model": "BVHModel<OBBRSSd>",
+    "uses_unmodified_triangle_meshes": true,
+    "uses_proxy_handle_geometry": false,
+    "contact_query_max_contacts": 4096,
+    "distance_request_tolerance_m": 1e-7,
+    "carrying_pad": 1,
+    "opposite_pad_contact_permitted": true,
+    "carrying_pad_contact_count_min": 1,
+    "carrying_pad_patch_saturated": false,
+    "carrying_pad_contact_span_min_mm": 0.1,
+    "carrying_pad_station_min_mm": 15.0,
+    "carrying_pad_radius_min_mm": 35.0,
+    "each_finger_body_clearance_min_mm": 0.6,
+    "each_slider_clearance_min_mm": 0.0,
+    "palm_base_clearance_min_mm": 0.0
+  },
+  "anchor_transition": {
+    "description": "Exact original-STL/FCL sampled path from the original A anchor to bridge node g01.",
+    "fixed_geometry": {
+      "phase_deg": -155.0,
+      "z_mm": 32.5,
+      "palm_down_tilt_deg": 7.0,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 16.0,
+      "u_mm": 14.4335
+    },
+    "original_a_anchor": {
+      "local_x_offset_mm": 0.0,
+      "q1_mm": 10.6,
+      "q2_mm": -20.0
+    },
+    "first_bridge_node": {
+      "node_id": "g01",
+      "local_x_offset_mm": -0.1,
+      "q1_mm": 10.5,
+      "q2_mm": 11.0
+    },
+    "sampling": {
+      "order": "one invariant-carrying-pad-pose q1/local-X step, then q2 sweep",
+      "segment_1": {
+        "q1_mm": {
+          "start": 10.6,
+          "end": 10.5,
+          "step": -0.1
+        },
+        "local_x_offset_mm": {
+          "start": 0.0,
+          "end": -0.1,
+          "step": -0.1
+        },
+        "q2_mm_fixed": -20.0,
+        "sample_count_including_endpoints": 2
+      },
+      "segment_2": {
+        "q1_mm_fixed": 10.5,
+        "local_x_offset_mm_fixed": -0.1,
+        "q2_mm": {
+          "start": -20.0,
+          "end": 11.0,
+          "step": 0.1
+        },
+        "sample_count_including_endpoints": 311
+      },
+      "shared_segment_endpoint_count": 1,
+      "unique_sample_count": 312,
+      "transition_count": 311,
+      "max_absolute_step_q1_mm": 0.1,
+      "max_absolute_step_q2_mm": 0.1,
+      "max_absolute_step_local_x_mm": 0.1
+    },
+    "exact_fcl_result": {
+      "safe_sample_count": 312,
+      "all_samples_pass": true,
+      "min_nonpad_finger_body_clearance_mm": 0.618910,
+      "min_slider_clearance_mm": 61.679541,
+      "min_palm_base_clearance_mm": 54.758104,
+      "min_carrying_pad_contact_span_mm": 7.968503,
+      "min_carrying_pad_station_mm": 100.961871,
+      "min_carrying_pad_radius_mm": 107.590509,
+      "carrying_pad_contact_count_min": 10,
+      "carrying_pad_contact_count_max": 10,
+      "carrying_pad_patch_saturated": false
+    },
+    "invariant_check": {
+      "expression": "local_x_offset_mm - q1_mm",
+      "start_value_mm": -10.6,
+      "end_value_mm": -10.6,
+      "carrying_pad_pose_preserved": true
+    }
+  },
+  "bridge_summary": {
+    "node_count": 22,
+    "node_type": "discrete exact-original-STL contact state",
+    "all_nodes_pass": true,
+    "min_nonpad_finger_body_clearance_mm": 0.6007,
+    "min_all_nonpad_clearance_mm": 0.6007,
+    "min_carrying_pad_contact_span_mm": 7.0078,
+    "min_carrying_pad_station_mm": 97.4570,
+    "min_carrying_pad_radius_mm": 101.7413,
+    "max_adjacent_phase_step_deg": 0.5,
+    "max_adjacent_z_step_mm": 0.8,
+    "max_adjacent_palm_down_tilt_step_deg": 0.5,
+    "max_adjacent_outward_offset_step_mm": 0.5,
+    "max_adjacent_local_x_step_mm": 0.2,
+    "max_adjacent_q1_step_mm": 0.0,
+    "max_adjacent_q2_step_mm": 0.5,
+    "dense_interpolation_between_nodes_validated": false
+  },
+  "nodes": [
+    {
+      "id": "g01",
+      "phase_deg": -155.0000,
+      "z_mm": 32.5000,
+      "palm_down_tilt_deg": 7.0000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 16.0000,
+      "local_x_offset_mm": -0.1000,
+      "u_mm": 14.4335,
+      "q1_mm": 10.5000,
+      "q2_mm": 11.0000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6189,
+        "min_all_nonpad_clearance_mm": 0.6189,
+        "carrying_pad_contact_span_mm": 7.9685,
+        "carrying_pad_station_mm": 100.9619,
+        "carrying_pad_radius_mm": 107.5905,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g02",
+      "phase_deg": -154.5000,
+      "z_mm": 33.1000,
+      "palm_down_tilt_deg": 7.0000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 16.0000,
+      "local_x_offset_mm": 0.1000,
+      "u_mm": 14.6335,
+      "q1_mm": 10.5000,
+      "q2_mm": 11.0000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6495,
+        "min_all_nonpad_clearance_mm": 0.6495,
+        "carrying_pad_contact_span_mm": 7.1652,
+        "carrying_pad_station_mm": 100.9131,
+        "carrying_pad_radius_mm": 106.4336,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g03",
+      "phase_deg": -154.0000,
+      "z_mm": 33.4000,
+      "palm_down_tilt_deg": 7.0000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 16.0000,
+      "local_x_offset_mm": 0.2000,
+      "u_mm": 14.7335,
+      "q1_mm": 10.5000,
+      "q2_mm": 11.0000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6029,
+        "min_all_nonpad_clearance_mm": 0.6029,
+        "carrying_pad_contact_span_mm": 7.3256,
+        "carrying_pad_station_mm": 100.6404,
+        "carrying_pad_radius_mm": 107.2868,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g04",
+      "phase_deg": -153.5000,
+      "z_mm": 33.9000,
+      "palm_down_tilt_deg": 7.0000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 16.0000,
+      "local_x_offset_mm": 0.4000,
+      "u_mm": 14.9335,
+      "q1_mm": 10.5000,
+      "q2_mm": 10.5000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6338,
+        "min_all_nonpad_clearance_mm": 0.6338,
+        "carrying_pad_contact_span_mm": 7.1039,
+        "carrying_pad_station_mm": 100.4036,
+        "carrying_pad_radius_mm": 105.9511,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g05",
+      "phase_deg": -153.0000,
+      "z_mm": 33.9000,
+      "palm_down_tilt_deg": 7.0000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 16.0000,
+      "local_x_offset_mm": 0.5000,
+      "u_mm": 15.0335,
+      "q1_mm": 10.5000,
+      "q2_mm": 10.5000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6013,
+        "min_all_nonpad_clearance_mm": 0.6013,
+        "carrying_pad_contact_span_mm": 7.0724,
+        "carrying_pad_station_mm": 100.5279,
+        "carrying_pad_radius_mm": 106.0650,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g06",
+      "phase_deg": -152.5000,
+      "z_mm": 34.7000,
+      "palm_down_tilt_deg": 7.0000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 16.0000,
+      "local_x_offset_mm": 0.7000,
+      "u_mm": 15.2335,
+      "q1_mm": 10.5000,
+      "q2_mm": 10.0000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6080,
+        "min_all_nonpad_clearance_mm": 0.6080,
+        "carrying_pad_contact_span_mm": 7.0403,
+        "carrying_pad_station_mm": 99.8988,
+        "carrying_pad_radius_mm": 105.4726,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g07",
+      "phase_deg": -152.0000,
+      "z_mm": 35.5000,
+      "palm_down_tilt_deg": 7.0000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 16.0000,
+      "local_x_offset_mm": 0.9000,
+      "u_mm": 15.4335,
+      "q1_mm": 10.5000,
+      "q2_mm": 9.5000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6108,
+        "min_all_nonpad_clearance_mm": 0.6108,
+        "carrying_pad_contact_span_mm": 7.0078,
+        "carrying_pad_station_mm": 99.2715,
+        "carrying_pad_radius_mm": 104.8822,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g08",
+      "phase_deg": -151.5000,
+      "z_mm": 36.2000,
+      "palm_down_tilt_deg": 6.7500,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 15.7500,
+      "local_x_offset_mm": 1.1000,
+      "u_mm": 15.6335,
+      "q1_mm": 10.5000,
+      "q2_mm": 9.0000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6090,
+        "min_all_nonpad_clearance_mm": 0.6090,
+        "carrying_pad_contact_span_mm": 7.0720,
+        "carrying_pad_station_mm": 98.7137,
+        "carrying_pad_radius_mm": 104.2685,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g09",
+      "phase_deg": -151.0000,
+      "z_mm": 35.6000,
+      "palm_down_tilt_deg": 6.5000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 15.5000,
+      "local_x_offset_mm": 1.2000,
+      "u_mm": 15.7335,
+      "q1_mm": 10.5000,
+      "q2_mm": 9.0000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6007,
+        "min_all_nonpad_clearance_mm": 0.6007,
+        "carrying_pad_contact_span_mm": 7.1346,
+        "carrying_pad_station_mm": 99.4095,
+        "carrying_pad_radius_mm": 104.8350,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g10",
+      "phase_deg": -151.0000,
+      "z_mm": 35.3000,
+      "palm_down_tilt_deg": 6.0000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 15.0000,
+      "local_x_offset_mm": 1.2000,
+      "u_mm": 15.7335,
+      "q1_mm": 10.5000,
+      "q2_mm": 8.5000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6032,
+        "min_all_nonpad_clearance_mm": 0.6032,
+        "carrying_pad_contact_span_mm": 7.3276,
+        "carrying_pad_station_mm": 99.6441,
+        "carrying_pad_radius_mm": 104.8846,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g11",
+      "phase_deg": -151.0000,
+      "z_mm": 35.0000,
+      "palm_down_tilt_deg": 5.5000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 14.5000,
+      "local_x_offset_mm": 1.2000,
+      "u_mm": 15.7335,
+      "q1_mm": 10.5000,
+      "q2_mm": 8.5000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6029,
+        "min_all_nonpad_clearance_mm": 0.6029,
+        "carrying_pad_contact_span_mm": 7.5200,
+        "carrying_pad_station_mm": 99.8780,
+        "carrying_pad_radius_mm": 104.9375,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g12",
+      "phase_deg": -151.0000,
+      "z_mm": 35.5000,
+      "palm_down_tilt_deg": 5.0000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 14.0000,
+      "local_x_offset_mm": 1.3000,
+      "u_mm": 15.8335,
+      "q1_mm": 10.5000,
+      "q2_mm": 8.0000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6302,
+        "min_all_nonpad_clearance_mm": 0.6302,
+        "carrying_pad_contact_span_mm": 7.7118,
+        "carrying_pad_station_mm": 99.3599,
+        "carrying_pad_radius_mm": 104.2852,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g13",
+      "phase_deg": -151.0000,
+      "z_mm": 35.4000,
+      "palm_down_tilt_deg": 4.5000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 13.5000,
+      "local_x_offset_mm": 1.3000,
+      "u_mm": 15.8335,
+      "q1_mm": 10.5000,
+      "q2_mm": 8.0000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6076,
+        "min_all_nonpad_clearance_mm": 0.6076,
+        "carrying_pad_contact_span_mm": 7.9031,
+        "carrying_pad_station_mm": 99.3926,
+        "carrying_pad_radius_mm": 104.1527,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g14",
+      "phase_deg": -151.0000,
+      "z_mm": 35.6000,
+      "palm_down_tilt_deg": 4.0000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 13.0000,
+      "local_x_offset_mm": 1.4000,
+      "u_mm": 15.9335,
+      "q1_mm": 10.5000,
+      "q2_mm": 7.5000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6482,
+        "min_all_nonpad_clearance_mm": 0.6482,
+        "carrying_pad_contact_span_mm": 8.0938,
+        "carrying_pad_station_mm": 99.1732,
+        "carrying_pad_radius_mm": 103.7906,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g15",
+      "phase_deg": -151.0000,
+      "z_mm": 35.6000,
+      "palm_down_tilt_deg": 3.5000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 12.5000,
+      "local_x_offset_mm": 1.4000,
+      "u_mm": 15.9335,
+      "q1_mm": 10.5000,
+      "q2_mm": 7.5000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6102,
+        "min_all_nonpad_clearance_mm": 0.6102,
+        "carrying_pad_contact_span_mm": 8.2838,
+        "carrying_pad_station_mm": 99.1047,
+        "carrying_pad_radius_mm": 103.5676,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g16",
+      "phase_deg": -151.0000,
+      "z_mm": 35.7000,
+      "palm_down_tilt_deg": 3.0000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 12.0000,
+      "local_x_offset_mm": 1.5000,
+      "u_mm": 16.0335,
+      "q1_mm": 10.5000,
+      "q2_mm": 7.0000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6504,
+        "min_all_nonpad_clearance_mm": 0.6504,
+        "carrying_pad_contact_span_mm": 8.4732,
+        "carrying_pad_station_mm": 98.9841,
+        "carrying_pad_radius_mm": 103.3058,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g17",
+      "phase_deg": -151.0000,
+      "z_mm": 35.8000,
+      "palm_down_tilt_deg": 2.5000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 12.0000,
+      "local_x_offset_mm": 1.5000,
+      "u_mm": 16.0335,
+      "q1_mm": 10.5000,
+      "q2_mm": 7.0000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6691,
+        "min_all_nonpad_clearance_mm": 0.6691,
+        "carrying_pad_contact_span_mm": 8.6620,
+        "carrying_pad_station_mm": 98.8144,
+        "carrying_pad_radius_mm": 103.1256,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g18",
+      "phase_deg": -151.0000,
+      "z_mm": 36.0000,
+      "palm_down_tilt_deg": 2.0000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 12.0000,
+      "local_x_offset_mm": 1.5000,
+      "u_mm": 16.0335,
+      "q1_mm": 10.5000,
+      "q2_mm": 7.0000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6784,
+        "min_all_nonpad_clearance_mm": 0.6784,
+        "carrying_pad_contact_span_mm": 8.8501,
+        "carrying_pad_station_mm": 98.5441,
+        "carrying_pad_radius_mm": 102.8494,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g19",
+      "phase_deg": -151.0000,
+      "z_mm": 36.2000,
+      "palm_down_tilt_deg": 1.5000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 12.0000,
+      "local_x_offset_mm": 1.5000,
+      "u_mm": 16.0335,
+      "q1_mm": 10.5000,
+      "q2_mm": 7.0000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6864,
+        "min_all_nonpad_clearance_mm": 0.6864,
+        "carrying_pad_contact_span_mm": 9.0375,
+        "carrying_pad_station_mm": 98.2732,
+        "carrying_pad_radius_mm": 102.5728,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g20",
+      "phase_deg": -151.0000,
+      "z_mm": 36.4000,
+      "palm_down_tilt_deg": 1.0000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 12.0000,
+      "local_x_offset_mm": 1.5000,
+      "u_mm": 16.0335,
+      "q1_mm": 10.5000,
+      "q2_mm": 7.0000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6931,
+        "min_all_nonpad_clearance_mm": 0.6931,
+        "carrying_pad_contact_span_mm": 9.2242,
+        "carrying_pad_station_mm": 98.0017,
+        "carrying_pad_radius_mm": 102.2959,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g21",
+      "phase_deg": -151.0000,
+      "z_mm": 36.6000,
+      "palm_down_tilt_deg": 0.5000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 12.0000,
+      "local_x_offset_mm": 1.5000,
+      "u_mm": 16.0335,
+      "q1_mm": 10.5000,
+      "q2_mm": 7.0000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.6987,
+        "min_all_nonpad_clearance_mm": 0.6987,
+        "carrying_pad_contact_span_mm": 9.4103,
+        "carrying_pad_station_mm": 97.7297,
+        "carrying_pad_radius_mm": 102.0188,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    },
+    {
+      "id": "g22",
+      "phase_deg": -151.0000,
+      "z_mm": 36.8000,
+      "palm_down_tilt_deg": 0.0000,
+      "side_tilt_deg": 0.0,
+      "outward_offset_mm": 12.0000,
+      "local_x_offset_mm": 1.5000,
+      "u_mm": 16.0335,
+      "q1_mm": 10.5000,
+      "q2_mm": 7.0000,
+      "exact_original_stl": {
+        "min_nonpad_finger_body_clearance_mm": 0.7030,
+        "min_all_nonpad_clearance_mm": 0.7030,
+        "carrying_pad_contact_span_mm": 9.5956,
+        "carrying_pad_station_mm": 97.4570,
+        "carrying_pad_radius_mm": 101.7413,
+        "carrying_pad_contact": true,
+        "carrying_pad_patch_saturated": false,
+        "pass": true
+      }
+    }
+  ],
+  "offline_provenance": {
+    "endpoint_path_log_sha256": "250cd75afe463ba4022aabff379b59b224ae6e4a843629697e4d8af918a77a40",
+    "endpoint_path_generator_source_sha256": "da19ac4ce1110f6f17172aee573d75ca6e8385e0fccf8e387d3565f6bb173b99",
+    "anchor_q2_sweep_log_sha256": "cd84e81d0cf47bceab2abc844b094e081510f6b32a4148604a01a0d631a5270c",
+    "anchor_transition_exact_fcl_log_sha256": "04d99fa92ee0f7aac91e30a633b793cb83c4cbdb5ed8047bec1fa6d5c3efb2a2",
+    "anchor_transition_validator_source_sha256": "525e3969594de4db18ef89f7d39aa604e1d24553e7fd3aa00971e4847f92f06a",
+    "phase_minus_151_safe_state_dump_sha256": "3590ec4fc60e06dcd13320bc4167cda17c26bbccc37b02be8726abbb0345238c",
+    "phase_minus_151_safe_state_count": 3331
+  }
+}

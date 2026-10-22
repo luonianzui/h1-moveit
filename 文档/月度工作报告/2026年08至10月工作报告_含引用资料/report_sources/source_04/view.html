@@ -1,0 +1,83 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>完整流程与最终状态</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>完整流程与最终状态</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="REPORT.md">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_elbow_full_20261016_r291/REPORT.md</p><pre># r291：抬肘双盒装篮、离心和取回全流程实跑
+
+日期：2026-10-16 CST。仅固定骨盆的 Gazebo 手部流程，无真机、腿部步行或 Nav2 联动。
+
+## 结论与录像
+
+- 实际执行器 PASS，28/28 物理门、独立双持物、无损 trace、录像完整解码通过。
+- 已完成：桌上两个85%48box中部双指抓取 → 抬肘装篮 → 自然松夹落入两个摇篮 →
+  实际指尖关盖、启动 → 稳转30.2585仿真秒 → 实际停转、开盖120° →
+  重新按实际位置抓取、抬肘取回 → 两个不同桌槽正常松夹 → 末态10仿真秒保持。
+- 装载/取回各10秒夹持保持、落篮/返桌各3秒观察等原门全部保留，无吸附、传送、reset、detach或异常松夹。
+- 原始连续录像：`run/full_cycle.mp4`，2391.416667秒，1200×900、12fps，89,402,711字节。
+  28,697次真实采样、补帧0，最大采样间隔0.092819秒，正常SIGINT与完整解码通过。
+- 原片 SHA-256：`fc5cd7afe0fb3b350fdd882f8d2d00a77fcd26d43fe23578e646093ba7661080`。
+- 便于观看的演示剪辑：`/home/liu/离心机全流程_抬肘优化_前方视角_20261016.mp4`，164.633333秒。
+  动作10倍速、长静止观察缩短、稳转原段压缩为6秒；无新增画面文字，未混入其他运行。
+  这不是实际执行耗时。精确来源/倍率见 `../centrifuge_48box_elbow_briefing_20261016_r1/edit_decision_list.json`。
+- 演示片 SHA-256：`f27dda5c4fbca4bac2efea91674908f36aa5fe7b4c2183100168546ac93bb34a`。
+  演示文件的稳定清单是 `../centrifuge_48box_elbow_briefing_20261016_r1/SHA256SUMS_revision2`。
+
+## 实际姿态与夹持指标
+
+- 独立复核7个实际规划结果、9271次原2mrad密集FCL，实际三控制器发布样本逐项相等；无新增碰撞豁免。
+- 装篮主搬运篮口段，前臂偏离竖直向下最大：左41.6224°、右26.3427°；实际微调左43.4265°、右19.9677°。
+- 取盒抓取端点：左21.4811°、右36.5358°；完整提起段最大左23.2474°、右48.1824°。
+  这是按二维参考的抬肘方向适配，不是双前臂完全竖直或全局最优；离线预测不冒充这些实际值。
+- 原执行器全程最大native滑移1.098455mm、FK滑移0.927411mm，均低于原2mm门。
+- 独立同步重算：每手2783次、双持物同时5564次；native/FK峰0.927385/0.925561mm，角峰1.242008°，
+  4次真实抓持锚点、4次正常释放，终态持物表为空、fault为空。
+- 全部4110个夹爪输出记录绝对峰17.826489N，低于原18.01N软件门。
+- 20,778个原生四指速度记录峰0.20000000001764634m/s；相对0.2的差1.7646e-11m/s，
+  在原运行源码已经存在的1e-8数值容差内，没有修改模型0.2或任何保护。
+- 提取最小完全离篮间隙36.0986mm，返桌对篮最小间隙146.5602mm；2459次留篮姿态核对、
+  2808次支撑核对无故障，最大原生接触深度0.481279mm，低于原1mm门。
+- 定位415个样本有效，取盒转子峰0.002516rpm；只按既有Gazebo合同解释，不外推真机安全或导航接续。
+
+## 时耗：没有继承旧三分钟证书
+
+首有限非空sim3.481 → PASS211.211：**207.730仿真秒**；实际wall **2362.143548秒，约39分22秒**。
+原180sim门仍为FAIL，现实1:1/180秒也未达；`complete_speed_audit.json`未改名为成功。
+新姿态和保守速度优先满足本次稳定搬运目标。旧r283/r284三分钟仿真成果、r285少翻臂成果全部保留。
+
+## 原审计失败与独立只读复核
+
+封存的 `audit_elbow.py` 原exit1保留，不能声称所有原posthoc脚本exit0，也未修改其源码或实跑数据：
+
+1. 它用无容差的字面 `&lt;=0.2` 判断速度，与原运行 `velocity_violation` 的0.2+1e-8数值合同不一致。
+2. 后续将规划矩阵字典与包含payload/时间/两种矩阵的完整holder快照直接比较，也不符合原实际规划接口。
+   原接口允许由当前实际FK和方块pose计算规划专用变换，但运行滑移保护必须保持首次真实抓持锚点。
+
+新只读证据 `../centrifuge_48box_elbow_independent_review_20261016_r1/`：
+
+- 使用逐字节未改的原速度谓词，并检验原r287实际超速及0.20000002仍被拒绝。
+- 从原 `dual_holder_begin` 重新计算全部4个native/FK锚点；每个请求的运行快照必须与原锚点逐项相同。
+- 每个规划矩阵从该请求实际关节/pose独立计算，1e-10核对；规划偏移仍须在原2mm/5°内。
+- 原碰撞、关节余量、发布样本、姿态角和场景重建代码保持；9271次实际密FCL通过。
+- 21项数值/接口复核与额外闭包精确派生测试通过；原失败日志、首版复核失败日志均保留。
+- 最终闭包使用新只读 `finalize_elbow_with_external_review.py`；保留原封存freezer，显式绑定外部复核hash。
+  具体来源与允许的差异见外部 `finalizer_derivation.json`，不把原exit1偷偷改为0。
+
+## 身份、测试与旧成果保护
+
+460成员一次密封/0444，identity SHA `37ce8db3843f900936566180c5c6164b7edc4029dc83d384df70c6bdf85918bf`；
+347运行资源、36归档依赖。隔离两包构建5.65秒、六个Conda库精确恢复；1425本地测试、
+原46/122/6CTest通过。导航111通过/2项原V12缺源失败保持，没有伪造训练恢复。
+
+domain94 / partition `h1_elbow_r291`，普通mkdir独占run；原6控制器、500Hz、gain0.6、D6、ramp和72帧烟测通过。
+首帧实际审看时，仅对无任何claim/执行器/持物的本身份server核验PID/ctime/cmd后SIGSTOP；
+审看后SIGCONT、六控制器实际读回并立即接原程序。原严格0.5ms relay未改、无WorldControl暂停或重复clock过滤。
+当前动作差异仅此前抬肘IK/对称空手抓取选择、空手接近cap0.5、取盒外移/搬运cap0.3；抓力/PID/物理/门均不改。
+
+executor588457/ctime1792125180.23，四角色均exit0；原supervisor四收尾门、录像和场景正常SIGINT退休，remaining为空。
+完整七组before/after本轮实际重算相等，包括785正式源码、历史正式run、模型与10份受保护备份。
+孵育箱、离心机、48box源码模型和箱子版本920、1008、1009等均未修改，无新备份或清理。
+
+前置r286主机中断、r287超速、r288取盒外移18.039N、r289fresh过期、r290暂停重复clock等证据均保留，不能冒充成功。
+原片20阶段图、实际取盒原帧及独立终态俯视已由image工具审看；前视有自然遮挡，独立俯视照片不是原片最后一帧。
+原模型部分wrist等link只有visual没有collision的覆盖局限未隐藏；结论限现有碰撞模型和本次Gazebo实跑，不作绝对无碰撞保证。
+</pre></body></html>

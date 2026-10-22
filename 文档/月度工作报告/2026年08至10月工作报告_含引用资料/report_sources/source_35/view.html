@@ -1,0 +1,340 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>[5] 256次低速平地严格评估原始日志</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>[5] 256次低速平地严格评估原始日志</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="v12_model17250_scale015_m30_transition_strict_singlecycle_256x2000.log">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/test/h1_2_isaaclab/eval_logs/v12_model17250_scale015_m30_transition_strict_singlecycle_256x2000.log</p><pre>[WARNING] _isaac_sim is present but _isaac_sim/setup_conda_env.sh is missing; Isaac Sim env vars not exported.
+[WARNING] Re-extract the Isaac Sim binary zip if you intend to use the bundled binary.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1786416143.801454   20567 descriptor_database.cc:633] File already exists in database: grpc/health/v1/health.proto
+W0000 00:00:1786416143.801480   20567 message.cc:301] Protobuf GeneratedMessageFactory: File is already registered: grpc/health/v1/health.proto
+[ISAACLAB] AppLauncher initialization complete
+加载 Isaac Lab 环境和 RSL-RL 策略...
+[INFO]: Parsing configuration from: h1_2_isaaclab.tasks.manager_based.h1_2_omni_recover_stop_velocity.h1_2_omni_recover_stop_velocity_env_cfg:H12HumanOmniRecoverStopGaitFlatEnvCfg
+[INFO]: Parsing configuration from: h1_2_isaaclab.tasks.manager_based.h1_2_omni_recover_stop_velocity.agents.rsl_rl_ppo_cfg:H12HumanOmniRecoverStopGaitPPORunnerCfg
+训练配置快照校验通过: /home/liu/robot/gym_sim/IsaacLab-3.0-beta2/logs/rsl_rl/h1_2_human_omni_recover_stop_gait_v12/2026-08-10_18-09-30_omni_recover_stop_v12_v11m150_16h_8192_r1/params
+评估时延长 episode horizon: training=10s -&gt; evaluation=40s (2000 control steps)
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : 0
+	Physics step-size     : 0.004
+	Rendering step-size   : 0.02
+	Environment step-size : 0.02
+[INFO]: Registered backend &#x27;physx&#x27; for factory Articulation.
+[INFO]: Registered backend &#x27;physx&#x27; for factory FrameView.
+[INFO]: Physics scene prim path: /physicsScene
+[INFO]: Time taken for scene creation Last: 4.566502 s, Mean: 4.566502 s, Std: 0.000000 s, N: 1
+[INFO]: Scene manager:  &lt;class InteractiveScene&gt;
+	Number of environments: 256
+	Environment spacing   : 2.5
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : [&#x27;/World/ground&#x27;]
+	Replicate physics     : True
+[INFO]: Simulation parameters for joints in /World/envs/env_.*/Robot:
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                        Simulation Joint Information (Prim path: /World/envs/env_.*/Robot)                                                       |
++-------+----------------------------+-----------+---------+----------+-----------------+------------------+------------------+-----------------+-----------------+---------------+
+| Index | Name                       | Stiffness | Damping | Armature | Static Friction | Dynamic Friction | Viscous Friction | Position Limits | Velocity Limits | Effort Limits |
++-------+----------------------------+-----------+---------+----------+-----------------+------------------+------------------+-----------------+-----------------+---------------+
+|   0   | left_hip_yaw_joint         |  800.000  |  24.790 |  0.100   |      0.200      |      0.200       |      1.000       | [-0.430, 0.430] |     1.7e+04     |    200.000    |
+|   1   | right_hip_yaw_joint        |  800.000  |  24.790 |  0.100   |      0.200      |      0.200       |      1.000       | [-0.430, 0.430] |     1.7e+04     |    200.000    |
+|   2   | torso_joint                |  800.000  |  53.583 |  0.100   |      0.200      |      0.200       |      1.000       | [-2.350, 2.350] |     1.7e+04     |    200.000    |
+|   3   | left_hip_pitch_joint       |  800.000  |  84.185 |  0.100   |      0.200      |      0.200       |      1.000       | [-3.140, 2.500] |     1.7e+04     |    200.000    |
+|   4   | right_hip_pitch_joint      |  800.000  |  84.185 |  0.100   |      0.200      |      0.200       |      1.000       | [-3.140, 2.500] |     1.7e+04     |    200.000    |
+|   5   | left_shoulder_pitch_joint  |  400.000  |  26.392 |  0.100   |      0.200      |      0.200       |      1.000       | [-3.140, 1.570] |     1.7e+04     |     40.000    |
+|   6   | right_shoulder_pitch_joint |  400.000  |  26.408 |  0.100   |      0.200      |      0.200       |      1.000       | [-3.140, 1.570] |     1.7e+04     |     40.000    |
+|   7   | left_hip_roll_joint        |  800.000  |  84.015 |  0.100   |      0.200      |      0.200       |      1.000       | [-0.430, 3.140] |     1.7e+04     |    200.000    |
+|   8   | right_hip_roll_joint       |  800.000  |  84.015 |  0.100   |      0.200      |      0.200       |      1.000       | [-3.140, 0.430] |     1.7e+04     |    200.000    |
+|   9   | left_shoulder_roll_joint   |  400.000  |  24.735 |  0.100   |      0.200      |      0.200       |      1.000       | [-0.380, 3.400] |     1.7e+04     |     40.000    |
+|   10  | right_shoulder_roll_joint  |  400.000  |  24.735 |  0.100   |      0.200      |      0.200       |      1.000       | [-3.400, 0.380] |     1.7e+04     |     40.000    |
+|   11  | left_knee_joint            |  800.000  |  36.306 |  0.100   |      0.200      |      0.200       |      1.000       | [-0.120, 2.190] |     1.7e+04     |    300.000    |
+|   12  | right_knee_joint           |  800.000  |  36.306 |  0.100   |      0.200      |      0.200       |      1.000       | [-0.120, 2.190] |     1.7e+04     |    300.000    |
+|   13  | left_shoulder_yaw_joint    |  400.000  |  15.998 |  0.100   |      0.200      |      0.200       |      1.000       | [-2.660, 3.010] |     1.7e+04     |     18.000    |
+|   14  | right_shoulder_yaw_joint   |  400.000  |  15.998 |  0.100   |      0.200      |      0.200       |      1.000       | [-3.010, 2.660] |     1.7e+04     |     18.000    |
+|   15  | left_ankle_pitch_joint     |  800.000  |  18.338 |  0.100   |      0.200      |      0.200       |      1.000       | [-0.897, 0.524] |     1.7e+04     |     60.000    |
+|   16  | right_ankle_pitch_joint    |  800.000  |  18.338 |  0.100   |      0.200      |      0.200       |      1.000       | [-0.897, 0.524] |     1.7e+04     |     60.000    |
+|   17  | left_elbow_joint           |  400.000  |  15.790 |  0.100   |      0.200      |      0.200       |      1.000       | [-0.950, 3.180] |     1.7e+04     |     18.000    |
+|   18  | right_elbow_joint          |  400.000  |  15.790 |  0.100   |      0.200      |      0.200       |      1.000       | [-0.950, 3.180] |     1.7e+04     |     18.000    |
+|   19  | left_ankle_roll_joint      |  800.000  |  17.963 |  0.100   |      0.200      |      0.200       |      1.000       | [-0.262, 0.262] |     1.7e+04     |     40.000    |
+|   20  | right_ankle_roll_joint     |  800.000  |  17.963 |  0.100   |      0.200      |      0.200       |      1.000       | [-0.262, 0.262] |     1.7e+04     |     40.000    |
+|   21  | left_wrist_roll_joint      |  400.000  |  12.683 |  0.100   |      0.200      |      0.200       |      1.000       | [-3.010, 2.750] |     1.7e+04     |     19.000    |
+|   22  | right_wrist_roll_joint     |  400.000  |  12.683 |  0.100   |      0.200      |      0.200       |      1.000       | [-2.750, 3.010] |     1.7e+04     |     19.000    |
+|   23  | left_wrist_pitch_joint     |  400.000  |  12.695 |  0.100   |      0.200      |      0.200       |      1.000       | [-0.463, 0.463] |     1.7e+04     |     19.000    |
+|   24  | right_wrist_pitch_joint    |  400.000  |  12.695 |  0.100   |      0.200      |      0.200       |      1.000       | [-0.463, 0.463] |     1.7e+04     |     19.000    |
+|   25  | left_wrist_yaw_joint       |  400.000  |  12.661 |  0.100   |      0.200      |      0.200       |      1.000       | [-1.270, 1.270] |     1.7e+04     |     19.000    |
+|   26  | right_wrist_yaw_joint      |  400.000  |  12.661 |  0.100   |      0.200      |      0.200       |      1.000       | [-1.270, 1.270] |     1.7e+04     |     19.000    |
++-------+----------------------------+-----------+---------+----------+-----------------+------------------+------------------+-----------------+-----------------+---------------+
+[INFO]: Time taken for simulation start Last: 1.285527 s, Mean: 1.285527 s, Std: 0.000000 s, N: 1
+[INFO] Command Manager:  &lt;CommandManager&gt; contains 2 active terms.
++--------------------------------------------------------------+
+|                     Active Command Terms                     |
++-------+---------------+--------------------------------------+
+| Index | Name          |                 Type                 |
++-------+---------------+--------------------------------------+
+|   0   | base_velocity | ContextStopCurriculumVelocityCommand |
+|   1   | gait          |       SpeedCoupledGaitCommand        |
++-------+---------------+--------------------------------------+
+
+[INFO] Event Manager:  &lt;EventManager&gt; contains 2 active terms.
++--------------------------------------+
+| Active Event Terms in Mode: &#x27;startup&#x27; |
++----------+---------------------------+
+|  Index   | Name                      |
++----------+---------------------------+
+|    0     | physics_material          |
++----------+---------------------------+
++-------------------------------------+
+| Active Event Terms in Mode: &#x27;reset&#x27; |
++---------+---------------------------+
+|  Index  | Name                      |
++---------+---------------------------+
+|    0    | reset_base                |
+|    1    | reset_robot_joints        |
++---------+---------------------------+
+
+[INFO] Recorder Manager:  &lt;RecorderManager&gt; contains 0 active terms.
++---------------------+
+| Active Recorder Terms |
++-----------+---------+
+|   Index   | Name    |
++-----------+---------+
++-----------+---------+
+
+[INFO]: Resolved joint names for the action term RecoverStopHumanIntegratedJointPositionAction: [&#x27;left_hip_yaw_joint&#x27;, &#x27;left_hip_pitch_joint&#x27;, &#x27;left_hip_roll_joint&#x27;, &#x27;left_knee_joint&#x27;, &#x27;left_ankle_pitch_joint&#x27;, &#x27;left_ankle_roll_joint&#x27;, &#x27;right_hip_yaw_joint&#x27;, &#x27;right_hip_pitch_joint&#x27;, &#x27;right_hip_roll_joint&#x27;, &#x27;right_knee_joint&#x27;, &#x27;right_ankle_pitch_joint&#x27;, &#x27;right_ankle_roll_joint&#x27;] [[0, 3, 7, 11, 15, 19, 1, 4, 8, 12, 16, 20]]
+[INFO] Action Manager:  &lt;ActionManager&gt; contains 1 active terms.
++------------------------------------+
+|  Active Action Terms (shape: 12)   |
++--------+-------------+-------------+
+| Index  | Name        |   Dimension |
++--------+-------------+-------------+
+|   0    | joint_pos   |          12 |
++--------+-------------+-------------+
+
+[INFO] Observation Manager: &lt;ObservationManager&gt; contains 1 groups.
++---------------------------------------------------------+
+| Active Observation Terms in Group: &#x27;policy&#x27; (shape: (78,)) |
++-----------+---------------------------------+-----------+
+|   Index   | Name                            |   Shape   |
++-----------+---------------------------------+-----------+
+|     0     | imu_gyro                        |    (3,)   |
+|     1     | imu_up_vector                   |    (3,)   |
+|     2     | joint_pos                       |   (12,)   |
+|     3     | joint_vel                       |   (12,)   |
+|     4     | last_action                     |   (12,)   |
+|     5     | velocity_commands               |    (3,)   |
+|     6     | qvel_history                    |   (12,)   |
+|     7     | qpos_error_history              |   (12,)   |
+|     8     | foot_contacts                   |    (2,)   |
+|     9     | gait_phase                      |    (4,)   |
+|     10    | gait_frequency                  |    (1,)   |
+|     11    | gait_index                      |    (1,)   |
+|     12    | foot_height                     |    (1,)   |
++-----------+---------------------------------+-----------+
+
+[INFO] Termination Manager:  &lt;TerminationManager&gt; contains 4 active terms.
++------------------------------------+
+|      Active Termination Terms      |
++-------+-----------------+----------+
+| Index | Name            | Time Out |
++-------+-----------------+----------+
+|   0   | time_out        |   True   |
+|   1   | bad_orientation |  False   |
+|   2   | joint_limits    |  False   |
+|   3   | root_height     |  False   |
++-------+-----------------+----------+
+
+[INFO] Reward Manager:  &lt;RewardManager&gt; contains 22 active terms.
++-------------------------------------------------+
+|               Active Reward Terms               |
++-------+--------------------------------+--------+
+| Index | Name                           | Weight |
++-------+--------------------------------+--------+
+|   0   | gait                           |    1.0 |
+|   1   | phase_contact                  |    1.0 |
+|   2   | torso_upright                  |   -0.5 |
+|   3   | torso_angular_velocity_xy      |  -0.05 |
+|   4   | torso_vertical_velocity        |   -0.5 |
+|   5   | root_height                    |   -1.0 |
+|   6   | joint_limit_margin             |   -0.2 |
+|   7   | step_width                     |  -0.25 |
+|   8   | omni_planar_velocity_tracking  |    1.0 |
+|   9   | omni_yaw_velocity_tracking     |    2.0 |
+|   10  | stop_alive                     |    1.0 |
+|   11  | stop_termination               | -200.0 |
+|   12  | stop_low_speed                 |    2.0 |
+|   13  | stop_base_planar_yaw_velocity  |   -1.0 |
+|   14  | stop_torso_upright             |   -5.0 |
+|   15  | stop_torso_angular_velocity_xy |   -0.2 |
+|   16  | stop_torso_vertical_velocity   |   -0.5 |
+|   17  | stop_progress                  |    2.0 |
+|   18  | stop_capture                   |    3.0 |
+|   19  | stop_context_contact           |    1.0 |
+|   20  | capture_raw_action             | -0.001 |
+|   21  | capture_joint_velocity         | -0.005 |
++-------+--------------------------------+--------+
+
+[INFO] Curriculum Manager:  &lt;CurriculumManager&gt; contains 0 active terms.
++----------------------+
+| Active Curriculum Terms |
++-----------+----------+
+|   Index   | Name     |
++-----------+----------+
++-----------+----------+
+
+[INFO]: Completed setting up the environment...
+加载 checkpoint: /home/liu/robot/gym_sim/IsaacLab-3.0-beta2/logs/rsl_rl/h1_2_human_omni_recover_stop_gait_v12/2026-08-10_18-09-30_omni_recover_stop_v12_v11m150_16h_8192_r1/model_17250.pt
+--------------------------------------------------------------------------------
+Resolved observation sets: 
+	 actor :  [&#x27;policy&#x27;]
+	 critic :  [&#x27;policy&#x27;]
+--------------------------------------------------------------------------------
+Actor Model: FrozenMotionContextStopAdapterModel(
+  (obs_normalizer): EmpiricalNormalization()
+  (mlp): MLP(
+    (0): Linear(in_features=78, out_features=128, bias=True)
+    (1): SiLU()
+    (2): Linear(in_features=128, out_features=128, bias=True)
+    (3): SiLU()
+    (4): Linear(in_features=128, out_features=128, bias=True)
+    (5): SiLU()
+    (6): Linear(in_features=128, out_features=128, bias=True)
+    (7): SiLU()
+    (8): Linear(in_features=128, out_features=12, bias=True)
+  )
+  (distribution): GatedGaussianDistribution()
+  (zero_head): MLP(
+    (0): Linear(in_features=78, out_features=64, bias=True)
+    (1): SiLU()
+    (2): Linear(in_features=64, out_features=64, bias=True)
+    (3): SiLU()
+    (4): Linear(in_features=64, out_features=12, bias=True)
+  )
+)
+Critic Model: MLPModel(
+  (obs_normalizer): EmpiricalNormalization()
+  (mlp): MLP(
+    (0): Linear(in_features=78, out_features=256, bias=True)
+    (1): SiLU()
+    (2): Linear(in_features=256, out_features=256, bias=True)
+    (3): SiLU()
+    (4): Linear(in_features=256, out_features=256, bias=True)
+    (5): SiLU()
+    (6): Linear(in_features=256, out_features=256, bias=True)
+    (7): SiLU()
+    (8): Linear(in_features=256, out_features=256, bias=True)
+    (9): SiLU()
+    (10): Linear(in_features=256, out_features=1, bias=True)
+  )
+)
+任务 H12-Human-Omni-Recover-Stop-Gait-Flat-v12；256 env × 2000 步，episode_length=2000；1 个同步独立周期，每周期 30 步运动 + 1970 步停止请求；12 个非零运动场景；motion_command_scale=0.15
+停止控制: abrupt exact zero
+活动终止项: time_out, bad_orientation, joint_limits, root_height
+  forward: n=22, motion=[+0.07, +0.00, +0.00]
+  backward: n=22, motion=[-0.07, +0.00, +0.00]
+  lateral_left: n=22, motion=[+0.00, +0.05, +0.00]
+  lateral_right: n=22, motion=[+0.00, -0.05, +0.00]
+  diagonal_forward_left: n=21, motion=[+0.06, +0.04, +0.00]
+  diagonal_forward_right: n=21, motion=[+0.06, -0.04, +0.00]
+  diagonal_backward_left: n=21, motion=[-0.06, +0.04, +0.00]
+  diagonal_backward_right: n=21, motion=[-0.06, -0.04, +0.00]
+  yaw_left: n=21, motion=[+0.00, +0.00, +0.09]
+  yaw_right: n=21, motion=[+0.00, +0.00, -0.09]
+  forward_yaw_left: n=21, motion=[+0.07, +0.00, +0.09]
+  forward_yaw_right: n=21, motion=[+0.07, +0.00, -0.09]
+  STOP首拍动作敏感关节 count[min/mean/max]=[7/10.43/12] of 12；逐关节敏感率%=100.0,88.5,72.2,99.2,100.0,99.6,100.0,82.1,29.4,100.0,100.0,72.2
+  已完成 500/2000 步，原始 done 事件 5
+  已完成 1000/2000 步，原始 done 事件 5
+  已完成 1500/2000 步，原始 done 事件 6
+  已完成 2000/2000 步，原始 done 事件 256
+  STOP前50拍 capture toggle[min/mean/max]=[0/0.94/2]；&gt;2次环境=0/256
+
+=== 评估信息 ===
+task: H12-Human-Omni-Recover-Stop-Gait-Flat-v12
+checkpoint: /home/liu/robot/gym_sim/IsaacLab-3.0-beta2/logs/rsl_rl/h1_2_human_omni_recover_stop_gait_v12/2026-08-10_18-09-30_omni_recover_stop_v12_v11m150_16h_8192_r1/model_17250.pt
+并行环境数: 256, 总步数: 2000
+独立同步周期数: 1; motion=30, stop=1970, stop_tail=100; motion_command_scale=0.15
+停止控制: linear_deceleration=0, yaw_deceleration=0, contact_aligned_zero=False
+验收阈值: motion_planar_rmse&lt;=0.35, motion_yaw_rmse&lt;=0.45, tail_planar_rms&lt;=0.1, tail_yaw_rms&lt;=0.12
+
+=== 运动→停止独立 attempt 验收 ===
+口径: 每周期同步 reset；失败后的自动重置轨迹永久排除。周期末仅纯 time_out 且运动跟踪和停止尾速均通过阈值才算成功；首次失败原因是 multi-label（同一步可触发多个 term）。
+质量阈值: motion planar/yaw RMSE &lt;= 0.35 m/s / 0.45 rad/s；tail planar/yaw RMS &lt;= 0.1 m/s / 0.12 rad/s
+scenario                       cmd[vx,vy,yaw]       attempts motion_ok success motion% stop|motion% e2e% fail[m/s] first_step[min/mean/max]
+forward                        [+0.07,+0.00,+0.00]        22        22      22   100.0        100.0 100.0 [ 0/0 ]                      n/a
+  motion intact-cohort RMSE [vx,vy,yaw]=[0.0662, 0.2024, 0.1494] (n=660)
+  stop intact-until-failure RMS [vx,vy,yaw]=[0.0138, 0.0245, 0.0251] (n=43318); completed-attempt last 100=[0.0092, 0.0056, 0.0153] (n=2178)
+  first_failure_causes: none
+backward                       [-0.07,+0.00,+0.00]        22        21      21    95.5        100.0  95.5 [ 1/0 ]               30/30.0/30
+  motion intact-cohort RMSE [vx,vy,yaw]=[0.0781, 0.1771, 0.2047] (n=660)
+  stop intact-until-failure RMS [vx,vy,yaw]=[0.0125, 0.0197, 0.0232] (n=41349); completed-attempt last 100=[0.0089, 0.0054, 0.0141] (n=2079)
+  first_failure_causes: motion_yaw_tracking=1
+lateral_left                   [+0.00,+0.05,+0.00]        22        20      20    90.9        100.0  90.9 [ 2/0 ]               29/29.5/30
+  motion intact-cohort RMSE [vx,vy,yaw]=[0.0524, 0.1858, 0.2424] (n=658)
+  stop intact-until-failure RMS [vx,vy,yaw]=[0.0122, 0.0241, 0.0244] (n=39380); completed-attempt last 100=[0.0092, 0.0051, 0.0144] (n=1980)
+  first_failure_causes: bad_orientation=1, motion_yaw_tracking=1
+lateral_right                  [+0.00,-0.05,+0.00]        22        22      22   100.0        100.0 100.0 [ 0/0 ]                      n/a
+  motion intact-cohort RMSE [vx,vy,yaw]=[0.0499, 0.2030, 0.1472] (n=660)
+  stop intact-until-failure RMS [vx,vy,yaw]=[0.0109, 0.0208, 0.0229] (n=43318); completed-attempt last 100=[0.0090, 0.0053, 0.0146] (n=2178)
+  first_failure_causes: none
+diagonal_forward_left          [+0.06,+0.04,+0.00]        21        20      19    95.2         95.0  90.5 [ 1/1 ]               30/35.0/40
+  motion intact-cohort RMSE [vx,vy,yaw]=[0.1111, 0.2086, 0.2286] (n=630)
+  stop intact-until-failure RMS [vx,vy,yaw]=[0.0133, 0.0290, 0.0239] (n=37420); completed-attempt last 100=[0.0088, 0.0049, 0.0138] (n=1881)
+  first_failure_causes: bad_orientation=1, motion_planar_tracking=1
+diagonal_forward_right         [+0.06,-0.04,+0.00]        21        21      21   100.0        100.0 100.0 [ 0/0 ]                      n/a
+  motion intact-cohort RMSE [vx,vy,yaw]=[0.0636, 0.2258, 0.1438] (n=630)
+  stop intact-until-failure RMS [vx,vy,yaw]=[0.0154, 0.0255, 0.0264] (n=41349); completed-attempt last 100=[0.0097, 0.0065, 0.0169] (n=2079)
+  first_failure_causes: none
+diagonal_backward_left         [-0.06,+0.04,+0.00]        21        21      21   100.0        100.0 100.0 [ 0/0 ]                      n/a
+  motion intact-cohort RMSE [vx,vy,yaw]=[0.0697, 0.1699, 0.1492] (n=630)
+  stop intact-until-failure RMS [vx,vy,yaw]=[0.0127, 0.0221, 0.0236] (n=41349); completed-attempt last 100=[0.0103, 0.0052, 0.0137] (n=2079)
+  first_failure_causes: none
+diagonal_backward_right        [-0.06,-0.04,+0.00]        21        21      21   100.0        100.0 100.0 [ 0/0 ]                      n/a
+  motion intact-cohort RMSE [vx,vy,yaw]=[0.0688, 0.1918, 0.1538] (n=630)
+  stop intact-until-failure RMS [vx,vy,yaw]=[0.0117, 0.0179, 0.0224] (n=41349); completed-attempt last 100=[0.0092, 0.0045, 0.0142] (n=2079)
+  first_failure_causes: none
+yaw_left                       [+0.00,+0.00,+0.09]        21        21      20   100.0         95.2  95.2 [ 0/1 ]         1149/1149.0/1149
+  motion intact-cohort RMSE [vx,vy,yaw]=[0.0475, 0.1893, 0.1663] (n=630)
+  stop intact-until-failure RMS [vx,vy,yaw]=[0.0165, 0.0274, 0.0302] (n=40498); completed-attempt last 100=[0.0088, 0.0053, 0.0139] (n=1980)
+  first_failure_causes: bad_orientation=1
+yaw_right                      [+0.00,+0.00,-0.09]        21        21      20   100.0         95.2  95.2 [ 0/1 ]               50/50.0/50
+  motion intact-cohort RMSE [vx,vy,yaw]=[0.0815, 0.2018, 0.1570] (n=630)
+  stop intact-until-failure RMS [vx,vy,yaw]=[0.0181, 0.0281, 0.0345] (n=39399); completed-attempt last 100=[0.0093, 0.0058, 0.0152] (n=1980)
+  first_failure_causes: bad_orientation=1
+forward_yaw_left               [+0.07,+0.00,+0.09]        21        21      21   100.0        100.0 100.0 [ 0/0 ]                      n/a
+  motion intact-cohort RMSE [vx,vy,yaw]=[0.0652, 0.2089, 0.1590] (n=630)
+  stop intact-until-failure RMS [vx,vy,yaw]=[0.0143, 0.0241, 0.0247] (n=41349); completed-attempt last 100=[0.0097, 0.0056, 0.0153] (n=2079)
+  first_failure_causes: none
+forward_yaw_right              [+0.07,+0.00,-0.09]        21        21      21   100.0        100.0 100.0 [ 0/0 ]                      n/a
+  motion intact-cohort RMSE [vx,vy,yaw]=[0.0675, 0.1987, 0.1362] (n=630)
+  stop intact-until-failure RMS [vx,vy,yaw]=[0.0126, 0.0225, 0.0229] (n=41349); completed-attempt last 100=[0.0092, 0.0053, 0.0142] (n=2079)
+  first_failure_causes: none
+
+=== 验收汇总 ===
+独立 attempts=256, motion_survival=252/256 (98.44%), conditional_stop_survival=249/252 (98.81%), end_to_end=249/256 (97.27%), first_fail[motion/stop]=4/3
+运动阶段 intact-cohort 总体 RMSE [vx,vy,yaw]=[0.0703, 0.1974, 0.1734]
+停止阶段 intact-until-failure 总体实际 RMS [vx,vy,yaw]=[0.0138, 0.0239, 0.0255]；完成且可观测 attempts 最后 100 步=[0.0093, 0.0054, 0.0147] (tail_n=24651)
+首次失败原因汇总 (multi-label): bad_orientation=4, motion_planar_tracking=1, motion_yaw_tracking=2
+exact-zero 首次释放 cycle_step[min/mean/max]=[31/31.0/31]；完整停止 tail 必须从 step 1901 起逐步为零
+capture_latched 只读诊断: 首次观测 stop_step[min/mean/max]=[19/32.0/59], captured_attempts=249/256, captured_then_failed=1, capture→first_failure latency[min/mean/max]=[1080/1080.0/1080]
+
+=== 原始自动重置事件附录（不用于验收分母） ===
+forward                        done_events=22, early_events=0, episode_length_events=22, terms: time_out=22
+backward                       done_events=22, early_events=0, episode_length_events=22, terms: time_out=22
+lateral_left                   done_events=22, early_events=2, episode_length_events=20, terms: time_out=20, bad_orientation=2
+lateral_right                  done_events=22, early_events=0, episode_length_events=22, terms: time_out=22
+diagonal_forward_left          done_events=21, early_events=2, episode_length_events=19, terms: time_out=19, bad_orientation=2
+diagonal_forward_right         done_events=21, early_events=0, episode_length_events=21, terms: time_out=21
+diagonal_backward_left         done_events=21, early_events=0, episode_length_events=21, terms: time_out=21
+diagonal_backward_right        done_events=21, early_events=0, episode_length_events=21, terms: time_out=21
+yaw_left                       done_events=21, early_events=1, episode_length_events=20, terms: time_out=20, bad_orientation=1
+yaw_right                      done_events=21, early_events=1, episode_length_events=20, terms: time_out=20, bad_orientation=1
+forward_yaw_left               done_events=21, early_events=0, episode_length_events=21, terms: time_out=21
+forward_yaw_right              done_events=21, early_events=0, episode_length_events=21, terms: time_out=21
+[INFO]: SimulationContext cleared
+Loading user config located at: &#x27;/home/liu/isaacsim/kit/data/Kit/IsaacLab/3.0/user.config.json&#x27;
+2026-08-11T02:42:23Z [0ms] [Warning] [omni.ext.plugin] [ext: isaaclab_visualizers] Extensions config &#x27;extension.toml&#x27; doesn&#x27;t exist &#x27;/home/liu/robot/gym_sim/IsaacLab-3.0-beta2/source/isaaclab_visualizers&#x27; or &#x27;/home/liu/robot/gym_sim/IsaacLab-3.0-beta2/source/isaaclab_visualizers/config&#x27;
+2026-08-11T02:42:23Z [237ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-08-11T02:42:26Z [2,645ms] [Warning] [isaaclab_physx.physics.physx_manager] TGS solver with enable_external_forces_every_iteration=False may cause noisy velocities.
+2026-08-11T02:42:26Z [3,003ms] [Warning] [isaaclab.terrains.terrain_importer] Visual material specified for ground plane but no diffuse color found. Using default color: (0.0, 0.0, 0.0)
+2026-08-11T02:42:31Z [8,129ms] [Warning] [usdrt.population.plugin] Last global time was not created. Did you call setEnableUsdNoticeHandling?
+[INFO] Using Python: &quot;/home/liu/robot/gym_sim/IsaacLab-3.0-beta2/_isaac_sim/python.sh&quot;
+</pre></body></html>

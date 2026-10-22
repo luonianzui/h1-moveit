@@ -1,0 +1,231 @@
+# H1-2 Mid-360 Localization and Gazebo Navigation
+
+This package provides fixed-environment localization from the simulated
+Mid-360 point cloud, planner-only validation, and an explicitly authorized
+Gazebo-only Nav2-to-V12 low-speed locomotion path.
+
+## Inputs
+
+- `/livox/mid360/points`: organized 3-D `PointCloud2`;
+- `/tf`: the internal `pelvis -> livox_mid360_frame` transform;
+- `/initialpose`: optional nearby initial pose in `map`.
+
+## Outputs
+
+- `/scan`: virtual horizontal `LaserScan` in configurable `scan_frame`;
+- `/map`: transient-local occupancy map of the 5 m square enclosure;
+- `/mid360_localization/pose`: estimated pelvis pose in `map`;
+- `/mid360_localization/status`: JSON quality gate result;
+- `map -> mid360_localized_pelvis`: non-authoritative visualization TF.
+
+The node does not publish `/cmd_vel`, `/odom`, `map -> odom`, controller
+commands, or any arm, gripper, torso, or leg trajectory. The square room has
+90-degree rotational symmetry, so a nearby initial yaw is required. The generic
+navigation launch defaults to the known Gazebo start pose `(0, 0, 0)`. The
+incubator combination launch below deliberately uses its own fixed startup pose
+`(-0.60, 0.00, 0.00)`.
+
+Run against an already-started Gazebo instance:
+
+```bash
+ros2 launch h1_2_navigation mid360_localization.launch.py
+```
+
+For Nav2 AMCL localization, first load the workspace-local Nav2 runtime and
+then start the fixed localization launch:
+
+```bash
+source runtime_dependencies/nav2_jazzy_1.3.12/root/opt/ros/jazzy/local_setup.bash
+ros2 launch h1_2_navigation mid360_nav2_localization.launch.py
+```
+
+This launch keeps `base_frame: pelvis` for point-cloud projection, publishes
+the derived `/scan` in `base_footprint`, and starts `nav2_amcl` plus its
+lifecycle manager. AMCL exclusively publishes `map -> odom`. During the
+fixed-robot test, an identity static transform supplies
+`odom -> base_footprint`; when RL odometry is connected, use:
+
+```bash
+ros2 launch h1_2_navigation mid360_nav2_localization.launch.py \
+  publish_fixed_odom_tf:=false
+```
+
+The integrated launch still publishes no `/cmd_vel`, `/odom`, controller
+command, or leg trajectory. It proves fixed Gazebo localization only, not
+physical biped locomotion.
+
+To add the global costmap and NavFn path planner without starting a controller,
+BT navigator, or velocity publisher, keep the localization launch running and
+start the planner in another terminal:
+
+```bash
+source runtime_dependencies/nav2_jazzy_1.3.12/root/opt/ros/jazzy/local_setup.bash
+ros2 launch h1_2_navigation mid360_nav2_planner.launch.py
+```
+
+The planner-only launch exposes Nav2's `ComputePathToPose` action. Computing a
+path does not move the robot. Do not start a Nav2 controller or send a movement
+goal until RL odometry, the V12 locomotion runtime, and the movement safety gates
+in `RL_LOCOMOTION_INTERFACE.md` have been implemented and separately authorized.
+
+Because the fixed test has no changing odometry, AMCL normally performs one
+sensor update after initialization. To test convergence from a deliberately
+biased `/initialpose`, request additional standard no-motion updates:
+
+```bash
+ros2 service call /request_nomotion_update std_srvs/srv/Empty '{}'
+```
+
+Once RL odometry changes `odom -> base_footprint`, normal AMCL motion updates
+replace this fixed-test service call.
+
+## Offline V12 locomotion core
+
+The frozen V12 actor is available as a package-local NumPy artifact and an
+equivalent TorchScript reference. `v12_runtime.py` ports the 78-D observation,
+integrated leg targets, deterministic shoulder swing, and the complete
+MOVE/BRAKE/HOLD/recovery state. It is deliberately not a ROS node and cannot
+publish controller commands.
+
+Run the read-only checkpoint/export parity test from the source workspace with
+the Python environment that provides PyTorch:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 \
+PYTHONPATH=src/h1_2_navigation:/opt/ros/jazzy/lib/python3.12/site-packages \
+/home/liu/miniconda3/bin/python -m h1_2_navigation.v12_policy_export \
+  --contract src/h1_2_navigation/config/v12_locomotion.yaml --self-test
+```
+
+The checked-in export is loaded by standard ROS Python through NumPy only.
+`v12_asset_audit` verifies its frozen size and SHA-256. At that offline
+milestone, deployment remained blocked pending a separate free-root navigation
+model, equivalent IMU/contact observations, a 12-leg controller, and
+output-side safety supervision; the next section records their later completion.
+
+## Integrated Gazebo-only navigation
+
+The deployment blockers described above have now been resolved by a separate
+navigation model and runtime. The integrated launch includes the free root,
+Mid360, IMU, bilateral foot contacts, truth-aided simulation odometry, V12
+effort controller, six-gate velocity adapter, Nav2 planner/controller/BT, and
+strictly dissipative upright assistance.
+
+Movement remains fail-closed. Both launch arguments must be explicitly enabled
+for each fresh Gazebo run:
+
+```bash
+source /opt/ros/jazzy/setup.bash
+source runtime_dependencies/nav2_jazzy_1.3.12/root/opt/ros/jazzy/local_setup.bash
+source install/setup.bash
+ros2 launch h1_2_navigation v12_navigation_gazebo.launch.py \
+  movement_authorized:=true upright_assistance:=true
+```
+
+The validated initial goal is a 0.15 m forward `NavigateToPose` request. Current
+limits include 0.04 m Nav2 XY tolerance, 0.05 rad/s safe yaw command, a frozen
+captured effort target, and 900 N/(m/s) planar damping only in
+`CAPTURED_HOLD`. Final evidence is in:
+
+```text
+runtime_evidence/nav2_mid360_goal_tolerance_repeat_r102_20260909/REPORT.md
+```
+
+This proves only Gazebo short-distance localization and walking. Multi-goal,
+obstacle, arbitrary-heading, SLAM, and physical-robot operation remain outside
+the accepted scope.
+
+## Fixed startup to incubator staging
+
+`incubator_navigation_gazebo.launch.py` is an additive scene layer. It keeps
+the original table, cube, and incubator poses, adds them to the navigation
+enclosure, and starts the navigation robot at `(-0.60, 0.00, 0.00)`. The safe
+staging goal is `(-0.45, 0.00, 0.00)`, leaving about 0.20 m between the robot
+envelope and the front of the table/workcell.
+
+View the complete scene without moving:
+
+```bash
+source /opt/ros/jazzy/setup.bash
+source runtime_dependencies/nav2_jazzy_1.3.12/root/opt/ros/jazzy/local_setup.bash
+source install/setup.bash
+ros2 launch h1_2_navigation incubator_navigation_gazebo.launch.py
+```
+
+For a fresh, separately authorized Gazebo run, enable the fixed guarded goal:
+
+```bash
+ros2 launch h1_2_navigation incubator_navigation_gazebo.launch.py \
+  movement_authorized:=true upright_assistance:=true auto_navigate:=true
+```
+
+All three motion-related arguments default to `false`. The auto navigator waits
+for localization, V12 health, and all Nav2 lifecycle nodes, checks the startup
+pose, audits a bounded `ComputePathToPose`, and only then calls
+`NavigateToPose`. It continuously guards the physical root path and requires a
+stable captured hold at the goal.
+
+The known workcell rectangle is occupied in the static map. Because the high
+Mid360 mounting pose does not directly see the low workcell from this startup,
+this is a fixed-known-workcell result, not proof of unknown low-obstacle
+detection. The navigation grippers are visual-only and do not alter or replace
+the protected manipulation model or its action authority. Final evidence is in:
+
+```text
+runtime_evidence/navigation_incubator_auto_staging_20260910_r9/REPORT.md
+```
+
+## Official Unitree H1-2 gait in the full scene
+
+The user-approved official recurrent H1-2 gait is available as the isolated
+`unitree_h12` locomotion profile. It uses the reviewed 47-D observation,
+12 direct leg-position actions, official PD gains, and a 50 Hz policy rate. It
+does not use the legacy V12 burst, integrated-target, frequency-scale, or
+captured-pose behavior.
+
+View the complete enclosure, H1-2, Mid360, both grippers, table, cube, and
+incubator without authorizing motion:
+
+```bash
+ros2 launch h1_2_navigation incubator_navigation_gazebo.launch.py \
+  locomotion_profile:=unitree_h12
+```
+
+Only for a fresh Gazebo instance with explicit simulation-movement
+authorization, run the guarded fixed goal with no upright assistance:
+
+```bash
+ros2 launch h1_2_navigation incubator_navigation_gazebo.launch.py \
+  locomotion_profile:=unitree_h12 \
+  movement_authorized:=true \
+  upright_assistance:=false \
+  auto_navigate:=true
+```
+
+The accepted bounded navigation evidence is:
+
+```text
+runtime_evidence/unitree_h12_incubator_nav2_lstm_entry_reset_20260911_r17/REPORT.md
+```
+
+Nav2 reached the 0.15 m staging goal, the automatic validator emitted `PASS`,
+and a subsequent 20 s dynamic station-keeping capture remained upright with no
+locomotion fault. The gait produces periodic body motion, so the evidence is
+not a strict frozen-pose or continuous 0.08 m hold claim. It also does not
+authorize manipulation, physical-robot operation, SLAM, or arbitrary goals.
+
+The current validator is stricter than the historical r17 gate. Fifty stable
+samples now enter `VALIDATING_LONG_HOLD` rather than `PASS`. It emits
+`PASS:INCUBATOR_STAGING_GOAL_LONG_HOLD` only after every sample in a continuous
+30 s window retains valid localization, physical and localized goal errors no
+greater than 0.08 m, yaw tolerance, upright/height limits, station-keeping, and
+support. Supervision remains active after PASS and transitions to FAILED on an
+envelope violation. Therefore Nav2 action success alone is never a navigation
+acceptance result.
+
+The first fresh runtime check of this contract, r21, failed closed on a physical
+corridor excursion 0.520142 s after Nav2 success and emitted no PASS:
+
+```text
+runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/REPORT.md
+```

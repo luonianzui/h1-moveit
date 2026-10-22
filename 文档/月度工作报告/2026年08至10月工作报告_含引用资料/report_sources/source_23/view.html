@@ -1,0 +1,332 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>方墙定位算法</title><style>
+body{max-width:1100px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui,sans-serif;color:#202020;background:white}
+h1{font-size:25px}a{color:#225e78}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}
+.path{overflow-wrap:anywhere;font-size:13px;color:#555}li{margin:.3em 0}</style><body><h1>方墙定位算法</h1><p>月报引用资料的只读副本。代码仅供核查，页面不会运行其中的命令。</p><p><a href="square_localization.py">原始文件</a> · <a href="../../资料索引.html">资料索引</a></p><p class="path">原始位置：/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_navigation/h1_2_navigation/square_localization.py</p><pre>&quot;&quot;&quot;Pure geometry helpers for Mid-360 square-wall localization.&quot;&quot;&quot;
+
+import math
+
+import numpy as np
+
+
+def normalize_angle(angle):
+    &quot;&quot;&quot;Normalize an angle to the half-open interval [-pi, pi).&quot;&quot;&quot;
+    return (float(angle) + math.pi) % (2.0 * math.pi) - math.pi
+
+
+def quaternion_rotation_matrix(x, y, z, w):
+    &quot;&quot;&quot;Return a finite 3-D rotation matrix for a quaternion.&quot;&quot;&quot;
+    quaternion = np.asarray([x, y, z, w], dtype=np.float64)
+    norm = float(np.linalg.norm(quaternion))
+    if not math.isfinite(norm) or norm &lt;= np.finfo(np.float64).eps:
+        raise ValueError(&#x27;quaternion must have a finite non-zero norm&#x27;)
+    x, y, z, w = quaternion / norm
+    return np.asarray([
+        [
+            1.0 - 2.0 * (y * y + z * z),
+            2.0 * (x * y - z * w),
+            2.0 * (x * z + y * w),
+        ],
+        [
+            2.0 * (x * y + z * w),
+            1.0 - 2.0 * (x * x + z * z),
+            2.0 * (y * z - x * w),
+        ],
+        [
+            2.0 * (x * z - y * w),
+            2.0 * (y * z + x * w),
+            1.0 - 2.0 * (x * x + y * y),
+        ],
+    ], dtype=np.float64)
+
+
+def transform_points(points, translation, quaternion):
+    &quot;&quot;&quot;Transform row-vector points into a target frame.&quot;&quot;&quot;
+    points = np.asarray(points, dtype=np.float64)
+    if points.ndim != 2 or points.shape[1] != 3:
+        raise ValueError(&#x27;points must have shape (N, 3)&#x27;)
+    translation = np.asarray(translation, dtype=np.float64)
+    if translation.shape != (3,) or not np.isfinite(translation).all():
+        raise ValueError(&#x27;translation must contain three finite values&#x27;)
+    rotation = quaternion_rotation_matrix(*quaternion)
+    return points @ rotation.T + translation
+
+
+def filter_navigation_points(
+        points, minimum_height, maximum_height, minimum_range,
+        maximum_range):
+    &quot;&quot;&quot;Select finite points inside the navigation height and range gates.&quot;&quot;&quot;
+    points = np.asarray(points, dtype=np.float64)
+    if points.ndim != 2 or points.shape[1] != 3:
+        raise ValueError(&#x27;points must have shape (N, 3)&#x27;)
+    if minimum_height &gt;= maximum_height:
+        raise ValueError(&#x27;minimum_height must be below maximum_height&#x27;)
+    if minimum_range &lt; 0.0 or minimum_range &gt;= maximum_range:
+        raise ValueError(&#x27;range limits are invalid&#x27;)
+    finite = np.isfinite(points).all(axis=1)
+    planar_range = np.linalg.norm(points[:, :2], axis=1)
+    selected = (
+        finite
+        &amp; (points[:, 2] &gt;= minimum_height)
+        &amp; (points[:, 2] &lt;= maximum_height)
+        &amp; (planar_range &gt;= minimum_range)
+        &amp; (planar_range &lt;= maximum_range)
+    )
+    return points[selected]
+
+
+def points_to_laser_scan(
+        points, angle_minimum, angle_maximum, bin_count, minimum_range,
+        maximum_range):
+    &quot;&quot;&quot;Project filtered 3-D points into a virtual horizontal laser scan.&quot;&quot;&quot;
+    points = np.asarray(points, dtype=np.float64)
+    if points.ndim != 2 or points.shape[1] != 3:
+        raise ValueError(&#x27;points must have shape (N, 3)&#x27;)
+    if bin_count &lt; 2 or angle_minimum &gt;= angle_maximum:
+        raise ValueError(&#x27;scan angular limits are invalid&#x27;)
+    angle_increment = (angle_maximum - angle_minimum) / float(bin_count)
+    ranges = np.full(bin_count, np.inf, dtype=np.float64)
+    if not len(points):
+        return ranges, angle_increment
+    planar_range = np.linalg.norm(points[:, :2], axis=1)
+    angles = np.arctan2(points[:, 1], points[:, 0])
+    indices = np.floor(
+        (angles - angle_minimum) / angle_increment).astype(np.int64)
+    valid = (
+        np.isfinite(planar_range)
+        &amp; (planar_range &gt;= minimum_range)
+        &amp; (planar_range &lt;= maximum_range)
+        &amp; (indices &gt;= 0)
+        &amp; (indices &lt; bin_count)
+    )
+    np.minimum.at(ranges, indices[valid], planar_range[valid])
+    return ranges, angle_increment
+
+
+def transform_planar_points(points, pose):
+    &quot;&quot;&quot;Transform planar base-frame points into the square map frame.&quot;&quot;&quot;
+    points = np.asarray(points, dtype=np.float64)
+    pose = np.asarray(pose, dtype=np.float64)
+    if points.ndim != 2 or points.shape[1] != 2:
+        raise ValueError(&#x27;planar points must have shape (N, 2)&#x27;)
+    if pose.shape != (3,) or not np.isfinite(pose).all():
+        raise ValueError(&#x27;pose must contain finite x, y, yaw values&#x27;)
+    cosine = math.cos(pose[2])
+    sine = math.sin(pose[2])
+    world_x = cosine * points[:, 0] - sine * points[:, 1] + pose[0]
+    world_y = sine * points[:, 0] + cosine * points[:, 1] + pose[1]
+    return np.column_stack((world_x, world_y))
+
+
+def map_to_odom_pose(localized_pose, odom_pose):
+    &quot;&quot;&quot;Compose map-to-base with the inverse of odom-to-base.&quot;&quot;&quot;
+    localized_pose = np.asarray(localized_pose, dtype=np.float64)
+    odom_pose = np.asarray(odom_pose, dtype=np.float64)
+    if localized_pose.shape != (3,) or not np.isfinite(
+            localized_pose).all():
+        raise ValueError(&#x27;localized_pose must contain finite x, y, yaw&#x27;)
+    if odom_pose.shape != (3,) or not np.isfinite(odom_pose).all():
+        raise ValueError(&#x27;odom_pose must contain finite x, y, yaw&#x27;)
+    yaw = normalize_angle(localized_pose[2] - odom_pose[2])
+    cosine = math.cos(yaw)
+    sine = math.sin(yaw)
+    translated_odom_x = cosine * odom_pose[0] - sine * odom_pose[1]
+    translated_odom_y = sine * odom_pose[0] + cosine * odom_pose[1]
+    return np.asarray([
+        localized_pose[0] - translated_odom_x,
+        localized_pose[1] - translated_odom_y,
+        yaw,
+    ])
+
+
+def square_wall_residuals(points, pose, wall_half_extent):
+    &quot;&quot;&quot;Return distances to the nearest inner face of a square enclosure.&quot;&quot;&quot;
+    if not math.isfinite(wall_half_extent) or wall_half_extent &lt;= 0.0:
+        raise ValueError(&#x27;wall_half_extent must be positive&#x27;)
+    world_points = transform_planar_points(points, pose)
+    boundary_coordinate = np.maximum(
+        np.abs(world_points[:, 0]), np.abs(world_points[:, 1]))
+    return np.abs(boundary_coordinate - wall_half_extent)
+
+
+def select_square_wall_candidates(
+        points, pose, wall_half_extent, maximum_residual):
+    &quot;&quot;&quot;Select points near the expected square boundary from a prior pose.&quot;&quot;&quot;
+    if not math.isfinite(maximum_residual) or maximum_residual &lt;= 0.0:
+        raise ValueError(&#x27;maximum_residual must be positive&#x27;)
+    points = np.asarray(points, dtype=np.float64)
+    residuals = square_wall_residuals(points, pose, wall_half_extent)
+    return points[residuals &lt;= maximum_residual]
+
+
+def square_pose_cost(
+        points, pose, wall_half_extent, trim_fraction=0.90,
+        outlier_cap=0.30):
+    &quot;&quot;&quot;Return a robust RMS distance from points to the square boundary.&quot;&quot;&quot;
+    if not 0.5 &lt;= trim_fraction &lt;= 1.0:
+        raise ValueError(&#x27;trim_fraction must be between 0.5 and 1.0&#x27;)
+    if not math.isfinite(outlier_cap) or outlier_cap &lt;= 0.0:
+        raise ValueError(&#x27;outlier_cap must be positive&#x27;)
+    residuals = square_wall_residuals(
+        points, pose, wall_half_extent)
+    if not len(residuals):
+        return math.inf
+    residuals = np.minimum(residuals, outlier_cap)
+    retained_count = max(1, int(math.ceil(len(residuals) * trim_fraction)))
+    retained = np.partition(residuals, retained_count - 1)[:retained_count]
+    return float(math.sqrt(np.mean(retained * retained)))
+
+
+def refine_square_pose(
+        points, initial_pose, wall_half_extent,
+        translation_steps=(0.10, 0.02, 0.005),
+        yaw_steps=(math.radians(2.0), math.radians(0.5),
+                   math.radians(0.1)),
+        maximum_translation_offset=0.40,
+        maximum_yaw_offset=math.radians(15.0),
+        maximum_iterations=12):
+    &quot;&quot;&quot;Refine a nearby pose with deterministic coarse-to-fine search.&quot;&quot;&quot;
+    points = np.asarray(points, dtype=np.float64)
+    initial_pose = np.asarray(initial_pose, dtype=np.float64)
+    if points.ndim != 2 or points.shape[1] != 2 or not len(points):
+        raise ValueError(&#x27;points must contain at least one planar point&#x27;)
+    if initial_pose.shape != (3,) or not np.isfinite(initial_pose).all():
+        raise ValueError(&#x27;initial_pose must contain finite x, y, yaw&#x27;)
+    if len(translation_steps) != len(yaw_steps):
+        raise ValueError(&#x27;translation and yaw levels must match&#x27;)
+    current = initial_pose.copy()
+    current[2] = normalize_angle(current[2])
+    current_cost = square_pose_cost(points, current, wall_half_extent)
+    for translation_step, yaw_step in zip(
+            translation_steps, yaw_steps):
+        for _ in range(maximum_iterations):
+            best_pose = current
+            best_cost = current_cost
+            for x_direction in (-1, 0, 1):
+                for y_direction in (-1, 0, 1):
+                    for yaw_direction in (-1, 0, 1):
+                        if not (x_direction or y_direction or yaw_direction):
+                            continue
+                        candidate = current + np.asarray([
+                            x_direction * translation_step,
+                            y_direction * translation_step,
+                            yaw_direction * yaw_step,
+                        ])
+                        candidate[2] = normalize_angle(candidate[2])
+                        translation_offset = np.linalg.norm(
+                            candidate[:2] - initial_pose[:2])
+                        yaw_offset = abs(normalize_angle(
+                            candidate[2] - initial_pose[2]))
+                        if translation_offset &gt; maximum_translation_offset:
+                            continue
+                        if yaw_offset &gt; maximum_yaw_offset:
+                            continue
+                        candidate_cost = square_pose_cost(
+                            points, candidate, wall_half_extent)
+                        if candidate_cost + 1.0e-12 &lt; best_cost:
+                            best_pose = candidate
+                            best_cost = candidate_cost
+            if best_cost + 1.0e-12 &gt;= current_cost:
+                break
+            current = best_pose
+            current_cost = best_cost
+    return current, current_cost
+
+
+def evaluate_square_pose(
+        points, pose, wall_half_extent, inlier_threshold):
+    &quot;&quot;&quot;Return inlier fraction, inlier RMS and per-wall point counts.&quot;&quot;&quot;
+    if not math.isfinite(inlier_threshold) or inlier_threshold &lt;= 0.0:
+        raise ValueError(&#x27;inlier_threshold must be positive&#x27;)
+    world_points = transform_planar_points(points, pose)
+    residuals = square_wall_residuals(
+        points, pose, wall_half_extent)
+    inliers = residuals &lt;= inlier_threshold
+    inlier_count = int(np.count_nonzero(inliers))
+    fraction = inlier_count / float(len(points)) if len(points) else 0.0
+    rms = math.inf
+    if inlier_count:
+        rms = float(math.sqrt(np.mean(residuals[inliers] ** 2)))
+    side_counts = [0, 0, 0, 0]
+    if inlier_count:
+        selected = world_points[inliers]
+        x_side = np.abs(selected[:, 0]) &gt;= np.abs(selected[:, 1])
+        side_counts[0] = int(np.count_nonzero(
+            x_side &amp; (selected[:, 0] &gt;= 0.0)))
+        side_counts[1] = int(np.count_nonzero(
+            x_side &amp; (selected[:, 0] &lt; 0.0)))
+        side_counts[2] = int(np.count_nonzero(
+            ~x_side &amp; (selected[:, 1] &gt;= 0.0)))
+        side_counts[3] = int(np.count_nonzero(
+            ~x_side &amp; (selected[:, 1] &lt; 0.0)))
+    return fraction, rms, tuple(side_counts)
+
+
+def square_quality_passes(
+        inlier_fraction, inlier_rms, side_counts,
+        minimum_inlier_fraction, maximum_inlier_rms,
+        minimum_points_per_wall, minimum_visible_walls):
+    &quot;&quot;&quot;Evaluate localization quality while allowing sensor self-occlusion.&quot;&quot;&quot;
+    if len(side_counts) != 4:
+        raise ValueError(&#x27;side_counts must contain four wall counts&#x27;)
+    if not 1 &lt;= minimum_visible_walls &lt;= 4:
+        raise ValueError(&#x27;minimum_visible_walls must be between one and four&#x27;)
+    visible_wall_count = sum(
+        int(count) &gt;= minimum_points_per_wall for count in side_counts)
+    valid = (
+        math.isfinite(inlier_rms)
+        and inlier_fraction &gt;= minimum_inlier_fraction
+        and inlier_rms &lt;= maximum_inlier_rms
+        and visible_wall_count &gt;= minimum_visible_walls
+    )
+    return bool(valid), int(visible_wall_count)
+
+
+def build_square_occupancy(
+        wall_half_extent, wall_thickness, outside_margin, resolution,
+        occupied_rectangles=()):
+    &quot;&quot;&quot;Build a free interior, occupied wall ring and unknown exterior map.&quot;&quot;&quot;
+    values = (
+        wall_half_extent, wall_thickness, outside_margin, resolution)
+    if not all(math.isfinite(value) and value &gt; 0.0 for value in values):
+        raise ValueError(&#x27;map dimensions and resolution must be positive&#x27;)
+    map_half_extent = wall_half_extent + wall_thickness + outside_margin
+    cell_count = int(math.ceil(2.0 * map_half_extent / resolution))
+    map_half_extent = 0.5 * cell_count * resolution
+    origin = -map_half_extent
+    coordinates = origin + (
+        np.arange(cell_count, dtype=np.float64) + 0.5) * resolution
+    x_grid, y_grid = np.meshgrid(coordinates, coordinates)
+    boundary_coordinate = np.maximum(np.abs(x_grid), np.abs(y_grid))
+    occupancy = np.full((cell_count, cell_count), -1, dtype=np.int8)
+    occupancy[boundary_coordinate &lt; wall_half_extent] = 0
+    wall = (
+        (boundary_coordinate &gt;= wall_half_extent)
+        &amp; (boundary_coordinate &lt;= wall_half_extent + wall_thickness)
+    )
+    occupancy[wall] = 100
+    for rectangle in occupied_rectangles:
+        if len(rectangle) != 4:
+            raise ValueError(&#x27;occupied rectangles require four bounds&#x27;)
+        minimum_x, maximum_x, minimum_y, maximum_y = (
+            float(value) for value in rectangle)
+        if (
+                not all(math.isfinite(value) for value in (
+                    minimum_x, maximum_x, minimum_y, maximum_y))
+                or minimum_x &gt;= maximum_x
+                or minimum_y &gt;= maximum_y
+                or minimum_x &lt;= -wall_half_extent
+                or maximum_x &gt;= wall_half_extent
+                or minimum_y &lt;= -wall_half_extent
+                or maximum_y &gt;= wall_half_extent):
+            raise ValueError(
+                &#x27;occupied rectangle must be finite and inside the room&#x27;)
+        occupied = (
+            (x_grid &gt;= minimum_x)
+            &amp; (x_grid &lt;= maximum_x)
+            &amp; (y_grid &gt;= minimum_y)
+            &amp; (y_grid &lt;= maximum_y)
+        )
+        occupancy[occupied] = 100
+    return occupancy, origin
+</pre></body></html>

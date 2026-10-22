@@ -1,0 +1,37 @@
+{
+  "schema": "h1_right_handle_splice_search/v1",
+  "status": "PASS",
+  "valid": true,
+  "execution_ready": false,
+  "candidate_scope": "q0 open-right-gripper free-space ingress or reversed egress only",
+  "not_certified": ["complete contact arc", "mid-arc regrasp", "whole-workflow execution"],
+  "controller_commands_issued": 0,
+  "offline_only": true,
+  "provenance": {
+    "candidate_id": "q0_ingress_torso45_A0",
+    "producer": "right_handle_splice_search",
+    "producer_source_sha256": "bafa45a03e9eda7e310e465103a5c74fbf3f116cae499508ed2c93417d96f8bd",
+    "original_handle_stl_sha256": "ad6670185fa5756ba5dabdee7e542db2df3346973fea4eb887288f54a6b6f59e",
+    "robot_urdf_sha256": "3aad4bdc038ff6cde3bef221bb15b8134bb45f7a87ef5dfa0fadc2126bd44929",
+    "robot_srdf_sha256": "2f268a57406fcea301cd1a58c3912b91aa9a3a676e2ae42b9f9c741fac30d79d"
+  },
+  "path_sha256": "afcec0b5c675019157e4339dd41d15728233fdce6344501db6a50d20a0d58088",
+  "scene_cdr_sha256": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568",
+  "handle_angle_deg": 0,
+  "park_left_shoulder_roll_rad": 0.316,
+  "goal_right_arm_rad": [-0.14590890409780025,0.15022053092544321,0.35893300624450669,0.581998803037025,0.026528288913425842,-0.3486319286613882,-1.1506581032340752],
+  "seed": 826745,
+  "iterations_used": 56,
+  "collision_samples": 25252,
+  "search_edge_step_rad": 0.0043633231299858239,
+  "strict_revalidation_step_rad": 0.0017453292519943296,
+  "waypoint_count": 4,
+  "configuration_order": ["torso_joint","right_shoulder_pitch_joint","right_shoulder_roll_joint","right_shoulder_yaw_joint","right_elbow_joint","right_wrist_roll_joint","right_wrist_pitch_joint","right_wrist_yaw_joint"],
+  "right_fingers_rad_or_m": {"right_dex1_finger_1_joint":-0.019,"right_dex1_finger_2_joint":-0.019},
+  "waypoints": [
+    [-5.8531626352353771e-09,-1.2987093771888247e-05,-0.24998661177769557,-2.3207553469753264e-05,0.60007541209796322,-2.3309352663120176e-05,-8.7367028120395409e-05,1.5958788753965433e-05],
+    [0.71367723024129692,0.03642655116332548,0.057537922799542479,0.39509007275887675,0.71585617973148086,-0.098375228489785471,-0.29065494549244841,-1.0377348070851666],
+    [0.7644784813304244,-0.085746496476277606,0.10016991245385047,0.48110605388410976,0.61454740293518195,0.004558118604073777,-0.29419218747301468,-1.0464807919305048],
+    [0.78539816339744828,-0.14590890409780025,0.15022053092544321,0.35893300624450669,0.581998803037025,0.026528288913425842,-0.3486319286613882,-1.1506581032340752]
+  ]
+}

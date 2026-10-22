@@ -1,0 +1,182 @@
+{
+  "authority_provenance": {
+    "baseline_manifest_is_eighth_sealed_baseline_input": true,
+    "baseline_payloads_copied_byte_for_byte": [
+      "auditor_path_base_source",
+      "auditor_middle_base_source",
+      "contact_path",
+      "original_handle_stl",
+      "scene_cdr",
+      "urdf",
+      "srdf"
+    ],
+    "immutable_geometry_baseline": {
+      "manifest_sha256": "f44efe1dcb9147c49cafa74d387ccbe0096c5e21cfe3c69be259bd0dd1d90c40",
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v4_31j",
+      "schema": "h1_moveit/right_handle_live_fcl_authority/829-v4-31j"
+    },
+    "live_replacements": {
+      "auditor_binary": {
+        "path": "build/h1_2_moveit_demo/right_handle_live_fcl_auditor_829",
+        "sha256": "39a5a2a6a41195c0015ee1ebd805010c7114bedaa627d5093ebe75ecbc75fdff"
+      },
+      "auditor_source": {
+        "path": "src/h1_2_moveit_demo/src/right_handle_live_fcl_auditor_829.cpp",
+        "sha256": "5cc19a3bd485ac3eaf2ae7d30eebbbdc6c4a607b43c2a42b15156640f58364dd"
+      }
+    }
+  },
+  "build_source_dependency_graph": {
+    "right_handle_live_fcl_auditor_829.cpp": "right_handle_path_exact_auditor.cpp",
+    "right_handle_path_exact_auditor.cpp": "candidate3_middle_exact_auditor.cpp"
+  },
+  "controller_commands_issued": 0,
+  "delegated_dynamic_cube_bindings": {
+    "middle_certificate": {
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_certificate_828.json",
+      "sha256": "58a683347c95be35c7c9c39e814c7be23dfab7311a037a0a0e6d7bb5f62aaade"
+    },
+    "middle_exact_result": {
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_exact_result_828.json",
+      "sha256": "3e49dd9a34b206da4699545cff5656fb0db3fb38796ffd9a9435ebf55048e1fb"
+    }
+  },
+  "files": {
+    "auditor_binary": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v7_31j/right_handle_live_fcl_auditor_829.bin",
+      "sha256": "39a5a2a6a41195c0015ee1ebd805010c7114bedaa627d5093ebe75ecbc75fdff"
+    },
+    "auditor_middle_base_source": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v7_31j/candidate3_middle_exact_auditor.cpp",
+      "sha256": "f3589a08b1f2ab59ee10bcd8830c39ba7a2779ff58bc4c2183e4118262eb7203"
+    },
+    "auditor_path_base_source": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v7_31j/right_handle_path_exact_auditor.cpp",
+      "sha256": "476b3714da8ecd459aed4892e5efa997b20ca28bcabd311375566736536dc309"
+    },
+    "auditor_source": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v7_31j/right_handle_live_fcl_auditor_829.cpp",
+      "sha256": "5cc19a3bd485ac3eaf2ae7d30eebbbdc6c4a607b43c2a42b15156640f58364dd"
+    },
+    "contact_path": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v7_31j/contact_path_v4_44p25_candidate.json",
+      "sha256": "92d0f131324db1755ecdf2a1e03b102b450fbd783a647625e9baf9dfb0a0fb98"
+    },
+    "original_handle_stl": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v7_31j/incubator_handle.STL",
+      "sha256": "ad6670185fa5756ba5dabdee7e542db2df3346973fea4eb887288f54a6b6f59e"
+    },
+    "scene_cdr": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v7_31j/scene.cdr",
+      "sha256": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568"
+    },
+    "srdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v7_31j/clearance_audit_robot.srdf",
+      "sha256": "2f268a57406fcea301cd1a58c3912b91aa9a3a676e2ae42b9f9c741fac30d79d"
+    },
+    "urdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/right_handle_8263_natural/variable_torso_v4_829/live_fcl_authority_v7_31j/clearance_audit_robot.urdf",
+      "sha256": "3aad4bdc038ff6cde3bef221bb15b8134bb45f7a87ef5dfa0fadc2126bd44929"
+    }
+  },
+  "mechanism_physics_tolerance_basis": {
+    "angles_are_not_clamped": true,
+    "observed_fcl_door_max_rad": 1.0474034762809068,
+    "observed_fcl_door_min_rad": -4.898644035105899e-05,
+    "observed_fcl_handle_max_rad": 1.5703507263580976,
+    "observed_fcl_handle_min_rad": -1.358372165135551e-10,
+    "physics_step_ns": 5000000,
+    "run": "candidate3_live_831_fast_r2",
+    "selected_common_tolerance_rad": 0.00025
+  },
+  "numeric_contract": {
+    "adjacent_right_finger_body_signed_distance_min_m": 0.0,
+    "angle_unit": "radian",
+    "buffered_nonpad_handle_clearance_min_m": 0.0006,
+    "door_nominal_max_rad": 1.0471975511965976,
+    "door_nominal_min_rad": 0.0,
+    "door_physics_range_tolerance_rad": 0.00025,
+    "force_or_wrench_claimed": false,
+    "generic_numeric_tolerance": 1e-12,
+    "handle_nominal_max_rad": 1.5707963267948966,
+    "handle_nominal_min_rad": 0.0,
+    "handle_range_tolerance_rad": 0.00025,
+    "joint_bounds_tolerance_rad": 2e-06,
+    "left_hand_handle_clearance_min_m": 0.05,
+    "right_pad_grip_forbidden_outside_contact": true,
+    "right_pad_grip_proximity_max_m": 0.0003,
+    "right_pad_grip_required_during_contact": true,
+    "torso_absolute_limit_deg": 44.5
+  },
+  "schema": "h1_moveit/right_handle_live_fcl_authority/831-v7-31j",
+  "scope": {
+    "adjacent_right_finger_body_collision_allowed": false,
+    "adjacent_right_finger_body_links": [
+      "right_dex1_finger_1_link",
+      "right_dex1_finger_2_link"
+    ],
+    "adjacent_right_finger_body_rule": "signed distance to exact handle STL is >= 0 m",
+    "all_31_robot_joints_replayed": true,
+    "authorized_right_handle_pad_links": [
+      "right_dex1_finger_1_pad_link",
+      "right_dex1_finger_2_pad_link"
+    ],
+    "buffered_nonpad_rule": "all remaining non-left, non-authorized-pad, non-adjacent-finger collision links keep >= 0.0006 m from the exact handle STL",
+    "contact_forbidden_rule": "both authorized right pads have signed distance > 0.0003 m",
+    "contact_required_grip_rule": "minimum signed distance from the exact handle STL to at least one authorized right pad is <= 0.0003 m",
+    "dynamic_cube_authority": "candidate3_middle_exact_result_and_certificate",
+    "dynamic_cube_objects_included": false,
+    "force_or_wrench_claimed": false,
+    "geometric_contact_only": true,
+    "gripper_transition_windows_included": false,
+    "handle_collision_exceptions_during_contact_required": [
+      [
+        "incubator_handle_exact",
+        "right_dex1_finger_1_pad_link"
+      ],
+      [
+        "incubator_handle_exact",
+        "right_dex1_finger_2_pad_link"
+      ]
+    ],
+    "left_hand_handle_clearance_checked": true,
+    "leg_joint_order": [
+      "left_hip_yaw_joint",
+      "left_hip_pitch_joint",
+      "left_hip_roll_joint",
+      "left_knee_joint",
+      "left_ankle_pitch_joint",
+      "left_ankle_roll_joint",
+      "right_hip_yaw_joint",
+      "right_hip_pitch_joint",
+      "right_hip_roll_joint",
+      "right_knee_joint",
+      "right_ankle_pitch_joint",
+      "right_ankle_roll_joint"
+    ],
+    "non_cube_world_collision_checked": true,
+    "recursive_build_source_closure_sealed": true,
+    "right_handle_geometric_replay": true
+  },
+  "sealed": true,
+  "status": "PASS",
+  "valid": true
+}

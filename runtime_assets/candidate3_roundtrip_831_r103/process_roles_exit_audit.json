@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-09-16T04:45:58.580917+00:00",
+  "checks": {
+    "flow_absent": false,
+    "gz_gui_present": false,
+    "gz_server_present": false,
+    "launch_present": false,
+    "recorder_absent": false,
+    "support_absent": false,
+    "video_absent": false
+  },
+  "counts": {
+    "flow": 1,
+    "gz_gui": 2,
+    "gz_server": 2,
+    "launch": 2,
+    "recorder": 1,
+    "support_daemon": 1,
+    "video_recorder": 1
+  },
+  "schema": "h1_candidate3_roundtrip_process_roles_exit_audit/831-r103-v1",
+  "status": "FAIL",
+  "support_socket_absent": true
+}

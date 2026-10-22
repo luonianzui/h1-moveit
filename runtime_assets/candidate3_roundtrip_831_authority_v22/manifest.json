@@ -1,0 +1,347 @@
+{
+  "authority_root": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_authority_v22",
+  "base_authority": {
+    "manifest_sha256": "0344f0725198ed7773ac45feb45dbf29e75fc4e26514b97ef9a6de28615546cd",
+    "path": "runtime_assets/candidate3_live_831_fast_authority_v14",
+    "schema": "h1_candidate3_live_fast_authority/831-v14"
+  },
+  "combined_scene_binding": {
+    "action_physics_identical_to_v20": true,
+    "combined_launch_sha256": "3b756c1d321e5dbd7e851031b4e1add33ee6dd4562cc2b2daee2f64598cd4492",
+    "combined_world_sha256": "6da0ddd8a9af867d427293b4bae1cc4a82e4c03ec9497755a9a835951b70e671",
+    "observational_mid360_pipeline_only": true,
+    "source_mid360_config": {
+      "path": "src/h1_2_navigation/config/mid360_localization.yaml",
+      "sha256": "4786feb493efc8a9fee306ff90d247320b42ad44823826701d247a829f7cd27f"
+    },
+    "source_mid360_localizer_sha256": "65c49409765cf9a0194ca2a9476d881b466d2dcf516ceb34deef9694d913a199",
+    "source_navigation_world": {
+      "path": "src/h1_2_navigation/worlds/unitree_h12_world.sdf",
+      "sha256": "cf090dfcd59badd5cc285cd48418c1d43d6e38a1ade9699949d383fa9485648f"
+    },
+    "source_square_localization_sha256": "351f6e2eeb5c3d1cc89d28e3301a5cff5c6c22c18b94e9b07d9d0d34149b005f",
+    "wall_geometry_identical_to_navigation_world": true
+  },
+  "commands": {
+    "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/commands_831.json",
+    "schema": "h1_candidate3_roundtrip_commands/831-v22",
+    "sha256": "074cdc058f9c0116be115a711bf8ef4d551a0c31937c5e262b9cfae1471faf0c"
+  },
+  "controller_commands_issued": 0,
+  "controller_execution_authorized": true,
+  "derived_from": {
+    "commands_sha256": "aef171adfacb8b1af212caa1c193e8fabf51e06d03f8fff4ceddf9ed0a22e8fb",
+    "fresh_replay_base_manifest_sha256": "363314e291863c2e3ed8230e2a3549fcf6c17d73f913126f937f34e787666edb",
+    "manifest_sha256": "b9e49b32c60979eb5a97d8ed3d5dc325a5d73e10b1985a45fd99c61f8848cd29",
+    "path": "runtime_assets/candidate3_roundtrip_831_authority_v9",
+    "semantic_changes": [
+      "allocate a fresh non-overwriting r32 replay identity",
+      "retain all 14 non-scene action, timing, and safety payloads exactly",
+      "retain the exact v21 5 m Mid360 navigation enclosure and observers",
+      "retain the proven 5 ms action physics and manipulation coordinates",
+      "record the user-requested natural-speed replay with rosbag and GUI video"
+    ]
+  },
+  "execution_contract": {
+    "action_payloads_unchanged_except_scene_launch": true,
+    "action_physics_max_step_s": 0.005,
+    "action_physics_unchanged_from_v9": true,
+    "clean_requested_angle_video": true,
+    "combined_mid360_navigation_map_scene": true,
+    "controller_message_count": 60,
+    "cycles": 2,
+    "environment_authority_differs_from_v9": true,
+    "exact_inverse_return": true,
+    "flow_completion_marker": "CANDIDATE3_ROUNDTRIP_831_FLOW_COMPLETION=PASS",
+    "fresh_launch_after_failed_preload": true,
+    "fresh_replay_derived_from_v21": true,
+    "gpu_video_encoding": true,
+    "hard_maximum_abs_torso_deg": 44.5,
+    "identity_independent_action_payload_count": 14,
+    "inverse_transform": "reverse_points_mirror_time",
+    "left_hand_handle_contact_forbidden": true,
+    "live_certificate_required": false,
+    "live_demonstration_instance": "r32",
+    "live_supervisor_required": false,
+    "mid360_ros_point_cloud_enabled": true,
+    "mid360_square_localization_enabled": true,
+    "middle_trajectory_timing_unchanged": true,
+    "navigation_enclosure_half_extent_m": 2.5,
+    "navigation_enclosure_height_m": 2.5,
+    "navigation_enclosure_wall_count": 4,
+    "operation": "roundtrip",
+    "post_backup_914_full_replay": true,
+    "post_mid360_shared_description_regression": true,
+    "preparation_controller_commands": 0,
+    "prepared_support_required": true,
+    "ready_claim_required_before_motion": true,
+    "ready_claim_socket_identity": "stable bound filesystem pathname device/inode",
+    "reduced_capture_load": true,
+    "required_rosbag_present": true,
+    "requires_live_final_validation": true,
+    "right_base_point_dt_s": 0.004,
+    "right_handle_only": true,
+    "right_minimum_scheduled_point_dt_s": 0.00328,
+    "right_profile_limits": {
+      "prismatic_acceleration_m_s2": 40.0,
+      "prismatic_velocity_m_s": 0.1,
+      "revolute_acceleration_rad_s2": 750.0,
+      "revolute_velocity_rad_s": 2.0
+    },
+    "right_stage_time_scales": {
+      "close_q0_right_hand": 0.87,
+      "contact_arc_q0_to_q90_hold": 1.0,
+      "contact_arc_q90_hold_to_q0": 1.0,
+      "egress_open_from_q0": 0.82,
+      "ingress_open_to_q0": 0.82,
+      "prepare_left_park": 0.82,
+      "release_q0_right_hand": 0.87,
+      "return_left_launch_seam": 0.82
+    },
+    "semantic_authority_identical_to_v9": true,
+    "sequence": [
+      "open",
+      "insert_cube",
+      "close_and_lock",
+      "reopen",
+      "return_cube_to_origin",
+      "close_and_relock"
+    ],
+    "timed_maximum_seconds": 180.0,
+    "timed_metric": "flow_invocation_to_terminal_pass",
+    "trajectory_geometry_unchanged": true,
+    "trajectory_geometry_unchanged_from_v9": true,
+    "trajectory_time_scales_unchanged": false,
+    "trajectory_time_scales_unchanged_from_v9": true,
+    "user_selected_front_view": true,
+    "user_selected_second_view": true,
+    "user_set_camera_video": true,
+    "video_recording_is_non_authoritative": true
+  },
+  "external_middle_support_bindings": {
+    "middle_admission": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "src/h1_2_vision/h1_2_vision/candidate3_middle_admission.py",
+      "sha256": "3292d0cb1da48cd4083770cd930d5f6cc8aa5e7686d8f9ee60918300a18de352",
+      "size_bytes": 8871
+    },
+    "middle_certificate": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_certificate_828.json",
+      "sha256": "58a683347c95be35c7c9c39e814c7be23dfab7311a037a0a0e6d7bb5f62aaade",
+      "size_bytes": 2708
+    },
+    "middle_contract": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "src/h1_2_vision/h1_2_vision/candidate3_middle_execution_contract_828.py",
+      "sha256": "681df3fce9b12c23388fed7cd4a62cccaba87353ef44a1e82234ec8d1864392a",
+      "size_bytes": 47439
+    },
+    "middle_exact_result": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_exact_result_828.json",
+      "sha256": "3e49dd9a34b206da4699545cff5656fb0db3fb38796ffd9a9435ebf55048e1fb",
+      "size_bytes": 552608
+    },
+    "middle_plan": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_plan_828.json",
+      "sha256": "cb20f8303cb2e75a5fe45025ea4a119fa5ba81054c8cda55442d320052d1634e",
+      "size_bytes": 533286
+    },
+    "scene": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_middle_e0_828/scene.cdr",
+      "sha256": "dacf67c055f5ba1b8d46c30b6be4aafdd80a6d453faee069b2d22e5a0e791568",
+      "size_bytes": 1371569
+    },
+    "support_manifest": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_middle_e0_828/candidate3_middle_support_manifest_828.json",
+      "sha256": "a93ec01822bf6edb86531d281ba43e655c4a0e9f694c2058faa372a0e5bde1eb",
+      "size_bytes": 6233
+    }
+  },
+  "files": {
+    "candidate3_return_plan_831.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/candidate3_return_plan_831.json",
+      "sha256": "24767afddc9101094a419d9ab00c04db352e344b1aae90b287d86ca4773ebb21",
+      "size_bytes": 531123
+    },
+    "candidate3_rosbag_qos_overrides_829.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/candidate3_rosbag_qos_overrides_829.yaml",
+      "sha256": "da086156e2c7599f05e8c3ccc9066af8e4c6acc8210451de4ecc8b20bc0a6f1c",
+      "size_bytes": 1031
+    },
+    "candidate3_telemetry_bridge_829.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/candidate3_telemetry_bridge_829.yaml",
+      "sha256": "615231d3fc7d810f38165cbc679e4044263d4000cace8b56cc0ed35705ec9b0d",
+      "size_bytes": 481
+    },
+    "commands_831.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/commands_831.json",
+      "sha256": "074cdc058f9c0116be115a711bf8ef4d551a0c31937c5e262b9cfae1471faf0c",
+      "size_bytes": 17254
+    },
+    "controller_execution_authorization.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/controller_execution_authorization.json",
+      "sha256": "6108f94f348e7d88ee96d94e587e7958bc52ec825fd1289803fb9b1bf8b5cb8c",
+      "size_bytes": 2722
+    },
+    "gazebo.launch.py": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/gazebo.launch.py",
+      "sha256": "3b756c1d321e5dbd7e851031b4e1add33ee6dd4562cc2b2daee2f64598cd4492",
+      "size_bytes": 23534
+    },
+    "h1_2.gazebo.ros2_control.xacro": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/h1_2.gazebo.ros2_control.xacro",
+      "sha256": "3c865dcf19fec32403aac51365702afdf8232111840fcffb8ee80eb2923f1535",
+      "size_bytes": 7695
+    },
+    "h1_candidate3_flow_fast_831_v3.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/h1_candidate3_flow_fast_831_v3.py",
+      "sha256": "358391076710527b6ec2ab360db6a18d6f7b03da74fb1ef4595c30fdf3f7fd2d",
+      "size_bytes": 48188
+    },
+    "h1_candidate3_middle_executor_fast_831_v3.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/h1_candidate3_middle_executor_fast_831_v3.py",
+      "sha256": "e88dd07c1de79585c1e2534f870e0422394d227744ac2d4fafa0fc9267ab4246",
+      "size_bytes": 89102
+    },
+    "h1_fast_support_daemon_831.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/h1_fast_support_daemon_831.py",
+      "sha256": "ba325e6406957bed1c36e1eb5eca99adb321ddeb019eb65a4243ea223adcc015",
+      "size_bytes": 82081
+    },
+    "h1_right_handle_executor_828.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/h1_right_handle_executor_828.py",
+      "sha256": "7a1233641c26298a92b0e153328dfd76e5e561a2f5520fec40f1c11a165ecde8",
+      "size_bytes": 72866
+    },
+    "h1_robot_joint_state_relay_829.py": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/h1_robot_joint_state_relay_829.py",
+      "sha256": "5055b923daaf322cfcf7a7dbb738359c5e4d702010be539c4ce75b8f5b8f193c",
+      "size_bytes": 12374
+    },
+    "h1_support_orchestrator_828.py": {
+      "mode": "0500",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/h1_support_orchestrator_828.py",
+      "sha256": "76b016bc26e57fb6f2f8e1cf5a51b72a0a302c64ae2b47c51238a89dacd605ac",
+      "size_bytes": 72929
+    },
+    "h1_world.sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/h1_world.sdf",
+      "sha256": "6da0ddd8a9af867d427293b4bae1cc4a82e4c03ec9497755a9a835951b70e671",
+      "size_bytes": 5152
+    },
+    "incubator_model.sdf": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/incubator_model.sdf",
+      "sha256": "44ff23fc7077f0c232e2e69ff9d73aba336140d6a7951968c9c4241a97e73db9",
+      "size_bytes": 12085
+    },
+    "mid360_localization.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/mid360_localization.yaml",
+      "sha256": "4786feb493efc8a9fee306ff90d247320b42ad44823826701d247a829f7cd27f",
+      "size_bytes": 1290
+    },
+    "return_execution_authorization.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/return_execution_authorization.json",
+      "sha256": "b58f3fa4f5abcdbe743e57fa06fa5e6dfa3c44f9ff4c54159388064d33ff85b5",
+      "size_bytes": 2150
+    },
+    "right_handle_manifest.json": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/right_handle_manifest.json",
+      "sha256": "d4260f136a2a699683516b4c55d74c7546beea59f4f7c5c3d925583d307ff6e0",
+      "size_bytes": 7302
+    },
+    "ros2_controllers.yaml": {
+      "mode": "0400",
+      "nlink": 1,
+      "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/ros2_controllers.yaml",
+      "sha256": "612722d2143e39ef467219c67b9fb4bbfba9cb90a6bf047701308b4ff6279795",
+      "size_bytes": 2654
+    }
+  },
+  "live_execution_passed": false,
+  "process_roles": [
+    "launch",
+    "recorder",
+    "support_daemon",
+    "preparation",
+    "flow"
+  ],
+  "provenance": {
+    "candidate3_return_plan_831.json": "runtime_assets/candidate3_return_c2_831/candidate3_return_plan_831.json",
+    "candidate3_rosbag_qos_overrides_829.yaml": "runtime_assets/candidate3_live_831_fast_authority_v14/candidate3_rosbag_qos_overrides_829.yaml",
+    "candidate3_telemetry_bridge_829.yaml": "runtime_assets/candidate3_live_831_fast_authority_v14/candidate3_telemetry_bridge_829.yaml",
+    "commands_831.json": "generated",
+    "controller_execution_authorization.json": "generated:transform:runtime_assets/candidate3_live_831_fast_authority_v14/controller_execution_authorization.json",
+    "gazebo.launch.py": "generated:v20-action-launch+mid360-map-observers",
+    "h1_2.gazebo.ros2_control.xacro": "runtime_assets/candidate3_live_831_fast_authority_v14/h1_2.gazebo.ros2_control.xacro",
+    "h1_candidate3_flow_fast_831_v3.py": "src/h1_2_moveit_demo/scripts/h1_candidate3_flow_fast_831_v3.py",
+    "h1_candidate3_middle_executor_fast_831_v3.py": "src/h1_2_moveit_demo/scripts/h1_candidate3_middle_executor_fast_831_v3.py",
+    "h1_fast_support_daemon_831.py": "src/h1_2_moveit_demo/scripts/h1_fast_support_daemon_831.py",
+    "h1_right_handle_executor_828.py": "generated:transform:runtime_assets/candidate3_live_831_fast_authority_v14/h1_right_handle_executor_828.py",
+    "h1_robot_joint_state_relay_829.py": "runtime_assets/candidate3_live_831_fast_authority_v14/h1_robot_joint_state_relay_829.py",
+    "h1_support_orchestrator_828.py": "src/h1_2_moveit_demo/scripts/h1_support_orchestrator_828.py",
+    "h1_world.sdf": "generated:v20-action-world+bound-navigation-enclosure",
+    "incubator_model.sdf": "runtime_assets/candidate3_live_831_fast_authority_v14/incubator_model.sdf",
+    "mid360_localization.yaml": "src/h1_2_navigation/config/mid360_localization.yaml",
+    "return_execution_authorization.json": "generated",
+    "right_handle_manifest.json": "runtime_assets/candidate3_live_831_fast_authority_v14/right_handle_manifest.json",
+    "ros2_controllers.yaml": "runtime_assets/candidate3_live_831_fast_authority_v14/ros2_controllers.yaml"
+  },
+  "return_execution_authorization": {
+    "path": "runtime_assets/candidate3_roundtrip_831_authority_v22/return_execution_authorization.json",
+    "schema": "h1_candidate3_return_execution_authorization/831-v1",
+    "sha256": "b58f3fa4f5abcdbe743e57fa06fa5e6dfa3c44f9ff4c54159388064d33ff85b5"
+  },
+  "run_id": "9537b53c6a9d9f7c006e6ecab5274531cc8f1a7d77bf64e440a2a3cd50ba5843",
+  "run_root": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_assets/candidate3_roundtrip_831_r32",
+  "schema": "h1_candidate3_roundtrip_authority/831-v22",
+  "sealed": true,
+  "status": "READY",
+  "valid": true
+}

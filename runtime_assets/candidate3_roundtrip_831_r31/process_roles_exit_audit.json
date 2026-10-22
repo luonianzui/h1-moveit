@@ -1,0 +1,22 @@
+{
+  "roles": {
+    "flow": {
+      "pid": 747773,
+      "proc_entry_present": false
+    },
+    "recorder": {
+      "pid": 700931,
+      "proc_entry_present": false
+    },
+    "support_daemon": {
+      "pid": 703235,
+      "proc_entry_present": false
+    },
+    "video_recorder": {
+      "pid": 743963,
+      "proc_entry_present": false
+    }
+  },
+  "schema": "h1_candidate3_roundtrip_role_exit_audit/831-r31-v1",
+  "status": "PASS"
+}
