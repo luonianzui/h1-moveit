@@ -1,0 +1,2548 @@
+{
+  "status": "OBSERVED_COMPLETE_EXECUTION_NOT_180_AUDIT",
+  "rows": 541289,
+  "trace_sha256": "590647e6f50ff9e8ac729ecaa0e2de0c079da7f36b94f4b4d20057052cd97e16",
+  "phase_intervals": [
+    {
+      "phase": "machine_preparation",
+      "start_sim": 24.004,
+      "start_wall": 1792667888.532546,
+      "last_sim": 25.769,
+      "last_wall": 1792667890.65868,
+      "end_sim": 25.769,
+      "end_wall": 1792667890.662965,
+      "duration_sim_s": 1.764999999999997
+    },
+    {
+      "phase": "machine_preparation_leg_posture",
+      "start_sim": 25.769,
+      "start_wall": 1792667890.662965,
+      "last_sim": 25.769,
+      "last_wall": 1792667890.6631615,
+      "end_sim": 25.769,
+      "end_wall": 1792667890.6634738,
+      "duration_sim_s": 0.0
+    },
+    {
+      "phase": "machine_preparation_open_approach",
+      "start_sim": 25.769,
+      "start_wall": 1792667890.6634738,
+      "last_sim": 27.594,
+      "last_wall": 1792667892.9219596,
+      "end_sim": 27.594,
+      "end_wall": 1792667892.922443,
+      "duration_sim_s": 1.8250000000000028
+    },
+    {
+      "phase": "machine_preparation_open_press",
+      "start_sim": 27.594,
+      "start_wall": 1792667892.922443,
+      "last_sim": 28.8645,
+      "last_wall": 1792667894.550194,
+      "end_sim": 28.8645,
+      "end_wall": 1792667894.5505292,
+      "duration_sim_s": 1.2704999999999984
+    },
+    {
+      "phase": "machine_preparation_open_withdraw",
+      "start_sim": 28.8645,
+      "start_wall": 1792667894.5505292,
+      "last_sim": 33.0175,
+      "last_wall": 1792667899.8607376,
+      "end_sim": 33.0185,
+      "end_wall": 1792667899.861291,
+      "duration_sim_s": 4.1540000000000035
+    },
+    {
+      "phase": "machine_wait_preparation_open",
+      "start_sim": 33.0185,
+      "start_wall": 1792667899.861291,
+      "last_sim": 34.2215,
+      "last_wall": 1792667901.369989,
+      "end_sim": 34.2215,
+      "end_wall": 1792667901.370685,
+      "duration_sim_s": 1.2029999999999959
+    },
+    {
+      "phase": "left_seq_load_open_empty",
+      "start_sim": 34.2215,
+      "start_wall": 1792667901.370685,
+      "last_sim": 35.828,
+      "last_wall": 1792667903.3415658,
+      "end_sim": 35.8285,
+      "end_wall": 1792667903.342325,
+      "duration_sim_s": 1.6069999999999993
+    },
+    {
+      "phase": "right_seq_load_open_empty",
+      "start_sim": 35.8285,
+      "start_wall": 1792667903.342325,
+      "last_sim": 38.8375,
+      "last_wall": 1792667907.0777125,
+      "end_sim": 38.8375,
+      "end_wall": 1792667907.0790808,
+      "duration_sim_s": 3.0090000000000003
+    },
+    {
+      "phase": "seq_load_empty_park",
+      "start_sim": 38.8375,
+      "start_wall": 1792667907.0790808,
+      "last_sim": 41.8315,
+      "last_wall": 1792667910.8479528,
+      "end_sim": 41.8315,
+      "end_wall": 1792667910.852624,
+      "duration_sim_s": 2.9939999999999998
+    },
+    {
+      "phase": "seq_load_empty_approach",
+      "start_sim": 41.8315,
+      "start_wall": 1792667910.852624,
+      "last_sim": 44.3085,
+      "last_wall": 1792667913.978053,
+      "end_sim": 44.3085,
+      "end_wall": 1792667913.9792435,
+      "duration_sim_s": 2.477000000000004
+    },
+    {
+      "phase": "seq_load_empty_descend",
+      "start_sim": 44.3085,
+      "start_wall": 1792667913.9792435,
+      "last_sim": 47.1885,
+      "last_wall": 1792667917.5670109,
+      "end_sim": 47.1885,
+      "end_wall": 1792667917.567544,
+      "duration_sim_s": 2.8799999999999955
+    },
+    {
+      "phase": "left_seq_load_grasp",
+      "start_sim": 47.1885,
+      "start_wall": 1792667917.567544,
+      "last_sim": 49.1685,
+      "last_wall": 1792667924.6256287,
+      "end_sim": 49.1685,
+      "end_wall": 1792667924.6264215,
+      "duration_sim_s": 1.980000000000004
+    },
+    {
+      "phase": "seq_load_single_pilot",
+      "start_sim": 49.1685,
+      "start_wall": 1792667924.6264215,
+      "last_sim": 50.838,
+      "last_wall": 1792667930.92902,
+      "end_sim": 50.839,
+      "end_wall": 1792667930.9299521,
+      "duration_sim_s": 1.670499999999997
+    },
+    {
+      "phase": "left_seq_load_static_grip_hold",
+      "start_sim": 50.839,
+      "start_wall": 1792667930.9299521,
+      "last_sim": 51.839,
+      "last_wall": 1792667934.9270287,
+      "end_sim": 51.839,
+      "end_wall": 1792667934.9329531,
+      "duration_sim_s": 1.0
+    },
+    {
+      "phase": "seq_load_load_lift_and_load_transfer",
+      "start_sim": 51.839,
+      "start_wall": 1792667934.9329531,
+      "last_sim": 56.8085,
+      "last_wall": 1792667957.8149536,
+      "end_sim": 56.8085,
+      "end_wall": 1792667957.8149655,
+      "duration_sim_s": 4.969500000000004
+    },
+    {
+      "phase": "seq_load_load_transfer",
+      "start_sim": 56.8085,
+      "start_wall": 1792667957.8149655,
+      "last_sim": 56.8085,
+      "last_wall": 1792667957.8149655,
+      "end_sim": 56.8085,
+      "end_wall": 1792667957.8161383,
+      "duration_sim_s": 0.0
+    },
+    {
+      "phase": "seq_load_load_lower",
+      "start_sim": 56.8085,
+      "start_wall": 1792667957.8161383,
+      "last_sim": 58.5745,
+      "last_wall": 1792667964.548547,
+      "end_sim": 58.5745,
+      "end_wall": 1792667964.5492709,
+      "duration_sim_s": 1.7659999999999982
+    },
+    {
+      "phase": "seq_load_load_release_pilot_align",
+      "start_sim": 58.5745,
+      "start_wall": 1792667964.5492709,
+      "last_sim": 59.5295,
+      "last_wall": 1792667968.0243254,
+      "end_sim": 59.5295,
+      "end_wall": 1792667968.0246613,
+      "duration_sim_s": 0.9549999999999983
+    },
+    {
+      "phase": "left_release_above_bucket",
+      "start_sim": 59.5295,
+      "start_wall": 1792667968.0246613,
+      "last_sim": 61.158,
+      "last_wall": 1792667972.6140413,
+      "end_sim": 61.1585,
+      "end_wall": 1792667972.6144154,
+      "duration_sim_s": 1.6289999999999978
+    },
+    {
+      "phase": "left_drop_settling",
+      "start_sim": 61.1585,
+      "start_wall": 1792667972.6144154,
+      "last_sim": 63.438,
+      "last_wall": 1792667976.3286576,
+      "end_sim": 63.438,
+      "end_wall": 1792667976.3328254,
+      "duration_sim_s": 2.279500000000006
+    },
+    {
+      "phase": "seq_load_empty_vertical_retreat",
+      "start_sim": 63.438,
+      "start_wall": 1792667976.3328254,
+      "last_sim": 64.6495,
+      "last_wall": 1792667978.149469,
+      "end_sim": 64.6495,
+      "end_wall": 1792667978.1517117,
+      "duration_sim_s": 1.211500000000001
+    },
+    {
+      "phase": "seq_load_empty_park",
+      "start_sim": 64.6495,
+      "start_wall": 1792667978.1517117,
+      "last_sim": 69.0765,
+      "last_wall": 1792667984.1136246,
+      "end_sim": 69.0765,
+      "end_wall": 1792667984.1180575,
+      "duration_sim_s": 4.4269999999999925
+    },
+    {
+      "phase": "seq_load_empty_approach",
+      "start_sim": 69.0765,
+      "start_wall": 1792667984.1180575,
+      "last_sim": 71.679,
+      "last_wall": 1792667987.6533144,
+      "end_sim": 71.679,
+      "end_wall": 1792667987.6547675,
+      "duration_sim_s": 2.6025000000000063
+    },
+    {
+      "phase": "seq_load_empty_descend",
+      "start_sim": 71.679,
+      "start_wall": 1792667987.6547675,
+      "last_sim": 74.368,
+      "last_wall": 1792667991.2806017,
+      "end_sim": 74.368,
+      "end_wall": 1792667991.2811916,
+      "duration_sim_s": 2.688999999999993
+    },
+    {
+      "phase": "right_seq_load_grasp",
+      "start_sim": 74.368,
+      "start_wall": 1792667991.2811916,
+      "last_sim": 76.3275,
+      "last_wall": 1792667996.6613183,
+      "end_sim": 76.3275,
+      "end_wall": 1792667996.6625738,
+      "duration_sim_s": 1.9595000000000056
+    },
+    {
+      "phase": "seq_load_single_pilot",
+      "start_sim": 76.3275,
+      "start_wall": 1792667996.6625738,
+      "last_sim": 78.0285,
+      "last_wall": 1792668002.4777813,
+      "end_sim": 78.0295,
+      "end_wall": 1792668002.4799457,
+      "duration_sim_s": 1.7019999999999982
+    },
+    {
+      "phase": "right_seq_load_static_grip_hold",
+      "start_sim": 78.0295,
+      "start_wall": 1792668002.4799457,
+      "last_sim": 79.0295,
+      "last_wall": 1792668006.0749223,
+      "end_sim": 79.0295,
+      "end_wall": 1792668006.0804143,
+      "duration_sim_s": 1.0
+    },
+    {
+      "phase": "seq_load_load_lift_and_load_transfer",
+      "start_sim": 79.0295,
+      "start_wall": 1792668006.0804143,
+      "last_sim": 82.5795,
+      "last_wall": 1792668022.0481172,
+      "end_sim": 82.5795,
+      "end_wall": 1792668022.0482376,
+      "duration_sim_s": 3.549999999999997
+    },
+    {
+      "phase": "seq_load_load_transfer",
+      "start_sim": 82.5795,
+      "start_wall": 1792668022.0482376,
+      "last_sim": 82.5795,
+      "last_wall": 1792668022.0482376,
+      "end_sim": 82.5795,
+      "end_wall": 1792668022.049415,
+      "duration_sim_s": 0.0
+    },
+    {
+      "phase": "seq_load_load_lower",
+      "start_sim": 82.5795,
+      "start_wall": 1792668022.049415,
+      "last_sim": 84.416,
+      "last_wall": 1792668028.2339246,
+      "end_sim": 84.416,
+      "end_wall": 1792668028.2347367,
+      "duration_sim_s": 1.836500000000001
+    },
+    {
+      "phase": "seq_load_load_release_pilot_align",
+      "start_sim": 84.416,
+      "start_wall": 1792668028.2347367,
+      "last_sim": 85.2685,
+      "last_wall": 1792668030.8676252,
+      "end_sim": 85.2685,
+      "end_wall": 1792668030.868039,
+      "duration_sim_s": 0.8525000000000063
+    },
+    {
+      "phase": "right_release_above_bucket",
+      "start_sim": 85.2685,
+      "start_wall": 1792668030.868039,
+      "last_sim": 86.888,
+      "last_wall": 1792668035.0994112,
+      "end_sim": 86.889,
+      "end_wall": 1792668035.0999465,
+      "duration_sim_s": 1.6204999999999927
+    },
+    {
+      "phase": "right_drop_settling",
+      "start_sim": 86.889,
+      "start_wall": 1792668035.0999465,
+      "last_sim": 88.2745,
+      "last_wall": 1792668037.4858222,
+      "end_sim": 88.2745,
+      "end_wall": 1792668037.489907,
+      "duration_sim_s": 1.3855000000000075
+    },
+    {
+      "phase": "seq_load_empty_vertical_retreat",
+      "start_sim": 88.2745,
+      "start_wall": 1792668037.489907,
+      "last_sim": 89.5385,
+      "last_wall": 1792668039.5009222,
+      "end_sim": 89.5385,
+      "end_wall": 1792668039.5028417,
+      "duration_sim_s": 1.2639999999999958
+    },
+    {
+      "phase": "seq_load_empty_park",
+      "start_sim": 89.5385,
+      "start_wall": 1792668039.5028417,
+      "last_sim": 92.4135,
+      "last_wall": 1792668043.6283064,
+      "end_sim": 92.4135,
+      "end_wall": 1792668043.6287818,
+      "duration_sim_s": 2.875
+    },
+    {
+      "phase": "machine_sequential_empty_neutral",
+      "start_sim": 92.4135,
+      "start_wall": 1792668043.6287818,
+      "last_sim": 93.399,
+      "last_wall": 1792668045.0275302,
+      "end_sim": 93.399,
+      "end_wall": 1792668045.0283182,
+      "duration_sim_s": 0.9855000000000018
+    },
+    {
+      "phase": "machine_sequential_empty_grippers",
+      "start_sim": 93.399,
+      "start_wall": 1792668045.0283182,
+      "last_sim": 96.607,
+      "last_wall": 1792668049.4772327,
+      "end_sim": 96.6095,
+      "end_wall": 1792668049.479122,
+      "duration_sim_s": 3.210499999999996
+    },
+    {
+      "phase": "machine_close_approach",
+      "start_sim": 96.6095,
+      "start_wall": 1792668049.479122,
+      "last_sim": 98.435,
+      "last_wall": 1792668052.0060165,
+      "end_sim": 98.435,
+      "end_wall": 1792668052.0067213,
+      "duration_sim_s": 1.8255000000000052
+    },
+    {
+      "phase": "machine_close_press",
+      "start_sim": 98.435,
+      "start_wall": 1792668052.0067213,
+      "last_sim": 99.7055,
+      "last_wall": 1792668053.8309247,
+      "end_sim": 99.7055,
+      "end_wall": 1792668053.8316693,
+      "duration_sim_s": 1.2704999999999984
+    },
+    {
+      "phase": "machine_close_withdraw",
+      "start_sim": 99.7055,
+      "start_wall": 1792668053.8316693,
+      "last_sim": 103.2585,
+      "last_wall": 1792668058.9532614,
+      "end_sim": 103.261,
+      "end_wall": 1792668058.9551375,
+      "duration_sim_s": 3.555499999999995
+    },
+    {
+      "phase": "machine_wait_closed",
+      "start_sim": 103.261,
+      "start_wall": 1792668058.9551375,
+      "last_sim": 103.925,
+      "last_wall": 1792668059.8730636,
+      "end_sim": 103.925,
+      "end_wall": 1792668059.8733263,
+      "duration_sim_s": 0.6640000000000015
+    },
+    {
+      "phase": "machine_start_approach",
+      "start_sim": 103.925,
+      "start_wall": 1792668059.8733263,
+      "last_sim": 105.888,
+      "last_wall": 1792668062.5635042,
+      "end_sim": 105.888,
+      "end_wall": 1792668062.5650136,
+      "duration_sim_s": 1.963000000000008
+    },
+    {
+      "phase": "machine_start_press",
+      "start_sim": 105.888,
+      "start_wall": 1792668062.5650136,
+      "last_sim": 107.159,
+      "last_wall": 1792668064.3710706,
+      "end_sim": 107.159,
+      "end_wall": 1792668064.3717597,
+      "duration_sim_s": 1.2710000000000008
+    },
+    {
+      "phase": "machine_start_withdraw",
+      "start_sim": 107.159,
+      "start_wall": 1792668064.3717597,
+      "last_sim": 108.4305,
+      "last_wall": 1792668066.3520405,
+      "end_sim": 108.4305,
+      "end_wall": 1792668066.3525152,
+      "duration_sim_s": 1.271499999999989
+    },
+    {
+      "phase": "machine_running_steady",
+      "start_sim": 108.4305,
+      "start_wall": 1792668066.3525152,
+      "last_sim": 139.728,
+      "last_wall": 1792668129.1850889,
+      "end_sim": 139.7305,
+      "end_wall": 1792668129.1883261,
+      "duration_sim_s": 31.30000000000001
+    },
+    {
+      "phase": "machine_stop_approach",
+      "start_sim": 139.7305,
+      "start_wall": 1792668129.1883261,
+      "last_sim": 139.7305,
+      "last_wall": 1792668129.1883478,
+      "end_sim": 139.7305,
+      "end_wall": 1792668129.189351,
+      "duration_sim_s": 0.0
+    },
+    {
+      "phase": "machine_stop_press",
+      "start_sim": 139.7305,
+      "start_wall": 1792668129.189351,
+      "last_sim": 141.2015,
+      "last_wall": 1792668132.4382372,
+      "end_sim": 141.2015,
+      "end_wall": 1792668132.4393415,
+      "duration_sim_s": 1.4710000000000036
+    },
+    {
+      "phase": "machine_stop_withdraw",
+      "start_sim": 141.2015,
+      "start_wall": 1792668132.4393415,
+      "last_sim": 142.473,
+      "last_wall": 1792668135.2908788,
+      "end_sim": 142.473,
+      "end_wall": 1792668135.2917466,
+      "duration_sim_s": 1.2715000000000032
+    },
+    {
+      "phase": "machine_stop_wait_quiet",
+      "start_sim": 142.473,
+      "start_wall": 1792668135.2917466,
+      "last_sim": 144.263,
+      "last_wall": 1792668139.0916116,
+      "end_sim": 144.2635,
+      "end_wall": 1792668139.092633,
+      "duration_sim_s": 1.7904999999999802
+    },
+    {
+      "phase": "machine_stop_handover_collision_check",
+      "start_sim": 144.2635,
+      "start_wall": 1792668139.092633,
+      "last_sim": 150.9285,
+      "last_wall": 1792668150.782897,
+      "end_sim": 150.9285,
+      "end_wall": 1792668150.783354,
+      "duration_sim_s": 6.6650000000000205
+    },
+    {
+      "phase": "machine_final_open_approach",
+      "start_sim": 150.9285,
+      "start_wall": 1792668150.783354,
+      "last_sim": 152.7545,
+      "last_wall": 1792668153.863557,
+      "end_sim": 152.7545,
+      "end_wall": 1792668153.8643634,
+      "duration_sim_s": 1.8259999999999934
+    },
+    {
+      "phase": "machine_final_open_press",
+      "start_sim": 152.7545,
+      "start_wall": 1792668153.8643634,
+      "last_sim": 154.026,
+      "last_wall": 1792668155.8180888,
+      "end_sim": 154.026,
+      "end_wall": 1792668155.8188646,
+      "duration_sim_s": 1.2715000000000032
+    },
+    {
+      "phase": "machine_final_open_withdraw",
+      "start_sim": 154.026,
+      "start_wall": 1792668155.8188646,
+      "last_sim": 157.58,
+      "last_wall": 1792668161.2739897,
+      "end_sim": 157.5825,
+      "end_wall": 1792668161.2754307,
+      "duration_sim_s": 3.5564999999999998
+    },
+    {
+      "phase": "machine_wait_final_open",
+      "start_sim": 157.5825,
+      "start_wall": 1792668161.2754307,
+      "last_sim": 161.7885,
+      "last_wall": 1792668167.3684456,
+      "end_sim": 161.7885,
+      "end_wall": 1792668167.3689423,
+      "duration_sim_s": 4.205999999999989
+    },
+    {
+      "phase": "left_retrieval_open_empty",
+      "start_sim": 161.7885,
+      "start_wall": 1792668167.3689423,
+      "last_sim": 163.4185,
+      "last_wall": 1792668169.7131581,
+      "end_sim": 163.42,
+      "end_wall": 1792668169.7150784,
+      "duration_sim_s": 1.6314999999999884
+    },
+    {
+      "phase": "right_retrieval_open_empty",
+      "start_sim": 163.42,
+      "start_wall": 1792668169.7150784,
+      "last_sim": 165.2695,
+      "last_wall": 1792668172.4069815,
+      "end_sim": 165.2695,
+      "end_wall": 1792668172.4098177,
+      "duration_sim_s": 1.8495000000000061
+    },
+    {
+      "phase": "seq_retrieval_empty_park",
+      "start_sim": 165.2695,
+      "start_wall": 1792668172.4098177,
+      "last_sim": 168.815,
+      "last_wall": 1792668177.7508736,
+      "end_sim": 168.815,
+      "end_wall": 1792668177.7557833,
+      "duration_sim_s": 3.545500000000004
+    },
+    {
+      "phase": "seq_retrieval_empty_approach",
+      "start_sim": 168.815,
+      "start_wall": 1792668177.7557833,
+      "last_sim": 171.549,
+      "last_wall": 1792668181.87307,
+      "end_sim": 171.549,
+      "end_wall": 1792668181.8742175,
+      "duration_sim_s": 2.734000000000009
+    },
+    {
+      "phase": "seq_retrieval_empty_descend",
+      "start_sim": 171.549,
+      "start_wall": 1792668181.8742175,
+      "last_sim": 173.049,
+      "last_wall": 1792668184.3477585,
+      "end_sim": 173.049,
+      "end_wall": 1792668184.3482094,
+      "duration_sim_s": 1.5
+    },
+    {
+      "phase": "left_retrieval_grasp",
+      "start_sim": 173.049,
+      "start_wall": 1792668184.3482094,
+      "last_sim": 176.012,
+      "last_wall": 1792668195.4593554,
+      "end_sim": 176.012,
+      "end_wall": 1792668195.46022,
+      "duration_sim_s": 2.962999999999994
+    },
+    {
+      "phase": "seq_retrieval_single_pilot",
+      "start_sim": 176.012,
+      "start_wall": 1792668195.46022,
+      "last_sim": 183.351,
+      "last_wall": 1792668218.7234628,
+      "end_sim": 183.351,
+      "end_wall": 1792668218.7274716,
+      "duration_sim_s": 7.338999999999999
+    },
+    {
+      "phase": "seq_retrieval_retrieve_axis_exit",
+      "start_sim": 183.351,
+      "start_wall": 1792668218.7274716,
+      "last_sim": 184.959,
+      "last_wall": 1792668223.9556491,
+      "end_sim": 184.959,
+      "end_wall": 1792668223.9564826,
+      "duration_sim_s": 1.608000000000004
+    },
+    {
+      "phase": "seq_retrieval_retrieve_lift",
+      "start_sim": 184.959,
+      "start_wall": 1792668223.9564826,
+      "last_sim": 185.7085,
+      "last_wall": 1792668226.544392,
+      "end_sim": 185.7085,
+      "end_wall": 1792668226.5444624,
+      "duration_sim_s": 0.7494999999999834
+    },
+    {
+      "phase": "seq_retrieval_static_grip_hold",
+      "start_sim": 185.7085,
+      "start_wall": 1792668226.5444624,
+      "last_sim": 186.7085,
+      "last_wall": 1792668228.8764484,
+      "end_sim": 186.7085,
+      "end_wall": 1792668228.8833332,
+      "duration_sim_s": 1.0
+    },
+    {
+      "phase": "seq_retrieval_retrieve_outboard_and_retrieve_transfer",
+      "start_sim": 186.7085,
+      "start_wall": 1792668228.8833332,
+      "last_sim": 189.3985,
+      "last_wall": 1792668238.9000883,
+      "end_sim": 189.3985,
+      "end_wall": 1792668238.9002717,
+      "duration_sim_s": 2.690000000000026
+    },
+    {
+      "phase": "seq_retrieval_retrieve_transfer",
+      "start_sim": 189.3985,
+      "start_wall": 1792668238.9002717,
+      "last_sim": 189.3985,
+      "last_wall": 1792668238.900315,
+      "end_sim": 189.3985,
+      "end_wall": 1792668238.9016187,
+      "duration_sim_s": 0.0
+    },
+    {
+      "phase": "paired_retrieval_setdown",
+      "start_sim": 189.3985,
+      "start_wall": 1792668238.9016187,
+      "last_sim": 193.179,
+      "last_wall": 1792668253.2006018,
+      "end_sim": 193.179,
+      "end_wall": 1792668253.201275,
+      "duration_sim_s": 3.7804999999999893
+    },
+    {
+      "phase": "paired_retrieval_setdown_fine",
+      "start_sim": 193.179,
+      "start_wall": 1792668253.201275,
+      "last_sim": 195.68,
+      "last_wall": 1792668261.4490485,
+      "end_sim": 195.68,
+      "end_wall": 1792668261.4499993,
+      "duration_sim_s": 2.5010000000000048
+    },
+    {
+      "phase": "left_retrieval_release_on_table",
+      "start_sim": 195.68,
+      "start_wall": 1792668261.4499993,
+      "last_sim": 198.638,
+      "last_wall": 1792668266.7574093,
+      "end_sim": 198.638,
+      "end_wall": 1792668266.762085,
+      "duration_sim_s": 2.9579999999999984
+    },
+    {
+      "phase": "seq_retrieval_empty_vertical_retreat",
+      "start_sim": 198.638,
+      "start_wall": 1792668266.762085,
+      "last_sim": 200.269,
+      "last_wall": 1792668269.007926,
+      "end_sim": 200.269,
+      "end_wall": 1792668269.0099957,
+      "duration_sim_s": 1.6310000000000002
+    },
+    {
+      "phase": "seq_retrieval_empty_park",
+      "start_sim": 200.269,
+      "start_wall": 1792668269.0099957,
+      "last_sim": 204.2965,
+      "last_wall": 1792668274.469977,
+      "end_sim": 204.2965,
+      "end_wall": 1792668274.474809,
+      "duration_sim_s": 4.027500000000003
+    },
+    {
+      "phase": "seq_retrieval_empty_approach",
+      "start_sim": 204.2965,
+      "start_wall": 1792668274.474809,
+      "last_sim": 206.7985,
+      "last_wall": 1792668277.899905,
+      "end_sim": 206.7985,
+      "end_wall": 1792668277.9014044,
+      "duration_sim_s": 2.501999999999981
+    },
+    {
+      "phase": "seq_retrieval_empty_descend",
+      "start_sim": 206.7985,
+      "start_wall": 1792668277.9014044,
+      "last_sim": 208.2485,
+      "last_wall": 1792668280.108899,
+      "end_sim": 208.2485,
+      "end_wall": 1792668280.1092246,
+      "duration_sim_s": 1.450000000000017
+    },
+    {
+      "phase": "right_retrieval_grasp",
+      "start_sim": 208.2485,
+      "start_wall": 1792668280.1092246,
+      "last_sim": 211.233,
+      "last_wall": 1792668293.068124,
+      "end_sim": 211.233,
+      "end_wall": 1792668293.0688834,
+      "duration_sim_s": 2.984499999999997
+    },
+    {
+      "phase": "seq_retrieval_single_pilot",
+      "start_sim": 211.233,
+      "start_wall": 1792668293.0688834,
+      "last_sim": 218.492,
+      "last_wall": 1792668315.042744,
+      "end_sim": 218.492,
+      "end_wall": 1792668315.0470438,
+      "duration_sim_s": 7.258999999999986
+    },
+    {
+      "phase": "seq_retrieval_retrieve_axis_exit",
+      "start_sim": 218.492,
+      "start_wall": 1792668315.0470438,
+      "last_sim": 219.9685,
+      "last_wall": 1792668319.94308,
+      "end_sim": 219.9685,
+      "end_wall": 1792668319.9437983,
+      "duration_sim_s": 1.4765000000000157
+    },
+    {
+      "phase": "seq_retrieval_retrieve_lift",
+      "start_sim": 219.9685,
+      "start_wall": 1792668319.9437983,
+      "last_sim": 220.7385,
+      "last_wall": 1792668322.395752,
+      "end_sim": 220.7385,
+      "end_wall": 1792668322.3958013,
+      "duration_sim_s": 0.7699999999999818
+    },
+    {
+      "phase": "seq_retrieval_static_grip_hold",
+      "start_sim": 220.7385,
+      "start_wall": 1792668322.3958013,
+      "last_sim": 221.7385,
+      "last_wall": 1792668324.6157594,
+      "end_sim": 221.7385,
+      "end_wall": 1792668324.6225295,
+      "duration_sim_s": 1.0
+    },
+    {
+      "phase": "seq_retrieval_retrieve_outboard_and_retrieve_transfer",
+      "start_sim": 221.7385,
+      "start_wall": 1792668324.6225295,
+      "last_sim": 224.649,
+      "last_wall": 1792668335.3541458,
+      "end_sim": 224.649,
+      "end_wall": 1792668335.3542943,
+      "duration_sim_s": 2.910500000000013
+    },
+    {
+      "phase": "seq_retrieval_retrieve_transfer",
+      "start_sim": 224.649,
+      "start_wall": 1792668335.3542943,
+      "last_sim": 224.649,
+      "last_wall": 1792668335.3543406,
+      "end_sim": 224.649,
+      "end_wall": 1792668335.355212,
+      "duration_sim_s": 0.0
+    },
+    {
+      "phase": "paired_retrieval_setdown",
+      "start_sim": 224.649,
+      "start_wall": 1792668335.355212,
+      "last_sim": 234.6485,
+      "last_wall": 1792668364.5356178,
+      "end_sim": 234.6485,
+      "end_wall": 1792668364.5362852,
+      "duration_sim_s": 9.999500000000012
+    },
+    {
+      "phase": "paired_retrieval_setdown_fine",
+      "start_sim": 234.6485,
+      "start_wall": 1792668364.5362852,
+      "last_sim": 237.4705,
+      "last_wall": 1792668371.2478673,
+      "end_sim": 237.4705,
+      "end_wall": 1792668371.2482748,
+      "duration_sim_s": 2.8219999999999743
+    },
+    {
+      "phase": "right_retrieval_release_on_table",
+      "start_sim": 237.4705,
+      "start_wall": 1792668371.2482748,
+      "last_sim": 241.0955,
+      "last_wall": 1792668376.0460224,
+      "end_sim": 241.0955,
+      "end_wall": 1792668376.0492122,
+      "duration_sim_s": 3.625
+    },
+    {
+      "phase": "seq_retrieval_empty_vertical_retreat",
+      "start_sim": 241.0955,
+      "start_wall": 1792668376.0492122,
+      "last_sim": 242.679,
+      "last_wall": 1792668378.0086417,
+      "end_sim": 242.679,
+      "end_wall": 1792668378.0097837,
+      "duration_sim_s": 1.583500000000015
+    },
+    {
+      "phase": "seq_retrieval_empty_park",
+      "start_sim": 242.679,
+      "start_wall": 1792668378.0097837,
+      "last_sim": 244.4685,
+      "last_wall": 1792668380.2270734,
+      "end_sim": 244.4685,
+      "end_wall": 1792668380.2273304,
+      "duration_sim_s": 1.7895000000000039
+    },
+    {
+      "phase": "terminal_table_hold",
+      "start_sim": 244.4685,
+      "start_wall": 1792668380.2273304,
+      "last_sim": 245.4685,
+      "last_wall": 1792668381.4262931,
+      "end_sim": 245.4685,
+      "end_wall": 1792668381.4262931,
+      "duration_sim_s": 1.0
+    }
+  ],
+  "milestones": [
+    {
+      "kind": "leg_posture_pass",
+      "phase": "machine_preparation_leg_posture",
+      "sim": 25.769,
+      "wall": 1792667890.6631615,
+      "payload": {
+        "joint_names": [
+          "left_hip_yaw_joint",
+          "left_hip_pitch_joint",
+          "left_hip_roll_joint",
+          "left_knee_joint",
+          "left_ankle_pitch_joint",
+          "left_ankle_roll_joint",
+          "right_hip_yaw_joint",
+          "right_hip_pitch_joint",
+          "right_hip_roll_joint",
+          "right_knee_joint",
+          "right_ankle_pitch_joint",
+          "right_ankle_roll_joint"
+        ],
+        "targets": [
+          -0.0006820783347054704,
+          -0.006738004897772717,
+          0.0008386775483049911,
+          -2.6950738338349654e-06,
+          0.09730889673450745,
+          -0.018243787663438996,
+          -0.0010815164714264418,
+          -0.006900721112082221,
+          0.0008400186943777271,
+          -2.8953534663859334e-06,
+          0.09746433270149103,
+          -0.018282342029613687
+        ],
+        "measured": [
+          -0.0006820783354020908,
+          -0.006241419512178332,
+          0.000669886774705801,
+          -2.6950715794590408e-06,
+          0.09681520361657839,
+          -0.0180820295284635,
+          -0.0010815164739727734,
+          -0.004642172841225764,
+          0.0007384065002062922,
+          -2.8953512129729206e-06,
+          0.09521209565227104,
+          -0.018187973207501158
+        ],
+        "controller": "leg_posture_controller",
+        "no_extra_fixed_joint": true,
+        "prior_fresh_hold_sim_s": 5.0,
+        "current_error_rad": 0.002258548270856457,
+        "current_limit_rad": 0.005,
+        "redundant_confirmation_action_removed": true
+      }
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_empty_park",
+      "sim": 38.8375,
+      "wall": 1792667907.0790808,
+      "payload": {
+        "start": 38.997499999999995,
+        "actual_rate_rad_s": 1.2,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_empty_approach",
+      "sim": 41.8315,
+      "wall": 1792667910.852624,
+      "payload": {
+        "start": 41.991499999999995,
+        "actual_rate_rad_s": 1.2,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_empty_descend",
+      "sim": 44.3085,
+      "wall": 1792667913.9792435,
+      "payload": {
+        "start": 44.6085,
+        "actual_rate_rad_s": 0.4,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_single_pilot",
+      "sim": 49.1685,
+      "wall": 1792667924.6264215,
+      "payload": {
+        "start": 49.4685,
+        "actual_rate_rad_s": 0.15,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_load_lift_and_load_transfer",
+      "sim": 51.839,
+      "wall": 1792667934.9329531,
+      "payload": {
+        "start": 52.138999999999996,
+        "actual_rate_rad_s": 0.8,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders",
+        "joined_segments"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_load_lower",
+      "sim": 56.8085,
+      "wall": 1792667957.8161383,
+      "payload": {
+        "start": 57.1085,
+        "actual_rate_rad_s": 0.4,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_load_release_pilot_align",
+      "sim": 58.5745,
+      "wall": 1792667964.5492709,
+      "payload": {
+        "start": 58.8745,
+        "actual_rate_rad_s": 0.15,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "dual_holder_normal_release",
+      "phase": "seq_load_load_release_pilot_align",
+      "sim": 59.5295,
+      "wall": 1792667968.024319,
+      "payload": {
+        "hand": "left",
+        "payload": "left",
+        "reason": "single_actual_overhead_gate_passed"
+      }
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_empty_vertical_retreat",
+      "sim": 63.438,
+      "wall": 1792667976.3328254,
+      "payload": {
+        "start": 63.738,
+        "actual_rate_rad_s": 0.4,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_empty_park",
+      "sim": 64.6495,
+      "wall": 1792667978.1517117,
+      "payload": {
+        "start": 64.8095,
+        "actual_rate_rad_s": 1.2,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_empty_approach",
+      "sim": 69.0765,
+      "wall": 1792667984.1180575,
+      "payload": {
+        "start": 69.23649999999999,
+        "actual_rate_rad_s": 1.2,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_empty_descend",
+      "sim": 71.679,
+      "wall": 1792667987.6547675,
+      "payload": {
+        "start": 71.979,
+        "actual_rate_rad_s": 0.4,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_single_pilot",
+      "sim": 76.3275,
+      "wall": 1792667996.6625738,
+      "payload": {
+        "start": 76.6275,
+        "actual_rate_rad_s": 0.15,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_load_lift_and_load_transfer",
+      "sim": 79.0295,
+      "wall": 1792668006.0804143,
+      "payload": {
+        "start": 79.3295,
+        "actual_rate_rad_s": 0.8,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders",
+        "joined_segments"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_load_lower",
+      "sim": 82.5795,
+      "wall": 1792668022.049415,
+      "payload": {
+        "start": 82.8795,
+        "actual_rate_rad_s": 0.4,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_load_release_pilot_align",
+      "sim": 84.416,
+      "wall": 1792668028.2347367,
+      "payload": {
+        "start": 84.716,
+        "actual_rate_rad_s": 0.15,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "dual_holder_normal_release",
+      "phase": "seq_load_load_release_pilot_align",
+      "sim": 85.2685,
+      "wall": 1792668030.8676186,
+      "payload": {
+        "hand": "right",
+        "payload": "right",
+        "reason": "single_actual_overhead_gate_passed"
+      }
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_empty_vertical_retreat",
+      "sim": 88.2745,
+      "wall": 1792668037.489907,
+      "payload": {
+        "start": 88.5745,
+        "actual_rate_rad_s": 0.4,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_load_empty_park",
+      "sim": 89.5385,
+      "wall": 1792668039.5028417,
+      "payload": {
+        "start": 89.6985,
+        "actual_rate_rad_s": 1.2,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "LOADING_PASS",
+      "phase": "seq_load_empty_park",
+      "sim": 92.339,
+      "wall": 1792668043.528224,
+      "payload": {
+        "scope": "two_box_overhead_loading",
+        "loading_complete": true,
+        "actual_two_holder_cycle": false,
+        "sequential_cycle": true,
+        "poses": {
+          "box48_left": {
+            "name": "box48_left",
+            "id": 193,
+            "position": {
+              "x": 0.5240453914548081,
+              "y": 0.0860128011351748,
+              "z": 1.0522499956151716
+            },
+            "orientation": {
+              "x": -4.889017730871236e-05,
+              "y": -7.619689339163294e-06,
+              "z": 0.15402968155075963,
+              "w": 0.9880662198218612
+            }
+          },
+          "box48_right": {
+            "name": "box48_right",
+            "id": 198,
+            "position": {
+              "x": 0.5780712535738118,
+              "y": -0.08570363626847359,
+              "z": 1.0522495355257055
+            },
+            "orientation": {
+              "x": 6.824918103852752e-05,
+              "y": 1.0629193601350391e-05,
+              "z": 0.15404181298649242,
+              "w": 0.9880643274002477
+            }
+          },
+          "centrifuge": {
+            "name": "centrifuge",
+            "id": 203,
+            "position": {
+              "x": 0.52,
+              "z": 0.815
+            },
+            "orientation": {
+              "w": 1
+            }
+          },
+          "left_wrist_yaw_link": {
+            "name": "left_wrist_yaw_link",
+            "id": 91,
+            "position": {
+              "x": 0.3405655318045927,
+              "y": 0.5393294768224284,
+              "z": 1.1977148857146214
+            },
+            "orientation": {
+              "x": 0.4522030871188196,
+              "y": 0.13289429401237865,
+              "z": 0.06834434976695569,
+              "w": 0.879306843186207
+            }
+          },
+          "left_dex1_finger_1_slider_link": {
+            "name": "left_dex1_finger_1_slider_link",
+            "id": 97,
+            "position": {
+              "x": 0.45425218055981115,
+              "y": 0.5198154156953421,
+              "z": 1.1373210058323893
+            },
+            "orientation": {
+              "x": 0.2257854160654279,
+              "y": 0.41372637310321747,
+              "z": -0.5734368049444762,
+              "w": 0.670090788495178
+            }
+          },
+          "left_dex1_finger_2_slider_link": {
+            "name": "left_dex1_finger_2_slider_link",
+            "id": 104,
+            "position": {
+              "x": 0.44526850283558295,
+              "y": 0.6137853416184831,
+              "z": 1.2187992824508191
+            },
+            "orientation": {
+              "x": 0.2257854128990694,
+              "y": 0.4137263258518076,
+              "z": -0.5734370783830631,
+              "w": 0.6700905847381063
+            }
+          },
+          "right_wrist_yaw_link": {
+            "name": "right_wrist_yaw_link",
+            "id": 129,
+            "position": {
+              "x": 0.3405661886118121,
+              "y": -0.5393293985258674,
+              "z": 1.1977148181704427
+            },
+            "orientation": {
+              "x": -0.4522029528859491,
+              "y": 0.13289442677611724,
+              "z": -0.06834406579218859,
+              "w": 0.8793069142251005
+            }
+          },
+          "right_dex1_finger_1_slider_link": {
+            "name": "right_dex1_finger_1_slider_link",
+            "id": 135,
+            "position": {
+              "x": 0.45425286509595,
+              "y": -0.5900503011469082,
+              "z": 1.2355368191882536
+            },
+            "orientation": {
+              "x": -0.41372624935070984,
+              "y": -0.22578540777058204,
+              "z": -0.6700902548426646,
+              "w": 0.5734375210962034
+            }
+          },
+          "right_dex1_finger_2_slider_link": {
+            "name": "right_dex1_finger_2_slider_link",
+            "id": 142,
+            "position": {
+              "x": 0.44526970361091744,
+              "y": -0.5433961978363765,
+              "z": 1.1203676897334651
+            },
+            "orientation": {
+              "x": -0.4137265188617983,
+              "y": -0.22578475180996652,
+              "z": -0.6700908952861366,
+              "w": 0.5734368365349696
+            }
+          },
+          "lid": {
+            "name": "lid",
+            "id": 225,
+            "position": {
+              "x": 0.2680710507631302,
+              "z": 0.30699999999999994
+            },
+            "orientation": {
+              "y": 0.8660254037845236,
+              "w": 0.4999999999998528
+            }
+          },
+          "rotor": {
+            "name": "rotor",
+            "id": 232,
+            "position": {
+              "x": 0.03057105112628944,
+              "z": 0.2250000000000001
+            },
+            "orientation": {
+              "z": -9.176812342297142e-07,
+              "w": 0.9999999999995789
+            }
+          },
+          "bucket_left": {
+            "name": "bucket_left",
+            "id": 235,
+            "position": {
+              "x": 0.0031784966068576503,
+              "y": 0.0857300882926087,
+              "z": 0.23750000000000004
+            },
+            "orientation": {
+              "x": -4.0039238919071126e-05,
+              "y": 2.924007815197863e-05,
+              "z": 0.8075771522511964,
+              "w": 0.58976193561786
+            }
+          },
+          "bucket_right": {
+            "name": "bucket_right",
+            "id": 238,
+            "position": {
+              "x": 0.057963762991461554,
+              "y": -0.08573003706352367,
+              "z": 0.23750000000000004
+            },
+            "orientation": {
+              "x": 4.060412704483329e-05,
+              "y": 5.560044907791943e-05,
+              "z": -0.5897611938463023,
+              "w": 0.8075776925428777
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "command",
+      "phase": "machine_sequential_empty_neutral",
+      "sim": 92.4135,
+      "wall": 1792668043.6296003,
+      "payload": {
+        "start": 92.5735,
+        "actual_rate_rad_s": 1.2,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "steady_start",
+      "phase": "machine_running_steady",
+      "sim": 110.9975,
+      "wall": 1792668070.0550425,
+      "payload": {
+        "sim_time": 110.9975
+      }
+    },
+    {
+      "kind": "phase_aligned_stop_schedule",
+      "phase": "machine_running_steady",
+      "sim": 110.9975,
+      "wall": 1792668070.0557709,
+      "payload": {
+        "estimated_physical_stop_trigger_sim": 141.13130214761094,
+        "stroke_start_sim": 140.22880214761093,
+        "estimated_steady_duration_sim_s": 30.133802147610936,
+        "extra_phase_wait_sim_s": 0.0838021476109304,
+        "actual_native_pose_stamp": 110.9865,
+        "actual_native_rotor_yaw": -0.1873292229315953,
+        "measured_speed_rad_s": 3.132716160092948,
+        "measured_physical_button_offset_sim_s": 0.9025000000000034,
+        "target_rotor_phase_mod_2pi": 0.0,
+        "estimate_not_actual_encoder_stop_certificate": true,
+        "no_angle_command_pose_reset_or_artificial_attachment": true
+      }
+    },
+    {
+      "kind": "actual_stop_handover_dense_pass",
+      "phase": "machine_stop_handover_collision_check",
+      "sim": 150.9285,
+      "wall": 1792668150.782897,
+      "payload": {
+        "audit": {
+          "status": "PASS",
+          "records": [
+            {
+              "phase": "approach",
+              "checked": 555,
+              "minimum_nonallowed_distance_m": 0.00867088824495401
+            },
+            {
+              "phase": "push",
+              "checked": 125,
+              "minimum_nonallowed_distance_m": 0.00867088824495401
+            }
+          ],
+          "maximum_joint_step_rad": 0.002,
+          "minimum_original_nonallowed_clearance_m": 0.005,
+          "source_sim": 144.2535,
+          "original_push_and_approach_reverse_paths_identical_geometry": true,
+          "original_five_lid_angle_and_loaded_rotor_envelope_preserved": true,
+          "whole_robot_actual_positions_used": true,
+          "only_target_left_fingertip_button_contact_exempt": true,
+          "right_stop_pre_not_replaced_by_old_home": true,
+          "no_physical_attachment_or_robot_command": true
+        },
+        "maximum_native_joint_numeric_drift": 5.951653600374043e-06,
+        "revolute_joint_drift_limit_rad": 0.0003,
+        "prismatic_joint_drift_limit_m": 0.0003
+      }
+    },
+    {
+      "kind": "MACHINE_CYCLE_PASS",
+      "phase": "machine_wait_final_open",
+      "sim": 161.7885,
+      "wall": 1792668167.3684456,
+      "payload": {
+        "steady_run_sim_seconds": 30.134500000000003,
+        "final_machine": {
+          "ready": true,
+          "rotor_enabled": false,
+          "open_lid_demo": false,
+          "stopped_velocity_gain": 80,
+          "startup_ramp_rad_s2": 0.8,
+          "stopped_position_gain": 8000,
+          "brake_active": true,
+          "rotor_angle_rad": 105.70935431341665,
+          "brake_reference_rad": 105.70935431341658,
+          "brake_position_error_rad": -7.105427357601002e-14,
+          "motor_torque_nm": -4.305772218297373e-08,
+          "rotor_rad_s": 5.311824977417883e-10,
+          "rotor_rpm": 5.072419211970309e-09,
+          "lid_rad": 2.0943951023932086,
+          "lid_target_rad": 2.0943951023931953,
+          "can_open": true,
+          "can_start": false,
+          "starts": 1,
+          "stops": 1,
+          "blocked_lid": 0,
+          "blocked_start": 0,
+          "rejected": ""
+        },
+        "retention_checks": 491438,
+        "retention_peaks": {
+          "left_side_overhang_m": 5.031450146469191e-05,
+          "left_bottom_penetration_m": 8.799826279629747e-05,
+          "left_maximum_contact_depth_m": 8.525916920335455e-05,
+          "right_side_overhang_m": 6.691380943943392e-05,
+          "right_bottom_penetration_m": 0.0002972727359339851,
+          "right_maximum_contact_depth_m": 0.0002972875528603169
+        },
+        "maximum_zero_force_gap_sim_s": {
+          "left": 0.0,
+          "right": 0.0
+        },
+        "phase_aligned_by_real_physical_stop_button": true,
+        "original_30_3_window_passed": true,
+        "user_required_minimum_thirty_steady_seconds_preserved": true,
+        "actual_final_phase_not_assumed_equal_prediction": true
+      }
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_empty_park",
+      "sim": 165.2695,
+      "wall": 1792668172.4098177,
+      "payload": {
+        "start": 165.4295,
+        "actual_rate_rad_s": 1.2,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_empty_approach",
+      "sim": 168.815,
+      "wall": 1792668177.7557833,
+      "payload": {
+        "start": 168.975,
+        "actual_rate_rad_s": 1.2,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_empty_descend",
+      "sim": 171.549,
+      "wall": 1792668181.8742175,
+      "payload": {
+        "start": 171.84900000000002,
+        "actual_rate_rad_s": 0.4,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_single_pilot",
+      "sim": 176.012,
+      "wall": 1792668195.46022,
+      "payload": {
+        "start": 176.312,
+        "actual_rate_rad_s": 0.05,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_retrieve_axis_exit",
+      "sim": 183.351,
+      "wall": 1792668218.7274716,
+      "payload": {
+        "start": 183.651,
+        "actual_rate_rad_s": 0.15,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_retrieve_lift",
+      "sim": 184.959,
+      "wall": 1792668223.9564826,
+      "payload": {
+        "start": 185.25900000000001,
+        "actual_rate_rad_s": 0.8,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_retrieve_outboard_and_retrieve_transfer",
+      "sim": 186.7085,
+      "wall": 1792668228.8833332,
+      "payload": {
+        "start": 187.0085,
+        "actual_rate_rad_s": 0.8,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders",
+        "joined_segments"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "paired_retrieval_setdown",
+      "sim": 189.3985,
+      "wall": 1792668238.9039612,
+      "payload": {
+        "start": 189.69850000000002,
+        "actual_rate_rad_s": 0.4,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "paired_retrieval_setdown_fine",
+      "sim": 193.179,
+      "wall": 1792668253.201275,
+      "payload": {
+        "start": 193.479,
+        "actual_rate_rad_s": 0.15,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "return_table_target",
+      "phase": "paired_retrieval_setdown_fine",
+      "sim": 195.68,
+      "wall": 1792668261.4490335,
+      "payload": {
+        "hand": "left",
+        "payload": "left",
+        "yaw_rad": 0.0,
+        "actual_target_not_runtime_reference_rebase": true
+      }
+    },
+    {
+      "kind": "dual_holder_normal_release",
+      "phase": "paired_retrieval_setdown_fine",
+      "sim": 195.68,
+      "wall": 1792668261.4490423,
+      "payload": {
+        "hand": "left",
+        "payload": "left",
+        "reason": "single_actual_table_support_and_pose_gates_passed"
+      }
+    },
+    {
+      "kind": "table_return_pass",
+      "phase": "left_retrieval_release_on_table",
+      "sim": 197.7785,
+      "wall": 1792668265.566555,
+      "payload": {
+        "payload": "left",
+        "hand": "left",
+        "duration_sim_s": 0.5
+      }
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_empty_vertical_retreat",
+      "sim": 198.638,
+      "wall": 1792668266.762085,
+      "payload": {
+        "start": 198.93800000000002,
+        "actual_rate_rad_s": 0.4,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_empty_park",
+      "sim": 200.269,
+      "wall": 1792668269.0099957,
+      "payload": {
+        "start": 200.429,
+        "actual_rate_rad_s": 1.2,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_empty_approach",
+      "sim": 204.2965,
+      "wall": 1792668274.474809,
+      "payload": {
+        "start": 204.4565,
+        "actual_rate_rad_s": 1.2,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_empty_descend",
+      "sim": 206.7985,
+      "wall": 1792668277.9014044,
+      "payload": {
+        "start": 207.0985,
+        "actual_rate_rad_s": 0.4,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_single_pilot",
+      "sim": 211.233,
+      "wall": 1792668293.0688834,
+      "payload": {
+        "start": 211.53300000000002,
+        "actual_rate_rad_s": 0.05,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_retrieve_axis_exit",
+      "sim": 218.492,
+      "wall": 1792668315.0470438,
+      "payload": {
+        "start": 218.792,
+        "actual_rate_rad_s": 0.15,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_retrieve_lift",
+      "sim": 219.9685,
+      "wall": 1792668319.9437983,
+      "payload": {
+        "start": 220.26850000000002,
+        "actual_rate_rad_s": 0.8,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_retrieve_outboard_and_retrieve_transfer",
+      "sim": 221.7385,
+      "wall": 1792668324.6225295,
+      "payload": {
+        "start": 222.0385,
+        "actual_rate_rad_s": 0.8,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders",
+        "joined_segments"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "paired_retrieval_setdown",
+      "sim": 224.649,
+      "wall": 1792668335.3565915,
+      "payload": {
+        "start": 224.949,
+        "actual_rate_rad_s": 0.2,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "paired_retrieval_setdown_fine",
+      "sim": 234.6485,
+      "wall": 1792668364.5362852,
+      "payload": {
+        "start": 234.94850000000002,
+        "actual_rate_rad_s": 0.15,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "return_table_target",
+      "phase": "paired_retrieval_setdown_fine",
+      "sim": 237.4705,
+      "wall": 1792668371.2478538,
+      "payload": {
+        "hand": "right",
+        "payload": "right",
+        "yaw_rad": 0.0,
+        "actual_target_not_runtime_reference_rebase": true
+      }
+    },
+    {
+      "kind": "dual_holder_normal_release",
+      "phase": "paired_retrieval_setdown_fine",
+      "sim": 237.4705,
+      "wall": 1792668371.247862,
+      "payload": {
+        "hand": "right",
+        "payload": "right",
+        "reason": "single_actual_table_support_and_pose_gates_passed"
+      }
+    },
+    {
+      "kind": "table_return_pass",
+      "phase": "right_retrieval_release_on_table",
+      "sim": 239.5995,
+      "wall": 1792668374.2161107,
+      "payload": {
+        "payload": "right",
+        "hand": "right",
+        "duration_sim_s": 0.5
+      }
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_empty_vertical_retreat",
+      "sim": 241.0955,
+      "wall": 1792668376.0492122,
+      "payload": {
+        "start": 241.3955,
+        "actual_rate_rad_s": 0.4,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "command",
+      "phase": "seq_retrieval_empty_park",
+      "sim": 242.679,
+      "wall": 1792668378.0097837,
+      "payload": {
+        "start": 242.839,
+        "actual_rate_rad_s": 1.2,
+        "simultaneous_physical_controllers": true
+      },
+      "payload_keys": [
+        "names",
+        "samples",
+        "start",
+        "times",
+        "initial",
+        "actual_rate_rad_s",
+        "groups",
+        "simultaneous_physical_controllers",
+        "holders"
+      ]
+    },
+    {
+      "kind": "PASS",
+      "phase": "terminal_table_hold",
+      "sim": 245.4685,
+      "wall": 1792668381.4262931,
+      "payload": {
+        "scope": "two_box_load_close_spin_open_retrieve",
+        "paired_actual_cycle": false,
+        "sequential_actual_cycle": true,
+        "order": {
+          "phase": "complete",
+          "locations": {
+            "left": "table",
+            "right": "table"
+          },
+          "loaded": [
+            "left",
+            "right"
+          ],
+          "returned": [
+            "left",
+            "right"
+          ],
+          "holder": null,
+          "retrieval_assignment": {
+            "left": "left",
+            "right": "right"
+          }
+        },
+        "physical_press_events": [
+          {
+            "source": "gazebo_physics_contact",
+            "button": "lid",
+            "sequence": 1,
+            "sim_time": 28.7965,
+            "contact": {
+              "stamp": 28.796,
+              "valid": true,
+              "pairs": [
+                {
+                  "first": "centrifuge::assembly::lid_button_collision",
+                  "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+                  "depths": [
+                    6.5294569318846e-06,
+                    3.183105212575116e-06
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "source": "gazebo_physics_contact",
+            "button": "lid",
+            "sequence": 2,
+            "sim_time": 99.6375,
+            "contact": {
+              "stamp": 99.637,
+              "valid": true,
+              "pairs": [
+                {
+                  "first": "centrifuge::assembly::lid_button_collision",
+                  "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+                  "depths": [
+                    6.528778571409169e-06,
+                    3.1824535611513216e-06
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "source": "gazebo_physics_contact",
+            "button": "rotor",
+            "sequence": 3,
+            "sim_time": 107.0905,
+            "contact": {
+              "stamp": 107.09,
+              "valid": true,
+              "pairs": [
+                {
+                  "first": "centrifuge::assembly::rotor_button_collision",
+                  "second": "h1_2::right_dex1_finger_2_slider_link::right_dex1_finger_2_slider_link_fixed_joint_lump__right_dex1_finger_2_link_collision_1",
+                  "depths": [
+                    6.529261992758127e-06,
+                    3.1829145250138885e-06
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "source": "gazebo_physics_contact",
+            "button": "rotor",
+            "sequence": 4,
+            "sim_time": 141.132,
+            "contact": {
+              "stamp": 141.1315,
+              "valid": true,
+              "pairs": [
+                {
+                  "first": "centrifuge::assembly::rotor_button_collision",
+                  "second": "h1_2::right_dex1_finger_2_slider_link::right_dex1_finger_2_slider_link_fixed_joint_lump__right_dex1_finger_2_link_collision_1",
+                  "depths": [
+                    1.0793318810528585e-05,
+                    7.475913231514558e-06
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "source": "gazebo_physics_contact",
+            "button": "lid",
+            "sequence": 5,
+            "sim_time": 153.9575,
+            "contact": {
+              "stamp": 153.957,
+              "valid": true,
+              "pairs": [
+                {
+                  "first": "centrifuge::assembly::lid_button_collision",
+                  "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+                  "depths": [
+                    6.464490983804257e-06,
+                    3.117704118221591e-06
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "final_machine": {
+          "ready": true,
+          "rotor_enabled": false,
+          "open_lid_demo": false,
+          "stopped_velocity_gain": 80,
+          "startup_ramp_rad_s2": 0.8,
+          "stopped_position_gain": 8000,
+          "brake_active": true,
+          "rotor_angle_rad": 105.70935431341645,
+          "brake_reference_rad": 105.70935431341658,
+          "brake_position_error_rad": 1.2789769243681803e-13,
+          "motor_torque_nm": 1.2789769243681803e-13,
+          "rotor_rad_s": 1.2789769243681803e-11,
+          "rotor_rpm": 1.2213329976819904e-10,
+          "lid_rad": 2.0943951023932086,
+          "lid_target_rad": 2.0943951023931953,
+          "can_open": true,
+          "can_start": false,
+          "starts": 1,
+          "stops": 1,
+          "blocked_lid": 0,
+          "blocked_start": 0,
+          "rejected": ""
+        },
+        "poses": {
+          "box48_left": {
+            "name": "box48_left",
+            "id": 193,
+            "position": {
+              "x": 0.4400861653461549,
+              "y": 0.3798455060482124,
+              "z": 0.8447497959440374
+            },
+            "orientation": {
+              "x": -7.323346651660537e-07,
+              "y": 9.10613480472792e-08,
+              "z": 2.5601591253379116e-05,
+              "w": 0.9999999996720069
+            }
+          },
+          "box48_right": {
+            "name": "box48_right",
+            "id": 198,
+            "position": {
+              "x": 0.4401256307755246,
+              "y": -0.37988106391313664,
+              "z": 0.8447499444264047
+            },
+            "orientation": {
+              "x": 5.582570258944253e-07,
+              "y": 7.905383006414494e-09,
+              "z": 0.0011804104780642405,
+              "w": 0.9999993033151531
+            }
+          },
+          "centrifuge": {
+            "name": "centrifuge",
+            "id": 203,
+            "position": {
+              "x": 0.52,
+              "z": 0.815
+            },
+            "orientation": {
+              "w": 1
+            }
+          },
+          "left_wrist_yaw_link": {
+            "name": "left_wrist_yaw_link",
+            "id": 91,
+            "position": {
+              "x": 0.3405652786690656,
+              "y": 0.5393295856008304,
+              "z": 1.1977148317681907
+            },
+            "orientation": {
+              "x": 0.4522029408673962,
+              "y": 0.13289454478953394,
+              "z": 0.06834438922892437,
+              "w": 0.8793068774307329
+            }
+          },
+          "left_dex1_finger_1_slider_link": {
+            "name": "left_dex1_finger_1_slider_link",
+            "id": 97,
+            "position": {
+              "x": 0.4542528650958471,
+              "y": 0.5198181116480017,
+              "z": 1.1373253481854895
+            },
+            "orientation": {
+              "x": 0.22578540777261813,
+              "y": 0.4137262493496171,
+              "z": -0.5734375210929193,
+              "w": 0.6700902548454637
+            }
+          },
+          "left_dex1_finger_2_slider_link": {
+            "name": "left_dex1_finger_2_slider_link",
+            "id": 104,
+            "position": {
+              "x": 0.44526905081287,
+              "y": 0.613769085554849,
+              "z": 1.2187768300229367
+            },
+            "orientation": {
+              "x": 0.22578540777261813,
+              "y": 0.4137262493496171,
+              "z": -0.5734375210929193,
+              "w": 0.6700902548454637
+            }
+          },
+          "right_wrist_yaw_link": {
+            "name": "right_wrist_yaw_link",
+            "id": 129,
+            "position": {
+              "x": 0.3405660694897847,
+              "y": -0.5393292267626851,
+              "z": 1.197714805396054
+            },
+            "orientation": {
+              "x": -0.4522031913818987,
+              "y": 0.13289427733593967,
+              "z": -0.06834353655635893,
+              "w": 0.8793068552936193
+            }
+          },
+          "right_dex1_finger_1_slider_link": {
+            "name": "right_dex1_finger_1_slider_link",
+            "id": 135,
+            "position": {
+              "x": 0.4542528650966834,
+              "y": -0.5901302322995706,
+              "z": 1.2356485935213435
+            },
+            "orientation": {
+              "x": -0.4137262493516391,
+              "y": -0.22578540777118988,
+              "z": -0.670090254841076,
+              "w": 0.5734375210971498
+            }
+          },
+          "right_dex1_finger_2_slider_link": {
+            "name": "right_dex1_finger_2_slider_link",
+            "id": 142,
+            "position": {
+              "x": 0.4452691702963586,
+              "y": -0.5433953627101639,
+              "z": 1.1203676157971285
+            },
+            "orientation": {
+              "x": -0.4137265954388761,
+              "y": -0.22578563437964952,
+              "z": -0.6700896634104341,
+              "w": 0.5734378732912803
+            }
+          },
+          "lid": {
+            "name": "lid",
+            "id": 225,
+            "position": {
+              "x": 0.2680710507631302,
+              "z": 0.30699999999999994
+            },
+            "orientation": {
+              "y": 0.8660254037845236,
+              "w": 0.4999999999998528
+            }
+          },
+          "rotor": {
+            "name": "rotor",
+            "id": 232,
+            "position": {
+              "x": 0.03057105112628944,
+              "z": 0.2250000000000001
+            },
+            "orientation": {
+              "z": -0.5247309368383207,
+              "w": 0.8512681386759275
+            }
+          },
+          "bucket_left": {
+            "name": "bucket_left",
+            "id": 235,
+            "position": {
+              "x": 0.09485190563127255,
+              "y": 0.06299183935929889,
+              "z": 0.23750000000000004
+            },
+            "orientation": {
+              "x": -1.8999608848600074e-09,
+              "y": 4.65342164971411e-09,
+              "z": 0.3780001904835652,
+              "w": 0.9258055173708938
+            }
+          },
+          "bucket_right": {
+            "name": "bucket_right",
+            "id": 238,
+            "position": {
+              "x": -0.03370980222559522,
+              "y": -0.06299183923807097,
+              "z": 0.23750000000000004
+            },
+            "orientation": {
+              "x": 3.1310058095107157e-07,
+              "y": 1.2783687051728396e-07,
+              "z": 0.9258055164673872,
+              "w": -0.37800019269629986
+            }
+          }
+        },
+        "motions": 148,
+        "max_slip_m": 0.000982829651822807,
+        "max_native_slip_m": 0.0009810073445514665,
+        "actual_holder_registry": {}
+      }
+    }
+  ],
+  "maximum_actual_gripper_velocity": {
+    "joint": "left_dex1_finger_2_joint",
+    "velocity_m_s": 0.21374349421812414,
+    "source_sim": 165.73,
+    "kind": "raw_gripper_velocity",
+    "phase": "seq_retrieval_empty_park",
+    "sim": 165.7295,
+    "wall": 1792668173.0975578
+  },
+  "first_nonempty_sim": 24.004,
+  "exact_video_sim_synchronization_not_claimed": true
+}

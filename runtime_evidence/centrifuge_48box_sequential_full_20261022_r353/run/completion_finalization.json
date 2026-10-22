@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "steps": {
+    "inspection": {
+      "status": "PASS"
+    },
+    "video": {
+      "status": "PASS"
+    },
+    "recorder_exit": {
+      "status": "PASS",
+      "alive": false
+    },
+    "retirement": {
+      "status": "PASS"
+    }
+  },
+  "inspection_failure_does_not_skip_video_sigint": true,
+  "scene_retirement_requires_recorder_exited": true
+}

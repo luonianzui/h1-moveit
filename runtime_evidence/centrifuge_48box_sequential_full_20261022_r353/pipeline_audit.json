@@ -1,0 +1,139 @@
+{
+  "status": "PASS",
+  "actual_single_process": 3182220,
+  "actual_planning_requests": 21,
+  "actual_joined_pairs": 4,
+  "planning_intervals": [
+    {
+      "mode": "park",
+      "hand": "left",
+      "wall_s": 1.7127647399902344,
+      "sim_s": 1.3684999999999974
+    },
+    {
+      "mode": "load_pickup",
+      "hand": "left",
+      "wall_s": 2.3824806213378906,
+      "sim_s": 1.9125000000000014
+    },
+    {
+      "mode": "load_pilot",
+      "hand": "left",
+      "wall_s": 0.5012650489807129,
+      "sim_s": 0.11899999999999977
+    },
+    {
+      "mode": "load_transport",
+      "hand": "left",
+      "wall_s": 3.9938666820526123,
+      "sim_s": 1.0
+    },
+    {
+      "mode": "load_release_align",
+      "hand": "left",
+      "wall_s": 0.2353065013885498,
+      "sim_s": 0.06550000000000011
+    },
+    {
+      "mode": "empty_retreat",
+      "hand": "left",
+      "wall_s": 2.9187369346618652,
+      "sim_s": 1.7790000000000035
+    },
+    {
+      "mode": "load_pickup",
+      "hand": "right",
+      "wall_s": 2.3416638374328613,
+      "sim_s": 1.786999999999992
+    },
+    {
+      "mode": "load_pilot",
+      "hand": "right",
+      "wall_s": 0.32019829750061035,
+      "sim_s": 0.10649999999999693
+    },
+    {
+      "mode": "load_transport",
+      "hand": "right",
+      "wall_s": 3.5911054611206055,
+      "sim_s": 1.0
+    },
+    {
+      "mode": "load_release_align",
+      "hand": "right",
+      "wall_s": 0.20210003852844238,
+      "sim_s": 0.06649999999999068
+    },
+    {
+      "mode": "empty_retreat",
+      "hand": "right",
+      "wall_s": 1.526935338973999,
+      "sim_s": 0.8840000000000003
+    },
+    {
+      "mode": "neutral",
+      "hand": "left",
+      "wall_s": 0.09836864471435547,
+      "sim_s": 0.07349999999999568
+    },
+    {
+      "mode": "park",
+      "hand": "left",
+      "wall_s": 0.3565642833709717,
+      "sim_s": 0.23849999999998772
+    },
+    {
+      "mode": "retrieval_pickup",
+      "hand": "left",
+      "wall_s": 3.2255136966705322,
+      "sim_s": 2.164500000000004
+    },
+    {
+      "mode": "retrieval_pilot",
+      "hand": "left",
+      "wall_s": 0.25443172454833984,
+      "sim_s": 0.0519999999999925
+    },
+    {
+      "mode": "retrieval_transport",
+      "hand": "left",
+      "wall_s": 12.806134700775146,
+      "sim_s": 4.772500000000008
+    },
+    {
+      "mode": "empty_retreat",
+      "hand": "left",
+      "wall_s": 1.1895709037780762,
+      "sim_s": 0.8590000000000089
+    },
+    {
+      "mode": "retrieval_pickup",
+      "hand": "right",
+      "wall_s": 1.8470823764801025,
+      "sim_s": 1.3765000000000214
+    },
+    {
+      "mode": "retrieval_pilot",
+      "hand": "right",
+      "wall_s": 0.3876616954803467,
+      "sim_s": 0.07349999999999568
+    },
+    {
+      "mode": "retrieval_transport",
+      "hand": "right",
+      "wall_s": 12.55881643295288,
+      "sim_s": 4.813499999999976
+    },
+    {
+      "mode": "empty_retreat",
+      "hand": "right",
+      "wall_s": 1.828904390335083,
+      "sim_s": 1.4954999999999927
+    }
+  ],
+  "actual_planning_wall_s": 54.27947235107422,
+  "r333_planning_wall_s": 114.8373875617981,
+  "observed_planning_difference_s": 60.55791521072388,
+  "not_a_same_state_performance_benchmark": true,
+  "steady_spin_and_grip_observations_not_shortened": true
+}

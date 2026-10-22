@@ -1,0 +1,431 @@
+{
+  "status": "PASS_ACTUAL_R318_PATH_RETIMING_ONLY_NOT_NEW_PHYSICS",
+  "profile": {
+    "name": "simulation_speed_priority_v1",
+    "empty_rate_rad_s": 1.2,
+    "loaded_rate_rad_s": 0.8,
+    "near_rate_rad_s": 0.4,
+    "pilot_fine_rate_rad_s": 0.15,
+    "point_floor_sim_s": 0.002,
+    "first_point_sim_s": 0.04,
+    "tracking_near_rad": 0.04,
+    "tracking_free_rad": 0.08,
+    "button_tracking_rad": 0.15,
+    "button_contact_interval_sim_s": 0.02,
+    "gripper_velocity_monitor_m_s": 0.6,
+    "original_model_gripper_velocity_m_s": 0.2,
+    "endpoint_rad": 0.002,
+    "endpoint_hold_sim_s": 0.05,
+    "static_grip_hold_sim_s": 1.0,
+    "release_hold_sim_s": 0.5,
+    "terminal_hold_sim_s": 1.0,
+    "steady_spin_sim_s": 30.0,
+    "pose_clock_skew_sim_s": 0.75,
+    "pose_wall_age_s": 2.0,
+    "carry_slip_m": 0.005,
+    "carry_angle_deg": 10.0,
+    "snapshot_joint_rad": 0.003,
+    "snapshot_pose_m": 0.002,
+    "snapshot_angle_deg": 1.0,
+    "snapshot_finger_m": 0.001,
+    "coherent_native_lag_sim_s": 0.05,
+    "coherent_joint_bracket_sim_s": 0.012,
+    "trace_gzip_level": 1,
+    "retrieval_commanded_tilt_deg": 5.0,
+    "retrieval_pilot_rate_rad_s": 0.1,
+    "empty_button_rate_cap_rad_s": 0.8
+  },
+  "records": [
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/10_load_release_align_right_result.json",
+      "source_sha256": "b00a12c111ec02db7b084bf3d781ad5beb79f2fb954aeb3d2b6fa98e71982656",
+      "phase": "seq_load_load_release_pilot_align",
+      "points": 22,
+      "old_duration_sim_s": 0.5400000000000001,
+      "candidate_duration_sim_s": 0.15062138802344072,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/11_empty_retreat_right_result.json",
+      "source_sha256": "15b1a71a2d2f37c84b14409c7b5bd0038d3adb07365129a74ded4af722211311",
+      "phase": "seq_load_empty_vertical_retreat",
+      "points": 82,
+      "old_duration_sim_s": 2.184686455007295,
+      "candidate_duration_sim_s": 0.8585230978773708,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/11_empty_retreat_right_result.json",
+      "source_sha256": "15b1a71a2d2f37c84b14409c7b5bd0038d3adb07365129a74ded4af722211311",
+      "phase": "seq_load_empty_park",
+      "points": 145,
+      "old_duration_sim_s": 8.291428565619405,
+      "candidate_duration_sim_s": 2.5753333316389946,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/12_neutral_left_result.json",
+      "source_sha256": "800b6c2761073ed9ac588a834e12d784d67da7a6d85c253d233369d9271e0f85",
+      "phase": "seq_load_empty_neutral",
+      "points": 36,
+      "old_duration_sim_s": 2.119999999999469,
+      "candidate_duration_sim_s": 0.7753333333331786,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/13_park_left_result.json",
+      "source_sha256": "64cf6fd803cb609b180cbbd97b7ca014a4c5bc58e6fd569e2272d2a5173c0bff",
+      "phase": "seq_load_empty_park",
+      "points": 61,
+      "old_duration_sim_s": 3.4391613272425183,
+      "candidate_duration_sim_s": 1.160088705544574,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/14_retrieval_pickup_left_result.json",
+      "source_sha256": "93ae27e5d933fe10add28d642e3a03d8c71757b41a1a469b9d167dc09c1472c2",
+      "phase": "seq_retrieval_empty_approach",
+      "points": 141,
+      "old_duration_sim_s": 8.066024345872771,
+      "candidate_duration_sim_s": 2.5095904342128974,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/14_retrieval_pickup_left_result.json",
+      "source_sha256": "93ae27e5d933fe10add28d642e3a03d8c71757b41a1a469b9d167dc09c1472c2",
+      "phase": "seq_retrieval_empty_descend",
+      "points": 82,
+      "old_duration_sim_s": 2.964474947013363,
+      "candidate_duration_sim_s": 1.1118937241965086,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/15_retrieval_pilot_left_result.json",
+      "source_sha256": "f8097b4fcc89109e487ba0bd0eea1eac34a97b98043f04a2a0bcff0359335ee8",
+      "phase": "seq_retrieval_single_pilot",
+      "points": 22,
+      "old_duration_sim_s": 1.8223434239760479,
+      "candidate_duration_sim_s": 0.6987030271928143,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/16_retrieval_transport_left_result.json",
+      "source_sha256": "6a3977bcde0b7f3fb8cc2a3a4c29308cc48d47a1007c4533a70aaed2285b96ef",
+      "phase": "seq_retrieval_retrieve_axis_exit",
+      "points": 42,
+      "old_duration_sim_s": 5.249510050242118,
+      "candidate_duration_sim_s": 1.2159019995117124,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/16_retrieval_transport_left_result.json",
+      "source_sha256": "6a3977bcde0b7f3fb8cc2a3a4c29308cc48d47a1007c4533a70aaed2285b96ef",
+      "phase": "seq_retrieval_retrieve_lift",
+      "points": 42,
+      "old_duration_sim_s": 0.9400000000000005,
+      "candidate_duration_sim_s": 0.35692622705745697,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/16_retrieval_transport_left_result.json",
+      "source_sha256": "6a3977bcde0b7f3fb8cc2a3a4c29308cc48d47a1007c4533a70aaed2285b96ef",
+      "phase": "seq_retrieval_retrieve_outboard",
+      "points": 82,
+      "old_duration_sim_s": 3.370828967885612,
+      "candidate_duration_sim_s": 1.2035935319296405,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/16_retrieval_transport_left_result.json",
+      "source_sha256": "6a3977bcde0b7f3fb8cc2a3a4c29308cc48d47a1007c4533a70aaed2285b96ef",
+      "phase": "seq_retrieval_retrieve_transfer",
+      "points": 122,
+      "old_duration_sim_s": 3.218961185501228,
+      "candidate_duration_sim_s": 1.1561434126666765,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/16_retrieval_transport_left_result.json",
+      "source_sha256": "6a3977bcde0b7f3fb8cc2a3a4c29308cc48d47a1007c4533a70aaed2285b96ef",
+      "phase": "paired_retrieval_setdown",
+      "points": 115,
+      "old_duration_sim_s": 10.003961600581675,
+      "candidate_duration_sim_s": 3.3547832940669564,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/16_retrieval_transport_left_result.json",
+      "source_sha256": "6a3977bcde0b7f3fb8cc2a3a4c29308cc48d47a1007c4533a70aaed2285b96ef",
+      "phase": "paired_retrieval_setdown_fine",
+      "points": 8,
+      "old_duration_sim_s": 7.1651908798027915,
+      "candidate_duration_sim_s": 1.6010381759605583,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/17_empty_retreat_left_result.json",
+      "source_sha256": "0bbf7f7fd4660d76801bd8424a0bab346fad60253f66ecf433f07b53262cf14a",
+      "phase": "seq_load_empty_vertical_retreat",
+      "points": 82,
+      "old_duration_sim_s": 3.2873720780883295,
+      "candidate_duration_sim_s": 1.2168959253787073,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/17_empty_retreat_left_result.json",
+      "source_sha256": "0bbf7f7fd4660d76801bd8424a0bab346fad60253f66ecf433f07b53262cf14a",
+      "phase": "seq_load_empty_park",
+      "points": 136,
+      "old_duration_sim_s": 7.82841206800122,
+      "candidate_duration_sim_s": 2.4402868531670245,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/18_retrieval_pickup_right_result.json",
+      "source_sha256": "5e0138de8afba05c429fac2e028d21f24335f3ee6d7bb153922801b503cc0735",
+      "phase": "seq_retrieval_empty_approach",
+      "points": 127,
+      "old_duration_sim_s": 7.285186494137741,
+      "candidate_duration_sim_s": 2.281846060790178,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/18_retrieval_pickup_right_result.json",
+      "source_sha256": "5e0138de8afba05c429fac2e028d21f24335f3ee6d7bb153922801b503cc0735",
+      "phase": "seq_retrieval_empty_descend",
+      "points": 82,
+      "old_duration_sim_s": 2.7856844515827275,
+      "candidate_duration_sim_s": 1.0537854259489658,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/19_retrieval_pilot_right_result.json",
+      "source_sha256": "38c0523bdd99b30e5397de76901c0b506fa4408a77b8c8cd4d3dc38c6da6ae64",
+      "phase": "seq_retrieval_single_pilot",
+      "points": 22,
+      "old_duration_sim_s": 1.5532857839831131,
+      "candidate_duration_sim_s": 0.6179857351949338,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/1_park_left_result.json",
+      "source_sha256": "648dbedcd8bff8002b8aa6d3c4650311550c8a7c2925c46e4dc46b93988acb6a",
+      "phase": "seq_load_empty_park",
+      "points": 42,
+      "old_duration_sim_s": 2.4188049494762742,
+      "candidate_duration_sim_s": 0.8624847769305807,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/20_retrieval_transport_right_result.json",
+      "source_sha256": "c866583112fc326dad38a89795c177109d9920425354f43e8e4066fe3254fa41",
+      "phase": "seq_retrieval_retrieve_axis_exit",
+      "points": 42,
+      "old_duration_sim_s": 4.422188005188751,
+      "candidate_duration_sim_s": 1.0504376010377507,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/20_retrieval_transport_right_result.json",
+      "source_sha256": "c866583112fc326dad38a89795c177109d9920425354f43e8e4066fe3254fa41",
+      "phase": "seq_retrieval_retrieve_lift",
+      "points": 42,
+      "old_duration_sim_s": 0.9400000000000005,
+      "candidate_duration_sim_s": 0.36347106825419373,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/20_retrieval_transport_right_result.json",
+      "source_sha256": "c866583112fc326dad38a89795c177109d9920425354f43e8e4066fe3254fa41",
+      "phase": "seq_retrieval_retrieve_outboard",
+      "points": 82,
+      "old_duration_sim_s": 3.3076712430625546,
+      "candidate_duration_sim_s": 1.1838531152869174,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/20_retrieval_transport_right_result.json",
+      "source_sha256": "c866583112fc326dad38a89795c177109d9920425354f43e8e4066fe3254fa41",
+      "phase": "seq_retrieval_retrieve_transfer",
+      "points": 122,
+      "old_duration_sim_s": 3.86319912286301,
+      "candidate_duration_sim_s": 1.357463673924739,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/20_retrieval_transport_right_result.json",
+      "source_sha256": "c866583112fc326dad38a89795c177109d9920425354f43e8e4066fe3254fa41",
+      "phase": "paired_retrieval_setdown",
+      "points": 115,
+      "old_duration_sim_s": 31.98787573743352,
+      "candidate_duration_sim_s": 4.941177183029913,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/20_retrieval_transport_right_result.json",
+      "source_sha256": "c866583112fc326dad38a89795c177109d9920425354f43e8e4066fe3254fa41",
+      "phase": "paired_retrieval_setdown_fine",
+      "points": 8,
+      "old_duration_sim_s": 8.817948512840196,
+      "candidate_duration_sim_s": 1.9315897025680397,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/21_empty_retreat_right_result.json",
+      "source_sha256": "6e0d05d72f53fba98fdb55227ecd50d8f04b34d4fa1fc03947e36b309c7a5baf",
+      "phase": "seq_load_empty_vertical_retreat",
+      "points": 82,
+      "old_duration_sim_s": 3.188068431802042,
+      "candidate_duration_sim_s": 1.1846222403356648,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/21_empty_retreat_right_result.json",
+      "source_sha256": "6e0d05d72f53fba98fdb55227ecd50d8f04b34d4fa1fc03947e36b309c7a5baf",
+      "phase": "seq_load_empty_park",
+      "points": 84,
+      "old_duration_sim_s": 4.855903107054203,
+      "candidate_duration_sim_s": 1.5733050728908107,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/2_load_pickup_left_result.json",
+      "source_sha256": "ccc3469c0a8a78da4c6ed9ffa0b2a7f7a90bed18c61c5bd0c744f89c54afab77",
+      "phase": "seq_load_empty_approach",
+      "points": 126,
+      "old_duration_sim_s": 7.186894353434278,
+      "candidate_duration_sim_s": 2.2531775197516675,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/2_load_pickup_left_result.json",
+      "source_sha256": "ccc3469c0a8a78da4c6ed9ffa0b2a7f7a90bed18c61c5bd0c744f89c54afab77",
+      "phase": "seq_load_empty_descend",
+      "points": 82,
+      "old_duration_sim_s": 7.150160105236143,
+      "candidate_duration_sim_s": 2.4722977374299795,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/3_load_pilot_left_result.json",
+      "source_sha256": "e66e2026c3abf549282e4f1dcaf46825a384d3a0e2b60d90d80246106777d3d7",
+      "phase": "seq_load_single_pilot",
+      "points": 22,
+      "old_duration_sim_s": 3.027091292998717,
+      "candidate_duration_sim_s": 0.7714182585997439,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/4_load_transport_left_result.json",
+      "source_sha256": "a269cd86461f37874137cec6026dd858f89d84eb8280ade1eb9a6f677bd809cd",
+      "phase": "seq_load_load_lift",
+      "points": 82,
+      "old_duration_sim_s": 8.72816797783922,
+      "candidate_duration_sim_s": 2.877802493074759,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/4_load_transport_left_result.json",
+      "source_sha256": "a269cd86461f37874137cec6026dd858f89d84eb8280ade1eb9a6f677bd809cd",
+      "phase": "seq_load_load_transfer",
+      "points": 82,
+      "old_duration_sim_s": 5.031995246348862,
+      "candidate_duration_sim_s": 1.722333605898538,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/4_load_transport_left_result.json",
+      "source_sha256": "a269cd86461f37874137cec6026dd858f89d84eb8280ade1eb9a6f677bd809cd",
+      "phase": "seq_load_load_lower",
+      "points": 82,
+      "old_duration_sim_s": 1.9769751043110142,
+      "candidate_duration_sim_s": 0.791007125963765,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/5_load_release_align_left_result.json",
+      "source_sha256": "e4e6822902a9d07a56ee0b6e7eea8c60340665e2e46f66fc6719105f7c38af94",
+      "phase": "seq_load_load_release_pilot_align",
+      "points": 22,
+      "old_duration_sim_s": 0.5400000000000001,
+      "candidate_duration_sim_s": 0.19806993096180814,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/6_empty_retreat_left_result.json",
+      "source_sha256": "b74432e0144133914191323471cc67b42977db4b2eb50177e673c7fae26cd8b5",
+      "phase": "seq_load_empty_vertical_retreat",
+      "points": 82,
+      "old_duration_sim_s": 2.0542927372317803,
+      "candidate_duration_sim_s": 0.8161451396003285,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/6_empty_retreat_left_result.json",
+      "source_sha256": "b74432e0144133914191323471cc67b42977db4b2eb50177e673c7fae26cd8b5",
+      "phase": "seq_load_empty_park",
+      "points": 135,
+      "old_duration_sim_s": 7.728087269064523,
+      "candidate_duration_sim_s": 2.4110254534771562,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/7_load_pickup_right_result.json",
+      "source_sha256": "7f1610165bb22bcfd22b87a1c7d4888f5223722d72e7cfa059e4635f73ebdac5",
+      "phase": "seq_load_empty_approach",
+      "points": 133,
+      "old_duration_sim_s": 7.6152225376516745,
+      "candidate_duration_sim_s": 2.378106573481744,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/7_load_pickup_right_result.json",
+      "source_sha256": "7f1610165bb22bcfd22b87a1c7d4888f5223722d72e7cfa059e4635f73ebdac5",
+      "phase": "seq_load_empty_descend",
+      "points": 82,
+      "old_duration_sim_s": 6.563326917980354,
+      "candidate_duration_sim_s": 2.281578194783985,
+      "loaded": false
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/8_load_pilot_right_result.json",
+      "source_sha256": "1c060bb4c41606c3332fd791fdbd9dd7d6864e9eac5d269eb399f28beb72e634",
+      "phase": "seq_load_single_pilot",
+      "points": 22,
+      "old_duration_sim_s": 3.1346138719533894,
+      "candidate_duration_sim_s": 0.7929227743906779,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/9_load_transport_right_result.json",
+      "source_sha256": "caafa65b9e7b71b88303df47bdaf6fff9bff4b420da3eccf6861b33182cd76cd",
+      "phase": "seq_load_load_lift",
+      "points": 82,
+      "old_duration_sim_s": 6.24247882603932,
+      "candidate_duration_sim_s": 2.1010246240122292,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/9_load_transport_right_result.json",
+      "source_sha256": "caafa65b9e7b71b88303df47bdaf6fff9bff4b420da3eccf6861b33182cd76cd",
+      "phase": "seq_load_load_transfer",
+      "points": 82,
+      "old_duration_sim_s": 2.9966335170895717,
+      "candidate_duration_sim_s": 1.0866875008781627,
+      "loaded": true
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r318/run/9_load_transport_right_result.json",
+      "source_sha256": "caafa65b9e7b71b88303df47bdaf6fff9bff4b420da3eccf6861b33182cd76cd",
+      "phase": "seq_load_load_lower",
+      "points": 82,
+      "old_duration_sim_s": 2.1984332126323687,
+      "candidate_duration_sim_s": 0.8629785455520427,
+      "loaded": true
+    }
+  ],
+  "old_trajectory_sim_s": 218.09254470406918,
+  "candidate_trajectory_sim_s": 64.60425359580779,
+  "excludes_planning_buttons_feedback_grippers_spin_and_holds": true,
+  "points_groups_and_original_path_geometry_unchanged": true
+}

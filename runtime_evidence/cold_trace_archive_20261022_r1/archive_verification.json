@@ -1,0 +1,36 @@
+{
+  "status": "PASS_LOSSLESS_DATA_AND_ORIGINAL_MANIFESTS",
+  "archives": 5,
+  "manifests": [
+    {
+      "path": "runtime_evidence/centrifuge_48box_servo_gain02_20261007_r144/SHA256SUMS",
+      "sha256": "ebc087bbb306c8c03eadabcf5b9da20cd07778b17d922d297a552463a35751b3",
+      "original_members_verified": 108
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_velocity_epsilon_20261007_r147/SHA256SUMS",
+      "sha256": "68c4d5176d869c6db6936a5b2f500f56938a5b1cefb4d035817b73dabacced43",
+      "original_members_verified": 105
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_passive_rotor_settle_20261007_r148/SHA256SUMS",
+      "sha256": "12d9126412c9ee08e59bd82905c0f221f4781e95ea8a6fdb613e191d157bd132",
+      "original_members_verified": 112
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_drop_contact_settle_20261007_r149/SHA256SUMS",
+      "sha256": "e3bd35f6315a113fa58cf2cc6aaea691f9a744d6adddad0b4bd3be7450ee7c1b",
+      "original_members_verified": 118
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_left_reorient_20261008_r150/SHA256SUMS",
+      "sha256": "20f9666f5614b11164f840c7aef29ff3c77c9cd0219ee458b2968ff2dd78f856",
+      "original_members_verified": 130
+    }
+  ],
+  "original_archive_tools_and_registry_unchanged": true,
+  "data_sha_size_lines_crc_verified": true,
+  "free_bytes": 5157388288,
+  "explicit_cold_view_only": true,
+  "standard_runtime_wrapper_unchanged": true
+}

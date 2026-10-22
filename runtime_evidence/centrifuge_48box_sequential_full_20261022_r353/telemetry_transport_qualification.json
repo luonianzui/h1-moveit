@@ -1,0 +1,28 @@
+{
+  "status": "PASS_TWO_PROCESS_DDS_STRICT_SAMPLES_NOT_GAZEBO_PROOF",
+  "records": [
+    {
+      "mode": "DEFAULT",
+      "source_samples": 24000,
+      "clock_samples": 24000,
+      "exact_output_samples": 1200,
+      "skipped_or_duplicate_samples": 0,
+      "last_stamp_ns": 12000000000,
+      "wall_seconds": 12.29952670900093
+    },
+    {
+      "mode": "UDPv4",
+      "source_samples": 24000,
+      "clock_samples": 24000,
+      "exact_output_samples": 1200,
+      "skipped_or_duplicate_samples": 0,
+      "last_stamp_ns": 12000000000,
+      "wall_seconds": 12.302750973001821
+    }
+  ],
+  "expected_source_step_ns": 500000,
+  "relaxed_guards": false,
+  "unchanged_relay_sha256": "b46a9c946542ce33b1b2dbc34b2da31d6e8be93730e86ad9412c1b8b00d226f7",
+  "loss_layer_not_proven": true,
+  "no_robot_commands_or_public_clock_published": true
+}

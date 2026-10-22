@@ -1,0 +1,155 @@
+{
+  "status": "PASS",
+  "frames": 120,
+  "sizes": [
+    [
+      600,
+      450
+    ],
+    [
+      1601,
+      1101
+    ],
+    [
+      3600,
+      1900
+    ],
+    [
+      800,
+      1500
+    ]
+  ],
+  "capture": {
+    "status": "PASS",
+    "error": null,
+    "normal_sigint": false,
+    "test_frame_limit": 120,
+    "frames": 120,
+    "unique_captures": 120,
+    "duplicate_frames": 0,
+    "maximum_capture_gap_wall_s": 0.10943201299232896,
+    "elapsed_wall_s": 9.93878332800523,
+    "geometries": [
+      {
+        "wall_offset_s": 0.007609312000568025,
+        "geometry": {
+          "native_width": 600,
+          "native_height": 450,
+          "content_rect": [
+            0,
+            0,
+            1200,
+            900
+          ],
+          "entire_window": true
+        }
+      },
+      {
+        "wall_offset_s": 2.0118304070056183,
+        "geometry": {
+          "native_width": 1601,
+          "native_height": 1101,
+          "content_rect": [
+            0,
+            37,
+            1200,
+            862
+          ],
+          "entire_window": true
+        }
+      },
+      {
+        "wall_offset_s": 4.0357526110019535,
+        "geometry": {
+          "native_width": 3600,
+          "native_height": 1900,
+          "content_rect": [
+            0,
+            133,
+            1200,
+            766
+          ],
+          "entire_window": true
+        }
+      },
+      {
+        "wall_offset_s": 6.0174179390014615,
+        "geometry": {
+          "native_width": 800,
+          "native_height": 1500,
+          "content_rect": [
+            360,
+            0,
+            840,
+            900
+          ],
+          "entire_window": true
+        }
+      }
+    ],
+    "entire_native_window_each_capture": true,
+    "no_fixed_upper_left_crop": true,
+    "encoder_command": [
+      "ffmpeg",
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-nostdin",
+      "-n",
+      "-f",
+      "rawvideo",
+      "-pixel_format",
+      "rgb24",
+      "-video_size",
+      "1200x900",
+      "-framerate",
+      "12",
+      "-i",
+      "pipe:0",
+      "-an",
+      "-c:v",
+      "libx264",
+      "-preset",
+      "veryfast",
+      "-crf",
+      "21",
+      "-g",
+      "24",
+      "-pix_fmt",
+      "yuv420p",
+      "-movflags",
+      "frag_keyframe+empty_moov+default_base_moof",
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r352/full_capture_preflight.mp4"
+    ],
+    "wide_camera_guard_enabled": false,
+    "wide_camera_guard_status": null
+  },
+  "missing_corner_frames": [],
+  "settled_frames_all_four_native_corners_verified": true,
+  "transition_frames": [
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75
+  ],
+  "all_frames_retained_and_decoded": true,
+  "no_simulation_commands": true
+}

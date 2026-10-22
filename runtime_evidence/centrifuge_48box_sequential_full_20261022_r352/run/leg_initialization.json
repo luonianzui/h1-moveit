@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "scope": "fixed_pelvis_original_leg_targets_only",
+  "original_plan_sha256": "9b4f451262c09d304a0903ef3bca6f5c725688883112283e2011a1107cc521a3",
+  "no_grasp_lid_rotor_commands": true,
+  "no_reset_or_state_teleport": true,
+  "error": "Traceback (most recent call last):\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r352/initialize_stationary_legs.py\", line 56, in initialize\n    wait(lambda: all(name in actual for name in initial))\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r352/initialize_stationary_legs.py\", line 52, in wait\n    raise TimeoutError('Stationary initialization did not complete within wall budget')\nTimeoutError: Stationary initialization did not complete within wall budget\n",
+  "samples": [],
+  "elapsed_wall_s": 25.024265411004308
+}

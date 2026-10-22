@@ -7,7 +7,35 @@
 工作区：
 /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws
 
-最新覆盖（2026-10-22本轮）：r348–r351均FAIL，r347仍为完整成功基线，现实三分钟/稳定1倍未达。
+最新覆盖（2026-10-22）：r353完整分开抓PASS，221.4645sim / 494.301397270wall，
+稳转30.1345sim，较r347少90.676094wall（15.50%）；现实/当前分开抓仿真三分钟、稳定1倍仍未达。
+先读runtime_evidence/centrifuge_48box_sequential_full_20261022_r353/REPORT.md，
+及runtime_evidence/centrifuge_48box_sequential_review_20261022_r11/ROUND_SUMMARY.md、PERFORMANCE.md。
+抬肘/单holder/双盒装取/实体按键保持，28门、4捕获4释放、21路径24555密FCL通过，
+抓持峰0.941606mm/1.752226度。现速度合同不等于旧严格证书，指速0.2门2样本越界及visual-only缺口保留。
+首次空手撤臂有界加减速，0.15rad门不变，1626个参考样本最大跟踪0.003405619rad。
+常驻planner模型1构建34复用35新场景，21请求52.927wall；只两次装盒静止观察期预规划，
+真实快照/holder/密FCL/取回原观察不删，无AI逐动作等待。
+r352动作前0.5ms源丢帧失败，无任务录像；r353仅新树FastDDS UDPv4，本次全程原源门通过，
+但两种DDS微测都通过，不能证明唯一原因。右取回整数ns的原1ms边界本次完整通过。
+2293候选测试两轮/25专项/46配置/122装盒/6CTest通过；Nav111/2旧V12缺源保持。
+原post新增审计误读raw失败日志保留，review_r11独立gzip/root修正及8测试通过，执行源/数据/门不改。
+视频532.666667秒原速全解码，抽查运动帧和终态俯视双返桌；不是逐帧观看或绝对无碰撞证明。
+九组保护前后相同PASS，r347及r318/r327/r331/r333、旧成功/失败、孵育箱/920版/正式源模型/十备份不改。
+本轮未清理或备份；正常SIGINT录像刷盘和精确退休，owned为空，下次重查live/空间。
+679源SHA b2d9b669704f61323a3cde92c3b7615b709d4c54df7490f474fa99bb62721321；
+1028核心SUM 541d8a5a1da0c245ca30ed2f84f065c1120b10e0ecf663168525d33a836d3ed2。
+RTF区间0.454443，主线程0.939核；精确符号Physics累计89.405%、BoxedLcp55.480%，重叠比例不当墙钟。
+下一步新独立组件测DART单位脉冲/约束装配重复访问，原算术/顺序/接触语义保持，
+先离线对照再新身份完整验证。禁止重跑sealed r353，不删抓持检查/改时钟/快放凑180秒。
+开发Python用tools/trace_archive/run并保留PYTHONPATH和H1_TRACE_ARCHIVE_REGISTRY；
+五份冷日志历史读取按cold_trace_archive_20261022_r1/README.md，不改原31项默认运行入口。
+每次新版本完成测试/保护/封存/MD后，执行/home/liu/h1_moveit/sync_to_github.sh，
+沿既定luonianzui/h1-moveit main及筛选普通提交推送，报告真实提交号；不上传视频/原始流/归档/备份，
+不force/reset/clean/扩大筛选。实体机器人未授权，留空目标只读R。
+本段和AGENTS最末小节覆盖下列全部历史“最新/当前”；旧报告只用于回溯。
+
+历史（2026-10-22早些时候，非当前）：r348–r351均FAIL，当时r347为完整成功基线。
 先读runtime_evidence/centrifuge_48box_sequential_review_20261022_r9/ROUND_SUMMARY.md，
 再读r348/r349/r350/r351各REPORT.md，完整目录由汇总链接确定。
 规划不可变RobotModel复用，每次新RobotState/PlanningScene/ACM/真实盒位；只保留两次装盒静止观察期预规划，
@@ -26,8 +54,14 @@ r350失败前缀RTF0.4264；r351world stats无有效样本，不补造实时率�
 r347及r318/r327/r331/r333等成功、孵育箱/920版/正式源模型/十备份不改，下次重查live。
 用户另行明确授权后，仅删除1546个核验不被引用的旧CMake .o/.o.d，约337.21MiB分配；
 证据runtime_evidence/build_cache_cleanup_20261022_r1/REPORT.md。未删模型/共享库/日志/视频/备份，
-后验仅约1.80GB，低于2096208487字节完整实跑预算；不要再跑或擅自扩展清理。
-接续先保证空间，再用全新身份记录按钮命令/控制器reference/反馈对应关系，修跟踪而非盲目抬门。
+上述1.80GB为此前历史快照；用户随后授权五份冷日志无损压缩，本轮4.45GB→0.89GB，
+释放3.56GB，后验约5.15GB。见runtime_evidence/cold_trace_archive_20261022_r1/REPORT.md及README.md。
+仅r144/r147/r148/r149/r150历史loading_trace归档，模型/源/视频/共享库/备份不改，
+原31项归档registry和默认开发入口不改，九组前后保护/36运行依赖与4732项离线测试通过。
+五个raw物理路径现归档；读取历史清单用cold_access.py verify-manifest，原生分析先export到新临时路径，
+不得覆盖旧run或删除gzip。不是全局透明挂载，不声称普通cat可直接读这五个raw。
+本轮未启动Gazebo或执行动作。接续先重查空间/live，再用新身份记录按钮命令/控制器reference/反馈，
+修跟踪而非盲目抬门；空间与live只是核验当时状态，旧失败候选仍不能当成功。
 r351源666项SHA e5a2a8114ff6045ae439d999a41eb53a67935d5b709439cdbd94a374086e646c；
 911核心SUM 5b4fe47ee1483423c8e3b85fd6951d969f2104e9c8762ee648e2e80ae0b4a4db。
 本段与AGENTS最末日期小节覆盖以下全部历史“最新/当前”；无具体目标仍只读R。

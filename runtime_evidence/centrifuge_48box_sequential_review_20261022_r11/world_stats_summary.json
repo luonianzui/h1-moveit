@@ -1,0 +1,57 @@
+{
+  "status": "PARTIAL_WORLD_STATS_NOT_WHOLE_TASK_WALL_CLOCK",
+  "samples": 34,
+  "errors": [],
+  "first": {
+    "status": "READ_ONLY_SAMPLE",
+    "monotonic": 98426.454532652,
+    "request_began": 98426.363910341,
+    "stats": {
+      "simTime": {
+        "sec": "24",
+        "nsec": 8000000
+      },
+      "realTime": {
+        "sec": "72",
+        "nsec": 568286332
+      },
+      "iterations": "48016",
+      "realTimeFactor": 0.7733377877589909,
+      "stepSize": {
+        "nsec": 500000
+      }
+    },
+    "phase": "machine_preparation",
+    "observer_started_after_executor": true
+  },
+  "last": {
+    "status": "READ_ONLY_SAMPLE",
+    "monotonic": 98925.310680478,
+    "request_began": 98925.167205723,
+    "stats": {
+      "simTime": {
+        "sec": "250",
+        "nsec": 709500000
+      },
+      "realTime": {
+        "sec": "571",
+        "nsec": 424086535
+      },
+      "iterations": "501419",
+      "realTimeFactor": 0.7315160523882536,
+      "stepSize": {
+        "nsec": 500000
+      }
+    },
+    "phase": "terminal_table_hold",
+    "observer_started_after_executor": true
+  },
+  "elapsed_sim_s": 226.70149999999998,
+  "elapsed_real_s": 498.855800203,
+  "interval_ratio": 0.454442947055538,
+  "minimum_reported_rtf": 0.1585970882208991,
+  "median_reported_rtf": 0.4024266487002002,
+  "maximum_reported_rtf": 0.7971455811031857,
+  "missing_reported_rtf_samples": 0,
+  "stable_one_times_realtime_not_achieved": true
+}

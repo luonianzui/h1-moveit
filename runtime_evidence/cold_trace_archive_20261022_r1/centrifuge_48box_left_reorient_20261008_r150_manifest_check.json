@@ -1,0 +1,917 @@
+{
+  "status": "PASS",
+  "manifest": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_left_reorient_20261008_r150/SHA256SUMS",
+  "checked_files": 130,
+  "results": [
+    {
+      "line": 1,
+      "path": "./OPTIMIZATION_PLAN.md",
+      "expected": "498465ddf59df59a0ecbd75941a25841dc19d41210344ff00028f19b91a30fb3",
+      "actual": "498465ddf59df59a0ecbd75941a25841dc19d41210344ff00028f19b91a30fb3",
+      "status": "PASS"
+    },
+    {
+      "line": 2,
+      "path": "./REPORT.md",
+      "expected": "84b218dd4aedfb26e841039313dbc20c554c23ed3da6e0dc2d9a4321d1c8009c",
+      "actual": "84b218dd4aedfb26e841039313dbc20c554c23ed3da6e0dc2d9a4321d1c8009c",
+      "status": "PASS"
+    },
+    {
+      "line": 3,
+      "path": "./alignment_scene.py",
+      "expected": "393c69098407c20dcdecb34997b3ded9d44cdd059fc2833f2e6872ea27cba3aa",
+      "actual": "393c69098407c20dcdecb34997b3ded9d44cdd059fc2833f2e6872ea27cba3aa",
+      "status": "PASS"
+    },
+    {
+      "line": 4,
+      "path": "./alignment_wait.py",
+      "expected": "dc7af4398a1a024d5b389a2adfee8065c8a9a25b4b887cb902611c4daa59eb84",
+      "actual": "dc7af4398a1a024d5b389a2adfee8065c8a9a25b4b887cb902611c4daa59eb84",
+      "status": "PASS"
+    },
+    {
+      "line": 5,
+      "path": "./alignment_worker.py",
+      "expected": "70b46bd65a774911bcc87485ce66189939dc957f1adf07cfe1551e0260cec21d",
+      "actual": "70b46bd65a774911bcc87485ce66189939dc957f1adf07cfe1551e0260cec21d",
+      "status": "PASS"
+    },
+    {
+      "line": 6,
+      "path": "./audit_friction.py",
+      "expected": "a2566ce989c445b67f5423661ec384e4111b2adba9fffc5a9f21c78d73297615",
+      "actual": "a2566ce989c445b67f5423661ec384e4111b2adba9fffc5a9f21c78d73297615",
+      "status": "PASS"
+    },
+    {
+      "line": 7,
+      "path": "./audit_live_friction.py",
+      "expected": "37de0cf3350c132026248f50772f99a1c84350c2569ae551f3694fc5502498f7",
+      "actual": "37de0cf3350c132026248f50772f99a1c84350c2569ae551f3694fc5502498f7",
+      "status": "PASS"
+    },
+    {
+      "line": 8,
+      "path": "./audit_loading_result.py",
+      "expected": "6bfa145d8ebfe62c6bf237dd45747202c1666344a688d1294474fb68213365ca",
+      "actual": "6bfa145d8ebfe62c6bf237dd45747202c1666344a688d1294474fb68213365ca",
+      "status": "PASS"
+    },
+    {
+      "line": 9,
+      "path": "./audit_midband_geometry.py",
+      "expected": "30b439eb55edad2cb4856ac040ab517b75d4ba1a1a329d091047a6f40fe6e933",
+      "actual": "30b439eb55edad2cb4856ac040ab517b75d4ba1a1a329d091047a6f40fe6e933",
+      "status": "PASS"
+    },
+    {
+      "line": 10,
+      "path": "./audit_passive_settling.py",
+      "expected": "a15f96747fab8481475d3d724d3d07ff3357d35abd747c0847ca6570dbded0c4",
+      "actual": "a15f96747fab8481475d3d724d3d07ff3357d35abd747c0847ca6570dbded0c4",
+      "status": "PASS"
+    },
+    {
+      "line": 11,
+      "path": "./audit_probe_paths.py",
+      "expected": "f73b87475602c6001d778abc03a175eb156349fedbd2f291f3fe8a8685ed9c75",
+      "actual": "f73b87475602c6001d778abc03a175eb156349fedbd2f291f3fe8a8685ed9c75",
+      "status": "PASS"
+    },
+    {
+      "line": 12,
+      "path": "./audit_protected.py",
+      "expected": "70ac623d948962ecc02990a6ca6d14a0df835a1c43bd18bedbb41c882973dd3a",
+      "actual": "70ac623d948962ecc02990a6ca6d14a0df835a1c43bd18bedbb41c882973dd3a",
+      "status": "PASS"
+    },
+    {
+      "line": 13,
+      "path": "./audit_tracking_response.py",
+      "expected": "c2484e0779d426ac90179cd1ba657af84dfaf1d1e468fb876fca9e81efaec1b4",
+      "actual": "c2484e0779d426ac90179cd1ba657af84dfaf1d1e468fb876fca9e81efaec1b4",
+      "status": "PASS"
+    },
+    {
+      "line": 14,
+      "path": "./baseline_conversion.log",
+      "expected": "ab9945f1e004c37210a574115578a3b87501b9716435dcbf58a99b83c0007929",
+      "actual": "ab9945f1e004c37210a574115578a3b87501b9716435dcbf58a99b83c0007929",
+      "status": "PASS"
+    },
+    {
+      "line": 15,
+      "path": "./build_scene.sh",
+      "expected": "b94b2ea438b497582509ee72c28d65c98c302d5dbf7e8efa163111df9e08dd1c",
+      "actual": "b94b2ea438b497582509ee72c28d65c98c302d5dbf7e8efa163111df9e08dd1c",
+      "status": "PASS"
+    },
+    {
+      "line": 16,
+      "path": "./conda_six_after.txt",
+      "expected": "f70373a2147c15c0620500939ffeaef65a9313fdc30b41f37b6676dafd8cc2fa",
+      "actual": "f70373a2147c15c0620500939ffeaef65a9313fdc30b41f37b6676dafd8cc2fa",
+      "status": "PASS"
+    },
+    {
+      "line": 17,
+      "path": "./conda_six_before.txt",
+      "expected": "f70373a2147c15c0620500939ffeaef65a9313fdc30b41f37b6676dafd8cc2fa",
+      "actual": "f70373a2147c15c0620500939ffeaef65a9313fdc30b41f37b6676dafd8cc2fa",
+      "status": "PASS"
+    },
+    {
+      "line": 18,
+      "path": "./control_fork_audit.json",
+      "expected": "2c3253350bfd0663b4bfd24189bb0f8600e2261fd872feea6dc76924edb6ba9a",
+      "actual": "2c3253350bfd0663b4bfd24189bb0f8600e2261fd872feea6dc76924edb6ba9a",
+      "status": "PASS"
+    },
+    {
+      "line": 19,
+      "path": "./dense_audit.log",
+      "expected": "5363491a17b298206415fc4bb75a51350a53509d6c26af38f00182c3dc9ef848",
+      "actual": "5363491a17b298206415fc4bb75a51350a53509d6c26af38f00182c3dc9ef848",
+      "status": "PASS"
+    },
+    {
+      "line": 20,
+      "path": "./dense_audit_retry1.json",
+      "expected": "ae555ee1341f1b0b64b61cda4e922977c4e32849cc4bd0e83753e1941470b2f5",
+      "actual": "ae555ee1341f1b0b64b61cda4e922977c4e32849cc4bd0e83753e1941470b2f5",
+      "status": "PASS"
+    },
+    {
+      "line": 21,
+      "path": "./execute_loading.py",
+      "expected": "fce6fbe5cf164a6d2ef96ca049d8f7e0aadceb1b05a8475ddd4161553ae4c23b",
+      "actual": "fce6fbe5cf164a6d2ef96ca049d8f7e0aadceb1b05a8475ddd4161553ae4c23b",
+      "status": "PASS"
+    },
+    {
+      "line": 22,
+      "path": "./executor_delta.json",
+      "expected": "36a19c10378fbba92ff2c64d74bea182366d2690e419a1def0eec6ebfddb8712",
+      "actual": "36a19c10378fbba92ff2c64d74bea182366d2690e419a1def0eec6ebfddb8712",
+      "status": "PASS"
+    },
+    {
+      "line": 23,
+      "path": "./failure_cleanup_watch.py",
+      "expected": "cd2d589abea629e2d69457ed2d5651aa7d6aa566c5bfacb770b1673b1493249b",
+      "actual": "cd2d589abea629e2d69457ed2d5651aa7d6aa566c5bfacb770b1673b1493249b",
+      "status": "PASS"
+    },
+    {
+      "line": 24,
+      "path": "./finish_probe.log",
+      "expected": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "actual": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "status": "PASS"
+    },
+    {
+      "line": 25,
+      "path": "./finish_probe.py",
+      "expected": "e34bdfe14289b5b003d2fd2aa347fed327c9df8f60c36dfbbceecfcd665b686f",
+      "actual": "e34bdfe14289b5b003d2fd2aa347fed327c9df8f60c36dfbbceecfcd665b686f",
+      "status": "PASS"
+    },
+    {
+      "line": 26,
+      "path": "./friction_audit.json",
+      "expected": "ad3d97aec357bdbcd017ddf5f2bec718fea4454b5768e2bed4a8f9b3d3448ad4",
+      "actual": "ad3d97aec357bdbcd017ddf5f2bec718fea4454b5768e2bed4a8f9b3d3448ad4",
+      "status": "PASS"
+    },
+    {
+      "line": 27,
+      "path": "./friction_audit.log",
+      "expected": "ef376b96e91950e5f81b54e4964c0ec32b313e8b62944a9f4f63fe2539c64c83",
+      "actual": "ef376b96e91950e5f81b54e4964c0ec32b313e8b62944a9f4f63fe2539c64c83",
+      "status": "PASS"
+    },
+    {
+      "line": 28,
+      "path": "./guard_tests_verified.log",
+      "expected": "a1e8a4d2f525a61f8326438eff50672a7762815f61c4fc768c41c50adf70e89d",
+      "actual": "a1e8a4d2f525a61f8326438eff50672a7762815f61c4fc768c41c50adf70e89d",
+      "status": "PASS"
+    },
+    {
+      "line": 29,
+      "path": "./identity.json",
+      "expected": "28d9bccf951692d5d3c85b20fc6297bfc09b6955ef2ed0d3dd97f86cfb3cc8fd",
+      "actual": "28d9bccf951692d5d3c85b20fc6297bfc09b6955ef2ed0d3dd97f86cfb3cc8fd",
+      "status": "PASS"
+    },
+    {
+      "line": 30,
+      "path": "./inputs/48box_friction.sdf",
+      "expected": "de44f946e4b70aac95b7bfd3e5479e49bed35af4f6c5558fbcb34e80135590bf",
+      "actual": "de44f946e4b70aac95b7bfd3e5479e49bed35af4f6c5558fbcb34e80135590bf",
+      "status": "PASS"
+    },
+    {
+      "line": 31,
+      "path": "./inputs/controllers.yaml",
+      "expected": "43a36cf30582b2fa244c2b73f3b0037708d3997917d73e34f55272258c37de36",
+      "actual": "43a36cf30582b2fa244c2b73f3b0037708d3997917d73e34f55272258c37de36",
+      "status": "PASS"
+    },
+    {
+      "line": 32,
+      "path": "./inputs/gazebo_effort.launch.py",
+      "expected": "f9b45a7851e5c093e7be82708e68d0e94637131452bee081c5c909f3eb783dc5",
+      "actual": "f9b45a7851e5c093e7be82708e68d0e94637131452bee081c5c909f3eb783dc5",
+      "status": "PASS"
+    },
+    {
+      "line": 33,
+      "path": "./inputs/lab_effort.launch.py",
+      "expected": "8c2efe61c37a9ea312ba8b7460f24523b9a855c627d202aae8a24c08ad692650",
+      "actual": "8c2efe61c37a9ea312ba8b7460f24523b9a855c627d202aae8a24c08ad692650",
+      "status": "PASS"
+    },
+    {
+      "line": 34,
+      "path": "./inputs/lab_fast_world.sdf",
+      "expected": "bfeec2679cccc506005ebc1810420dce787f24d6b203d0c35d9dead2bd522ebe",
+      "actual": "bfeec2679cccc506005ebc1810420dce787f24d6b203d0c35d9dead2bd522ebe",
+      "status": "PASS"
+    },
+    {
+      "line": 35,
+      "path": "./inputs/plan.json",
+      "expected": "9b4f451262c09d304a0903ef3bca6f5c725688883112283e2011a1107cc521a3",
+      "actual": "9b4f451262c09d304a0903ef3bca6f5c725688883112283e2011a1107cc521a3",
+      "status": "PASS"
+    },
+    {
+      "line": 36,
+      "path": "./inputs/robot_converted.sdf",
+      "expected": "6b66c3c9c7a2357f3e4de35746c1d2aab5fe2a7bdfc1a21b24b58f05760245b4",
+      "actual": "6b66c3c9c7a2357f3e4de35746c1d2aab5fe2a7bdfc1a21b24b58f05760245b4",
+      "status": "PASS"
+    },
+    {
+      "line": 37,
+      "path": "./inputs/robot_effort.urdf",
+      "expected": "8a3b68242d51907342269eb63703c26b0fc1f2c493cb88fd5097bebaee96ccfa",
+      "actual": "8a3b68242d51907342269eb63703c26b0fc1f2c493cb88fd5097bebaee96ccfa",
+      "status": "PASS"
+    },
+    {
+      "line": 38,
+      "path": "./launch_scene.py",
+      "expected": "c03d693034544673e661789f2a1d5101d11afbb4293b3ec6cf427825f3a7ab24",
+      "actual": "c03d693034544673e661789f2a1d5101d11afbb4293b3ec6cf427825f3a7ab24",
+      "status": "PASS"
+    },
+    {
+      "line": 39,
+      "path": "./live_friction_audit.log",
+      "expected": "41bba59bdb7ae1ca890b1ab6eedf003097a7e2b15d237b4580067ec377dc7d5c",
+      "actual": "41bba59bdb7ae1ca890b1ab6eedf003097a7e2b15d237b4580067ec377dc7d5c",
+      "status": "PASS"
+    },
+    {
+      "line": 40,
+      "path": "./loading_contact_guard.py",
+      "expected": "cd30c8aa05bdf56280d4c4b1384252c3752586c9da77d9c62757281cb86ff25d",
+      "actual": "cd30c8aa05bdf56280d4c4b1384252c3752586c9da77d9c62757281cb86ff25d",
+      "status": "PASS"
+    },
+    {
+      "line": 41,
+      "path": "./loading_machine_guard.py",
+      "expected": "75b5db96c7c8c5eefe3217ad7bb40fe8c6a4cf13966dc2913de465d63f4c8d99",
+      "actual": "75b5db96c7c8c5eefe3217ad7bb40fe8c6a4cf13966dc2913de465d63f4c8d99",
+      "status": "PASS"
+    },
+    {
+      "line": 42,
+      "path": "./midband_geometry.json",
+      "expected": "64febc84f93cd209fbcdf003c44131d59ee3862154a8383188f49b2c2bc101f7",
+      "actual": "64febc84f93cd209fbcdf003c44131d59ee3862154a8383188f49b2c2bc101f7",
+      "status": "PASS"
+    },
+    {
+      "line": 43,
+      "path": "./navigation_tests.log",
+      "expected": "ebc677ba446c75473cbc4f9d71896b712c879fbdd2520dac82f4078ae9cca47c",
+      "actual": "ebc677ba446c75473cbc4f9d71896b712c879fbdd2520dac82f4078ae9cca47c",
+      "status": "PASS"
+    },
+    {
+      "line": 44,
+      "path": "./prepare.log",
+      "expected": "99694f5b42de123116e50ac39b8cafcd6a02c4cd9cd8e0aac6fd961998e6bcd4",
+      "actual": "99694f5b42de123116e50ac39b8cafcd6a02c4cd9cd8e0aac6fd961998e6bcd4",
+      "status": "PASS"
+    },
+    {
+      "line": 45,
+      "path": "./prepare_effort_scene.py",
+      "expected": "18ddc8ee8d25fefba25eda211bbc98f5b25d5a560f92bcd088cd760916712aae",
+      "actual": "18ddc8ee8d25fefba25eda211bbc98f5b25d5a560f92bcd088cd760916712aae",
+      "status": "PASS"
+    },
+    {
+      "line": 46,
+      "path": "./prepare_route.py",
+      "expected": "28ef08d029846344071cec11df6921a0b35c5218cb1f4c8446f94055072b1aad",
+      "actual": "28ef08d029846344071cec11df6921a0b35c5218cb1f4c8446f94055072b1aad",
+      "status": "PASS"
+    },
+    {
+      "line": 47,
+      "path": "./prepare_worker_proof.py",
+      "expected": "ff7e070c129e851585dfd7cb2f757413aaa97cc2a283ce626dfb4a45028ac2af",
+      "actual": "ff7e070c129e851585dfd7cb2f757413aaa97cc2a283ce626dfb4a45028ac2af",
+      "status": "PASS"
+    },
+    {
+      "line": 48,
+      "path": "./prior_r149_snapshot.json",
+      "expected": "06a313954ccc5da63b9e988353718d6939be5b98e1cebc86c8c7cc36da177e41",
+      "actual": "06a313954ccc5da63b9e988353718d6939be5b98e1cebc86c8c7cc36da177e41",
+      "status": "PASS"
+    },
+    {
+      "line": 49,
+      "path": "./probe_candidate.json",
+      "expected": "9b4f451262c09d304a0903ef3bca6f5c725688883112283e2011a1107cc521a3",
+      "actual": "9b4f451262c09d304a0903ef3bca6f5c725688883112283e2011a1107cc521a3",
+      "status": "PASS"
+    },
+    {
+      "line": 50,
+      "path": "./protected_after.json",
+      "expected": "a89a358be54e19e58db22662b15a4055cefc95f6bb595b94adb6b122d2f7ec29",
+      "actual": "a89a358be54e19e58db22662b15a4055cefc95f6bb595b94adb6b122d2f7ec29",
+      "status": "PASS"
+    },
+    {
+      "line": 51,
+      "path": "./protected_before.json",
+      "expected": "a89a358be54e19e58db22662b15a4055cefc95f6bb595b94adb6b122d2f7ec29",
+      "actual": "a89a358be54e19e58db22662b15a4055cefc95f6bb595b94adb6b122d2f7ec29",
+      "status": "PASS"
+    },
+    {
+      "line": 52,
+      "path": "./protection_before.log",
+      "expected": "6ef9f2d17d84db2358f8c2121f7fa5a00537177b61916a2a348ae160a30e46ca",
+      "actual": "6ef9f2d17d84db2358f8c2121f7fa5a00537177b61916a2a348ae160a30e46ca",
+      "status": "PASS"
+    },
+    {
+      "line": 53,
+      "path": "./retire.log",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "line": 54,
+      "path": "./retire_prior.py",
+      "expected": "cd1c198377a12076758d1e0b427ab062616539d38cc15c6b2f83cb51f5d80833",
+      "actual": "cd1c198377a12076758d1e0b427ab062616539d38cc15c6b2f83cb51f5d80833",
+      "status": "PASS"
+    },
+    {
+      "line": 55,
+      "path": "./retired_r149.json",
+      "expected": "ec74a76530bb7a5647a2963cdb12f227645a24cf5e1b961b7347b0f913815fcb",
+      "actual": "ec74a76530bb7a5647a2963cdb12f227645a24cf5e1b961b7347b0f913815fcb",
+      "status": "PASS"
+    },
+    {
+      "line": 56,
+      "path": "./retirement_preflight.json",
+      "expected": "095944a90ecbd718416d5061994e45a27f5b4cff9b1e3484b548dfa3bbbb26ad",
+      "actual": "095944a90ecbd718416d5061994e45a27f5b4cff9b1e3484b548dfa3bbbb26ad",
+      "status": "PASS"
+    },
+    {
+      "line": 57,
+      "path": "./run/camera_request.json",
+      "expected": "b39dd0d40ce9d545641b19cd655db5b25bf8972f4be567e2fa487dcaee1d52ec",
+      "actual": "b39dd0d40ce9d545641b19cd655db5b25bf8972f4be567e2fa487dcaee1d52ec",
+      "status": "PASS"
+    },
+    {
+      "line": 58,
+      "path": "./run/camera_response.log",
+      "expected": "46eeeedc969f106320d874ff0cb0c5c1ea169952665865f64b8f5318d626c8a3",
+      "actual": "46eeeedc969f106320d874ff0cb0c5c1ea169952665865f64b8f5318d626c8a3",
+      "status": "PASS"
+    },
+    {
+      "line": 59,
+      "path": "./run/cleanup.json",
+      "expected": "43a9e2ae3c52af00b3a0a40f4711fd88dc7202770d66677d9348256b4e25350c",
+      "actual": "43a9e2ae3c52af00b3a0a40f4711fd88dc7202770d66677d9348256b4e25350c",
+      "status": "PASS"
+    },
+    {
+      "line": 60,
+      "path": "./run/controllers.txt",
+      "expected": "3d0cfc5dd2adeab17fcf222f76d191b200fea04853bb55ab1f1d39024fc3c52b",
+      "actual": "3d0cfc5dd2adeab17fcf222f76d191b200fea04853bb55ab1f1d39024fc3c52b",
+      "status": "PASS"
+    },
+    {
+      "line": 61,
+      "path": "./run/effective_gain.txt",
+      "expected": "a2828a65a9a0d6e4ce41770dacacc276793d80d391f8723e890a6a17e4f5ddd7",
+      "actual": "a2828a65a9a0d6e4ce41770dacacc276793d80d391f8723e890a6a17e4f5ddd7",
+      "status": "PASS"
+    },
+    {
+      "line": 62,
+      "path": "./run/execution.claim",
+      "expected": "390072631b5c870212b07100862aebf9eaaa81b41daabb722751ff04e0840b97",
+      "actual": "390072631b5c870212b07100862aebf9eaaa81b41daabb722751ff04e0840b97",
+      "status": "PASS"
+    },
+    {
+      "line": 63,
+      "path": "./run/executor.log",
+      "expected": "ee943a909d0b0495a618e3307ec5dee47cc95e055acd12bb558de632a1bb435a",
+      "actual": "ee943a909d0b0495a618e3307ec5dee47cc95e055acd12bb558de632a1bb435a",
+      "status": "PASS"
+    },
+    {
+      "line": 64,
+      "path": "./run/final_frame.log",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "line": 65,
+      "path": "./run/final_probe.png",
+      "expected": "82e824d381e55df55a180bd787ca24eac0c81cf2c712d70c0c3390132d6ba428",
+      "actual": "82e824d381e55df55a180bd787ca24eac0c81cf2c712d70c0c3390132d6ba428",
+      "status": "PASS"
+    },
+    {
+      "line": 66,
+      "path": "./run/held_left_pause_snapshot.json",
+      "expected": "8d01dfee8c5596d7a356cfcca10c5a9890ad9b068190e805d88e2b785c06f3f4",
+      "actual": "8d01dfee8c5596d7a356cfcca10c5a9890ad9b068190e805d88e2b785c06f3f4",
+      "status": "PASS"
+    },
+    {
+      "line": 67,
+      "path": "./run/interfaces.txt",
+      "expected": "a44ca41b8ed5e09475083baff5e54b9f2185be1006f5420bc95307a6cd21ffdb",
+      "actual": "a44ca41b8ed5e09475083baff5e54b9f2185be1006f5420bc95307a6cd21ffdb",
+      "status": "PASS"
+    },
+    {
+      "line": 68,
+      "path": "./run/launch_pid.json",
+      "expected": "5a46403cdc5c71c9acc0f14e655883655e6b731a681619c82be26fabdab40abf",
+      "actual": "5a46403cdc5c71c9acc0f14e655883655e6b731a681619c82be26fabdab40abf",
+      "status": "PASS"
+    },
+    {
+      "line": 69,
+      "path": "./run/left_reorient_loading.mp4",
+      "expected": "b03ccf0fcf3c5d7d5d53b8bcaf351d3fbd9d6d5159093a4c3c0f57231000883c",
+      "actual": "b03ccf0fcf3c5d7d5d53b8bcaf351d3fbd9d6d5159093a4c3c0f57231000883c",
+      "status": "PASS"
+    },
+    {
+      "line": 70,
+      "path": "./run/lid_open.log",
+      "expected": "8fc4297cfc2a70d5466a87baa1482e1b10b32da07643237239d973747b59c012",
+      "actual": "8fc4297cfc2a70d5466a87baa1482e1b10b32da07643237239d973747b59c012",
+      "status": "PASS"
+    },
+    {
+      "line": 71,
+      "path": "./run/live_friction_audit.json",
+      "expected": "73b4db9d4a0e8b9dc086a2a8e4f11c68b823ba51218e26bbabc2b3b0b9e25dae",
+      "actual": "73b4db9d4a0e8b9dc086a2a8e4f11c68b823ba51218e26bbabc2b3b0b9e25dae",
+      "status": "PASS"
+    },
+    {
+      "line": 72,
+      "path": "./run/live_sdf_expanded.txt",
+      "expected": "cd458bdfd8a04a71255fe20952a772fb6be4eea64d407a7981cc58dda9ea92ef",
+      "actual": "cd458bdfd8a04a71255fe20952a772fb6be4eea64d407a7981cc58dda9ea92ef",
+      "status": "PASS"
+    },
+    {
+      "line": 73,
+      "path": "./run/loading_trace.jsonl",
+      "expected": "30891c8b228419983b43a3b00599d7ce14c151ee772a713065caa4718f720041",
+      "actual": "30891c8b228419983b43a3b00599d7ce14c151ee772a713065caa4718f720041",
+      "status": "PASS"
+    },
+    {
+      "line": 74,
+      "path": "./run/pause_after_probe.log",
+      "expected": "46eeeedc969f106320d874ff0cb0c5c1ea169952665865f64b8f5318d626c8a3",
+      "actual": "46eeeedc969f106320d874ff0cb0c5c1ea169952665865f64b8f5318d626c8a3",
+      "status": "PASS"
+    },
+    {
+      "line": 75,
+      "path": "./run/protected_after_stdout.log",
+      "expected": "6ef9f2d17d84db2358f8c2121f7fa5a00537177b61916a2a348ae160a30e46ca",
+      "actual": "6ef9f2d17d84db2358f8c2121f7fa5a00537177b61916a2a348ae160a30e46ca",
+      "status": "PASS"
+    },
+    {
+      "line": 76,
+      "path": "./run/result.json",
+      "expected": "552465df1002ffe71963433c81735a30e2c36fe46d6fd6462ccb5d3fe3dc1c6b",
+      "actual": "552465df1002ffe71963433c81735a30e2c36fe46d6fd6462ccb5d3fe3dc1c6b",
+      "status": "PASS"
+    },
+    {
+      "line": 77,
+      "path": "./run/retired.json",
+      "expected": "becd18878ff007116b69ad6ab211a3928a785bea75fb3e3d1bd1ae46a12e37d2",
+      "actual": "becd18878ff007116b69ad6ab211a3928a785bea75fb3e3d1bd1ae46a12e37d2",
+      "status": "PASS"
+    },
+    {
+      "line": 78,
+      "path": "./run/retirement_preflight.json",
+      "expected": "61becbc4be53599d2a84d6f6d9c401607893e2a47f508d09ffb80ff6bbb6c88f",
+      "actual": "61becbc4be53599d2a84d6f6d9c401607893e2a47f508d09ffb80ff6bbb6c88f",
+      "status": "PASS"
+    },
+    {
+      "line": 79,
+      "path": "./run/right_alignment_request.json",
+      "expected": "1834da10d75b806162b33d524518968264f896f53c7bfa3919a8b606ee75cd38",
+      "actual": "1834da10d75b806162b33d524518968264f896f53c7bfa3919a8b606ee75cd38",
+      "status": "PASS"
+    },
+    {
+      "line": 80,
+      "path": "./run/right_alignment_result.json",
+      "expected": "feb55de1b931b0d1438ef5b4cf3cc91d79e4f491170bc37a39cadacf13124e72",
+      "actual": "feb55de1b931b0d1438ef5b4cf3cc91d79e4f491170bc37a39cadacf13124e72",
+      "status": "PASS"
+    },
+    {
+      "line": 81,
+      "path": "./run/right_alignment_worker.log",
+      "expected": "81d3feb2f0ddf55c6e70064a24de0ffe593fdf4e4fdeb7c27ef3d720863a17a9",
+      "actual": "81d3feb2f0ddf55c6e70064a24de0ffe593fdf4e4fdeb7c27ef3d720863a17a9",
+      "status": "PASS"
+    },
+    {
+      "line": 82,
+      "path": "./run/ros_log/2026-10-08-09-17-12-772978-liu-System-Product-Name-554761/launch.log",
+      "expected": "a4b6b6288aaf62c79777043b3c43de71b7d74b2cd5919250a83cbdec8d7c98f6",
+      "actual": "a4b6b6288aaf62c79777043b3c43de71b7d74b2cd5919250a83cbdec8d7c98f6",
+      "status": "PASS"
+    },
+    {
+      "line": 83,
+      "path": "./run/ros_log/create_554870_1791422233071.log",
+      "expected": "c48c60243210117f87b93c3766a875b6bf93d68fc3b3783d025bce96a3ddf516",
+      "actual": "c48c60243210117f87b93c3766a875b6bf93d68fc3b3783d025bce96a3ddf516",
+      "status": "PASS"
+    },
+    {
+      "line": 84,
+      "path": "./run/ros_log/create_554871_1791422233071.log",
+      "expected": "f3cfd44e1db12d06d90a11087ae6129a27694edfc8b741943d0e5262d225ef4e",
+      "actual": "f3cfd44e1db12d06d90a11087ae6129a27694edfc8b741943d0e5262d225ef4e",
+      "status": "PASS"
+    },
+    {
+      "line": 85,
+      "path": "./run/ros_log/create_554925_1791422233092.log",
+      "expected": "96e4c4a2fcf134cc18143e62fa5d6c9f11d885f46511b5da2e1eb2a2609463c2",
+      "actual": "96e4c4a2fcf134cc18143e62fa5d6c9f11d885f46511b5da2e1eb2a2609463c2",
+      "status": "PASS"
+    },
+    {
+      "line": 86,
+      "path": "./run/ros_log/create_554927_1791422233092.log",
+      "expected": "84e69ba4889d68d96c4fd63852e4c10aab65bc2c3f75f511ba49c8d298cc7106",
+      "actual": "84e69ba4889d68d96c4fd63852e4c10aab65bc2c3f75f511ba49c8d298cc7106",
+      "status": "PASS"
+    },
+    {
+      "line": 87,
+      "path": "./run/ros_log/create_554929_1791422233093.log",
+      "expected": "3e9a70fdf504c48337b5410cca5b4e474f4a2667e9006a73240189303a7250c5",
+      "actual": "3e9a70fdf504c48337b5410cca5b4e474f4a2667e9006a73240189303a7250c5",
+      "status": "PASS"
+    },
+    {
+      "line": 88,
+      "path": "./run/ros_log/gz sim server_555148_1791422235307.log",
+      "expected": "78d68170f325037d0de9a116d2c17aaa7cc2446ce9780665cba9323be166dda7",
+      "actual": "78d68170f325037d0de9a116d2c17aaa7cc2446ce9780665cba9323be166dda7",
+      "status": "PASS"
+    },
+    {
+      "line": 89,
+      "path": "./run/ros_log/image_bridge_554917_1791422233099.log",
+      "expected": "d2cb1cc132994b843680000337cbfd24db5e268de80d840968add6f99717fc9a",
+      "actual": "d2cb1cc132994b843680000337cbfd24db5e268de80d840968add6f99717fc9a",
+      "status": "PASS"
+    },
+    {
+      "line": 90,
+      "path": "./run/ros_log/parameter_bridge_554918_1791422233099.log",
+      "expected": "981627220281e10e5aca2a082d92a0370ae6573c690eb5d61662142c65830c1f",
+      "actual": "981627220281e10e5aca2a082d92a0370ae6573c690eb5d61662142c65830c1f",
+      "status": "PASS"
+    },
+    {
+      "line": 91,
+      "path": "./run/ros_log/parameter_bridge_554919_1791422233103.log",
+      "expected": "1a35ab5f311c2ee39b078c3c5ee26664d45082dbd97a2bd540b128abe2eecc7f",
+      "actual": "1a35ab5f311c2ee39b078c3c5ee26664d45082dbd97a2bd540b128abe2eecc7f",
+      "status": "PASS"
+    },
+    {
+      "line": 92,
+      "path": "./run/ros_log/parameter_bridge_554920_1791422233101.log",
+      "expected": "28d315ee84626ac90af5be49f248645809c377290db4283c544c18f17ab34835",
+      "actual": "28d315ee84626ac90af5be49f248645809c377290db4283c544c18f17ab34835",
+      "status": "PASS"
+    },
+    {
+      "line": 93,
+      "path": "./run/ros_log/parameter_bridge_554923_1791422233100.log",
+      "expected": "4163c5019f1131f16bfef5f7e28f237a1530fbdceaedf8e916bd8baf0f6e37c6",
+      "actual": "4163c5019f1131f16bfef5f7e28f237a1530fbdceaedf8e916bd8baf0f6e37c6",
+      "status": "PASS"
+    },
+    {
+      "line": 94,
+      "path": "./run/ros_log/parameter_bridge_554926_1791422233101.log",
+      "expected": "80afcb875ea13859c7582d50191a9076799298097638f1914443ff39441cbade",
+      "actual": "80afcb875ea13859c7582d50191a9076799298097638f1914443ff39441cbade",
+      "status": "PASS"
+    },
+    {
+      "line": 95,
+      "path": "./run/ros_log/parameter_bridge_554928_1791422233100.log",
+      "expected": "51992d4b540b55d5849ef13e5ead95a418af22c4e84c20ef2491e82d707173f7",
+      "actual": "51992d4b540b55d5849ef13e5ead95a418af22c4e84c20ef2491e82d707173f7",
+      "status": "PASS"
+    },
+    {
+      "line": 96,
+      "path": "./run/ros_log/python3_554921_1791422233262.log",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "line": 97,
+      "path": "./run/ros_log/python3_554922_1791422233326.log",
+      "expected": "114723899383819a290692966a9beff230cc949d56e08a69c1207d60b0dfb86c",
+      "actual": "114723899383819a290692966a9beff230cc949d56e08a69c1207d60b0dfb86c",
+      "status": "PASS"
+    },
+    {
+      "line": 98,
+      "path": "./run/ros_log/python3_554924_1791422233273.log",
+      "expected": "95893a9171f2fa5a80c141b1d1d6dcf16924c26b9165e009106b518b8443b798",
+      "actual": "95893a9171f2fa5a80c141b1d1d6dcf16924c26b9165e009106b518b8443b798",
+      "status": "PASS"
+    },
+    {
+      "line": 99,
+      "path": "./run/ros_log/python3_555318_1791422235117.log",
+      "expected": "7cf24027e195030b865a7ca540c213a1ef0f54fcaec000f4eea3e4885c9bde42",
+      "actual": "7cf24027e195030b865a7ca540c213a1ef0f54fcaec000f4eea3e4885c9bde42",
+      "status": "PASS"
+    },
+    {
+      "line": 100,
+      "path": "./run/ros_log/python3_555319_1791422234421.log",
+      "expected": "02feea2629f5277c3c9363a1b96c6d99f670383865693450566202227ceca537",
+      "actual": "02feea2629f5277c3c9363a1b96c6d99f670383865693450566202227ceca537",
+      "status": "PASS"
+    },
+    {
+      "line": 101,
+      "path": "./run/ros_log/python3_555320_1791422234421.log",
+      "expected": "b6392dfbeca3690aebfe855d40dce05a9a8ad24aca4e742b5744331a3b2de1d7",
+      "actual": "b6392dfbeca3690aebfe855d40dce05a9a8ad24aca4e742b5744331a3b2de1d7",
+      "status": "PASS"
+    },
+    {
+      "line": 102,
+      "path": "./run/ros_log/python3_555321_1791422234421.log",
+      "expected": "e37f383d74f9b63bf4e6ec1e74b3e9318cf2a45593874fcf43268c7a94798857",
+      "actual": "e37f383d74f9b63bf4e6ec1e74b3e9318cf2a45593874fcf43268c7a94798857",
+      "status": "PASS"
+    },
+    {
+      "line": 103,
+      "path": "./run/ros_log/python3_555322_1791422234421.log",
+      "expected": "02687cbd0a110e97012fc5ea17ad5ab7890823f8f87de938643c0c17a4b4a305",
+      "actual": "02687cbd0a110e97012fc5ea17ad5ab7890823f8f87de938643c0c17a4b4a305",
+      "status": "PASS"
+    },
+    {
+      "line": 104,
+      "path": "./run/ros_log/python3_555323_1791422234421.log",
+      "expected": "e257d6219dbc3a1a6a34a4b58fa4cebdd57d3984e7c78887f551aa38d5b56bcc",
+      "actual": "e257d6219dbc3a1a6a34a4b58fa4cebdd57d3984e7c78887f551aa38d5b56bcc",
+      "status": "PASS"
+    },
+    {
+      "line": 105,
+      "path": "./run/ros_log/python3_555368_1791422234592.log",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "line": 106,
+      "path": "./run/ros_log/robot_state_publisher_554868_1791422233064.log",
+      "expected": "32edaab19a3abd615188731a5ce36ae9fb5d74cdf5c7f8a677e199b09c31cc94",
+      "actual": "32edaab19a3abd615188731a5ce36ae9fb5d74cdf5c7f8a677e199b09c31cc94",
+      "status": "PASS"
+    },
+    {
+      "line": 107,
+      "path": "./run/start_scene.png",
+      "expected": "4a7e5a6bf4d6a8f59e35a8aa9b3fa5424d15e820dce45861a82b4d5683e30f76",
+      "actual": "4a7e5a6bf4d6a8f59e35a8aa9b3fa5424d15e820dce45861a82b4d5683e30f76",
+      "status": "PASS"
+    },
+    {
+      "line": 108,
+      "path": "./run/video.log",
+      "expected": "3108d7be668d47211c62b841e11fda657a23d45147de6cfd275f74592adc176b",
+      "actual": "3108d7be668d47211c62b841e11fda657a23d45147de6cfd275f74592adc176b",
+      "status": "PASS"
+    },
+    {
+      "line": 109,
+      "path": "./run/video_decode_validated.log",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "line": 110,
+      "path": "./run/video_decode_validated_exit.txt",
+      "expected": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "actual": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "status": "PASS"
+    },
+    {
+      "line": 111,
+      "path": "./run/video_pid.json",
+      "expected": "d3357dc52d1134d084604d60b58ed96d9d231e1b91fe3a5126132da95371e94a",
+      "actual": "d3357dc52d1134d084604d60b58ed96d9d231e1b91fe3a5126132da95371e94a",
+      "status": "PASS"
+    },
+    {
+      "line": 112,
+      "path": "./run/video_probe_validated.json",
+      "expected": "2161f4dd68018a59360f22981f0ba0015815002d53b9069057e044917b224ac3",
+      "actual": "2161f4dd68018a59360f22981f0ba0015815002d53b9069057e044917b224ac3",
+      "status": "PASS"
+    },
+    {
+      "line": 113,
+      "path": "./run/viewport.json",
+      "expected": "5a487ba8a5997f0576cbc697c917c7e00c7d317ad1d5045887be2135e46893f7",
+      "actual": "5a487ba8a5997f0576cbc697c917c7e00c7d317ad1d5045887be2135e46893f7",
+      "status": "PASS"
+    },
+    {
+      "line": 114,
+      "path": "./sdf_conversion.log",
+      "expected": "0038d24e605143078c6f786f7c2e9ff7549eff5d3cb83e50b303586b756883d6",
+      "actual": "0038d24e605143078c6f786f7c2e9ff7549eff5d3cb83e50b303586b756883d6",
+      "status": "PASS"
+    },
+    {
+      "line": 115,
+      "path": "./snapshot_prior.log",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "PASS"
+    },
+    {
+      "line": 116,
+      "path": "./snapshot_prior.py",
+      "expected": "e3b06b54a30760bd510b5a6da6e77533b9045df251f1604eea2540538e09c7c5",
+      "actual": "e3b06b54a30760bd510b5a6da6e77533b9045df251f1604eea2540538e09c7c5",
+      "status": "PASS"
+    },
+    {
+      "line": 117,
+      "path": "./start_observation_gui.py",
+      "expected": "5ad7bbd342de3b7050ec17abd1ae8479638bf64fb3a8b782d5db88b2c0559476",
+      "actual": "5ad7bbd342de3b7050ec17abd1ae8479638bf64fb3a8b782d5db88b2c0559476",
+      "status": "PASS"
+    },
+    {
+      "line": 118,
+      "path": "./test_alignment_wait.py",
+      "expected": "acc6906fae6e311c1950c0fa9988073b97fa5145864470ed9462dcdd2defdb9a",
+      "actual": "acc6906fae6e311c1950c0fa9988073b97fa5145864470ed9462dcdd2defdb9a",
+      "status": "PASS"
+    },
+    {
+      "line": 119,
+      "path": "./test_angle_limit.py",
+      "expected": "ad7149c24ca5f72d4974a92a9b410dd60a431100c0972699559fcd33e200b6c2",
+      "actual": "ad7149c24ca5f72d4974a92a9b410dd60a431100c0972699559fcd33e200b6c2",
+      "status": "PASS"
+    },
+    {
+      "line": 120,
+      "path": "./test_effort_fork.py",
+      "expected": "9a65e533d2335c3207399ba429e2df3f7e7e1a38820794d69998e28f7455a3d6",
+      "actual": "9a65e533d2335c3207399ba429e2df3f7e7e1a38820794d69998e28f7455a3d6",
+      "status": "PASS"
+    },
+    {
+      "line": 121,
+      "path": "./test_fast_timing.py",
+      "expected": "0615644cf3de584e7e54a6d7dbae31b1512824206c53c23fe6d008e0ce29812f",
+      "actual": "0615644cf3de584e7e54a6d7dbae31b1512824206c53c23fe6d008e0ce29812f",
+      "status": "PASS"
+    },
+    {
+      "line": 122,
+      "path": "./test_friction.py",
+      "expected": "f2c8c1e47e6552584e477fac3c39b32bec445ac169927c7f5cd3af3845c42032",
+      "actual": "f2c8c1e47e6552584e477fac3c39b32bec445ac169927c7f5cd3af3845c42032",
+      "status": "PASS"
+    },
+    {
+      "line": 123,
+      "path": "./test_loading_contact_guard.py",
+      "expected": "128df48210353203f640703b6dd370e547f97ed074e9a1232f35f1b34887227b",
+      "actual": "128df48210353203f640703b6dd370e547f97ed074e9a1232f35f1b34887227b",
+      "status": "PASS"
+    },
+    {
+      "line": 124,
+      "path": "./test_loading_guards.py",
+      "expected": "42aa7059483cb1fa3386a3d7f159576f5753cbdd2395cd5934dc51aab094ae11",
+      "actual": "42aa7059483cb1fa3386a3d7f159576f5753cbdd2395cd5934dc51aab094ae11",
+      "status": "PASS"
+    },
+    {
+      "line": 125,
+      "path": "./test_loading_machine_guard.py",
+      "expected": "2e4950bac945d557c2d5021d58fe34f1ac4d61d24883c058a554c5fbba2d388a",
+      "actual": "2e4950bac945d557c2d5021d58fe34f1ac4d61d24883c058a554c5fbba2d388a",
+      "status": "PASS"
+    },
+    {
+      "line": 126,
+      "path": "./test_midband_grasp.py",
+      "expected": "cc44957cf39ba41ee4dfaae5bb666f8d1605c360ebd1912d62b7e35a552be70d",
+      "actual": "cc44957cf39ba41ee4dfaae5bb666f8d1605c360ebd1912d62b7e35a552be70d",
+      "status": "PASS"
+    },
+    {
+      "line": 127,
+      "path": "./test_overhead_drop.py",
+      "expected": "849d72c771280c6695425e2de9fe71c851a5a454e996f72e3b75afca179c8929",
+      "actual": "849d72c771280c6695425e2de9fe71c851a5a454e996f72e3b75afca179c8929",
+      "status": "PASS"
+    },
+    {
+      "line": 128,
+      "path": "./test_servo_gain.py",
+      "expected": "e69d84d2f35d5e58405cc061b9527c3e06e64da08ec97bf970d55bef979a7fbb",
+      "actual": "e69d84d2f35d5e58405cc061b9527c3e06e64da08ec97bf970d55bef979a7fbb",
+      "status": "PASS"
+    },
+    {
+      "line": 129,
+      "path": "./video_start.log",
+      "expected": "7f3ee65b75bcecc7aa25587d4cf53ca13461ce1994d0c23b949456010258c768",
+      "actual": "7f3ee65b75bcecc7aa25587d4cf53ca13461ce1994d0c23b949456010258c768",
+      "status": "PASS"
+    },
+    {
+      "line": 130,
+      "path": "./watch_metrics.py",
+      "expected": "41d36776116fd10f4f6813f3432d0aafa3ead6be20d8c8cfd1dcc14dc830aad7",
+      "actual": "41d36776116fd10f4f6813f3432d0aafa3ead6be20d8c8cfd1dcc14dc830aad7",
+      "status": "PASS"
+    }
+  ]
+}

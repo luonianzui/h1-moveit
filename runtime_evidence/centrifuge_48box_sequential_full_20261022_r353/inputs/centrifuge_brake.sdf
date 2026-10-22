@@ -1,0 +1,452 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.8">
+  <model name="centrifuge">
+    <static>false</static>
+    <link name="assembly">
+      <inertial>
+        <pose>0 0 0.156 0 0 0</pose>
+        <mass>20</mass>
+        <inertia>
+          <ixx>0.500</ixx><iyy>0.550</iyy><izz>0.800</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="hinge_base_left_visual">
+        <pose>0.2975815011262894 0.2272500004768372 0 1.5707963267948966 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/hinge_base_left.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.50 0.55 0.60 1</ambient>
+          <diffuse>0.50 0.55 0.60 1</diffuse>
+          <specular>0.15 0.15 0.15 1</specular>
+        </material>
+      </visual>
+      <collision name="hinge_base_left_collision">
+        <pose>0.2975815011262894 0.2272500004768372 0 1.5707963267948966 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/hinge_base_left.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="hinge_base_right_visual">
+        <pose>0.2975815011262894 0.2272500004768372 0 1.5707963267948966 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/hinge_base_right.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.50 0.55 0.60 1</ambient>
+          <diffuse>0.50 0.55 0.60 1</diffuse>
+          <specular>0.15 0.15 0.15 1</specular>
+        </material>
+      </visual>
+      <collision name="hinge_base_right_collision">
+        <pose>0.2975815011262894 0.2272500004768372 0 1.5707963267948966 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/hinge_base_right.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="housing_visual">
+        <pose>0.2975815011262894 0.2272500004768372 0 1.5707963267948966 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/housing.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.82 0.86 0.89 1</ambient>
+          <diffuse>0.82 0.86 0.89 1</diffuse>
+          <specular>0.15 0.15 0.15 1</specular>
+        </material>
+      </visual>
+      <collision name="housing_collision">
+        <pose>0.2975815011262894 0.2272500004768372 0 1.5707963267948966 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/housing.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="front_panel_visual">
+        <pose>0.2975815011262894 0.2272500004768372 0 1.5707963267948966 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/front_panel.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.18 0.22 0.27 1</ambient>
+          <diffuse>0.18 0.22 0.27 1</diffuse>
+          <specular>0.15 0.15 0.15 1</specular>
+        </material>
+      </visual>
+      <collision name="front_panel_collision">
+        <pose>0.2975815011262894 0.2272500004768372 0 1.5707963267948966 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/front_panel.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="lid_button_base_visual">
+        <pose>-0.269574583379 0.13 0.260203954169 0 -1.365401024067 0</pose>
+        <geometry><cylinder><radius>0.017</radius><length>0.004</length></cylinder></geometry>
+        <material><ambient>0.035 0.035 0.035 1</ambient><diffuse>0.035 0.035 0.035 1</diffuse></material>
+      </visual>
+      <collision name="lid_button_base_collision">
+        <pose>-0.269574583379 0.13 0.260203954169 0 -1.365401024067 0</pose>
+        <geometry><cylinder><radius>0.017</radius><length>0.004</length></cylinder></geometry>
+      </collision>
+      <visual name="lid_button_visual">
+        <pose>-0.275448466003 0.13 0.261427679186 0 -1.365401024067 0</pose>
+        <geometry><cylinder><radius>0.013</radius><length>0.010</length></cylinder></geometry>
+        <material><ambient>0.04 0.40 0.95 1</ambient><diffuse>0.04 0.40 0.95 1</diffuse></material>
+      </visual>
+      <collision name="lid_button_collision">
+        <pose>-0.275448466003 0.13 0.261427679186 0 -1.365401024067 0</pose>
+        <geometry><cylinder><radius>0.013</radius><length>0.010</length></cylinder></geometry>
+      </collision>
+      <visual name="lid_button_mark_visual">
+        <pose>-0.280832858409 0.13 0.262549427118 0 -1.365401024067 0</pose>
+        <geometry><box><size>0.010 0.012 0.001</size></box></geometry>
+        <material><ambient>0.94 0.96 1 1</ambient><diffuse>0.94 0.96 1 1</diffuse></material>
+      </visual>
+      <visual name="rotor_button_base_visual">
+        <pose>-0.269574583379 -0.13 0.260203954169 0 -1.365401024067 0</pose>
+        <geometry><cylinder><radius>0.017</radius><length>0.004</length></cylinder></geometry>
+        <material><ambient>0.035 0.035 0.035 1</ambient><diffuse>0.035 0.035 0.035 1</diffuse></material>
+      </visual>
+      <collision name="rotor_button_base_collision">
+        <pose>-0.269574583379 -0.13 0.260203954169 0 -1.365401024067 0</pose>
+        <geometry><cylinder><radius>0.017</radius><length>0.004</length></cylinder></geometry>
+      </collision>
+      <visual name="rotor_button_visual">
+        <pose>-0.275448466003 -0.13 0.261427679186 0 -1.365401024067 0</pose>
+        <geometry><cylinder><radius>0.013</radius><length>0.010</length></cylinder></geometry>
+        <material><ambient>0.05 0.80 0.22 1</ambient><diffuse>0.05 0.80 0.22 1</diffuse></material>
+      </visual>
+      <collision name="rotor_button_collision">
+        <pose>-0.275448466003 -0.13 0.261427679186 0 -1.365401024067 0</pose>
+        <geometry><cylinder><radius>0.013</radius><length>0.010</length></cylinder></geometry>
+      </collision>
+      <visual name="rotor_button_mark_visual">
+        <pose>-0.280832858409 -0.13 0.262549427118 0 -1.365401024067 0</pose>
+        <geometry><cylinder><radius>0.004</radius><length>0.001</length></cylinder></geometry>
+        <material><ambient>0.94 1 0.96 1</ambient><diffuse>0.94 1 0.96 1</diffuse></material>
+      </visual>
+      <sensor name="lid_button_contact" type="contact">
+        <always_on>true</always_on>
+        <update_rate>100</update_rate>
+        <contact>
+          <collision>lid_button_collision</collision>
+          <topic>/centrifuge/lid_button/contacts</topic>
+        </contact>
+      </sensor>
+      <sensor name="rotor_button_contact" type="contact">
+        <always_on>true</always_on>
+        <update_rate>100</update_rate>
+        <contact>
+          <collision>rotor_button_collision</collision>
+          <topic>/centrifuge/rotor_button/contacts</topic>
+        </contact>
+      </sensor>
+    </link>
+    <link name="lid">
+      <pose>0.2680710507631302 0 0.307 0 0 0</pose>
+      <inertial>
+        <pose>-0.2325 0 0.027 0 0 0</pose>
+        <mass>2.0</mass>
+        <inertia>
+          <ixx>0.034016666667</ixx>
+          <iyy>0.037083333333</iyy>
+          <izz>0.070566666667</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="hinge_lid_left_visual">
+        <pose>0.18669825741488455 0.2272500004768372 -0.24548651156200413 2.125167708135185 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/hinge_lid_left.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.50 0.55 0.60 1</ambient>
+          <diffuse>0.50 0.55 0.60 1</diffuse>
+          <specular>0.15 0.15 0.15 1</specular>
+        </material>
+      </visual>
+      <collision name="hinge_lid_left_collision">
+        <pose>0.18669825741488455 0.2272500004768372 -0.24548651156200413 2.125167708135185 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/hinge_lid_left.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="hinge_lid_right_visual">
+        <pose>0.18669825741488455 0.2272500004768372 -0.24548651156200413 2.125167708135185 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/hinge_lid_right.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.50 0.55 0.60 1</ambient>
+          <diffuse>0.50 0.55 0.60 1</diffuse>
+          <specular>0.15 0.15 0.15 1</specular>
+        </material>
+      </visual>
+      <collision name="hinge_lid_right_collision">
+        <pose>0.18669825741488455 0.2272500004768372 -0.24548651156200413 2.125167708135185 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/hinge_lid_right.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="lid_visual">
+        <pose>0.18669825741488455 0.2272500004768372 -0.24548651156200413 2.125167708135185 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/lid.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.82 0.86 0.89 1</ambient>
+          <diffuse>0.82 0.86 0.89 1</diffuse>
+          <specular>0.15 0.15 0.15 1</specular>
+        </material>
+      </visual>
+      <collision name="lid_collision">
+        <pose>0.18669825741488455 0.2272500004768372 -0.24548651156200413 2.125167708135185 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/lid.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <link name="rotor">
+      <pose>0.0305710511262894 0 0.225 0 0 0</pose>
+      <inertial>
+        <pose>1.125089288653285e-08 -1.673847670144391e-08 0.01250000000004227 0 0 0</pose>
+        <mass>1.179529723517141</mass>
+        <inertia>
+          <ixx>0.003602593248568702</ixx>
+          <iyy>0.006475169561067133</iyy>
+          <izz>0.009956052712052504</izz>
+          <ixy>-0.001022219425918778</ixy>
+          <ixz>1.738643589792953e-14</ixz>
+          <iyz>1.355398835014458e-14</iyz>
+        </inertia>
+      </inertial>
+      <visual name="rotor_support_visual">
+        <pose>0.26701045 0.2272500004768372 -0.225 1.5707963267948966 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/rotor_support.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.50 0.55 0.60 1</ambient>
+          <diffuse>0.50 0.55 0.60 1</diffuse>
+          <specular>0.15 0.15 0.15 1</specular>
+        </material>
+      </visual>
+      <collision name="rotor_support_collision">
+        <pose>0.26701045 0.2272500004768372 -0.225 1.5707963267948966 0 -1.5707963267948966</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/rotor_support.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <link name="bucket_left">
+      <pose>0.00317833926111738 0.08573003801719783 0.2375000000000001 0 0 1.880066445897898</pose>
+      <inertial>
+        <pose>-7.728871404730717e-18 -1.017964956682235e-08 -0.01307061147664738 0 0 0</pose>
+        <mass>0.517250668451</mass>
+        <inertia>
+          <ixx>0.001493671717073924</ixx>
+          <iyy>0.0008231208624880518</iyy>
+          <izz>0.001930398696622972</izz>
+          <ixy>1.317843386555396e-10</ixy>
+          <ixz>-4.234408184567356e-12</ixz>
+          <iyz>7.746956342862429e-11</iyz>
+        </inertia>
+      </inertial>
+      <gravity>true</gravity>
+      <self_collide>true</self_collide>
+      <visual name="bucket_left_visual">
+        <pose>0.06053097730015546 -0.3235089963725441 -0.2340626017626604 1.550987803861942 0.06191078392127092 2.831709137925023</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/bucket_left.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.50 0.55 0.60 1</ambient>
+          <diffuse>0.50 0.55 0.60 1</diffuse>
+          <specular>0.15 0.15 0.15 1</specular>
+        </material>
+      </visual>
+      <collision name="bucket_left_collision">
+        <pose>0.06053097730015546 -0.3235089963725441 -0.2340626017626604 1.550987803861942 0.06191078392127092 2.831709137925023</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/bucket_left.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <link name="bucket_right">
+      <pose>0.05796376299146166 -0.08573003706352361 0.2375000000000001 0 0 -1.261526207691896</pose>
+      <inertial>
+        <pose>-1.851472734922551e-17 9.465354341227717e-09 -0.01307062840773683 0 0 0</pose>
+        <mass>0.5172512713396529</mass>
+        <inertia>
+          <ixx>0.001493673417811843</ixx>
+          <iyy>0.0008231214972867563</iyy>
+          <izz>0.001930400579027913</izz>
+          <ixy>-2.375028789869239e-11</ixy>
+          <ixz>1.158873463657926e-10</ixz>
+          <iyz>1.211707046974406e-10</iyz>
+        </inertia>
+      </inertial>
+      <gravity>true</gravity>
+      <self_collide>true</self_collide>
+      <visual name="bucket_right_visual">
+        <pose>-0.132445954509094 0.3235089963725442 -0.2992982003417675 1.678794397337823 -0.3253533071721588 -0.3270123033920003</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/bucket_right.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.50 0.55 0.60 1</ambient>
+          <diffuse>0.50 0.55 0.60 1</diffuse>
+          <specular>0.15 0.15 0.15 1</specular>
+        </material>
+      </visual>
+      <collision name="bucket_right_collision">
+        <pose>-0.132445954509094 0.3235089963725442 -0.2992982003417675 1.678794397337823 -0.3253533071721588 -0.3270123033920003</pose>
+        <geometry>
+          <mesh>
+            <uri>model://h1_2_description/models/centrifuge/meshes/bucket_right.stl</uri>
+            <scale>0.001 0.001 0.001</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="bucket_left_swing_joint" type="revolute">
+      <parent>rotor</parent>
+      <child>bucket_left</child>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-0.3490658503988659</lower>
+          <upper>1.48352986419518</upper>
+          <effort>0</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>.003</damping>
+          <friction>0</friction>
+        </dynamics>
+      </axis>
+    </joint>
+    <joint name="bucket_right_swing_joint" type="revolute">
+      <parent>rotor</parent>
+      <child>bucket_right</child>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-0.3490658503988659</lower>
+          <upper>1.48352986419518</upper>
+          <effort>0</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>.003</damping>
+          <friction>0</friction>
+        </dynamics>
+      </axis>
+    </joint>
+    <joint name="rotor_spin_joint" type="revolute">
+      <parent>assembly</parent><child>rotor</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit><lower>-1e16</lower><upper>1e16</upper><effort>2</effort><velocity>4</velocity></limit>
+        <dynamics><damping>0.01</damping></dynamics>
+      </axis>
+    </joint>
+    <plugin filename="/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r353/inputs/libCentrifugeInterlockStartupRampProbeR1.so" name="CentrifugeInterlockStartupRampProbeR1"><stopped_velocity_gain>80</stopped_velocity_gain><stopped_position_gain>8000</stopped_position_gain></plugin>
+    <joint name="assembly_world_joint" type="fixed">
+      <parent>world</parent>
+      <child>assembly</child>
+    </joint>
+    <joint name="lid_hinge_joint" type="revolute">
+      <parent>assembly</parent>
+      <child>lid</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>2.0943951023931953</upper>
+          <effort>30</effort>
+          <velocity>0.8</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.15</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>lid_hinge_joint</joint_name>
+      <topic>/centrifuge/lid/applied_angle</topic>
+      <use_velocity_commands>false</use_velocity_commands>
+      <p_gain>100</p_gain>
+      <i_gain>50</i_gain>
+      <d_gain>10</d_gain>
+      <i_max>5</i_max>
+      <i_min>-5</i_min>
+      <cmd_max>30</cmd_max>
+      <cmd_min>-30</cmd_min>
+      <initial_position>0</initial_position>
+    </plugin>
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+      <joint_name>lid_hinge_joint</joint_name>
+      <joint_name>rotor_spin_joint</joint_name>
+      <joint_name>bucket_left_swing_joint</joint_name>
+      <joint_name>bucket_right_swing_joint</joint_name>
+    </plugin>
+  </model>
+</sdf>

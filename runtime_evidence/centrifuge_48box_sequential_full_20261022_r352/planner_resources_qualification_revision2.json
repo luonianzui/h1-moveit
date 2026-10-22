@@ -1,0 +1,661 @@
+{
+  "status": "PASS_SAME_ACTUAL_SNAPSHOT_GEOMETRY_AND_FRESH_SCENES_NOT_PHYSICAL",
+  "records": [
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/1_park_left_request.json",
+      "source_sha256": "cff2cde23927cd467dd6c076c2ca6e86d31d295d8a3b31cb0408fc8ae38a5e36",
+      "mode": "park",
+      "checked_samples": 477,
+      "exact_same_result_sha256": "57100d71e11c93306ec15bf924f797753b05129c48aab11a968cc16b50a7c35d",
+      "wall_s": {
+        "original": 1.5190067759976955,
+        "candidate": 1.5145274389942642
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/2_load_pickup_left_request.json",
+      "source_sha256": "896051c0b8bfcdbfb375940ab4b0ce779a100b337951bd332d959878abc67c7e",
+      "mode": "load_pickup",
+      "checked_samples": 2629,
+      "exact_same_result_sha256": "ff4a9224bb4be2a9353543dd5a3f8ae10d578b9fa0ad5140f5e38d487d1ef806",
+      "wall_s": {
+        "original": 3.3841952179936925,
+        "candidate": 2.0771775339962915
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/3_load_pilot_left_request.json",
+      "source_sha256": "1b9c9e887e8ee9f6cd20cfbb70ebbf99bad835fabcaac2d52dfb8613daecd61b",
+      "mode": "load_pilot",
+      "checked_samples": 82,
+      "exact_same_result_sha256": "8ddd20e4ab116b1712ab12b6d6b13d92452a56d61a38b3a609ad2163b477a260",
+      "wall_s": {
+        "original": 3.0124210639914963,
+        "candidate": 0.42560828999558
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/4_load_transport_left_request.json",
+      "source_sha256": "ba8cfc44b694c61fca4794d208cd03da7ff346f639f6242cfe5774f68f96ef95",
+      "mode": "load_transport",
+      "checked_samples": 2165,
+      "exact_same_result_sha256": "af4c9e114abca5cc101ecf0323477be86dd3bd50ccb6035f27f56f5faac7ffe7",
+      "wall_s": {
+        "original": 5.821887029000209,
+        "candidate": 3.2526609570049914
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/5_load_release_align_left_request.json",
+      "source_sha256": "9125ddb17a249ba5dfb1c31dea8f9dada20d358b220c1b79402dd767e0f21a55",
+      "mode": "load_release_align",
+      "checked_samples": 42,
+      "exact_same_result_sha256": "2b102462273070f44e5740423972682d17462d99439e57b807f35dc94b6e2bcc",
+      "wall_s": {
+        "original": 2.753206692999811,
+        "candidate": 0.1892568829935044
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/6_empty_retreat_left_request.json",
+      "source_sha256": "67c7714cbc4c4a64344310efef8c33a59bfd340e922c91cdaca60cf1275330d0",
+      "mode": "empty_retreat",
+      "checked_samples": 2672,
+      "exact_same_result_sha256": "b68aa569e17075436ae0aa166361e8231804c9790c3ce3e085170cc769cc6278",
+      "wall_s": {
+        "original": 5.090702036002767,
+        "candidate": 2.568930317007471
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/7_load_pickup_right_request.json",
+      "source_sha256": "2c0cc87310a5c5a0c8d603930319471e7d9f9bf356b76835f41ce9c568e0a903",
+      "mode": "load_pickup",
+      "checked_samples": 1844,
+      "exact_same_result_sha256": "58e3df0dd1a98f5a1ed216937ad91fe4c34277c7b032bcbfbf45e29c3967749e",
+      "wall_s": {
+        "original": 3.22535692800011,
+        "candidate": 1.962120099007734
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/8_load_pilot_right_request.json",
+      "source_sha256": "d6579566b03d8c1aa973704de2f950adb9ef84757e1c42134dd19705240d9de9",
+      "mode": "load_pilot",
+      "checked_samples": 82,
+      "exact_same_result_sha256": "16e2e5343f4825105a52ae09617da4fb7533cd4ced64820c1ec953a4cd8ab120",
+      "wall_s": {
+        "original": 2.834607976998086,
+        "candidate": 0.27392180600145366
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/9_load_transport_right_request.json",
+      "source_sha256": "b67ad5d8914cdce474edb400d16eb8f91072bc3bbccf421a4ea8d57222414310",
+      "mode": "load_transport",
+      "checked_samples": 1612,
+      "exact_same_result_sha256": "173806b101dce15c6399e8f4f8108b83e718f23cdad0071057982097cc2bbbfd",
+      "wall_s": {
+        "original": 4.6722906719951425,
+        "candidate": 2.127346519002458
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/10_load_release_align_right_request.json",
+      "source_sha256": "b085520619320591840dafaa35d034a3b35ae703548888766b0840efa0351523",
+      "mode": "load_release_align",
+      "checked_samples": 42,
+      "exact_same_result_sha256": "0b9d3c0303735a6b1e50a21de38201387d754b32b2cd24c72eba3623fe645986",
+      "wall_s": {
+        "original": 2.7447407319996273,
+        "candidate": 0.18538552700192668
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/11_empty_retreat_right_request.json",
+      "source_sha256": "a658fd2985fc9f3640bcd510cd988abe34e5387f047055b53dd7f35b559fc497",
+      "mode": "empty_retreat",
+      "checked_samples": 1957,
+      "exact_same_result_sha256": "0b2b4b5d85e9312fd9711a4ca05aa64d659d16575b34e6744e7c389f083a6a5d",
+      "wall_s": {
+        "original": 3.7514247369981604,
+        "candidate": 1.213910615988425
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/12_neutral_left_request.json",
+      "source_sha256": "2c7776123f50507b477ff09150be65a50d9c3584cd15f3cce16b66d3e64bf57d",
+      "mode": "neutral",
+      "checked_samples": 351,
+      "exact_same_result_sha256": "ba9029cc596e052e6563c590e429a91ebd3dff6bf668cf9ad1c4771839fee6c1",
+      "wall_s": {
+        "original": 1.3815980939980363,
+        "candidate": 0.08520865900209174
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/13_park_left_request.json",
+      "source_sha256": "46a40c474321a4fe76eaae41f6b0acdca14efc3927539ecd7e2f2518453713f6",
+      "mode": "park",
+      "checked_samples": 758,
+      "exact_same_result_sha256": "bf954b95be65de2484d76675b6a1a1cfe4fb505f14f5526ad402fd32bffe4909",
+      "wall_s": {
+        "original": 1.5806541990023106,
+        "candidate": 0.3069257789902622
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/14_retrieval_pickup_left_request.json",
+      "source_sha256": "79bedc33355025536c854127041e3c5c8bd95e4f3b2dc548af1b8070f210781b",
+      "mode": "retrieval_pickup",
+      "checked_samples": 2846,
+      "exact_same_result_sha256": "48a64bf9da96a74110bcad1855919222188dd56182d0550fe4a3b690d3d6ed90",
+      "wall_s": {
+        "original": 4.130236701996182,
+        "candidate": 2.8499894859996857
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/15_retrieval_pilot_left_request.json",
+      "source_sha256": "b2dbf721222b72471b53503608ab7ab42538688a889d0fd99888783747566c23",
+      "mode": "retrieval_pilot",
+      "checked_samples": 62,
+      "exact_same_result_sha256": "bebc89229749354efb8b2e91f576b9a5062b320ef9cd24ad34ce733a28e3c726",
+      "wall_s": {
+        "original": 2.78550200999598,
+        "candidate": 0.22798295901156962
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/16_retrieval_transport_left_request.json",
+      "source_sha256": "dc01822355308cb3fa7cd6ae7408e4837273113b29302e5b6621562cc8e89720",
+      "mode": "retrieval_transport",
+      "checked_samples": 2223,
+      "exact_same_result_sha256": "ff338f7969336a75efb4c917ca6f2a6432a7231739aca72d0f7865080c125f82",
+      "wall_s": {
+        "original": 11.64372409900534,
+        "candidate": 9.196131459000753
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/17_empty_retreat_left_request.json",
+      "source_sha256": "d1657b388c7ac4fe233e1a6aa34104c7be7bdc9f09d80e80008ee00f8a20697e",
+      "mode": "empty_retreat",
+      "checked_samples": 1674,
+      "exact_same_result_sha256": "fac3069fd3da30c7a6ef693ddfd9f63b705b492e9f8ff4d7d363c58bd1dc4801",
+      "wall_s": {
+        "original": 3.63249739400635,
+        "candidate": 1.0785547899868106
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/18_retrieval_pickup_right_request.json",
+      "source_sha256": "fe19fb13e5091e51cc1e929b9e5bbe1bb31648adadccebf9b574eec7f3996baa",
+      "mode": "retrieval_pickup",
+      "checked_samples": 1588,
+      "exact_same_result_sha256": "08b4d54f0bc769c6b72feac830631f2cb303080f68847699afff1192b8f7b259",
+      "wall_s": {
+        "original": 2.421617358995718,
+        "candidate": 1.1557167220016709
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/19_retrieval_pilot_right_request.json",
+      "source_sha256": "71b8233c6797ba7f08f635af5ff94d6d779145c7b807ecac5d21f69833ad9078",
+      "mode": "retrieval_pilot",
+      "checked_samples": 62,
+      "exact_same_result_sha256": "e9ec25719c2544ca98a4724b40e6bb2b6e597c1f617b88a085350cde817f6bc1",
+      "wall_s": {
+        "original": 2.920793209996191,
+        "candidate": 0.3538555140112294
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/20_retrieval_transport_right_request.json",
+      "source_sha256": "bc8c4b9f218bdbda17497afbcb33d21f5b232829780c387402ffafc61895222b",
+      "mode": "retrieval_transport",
+      "checked_samples": 2565,
+      "exact_same_result_sha256": "2c1f0ff99f185d0ba5610eaf79c868aa49ee992b01b3797cc530cb291ebd589a",
+      "wall_s": {
+        "original": 11.623782470996957,
+        "candidate": 9.166699559005792
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/21_retrieval_table_alignment_right_request.json",
+      "source_sha256": "f61c9b643be3e0736b69cded063942f77eae1ef8b587d1eea6240c77af38df8c",
+      "mode": "retrieval_table_alignment",
+      "checked_samples": 42,
+      "exact_same_result_sha256": "bc4da4f75dbf138c3552841652123f620c2490a7adeb38b89f07b890b0e905b4",
+      "wall_s": {
+        "original": 2.752219521004008,
+        "candidate": 0.18081733099825215
+      }
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/22_empty_retreat_right_request.json",
+      "source_sha256": "88e4b9aeebc839a10d2edcda2e3f26c7ac776d08ae1b007477d047d93dc84605",
+      "mode": "empty_retreat",
+      "checked_samples": 1152,
+      "exact_same_result_sha256": "f5385b201e4d828c5ceb631801c7ac6e9c847bff953ee34f7171c90d03a9b027",
+      "wall_s": {
+        "original": 4.056801122002071,
+        "candidate": 1.528281129008974
+      }
+    }
+  ],
+  "resources": {
+    "model_builds": 1,
+    "model_reuses": 36,
+    "fresh_scenes": 37,
+    "model_build_wall_s": 0.26422191598976497,
+    "model_dependencies": {
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r352/inputs/robot_dual.urdf": {
+        "signature": [
+          66309,
+          1863453,
+          65665,
+          1792664754538171063,
+          1792664754538171063
+        ],
+        "sha256": "2da482bcd375bd99a5028253e4f49a889ffb4bf8df525f097162f3ce103c6012"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_robot_press_20260922_r119/passive_leg_baseline.json": {
+        "signature": [
+          66309,
+          1195704,
+          1703,
+          1790061332994486968,
+          1790061332994486968
+        ],
+        "sha256": "774e8f805ec5e791c0f760d66b9faa915973d30a0257d33c383dfa06261358dc"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/dex1_1/Link1_1.STL": {
+        "signature": [
+          66309,
+          15240064,
+          137084,
+          1785358556000000000,
+          1785395972187436637
+        ],
+        "sha256": "8b33ce21197f4079aa06b32e53d5597cded6f1663ee324bff9efd01d2dd2b454"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/dex1_1/Link1_2.STL": {
+        "signature": [
+          66309,
+          15240065,
+          58784,
+          1785358556000000000,
+          1785395972187480078
+        ],
+        "sha256": "4e126368246e95d6049931852d0bb30f32017229644e4920caa3f28e69a46123"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/dex1_1/Link1_3.STL": {
+        "signature": [
+          66309,
+          15240066,
+          4284,
+          1785358556000000000,
+          1785395972187506558
+        ],
+        "sha256": "bd89d5cd8e5ca81e8dfc157328844c455f81c13a57fa21927952b7f49c85b66d"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/dex1_1/Link2_1.STL": {
+        "signature": [
+          66309,
+          15240067,
+          137084,
+          1785358556000000000,
+          1785395972187544478
+        ],
+        "sha256": "3d9ef89185e57a06ecacfe6efc51289b0f7317cb017d2c9e9632b4ef0b711a15"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/dex1_1/Link2_2.STL": {
+        "signature": [
+          66309,
+          15240068,
+          58784,
+          1785358556000000000,
+          1785395972187573689
+        ],
+        "sha256": "4cc4ece9f2b95264928135c15923e6c34a6ee16c9055b665aecaf3094fcc4c2b"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/dex1_1/Link2_3.STL": {
+        "signature": [
+          66309,
+          15240069,
+          4284,
+          1785358556000000000,
+          1785395972187595059
+        ],
+        "sha256": "bdba80d083133953bd53e8b74f9507d3466b0690c20d57111821713f0cbefeee"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/dex1_1/base_link.STL": {
+        "signature": [
+          66309,
+          15240063,
+          2859084,
+          1785358556000000000,
+          1785395972187384016
+        ],
+        "sha256": "0469151d67b4e8230337d649e783d756582545d27944dc49c945fb6fe397cc54"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/left_ankle_pitch_link.STL": {
+        "signature": [
+          66309,
+          15240074,
+          34084,
+          1785349818000000000,
+          1785395972187765431
+        ],
+        "sha256": "24afc967dfcc867632d756dedff7aa78157c8fdb756a85a3f2a24dde5e5e1d34"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/left_ankle_roll_link.STL": {
+        "signature": [
+          66309,
+          15240075,
+          200484,
+          1785349818000000000,
+          1785395972187812132
+        ],
+        "sha256": "d27424a8eab6e4aa469bce2bdcdd349892a855913f388b7908fdac121a58b7eb"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/left_elbow_link.STL": {
+        "signature": [
+          66309,
+          15240077,
+          1287684,
+          1785349818000000000,
+          1785395972188681652
+        ],
+        "sha256": "e4b22883f24bff1f2f6c259dd4ff44b8e00504e2b2dc6b2993021cc7985d81f3"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/left_hip_pitch_link.STL": {
+        "signature": [
+          66309,
+          15240079,
+          1270184,
+          1785349818000000000,
+          1785395972188963856
+        ],
+        "sha256": "76c2f4824fb656da98f0b26c7f39f39fb0f52fbfe381bfc8bad13673d4688b92"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/left_hip_roll_link.STL": {
+        "signature": [
+          66309,
+          15240080,
+          383184,
+          1785349818000000000,
+          1785395972189058977
+        ],
+        "sha256": "51aa6f60d69c6dc5fa7adc60ba4927b6215820dd635b8add09e4b9faf8037bfb"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/left_hip_yaw_link.STL": {
+        "signature": [
+          66309,
+          15240081,
+          834984,
+          1785349818000000000,
+          1785395972189211159
+        ],
+        "sha256": "02d63215d895626a21eb7a1742699569441dcdb2c7c5f714726b365158dd3cbc"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/left_knee_link.STL": {
+        "signature": [
+          66309,
+          15240087,
+          212384,
+          1785349818000000000,
+          1785395972189685524
+        ],
+        "sha256": "3da90b2f6ff1d5df395ab4cd6955fd29bc2d713107c0e05405c983f0c6ac8689"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/left_shoulder_pitch_link.STL": {
+        "signature": [
+          66309,
+          15240104,
+          1968984,
+          1785349818000000000,
+          1785395972191421466
+        ],
+        "sha256": "c4193b4640d0c1812d91806547a2473f111e6af9f4bb036fcfd98dedace4d755"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/left_shoulder_roll_link.STL": {
+        "signature": [
+          66309,
+          15240105,
+          1993784,
+          1785349818000000000,
+          1785395972191715069
+        ],
+        "sha256": "598d50298bbf041202ace731e5dc892e3ef179cb1068cb95861161cf63db6f1b"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/left_shoulder_yaw_link.STL": {
+        "signature": [
+          66309,
+          15240106,
+          2137684,
+          1785349818000000000,
+          1785395972192040473
+        ],
+        "sha256": "3e760b25bd805395132adeffb7916ad43b07e4e5caaf3a7f732987e19dd9d767"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/left_wrist_pitch_link.STL": {
+        "signature": [
+          66309,
+          15240115,
+          630184,
+          1785349818000000000,
+          1785395972192681531
+        ],
+        "sha256": "b7bb3eaf1213e27d3ee7d4193a0f0974823ae61c821ff1ec34459d65b7e39583"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/left_wrist_roll_link.STL": {
+        "signature": [
+          66309,
+          15240116,
+          1243084,
+          1785349818000000000,
+          1785395972192867033
+        ],
+        "sha256": "a9e5f7c5214f584a91543d0ddfac50331ac8d6316c133140cd1d2397ae23ec50"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/logo_link.STL": {
+        "signature": [
+          66309,
+          15240141,
+          145484,
+          1785349818000000000,
+          1785395972195182962
+        ],
+        "sha256": "ef9635c847ca7cd61aeaed86ad599935b648fb6f8688867c0448917b1811511b"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/pelvis.STL": {
+        "signature": [
+          66309,
+          15240155,
+          672884,
+          1785349818000000000,
+          1785395972196495327
+        ],
+        "sha256": "dc2cbbeb07d3b63bce9fedeb8cf5252609dca1e89380734d22d5b3c8ded2f15c"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/right_ankle_pitch_link.STL": {
+        "signature": [
+          66309,
+          15240161,
+          34084,
+          1785349818000000000,
+          1785395972196772951
+        ],
+        "sha256": "24afc967dfcc867632d756dedff7aa78157c8fdb756a85a3f2a24dde5e5e1d34"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/right_ankle_roll_link.STL": {
+        "signature": [
+          66309,
+          15240162,
+          200484,
+          1785349818000000000,
+          1785395972196825271
+        ],
+        "sha256": "d27424a8eab6e4aa469bce2bdcdd349892a855913f388b7908fdac121a58b7eb"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/right_elbow_link.STL": {
+        "signature": [
+          66309,
+          15240164,
+          1286984,
+          1785349818000000000,
+          1785395972197918095
+        ],
+        "sha256": "92a70241128492294eeb26189697335d11a3535c361c461bafb6a190dda6e4a0"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/right_hip_pitch_link.STL": {
+        "signature": [
+          66309,
+          15240166,
+          1264684,
+          1785349818000000000,
+          1785395972198228969
+        ],
+        "sha256": "62083be6d39df68a4899787a314664a6a4f018c6892da9d2aace0ff9d4dede51"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/right_hip_roll_link.STL": {
+        "signature": [
+          66309,
+          15240167,
+          386484,
+          1785349818000000000,
+          1785395972198329210
+        ],
+        "sha256": "1d679aad297f168531ece085b56980c0f6c1820f9992e849ff2bbd40506c05f0"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/right_hip_yaw_link.STL": {
+        "signature": [
+          66309,
+          15240168,
+          840384,
+          1785349818000000000,
+          1785395972198504642
+        ],
+        "sha256": "9a88980120a954339419747e44f81662b943288bffd31bdac9b96fca9c8aaf50"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/right_knee_link.STL": {
+        "signature": [
+          66309,
+          15240174,
+          212384,
+          1785349818000000000,
+          1785395972199122769
+        ],
+        "sha256": "3da90b2f6ff1d5df395ab4cd6955fd29bc2d713107c0e05405c983f0c6ac8689"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/right_shoulder_pitch_link.STL": {
+        "signature": [
+          66309,
+          15240192,
+          1966084,
+          1785349818000000000,
+          1785395972201098614
+        ],
+        "sha256": "e3c2e433a8f8706217e68d677cc62b0c7f605ce43d516713be94a285a0124cdc"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/right_shoulder_roll_link.STL": {
+        "signature": [
+          66309,
+          15240193,
+          2015084,
+          1785349818000000000,
+          1785395972201321456
+        ],
+        "sha256": "5cd93c255c14f16b6265131c5beaa015fc3e00a6cf80041a0be44d3ec55b8d9c"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/right_shoulder_yaw_link.STL": {
+        "signature": [
+          66309,
+          15240194,
+          2158684,
+          1785349818000000000,
+          1785395972201562519
+        ],
+        "sha256": "547b3c72bfbded71c974c34d128b93b491c36a3af780afff6c3a3684277688cb"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/right_wrist_pitch_link.STL": {
+        "signature": [
+          66309,
+          15240203,
+          630184,
+          1785349818000000000,
+          1785395972202107826
+        ],
+        "sha256": "11624373f44c3ac8fcccd09abbb2f5eb9490413a41fb0a9f3de71a01509c05ec"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/right_wrist_roll_link.STL": {
+        "signature": [
+          66309,
+          15240204,
+          1242984,
+          1785349818000000000,
+          1785395972202254808
+        ],
+        "sha256": "d06e2e62f80ceef841a88055da884fade9235f21b66e272fc51331367a5ea174"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/torso_link.STL": {
+        "signature": [
+          66309,
+          15240218,
+          2122084,
+          1785349818000000000,
+          1785395972203547193
+        ],
+        "sha256": "cff9af548d3997aa44167864115ad0564e6e4f8f42dbcad114f1c88029faf0e2"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/wrist_yaw_link.STL": {
+        "signature": [
+          66309,
+          15240219,
+          53284,
+          1785349818000000000,
+          1785395972203578094
+        ],
+        "sha256": "a8bf30a2ab2358e0b023de02436d1ab94de959a169c88a2cf0e4bfaacde7c7b3"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_moveit_config/config/h1_2.srdf": {
+        "signature": [
+          66309,
+          15240264,
+          9808,
+          1787819754995763725,
+          1787819754995763725
+        ],
+        "sha256": "67c1c973466fd927e0297f8202761d55bdfb2d66c00ccc194d8b211958fa617c"
+      },
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_moveit_config/config/initial_positions.yaml": {
+        "signature": [
+          66309,
+          15242394,
+          1116,
+          1785483921148496378,
+          1785483921156484680
+        ],
+        "sha256": "aa36726078609a1e37787917027e4ca49328479f3004d18e0695a9bb10bace6b"
+      },
+      "/opt/ros/jazzy/share/realsense2_description/meshes/d435.dae": {
+        "signature": [
+          66309,
+          10881385,
+          15782439,
+          1779640132000000000,
+          1785404424255951829
+        ],
+        "sha256": "42f3b66f47a1f8f425a2e4dc07c1d9c283183167d8441f520a15623d98f9bf78"
+      }
+    },
+    "shared_mutable_scene_or_robot_state": false,
+    "cached_paths_or_holder_references": false
+  },
+  "total_original_wall_s": 87.73926604297594,
+  "total_candidate_wall_s": 41.92100937401119,
+  "prefetch_paths_still_guarded_against_live_snapshot": true,
+  "no_guard_or_dense_check_or_observation_or_physics_change": true
+}

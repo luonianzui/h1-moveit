@@ -1,0 +1,137 @@
+{
+  "status": "PASS_INVENTORY_NOT_MIGRATED",
+  "version": 1,
+  "workspace": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws",
+  "entries": [
+    {
+      "path": "runtime_evidence/centrifuge_48box_servo_gain02_20261007_r144/run/loading_trace.jsonl",
+      "sha256": "18f2587c5813493e692a016ddbf6cb00a0b7eb7a36b4194a34c56352e5b97c88",
+      "size": 563215670,
+      "allocated_bytes": 563220480,
+      "stat": {
+        "mode": 33204,
+        "ino": 1208093,
+        "dev": 66309,
+        "nlink": 1,
+        "uid": 1000,
+        "gid": 1000,
+        "size": 563215670,
+        "atime": 1792663462.689623,
+        "mtime": 1791343966.0666704,
+        "ctime": 1791343966.0666704,
+        "atime_ns": 1792663462689623115,
+        "mtime_ns": 1791343966066670399,
+        "ctime_ns": 1791343966066670399
+      },
+      "manifest": "runtime_evidence/centrifuge_48box_servo_gain02_20261007_r144/SHA256SUMS",
+      "manifest_sha256": "ebc087bbb306c8c03eadabcf5b9da20cd07778b17d922d297a552463a35751b3"
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_velocity_epsilon_20261007_r147/run/loading_trace.jsonl",
+      "sha256": "9656961227e18ce1abccfd5c14454243b436939a128388329568e40d78a0c8ac",
+      "size": 708562974,
+      "allocated_bytes": 708571136,
+      "stat": {
+        "mode": 33204,
+        "ino": 1209881,
+        "dev": 66309,
+        "nlink": 1,
+        "uid": 1000,
+        "gid": 1000,
+        "size": 708562974,
+        "atime": 1792663463.1656375,
+        "mtime": 1791346088.8670049,
+        "ctime": 1791346088.8670049,
+        "atime_ns": 1792663463165637415,
+        "mtime_ns": 1791346088867004862,
+        "ctime_ns": 1791346088867004862
+      },
+      "manifest": "runtime_evidence/centrifuge_48box_velocity_epsilon_20261007_r147/SHA256SUMS",
+      "manifest_sha256": "68c4d5176d869c6db6936a5b2f500f56938a5b1cefb4d035817b73dabacced43"
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_passive_rotor_settle_20261007_r148/run/loading_trace.jsonl",
+      "sha256": "f6087f1e708be775d61eb0f9552f51d68645c5c7bc89e3dab29809d50438cc4d",
+      "size": 709780284,
+      "allocated_bytes": 709787648,
+      "stat": {
+        "mode": 33204,
+        "ino": 1210478,
+        "dev": 66309,
+        "nlink": 1,
+        "uid": 1000,
+        "gid": 1000,
+        "size": 709780284,
+        "atime": 1792663463.7686555,
+        "mtime": 1791346967.1717336,
+        "ctime": 1791346967.1717336,
+        "atime_ns": 1792663463768655510,
+        "mtime_ns": 1791346967171733636,
+        "ctime_ns": 1791346967171733636
+      },
+      "manifest": "runtime_evidence/centrifuge_48box_passive_rotor_settle_20261007_r148/SHA256SUMS",
+      "manifest_sha256": "12d9126412c9ee08e59bd82905c0f221f4781e95ea8a6fdb613e191d157bd132"
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_drop_contact_settle_20261007_r149/run/loading_trace.jsonl",
+      "sha256": "f09c2d78bdae4733cfe77d700afc5de6f84451a7305bff27b7a8265c5225767b",
+      "size": 1168350210,
+      "allocated_bytes": 1168355328,
+      "stat": {
+        "mode": 33204,
+        "ino": 1211080,
+        "dev": 66309,
+        "nlink": 1,
+        "uid": 1000,
+        "gid": 1000,
+        "size": 1168350210,
+        "atime": 1792663464.3036716,
+        "mtime": 1791348144.5580187,
+        "ctime": 1791348144.5580187,
+        "atime_ns": 1792663464303671551,
+        "mtime_ns": 1791348144558018622,
+        "ctime_ns": 1791348144558018622
+      },
+      "manifest": "runtime_evidence/centrifuge_48box_drop_contact_settle_20261007_r149/SHA256SUMS",
+      "manifest_sha256": "e3bd35f6315a113fa58cf2cc6aaea691f9a744d6adddad0b4bd3be7450ee7c1b"
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_left_reorient_20261008_r150/run/loading_trace.jsonl",
+      "sha256": "30891c8b228419983b43a3b00599d7ce14c151ee772a713065caa4718f720041",
+      "size": 1301865107,
+      "allocated_bytes": 1301872640,
+      "stat": {
+        "mode": 33204,
+        "ino": 1211672,
+        "dev": 66309,
+        "nlink": 1,
+        "uid": 1000,
+        "gid": 1000,
+        "size": 1301865107,
+        "atime": 1792663465.2086987,
+        "mtime": 1791423406.2381303,
+        "ctime": 1791423406.2381303,
+        "atime_ns": 1792663465208698654,
+        "mtime_ns": 1791423406238130299,
+        "ctime_ns": 1791423406238130299
+      },
+      "manifest": "runtime_evidence/centrifuge_48box_left_reorient_20261008_r150/SHA256SUMS",
+      "manifest_sha256": "20f9666f5614b11164f840c7aef29ff3c77c9cd0219ee458b2968ff2dd78f856"
+    }
+  ],
+  "original_tools": {
+    "tools/trace_archive/migrate.py": "300d121849e84500e68f33fde531af39e938948739138032693bab19973cadc1",
+    "runtime_evidence/trace_archive_20261014_r1/registry.json": "1c1b2509f7e49a44b0b17cadbabdc43ea2786c1b413b8f1c8cb8ad62a635422f",
+    "tools/trace_archive/test_migrate.py": "4b87a9c96d68f6fbfb2ca5bb91f6b23cfa9f9cc9ad651b3c19af515426183221",
+    "tools/trace_archive/archive_cli.py": "8bfe106232d244de99bf99c036ccb337de8094d4a5f1cce2fa3fa89489566bdc",
+    "tools/trace_archive/compat.py": "31eb7267245f211e5ab3b685d5f0f8473cde998ef7d8adb073f5e3216206b374",
+    "tools/trace_archive/test_compat.py": "c5b8397ab7dfe8f64c5542d1ff0acc6dc7d74af2f2ff881790d65f443b8c9ffa",
+    "tools/trace_archive/verify_current_protection.py": "4f6f5d4df065f77448638819fe84775f1439d97f938a8fa66adb839864593aaf",
+    "tools/trace_archive/sitecustomize.py": "191c64a547739cb8e5dc3e8b61c7d27b2d06c59809e06b4445d37473629458d5",
+    "tools/trace_archive/run": "eccc76fdcbbf907e3b69f8de049b082a5a113d1ee6db96241b2e280b93fb4007"
+  },
+  "original_bytes": 4451774245,
+  "original_allocated_bytes": 4451807232,
+  "original_archive_registry_entries": 31,
+  "free_bytes": 1605885952
+}

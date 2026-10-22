@@ -1,0 +1,1328 @@
+{
+  "status": "PASS_COMPLETE_SEQUENTIAL_TASK",
+  "within_180_wall_s": false,
+  "core": {
+    "members": 1028,
+    "manifest_sha256": "541d8a5a1da0c245ca30ed2f84f065c1120b10e0ecf663168525d33a836d3ed2"
+  },
+  "source_identity_sha256": "b2d9b669704f61323a3cde92c3b7615b709d4c54df7490f474fa99bb62721321",
+  "source_members": 679,
+  "wall": {
+    "clock": "monotonic_ns",
+    "started_ns": 98425291665430,
+    "observed_exit_ns": 98919593062700,
+    "elapsed_wall_s": 494.30139727,
+    "scope": "executor_spawn_through_observed_exit_including_imports_prechecks_plans_and_shutdown",
+    "excludes_scene_launch_video_review_and_recording_finalization": true,
+    "within_180_wall_s": false,
+    "execution_returncode": 0,
+    "not_independent_physical_certificate": true
+  },
+  "pipeline": {
+    "status": "PASS",
+    "actual_single_process": 3182220,
+    "actual_planning_requests": 21,
+    "actual_joined_pairs": 4,
+    "planning_intervals": [
+      {
+        "mode": "park",
+        "hand": "left",
+        "wall_s": 1.7127647399902344,
+        "sim_s": 1.3684999999999974
+      },
+      {
+        "mode": "load_pickup",
+        "hand": "left",
+        "wall_s": 2.3824806213378906,
+        "sim_s": 1.9125000000000014
+      },
+      {
+        "mode": "load_pilot",
+        "hand": "left",
+        "wall_s": 0.5012650489807129,
+        "sim_s": 0.11899999999999977
+      },
+      {
+        "mode": "load_transport",
+        "hand": "left",
+        "wall_s": 3.9938666820526123,
+        "sim_s": 1.0
+      },
+      {
+        "mode": "load_release_align",
+        "hand": "left",
+        "wall_s": 0.2353065013885498,
+        "sim_s": 0.06550000000000011
+      },
+      {
+        "mode": "empty_retreat",
+        "hand": "left",
+        "wall_s": 2.9187369346618652,
+        "sim_s": 1.7790000000000035
+      },
+      {
+        "mode": "load_pickup",
+        "hand": "right",
+        "wall_s": 2.3416638374328613,
+        "sim_s": 1.786999999999992
+      },
+      {
+        "mode": "load_pilot",
+        "hand": "right",
+        "wall_s": 0.32019829750061035,
+        "sim_s": 0.10649999999999693
+      },
+      {
+        "mode": "load_transport",
+        "hand": "right",
+        "wall_s": 3.5911054611206055,
+        "sim_s": 1.0
+      },
+      {
+        "mode": "load_release_align",
+        "hand": "right",
+        "wall_s": 0.20210003852844238,
+        "sim_s": 0.06649999999999068
+      },
+      {
+        "mode": "empty_retreat",
+        "hand": "right",
+        "wall_s": 1.526935338973999,
+        "sim_s": 0.8840000000000003
+      },
+      {
+        "mode": "neutral",
+        "hand": "left",
+        "wall_s": 0.09836864471435547,
+        "sim_s": 0.07349999999999568
+      },
+      {
+        "mode": "park",
+        "hand": "left",
+        "wall_s": 0.3565642833709717,
+        "sim_s": 0.23849999999998772
+      },
+      {
+        "mode": "retrieval_pickup",
+        "hand": "left",
+        "wall_s": 3.2255136966705322,
+        "sim_s": 2.164500000000004
+      },
+      {
+        "mode": "retrieval_pilot",
+        "hand": "left",
+        "wall_s": 0.25443172454833984,
+        "sim_s": 0.0519999999999925
+      },
+      {
+        "mode": "retrieval_transport",
+        "hand": "left",
+        "wall_s": 12.806134700775146,
+        "sim_s": 4.772500000000008
+      },
+      {
+        "mode": "empty_retreat",
+        "hand": "left",
+        "wall_s": 1.1895709037780762,
+        "sim_s": 0.8590000000000089
+      },
+      {
+        "mode": "retrieval_pickup",
+        "hand": "right",
+        "wall_s": 1.8470823764801025,
+        "sim_s": 1.3765000000000214
+      },
+      {
+        "mode": "retrieval_pilot",
+        "hand": "right",
+        "wall_s": 0.3876616954803467,
+        "sim_s": 0.07349999999999568
+      },
+      {
+        "mode": "retrieval_transport",
+        "hand": "right",
+        "wall_s": 12.55881643295288,
+        "sim_s": 4.813499999999976
+      },
+      {
+        "mode": "empty_retreat",
+        "hand": "right",
+        "wall_s": 1.828904390335083,
+        "sim_s": 1.4954999999999927
+      }
+    ],
+    "actual_planning_wall_s": 54.27947235107422,
+    "r333_planning_wall_s": 114.8373875617981,
+    "observed_planning_difference_s": 60.55791521072388,
+    "not_a_same_state_performance_benchmark": true,
+    "steady_spin_and_grip_observations_not_shortened": true
+  },
+  "task": {
+    "status": "PASS_RELAXED_SIMULATION_SEQUENTIAL_TASK_NOT_OLD_CERTIFICATE",
+    "counts": {
+      "localization_delivery_contract": 1,
+      "simulation_relaxation_declared": 1,
+      "sequential_runtime_declared": 1,
+      "raw_gripper_velocity": 22148,
+      "state": 7383,
+      "actual_full_joint_frame": 22148,
+      "machine": 10858,
+      "contact": 350740,
+      "button": 4940,
+      "contact_status": 2208,
+      "localization_delivery": 2202,
+      "localization_pose": 1101,
+      "localization": 1101,
+      "gripper_controller": 4356,
+      "button_controller_reference": 10000,
+      "passive_posture_settled": 1,
+      "localization_health": 877,
+      "fresh_startup_window_pass": 1,
+      "leg_posture_pass": 1,
+      "button_arm_command": 17,
+      "fast_button_tracking_sample": 85873,
+      "raw_button_contact": 1778,
+      "physical_press": 5,
+      "initial_button_withdraw_smoothing": 1,
+      "sequential_remaining_support": 7161,
+      "gripper_goal_accepted": 14,
+      "gripper_result": 14,
+      "original_gripper_endpoint_fresh_feedback_begin": 14,
+      "original_gripper_endpoint_fresh_feedback_pass": 14,
+      "paired_sim_wait_wall_budget": 34,
+      "sequential_actual_planning_started": 21,
+      "sequential_actual_snapshot_checked": 21,
+      "sequential_actual_collision_plan": 21,
+      "command": 39,
+      "paired_motion_wall_budget": 39,
+      "interval_endpoint_pass": 39,
+      "sequential_preload_claim": 4,
+      "grip_preload": 4,
+      "midband_contact_pass": 4,
+      "dual_holder_begin": 4,
+      "coherent_grip_reference_frozen": 4,
+      "synchronized_grip": 866,
+      "static_grip_hold_pass": 2,
+      "stationary_prefetch_consumed": 2,
+      "joined_segments_declared": 4,
+      "joined_segments_completed": 4,
+      "sequential_release_alignment_measured": 4,
+      "lower_release_gate_pass": 2,
+      "dual_holder_normal_release": 4,
+      "coherent_guard_scope_end": 4,
+      "drop_acceptance_pass": 2,
+      "sequential_loaded_one": 2,
+      "LOADING_PASS": 1,
+      "loaded_retention": 2212,
+      "closed_loaded_pass": 1,
+      "steady_start": 1,
+      "phase_aligned_stop_schedule": 1,
+      "stop_home_return_skipped": 1,
+      "rotor_stopped_before_lid": 1,
+      "actual_stop_handover_audit_started": 1,
+      "actual_stop_handover_dense_pass": 1,
+      "MACHINE_CYCLE_PASS": 1,
+      "retrieval_soft_grasp_profile": 2,
+      "retrieval_grip": 1999,
+      "sequential_retrieval_pilot_settle_started": 2,
+      "sequential_retrieval_pilot_settle_pass": 2,
+      "extraction_clearance": 275,
+      "retrieval_static_grip_hold_pass": 2,
+      "retrieval_setdown_braking": 2,
+      "sequential_single_setdown_timing": 2,
+      "table_setdown_bucket_clearance": 649,
+      "table_alignment_measured": 2,
+      "return_table_target": 2,
+      "table_return_pass": 2,
+      "terminal_table_hold_sample": 36,
+      "terminal_table_hold_pass": 1,
+      "PASS": 1
+    },
+    "actual_anchors": 4,
+    "actual_maximum_holders": 1,
+    "loads": [
+      "left",
+      "right"
+    ],
+    "returns": [
+      "left",
+      "right"
+    ],
+    "faults": [],
+    "maximum_output_effort_N": 17.056015279930815,
+    "maximum_native_finger_velocity_m_s": 0.21374349421812414,
+    "relaxed_velocity_monitor_m_s": 0.6,
+    "original_model_velocity_limit_m_s": 0.2,
+    "original_model_velocity_exceedances": 2,
+    "original_model_velocity_bound_certificate_not_claimed": true,
+    "original_velocity_numeric_tolerance_m_s": 1e-08,
+    "elapsed_sim_s": 221.46450000000002,
+    "elapsed_wall_s": 492.89374709129333
+  },
+  "geometry_component": {
+    "status": "PASS_EXACT_POSE_GEOMETRY_COMPONENT_ONLY_NOT_REALTIME_PROOF",
+    "actual_fixture_sha256": "797cb5421afc2854874e33227a3ceba4dc841fafa4ed976084812086486ff01f",
+    "source_pose_sha256": "a06b785d8c56eeadc6b17550a0acdc4d713635e4ef337e2a00848f50ad6dd0fe",
+    "source_bucket_sha256": "e232974810417bff26a080fa052a2712dca02dffa57c0e48aa6714b0fb03c2f6",
+    "actual_fixture_poses": 13,
+    "measurements": {
+      "pose": {
+        "parent": [
+          0.08928863400069531,
+          0.08841834300255869,
+          0.08799325999279972,
+          0.08914651999657508,
+          0.09366379299899563,
+          0.08809833601117134
+        ],
+        "candidate": [
+          0.04522084299242124,
+          0.04563618398969993,
+          0.045230603995150886,
+          0.046171176989446394,
+          0.045436810003593564,
+          0.045342243000050075
+        ],
+        "median_component_speedup": 1.9560114048778054
+      },
+      "corners": {
+        "parent": [
+          0.21109333999629598,
+          0.21730558600393124,
+          0.21466282800247427,
+          0.21327575999021064,
+          0.21339595199970063,
+          0.21418087699566968
+        ],
+        "candidate": [
+          0.09785278300114442,
+          0.09584411499963608,
+          0.09502284300106112,
+          0.09513149200938642,
+          0.09450966800795868,
+          0.09486725099850446
+        ],
+        "median_component_speedup": 2.248577866877861
+      }
+    },
+    "minimum_component_speedup": 1.9560114048778054,
+    "bucket_transform_cache": {
+      "hits": 0,
+      "misses": 2,
+      "maxsize": 512,
+      "currsize": 2
+    },
+    "dynamics_contact_sampling_guards_and_all_stamps_unchanged": true
+  },
+  "prior_r337_success_preserved": true,
+  "grip": {
+    "declared_relaxed_limits": {
+      "name": "simulation_speed_priority_v1",
+      "empty_rate_rad_s": 1.2,
+      "loaded_rate_rad_s": 0.8,
+      "near_rate_rad_s": 0.4,
+      "pilot_fine_rate_rad_s": 0.15,
+      "point_floor_sim_s": 0.002,
+      "first_point_sim_s": 0.04,
+      "tracking_near_rad": 0.04,
+      "tracking_free_rad": 0.08,
+      "button_tracking_rad": 0.15,
+      "button_contact_interval_sim_s": 0.02,
+      "gripper_velocity_monitor_m_s": 0.6,
+      "original_model_gripper_velocity_m_s": 0.2,
+      "endpoint_rad": 0.002,
+      "endpoint_hold_sim_s": 0.05,
+      "static_grip_hold_sim_s": 1.0,
+      "release_hold_sim_s": 0.5,
+      "terminal_hold_sim_s": 1.0,
+      "steady_spin_sim_s": 30.0,
+      "pose_clock_skew_sim_s": 0.75,
+      "pose_wall_age_s": 2.0,
+      "carry_slip_m": 0.005,
+      "carry_angle_deg": 10.0,
+      "snapshot_joint_rad": 0.003,
+      "snapshot_pose_m": 0.002,
+      "snapshot_angle_deg": 1.0,
+      "snapshot_finger_m": 0.001,
+      "coherent_native_lag_sim_s": 0.05,
+      "coherent_joint_bracket_sim_s": 0.012,
+      "trace_gzip_level": 1,
+      "retrieval_commanded_tilt_deg": 5.0,
+      "retrieval_pilot_rate_rad_s": 0.1,
+      "empty_button_rate_cap_rad_s": 0.8
+    },
+    "original_strict_certificate_not_claimed": true,
+    "status": "PASS",
+    "complete_task_pass": true,
+    "checks": {
+      "left": 1326,
+      "right": 1539
+    },
+    "anchors": 4,
+    "observed_ends": 4,
+    "still_held": [],
+    "simultaneous_checks": 0,
+    "peaks": {
+      "fk_slip_m": 0.0009365561818422699,
+      "native_slip_m": 0.0009416064196251129,
+      "angle_deg": 1.752225852149086,
+      "agreement_m": 9.184847006816087e-05,
+      "agreement_deg": 0.006754510186240029
+    },
+    "faults": [],
+    "original_actual_joint_brackets_and_both_immediate_native_guards_recomputed": true,
+    "commanded_values_or_current_payload_reference_rebase_not_used": true
+  },
+  "physical": {
+    "status": "PASS",
+    "gates": {
+      "authorized_relaxation": true,
+      "retrieval_transient_guard": true,
+      "lossless_trace": true,
+      "setdown_braking": true,
+      "leg_posture": true,
+      "executor": true,
+      "complete_final_event": true,
+      "both_loaded": true,
+      "both_drop_stable": true,
+      "machine_cycle": true,
+      "steady_30_seconds": true,
+      "physical_events": true,
+      "loaded_containment": true,
+      "both_retrieved": true,
+      "retrieval_grip_holds": true,
+      "full_extraction_clearance": true,
+      "table_setdown_bucket_clearance": true,
+      "terminal_hold_relaxed_one_second": true,
+      "final_stopped": true,
+      "final_open": true,
+      "one_start_stop": true,
+      "localization": true,
+      "grip_limits": true,
+      "no_failure": true,
+      "no_held_payload": true,
+      "left_final_table": true,
+      "right_final_table": true,
+      "distinct_return_slots": true
+    },
+    "original_fixed_30_3_window_passed": true,
+    "user_minimum_30_steady_seconds_preserved": true,
+    "actual_empty_dual_registry": true,
+    "scope": "speed_priority_relaxed_simulation_not_r318_strict_certificate",
+    "speed_profile": {
+      "name": "simulation_speed_priority_v1",
+      "empty_rate_rad_s": 1.2,
+      "loaded_rate_rad_s": 0.8,
+      "near_rate_rad_s": 0.4,
+      "pilot_fine_rate_rad_s": 0.15,
+      "point_floor_sim_s": 0.002,
+      "first_point_sim_s": 0.04,
+      "tracking_near_rad": 0.04,
+      "tracking_free_rad": 0.08,
+      "button_tracking_rad": 0.15,
+      "button_contact_interval_sim_s": 0.02,
+      "gripper_velocity_monitor_m_s": 0.6,
+      "original_model_gripper_velocity_m_s": 0.2,
+      "endpoint_rad": 0.002,
+      "endpoint_hold_sim_s": 0.05,
+      "static_grip_hold_sim_s": 1.0,
+      "release_hold_sim_s": 0.5,
+      "terminal_hold_sim_s": 1.0,
+      "steady_spin_sim_s": 30.0,
+      "pose_clock_skew_sim_s": 0.75,
+      "pose_wall_age_s": 2.0,
+      "carry_slip_m": 0.005,
+      "carry_angle_deg": 10.0,
+      "snapshot_joint_rad": 0.003,
+      "snapshot_pose_m": 0.002,
+      "snapshot_angle_deg": 1.0,
+      "snapshot_finger_m": 0.001,
+      "coherent_native_lag_sim_s": 0.05,
+      "coherent_joint_bracket_sim_s": 0.012,
+      "trace_gzip_level": 1,
+      "retrieval_commanded_tilt_deg": 5.0,
+      "retrieval_pilot_rate_rad_s": 0.1,
+      "empty_button_rate_cap_rad_s": 0.8
+    },
+    "authorized_relaxation": {
+      "user_authorized": true,
+      "retrieval_transient_limit_rpm": 0.1,
+      "carry_angle_limit_deg": 10.0,
+      "original_strict_certificate_not_claimed": true,
+      "speed_profile": {
+        "name": "simulation_speed_priority_v1",
+        "empty_rate_rad_s": 1.2,
+        "loaded_rate_rad_s": 0.8,
+        "near_rate_rad_s": 0.4,
+        "pilot_fine_rate_rad_s": 0.15,
+        "point_floor_sim_s": 0.002,
+        "first_point_sim_s": 0.04,
+        "tracking_near_rad": 0.04,
+        "tracking_free_rad": 0.08,
+        "button_tracking_rad": 0.15,
+        "button_contact_interval_sim_s": 0.02,
+        "gripper_velocity_monitor_m_s": 0.6,
+        "original_model_gripper_velocity_m_s": 0.2,
+        "endpoint_rad": 0.002,
+        "endpoint_hold_sim_s": 0.05,
+        "static_grip_hold_sim_s": 1.0,
+        "release_hold_sim_s": 0.5,
+        "terminal_hold_sim_s": 1.0,
+        "steady_spin_sim_s": 30.0,
+        "pose_clock_skew_sim_s": 0.75,
+        "pose_wall_age_s": 2.0,
+        "carry_slip_m": 0.005,
+        "carry_angle_deg": 10.0,
+        "snapshot_joint_rad": 0.003,
+        "snapshot_pose_m": 0.002,
+        "snapshot_angle_deg": 1.0,
+        "snapshot_finger_m": 0.001,
+        "coherent_native_lag_sim_s": 0.05,
+        "coherent_joint_bracket_sim_s": 0.012,
+        "trace_gzip_level": 1,
+        "retrieval_commanded_tilt_deg": 5.0,
+        "retrieval_pilot_rate_rad_s": 0.1,
+        "empty_button_rate_cap_rad_s": 0.8
+      }
+    },
+    "retrieval_samples": 4047,
+    "retrieval_transient_faults": 0,
+    "peak_retrieval_rpm": 0.04589950686895451,
+    "original_quiet_exceeding_samples": 4,
+    "minimum_extraction_clearance_m": 0.01734377884165101,
+    "clearance_checks": 275,
+    "independently_recomputed_table_clearance_checks": {
+      "left": 212,
+      "right": 437
+    },
+    "minimum_table_bucket_clearance_m": 0.13910715999357448,
+    "terminal_hold": {
+      "duration_sim_s": 1.0,
+      "policy": {
+        "profile": "simulation_speed_priority_v1",
+        "duration_sim_s": 1.0,
+        "original_table_support_pose_checks_preserved": true
+      },
+      "peaks": {
+        "left_position_error_m": 0.00017689796396733537,
+        "left_drift_m": 0,
+        "left_orientation_error_deg": 0.0029349448188931496,
+        "right_position_error_m": 0.00017299967516067963,
+        "right_drift_m": 0,
+        "right_orientation_error_deg": 0.13526512351480288,
+        "passive_leg_deviation_rad": 8.083811398051921e-14
+      },
+      "no_held_payload": true,
+      "neutral_arms_not_claimed": true,
+      "original_policy_metadata": "both_table_slots_verified_empty_open_grippers_hold_at_release_no_final_park"
+    },
+    "terminal_samples": 36,
+    "terminal_failures": 0,
+    "event_counts": {
+      "localization_delivery_contract": 1,
+      "simulation_relaxation_declared": 1,
+      "sequential_runtime_declared": 1,
+      "raw_gripper_velocity": 22148,
+      "state": 7383,
+      "actual_full_joint_frame": 22148,
+      "machine": 10858,
+      "contact": 350740,
+      "button": 4940,
+      "contact_status": 2208,
+      "localization_delivery": 2202,
+      "localization_pose": 1101,
+      "localization": 1101,
+      "gripper_controller": 4356,
+      "button_controller_reference": 10000,
+      "passive_posture_settled": 1,
+      "localization_health": 877,
+      "fresh_startup_window_pass": 1,
+      "leg_posture_pass": 1,
+      "button_arm_command": 17,
+      "fast_button_tracking_sample": 85873,
+      "raw_button_contact": 1778,
+      "physical_press": 5,
+      "initial_button_withdraw_smoothing": 1,
+      "sequential_remaining_support": 7161,
+      "gripper_goal_accepted": 14,
+      "gripper_result": 14,
+      "original_gripper_endpoint_fresh_feedback_begin": 14,
+      "original_gripper_endpoint_fresh_feedback_pass": 14,
+      "paired_sim_wait_wall_budget": 34,
+      "sequential_actual_planning_started": 21,
+      "sequential_actual_snapshot_checked": 21,
+      "sequential_actual_collision_plan": 21,
+      "command": 39,
+      "paired_motion_wall_budget": 39,
+      "interval_endpoint_pass": 39,
+      "sequential_preload_claim": 4,
+      "grip_preload": 4,
+      "midband_contact_pass": 4,
+      "dual_holder_begin": 4,
+      "coherent_grip_reference_frozen": 4,
+      "synchronized_grip": 866,
+      "static_grip_hold_pass": 2,
+      "stationary_prefetch_consumed": 2,
+      "joined_segments_declared": 4,
+      "joined_segments_completed": 4,
+      "sequential_release_alignment_measured": 4,
+      "lower_release_gate_pass": 2,
+      "dual_holder_normal_release": 4,
+      "coherent_guard_scope_end": 4,
+      "drop_acceptance_pass": 2,
+      "sequential_loaded_one": 2,
+      "LOADING_PASS": 1,
+      "loaded_retention": 2212,
+      "closed_loaded_pass": 1,
+      "steady_start": 1,
+      "phase_aligned_stop_schedule": 1,
+      "stop_home_return_skipped": 1,
+      "rotor_stopped_before_lid": 1,
+      "actual_stop_handover_audit_started": 1,
+      "actual_stop_handover_dense_pass": 1,
+      "MACHINE_CYCLE_PASS": 1,
+      "retrieval_soft_grasp_profile": 2,
+      "retrieval_grip": 1999,
+      "sequential_retrieval_pilot_settle_started": 2,
+      "sequential_retrieval_pilot_settle_pass": 2,
+      "extraction_clearance": 275,
+      "retrieval_static_grip_hold_pass": 2,
+      "retrieval_setdown_braking": 2,
+      "sequential_single_setdown_timing": 2,
+      "table_setdown_bucket_clearance": 649,
+      "table_alignment_measured": 2,
+      "return_table_target": 2,
+      "table_return_pass": 2,
+      "terminal_table_hold_sample": 36,
+      "terminal_table_hold_pass": 1,
+      "PASS": 1
+    },
+    "loaded_pose_checks": 2314,
+    "containment_faults": 0,
+    "physical_press_events": [
+      {
+        "source": "gazebo_physics_contact",
+        "button": "lid",
+        "sequence": 1,
+        "sim_time": 28.7965,
+        "contact": {
+          "stamp": 28.796,
+          "valid": true,
+          "pairs": [
+            {
+              "first": "centrifuge::assembly::lid_button_collision",
+              "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+              "depths": [
+                6.5294569318846e-06,
+                3.183105212575116e-06
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "source": "gazebo_physics_contact",
+        "button": "lid",
+        "sequence": 2,
+        "sim_time": 99.6375,
+        "contact": {
+          "stamp": 99.637,
+          "valid": true,
+          "pairs": [
+            {
+              "first": "centrifuge::assembly::lid_button_collision",
+              "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+              "depths": [
+                6.528778571409169e-06,
+                3.1824535611513216e-06
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "source": "gazebo_physics_contact",
+        "button": "rotor",
+        "sequence": 3,
+        "sim_time": 107.0905,
+        "contact": {
+          "stamp": 107.09,
+          "valid": true,
+          "pairs": [
+            {
+              "first": "centrifuge::assembly::rotor_button_collision",
+              "second": "h1_2::right_dex1_finger_2_slider_link::right_dex1_finger_2_slider_link_fixed_joint_lump__right_dex1_finger_2_link_collision_1",
+              "depths": [
+                6.529261992758127e-06,
+                3.1829145250138885e-06
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "source": "gazebo_physics_contact",
+        "button": "rotor",
+        "sequence": 4,
+        "sim_time": 141.132,
+        "contact": {
+          "stamp": 141.1315,
+          "valid": true,
+          "pairs": [
+            {
+              "first": "centrifuge::assembly::rotor_button_collision",
+              "second": "h1_2::right_dex1_finger_2_slider_link::right_dex1_finger_2_slider_link_fixed_joint_lump__right_dex1_finger_2_link_collision_1",
+              "depths": [
+                1.0793318810528585e-05,
+                7.475913231514558e-06
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "source": "gazebo_physics_contact",
+        "button": "lid",
+        "sequence": 5,
+        "sim_time": 153.9575,
+        "contact": {
+          "stamp": 153.957,
+          "valid": true,
+          "pairs": [
+            {
+              "first": "centrifuge::assembly::lid_button_collision",
+              "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+              "depths": [
+                6.464490983804257e-06,
+                3.117704118221591e-06
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "localization_samples": 1101,
+    "localization_invalid": 0,
+    "peak_rpm": 30.053096113969108,
+    "peak_slip_m": 0.0009416064196251129,
+    "peak_angle_deg": 1.752225852149086,
+    "carry_angle_limit_deg": 10.0,
+    "original_carry_angle_gate_passed": true,
+    "first_sim": 24.004,
+    "final_sim": 245.4685,
+    "retention_checks": 2212,
+    "maximum_zero_force_gap_sim_s": 0.0,
+    "maximum_side_overhang_m": 6.688760423782109e-05,
+    "maximum_loaded_contact_depth_m": 0.0002950743031496489,
+    "contact_geometry_rounding_m": 5e-06,
+    "original_contact_depth_limit_m": 0.001,
+    "contact_aware_geometry_bound_m": 0.001,
+    "maximum_bottom_penetration_m": 0.00029210630307125937,
+    "certificate": "same-basket contact manifold continuously present, positive support within 20ms, wall normal above 5um, original 1mm penetration bound",
+    "duration_sim_s": 221.46450000000002,
+    "final_machine": {
+      "ready": true,
+      "rotor_enabled": false,
+      "open_lid_demo": false,
+      "stopped_velocity_gain": 80,
+      "startup_ramp_rad_s2": 0.8,
+      "stopped_position_gain": 8000,
+      "brake_active": true,
+      "rotor_angle_rad": 105.70935431341645,
+      "brake_reference_rad": 105.70935431341658,
+      "brake_position_error_rad": 1.2789769243681803e-13,
+      "motor_torque_nm": 1.2789769243681803e-13,
+      "rotor_rad_s": 1.2789769243681803e-11,
+      "rotor_rpm": 1.2213329976819904e-10,
+      "lid_rad": 2.0943951023932086,
+      "lid_target_rad": 2.0943951023931953,
+      "can_open": true,
+      "can_start": false,
+      "starts": 1,
+      "stops": 1,
+      "blocked_lid": 0,
+      "blocked_start": 0,
+      "rejected": ""
+    },
+    "failures": []
+  },
+  "paths": {
+    "status": "PASS_ACTUAL_SEQUENTIAL_COMMAND_PATHS_NOT_ABSOLUTE_COLLISION_GUARANTEE",
+    "authority": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r353",
+    "identity_sha256": "b2d9b669704f61323a3cde92c3b7615b709d4c54df7490f474fa99bb62721321",
+    "records": [
+      {
+        "mode": "park",
+        "hand": "left",
+        "payload": "left",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 451,
+        "maximum_active_basket_from_down_deg": null,
+        "endpoint_errors": [],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "1_park_left_request.json",
+        "request_sha256": "9d724925e46e3a6c6db07b835eb6c027d75e5c30757eadad38a5d09b826d52d9",
+        "result_sha256": "850d46b7e1425a97377dd1ca48be0c5692a1abbbdf0de39a7bf991765d3a0af1"
+      },
+      {
+        "mode": "load_pickup",
+        "hand": "left",
+        "payload": "left",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 1953,
+        "maximum_active_basket_from_down_deg": null,
+        "endpoint_errors": [],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "2_load_pickup_left_request.json",
+        "request_sha256": "d28d604929b6692771297d1759c8b6b920a99c1b9a58593b508fed064045f3d6",
+        "result_sha256": "b1ea64d8439a5723e247cc395886170d83ea2fd4dd52b56a5ae87e6d4e690565"
+      },
+      {
+        "mode": "load_pilot",
+        "hand": "left",
+        "payload": "left",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 82,
+        "maximum_active_basket_from_down_deg": null,
+        "endpoint_errors": [
+          {
+            "phase": "single_pilot",
+            "position_m": 3.3735179485453714e-12,
+            "angle_deg": 1.1187627467896029e-09
+          }
+        ],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "3_load_pilot_left_request.json",
+        "request_sha256": "8a6c17581827a4699e2ada2da66aeb8ee28bb5810b7378466227e41cbc8d5a68",
+        "result_sha256": "93cf4237dd60d00a95599f0d3f893ac2a09e524c3b90bff82c7ef1e7f5e6f127"
+      },
+      {
+        "mode": "load_transport",
+        "hand": "left",
+        "payload": "left",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 2165,
+        "maximum_active_basket_from_down_deg": 14.18438236967364,
+        "endpoint_errors": [
+          {
+            "phase": "load_lift",
+            "position_m": 2.849190251899633e-09,
+            "angle_deg": 8.946623021789605e-07
+          },
+          {
+            "phase": "load_transfer",
+            "position_m": 1.9519874134713538e-12,
+            "angle_deg": 5.886941480838198e-10
+          },
+          {
+            "phase": "load_lower",
+            "position_m": 2.189082052479783e-12,
+            "angle_deg": 7.233763176161828e-10
+          }
+        ],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "4_load_transport_left_request.json",
+        "request_sha256": "3b052e7d80c8d31efa72c4ec4f2a28136253356d3a16286b1e2586025f354129",
+        "result_sha256": "38f6db9b18356f1051a3d086dfdffa945fca4b81c7490cab08b204e814bbceac"
+      },
+      {
+        "mode": "load_release_align",
+        "hand": "left",
+        "payload": "left",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 42,
+        "maximum_active_basket_from_down_deg": 7.4725964641163936,
+        "endpoint_errors": [
+          {
+            "phase": "load_release_pilot_align",
+            "position_m": 1.0021766288088708e-12,
+            "angle_deg": 3.365403641087792e-10
+          }
+        ],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "5_load_release_align_left_request.json",
+        "request_sha256": "26582e6796faeea476d35a6173651821dc497338a0b137b9b5c612364363d9ed",
+        "result_sha256": "e81efd502d8656c0b6b1d9cfe94f461fba5f5f05d0a110d66ebf80b80325cac4"
+      },
+      {
+        "mode": "empty_retreat",
+        "hand": "left",
+        "payload": "left",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 1716,
+        "maximum_active_basket_from_down_deg": null,
+        "endpoint_errors": [],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "6_empty_retreat_left_request.json",
+        "request_sha256": "33889ce8816aeb4f5369c089861433d975d86985aff58d752152956ab24c73c0",
+        "result_sha256": "4e353312a3cf357ac38b5198af55c3a41722236e90f3dd5b95539afa9ff6b13f"
+      },
+      {
+        "mode": "load_pickup",
+        "hand": "right",
+        "payload": "right",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 1983,
+        "maximum_active_basket_from_down_deg": null,
+        "endpoint_errors": [],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "7_load_pickup_right_request.json",
+        "request_sha256": "7c6f0f8c657db8d1f63d54c03373270aa70c1c337f5d32a83f18bb219a974bc2",
+        "result_sha256": "f852b5e4255bf0cb8e534ef6e3c0a320b962f958c0db26fd662f41abe10a828e"
+      },
+      {
+        "mode": "load_pilot",
+        "hand": "right",
+        "payload": "right",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 82,
+        "maximum_active_basket_from_down_deg": null,
+        "endpoint_errors": [
+          {
+            "phase": "single_pilot",
+            "position_m": 3.4519934843991694e-12,
+            "angle_deg": 1.3007165859517815e-09
+          }
+        ],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "8_load_pilot_right_request.json",
+        "request_sha256": "90ae83d04535d88c5feaa2e2509275a32f641aa82a2891deb8844f6448bbcbe3",
+        "result_sha256": "8b252ffa5eb9c1b833d5714a3a585fdc075cc419f10fb83c230d04b242079393"
+      },
+      {
+        "mode": "load_transport",
+        "hand": "right",
+        "payload": "right",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 1611,
+        "maximum_active_basket_from_down_deg": 16.82572099412482,
+        "endpoint_errors": [
+          {
+            "phase": "load_lift",
+            "position_m": 1.6249289917185666e-12,
+            "angle_deg": 3.9385154886211393e-10
+          },
+          {
+            "phase": "load_transfer",
+            "position_m": 6.326333141811126e-13,
+            "angle_deg": 2.722630379447486e-10
+          },
+          {
+            "phase": "load_lower",
+            "position_m": 1.1844511236639582e-12,
+            "angle_deg": 3.578791534337368e-10
+          }
+        ],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "9_load_transport_right_request.json",
+        "request_sha256": "f680e4e36757979c12231ca5c805a71d904296985f55135f43588ed8174e8ab8",
+        "result_sha256": "7bb347f005203712034511e54021687c495b93d1df1c249ce101d8efa6249bfd"
+      },
+      {
+        "mode": "load_release_align",
+        "hand": "right",
+        "payload": "right",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 42,
+        "maximum_active_basket_from_down_deg": 4.619815940282943,
+        "endpoint_errors": [
+          {
+            "phase": "load_release_pilot_align",
+            "position_m": 2.552369427308834e-13,
+            "angle_deg": 7.880027237300918e-11
+          }
+        ],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "10_load_release_align_right_request.json",
+        "request_sha256": "238add8823e11b47a0d3ab3dd3727e27d45579a4a7e9caaae89f43d21befaef0",
+        "result_sha256": "9d708f5d665ff0bc796155ff22aacd06f33434d7ec4b647ec7b747905dd34625"
+      },
+      {
+        "mode": "empty_retreat",
+        "hand": "right",
+        "payload": "right",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 1826,
+        "maximum_active_basket_from_down_deg": null,
+        "endpoint_errors": [],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "11_empty_retreat_right_request.json",
+        "request_sha256": "2473133b49860bf851a7a45c9257d769cd912af093e74ad621d125ca0f8b549a",
+        "result_sha256": "1555d0e208d00a9359481b34db3f515ec995639ab00b736765e2057a71129e80"
+      },
+      {
+        "mode": "neutral",
+        "hand": "left",
+        "payload": "left",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 385,
+        "maximum_active_basket_from_down_deg": null,
+        "endpoint_errors": [],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "12_neutral_left_request.json",
+        "request_sha256": "81d961754c8e619885440a3761798ccd055b07f4fcaf793d48a2d1ece9cd5355",
+        "result_sha256": "57b721c30aca899bd002676f00a29ce4a72708bb147b6acd006e166c8352035d"
+      },
+      {
+        "mode": "park",
+        "hand": "left",
+        "payload": "left",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 651,
+        "maximum_active_basket_from_down_deg": null,
+        "endpoint_errors": [],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "13_park_left_request.json",
+        "request_sha256": "91f6104cd18795d975c0ea7fe445d1f9dadd71f82b0258e13ea8c941bc3c3e93",
+        "result_sha256": "6119d80aa3b05667d53a556c750069d9d09d3482b7977b433af1c4db20728660"
+      },
+      {
+        "mode": "retrieval_pickup",
+        "hand": "left",
+        "payload": "left",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 1862,
+        "maximum_active_basket_from_down_deg": 10.454398987608691,
+        "endpoint_errors": [],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "14_retrieval_pickup_left_request.json",
+        "request_sha256": "927a0102d1b847b92e916595f18f6e005a734fd1a2a32ec526558b40b3b6203e",
+        "result_sha256": "63ca0e3865f727e0b71711c58b423ab3bb8f03764a7e0a056ae03a69b2d44e2d"
+      },
+      {
+        "mode": "retrieval_pilot",
+        "hand": "left",
+        "payload": "left",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 62,
+        "maximum_active_basket_from_down_deg": 11.14022786218236,
+        "endpoint_errors": [
+          {
+            "phase": "single_pilot",
+            "position_m": 2.025558859065756e-12,
+            "angle_deg": 5.465195275893406e-10
+          }
+        ],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "15_retrieval_pilot_left_request.json",
+        "request_sha256": "bebcb5d9e8ae1e4b4557fe46a2848d65f6ce1918829fd101d05792de9cad1203",
+        "result_sha256": "0e5384ac31f7451fd8504c241bebfdb0378088958cac4edd84735f25bc9b2dbd"
+      },
+      {
+        "mode": "retrieval_transport",
+        "hand": "left",
+        "payload": "left",
+        "retrieval_commanded_tilt_limit_deg": 5.0,
+        "maximum_retrieval_planned_tilt_deg": 1.3164255102675373,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 2212,
+        "maximum_active_basket_from_down_deg": 22.522533112384377,
+        "endpoint_errors": [
+          {
+            "phase": "retrieve_axis_exit",
+            "position_m": 3.344808547152752e-10,
+            "angle_deg": 2.1727677263810096e-07
+          },
+          {
+            "phase": "retrieve_lift",
+            "position_m": 3.674597321546521e-10,
+            "angle_deg": 2.404859732012359e-07
+          },
+          {
+            "phase": "retrieve_outboard",
+            "position_m": 1.8802677972946696e-10,
+            "angle_deg": 1.8250889145415428e-07
+          },
+          {
+            "phase": "retrieve_transfer",
+            "position_m": 3.589063305082673e-11,
+            "angle_deg": 1.0747495741601245e-08
+          },
+          {
+            "phase": "retrieve_setdown",
+            "position_m": 4.2655184835117575e-11,
+            "angle_deg": 1.3605794043580547e-08
+          }
+        ],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "16_retrieval_transport_left_request.json",
+        "request_sha256": "6590bf2043b8792007552e63c33911bbb844418779adf178aa2ee40a6825307a",
+        "result_sha256": "b3481ae63539d2693e58036eeaf367e951d3dad4cee760877a2d493df0becb07"
+      },
+      {
+        "mode": "empty_retreat",
+        "hand": "left",
+        "payload": "left",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 1802,
+        "maximum_active_basket_from_down_deg": null,
+        "endpoint_errors": [],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "17_empty_retreat_left_request.json",
+        "request_sha256": "5e49dc5e501172ab96d7667aeb44ee6c0ce1de60724954181f46505496858446",
+        "result_sha256": "bd9daec135acb30dd4abd7239e4c8903a51fb01b4c95bdb76df758559683ce58"
+      },
+      {
+        "mode": "retrieval_pickup",
+        "hand": "right",
+        "payload": "right",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 1708,
+        "maximum_active_basket_from_down_deg": 13.065486114058377,
+        "endpoint_errors": [],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "18_retrieval_pickup_right_request.json",
+        "request_sha256": "2c93d1e7acdbe0b8301fcbf95f9b7779fe9e71968e474f0d34f8a181f0e11c56",
+        "result_sha256": "ebfdc353b4b5c1ecda1e81102b7cacc5c377973fd9567a16fe6f19adaf06c43a"
+      },
+      {
+        "mode": "retrieval_pilot",
+        "hand": "right",
+        "payload": "right",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 62,
+        "maximum_active_basket_from_down_deg": 13.57230221290424,
+        "endpoint_errors": [
+          {
+            "phase": "single_pilot",
+            "position_m": 2.1572267966155977e-12,
+            "angle_deg": 5.827573728435011e-10
+          }
+        ],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "19_retrieval_pilot_right_request.json",
+        "request_sha256": "bd07b27355fc136421abe80e2d6aecec87f4cdb54a6615eec3123f44f423ccfd",
+        "result_sha256": "7603c00b3f3f0273369920758af7e00e0b54859c87645252046f67ef65643761"
+      },
+      {
+        "mode": "retrieval_transport",
+        "hand": "right",
+        "payload": "right",
+        "retrieval_commanded_tilt_limit_deg": 5.0,
+        "maximum_retrieval_planned_tilt_deg": 1.5546421729136295,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 2623,
+        "maximum_active_basket_from_down_deg": 15.56147137203048,
+        "endpoint_errors": [
+          {
+            "phase": "retrieve_axis_exit",
+            "position_m": 2.466399956347774e-10,
+            "angle_deg": 2.8356317004447197e-07
+          },
+          {
+            "phase": "retrieve_lift",
+            "position_m": 2.2055199740154037e-10,
+            "angle_deg": 3.122895747330448e-07
+          },
+          {
+            "phase": "retrieve_outboard",
+            "position_m": 2.2271133927260541e-10,
+            "angle_deg": 2.518938070550972e-07
+          },
+          {
+            "phase": "retrieve_transfer",
+            "position_m": 1.6575027684763707e-10,
+            "angle_deg": 4.6597655932532715e-08
+          },
+          {
+            "phase": "retrieve_setdown",
+            "position_m": 6.042439250006104e-11,
+            "angle_deg": 1.8391559485981043e-08
+          }
+        ],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "20_retrieval_transport_right_request.json",
+        "request_sha256": "147909e507c6dfbe47c8603c172a21b5c1cc3fe9517644f396bd75b1ef299271",
+        "result_sha256": "263f0545af8a625091ff0f216b295718b58ba0ef537da20d1f0d4928e11ee9ac"
+      },
+      {
+        "mode": "empty_retreat",
+        "hand": "right",
+        "payload": "right",
+        "retrieval_commanded_tilt_limit_deg": 2.0,
+        "maximum_retrieval_planned_tilt_deg": null,
+        "original_dense_step_rad": 0.002,
+        "final_path_dense_checks": 1235,
+        "maximum_active_basket_from_down_deg": null,
+        "endpoint_errors": [],
+        "subpicoradian_roundoff_joins_with_full_original_dense_FCL": [],
+        "original_ik_collision_contact_exceptions_and_shrunken_limits_unchanged": true,
+        "request": "21_empty_retreat_right_request.json",
+        "request_sha256": "ae6e58c316a899824b37e41b7c311dee73b8c85b34765849d3bb43c37df2606a",
+        "result_sha256": "e3c9c6aa7b0321ea6d3d7a6a90f3184e4ad69e6204824211026ecb8eddefc727"
+      }
+    ],
+    "final_path_dense_checks": 24555,
+    "exact_published_paths": true,
+    "elapsed_wall_s": 33.37764621099632,
+    "model_visual_only_wrist_collision_limitation_preserved": true,
+    "no_physical_action": true,
+    "no_claim_perfect_vertical_or_real_robot_or_three_minutes": true
+  },
+  "video": {
+    "status": "PASS",
+    "full_decode_returncode": 0,
+    "probe_returncode": 0,
+    "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r353/run/full_cycle.mp4",
+    "size_bytes": 21324730,
+    "metadata": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1200,
+          "height": 900,
+          "coded_width": 1200,
+          "coded_height": 912,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "pix_fmt": "yuv420p",
+          "level": 32,
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 4,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "12/1",
+          "avg_frame_rate": "12/1",
+          "time_base": "1/12288",
+          "start_pts": 2048,
+          "start_time": "0.166667",
+          "duration_ts": 6545408,
+          "duration": "532.666667",
+          "bit_rate": "318966",
+          "bits_per_raw_sample": "8",
+          "nb_read_frames": "6392",
+          "extradata_size": 46,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "non_diegetic": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc60.31.102 libx264"
+          }
+        }
+      ],
+      "format": {
+        "filename": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r353/run/full_cycle.mp4",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.166667",
+        "duration": "532.666667",
+        "size": "21324730",
+        "bit_rate": "320271",
+        "probe_score": 100,
+        "tags": {
+          "major_brand": "iso5",
+          "minor_version": "512",
+          "compatible_brands": "iso5iso6mp41",
+          "encoder": "Lavf60.16.100"
+        }
+      }
+    },
+    "normal_sigint": true,
+    "specific_window_only": true
+  },
+  "video_sha256": "87f5eba7678426bc010afa7a9303791936393f77316b9775173d47dcf6cdc1bd",
+  "image_review": {
+    "actual_tool_inspection": true,
+    "frames": [
+      "../centrifuge_48box_sequential_full_20261022_r353/run/startup_frame.png",
+      "video_100s.png",
+      "video_150s.png",
+      "video_370s.png",
+      "video_450s.png",
+      "../centrifuge_48box_sequential_full_20261022_r353/run/final_scene.png",
+      "../centrifuge_48box_sequential_full_20261022_r353/run/final_overhead.png"
+    ],
+    "terminal_two_boxes_on_table": true,
+    "observations": "\u5b9e\u9645\u67e5\u770b\u9996\u5e27\u3001\u539f\u7247100/150/370/450\u79d2\u56db\u5e27\u53ca\u6b63\u9762/\u4fef\u89c6\u7ec8\u5e27\u3002100\u79d2\u5355\u624b\u62ac\u8098\u6301\u76d2\uff0c150\u79d2\u4e00\u76d2\u5df2\u5728\u7bee\u5185\u53e6\u4e00\u624b\u5728\u684c\u76d2\u5904\uff0c370\u79d2\u4e00\u624b\u53d6\u76d2\u800c\u53e6\u4e00\u76d2\u4ecd\u5728\u7bee\u5185\uff0c450\u79d2\u53e6\u4e00\u624b\u53d6\u76d2\u3002\u7ec8\u6001\u4fef\u89c6\u4e24\u76d2\u5728\u684c\u5b50\u4e24\u4fa7\uff0c\u53cc\u722a\u5f20\u5f00\uff0c\u4e24\u4e2a\u6447\u7bee\u7a7a\uff0c\u76d6\u5f00\u3002\u6b63\u9762\u8fdc\u4fa7\u76d2\u53d7\u673a\u8eab\u906e\u6321\uff0c\u53cc\u8fd4\u684c\u7ed3\u8bba\u4f7f\u7528\u4fef\u89c6\u56fe\u548c\u72ec\u7acb\u7269\u7406\u6838\u9a8c\u3002\u4e0d\u5ba3\u79f0\u9010\u5e27\u89c2\u770b\u6216\u4ece\u8fd9\u4e9b\u56fe\u8bc1\u660e\u5168\u7a0b\u65e0\u78b0\u649e\u3002",
+    "entire_video_watched": false
+  },
+  "nine_protection_groups_before_after_pass": true,
+  "r318_r327_r331_r333_and_failed_r334_preserved": true
+}

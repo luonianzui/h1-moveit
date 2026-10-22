@@ -1,0 +1,75 @@
+{
+  "status": "PASS_STORAGE_MIGRATION_NOT_PHYSICAL_RUN",
+  "migration": {
+    "status": "PASS",
+    "files": 5,
+    "original_bytes": 4451774245,
+    "original_allocated_bytes": 4451807232,
+    "compressed_bytes": 893325387,
+    "compressed_allocated_bytes": 893349888,
+    "saved_allocated_bytes": 3558457344,
+    "raw_files_remaining": 0,
+    "free_bytes": 5157720064
+  },
+  "nine_protection_groups_identical": true,
+  "unchanged_runtime_entry_and_31_archive_registry": true,
+  "unchanged_original_dependencies_for_r347_and_r351": {
+    "status": "PASS",
+    "records": [
+      {
+        "run": "centrifuge_48box_sequential_full_20261022_r347",
+        "unchanged_bound_dependencies": 36
+      },
+      {
+        "run": "centrifuge_48box_sequential_full_20261022_r351",
+        "unchanged_bound_dependencies": 36
+      }
+    ],
+    "ordinary_runtime_wrapper": true
+  },
+  "tests": {
+    "archive_tests_revision2.log": 56,
+    "r351_regression.log": 2268,
+    "r347_regression.log": 2240,
+    "configuration_regression.log": 46,
+    "loading_regression.log": 122
+  },
+  "total_passed_tests": 4732,
+  "original_authority_prefix": {
+    "bytes": 924595,
+    "sha256": "0d1b474fd7efdd25088d05a008afa65c7672345133f05e035e1457fdab1b4c0f"
+  },
+  "authority_prefix_unchanged": true,
+  "checked_document_links": 273,
+  "five_cold_manifests_verified": [
+    {
+      "path": "runtime_evidence/centrifuge_48box_servo_gain02_20261007_r144/SHA256SUMS",
+      "sha256": "ebc087bbb306c8c03eadabcf5b9da20cd07778b17d922d297a552463a35751b3",
+      "original_members_verified": 108
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_velocity_epsilon_20261007_r147/SHA256SUMS",
+      "sha256": "68c4d5176d869c6db6936a5b2f500f56938a5b1cefb4d035817b73dabacced43",
+      "original_members_verified": 105
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_passive_rotor_settle_20261007_r148/SHA256SUMS",
+      "sha256": "12d9126412c9ee08e59bd82905c0f221f4781e95ea8a6fdb613e191d157bd132",
+      "original_members_verified": 112
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_drop_contact_settle_20261007_r149/SHA256SUMS",
+      "sha256": "e3bd35f6315a113fa58cf2cc6aaea691f9a744d6adddad0b4bd3be7450ee7c1b",
+      "original_members_verified": 118
+    },
+    {
+      "path": "runtime_evidence/centrifuge_48box_left_reorient_20261008_r150/SHA256SUMS",
+      "sha256": "20f9666f5614b11164f840c7aef29ff3c77c9cd0219ee458b2968ff2dd78f856",
+      "original_members_verified": 130
+    }
+  ],
+  "current_free_bytes": 5154656256,
+  "observed_simulation_recorder_processes": [],
+  "new_simulation_or_robot_motion": false,
+  "backup_or_model_changes": false
+}

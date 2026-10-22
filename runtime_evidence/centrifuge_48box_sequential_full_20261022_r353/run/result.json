@@ -1,0 +1,159 @@
+{
+  "status": "PASS",
+  "scope": "two_box_load_close_spin_open_retrieve",
+  "error": null,
+  "holding": null,
+  "held_payload": null,
+  "motions": 148,
+  "max_slip_m": 0.000982829651822807,
+  "max_native_slip_m": 0.0009810073445514665,
+  "final_machine": {
+    "ready": true,
+    "rotor_enabled": false,
+    "open_lid_demo": false,
+    "stopped_velocity_gain": 80,
+    "startup_ramp_rad_s2": 0.8,
+    "stopped_position_gain": 8000,
+    "brake_active": true,
+    "rotor_angle_rad": 105.70935431341645,
+    "brake_reference_rad": 105.70935431341658,
+    "brake_position_error_rad": 1.2789769243681803e-13,
+    "motor_torque_nm": 1.2789769243681803e-13,
+    "rotor_rad_s": 1.2789769243681803e-11,
+    "rotor_rpm": 1.2213329976819904e-10,
+    "lid_rad": 2.0943951023932086,
+    "lid_target_rad": 2.0943951023931953,
+    "can_open": true,
+    "can_start": false,
+    "starts": 1,
+    "stops": 1,
+    "blocked_lid": 0,
+    "blocked_start": 0,
+    "rejected": ""
+  },
+  "physical_press_events": [
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 1,
+      "sim_time": 28.7965,
+      "contact": {
+        "stamp": 28.796,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.5294569318846e-06,
+              3.183105212575116e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 2,
+      "sim_time": 99.6375,
+      "contact": {
+        "stamp": 99.637,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.528778571409169e-06,
+              3.1824535611513216e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "rotor",
+      "sequence": 3,
+      "sim_time": 107.0905,
+      "contact": {
+        "stamp": 107.09,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::rotor_button_collision",
+            "second": "h1_2::right_dex1_finger_2_slider_link::right_dex1_finger_2_slider_link_fixed_joint_lump__right_dex1_finger_2_link_collision_1",
+            "depths": [
+              6.529261992758127e-06,
+              3.1829145250138885e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "rotor",
+      "sequence": 4,
+      "sim_time": 141.132,
+      "contact": {
+        "stamp": 141.1315,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::rotor_button_collision",
+            "second": "h1_2::right_dex1_finger_2_slider_link::right_dex1_finger_2_slider_link_fixed_joint_lump__right_dex1_finger_2_link_collision_1",
+            "depths": [
+              1.0793318810528585e-05,
+              7.475913231514558e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 5,
+      "sim_time": 153.9575,
+      "contact": {
+        "stamp": 153.957,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.464490983804257e-06,
+              3.117704118221591e-06
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "actual_holder_registry": {},
+  "order": {
+    "phase": "complete",
+    "locations": {
+      "left": "table",
+      "right": "table"
+    },
+    "loaded": [
+      "left",
+      "right"
+    ],
+    "returned": [
+      "left",
+      "right"
+    ],
+    "holder": null,
+    "retrieval_assignment": {
+      "left": "left",
+      "right": "right"
+    }
+  },
+  "paired_actual_cycle": false,
+  "sequential_actual_cycle": true
+}

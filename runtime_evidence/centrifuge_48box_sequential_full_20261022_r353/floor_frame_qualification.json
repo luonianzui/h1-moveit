@@ -1,0 +1,39 @@
+{
+  "status": "PASS_ACTUAL_SINGLE_FRAME_CLASSIFICATION_NOT_GRIP_AND_NOT_TASK",
+  "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_review_20261019_r13/r310_contact_gap.json",
+  "source_sha256": "ca17d4f2a2ce027b313a36bdbfc087c60a5b13cf4dd4e10ed8fbd591278078a1",
+  "original_preload_still_rejected": {
+    "valid": false,
+    "reason": "native_endpoint_or_age",
+    "native_joint_sim": 244.47,
+    "maximum_native_error_m": 0.0002575820037409131,
+    "native_age_sim_s": 0.008000000000009777
+  },
+  "candidate": {
+    "valid": true,
+    "not_a_grip_certificate": true,
+    "source": "one_actual_contact_frame_floor_history",
+    "current_contact_stamp": 244.4775,
+    "last_actual_positive_basket_stamp": 244.477,
+    "missing_floor_sim_s": 0.0004999999999881766,
+    "observed_fingers": [
+      1
+    ],
+    "maximum_native_distance_to_final_goal_m": 0.0002575820037409131,
+    "final_endpoint_and_two_opposed_strong_capture_still_required": true,
+    "no_holder_created_or_anchor_rebased": true
+  },
+  "actual_next_frame_restored_basket_support": {
+    "sim": 244.4785,
+    "stamp": 244.478,
+    "phase": "STOP_AND_HOLD",
+    "basket_contacts": 1,
+    "basket_positive": true,
+    "fingers": [
+      1
+    ],
+    "maximum_force_N": 0.3968938593144049
+  },
+  "second_missing_frame_rejected": true,
+  "no_new_holder_or_motion": true
+}
