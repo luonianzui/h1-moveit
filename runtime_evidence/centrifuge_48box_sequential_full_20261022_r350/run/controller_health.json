@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "attempts": [
+    {
+      "returncode": 0,
+      "stdout": "right_gripper_controller joint_trajectory_controller/JointTrajectoryController  active\nleft_gripper_controller  joint_trajectory_controller/JointTrajectoryController  active\nright_arm_controller     joint_trajectory_controller/JointTrajectoryController  active\nleft_arm_controller      joint_trajectory_controller/JointTrajectoryController  active\ntorso_controller         joint_trajectory_controller/JointTrajectoryController  active\njoint_state_broadcaster  joint_state_broadcaster/JointStateBroadcaster          active\n",
+      "stderr": "[INFO] [1792658647.945011829] [_ros2cli_2088316]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "PASS",
+        "terminal_states": {
+          "joint_state_broadcaster": [
+            "active"
+          ],
+          "left_arm_controller": [
+            "active"
+          ],
+          "right_arm_controller": [
+            "active"
+          ],
+          "torso_controller": [
+            "active"
+          ],
+          "left_gripper_controller": [
+            "active"
+          ],
+          "right_gripper_controller": [
+            "active"
+          ]
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    }
+  ],
+  "gazebo_processes": [
+    {
+      "pid": 2088743,
+      "created": 1792658647.94,
+      "role": "server"
+    },
+    {
+      "pid": 2088744,
+      "created": 1792658647.94,
+      "role": "gui"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "REVIEWED_BEFORE_EXECUTOR",
+  "actual_image_tool_inspection": true,
+  "source_sha256": "0c34cb74928bcd5d2b8008d7b1e57fab5328da62cd50f700e6d5efc10b2c9f21",
+  "observations": [
+    "Actual 1200x900 original frame inspected using view_image before dispatch.",
+    "Robot, near gripper and blue table box, closed centrifuge, table and walls visible.",
+    "Far box and far gripper partly occluded; this frame alone does not certify both boxes.",
+    "No blank capture or error dialog. Robot and closed centrifuge are framed in front view."
+  ]
+}

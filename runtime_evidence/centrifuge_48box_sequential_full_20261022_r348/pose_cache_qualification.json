@@ -1,0 +1,15 @@
+{
+  "status": "PASS_ORIGINAL_MATRIX_BYTES_BOUNDED_CACHE_NOT_NEW_PHYSICS",
+  "actual_pose_count": 39,
+  "sample_sha256": "797cb5421afc2854874e33227a3ceba4dc841fafa4ed976084812086486ff01f",
+  "bounded_entries": 512,
+  "defensive_return_copy": true,
+  "content_key_including_signed_zero": true,
+  "wall_seconds": {
+    "original": 0.07708383699355181,
+    "cached": 0.010204720994806848,
+    "cached_repeat": 0.010304576993803494,
+    "original_repeat": 0.0770717209961731
+  },
+  "component_speedup": 7.479367764685445
+}

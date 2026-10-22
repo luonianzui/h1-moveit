@@ -1,0 +1,67 @@
+{
+  "declared_relaxed_limits": {
+    "name": "simulation_speed_priority_v1",
+    "empty_rate_rad_s": 1.2,
+    "loaded_rate_rad_s": 0.8,
+    "near_rate_rad_s": 0.4,
+    "pilot_fine_rate_rad_s": 0.15,
+    "point_floor_sim_s": 0.002,
+    "first_point_sim_s": 0.04,
+    "tracking_near_rad": 0.04,
+    "tracking_free_rad": 0.08,
+    "button_tracking_rad": 0.15,
+    "button_contact_interval_sim_s": 0.02,
+    "gripper_velocity_monitor_m_s": 0.6,
+    "original_model_gripper_velocity_m_s": 0.2,
+    "endpoint_rad": 0.002,
+    "endpoint_hold_sim_s": 0.05,
+    "static_grip_hold_sim_s": 1.0,
+    "release_hold_sim_s": 0.5,
+    "terminal_hold_sim_s": 1.0,
+    "steady_spin_sim_s": 30.0,
+    "pose_clock_skew_sim_s": 0.75,
+    "pose_wall_age_s": 2.0,
+    "carry_slip_m": 0.005,
+    "carry_angle_deg": 10.0,
+    "snapshot_joint_rad": 0.003,
+    "snapshot_pose_m": 0.002,
+    "snapshot_angle_deg": 1.0,
+    "snapshot_finger_m": 0.001,
+    "coherent_native_lag_sim_s": 0.05,
+    "coherent_joint_bracket_sim_s": 0.012,
+    "trace_gzip_level": 1,
+    "retrieval_commanded_tilt_deg": 5.0,
+    "retrieval_pilot_rate_rad_s": 0.1,
+    "empty_button_rate_cap_rad_s": 0.8
+  },
+  "original_strict_certificate_not_claimed": true,
+  "status": "FAIL",
+  "complete_task_pass": false,
+  "checks": {
+    "left": 0,
+    "right": 0
+  },
+  "anchors": 0,
+  "observed_ends": 0,
+  "still_held": [],
+  "simultaneous_checks": 0,
+  "peaks": {
+    "fk_slip_m": 0.0,
+    "native_slip_m": 0.0,
+    "angle_deg": 0.0,
+    "agreement_m": 0.0,
+    "agreement_deg": 0.0
+  },
+  "faults": [
+    {
+      "kind": "speed_button_tracking_fault",
+      "sim": 84.8995
+    },
+    {
+      "kind": "FAIL",
+      "sim": 84.8995
+    }
+  ],
+  "original_actual_joint_brackets_and_both_immediate_native_guards_recomputed": true,
+  "commanded_values_or_current_payload_reference_rebase_not_used": true
+}

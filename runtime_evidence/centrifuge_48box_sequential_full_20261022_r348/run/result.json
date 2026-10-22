@@ -1,0 +1,216 @@
+{
+  "status": "FAIL",
+  "scope": "two_box_load_close_spin_open_retrieve",
+  "error": "Traceback (most recent call last):\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r348/execute_sequential.py\", line 47, in main\n    cycle.run_complete()\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r348/planning_pipeline.py\", line 11, in run_complete\n    return super().run_complete()\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r348/runtime_performance.py\", line 20, in run_complete\n    return super().run_complete()\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r348/sequential_cycle.py\", line 451, in run_complete\n    self.retrieve()\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r348/sequential_speed_cycle.py\", line 228, in retrieve\n    planned = self.single_plan('retrieval_transport', hand, payload)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r348/prefetch_cycle.py\", line 90, in single_plan\n    receipt = self.planning_worker.finish(pending['ticket'], self.spin)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r348/planner_client.py\", line 45, in finish\n    raise RuntimeError('Persistent planner exited before request completion')\nRuntimeError: Persistent planner exited before request completion\n",
+  "holding": "left",
+  "held_payload": "left",
+  "motions": 97,
+  "max_slip_m": 0.0010193197195801956,
+  "max_native_slip_m": 0.0010193327593602047,
+  "final_machine": {
+    "ready": true,
+    "rotor_enabled": false,
+    "open_lid_demo": false,
+    "stopped_velocity_gain": 80,
+    "startup_ramp_rad_s2": 0.8,
+    "stopped_position_gain": 8000,
+    "brake_active": true,
+    "rotor_angle_rad": 106.0596418938645,
+    "brake_reference_rad": 106.05964189386445,
+    "brake_position_error_rad": -4.263256414560601e-14,
+    "motor_torque_nm": -4.125865238997797e-09,
+    "rotor_rad_s": 4.7315973569608066e-11,
+    "rotor_rpm": 4.518342648485158e-10,
+    "lid_rad": 2.0943951023932086,
+    "lid_target_rad": 2.0943951023931953,
+    "can_open": true,
+    "can_start": false,
+    "starts": 1,
+    "stops": 1,
+    "blocked_lid": 0,
+    "blocked_start": 0,
+    "rejected": ""
+  },
+  "physical_press_events": [
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 1,
+      "sim_time": 33.722,
+      "contact": {
+        "stamp": 33.7215,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.4643153568381614e-06,
+              3.117546130574321e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 2,
+      "sim_time": 104.6875,
+      "contact": {
+        "stamp": 104.687,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.464498503981446e-06,
+              3.117710479959117e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "rotor",
+      "sequence": 3,
+      "sim_time": 112.05,
+      "contact": {
+        "stamp": 112.0495,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::rotor_button_collision",
+            "second": "h1_2::right_dex1_finger_2_slider_link::right_dex1_finger_2_slider_link_fixed_joint_lump__right_dex1_finger_2_link_collision_1",
+            "depths": [
+              6.464144381072498e-06,
+              3.11737585985232e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "rotor",
+      "sequence": 4,
+      "sim_time": 146.2025,
+      "contact": {
+        "stamp": 146.202,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::rotor_button_collision",
+            "second": "h1_2::right_dex1_finger_2_slider_link::right_dex1_finger_2_slider_link_fixed_joint_lump__right_dex1_finger_2_link_collision_1",
+            "depths": [
+              1.035614382161737e-05,
+              7.035792307787808e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 5,
+      "sim_time": 159.6775,
+      "contact": {
+        "stamp": 159.677,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.464491440097246e-06,
+              3.1177034912604346e-06
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "actual_holder_registry": {
+    "left": {
+      "payload": "left",
+      "source_sim": 181.3375,
+      "native_reference": [
+        [
+          -5.76632472615387e-05,
+          -0.00010310384334259043,
+          -0.9999999930222735,
+          0.2070019676163335
+        ],
+        [
+          4.535225385803556e-06,
+          0.9999999946744877,
+          -0.0001031041050288048,
+          -0.00018198250914142067
+        ],
+        [
+          0.999999998327191,
+          -4.541170671695392e-06,
+          -5.766277935522012e-05,
+          2.0524992080384052e-06
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "fk_reference": [
+        [
+          -5.766272721128299e-05,
+          -0.00010310187675449667,
+          -0.9999999930225063,
+          0.20700166903990525
+        ],
+        [
+          4.534698748337398e-06,
+          0.9999999946746929,
+          -0.0001031021384078519,
+          -0.00018198833686783322
+        ],
+        [
+          0.9999999983272231,
+          -4.54064386742584e-06,
+          -5.766225936833836e-05,
+          2.053017638392607e-06
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  },
+  "order": {
+    "phase": "retrieval",
+    "locations": {
+      "left": "held",
+      "right": "basket"
+    },
+    "loaded": [
+      "left",
+      "right"
+    ],
+    "returned": [],
+    "holder": {
+      "hand": "left",
+      "payload": "left"
+    },
+    "retrieval_assignment": {
+      "left": "left",
+      "right": "right"
+    }
+  },
+  "paired_actual_cycle": false,
+  "sequential_actual_cycle": true
+}

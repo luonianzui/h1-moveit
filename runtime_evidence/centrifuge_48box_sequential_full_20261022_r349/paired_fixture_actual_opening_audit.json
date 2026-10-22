@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "mode": "load_pickup",
+      "status": "GEOMETRY_PASS_NOT_LIVE",
+      "pickup_checks": 1871,
+      "pilot_checks": 102,
+      "carry_checks": 2262
+    },
+    {
+      "mode": "retrieval_pickup",
+      "status": "GEOMETRY_PASS_NOT_LIVE",
+      "pickup_checks": 1692,
+      "pilot_checks": 62,
+      "carry_checks": 2523
+    }
+  ],
+  "past_stopped_source_sha256": "9c73a8d406270bdd648260349cf712321653bbe84a2114bccee94d8d12a5902b",
+  "source_prospective_layout_transformed_in_memory_only": true,
+  "no_gazebo_robot_model_pose_or_guard_changed": true,
+  "predicted_lift_after_planning_not_actual_measured_transport": true,
+  "actual_new_grip_snapshot_FCL_tracking_and_full_cycle_still_required": true
+}

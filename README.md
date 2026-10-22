@@ -1,4 +1,4 @@
-> **GitHub 同步说明（2026-10-22）**：本仓库是截至 r347 的源码、模型、配置与精选成果快照。完整录像、逐帧日志和历史大数据仍保留在原工作站，尚未上传其他存储。文件目录见 `LOCAL_DATA_INVENTORY.jsonl.gz`，范围与限制见 [SYNC_STATUS.json](SYNC_STATUS.json) 和 [LOCAL_DATA_STORAGE.json](LOCAL_DATA_STORAGE.json)。历史脚本保留绝对路径及一次性运行身份；此快照尚未验证可在新电脑直接运行，原始封存清单中的部分大文件和二进制未随仓库分发。
+> **GitHub 自动同步说明**：本仓库保存源码、模型、配置、文档和精选小型成果。完整录像、逐帧日志、历史大数据和构建产物继续保留在原工作站；未配置异地大文件备份。使用方法和范围见 [一键同步说明](tools/github_sync/README.md)，本地数据清单见 `LOCAL_DATA_INVENTORY.jsonl.gz`。同步不代表实验成功，也不代表已经验证异机复现；原始清单引用的部分大文件和二进制未分发。
 
 # H1-2 Gazebo 孵育箱、离心机与导航项目
 
@@ -8,7 +8,21 @@ ROS 2 Jazzy / MoveIt 2 / Gazebo Harmonic；H1-2、双Dex1、D435、Mid360。所�
 
 **[HANDOFF_CURRENT.md：当前成果与交接总览](HANDOFF_CURRENT.md)**，更新于2026-10-22。累积规则及历史证据仍以[AGENTS.md](AGENTS.md)最新日期小节为准。
 
-## 0. 2026-10-22最新覆盖：r347缩短空手间隔，完整通过
+## 0. 2026-10-22最新覆盖：r348–r351优化未完整通过，r347成功基线保留
+
+[本轮汇总与接续](runtime_evidence/centrifuge_48box_sequential_review_20261022_r9/ROUND_SUMMARY.md) · [r351失败报告](runtime_evidence/centrifuge_48box_sequential_full_20261022_r351/REPORT.md) · [旧缓存清理证据](runtime_evidence/build_cache_cleanup_20261022_r1/REPORT.md)。
+
+- 已实现不可变规划模型复用、每次独立场景、两次装盒静止期提前规划；动作由连续执行器接续，无AI逐动作等待。22个真实快照新旧结果相同，规划组件94.192→44.441秒（减少52.82%），**不等于全流程提速**。
+- r348取回规划5°姿态门拒绝；r349先出现严格关节源跳步；r350已双装篮/稳转30.1375sim/左返桌，右预压因精确1ms浮点边界拒绝；r351修正边界但首次开盖撤臂0.1548rad超原0.15rad，尚未抓盒。四次都是FAIL，不能晋升或把失败前缀当三分钟成功。
+- 新DART响应短路仅小世界数值对照及约1.05–1.07倍组件收益，r349起未加载，未获得整机资格。r350失败区间RTF约0.4264；r351无有效world stats，不编造实时率。
+- r351最终2268测试两轮、93专项、46包/122装盒/6CTest通过；Nav111/2旧V12来源缺失保持。原物理/抓持/密FCL及30秒稳转要求不改；原visual-only碰撞缺口不外推为绝对无碰撞。
+- 四次原片、原始失败日志和九组前后保护保留；r318/r327/r331/r333/r337/r342/r345/r347、孵育箱、920箱子版、模型及十备份未改。最新完整成功仍r347：**240.219sim / 584.977490836现实秒**；现实三分钟及稳定1倍仍未达。
+- 用户新授权后仅删1546个不被安装/正式证据引用的旧CMake中间文件，分配约337.21MiB；源、共享库、日志、视频和备份不删。后验约1.80GB，低于2096208487字节完整实跑预算，不再启动新运行或擅自扩展清理。
+- 新查r351已正常停持/SIGINT收尾、退休无owned残余；下次仍重查live。接续先补磁盘余量，在新身份同步按钮命令/控制器reference/关节反馈，解决撤臂跟踪，再验证右取回整数纳秒修正；不盲目放宽门或复用sealed身份。
+
+**本节及AGENTS最末小节覆盖后文历史“当前/最新”；详细失败原因、视频与哈希见本轮汇总。**
+
+## 保留成功基线：r347缩短空手间隔，完整通过
 
 [r347报告](runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/REPORT.md) · [完整原速录像](runtime_evidence/centrifuge_48box_sequential_full_20261022_r347/run/full_cycle.mp4) · [独立复核](runtime_evidence/centrifuge_48box_sequential_review_20261022_r5/REPORT.md) · [间隔与性能](runtime_evidence/centrifuge_48box_sequential_review_20261022_r5/PERFORMANCE.md)。
 

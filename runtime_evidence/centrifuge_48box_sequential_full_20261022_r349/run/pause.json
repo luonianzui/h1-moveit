@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "result_status": "FAIL",
+  "holding": null,
+  "pause_requested": true,
+  "paused_stats": {
+    "simTime": {
+      "sec": "197",
+      "nsec": 78000000
+    },
+    "realTime": {
+      "sec": "292",
+      "nsec": 156388826
+    },
+    "paused": true,
+    "iterations": "394156",
+    "stepSize": {}
+  },
+  "no_reset_or_detach": true,
+  "failure_policy": "executor STOP_AND_HOLD; pause simulation; do not reset, detach, or release"
+}

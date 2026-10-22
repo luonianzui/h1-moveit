@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "parent": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_servo_rate_20261012_r228",
+  "source_calibration_audit_sha256": "c47834e8e8461a9fea36540c4fe9f5319224fe07c2b9cba084ac0b765d7bb5bd",
+  "physical_certificate": {
+    "status": "PASS",
+    "scope": "fixed_pelvis_empty_arm_servo_500hz_calibration",
+    "full_cycle_execution_certified": false,
+    "rates_rad_s": [
+      0.12,
+      0.36,
+      0.8
+    ],
+    "six_motion_tracking_peaks_rad": {
+      "machine_calibration_0.12_outward": 0.0009599998792293452,
+      "machine_calibration_0.12_return": 0.0009600000006012577,
+      "machine_calibration_0.36_outward": 0.002879999572423242,
+      "machine_calibration_0.36_return": 0.002879999573359493,
+      "machine_calibration_0.8_outward": 0.0063999977617648085,
+      "machine_calibration_0.8_return": 0.006399999290603753
+    },
+    "unchanged_tracking_guard_rad": 0.015,
+    "unchanged_endpoint_gate_rad": 0.0003
+  },
+  "only_small_empty_arm_ramp_certified": true,
+  "loaded_motion_not_certified": true
+}

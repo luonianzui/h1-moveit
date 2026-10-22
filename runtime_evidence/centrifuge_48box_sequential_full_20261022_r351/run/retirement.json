@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "original_children": [
+    {
+      "pid": 2355908,
+      "created": 1792660953.15,
+      "command": [
+        "/usr/bin/python3",
+        "/opt/ros/jazzy/bin/ros2",
+        "launch",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r351/inputs/lab_dual.launch.py",
+        "scene:=centrifuge",
+        "with_48box:=true",
+        "enable_robot_press:=true",
+        "allow_open_lid_demo:=false"
+      ]
+    },
+    {
+      "pid": 2356057,
+      "created": 1792660954.07,
+      "command": [
+        "/bin/sh",
+        "-c",
+        "ruby /opt/ros/jazzy/opt/gz_tools_vendor/bin/gz sim -r /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r351/inputs/lab_fast_world.sdf --gui-config /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r351/inputs/centrifuge_run_gui.config --force-version 8"
+      ]
+    },
+    {
+      "pid": 2356060,
+      "created": 1792660954.07,
+      "command": [
+        "gz sim -r /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r351/inputs/lab_fast_world.sdf --gui-config /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r351/inputs/centrifuge_run_gui.config"
+      ]
+    },
+    {
+      "pid": 2356348,
+      "created": 1792660954.17,
+      "command": [
+        "gz sim server"
+      ]
+    },
+    {
+      "pid": 2356353,
+      "created": 1792660954.17,
+      "command": [
+        "gz sim gui"
+      ]
+    }
+  ],
+  "remaining": [],
+  "normal_sigint": true,
+  "no_reset_detach_release": true
+}

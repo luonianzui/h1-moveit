@@ -1,0 +1,582 @@
+{
+  "status": "PASS",
+  "external_runtime_dependencies": [
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/registry.json",
+      "sha256": "1c1b2509f7e49a44b0b17cadbabdc43ea2786c1b413b8f1c8cb8ad62a635422f",
+      "bytes": 29856,
+      "device": 66309,
+      "inode": 1180201,
+      "mtime_ns": 1791969147618118791,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/run",
+      "sha256": "eccc76fdcbbf907e3b69f8de049b082a5a113d1ee6db96241b2e280b93fb4007",
+      "bytes": 1175,
+      "device": 66309,
+      "inode": 15241389,
+      "mtime_ns": 1791968645901404032,
+      "ctime_ns": 1791968645910404571
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/compat.py",
+      "sha256": "31eb7267245f211e5ab3b685d5f0f8473cde998ef7d8adb073f5e3216206b374",
+      "bytes": 12082,
+      "device": 66309,
+      "inode": 15241386,
+      "mtime_ns": 1791968645901404032,
+      "ctime_ns": 1791968645901404032
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/sitecustomize.py",
+      "sha256": "191c64a547739cb8e5dc3e8b61c7d27b2d06c59809e06b4445d37473629458d5",
+      "bytes": 482,
+      "device": 66309,
+      "inode": 15241387,
+      "mtime_ns": 1791968645901404032,
+      "ctime_ns": 1791968645901404032
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/tools/trace_archive/archive_cli.py",
+      "sha256": "8bfe106232d244de99bf99c036ccb337de8094d4a5f1cce2fa3fa89489566bdc",
+      "bytes": 3749,
+      "device": 66309,
+      "inode": 15241388,
+      "mtime_ns": 1791968645901404032,
+      "ctime_ns": 1791968645910404571
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_setdown_braking_20261010_r201.loading_trace.jsonl.gz",
+      "sha256": "5f1e6830c6fa5c48b2d5e84abaeb7bdeb3f1cdeb5ebc51c57fee49bac948e267",
+      "bytes": 4851,
+      "device": 66309,
+      "inode": 1180123,
+      "mtime_ns": 1791968752183203749,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_fast_complete_20261010_r209.loading_trace.jsonl.gz",
+      "sha256": "dde66457bb42aa016b465a95d6ee7f8920df6d74b1cd72259f4c7b01c4a02400",
+      "bytes": 17550890,
+      "device": 66309,
+      "inode": 1180058,
+      "mtime_ns": 1791968752463122985,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r164.loading_trace.jsonl.gz",
+      "sha256": "ff2c401aa49f1efff897524ef0780cd59bded137dfb41bde0d5e674dd3aa6f8d",
+      "bytes": 23769134,
+      "device": 66309,
+      "inode": 1180124,
+      "mtime_ns": 1791968753308880886,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_bounded_speed_20261010_r210.loading_trace.jsonl.gz",
+      "sha256": "dba06edb2de4777eb99323d0583180638153a8e3a581dd0fdabc57a713246c12",
+      "bytes": 23716080,
+      "device": 66309,
+      "inode": 1180125,
+      "mtime_ns": 1791968754245617975,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r171.loading_trace.jsonl.gz",
+      "sha256": "fb8f8d1425207b4427479a3de448b0a8f6e2a67dbd7c30cb7ad92fbf5315f403",
+      "bytes": 44015129,
+      "device": 66309,
+      "inode": 1180126,
+      "mtime_ns": 1791968755405300216,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r177.loading_trace.jsonl.gz",
+      "sha256": "4592c20aacd6c87095e48f9fc46a09c8ddffb5fd5bd74444c316bf02ea670c59",
+      "bytes": 163223344,
+      "device": 66309,
+      "inode": 1180129,
+      "mtime_ns": 1791968758136582808,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_single_extraction_20261010_r190.loading_trace.jsonl.gz",
+      "sha256": "76fc15cc199e7524c426dc0fba710ce4fd28a8936f40463c60b7b46be56ae481",
+      "bytes": 228777797,
+      "device": 66309,
+      "inode": 1180130,
+      "mtime_ns": 1791968763592277891,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_soft_grasp_20261010_r194.loading_trace.jsonl.gz",
+      "sha256": "35006f6166a68dc3e4c9435cb060016e784b5fb008cacc2bb629b58bd889428c",
+      "bytes": 275260092,
+      "device": 66309,
+      "inode": 1180131,
+      "mtime_ns": 1791968770420864713,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r165.loading_trace.jsonl.gz",
+      "sha256": "f912996809fcf56c167d8f2b2e83ca59b42c060ef49c2f10c958bc793bef5317",
+      "bytes": 273954586,
+      "device": 66309,
+      "inode": 1180132,
+      "mtime_ns": 1791968778025550494,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r166.loading_trace.jsonl.gz",
+      "sha256": "48d7563939474077787b8788a426c04c27285c575a1fb88f30636f30be076ce3",
+      "bytes": 277559953,
+      "device": 66309,
+      "inode": 1180133,
+      "mtime_ns": 1791968785896447656,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r163.loading_trace.jsonl.gz",
+      "sha256": "969beaa1203c12b670944ba16e880a30ed68dae59cc00163193e1e2f4fbb2168",
+      "bytes": 279027959,
+      "device": 66309,
+      "inode": 1180134,
+      "mtime_ns": 1791968793783574226,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r167.loading_trace.jsonl.gz",
+      "sha256": "56266a9f5968157b5fc486f265193798e59481222134d585ca54f96c3f9c53c4",
+      "bytes": 279897159,
+      "device": 66309,
+      "inode": 1180135,
+      "mtime_ns": 1791968801735900812,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r162.loading_trace.jsonl.gz",
+      "sha256": "90053f52bac468331f5c26a5928e20d605f36157d2d57119e678b37e755c1170",
+      "bytes": 279518130,
+      "device": 66309,
+      "inode": 1180136,
+      "mtime_ns": 1791968809713409817,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r161.loading_trace.jsonl.gz",
+      "sha256": "cbfe6c936cbac92fe41bd0e2539c1922b54fd86a38ae4ff7a7e9658548882969",
+      "bytes": 292618203,
+      "device": 66309,
+      "inode": 1180137,
+      "mtime_ns": 1791968817773079263,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r175.loading_trace.jsonl.gz",
+      "sha256": "1771ae6409f25dd2006f39cbf6cbf0480f042fd3d5efac21e5272196396e819a",
+      "bytes": 362305733,
+      "device": 66309,
+      "inode": 1180139,
+      "mtime_ns": 1791968826648884241,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_terminal_unloading_20261010_r198.loading_trace.jsonl.gz",
+      "sha256": "b39094d8a86a670d48c435181b59003d14008c985dd47129ddfd39b149728140",
+      "bytes": 405300928,
+      "device": 66309,
+      "inode": 1180141,
+      "mtime_ns": 1791968837439853363,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_clearance_unloading_20261010_r196.loading_trace.jsonl.gz",
+      "sha256": "3d38a21ef3bb6cfe3ae1273e429df29adeb7f198ecd66522443d46be89c57202",
+      "bytes": 461573044,
+      "device": 66309,
+      "inode": 1180142,
+      "mtime_ns": 1791968849023033969,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_leg_posture_unloading_20261010_r199.loading_trace.jsonl.gz",
+      "sha256": "293c21499354824d3f92f42bbd598ba71c580171adfaa8fb522dc31ecfc03cf4",
+      "bytes": 467793849,
+      "device": 66309,
+      "inode": 1180143,
+      "mtime_ns": 1791968861728444351,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_setdown_braking_20261010_r205.loading_trace.jsonl.gz",
+      "sha256": "873c53bd2a96fab281bb7660d394f8af36bd88af9f60c82c11d97b74050055a4",
+      "bytes": 488438263,
+      "device": 66309,
+      "inode": 1180175,
+      "mtime_ns": 1791968874762054689,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_pilot_braking_20261010_r208.loading_trace.jsonl.gz",
+      "sha256": "320e2e1d0a99f712ea8820cf1a28bca20df0bba8542cce0f2823ac0cebbb3b1c",
+      "bytes": 527499294,
+      "device": 66309,
+      "inode": 1180176,
+      "mtime_ns": 1791968888575871856,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r172.loading_trace.jsonl.gz",
+      "sha256": "ca59b7dbbbd2ae8f6b61444d83dc45e8ab78e24a428168fc5905f800f5981a9f",
+      "bytes": 693803014,
+      "device": 66309,
+      "inode": 1180177,
+      "mtime_ns": 1791968904564992528,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r176.loading_trace.jsonl.gz",
+      "sha256": "0c82f8e62351e7ad250343a9c3be70b9877c78ed8039e8c6c412b34f604defb2",
+      "bytes": 695802454,
+      "device": 66309,
+      "inode": 1180179,
+      "mtime_ns": 1791968923989549242,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261010_r193.loading_trace.jsonl.gz",
+      "sha256": "d8d0c5fa6b59858028b6c45b1f617dd229d16dcc73cc549d655b2b152c39da7e",
+      "bytes": 753078813,
+      "device": 66309,
+      "inode": 1180180,
+      "mtime_ns": 1791968943977318627,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261010_r188.loading_trace.jsonl.gz",
+      "sha256": "bd2d3378a43c705911b679193cdad0cd22c91e3a32227100333e4d9aeed692da",
+      "bytes": 756017624,
+      "device": 66309,
+      "inode": 1180181,
+      "mtime_ns": 1791968964792292934,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261010_r195.loading_trace.jsonl.gz",
+      "sha256": "bb753eeae2ad00ba8930241c55875ba707e1f6eb0669a027c5100c279b658922",
+      "bytes": 787553570,
+      "device": 66309,
+      "inode": 1180182,
+      "mtime_ns": 1791968985981402409,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261010_r206.loading_trace.jsonl.gz",
+      "sha256": "62d979969011ed08613a08ea8257b7afabf99f6a920772b9acbe6049201ef227",
+      "bytes": 810229848,
+      "device": 66309,
+      "inode": 1180186,
+      "mtime_ns": 1791969007869657081,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r181.loading_trace.jsonl.gz",
+      "sha256": "a24ca314684648ac97db8b25376b7021f3d8e67e09ab675f959c2f92ba468eff",
+      "bytes": 820949268,
+      "device": 66309,
+      "inode": 1180187,
+      "mtime_ns": 1791969030203784532,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r178.loading_trace.jsonl.gz",
+      "sha256": "cda37800469e6a25a2c09117003236dff14323a73dc425838c8806f85ef3f486",
+      "bytes": 850384425,
+      "device": 66309,
+      "inode": 1180188,
+      "mtime_ns": 1791969053075320196,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r183.loading_trace.jsonl.gz",
+      "sha256": "a39fd6cfb285f3c5902e90f3c8138a77bb7b79a87d5981b4a16a960071d775f4",
+      "bytes": 933411587,
+      "device": 66309,
+      "inode": 1180189,
+      "mtime_ns": 1791969077096503743,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r185.loading_trace.jsonl.gz",
+      "sha256": "a6c0a37517483dfe99a519710c05e4737c6c42833b3493fbeb727e1749d89e8d",
+      "bytes": 946820502,
+      "device": 66309,
+      "inode": 1180190,
+      "mtime_ns": 1791969103125273265,
+      "ctime_ns": 1791969484451867871
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_button_speed_20261010_r211.loading_trace.jsonl.gz",
+      "sha256": "3cb11558041642def2e6febb3293e725ffa8a155f9c9cca13876cfe9b720f664",
+      "bytes": 1006585337,
+      "device": 66309,
+      "inode": 1180191,
+      "mtime_ns": 1791969129806663850,
+      "ctime_ns": 1791969484451867871
+    }
+  ],
+  "logical_archives_crc_sha_bytes_lines_verified": [
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_setdown_braking_20261010_r201/run/loading_trace.jsonl",
+      "original_sha256": "64fb9f8788475a20cc2ad72fb5df26c036e2e2c80352bb5ce687c00101abf352",
+      "original_bytes": 156198,
+      "original_lines": 717,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_setdown_braking_20261010_r201.loading_trace.jsonl.gz",
+      "compressed_sha256": "5f1e6830c6fa5c48b2d5e84abaeb7bdeb3f1cdeb5ebc51c57fee49bac948e267"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_fast_complete_20261010_r209/run/loading_trace.jsonl",
+      "original_sha256": "cdf29a26bcec9fc73724c960dae8dee96890b9280e644526e469e55640240d84",
+      "original_bytes": 158390179,
+      "original_lines": 158098,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_fast_complete_20261010_r209.loading_trace.jsonl.gz",
+      "compressed_sha256": "dde66457bb42aa016b465a95d6ee7f8920df6d74b1cd72259f4c7b01c4a02400"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r164/run/loading_trace.jsonl",
+      "original_sha256": "be8b21cbd3dffcd3cae4b9b31dd0839b1119558d2a86d269733b8898f24f742a",
+      "original_bytes": 181871075,
+      "original_lines": 148418,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r164.loading_trace.jsonl.gz",
+      "compressed_sha256": "ff2c401aa49f1efff897524ef0780cd59bded137dfb41bde0d5e674dd3aa6f8d"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_bounded_speed_20261010_r210/run/loading_trace.jsonl",
+      "original_sha256": "6b9fa72eacefbad18c4b67305872cbd1b5d18a4da938eb378a31fae11f81ba4b",
+      "original_bytes": 201981507,
+      "original_lines": 202978,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_bounded_speed_20261010_r210.loading_trace.jsonl.gz",
+      "compressed_sha256": "dba06edb2de4777eb99323d0583180638153a8e3a581dd0fdabc57a713246c12"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r171/run/loading_trace.jsonl",
+      "original_sha256": "7d98bbbf17edcd258ef5282bd6b271b875ec25d047cde06fdfe3130545428c73",
+      "original_bytes": 321784715,
+      "original_lines": 278035,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r171.loading_trace.jsonl.gz",
+      "compressed_sha256": "fb8f8d1425207b4427479a3de448b0a8f6e2a67dbd7c30cb7ad92fbf5315f403"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r177/run/loading_trace.jsonl",
+      "original_sha256": "1b05ca990ab8fe91b0efcac7ca2ac227e1ab09143e5137b51f238f05cb56a68d",
+      "original_bytes": 876659538,
+      "original_lines": 402629,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r177.loading_trace.jsonl.gz",
+      "compressed_sha256": "4592c20aacd6c87095e48f9fc46a09c8ddffb5fd5bd74444c316bf02ea670c59"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_single_extraction_20261010_r190/run/loading_trace.jsonl",
+      "original_sha256": "6cbd01b668055c33ce69834140bd24b7f1a684ae95b3ce9788873e6ab410d4ae",
+      "original_bytes": 1089920580,
+      "original_lines": 557332,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_single_extraction_20261010_r190.loading_trace.jsonl.gz",
+      "compressed_sha256": "76fc15cc199e7524c426dc0fba710ce4fd28a8936f40463c60b7b46be56ae481"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_soft_grasp_20261010_r194/run/loading_trace.jsonl",
+      "original_sha256": "527bb61e256df393cfa4310de326e19ae52581a9179fc6cd881af99686e2b745",
+      "original_bytes": 1257057199,
+      "original_lines": 509538,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_soft_grasp_20261010_r194.loading_trace.jsonl.gz",
+      "compressed_sha256": "35006f6166a68dc3e4c9435cb060016e784b5fb008cacc2bb629b58bd889428c"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r165/run/loading_trace.jsonl",
+      "original_sha256": "c72c13ce59cca01ba7d4b68c5baeb5f4bbe99d1c590d01dbaf5666cf15d8edce",
+      "original_bytes": 1379061875,
+      "original_lines": 569817,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r165.loading_trace.jsonl.gz",
+      "compressed_sha256": "f912996809fcf56c167d8f2b2e83ca59b42c060ef49c2f10c958bc793bef5317"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r166/run/loading_trace.jsonl",
+      "original_sha256": "b1dcbeb1a1d52f2f5da2c8d643437b6a3142ac944799865ed1c2eb56d399076f",
+      "original_bytes": 1388113230,
+      "original_lines": 570323,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r166.loading_trace.jsonl.gz",
+      "compressed_sha256": "48d7563939474077787b8788a426c04c27285c575a1fb88f30636f30be076ce3"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r163/run/loading_trace.jsonl",
+      "original_sha256": "cbac8d337213309dd2c6175bad610f3e857090d0ccd31105ed328e686631418f",
+      "original_bytes": 1391853280,
+      "original_lines": 571904,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r163.loading_trace.jsonl.gz",
+      "compressed_sha256": "969beaa1203c12b670944ba16e880a30ed68dae59cc00163193e1e2f4fbb2168"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r167/run/loading_trace.jsonl",
+      "original_sha256": "259bbd618c424fb5c31e2be6909a04392e8dc675a5860c21137a081a97192e7d",
+      "original_bytes": 1394039678,
+      "original_lines": 575040,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r167.loading_trace.jsonl.gz",
+      "compressed_sha256": "56266a9f5968157b5fc486f265193798e59481222134d585ca54f96c3f9c53c4"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r162/run/loading_trace.jsonl",
+      "original_sha256": "0e8999bd751a0c6d9d3863fedc9db5b6730eec22e1b496f037b474253c6778a8",
+      "original_bytes": 1396487835,
+      "original_lines": 572124,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r162.loading_trace.jsonl.gz",
+      "compressed_sha256": "90053f52bac468331f5c26a5928e20d605f36157d2d57119e678b37e755c1170"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r161/run/loading_trace.jsonl",
+      "original_sha256": "d76e15a839bd7b4701cc08a3a347859bcd3c13daeadf2fd47138e62814a850f9",
+      "original_bytes": 1449535368,
+      "original_lines": 587855,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r161.loading_trace.jsonl.gz",
+      "compressed_sha256": "cbfe6c936cbac92fe41bd0e2539c1922b54fd86a38ae4ff7a7e9658548882969"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r175/run/loading_trace.jsonl",
+      "original_sha256": "2e9128bf55b000a3a471fd63e290b0cd1ff934879514041e866fda276657df74",
+      "original_bytes": 1856396979,
+      "original_lines": 717549,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r175.loading_trace.jsonl.gz",
+      "compressed_sha256": "1771ae6409f25dd2006f39cbf6cbf0480f042fd3d5efac21e5272196396e819a"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_terminal_unloading_20261010_r198/run/loading_trace.jsonl",
+      "original_sha256": "681e37c447fe58adb709087dd3c07639e9e545c4ba5a34ed8f67f91ff5a9992a",
+      "original_bytes": 1866805692,
+      "original_lines": 749670,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_terminal_unloading_20261010_r198.loading_trace.jsonl.gz",
+      "compressed_sha256": "b39094d8a86a670d48c435181b59003d14008c985dd47129ddfd39b149728140"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_clearance_unloading_20261010_r196/run/loading_trace.jsonl",
+      "original_sha256": "8cc1e900c56b8c0bd6a46d3d53c41cd5380c08952019b43faced6c47c1cc78ba",
+      "original_bytes": 2159437483,
+      "original_lines": 853492,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_clearance_unloading_20261010_r196.loading_trace.jsonl.gz",
+      "compressed_sha256": "3d38a21ef3bb6cfe3ae1273e429df29adeb7f198ecd66522443d46be89c57202"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_leg_posture_unloading_20261010_r199/run/loading_trace.jsonl",
+      "original_sha256": "09b3345d3416e76842707c3a6fc77aebeca4233aa5ca39d759d544ab9f429988",
+      "original_bytes": 2164061718,
+      "original_lines": 848592,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_leg_posture_unloading_20261010_r199.loading_trace.jsonl.gz",
+      "compressed_sha256": "293c21499354824d3f92f42bbd598ba71c580171adfaa8fb522dc31ecfc03cf4"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_setdown_braking_20261010_r205/run/loading_trace.jsonl",
+      "original_sha256": "3ca02c61c102bc46a2527ee0bcb52ddc1dcbc14e475ebb709a9326e79c832d44",
+      "original_bytes": 2284108992,
+      "original_lines": 930217,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_setdown_braking_20261010_r205.loading_trace.jsonl.gz",
+      "compressed_sha256": "873c53bd2a96fab281bb7660d394f8af36bd88af9f60c82c11d97b74050055a4"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_pilot_braking_20261010_r208/run/loading_trace.jsonl",
+      "original_sha256": "238bb76a64da5e4c54d1add0946f7092885f46d479a3038c4c42bf7c36b611f8",
+      "original_bytes": 2441696614,
+      "original_lines": 951367,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_pilot_braking_20261010_r208.loading_trace.jsonl.gz",
+      "compressed_sha256": "320e2e1d0a99f712ea8820cf1a28bca20df0bba8542cce0f2823ac0cebbb3b1c"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r172/run/loading_trace.jsonl",
+      "original_sha256": "4605eaa958245f189ebbae828c174719f794b1771e1009cb691f93fbebde545e",
+      "original_bytes": 3391618575,
+      "original_lines": 1394251,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r172.loading_trace.jsonl.gz",
+      "compressed_sha256": "ca59b7dbbbd2ae8f6b61444d83dc45e8ab78e24a428168fc5905f800f5981a9f"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r176/run/loading_trace.jsonl",
+      "original_sha256": "90c41a56a1910d05f4da30146549c3e860e4fc0b5313c63e3d4c4ebf7875413b",
+      "original_bytes": 3406088418,
+      "original_lines": 1410663,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r176.loading_trace.jsonl.gz",
+      "compressed_sha256": "0c82f8e62351e7ad250343a9c3be70b9877c78ed8039e8c6c412b34f604defb2"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261010_r193/run/loading_trace.jsonl",
+      "original_sha256": "86380487640989df1a8a40c0eee8c95db37103fa4e5a1e543517d239351b9f5a",
+      "original_bytes": 3563076415,
+      "original_lines": 1425041,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261010_r193.loading_trace.jsonl.gz",
+      "compressed_sha256": "d8d0c5fa6b59858028b6c45b1f617dd229d16dcc73cc549d655b2b152c39da7e"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261010_r188/run/loading_trace.jsonl",
+      "original_sha256": "2319999d505aa11ed877120ffd385c24c6056f2893f49a1112e6a22bfa85ad48",
+      "original_bytes": 3597198965,
+      "original_lines": 1444801,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261010_r188.loading_trace.jsonl.gz",
+      "compressed_sha256": "bd2d3378a43c705911b679193cdad0cd22c91e3a32227100333e4d9aeed692da"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261010_r195/run/loading_trace.jsonl",
+      "original_sha256": "9fc2c8087038d913aa6239e0a2178a8f8bcc65f5786a57d24bd848fef652f816",
+      "original_bytes": 3716988276,
+      "original_lines": 1443437,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261010_r195.loading_trace.jsonl.gz",
+      "compressed_sha256": "bb753eeae2ad00ba8930241c55875ba707e1f6eb0669a027c5100c279b658922"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261010_r206/run/loading_trace.jsonl",
+      "original_sha256": "261c95e7efcbf19ad8c7399d0979f2de887399b4c12579f468b3cc51f3954363",
+      "original_bytes": 3781317972,
+      "original_lines": 1483794,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261010_r206.loading_trace.jsonl.gz",
+      "compressed_sha256": "62d979969011ed08613a08ea8257b7afabf99f6a920772b9acbe6049201ef227"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r181/run/loading_trace.jsonl",
+      "original_sha256": "837cf5e1e6906cf44693359bc606a820fc1ecc905f3a6500e9deee159600284c",
+      "original_bytes": 3916366803,
+      "original_lines": 1529887,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r181.loading_trace.jsonl.gz",
+      "compressed_sha256": "a24ca314684648ac97db8b25376b7021f3d8e67e09ab675f959c2f92ba468eff"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r178/run/loading_trace.jsonl",
+      "original_sha256": "d140f15503aed28b907b38646ef199e5cbabf338177035553e146081810f8845",
+      "original_bytes": 3977538853,
+      "original_lines": 1529135,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r178.loading_trace.jsonl.gz",
+      "compressed_sha256": "cda37800469e6a25a2c09117003236dff14323a73dc425838c8806f85ef3f486"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r183/run/loading_trace.jsonl",
+      "original_sha256": "fc10b349c80beb627b409d33706ba8ae7b5b6557a8bea99c890990b79c03fcb5",
+      "original_bytes": 4477719846,
+      "original_lines": 1814152,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r183.loading_trace.jsonl.gz",
+      "compressed_sha256": "a39fd6cfb285f3c5902e90f3c8138a77bb7b79a87d5981b4a16a960071d775f4"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_full_cycle_20261009_r185/run/loading_trace.jsonl",
+      "original_sha256": "93a1e67b8a83f6e9ada29b7821b72b9b97007ec401426e7759db7366fbdc5b5b",
+      "original_bytes": 4498862279,
+      "original_lines": 1806836,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_full_cycle_20261009_r185.loading_trace.jsonl.gz",
+      "compressed_sha256": "a6c0a37517483dfe99a519710c05e4737c6c42833b3493fbeb727e1749d89e8d"
+    },
+    {
+      "original_path": "runtime_evidence/centrifuge_48box_button_speed_20261010_r211/run/loading_trace.jsonl",
+      "original_sha256": "857c6d5f01c11a0cb3fe3681f14e55558cb8db5a0f9464d21076eb78423abfa3",
+      "original_bytes": 4726906023,
+      "original_lines": 1834975,
+      "archive_path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/trace_archive_20261014_r1/data/centrifuge_48box_button_speed_20261010_r211.loading_trace.jsonl.gz",
+      "compressed_sha256": "3cb11558041642def2e6febb3293e725ffa8a155f9c9cca13876cfe9b720f664"
+    }
+  ],
+  "original_manifests_unchanged": true,
+  "exact_readonly_registry_only": true,
+  "no_historical_raw_restoration_or_deletion": true
+}

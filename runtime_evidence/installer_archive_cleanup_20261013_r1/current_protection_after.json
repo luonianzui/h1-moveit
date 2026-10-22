@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "scope": "Current mandatory protection and unchanged historical snapshot, not universal historical SHA256SUMS match.",
+  "protected_regular_files": 10262,
+  "backups_checked": 10,
+  "official_source_files": 785,
+  "required_recent_sealed_roots": [
+    "centrifuge_48box_coherent_feedback_20261012_r230",
+    "centrifuge_48box_compound_handover_20261012_r234",
+    "centrifuge_48box_control_resample_20261012_r232",
+    "centrifuge_48box_dual_sync_20261012_r227",
+    "centrifuge_48box_empty_quintic_20261012_r220",
+    "centrifuge_48box_empty_shortcut_20261012_r221",
+    "centrifuge_48box_fast_complete_20261012_r218",
+    "centrifuge_48box_fast_complete_20261012_r219",
+    "centrifuge_48box_horizontal_rate_20261012_r225",
+    "centrifuge_48box_loaded_grid_20261012_r222",
+    "centrifuge_48box_loaded_rate_20261012_r223",
+    "centrifuge_48box_lower_release_20261012_r231",
+    "centrifuge_48box_retrieval_context_20261012_r224",
+    "centrifuge_48box_scene_resume_20261012_r217",
+    "centrifuge_48box_servo_fast_20261012_r229",
+    "centrifuge_48box_servo_rate_20261012_r228",
+    "centrifuge_48box_shared_grasp_probe_20261012_r233",
+    "centrifuge_48box_skip_empty_return_20261010_r216",
+    "centrifuge_48box_three_minute_budget_20261012_r226"
+  ],
+  "extra_historical_discrepancies_not_repaired": [
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/gz sim server_1492745_1791431445398.log",
+      "expected": "9513e1c5f57b94715ff08a368fa786b198e6cceca14244bdb1c8286fdd202b87",
+      "actual": "b32ca35b03c0b2d12e8c682db6558fe11d6ec6e2da69fdd627de6e1dfe5b9d46"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_navigation/test/test_unitree_h12_velocity_gate.py",
+      "expected": "2ff73fed915e1e633572e749e1f374e7a68fdbc4558c870dc50e6292c1e64e64",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_navigation/h1_2_navigation/unitree_h12_v12_stop_adapter.py",
+      "expected": "e4c579fedfa3ed2fb704971337911b3d819bbfbc0a097471d18eb0c29326950f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_navigation/test/test_unitree_h12_v12_stop_adapter.py",
+      "expected": "ad62fd01f144383ea5cdc8a00f9020e9fca45ec1000bd1a2d8e18378f360fc35",
+      "actual": "MISSING"
+    }
+  ],
+  "extra_historical_manifests_do_not_all_match": true,
+  "baseline_snapshot_sha256": "c9b9f5d9a17dff12e35564e16e597c1a5290fbe77db07448164873fbcc797b4b"
+}

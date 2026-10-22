@@ -1,0 +1,346 @@
+{
+  "status": "FAIL",
+  "gates": {
+    "authorized_relaxation": true,
+    "retrieval_transient_guard": true,
+    "lossless_trace": true,
+    "setdown_braking": false,
+    "leg_posture": true,
+    "executor": false,
+    "complete_final_event": false,
+    "both_loaded": true,
+    "both_drop_stable": true,
+    "machine_cycle": true,
+    "steady_30_seconds": true,
+    "physical_events": true,
+    "loaded_containment": true,
+    "both_retrieved": false,
+    "retrieval_grip_holds": false,
+    "full_extraction_clearance": false,
+    "table_setdown_bucket_clearance": false,
+    "terminal_hold_relaxed_one_second": false,
+    "final_stopped": true,
+    "final_open": true,
+    "one_start_stop": true,
+    "localization": true,
+    "grip_limits": true,
+    "no_failure": false,
+    "no_held_payload": false,
+    "left_final_table": false,
+    "right_final_table": false,
+    "distinct_return_slots": false
+  },
+  "original_fixed_30_3_window_passed": true,
+  "user_minimum_30_steady_seconds_preserved": true,
+  "actual_empty_dual_registry": false,
+  "scope": "speed_priority_relaxed_simulation_not_r318_strict_certificate",
+  "speed_profile": {
+    "name": "simulation_speed_priority_v1",
+    "empty_rate_rad_s": 1.2,
+    "loaded_rate_rad_s": 0.8,
+    "near_rate_rad_s": 0.4,
+    "pilot_fine_rate_rad_s": 0.15,
+    "point_floor_sim_s": 0.002,
+    "first_point_sim_s": 0.04,
+    "tracking_near_rad": 0.04,
+    "tracking_free_rad": 0.08,
+    "button_tracking_rad": 0.15,
+    "button_contact_interval_sim_s": 0.02,
+    "gripper_velocity_monitor_m_s": 0.6,
+    "original_model_gripper_velocity_m_s": 0.2,
+    "endpoint_rad": 0.002,
+    "endpoint_hold_sim_s": 0.05,
+    "static_grip_hold_sim_s": 1.0,
+    "release_hold_sim_s": 0.5,
+    "terminal_hold_sim_s": 1.0,
+    "steady_spin_sim_s": 30.0,
+    "pose_clock_skew_sim_s": 0.75,
+    "pose_wall_age_s": 2.0,
+    "carry_slip_m": 0.005,
+    "carry_angle_deg": 10.0,
+    "snapshot_joint_rad": 0.003,
+    "snapshot_pose_m": 0.002,
+    "snapshot_angle_deg": 1.0,
+    "snapshot_finger_m": 0.001,
+    "coherent_native_lag_sim_s": 0.05,
+    "coherent_joint_bracket_sim_s": 0.012,
+    "trace_gzip_level": 1,
+    "retrieval_commanded_tilt_deg": 5.0,
+    "retrieval_pilot_rate_rad_s": 0.1,
+    "empty_button_rate_cap_rad_s": 0.8
+  },
+  "authorized_relaxation": {
+    "user_authorized": true,
+    "retrieval_transient_limit_rpm": 0.1,
+    "carry_angle_limit_deg": 10.0,
+    "original_strict_certificate_not_claimed": true,
+    "speed_profile": {
+      "name": "simulation_speed_priority_v1",
+      "empty_rate_rad_s": 1.2,
+      "loaded_rate_rad_s": 0.8,
+      "near_rate_rad_s": 0.4,
+      "pilot_fine_rate_rad_s": 0.15,
+      "point_floor_sim_s": 0.002,
+      "first_point_sim_s": 0.04,
+      "tracking_near_rad": 0.04,
+      "tracking_free_rad": 0.08,
+      "button_tracking_rad": 0.15,
+      "button_contact_interval_sim_s": 0.02,
+      "gripper_velocity_monitor_m_s": 0.6,
+      "original_model_gripper_velocity_m_s": 0.2,
+      "endpoint_rad": 0.002,
+      "endpoint_hold_sim_s": 0.05,
+      "static_grip_hold_sim_s": 1.0,
+      "release_hold_sim_s": 0.5,
+      "terminal_hold_sim_s": 1.0,
+      "steady_spin_sim_s": 30.0,
+      "pose_clock_skew_sim_s": 0.75,
+      "pose_wall_age_s": 2.0,
+      "carry_slip_m": 0.005,
+      "carry_angle_deg": 10.0,
+      "snapshot_joint_rad": 0.003,
+      "snapshot_pose_m": 0.002,
+      "snapshot_angle_deg": 1.0,
+      "snapshot_finger_m": 0.001,
+      "coherent_native_lag_sim_s": 0.05,
+      "coherent_joint_bracket_sim_s": 0.012,
+      "trace_gzip_level": 1,
+      "retrieval_commanded_tilt_deg": 5.0,
+      "retrieval_pilot_rate_rad_s": 0.1,
+      "empty_button_rate_cap_rad_s": 0.8
+    }
+  },
+  "retrieval_samples": 837,
+  "retrieval_transient_faults": 0,
+  "peak_retrieval_rpm": 0.0117538523646273,
+  "original_quiet_exceeding_samples": 0,
+  "minimum_extraction_clearance_m": Infinity,
+  "clearance_checks": 0,
+  "independently_recomputed_table_clearance_checks": {
+    "left": 0,
+    "right": 0
+  },
+  "minimum_table_bucket_clearance_m": Infinity,
+  "terminal_hold": null,
+  "terminal_samples": 0,
+  "terminal_failures": 0,
+  "event_counts": {
+    "localization_delivery_contract": 1,
+    "simulation_relaxation_declared": 1,
+    "sequential_runtime_declared": 1,
+    "raw_gripper_velocity": 15729,
+    "state": 5241,
+    "actual_full_joint_frame": 15729,
+    "button": 3472,
+    "contact_status": 1573,
+    "localization_delivery": 1562,
+    "localization_pose": 781,
+    "localization": 781,
+    "gripper_controller": 3114,
+    "contact": 294791,
+    "machine": 7647,
+    "passive_posture_settled": 1,
+    "localization_health": 612,
+    "fresh_startup_window_pass": 1,
+    "leg_posture_pass": 1,
+    "button_arm_command": 17,
+    "fast_button_tracking_sample": 83882,
+    "raw_button_contact": 2162,
+    "physical_press": 5,
+    "sequential_remaining_support": 4808,
+    "gripper_goal_accepted": 11,
+    "gripper_result": 11,
+    "original_gripper_endpoint_fresh_feedback_begin": 11,
+    "original_gripper_endpoint_fresh_feedback_pass": 11,
+    "paired_sim_wait_wall_budget": 26,
+    "sequential_actual_planning_started": 17,
+    "sequential_actual_snapshot_checked": 16,
+    "sequential_actual_collision_plan": 16,
+    "command": 23,
+    "paired_motion_wall_budget": 23,
+    "interval_endpoint_pass": 23,
+    "sequential_preload_claim": 3,
+    "grip_preload": 3,
+    "midband_contact_pass": 3,
+    "dual_holder_begin": 3,
+    "coherent_grip_reference_frozen": 3,
+    "synchronized_grip": 940,
+    "static_grip_hold_pass": 2,
+    "stationary_prefetch_consumed": 2,
+    "joined_segments_declared": 2,
+    "joined_segments_completed": 2,
+    "sequential_release_alignment_measured": 5,
+    "lower_release_gate_pass": 2,
+    "dual_holder_normal_release": 2,
+    "coherent_guard_scope_end": 2,
+    "drop_acceptance_pass": 2,
+    "sequential_loaded_one": 2,
+    "LOADING_PASS": 1,
+    "loaded_retention": 2233,
+    "closed_loaded_pass": 1,
+    "steady_start": 1,
+    "phase_aligned_stop_schedule": 1,
+    "stop_home_return_skipped": 1,
+    "rotor_stopped_before_lid": 1,
+    "actual_stop_handover_audit_started": 1,
+    "actual_stop_handover_dense_pass": 1,
+    "MACHINE_CYCLE_PASS": 1,
+    "retrieval_soft_grasp_profile": 1,
+    "retrieval_grip": 119,
+    "sequential_retrieval_pilot_settle_started": 1,
+    "sequential_retrieval_pilot_settle_pass": 1,
+    "paired_failure_holder_state": 1,
+    "FAIL": 1,
+    "emergency_rotor_quiet": 1
+  },
+  "loaded_pose_checks": 2316,
+  "containment_faults": 0,
+  "physical_press_events": [
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 1,
+      "sim_time": 33.722,
+      "contact": {
+        "stamp": 33.7215,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.4643153568381614e-06,
+              3.117546130574321e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 2,
+      "sim_time": 104.6875,
+      "contact": {
+        "stamp": 104.687,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.464498503981446e-06,
+              3.117710479959117e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "rotor",
+      "sequence": 3,
+      "sim_time": 112.05,
+      "contact": {
+        "stamp": 112.0495,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::rotor_button_collision",
+            "second": "h1_2::right_dex1_finger_2_slider_link::right_dex1_finger_2_slider_link_fixed_joint_lump__right_dex1_finger_2_link_collision_1",
+            "depths": [
+              6.464144381072498e-06,
+              3.11737585985232e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "rotor",
+      "sequence": 4,
+      "sim_time": 146.2025,
+      "contact": {
+        "stamp": 146.202,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::rotor_button_collision",
+            "second": "h1_2::right_dex1_finger_2_slider_link::right_dex1_finger_2_slider_link_fixed_joint_lump__right_dex1_finger_2_link_collision_1",
+            "depths": [
+              1.035614382161737e-05,
+              7.035792307787808e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 5,
+      "sim_time": 159.6775,
+      "contact": {
+        "stamp": 159.677,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.464491440097246e-06,
+              3.1177034912604346e-06
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "localization_samples": 781,
+  "localization_invalid": 0,
+  "peak_rpm": 30.031868953561453,
+  "peak_slip_m": 0.0010193321833323042,
+  "peak_angle_deg": 5.152120544106421,
+  "carry_angle_limit_deg": 10.0,
+  "original_carry_angle_gate_passed": false,
+  "first_sim": 27.518,
+  "final_sim": null,
+  "retention_checks": 2233,
+  "maximum_zero_force_gap_sim_s": 0.0,
+  "maximum_side_overhang_m": 6.465337710928609e-05,
+  "maximum_loaded_contact_depth_m": 0.00028791226080631375,
+  "contact_geometry_rounding_m": 5e-06,
+  "original_contact_depth_limit_m": 0.001,
+  "contact_aware_geometry_bound_m": 0.001,
+  "maximum_bottom_penetration_m": 0.00029027661765444746,
+  "certificate": "same-basket contact manifold continuously present, positive support within 20ms, wall normal above 5um, original 1mm penetration bound",
+  "duration_sim_s": null,
+  "final_machine": {
+    "ready": true,
+    "rotor_enabled": false,
+    "open_lid_demo": false,
+    "stopped_velocity_gain": 80,
+    "startup_ramp_rad_s2": 0.8,
+    "stopped_position_gain": 8000,
+    "brake_active": true,
+    "rotor_angle_rad": 106.0596418938645,
+    "brake_reference_rad": 106.05964189386445,
+    "brake_position_error_rad": -4.263256414560601e-14,
+    "motor_torque_nm": -4.125865238997797e-09,
+    "rotor_rad_s": 4.7315973569608066e-11,
+    "rotor_rpm": 4.518342648485158e-10,
+    "lid_rad": 2.0943951023932086,
+    "lid_target_rad": 2.0943951023931953,
+    "can_open": true,
+    "can_start": false,
+    "starts": 1,
+    "stops": 1,
+    "blocked_lid": 0,
+    "blocked_start": 0,
+    "rejected": ""
+  },
+  "failures": [
+    "FAIL"
+  ]
+}

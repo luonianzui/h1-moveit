@@ -1,0 +1,82 @@
+{
+  "files": {
+    "/usr/bin/codex-update-manager": {
+      "path": "/usr/bin/codex-update-manager",
+      "bytes": 6239008,
+      "allocated_bytes": 6242304,
+      "device": 66309,
+      "inode": 6558032,
+      "links": 1,
+      "mode": 493,
+      "mtime_ns": 1791507913000000000,
+      "ctime_ns": 1791594744301737634,
+      "sha256": "0bcd5a2dab27dfda5b6d8378e032dfeae462208ad22e5c75ec233857d3bafe70"
+    },
+    "/home/liu/.cache/codex-update-manager/packages/chatgpt-26.1007.71326-amd64-0e006b4931712f5a90d4cd04972c6e0b533cedcdfdb2b51946d5b9367471f556.deb": {
+      "path": "/home/liu/.cache/codex-update-manager/packages/chatgpt-26.1007.71326-amd64-0e006b4931712f5a90d4cd04972c6e0b533cedcdfdb2b51946d5b9367471f556.deb",
+      "bytes": 497177918,
+      "allocated_bytes": 497184768,
+      "device": 66309,
+      "inode": 20710542,
+      "links": 1,
+      "mode": 384,
+      "mtime_ns": 1791940434572910744,
+      "ctime_ns": 1791940435027915801,
+      "sha256": "0e006b4931712f5a90d4cd04972c6e0b533cedcdfdb2b51946d5b9367471f556"
+    },
+    "/opt/codex-desktop/resources/codex": {
+      "path": "/opt/codex-desktop/resources/codex",
+      "bytes": 294451848,
+      "allocated_bytes": 294453248,
+      "device": 66309,
+      "inode": 10887644,
+      "links": 1,
+      "mode": 493,
+      "mtime_ns": 1791500782000000000,
+      "ctime_ns": 1791594741900893556,
+      "sha256": "73b73b048546993298234a295de01ef2424e7a8b29def9d0ecb1ca7cb77500d4"
+    }
+  },
+  "processes": [
+    {
+      "pid": 11000,
+      "ctime": 1791594755.86,
+      "executable": "/usr/bin/codex-update-manager",
+      "argv": [
+        "/usr/bin/codex-update-manager",
+        "daemon"
+      ]
+    },
+    {
+      "pid": 67343,
+      "ctime": 1791595189.5,
+      "executable": "/opt/codex-desktop/resources/codex",
+      "argv": [
+        "/opt/codex-desktop/resources/codex",
+        "-c",
+        "features.code_mode_host=true",
+        "app-server",
+        "--analytics-default-enabled",
+        "-c",
+        "plugins.codex-app-tools@openai-bundled.mcp_servers.codex_app.enabled=true",
+        "-c",
+        "plugins.code-review@openai-bundled.mcp_servers.code-review.enabled=true"
+      ]
+    },
+    {
+      "pid": 69127,
+      "ctime": 1791595199.18,
+      "executable": "/opt/codex-desktop/resources/codex",
+      "argv": [
+        "/opt/codex-desktop/resources/codex",
+        "-c",
+        "forced_login_method=\"chatgpt\"",
+        "exec-server",
+        "--remote",
+        "https://codex-cloud-environments.chatgpt.com/api",
+        "--environment-id",
+        "ccarenv_b64_Y2NhcmVudl82YWM1YjhiMWRkNDg4MTkxYjI2ZTM4N2M4ZDY4M2NjNQ"
+      ]
+    }
+  ]
+}

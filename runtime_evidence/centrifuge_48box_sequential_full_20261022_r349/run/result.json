@@ -1,0 +1,70 @@
+{
+  "status": "FAIL",
+  "scope": "two_box_load_close_spin_open_retrieve",
+  "error": "Traceback (most recent call last):\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r349/execute_sequential.py\", line 47, in main\n    cycle.run_complete()\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r349/planning_pipeline.py\", line 11, in run_complete\n    return super().run_complete()\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r349/runtime_performance.py\", line 20, in run_complete\n    return super().run_complete()\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r349/sequential_cycle.py\", line 448, in run_complete\n    self.prepare_open()\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r349/execute_cycle.py\", line 430, in prepare_open\n    self.press('left', 'machine_preparation_open')\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r349/stop_handover_cycle.py\", line 66, in press\n    return super().press(side, phase, return_home=return_home, scheduled=scheduled)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r349/execute_cycle.py\", line 334, in press\n    self.move_button(side, list(reversed(arm['approach'])))\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r349/sequential_speed_cycle.py\", line 78, in move_button\n    self.wait(reached)\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r349/execute_cycle.py\", line 277, in wait\n    if predicate():\n       ^^^^^^^^^^^\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r349/sequential_speed_cycle.py\", line 72, in reached\n    raise ValueError('Button tracking exceeded relaxed simulation limit')\nValueError: Button tracking exceeded relaxed simulation limit\n",
+  "holding": null,
+  "held_payload": null,
+  "motions": 4,
+  "max_slip_m": 0,
+  "max_native_slip_m": 0,
+  "final_machine": {
+    "ready": true,
+    "rotor_enabled": false,
+    "open_lid_demo": false,
+    "stopped_velocity_gain": 80,
+    "startup_ramp_rad_s2": 0.8,
+    "stopped_position_gain": 8000,
+    "brake_active": true,
+    "rotor_angle_rad": 2.19177113218923e-28,
+    "brake_reference_rad": 2.1917711909613616e-28,
+    "brake_position_error_rad": 5.877213152887637e-36,
+    "motor_torque_nm": 4.701770780129517e-32,
+    "rotor_rad_s": -3.2231454786509955e-41,
+    "rotor_rpm": -3.077877211389594e-40,
+    "lid_rad": 1.6983481233807016,
+    "lid_target_rad": 2.0943951023931953,
+    "can_open": true,
+    "can_start": false,
+    "starts": 0,
+    "stops": 0,
+    "blocked_lid": 0,
+    "blocked_start": 0,
+    "rejected": ""
+  },
+  "physical_press_events": [
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 1,
+      "sim_time": 82.5765,
+      "contact": {
+        "stamp": 82.576,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.400415009434959e-06,
+              3.0532043121325736e-06
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "actual_holder_registry": {},
+  "order": {
+    "phase": "loading",
+    "locations": {
+      "left": "table",
+      "right": "table"
+    },
+    "loaded": [],
+    "returned": [],
+    "holder": null,
+    "retrieval_assignment": null
+  },
+  "paired_actual_cycle": false,
+  "sequential_actual_cycle": true
+}

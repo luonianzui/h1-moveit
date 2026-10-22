@@ -1,0 +1,8857 @@
+{
+  "readable_references": [],
+  "active_tests": [],
+  "visibility_limitations": [
+    {
+      "pid": 2,
+      "name": "kthreadd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2,
+      "name": "kthreadd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2,
+      "name": "kthreadd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3,
+      "name": "pool_workqueue_release",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3,
+      "name": "pool_workqueue_release",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3,
+      "name": "pool_workqueue_release",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4,
+      "name": "kworker/R-rcu_gp",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4,
+      "name": "kworker/R-rcu_gp",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4,
+      "name": "kworker/R-rcu_gp",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 5,
+      "name": "kworker/R-sync_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 5,
+      "name": "kworker/R-sync_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 5,
+      "name": "kworker/R-sync_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 6,
+      "name": "kworker/R-kvfree_rcu_reclaim",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 6,
+      "name": "kworker/R-kvfree_rcu_reclaim",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 6,
+      "name": "kworker/R-kvfree_rcu_reclaim",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 7,
+      "name": "kworker/R-slub_flushwq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 7,
+      "name": "kworker/R-slub_flushwq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 7,
+      "name": "kworker/R-slub_flushwq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 8,
+      "name": "kworker/R-netns",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 8,
+      "name": "kworker/R-netns",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 8,
+      "name": "kworker/R-netns",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 10,
+      "name": "kworker/0:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 10,
+      "name": "kworker/0:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 10,
+      "name": "kworker/0:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 12,
+      "name": "kworker/u128:0-efi_rts_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 12,
+      "name": "kworker/u128:0-efi_rts_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 12,
+      "name": "kworker/u128:0-efi_rts_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 13,
+      "name": "kworker/R-mm_percpu_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 13,
+      "name": "kworker/R-mm_percpu_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 13,
+      "name": "kworker/R-mm_percpu_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 14,
+      "name": "ksoftirqd/0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 14,
+      "name": "ksoftirqd/0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 14,
+      "name": "ksoftirqd/0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 15,
+      "name": "rcu_preempt",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 15,
+      "name": "rcu_preempt",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 15,
+      "name": "rcu_preempt",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 16,
+      "name": "rcu_exp_par_gp_kthread_worker/1",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 16,
+      "name": "rcu_exp_par_gp_kthread_worker/1",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 16,
+      "name": "rcu_exp_par_gp_kthread_worker/1",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 17,
+      "name": "rcu_exp_gp_kthread_worker",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 17,
+      "name": "rcu_exp_gp_kthread_worker",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 17,
+      "name": "rcu_exp_gp_kthread_worker",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 18,
+      "name": "migration/0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 18,
+      "name": "migration/0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 18,
+      "name": "migration/0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 19,
+      "name": "kprobe-optimizer",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 19,
+      "name": "kprobe-optimizer",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 19,
+      "name": "kprobe-optimizer",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20,
+      "name": "idle_inject/0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20,
+      "name": "idle_inject/0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20,
+      "name": "idle_inject/0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 21,
+      "name": "cpuhp/0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 21,
+      "name": "cpuhp/0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 21,
+      "name": "cpuhp/0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 22,
+      "name": "cpuhp/1",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 22,
+      "name": "cpuhp/1",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 22,
+      "name": "cpuhp/1",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 23,
+      "name": "idle_inject/1",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 23,
+      "name": "idle_inject/1",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 23,
+      "name": "idle_inject/1",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 24,
+      "name": "migration/1",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 24,
+      "name": "migration/1",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 24,
+      "name": "migration/1",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 25,
+      "name": "ksoftirqd/1",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 25,
+      "name": "ksoftirqd/1",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 25,
+      "name": "ksoftirqd/1",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 27,
+      "name": "kworker/1:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 27,
+      "name": "kworker/1:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 27,
+      "name": "kworker/1:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 28,
+      "name": "cpuhp/2",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 28,
+      "name": "cpuhp/2",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 28,
+      "name": "cpuhp/2",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 29,
+      "name": "idle_inject/2",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 29,
+      "name": "idle_inject/2",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 29,
+      "name": "idle_inject/2",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 30,
+      "name": "migration/2",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 30,
+      "name": "migration/2",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 30,
+      "name": "migration/2",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 31,
+      "name": "ksoftirqd/2",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 31,
+      "name": "ksoftirqd/2",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 31,
+      "name": "ksoftirqd/2",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 33,
+      "name": "kworker/2:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 33,
+      "name": "kworker/2:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 33,
+      "name": "kworker/2:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 34,
+      "name": "cpuhp/3",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 34,
+      "name": "cpuhp/3",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 34,
+      "name": "cpuhp/3",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 35,
+      "name": "idle_inject/3",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 35,
+      "name": "idle_inject/3",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 35,
+      "name": "idle_inject/3",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 36,
+      "name": "migration/3",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 36,
+      "name": "migration/3",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 36,
+      "name": "migration/3",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 37,
+      "name": "ksoftirqd/3",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 37,
+      "name": "ksoftirqd/3",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 37,
+      "name": "ksoftirqd/3",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 39,
+      "name": "kworker/3:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 39,
+      "name": "kworker/3:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 39,
+      "name": "kworker/3:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 40,
+      "name": "cpuhp/4",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 40,
+      "name": "cpuhp/4",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 40,
+      "name": "cpuhp/4",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 41,
+      "name": "idle_inject/4",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 41,
+      "name": "idle_inject/4",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 41,
+      "name": "idle_inject/4",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 42,
+      "name": "migration/4",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 42,
+      "name": "migration/4",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 42,
+      "name": "migration/4",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 43,
+      "name": "ksoftirqd/4",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 43,
+      "name": "ksoftirqd/4",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 43,
+      "name": "ksoftirqd/4",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 45,
+      "name": "kworker/4:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 45,
+      "name": "kworker/4:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 45,
+      "name": "kworker/4:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 46,
+      "name": "cpuhp/5",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 46,
+      "name": "cpuhp/5",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 46,
+      "name": "cpuhp/5",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 47,
+      "name": "idle_inject/5",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 47,
+      "name": "idle_inject/5",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 47,
+      "name": "idle_inject/5",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 48,
+      "name": "migration/5",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 48,
+      "name": "migration/5",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 48,
+      "name": "migration/5",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 49,
+      "name": "ksoftirqd/5",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 49,
+      "name": "ksoftirqd/5",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 49,
+      "name": "ksoftirqd/5",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 51,
+      "name": "kworker/5:0H",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 51,
+      "name": "kworker/5:0H",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 51,
+      "name": "kworker/5:0H",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 52,
+      "name": "cpuhp/6",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 52,
+      "name": "cpuhp/6",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 52,
+      "name": "cpuhp/6",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 53,
+      "name": "idle_inject/6",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 53,
+      "name": "idle_inject/6",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 53,
+      "name": "idle_inject/6",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 54,
+      "name": "migration/6",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 54,
+      "name": "migration/6",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 54,
+      "name": "migration/6",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 55,
+      "name": "ksoftirqd/6",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 55,
+      "name": "ksoftirqd/6",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 55,
+      "name": "ksoftirqd/6",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 57,
+      "name": "kworker/6:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 57,
+      "name": "kworker/6:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 57,
+      "name": "kworker/6:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 58,
+      "name": "cpuhp/7",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 58,
+      "name": "cpuhp/7",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 58,
+      "name": "cpuhp/7",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 59,
+      "name": "idle_inject/7",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 59,
+      "name": "idle_inject/7",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 59,
+      "name": "idle_inject/7",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 60,
+      "name": "migration/7",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 60,
+      "name": "migration/7",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 60,
+      "name": "migration/7",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 61,
+      "name": "ksoftirqd/7",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 61,
+      "name": "ksoftirqd/7",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 61,
+      "name": "ksoftirqd/7",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 63,
+      "name": "kworker/7:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 63,
+      "name": "kworker/7:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 63,
+      "name": "kworker/7:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 64,
+      "name": "cpuhp/8",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 64,
+      "name": "cpuhp/8",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 64,
+      "name": "cpuhp/8",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 65,
+      "name": "idle_inject/8",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 65,
+      "name": "idle_inject/8",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 65,
+      "name": "idle_inject/8",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 66,
+      "name": "migration/8",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 66,
+      "name": "migration/8",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 66,
+      "name": "migration/8",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 67,
+      "name": "ksoftirqd/8",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 67,
+      "name": "ksoftirqd/8",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 67,
+      "name": "ksoftirqd/8",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 69,
+      "name": "kworker/8:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 69,
+      "name": "kworker/8:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 69,
+      "name": "kworker/8:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 70,
+      "name": "cpuhp/9",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 70,
+      "name": "cpuhp/9",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 70,
+      "name": "cpuhp/9",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 71,
+      "name": "idle_inject/9",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 71,
+      "name": "idle_inject/9",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 71,
+      "name": "idle_inject/9",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 72,
+      "name": "migration/9",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 72,
+      "name": "migration/9",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 72,
+      "name": "migration/9",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 73,
+      "name": "ksoftirqd/9",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 73,
+      "name": "ksoftirqd/9",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 73,
+      "name": "ksoftirqd/9",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 75,
+      "name": "kworker/9:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 75,
+      "name": "kworker/9:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 75,
+      "name": "kworker/9:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 76,
+      "name": "cpuhp/10",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 76,
+      "name": "cpuhp/10",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 76,
+      "name": "cpuhp/10",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 77,
+      "name": "idle_inject/10",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 77,
+      "name": "idle_inject/10",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 77,
+      "name": "idle_inject/10",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 78,
+      "name": "migration/10",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 78,
+      "name": "migration/10",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 78,
+      "name": "migration/10",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 79,
+      "name": "ksoftirqd/10",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 79,
+      "name": "ksoftirqd/10",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 79,
+      "name": "ksoftirqd/10",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 81,
+      "name": "kworker/10:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 81,
+      "name": "kworker/10:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 81,
+      "name": "kworker/10:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 82,
+      "name": "cpuhp/11",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 82,
+      "name": "cpuhp/11",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 82,
+      "name": "cpuhp/11",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 83,
+      "name": "idle_inject/11",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 83,
+      "name": "idle_inject/11",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 83,
+      "name": "idle_inject/11",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 84,
+      "name": "migration/11",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 84,
+      "name": "migration/11",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 84,
+      "name": "migration/11",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 85,
+      "name": "ksoftirqd/11",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 85,
+      "name": "ksoftirqd/11",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 85,
+      "name": "ksoftirqd/11",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 87,
+      "name": "kworker/11:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 87,
+      "name": "kworker/11:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 87,
+      "name": "kworker/11:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 88,
+      "name": "cpuhp/12",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 88,
+      "name": "cpuhp/12",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 88,
+      "name": "cpuhp/12",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 89,
+      "name": "idle_inject/12",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 89,
+      "name": "idle_inject/12",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 89,
+      "name": "idle_inject/12",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 90,
+      "name": "migration/12",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 90,
+      "name": "migration/12",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 90,
+      "name": "migration/12",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 91,
+      "name": "ksoftirqd/12",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 91,
+      "name": "ksoftirqd/12",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 91,
+      "name": "ksoftirqd/12",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 93,
+      "name": "kworker/12:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 93,
+      "name": "kworker/12:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 93,
+      "name": "kworker/12:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 94,
+      "name": "cpuhp/13",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 94,
+      "name": "cpuhp/13",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 94,
+      "name": "cpuhp/13",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 95,
+      "name": "idle_inject/13",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 95,
+      "name": "idle_inject/13",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 95,
+      "name": "idle_inject/13",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 96,
+      "name": "migration/13",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 96,
+      "name": "migration/13",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 96,
+      "name": "migration/13",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 97,
+      "name": "ksoftirqd/13",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 97,
+      "name": "ksoftirqd/13",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 97,
+      "name": "ksoftirqd/13",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 99,
+      "name": "kworker/13:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 99,
+      "name": "kworker/13:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 99,
+      "name": "kworker/13:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 100,
+      "name": "cpuhp/14",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 100,
+      "name": "cpuhp/14",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 100,
+      "name": "cpuhp/14",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 101,
+      "name": "idle_inject/14",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 101,
+      "name": "idle_inject/14",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 101,
+      "name": "idle_inject/14",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 102,
+      "name": "migration/14",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 102,
+      "name": "migration/14",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 102,
+      "name": "migration/14",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 103,
+      "name": "ksoftirqd/14",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 103,
+      "name": "ksoftirqd/14",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 103,
+      "name": "ksoftirqd/14",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 105,
+      "name": "kworker/14:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 105,
+      "name": "kworker/14:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 105,
+      "name": "kworker/14:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 106,
+      "name": "cpuhp/15",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 106,
+      "name": "cpuhp/15",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 106,
+      "name": "cpuhp/15",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 107,
+      "name": "idle_inject/15",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 107,
+      "name": "idle_inject/15",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 107,
+      "name": "idle_inject/15",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 108,
+      "name": "migration/15",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 108,
+      "name": "migration/15",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 108,
+      "name": "migration/15",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 109,
+      "name": "ksoftirqd/15",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 109,
+      "name": "ksoftirqd/15",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 109,
+      "name": "ksoftirqd/15",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 111,
+      "name": "kworker/15:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 111,
+      "name": "kworker/15:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 111,
+      "name": "kworker/15:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 112,
+      "name": "cpuhp/16",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 112,
+      "name": "cpuhp/16",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 112,
+      "name": "cpuhp/16",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 113,
+      "name": "idle_inject/16",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 113,
+      "name": "idle_inject/16",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 113,
+      "name": "idle_inject/16",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 114,
+      "name": "migration/16",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 114,
+      "name": "migration/16",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 114,
+      "name": "migration/16",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 115,
+      "name": "ksoftirqd/16",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 115,
+      "name": "ksoftirqd/16",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 115,
+      "name": "ksoftirqd/16",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 117,
+      "name": "kworker/16:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 117,
+      "name": "kworker/16:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 117,
+      "name": "kworker/16:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 118,
+      "name": "rcu_exp_par_gp_kthread_worker/2",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 118,
+      "name": "rcu_exp_par_gp_kthread_worker/2",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 118,
+      "name": "rcu_exp_par_gp_kthread_worker/2",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 119,
+      "name": "cpuhp/17",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 119,
+      "name": "cpuhp/17",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 119,
+      "name": "cpuhp/17",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 120,
+      "name": "idle_inject/17",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 120,
+      "name": "idle_inject/17",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 120,
+      "name": "idle_inject/17",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 121,
+      "name": "migration/17",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 121,
+      "name": "migration/17",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 121,
+      "name": "migration/17",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 122,
+      "name": "ksoftirqd/17",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 122,
+      "name": "ksoftirqd/17",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 122,
+      "name": "ksoftirqd/17",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 124,
+      "name": "kworker/17:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 124,
+      "name": "kworker/17:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 124,
+      "name": "kworker/17:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 125,
+      "name": "cpuhp/18",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 125,
+      "name": "cpuhp/18",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 125,
+      "name": "cpuhp/18",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 126,
+      "name": "idle_inject/18",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 126,
+      "name": "idle_inject/18",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 126,
+      "name": "idle_inject/18",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 127,
+      "name": "migration/18",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 127,
+      "name": "migration/18",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 127,
+      "name": "migration/18",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 128,
+      "name": "ksoftirqd/18",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 128,
+      "name": "ksoftirqd/18",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 128,
+      "name": "ksoftirqd/18",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 130,
+      "name": "kworker/18:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 130,
+      "name": "kworker/18:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 130,
+      "name": "kworker/18:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 131,
+      "name": "cpuhp/19",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 131,
+      "name": "cpuhp/19",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 131,
+      "name": "cpuhp/19",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 132,
+      "name": "idle_inject/19",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 132,
+      "name": "idle_inject/19",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 132,
+      "name": "idle_inject/19",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 133,
+      "name": "migration/19",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 133,
+      "name": "migration/19",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 133,
+      "name": "migration/19",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 134,
+      "name": "ksoftirqd/19",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 134,
+      "name": "ksoftirqd/19",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 134,
+      "name": "ksoftirqd/19",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 136,
+      "name": "kworker/19:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 136,
+      "name": "kworker/19:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 136,
+      "name": "kworker/19:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 137,
+      "name": "cpuhp/20",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 137,
+      "name": "cpuhp/20",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 137,
+      "name": "cpuhp/20",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 138,
+      "name": "idle_inject/20",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 138,
+      "name": "idle_inject/20",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 138,
+      "name": "idle_inject/20",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 139,
+      "name": "migration/20",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 139,
+      "name": "migration/20",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 139,
+      "name": "migration/20",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 140,
+      "name": "ksoftirqd/20",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 140,
+      "name": "ksoftirqd/20",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 140,
+      "name": "ksoftirqd/20",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 142,
+      "name": "kworker/20:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 142,
+      "name": "kworker/20:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 142,
+      "name": "kworker/20:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 143,
+      "name": "cpuhp/21",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 143,
+      "name": "cpuhp/21",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 143,
+      "name": "cpuhp/21",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 144,
+      "name": "idle_inject/21",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 144,
+      "name": "idle_inject/21",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 144,
+      "name": "idle_inject/21",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 145,
+      "name": "migration/21",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 145,
+      "name": "migration/21",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 145,
+      "name": "migration/21",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 146,
+      "name": "ksoftirqd/21",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 146,
+      "name": "ksoftirqd/21",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 146,
+      "name": "ksoftirqd/21",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 148,
+      "name": "kworker/21:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 148,
+      "name": "kworker/21:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 148,
+      "name": "kworker/21:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 149,
+      "name": "cpuhp/22",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 149,
+      "name": "cpuhp/22",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 149,
+      "name": "cpuhp/22",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 150,
+      "name": "idle_inject/22",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 150,
+      "name": "idle_inject/22",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 150,
+      "name": "idle_inject/22",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 151,
+      "name": "migration/22",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 151,
+      "name": "migration/22",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 151,
+      "name": "migration/22",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 152,
+      "name": "ksoftirqd/22",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 152,
+      "name": "ksoftirqd/22",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 152,
+      "name": "ksoftirqd/22",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 154,
+      "name": "kworker/22:0H",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 154,
+      "name": "kworker/22:0H",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 154,
+      "name": "kworker/22:0H",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 155,
+      "name": "cpuhp/23",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 155,
+      "name": "cpuhp/23",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 155,
+      "name": "cpuhp/23",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 156,
+      "name": "idle_inject/23",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 156,
+      "name": "idle_inject/23",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 156,
+      "name": "idle_inject/23",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 157,
+      "name": "migration/23",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 157,
+      "name": "migration/23",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 157,
+      "name": "migration/23",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 158,
+      "name": "ksoftirqd/23",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 158,
+      "name": "ksoftirqd/23",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 158,
+      "name": "ksoftirqd/23",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 160,
+      "name": "kworker/23:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 160,
+      "name": "kworker/23:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 160,
+      "name": "kworker/23:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 161,
+      "name": "cpuhp/24",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 161,
+      "name": "cpuhp/24",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 161,
+      "name": "cpuhp/24",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 162,
+      "name": "idle_inject/24",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 162,
+      "name": "idle_inject/24",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 162,
+      "name": "idle_inject/24",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 163,
+      "name": "migration/24",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 163,
+      "name": "migration/24",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 163,
+      "name": "migration/24",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 164,
+      "name": "ksoftirqd/24",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 164,
+      "name": "ksoftirqd/24",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 164,
+      "name": "ksoftirqd/24",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 166,
+      "name": "kworker/24:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 166,
+      "name": "kworker/24:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 166,
+      "name": "kworker/24:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 167,
+      "name": "cpuhp/25",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 167,
+      "name": "cpuhp/25",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 167,
+      "name": "cpuhp/25",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 168,
+      "name": "idle_inject/25",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 168,
+      "name": "idle_inject/25",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 168,
+      "name": "idle_inject/25",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 169,
+      "name": "migration/25",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 169,
+      "name": "migration/25",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 169,
+      "name": "migration/25",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 170,
+      "name": "ksoftirqd/25",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 170,
+      "name": "ksoftirqd/25",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 170,
+      "name": "ksoftirqd/25",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 172,
+      "name": "kworker/25:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 172,
+      "name": "kworker/25:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 172,
+      "name": "kworker/25:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 173,
+      "name": "cpuhp/26",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 173,
+      "name": "cpuhp/26",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 173,
+      "name": "cpuhp/26",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 174,
+      "name": "idle_inject/26",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 174,
+      "name": "idle_inject/26",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 174,
+      "name": "idle_inject/26",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 175,
+      "name": "migration/26",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 175,
+      "name": "migration/26",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 175,
+      "name": "migration/26",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 176,
+      "name": "ksoftirqd/26",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 176,
+      "name": "ksoftirqd/26",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 176,
+      "name": "ksoftirqd/26",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 178,
+      "name": "kworker/26:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 178,
+      "name": "kworker/26:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 178,
+      "name": "kworker/26:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 179,
+      "name": "cpuhp/27",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 179,
+      "name": "cpuhp/27",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 179,
+      "name": "cpuhp/27",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 180,
+      "name": "idle_inject/27",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 180,
+      "name": "idle_inject/27",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 180,
+      "name": "idle_inject/27",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 181,
+      "name": "migration/27",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 181,
+      "name": "migration/27",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 181,
+      "name": "migration/27",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 182,
+      "name": "ksoftirqd/27",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 182,
+      "name": "ksoftirqd/27",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 182,
+      "name": "ksoftirqd/27",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 184,
+      "name": "kworker/27:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 184,
+      "name": "kworker/27:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 184,
+      "name": "kworker/27:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 185,
+      "name": "cpuhp/28",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 185,
+      "name": "cpuhp/28",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 185,
+      "name": "cpuhp/28",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 186,
+      "name": "idle_inject/28",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 186,
+      "name": "idle_inject/28",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 186,
+      "name": "idle_inject/28",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 187,
+      "name": "migration/28",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 187,
+      "name": "migration/28",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 187,
+      "name": "migration/28",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 188,
+      "name": "ksoftirqd/28",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 188,
+      "name": "ksoftirqd/28",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 188,
+      "name": "ksoftirqd/28",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 190,
+      "name": "kworker/28:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 190,
+      "name": "kworker/28:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 190,
+      "name": "kworker/28:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 191,
+      "name": "cpuhp/29",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 191,
+      "name": "cpuhp/29",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 191,
+      "name": "cpuhp/29",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 192,
+      "name": "idle_inject/29",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 192,
+      "name": "idle_inject/29",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 192,
+      "name": "idle_inject/29",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 193,
+      "name": "migration/29",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 193,
+      "name": "migration/29",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 193,
+      "name": "migration/29",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 194,
+      "name": "ksoftirqd/29",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 194,
+      "name": "ksoftirqd/29",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 194,
+      "name": "ksoftirqd/29",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 196,
+      "name": "kworker/29:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 196,
+      "name": "kworker/29:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 196,
+      "name": "kworker/29:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 197,
+      "name": "cpuhp/30",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 197,
+      "name": "cpuhp/30",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 197,
+      "name": "cpuhp/30",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 198,
+      "name": "idle_inject/30",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 198,
+      "name": "idle_inject/30",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 198,
+      "name": "idle_inject/30",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 199,
+      "name": "migration/30",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 199,
+      "name": "migration/30",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 199,
+      "name": "migration/30",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 200,
+      "name": "ksoftirqd/30",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 200,
+      "name": "ksoftirqd/30",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 200,
+      "name": "ksoftirqd/30",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 202,
+      "name": "kworker/30:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 202,
+      "name": "kworker/30:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 202,
+      "name": "kworker/30:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 203,
+      "name": "cpuhp/31",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 203,
+      "name": "cpuhp/31",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 203,
+      "name": "cpuhp/31",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 204,
+      "name": "idle_inject/31",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 204,
+      "name": "idle_inject/31",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 204,
+      "name": "idle_inject/31",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 205,
+      "name": "migration/31",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 205,
+      "name": "migration/31",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 205,
+      "name": "migration/31",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 206,
+      "name": "ksoftirqd/31",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 206,
+      "name": "ksoftirqd/31",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 206,
+      "name": "ksoftirqd/31",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 208,
+      "name": "kworker/31:0H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 208,
+      "name": "kworker/31:0H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 208,
+      "name": "kworker/31:0H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 211,
+      "name": "kdevtmpfs",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 211,
+      "name": "kdevtmpfs",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 211,
+      "name": "kdevtmpfs",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 212,
+      "name": "kworker/R-inet_frag_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 212,
+      "name": "kworker/R-inet_frag_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 212,
+      "name": "kworker/R-inet_frag_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 213,
+      "name": "rcu_tasks_kthread",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 213,
+      "name": "rcu_tasks_kthread",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 213,
+      "name": "rcu_tasks_kthread",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 214,
+      "name": "rcu_tasks_rude_kthread",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 214,
+      "name": "rcu_tasks_rude_kthread",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 214,
+      "name": "rcu_tasks_rude_kthread",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 215,
+      "name": "kauditd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 215,
+      "name": "kauditd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 215,
+      "name": "kauditd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 216,
+      "name": "khungtaskd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 216,
+      "name": "khungtaskd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 216,
+      "name": "khungtaskd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 217,
+      "name": "oom_reaper",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 217,
+      "name": "oom_reaper",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 217,
+      "name": "oom_reaper",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 220,
+      "name": "kworker/R-writeback",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 220,
+      "name": "kworker/R-writeback",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 220,
+      "name": "kworker/R-writeback",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 221,
+      "name": "kcompactd0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 221,
+      "name": "kcompactd0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 221,
+      "name": "kcompactd0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 222,
+      "name": "ksmd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 222,
+      "name": "ksmd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 222,
+      "name": "ksmd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 223,
+      "name": "khugepaged",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 223,
+      "name": "khugepaged",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 223,
+      "name": "khugepaged",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 224,
+      "name": "kworker/R-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 224,
+      "name": "kworker/R-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 224,
+      "name": "kworker/R-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 225,
+      "name": "kworker/R-blkcg_punt_bio",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 225,
+      "name": "kworker/R-blkcg_punt_bio",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 225,
+      "name": "kworker/R-blkcg_punt_bio",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 226,
+      "name": "kworker/R-kintegrityd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 226,
+      "name": "kworker/R-kintegrityd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 226,
+      "name": "kworker/R-kintegrityd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 228,
+      "name": "irq/9-acpi",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 228,
+      "name": "irq/9-acpi",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 228,
+      "name": "irq/9-acpi",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 230,
+      "name": "kworker/R-tpm_dev_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 230,
+      "name": "kworker/R-tpm_dev_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 230,
+      "name": "kworker/R-tpm_dev_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 231,
+      "name": "kworker/R-ata_sff",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 231,
+      "name": "kworker/R-ata_sff",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 231,
+      "name": "kworker/R-ata_sff",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 232,
+      "name": "kworker/R-md_bitmap",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 232,
+      "name": "kworker/R-md_bitmap",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 232,
+      "name": "kworker/R-md_bitmap",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 233,
+      "name": "kworker/R-md_llbitmap_io",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 233,
+      "name": "kworker/R-md_llbitmap_io",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 233,
+      "name": "kworker/R-md_llbitmap_io",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 234,
+      "name": "kworker/R-md_llbitmap_unplug",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 234,
+      "name": "kworker/R-md_llbitmap_unplug",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 234,
+      "name": "kworker/R-md_llbitmap_unplug",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 235,
+      "name": "kworker/R-edac-poller",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 235,
+      "name": "kworker/R-edac-poller",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 235,
+      "name": "kworker/R-edac-poller",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 236,
+      "name": "kworker/u128:1-ipv6_addrconf",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 236,
+      "name": "kworker/u128:1-ipv6_addrconf",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 236,
+      "name": "kworker/u128:1-ipv6_addrconf",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 237,
+      "name": "kworker/R-devfreq_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 237,
+      "name": "kworker/R-devfreq_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 237,
+      "name": "kworker/R-devfreq_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 238,
+      "name": "watchdogd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 238,
+      "name": "watchdogd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 238,
+      "name": "watchdogd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 240,
+      "name": "kworker/R-quota_events_unbound",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 240,
+      "name": "kworker/R-quota_events_unbound",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 240,
+      "name": "kworker/R-quota_events_unbound",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 244,
+      "name": "irq/27-AMD-Vi",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 244,
+      "name": "irq/27-AMD-Vi",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 244,
+      "name": "irq/27-AMD-Vi",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 246,
+      "name": "kswapd0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 246,
+      "name": "kswapd0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 246,
+      "name": "kswapd0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 247,
+      "name": "ecryptfs-kthread",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 247,
+      "name": "ecryptfs-kthread",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 247,
+      "name": "ecryptfs-kthread",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 248,
+      "name": "kworker/R-kthrotld",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 248,
+      "name": "kworker/R-kthrotld",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 248,
+      "name": "kworker/R-kthrotld",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 249,
+      "name": "kworker/u131:0-hci0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 249,
+      "name": "kworker/u131:0-hci0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 249,
+      "name": "kworker/u131:0-hci0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 250,
+      "name": "irq/43-pciehp",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 250,
+      "name": "irq/43-pciehp",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 250,
+      "name": "irq/43-pciehp",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 251,
+      "name": "irq/44-pciehp",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 251,
+      "name": "irq/44-pciehp",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 251,
+      "name": "irq/44-pciehp",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 252,
+      "name": "kworker/R-acpi_thermal_pm",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 252,
+      "name": "kworker/R-acpi_thermal_pm",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 252,
+      "name": "kworker/R-acpi_thermal_pm",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 259,
+      "name": "kworker/R-mld",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 259,
+      "name": "kworker/R-mld",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 259,
+      "name": "kworker/R-mld",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 261,
+      "name": "kworker/R-ipv6_addrconf",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 261,
+      "name": "kworker/R-ipv6_addrconf",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 261,
+      "name": "kworker/R-ipv6_addrconf",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 262,
+      "name": "kworker/R-kstrp",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 262,
+      "name": "kworker/R-kstrp",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 262,
+      "name": "kworker/R-kstrp",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 287,
+      "name": "kworker/R-charger_manager",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 287,
+      "name": "kworker/R-charger_manager",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 287,
+      "name": "kworker/R-charger_manager",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 404,
+      "name": "scsi_eh_0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 404,
+      "name": "scsi_eh_0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 404,
+      "name": "scsi_eh_0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 405,
+      "name": "kworker/R-scsi_tmf_0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 405,
+      "name": "kworker/R-scsi_tmf_0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 405,
+      "name": "kworker/R-scsi_tmf_0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 406,
+      "name": "scsi_eh_1",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 406,
+      "name": "scsi_eh_1",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 406,
+      "name": "scsi_eh_1",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 407,
+      "name": "kworker/R-scsi_tmf_1",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 407,
+      "name": "kworker/R-scsi_tmf_1",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 407,
+      "name": "kworker/R-scsi_tmf_1",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 408,
+      "name": "scsi_eh_2",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 408,
+      "name": "scsi_eh_2",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 408,
+      "name": "scsi_eh_2",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 409,
+      "name": "kworker/R-scsi_tmf_2",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 409,
+      "name": "kworker/R-scsi_tmf_2",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 409,
+      "name": "kworker/R-scsi_tmf_2",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 410,
+      "name": "scsi_eh_3",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 410,
+      "name": "scsi_eh_3",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 410,
+      "name": "scsi_eh_3",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 411,
+      "name": "kworker/R-scsi_tmf_3",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 411,
+      "name": "kworker/R-scsi_tmf_3",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 411,
+      "name": "kworker/R-scsi_tmf_3",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 412,
+      "name": "scsi_eh_4",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 412,
+      "name": "scsi_eh_4",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 412,
+      "name": "scsi_eh_4",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 413,
+      "name": "kworker/R-scsi_tmf_4",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 413,
+      "name": "kworker/R-scsi_tmf_4",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 413,
+      "name": "kworker/R-scsi_tmf_4",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 414,
+      "name": "scsi_eh_5",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 414,
+      "name": "scsi_eh_5",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 414,
+      "name": "scsi_eh_5",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 415,
+      "name": "kworker/R-scsi_tmf_5",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 415,
+      "name": "kworker/R-scsi_tmf_5",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 415,
+      "name": "kworker/R-scsi_tmf_5",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 422,
+      "name": "scsi_eh_6",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 422,
+      "name": "scsi_eh_6",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 422,
+      "name": "scsi_eh_6",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 423,
+      "name": "kworker/R-scsi_tmf_6",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 423,
+      "name": "kworker/R-scsi_tmf_6",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 423,
+      "name": "kworker/R-scsi_tmf_6",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 424,
+      "name": "scsi_eh_7",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 424,
+      "name": "scsi_eh_7",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 424,
+      "name": "scsi_eh_7",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 425,
+      "name": "kworker/R-scsi_tmf_7",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 425,
+      "name": "kworker/R-scsi_tmf_7",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 425,
+      "name": "kworker/R-scsi_tmf_7",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 426,
+      "name": "scsi_eh_8",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 426,
+      "name": "scsi_eh_8",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 426,
+      "name": "scsi_eh_8",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 427,
+      "name": "kworker/R-scsi_tmf_8",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 427,
+      "name": "kworker/R-scsi_tmf_8",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 427,
+      "name": "kworker/R-scsi_tmf_8",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 428,
+      "name": "scsi_eh_9",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 428,
+      "name": "scsi_eh_9",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 428,
+      "name": "scsi_eh_9",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 429,
+      "name": "kworker/R-scsi_tmf_9",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 429,
+      "name": "kworker/R-scsi_tmf_9",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 429,
+      "name": "kworker/R-scsi_tmf_9",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 431,
+      "name": "scsi_eh_10",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 431,
+      "name": "scsi_eh_10",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 431,
+      "name": "scsi_eh_10",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 433,
+      "name": "kworker/R-scsi_tmf_10",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 433,
+      "name": "kworker/R-scsi_tmf_10",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 433,
+      "name": "kworker/R-scsi_tmf_10",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 434,
+      "name": "scsi_eh_11",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 434,
+      "name": "scsi_eh_11",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 434,
+      "name": "scsi_eh_11",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 435,
+      "name": "kworker/R-scsi_tmf_11",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 435,
+      "name": "kworker/R-scsi_tmf_11",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 435,
+      "name": "kworker/R-scsi_tmf_11",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 449,
+      "name": "kworker/R-nvme-wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 449,
+      "name": "kworker/R-nvme-wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 449,
+      "name": "kworker/R-nvme-wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 450,
+      "name": "kworker/R-nvme-reset-wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 450,
+      "name": "kworker/R-nvme-reset-wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 450,
+      "name": "kworker/R-nvme-reset-wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 451,
+      "name": "kworker/R-nvme-delete-wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 451,
+      "name": "kworker/R-nvme-delete-wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 451,
+      "name": "kworker/R-nvme-delete-wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 452,
+      "name": "kworker/R-nvme-auth-wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 452,
+      "name": "kworker/R-nvme-auth-wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 452,
+      "name": "kworker/R-nvme-auth-wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 510,
+      "name": "kworker/19:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 510,
+      "name": "kworker/19:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 510,
+      "name": "kworker/19:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 512,
+      "name": "jbd2/nvme0n1p5-8",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 512,
+      "name": "jbd2/nvme0n1p5-8",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 512,
+      "name": "jbd2/nvme0n1p5-8",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 513,
+      "name": "kworker/R-ext4-rsv-conversion",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 513,
+      "name": "kworker/R-ext4-rsv-conversion",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 513,
+      "name": "kworker/R-ext4-rsv-conversion",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 552,
+      "name": "kworker/11:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 552,
+      "name": "kworker/11:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 552,
+      "name": "kworker/11:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 564,
+      "name": "systemd-journald",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 564,
+      "name": "systemd-journald",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 564,
+      "name": "systemd-journald",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 599,
+      "name": "kworker/0:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 599,
+      "name": "kworker/0:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 599,
+      "name": "kworker/0:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 600,
+      "name": "kworker/16:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 600,
+      "name": "kworker/16:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 600,
+      "name": "kworker/16:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 602,
+      "name": "kworker/24:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 602,
+      "name": "kworker/24:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 602,
+      "name": "kworker/24:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 611,
+      "name": "kworker/8:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 611,
+      "name": "kworker/8:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 611,
+      "name": "kworker/8:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 614,
+      "name": "kworker/7:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 614,
+      "name": "kworker/7:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 614,
+      "name": "kworker/7:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 617,
+      "name": "kworker/26:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 617,
+      "name": "kworker/26:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 617,
+      "name": "kworker/26:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 618,
+      "name": "kworker/27:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 618,
+      "name": "kworker/27:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 618,
+      "name": "kworker/27:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 628,
+      "name": "systemd-udevd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 628,
+      "name": "systemd-udevd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 628,
+      "name": "systemd-udevd",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 629,
+      "name": "kworker/6:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 629,
+      "name": "kworker/6:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 629,
+      "name": "kworker/6:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 630,
+      "name": "kworker/2:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 630,
+      "name": "kworker/2:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 630,
+      "name": "kworker/2:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 631,
+      "name": "kworker/21:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 631,
+      "name": "kworker/21:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 631,
+      "name": "kworker/21:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 632,
+      "name": "kworker/3:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 632,
+      "name": "kworker/3:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 632,
+      "name": "kworker/3:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 633,
+      "name": "kworker/18:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 633,
+      "name": "kworker/18:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 633,
+      "name": "kworker/18:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 637,
+      "name": "kworker/23:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 637,
+      "name": "kworker/23:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 637,
+      "name": "kworker/23:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 641,
+      "name": "kworker/4:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 641,
+      "name": "kworker/4:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 641,
+      "name": "kworker/4:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 647,
+      "name": "kworker/20:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 647,
+      "name": "kworker/20:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 647,
+      "name": "kworker/20:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 681,
+      "name": "psimon",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 681,
+      "name": "psimon",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 681,
+      "name": "psimon",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 716,
+      "name": "kworker/9:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 716,
+      "name": "kworker/9:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 716,
+      "name": "kworker/9:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 737,
+      "name": "kworker/12:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 737,
+      "name": "kworker/12:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 737,
+      "name": "kworker/12:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 751,
+      "name": "kworker/13:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 751,
+      "name": "kworker/13:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 751,
+      "name": "kworker/13:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 752,
+      "name": "kworker/10:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 752,
+      "name": "kworker/10:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 752,
+      "name": "kworker/10:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 782,
+      "name": "kworker/1:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 782,
+      "name": "kworker/1:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 782,
+      "name": "kworker/1:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 903,
+      "name": "nv_queue",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 903,
+      "name": "nv_queue",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 903,
+      "name": "nv_queue",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 904,
+      "name": "nv_queue",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 904,
+      "name": "nv_queue",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 904,
+      "name": "nv_queue",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 907,
+      "name": "nv_open_q",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 907,
+      "name": "nv_open_q",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 907,
+      "name": "nv_open_q",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 913,
+      "name": "nvidia-modeset/kthread_q",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 913,
+      "name": "nvidia-modeset/kthread_q",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 913,
+      "name": "nvidia-modeset/kthread_q",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 914,
+      "name": "nvidia-modeset/deferred_close_kthread_q",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 914,
+      "name": "nvidia-modeset/deferred_close_kthread_q",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 914,
+      "name": "nvidia-modeset/deferred_close_kthread_q",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 917,
+      "name": "irq/139-nvidia",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 917,
+      "name": "irq/139-nvidia",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 917,
+      "name": "irq/139-nvidia",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 918,
+      "name": "irq/140-nvidia",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 918,
+      "name": "irq/140-nvidia",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 918,
+      "name": "irq/140-nvidia",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 919,
+      "name": "irq/141-nvidia",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 919,
+      "name": "irq/141-nvidia",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 919,
+      "name": "irq/141-nvidia",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 920,
+      "name": "irq/142-nvidia",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 920,
+      "name": "irq/142-nvidia",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 920,
+      "name": "irq/142-nvidia",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 921,
+      "name": "irq/143-nvidia",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 921,
+      "name": "irq/143-nvidia",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 921,
+      "name": "irq/143-nvidia",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 922,
+      "name": "irq/144-nvidia",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 922,
+      "name": "irq/144-nvidia",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 922,
+      "name": "irq/144-nvidia",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 923,
+      "name": "irq/145-nvidia",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 923,
+      "name": "irq/145-nvidia",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 923,
+      "name": "irq/145-nvidia",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 924,
+      "name": "irq/146-nvidia",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 924,
+      "name": "irq/146-nvidia",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 924,
+      "name": "irq/146-nvidia",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 925,
+      "name": "nvidia",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 925,
+      "name": "nvidia",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 925,
+      "name": "nvidia",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 926,
+      "name": "nv_queue",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 926,
+      "name": "nv_queue",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 926,
+      "name": "nv_queue",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 928,
+      "name": "kworker/u131:1-hci0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 928,
+      "name": "kworker/u131:1-hci0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 928,
+      "name": "kworker/u131:1-hci0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 931,
+      "name": "kworker/R-led_workqueue",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 931,
+      "name": "kworker/R-led_workqueue",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 931,
+      "name": "kworker/R-led_workqueue",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 974,
+      "name": "kworker/R-amdgpu-reset-dev",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 974,
+      "name": "kworker/R-amdgpu-reset-dev",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 974,
+      "name": "kworker/R-amdgpu-reset-dev",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1009,
+      "name": "kworker/R-ttm",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1009,
+      "name": "kworker/R-ttm",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1009,
+      "name": "kworker/R-ttm",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1268,
+      "name": "UVM global queue",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1268,
+      "name": "UVM global queue",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1268,
+      "name": "UVM global queue",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1269,
+      "name": "UVM deferred release queue",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1269,
+      "name": "UVM deferred release queue",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1269,
+      "name": "UVM deferred release queue",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1270,
+      "name": "UVM Tools Event Queue",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1270,
+      "name": "UVM Tools Event Queue",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1270,
+      "name": "UVM Tools Event Queue",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1279,
+      "name": "systemd-oomd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1279,
+      "name": "systemd-oomd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1279,
+      "name": "systemd-oomd",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1285,
+      "name": "systemd-resolved",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1285,
+      "name": "systemd-resolved",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1285,
+      "name": "systemd-resolved",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1289,
+      "name": "systemd-timesyncd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1289,
+      "name": "systemd-timesyncd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1289,
+      "name": "systemd-timesyncd",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1293,
+      "name": "kworker/25:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1293,
+      "name": "kworker/25:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1293,
+      "name": "kworker/25:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1344,
+      "name": "kworker/R-amdgpu_dm_hpd_rx_offload_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1344,
+      "name": "kworker/R-amdgpu_dm_hpd_rx_offload_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1344,
+      "name": "kworker/R-amdgpu_dm_hpd_rx_offload_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1345,
+      "name": "kworker/R-amdgpu_dm_hpd_rx_offload_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1345,
+      "name": "kworker/R-amdgpu_dm_hpd_rx_offload_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1345,
+      "name": "kworker/R-amdgpu_dm_hpd_rx_offload_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1346,
+      "name": "kworker/R-amdgpu_dm_hpd_rx_offload_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1346,
+      "name": "kworker/R-amdgpu_dm_hpd_rx_offload_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1346,
+      "name": "kworker/R-amdgpu_dm_hpd_rx_offload_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1347,
+      "name": "kworker/R-amdgpu_dm_hpd_rx_offload_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1347,
+      "name": "kworker/R-amdgpu_dm_hpd_rx_offload_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1347,
+      "name": "kworker/R-amdgpu_dm_hpd_rx_offload_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1348,
+      "name": "kworker/R-dm_vblank_control_workqueue",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1348,
+      "name": "kworker/R-dm_vblank_control_workqueue",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1348,
+      "name": "kworker/R-dm_vblank_control_workqueue",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1351,
+      "name": "card2-crtc0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1351,
+      "name": "card2-crtc0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1351,
+      "name": "card2-crtc0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1352,
+      "name": "card2-crtc1",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1352,
+      "name": "card2-crtc1",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1352,
+      "name": "card2-crtc1",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1353,
+      "name": "card2-crtc2",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1353,
+      "name": "card2-crtc2",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1353,
+      "name": "card2-crtc2",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1354,
+      "name": "card2-crtc3",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1354,
+      "name": "card2-crtc3",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1354,
+      "name": "card2-crtc3",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1360,
+      "name": "kworker/R-gfx_0.0.0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1360,
+      "name": "kworker/R-gfx_0.0.0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1360,
+      "name": "kworker/R-gfx_0.0.0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1361,
+      "name": "kworker/R-gfx_0.1.0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1361,
+      "name": "kworker/R-gfx_0.1.0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1361,
+      "name": "kworker/R-gfx_0.1.0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1362,
+      "name": "kworker/R-comp_1.0.0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1362,
+      "name": "kworker/R-comp_1.0.0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1362,
+      "name": "kworker/R-comp_1.0.0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1363,
+      "name": "kworker/R-comp_1.1.0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1363,
+      "name": "kworker/R-comp_1.1.0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1363,
+      "name": "kworker/R-comp_1.1.0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1364,
+      "name": "kworker/R-comp_1.2.0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1364,
+      "name": "kworker/R-comp_1.2.0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1364,
+      "name": "kworker/R-comp_1.2.0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1365,
+      "name": "kworker/R-comp_1.3.0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1365,
+      "name": "kworker/R-comp_1.3.0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1365,
+      "name": "kworker/R-comp_1.3.0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1367,
+      "name": "kworker/R-comp_1.0.1",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1367,
+      "name": "kworker/R-comp_1.0.1",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1367,
+      "name": "kworker/R-comp_1.0.1",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1368,
+      "name": "kworker/R-comp_1.1.1",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1368,
+      "name": "kworker/R-comp_1.1.1",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1368,
+      "name": "kworker/R-comp_1.1.1",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1369,
+      "name": "kworker/R-comp_1.2.1",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1369,
+      "name": "kworker/R-comp_1.2.1",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1369,
+      "name": "kworker/R-comp_1.2.1",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1370,
+      "name": "kworker/R-comp_1.3.1",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1370,
+      "name": "kworker/R-comp_1.3.1",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1370,
+      "name": "kworker/R-comp_1.3.1",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1371,
+      "name": "kworker/R-sdma0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1371,
+      "name": "kworker/R-sdma0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1371,
+      "name": "kworker/R-sdma0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1372,
+      "name": "kworker/R-vcn_dec_0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1372,
+      "name": "kworker/R-vcn_dec_0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1372,
+      "name": "kworker/R-vcn_dec_0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1373,
+      "name": "kworker/R-vcn_enc_0.0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1373,
+      "name": "kworker/R-vcn_enc_0.0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1373,
+      "name": "kworker/R-vcn_enc_0.0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1374,
+      "name": "kworker/R-vcn_enc_0.1",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1374,
+      "name": "kworker/R-vcn_enc_0.1",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1374,
+      "name": "kworker/R-vcn_enc_0.1",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1375,
+      "name": "kworker/R-jpeg_dec",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1375,
+      "name": "kworker/R-jpeg_dec",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1375,
+      "name": "kworker/R-jpeg_dec",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1470,
+      "name": "kworker/17:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1470,
+      "name": "kworker/17:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1470,
+      "name": "kworker/17:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1528,
+      "name": "kworker/28:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1528,
+      "name": "kworker/28:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1528,
+      "name": "kworker/28:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1557,
+      "name": "kworker/31:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1557,
+      "name": "kworker/31:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1557,
+      "name": "kworker/31:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1558,
+      "name": "kworker/15:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1558,
+      "name": "kworker/15:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1558,
+      "name": "kworker/15:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1559,
+      "name": "kworker/5:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1559,
+      "name": "kworker/5:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1559,
+      "name": "kworker/5:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1560,
+      "name": "kworker/22:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1560,
+      "name": "kworker/22:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1560,
+      "name": "kworker/22:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1565,
+      "name": "avahi-daemon",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1565,
+      "name": "avahi-daemon",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1565,
+      "name": "avahi-daemon",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1565,
+      "name": "avahi-daemon",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1566,
+      "name": "bluetoothd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1566,
+      "name": "bluetoothd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1566,
+      "name": "bluetoothd",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1567,
+      "name": "dbus-daemon",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1567,
+      "name": "dbus-daemon",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1567,
+      "name": "dbus-daemon",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1567,
+      "name": "dbus-daemon",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1570,
+      "name": "gnome-remote-desktop-daemon",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1570,
+      "name": "gnome-remote-desktop-daemon",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1570,
+      "name": "gnome-remote-desktop-daemon",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1573,
+      "name": "lttng-sessiond",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1573,
+      "name": "lttng-sessiond",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1573,
+      "name": "lttng-sessiond",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1576,
+      "name": "polkitd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1576,
+      "name": "polkitd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1576,
+      "name": "polkitd",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1578,
+      "name": "power-profiles-daemon",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1578,
+      "name": "power-profiles-daemon",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1578,
+      "name": "power-profiles-daemon",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1585,
+      "name": "snapd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1585,
+      "name": "snapd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1585,
+      "name": "snapd",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1586,
+      "name": "nvidia-persistenced",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1586,
+      "name": "nvidia-persistenced",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1586,
+      "name": "nvidia-persistenced",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1590,
+      "name": "accounts-daemon",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1590,
+      "name": "accounts-daemon",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1590,
+      "name": "accounts-daemon",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1593,
+      "name": "cron",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1593,
+      "name": "cron",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1593,
+      "name": "cron",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1595,
+      "name": "switcheroo-control",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1595,
+      "name": "switcheroo-control",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1595,
+      "name": "switcheroo-control",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1599,
+      "name": "systemd-logind",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1599,
+      "name": "systemd-logind",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1599,
+      "name": "systemd-logind",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1601,
+      "name": "udisksd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1601,
+      "name": "udisksd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1601,
+      "name": "udisksd",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1614,
+      "name": "avahi-daemon",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1614,
+      "name": "avahi-daemon",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1614,
+      "name": "avahi-daemon",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1614,
+      "name": "avahi-daemon",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1633,
+      "name": "lttng-runas",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1633,
+      "name": "lttng-runas",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1633,
+      "name": "lttng-runas",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1666,
+      "name": "NetworkManager",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1666,
+      "name": "NetworkManager",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1666,
+      "name": "NetworkManager",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1667,
+      "name": "wpa_supplicant",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1667,
+      "name": "wpa_supplicant",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1667,
+      "name": "wpa_supplicant",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1712,
+      "name": "rsyslogd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1712,
+      "name": "rsyslogd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1712,
+      "name": "rsyslogd",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1718,
+      "name": "ModemManager",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1718,
+      "name": "ModemManager",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1718,
+      "name": "ModemManager",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1720,
+      "name": "boltd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1720,
+      "name": "boltd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1720,
+      "name": "boltd",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1779,
+      "name": "kworker/29:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1779,
+      "name": "kworker/29:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1779,
+      "name": "kworker/29:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1850,
+      "name": "kworker/u132:1-ttm",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1850,
+      "name": "kworker/u132:1-ttm",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1850,
+      "name": "kworker/u132:1-ttm",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1922,
+      "name": "unattended-upgr",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1922,
+      "name": "unattended-upgr",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1922,
+      "name": "unattended-upgr",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1944,
+      "name": "gdm3",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1944,
+      "name": "gdm3",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1944,
+      "name": "gdm3",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1954,
+      "name": "gdm-session-worker",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1954,
+      "name": "gdm-session-worker",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1954,
+      "name": "gdm-session-worker",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1954,
+      "name": "gdm-session-worker",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1963,
+      "name": "psimon",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1963,
+      "name": "psimon",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1963,
+      "name": "psimon",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1966,
+      "name": "(sd-pam)",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1966,
+      "name": "(sd-pam)",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1966,
+      "name": "(sd-pam)",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1966,
+      "name": "(sd-pam)",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2037,
+      "name": "rtkit-daemon",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2037,
+      "name": "rtkit-daemon",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2037,
+      "name": "rtkit-daemon",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2109,
+      "name": "fusermount3",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2109,
+      "name": "fusermount3",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2109,
+      "name": "fusermount3",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2109,
+      "name": "fusermount3",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2210,
+      "name": "nvidia-drm/timeline-11e",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2210,
+      "name": "nvidia-drm/timeline-11e",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2210,
+      "name": "nvidia-drm/timeline-11e",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2421,
+      "name": "nvidia-drm/timeline-144",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2421,
+      "name": "nvidia-drm/timeline-144",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2421,
+      "name": "nvidia-drm/timeline-144",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2426,
+      "name": "colord",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2426,
+      "name": "colord",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2426,
+      "name": "colord",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2483,
+      "name": "upowerd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2483,
+      "name": "upowerd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2483,
+      "name": "upowerd",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2676,
+      "name": "geoclue",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2676,
+      "name": "geoclue",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2676,
+      "name": "geoclue",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2683,
+      "name": "kworker/u132:2-ttm",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2683,
+      "name": "kworker/u132:2-ttm",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2683,
+      "name": "kworker/u132:2-ttm",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2960,
+      "name": "kworker/30:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2960,
+      "name": "kworker/30:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2960,
+      "name": "kworker/30:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2964,
+      "name": "ToDesk_Service",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2964,
+      "name": "ToDesk_Service",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2964,
+      "name": "ToDesk_Service",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2966,
+      "name": "kerneloops",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2966,
+      "name": "kerneloops",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2966,
+      "name": "kerneloops",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2969,
+      "name": "kerneloops",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2969,
+      "name": "kerneloops",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2969,
+      "name": "kerneloops",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3104,
+      "name": "kworker/14:1H-kblockd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3104,
+      "name": "kworker/14:1H-kblockd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3104,
+      "name": "kworker/14:1H-kblockd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3639,
+      "name": "ToDesk_Session",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3639,
+      "name": "ToDesk_Session",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3639,
+      "name": "ToDesk_Session",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3724,
+      "name": "vidmem lazy free",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3724,
+      "name": "vidmem lazy free",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3724,
+      "name": "vidmem lazy free",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3729,
+      "name": "UVM GPU1 BH",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3729,
+      "name": "UVM GPU1 BH",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3729,
+      "name": "UVM GPU1 BH",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3730,
+      "name": "UVM GPU1 KC",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3730,
+      "name": "UVM GPU1 KC",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3730,
+      "name": "UVM GPU1 KC",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3936,
+      "name": "nvidia-drm/timeline-1bd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3936,
+      "name": "nvidia-drm/timeline-1bd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3936,
+      "name": "nvidia-drm/timeline-1bd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 16430,
+      "name": "nvidia-drm/timeline-864",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 16430,
+      "name": "nvidia-drm/timeline-864",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 16430,
+      "name": "nvidia-drm/timeline-864",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 16450,
+      "name": "nvidia-drm/timeline-865",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 16450,
+      "name": "nvidia-drm/timeline-865",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 16450,
+      "name": "nvidia-drm/timeline-865",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 17188,
+      "name": "sd_espeak-ng-mb",
+      "field": "cmdline",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 17188,
+      "name": "sd_espeak-ng-mb",
+      "field": "cwd",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 17188,
+      "name": "sd_espeak-ng-mb",
+      "field": "exe",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 17188,
+      "name": "sd_espeak-ng-mb",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 17188,
+      "name": "sd_espeak-ng-mb",
+      "field": "memory_maps",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 19836,
+      "name": "nvidia-drm/timeline-885",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 19836,
+      "name": "nvidia-drm/timeline-885",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 19836,
+      "name": "nvidia-drm/timeline-885",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20790,
+      "name": "nvidia-drm/timeline-1dd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20790,
+      "name": "nvidia-drm/timeline-1dd",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20790,
+      "name": "nvidia-drm/timeline-1dd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20816,
+      "name": "nvidia-drm/timeline-1de",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20816,
+      "name": "nvidia-drm/timeline-1de",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20816,
+      "name": "nvidia-drm/timeline-1de",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20817,
+      "name": "nvidia-drm/timeline-1df",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20817,
+      "name": "nvidia-drm/timeline-1df",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20817,
+      "name": "nvidia-drm/timeline-1df",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20914,
+      "name": "fcclientCore",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20914,
+      "name": "fcclientCore",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20914,
+      "name": "fcclientCore",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20945,
+      "name": "nvidia-drm/timeline-1e0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20945,
+      "name": "nvidia-drm/timeline-1e0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 20945,
+      "name": "nvidia-drm/timeline-1e0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 46351,
+      "name": "kworker/2:1-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 46351,
+      "name": "kworker/2:1-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 46351,
+      "name": "kworker/2:1-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 57840,
+      "name": "kworker/15:2",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 57840,
+      "name": "kworker/15:2",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 57840,
+      "name": "kworker/15:2",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 63137,
+      "name": "nvidia-drm/timeline-25b",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 63137,
+      "name": "nvidia-drm/timeline-25b",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 63137,
+      "name": "nvidia-drm/timeline-25b",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 63232,
+      "name": "nvidia-drm/timeline-25c",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 63232,
+      "name": "nvidia-drm/timeline-25c",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 63232,
+      "name": "nvidia-drm/timeline-25c",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 66584,
+      "name": "start.sh",
+      "field": "cmdline",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 66584,
+      "name": "start.sh",
+      "field": "cwd",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 66584,
+      "name": "start.sh",
+      "field": "exe",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 66584,
+      "name": "start.sh",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 66584,
+      "name": "start.sh",
+      "field": "memory_maps",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 66585,
+      "name": "start.sh",
+      "field": "cmdline",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 66585,
+      "name": "start.sh",
+      "field": "cwd",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 66585,
+      "name": "start.sh",
+      "field": "exe",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 66585,
+      "name": "start.sh",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 66585,
+      "name": "start.sh",
+      "field": "memory_maps",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 66587,
+      "name": "start.sh",
+      "field": "cmdline",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 66587,
+      "name": "start.sh",
+      "field": "cwd",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 66587,
+      "name": "start.sh",
+      "field": "exe",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 66587,
+      "name": "start.sh",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 66587,
+      "name": "start.sh",
+      "field": "memory_maps",
+      "error": "ZombieProcess"
+    },
+    {
+      "pid": 66762,
+      "name": "nvidia-drm/timeline-269",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 66762,
+      "name": "nvidia-drm/timeline-269",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 66762,
+      "name": "nvidia-drm/timeline-269",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 89534,
+      "name": "kworker/27:0-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 89534,
+      "name": "kworker/27:0-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 89534,
+      "name": "kworker/27:0-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 89819,
+      "name": "kworker/13:0-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 89819,
+      "name": "kworker/13:0-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 89819,
+      "name": "kworker/13:0-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 90136,
+      "name": "kworker/8:0-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 90136,
+      "name": "kworker/8:0-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 90136,
+      "name": "kworker/8:0-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 91215,
+      "name": "kworker/31:1-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 91215,
+      "name": "kworker/31:1-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 91215,
+      "name": "kworker/31:1-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 114747,
+      "name": "fwupd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 114747,
+      "name": "fwupd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 114747,
+      "name": "fwupd",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 135996,
+      "name": "kworker/14:2",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 135996,
+      "name": "kworker/14:2",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 135996,
+      "name": "kworker/14:2",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 178113,
+      "name": "kworker/25:2-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 178113,
+      "name": "kworker/25:2-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 178113,
+      "name": "kworker/25:2-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 244456,
+      "name": "kworker/u130:1-iou_exit",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 244456,
+      "name": "kworker/u130:1-iou_exit",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 244456,
+      "name": "kworker/u130:1-iou_exit",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 247398,
+      "name": "kworker/5:0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 247398,
+      "name": "kworker/5:0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 247398,
+      "name": "kworker/5:0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 268413,
+      "name": "kworker/0:0-cgroup_free",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 268413,
+      "name": "kworker/0:0-cgroup_free",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 268413,
+      "name": "kworker/0:0-cgroup_free",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 302530,
+      "name": "kworker/21:2-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 302530,
+      "name": "kworker/21:2-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 302530,
+      "name": "kworker/21:2-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 357066,
+      "name": "kworker/16:1-cgroup_free",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 357066,
+      "name": "kworker/16:1-cgroup_free",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 357066,
+      "name": "kworker/16:1-cgroup_free",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 359295,
+      "name": "kworker/u130:2-events_unbound",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 359295,
+      "name": "kworker/u130:2-events_unbound",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 359295,
+      "name": "kworker/u130:2-events_unbound",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 413775,
+      "name": "kworker/16:0-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 413775,
+      "name": "kworker/16:0-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 413775,
+      "name": "kworker/16:0-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 467368,
+      "name": "kworker/7:2-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 467368,
+      "name": "kworker/7:2-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 467368,
+      "name": "kworker/7:2-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 476150,
+      "name": "kworker/u129:1-iou_exit",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 476150,
+      "name": "kworker/u129:1-iou_exit",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 476150,
+      "name": "kworker/u129:1-iou_exit",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 480569,
+      "name": "kworker/10:2-mm_percpu_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 480569,
+      "name": "kworker/10:2-mm_percpu_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 480569,
+      "name": "kworker/10:2-mm_percpu_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 508882,
+      "name": "kworker/u129:2-iou_exit",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 508882,
+      "name": "kworker/u129:2-iou_exit",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 508882,
+      "name": "kworker/u129:2-iou_exit",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 525160,
+      "name": "kworker/u129:4-iou_exit",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 525160,
+      "name": "kworker/u129:4-iou_exit",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 525160,
+      "name": "kworker/u129:4-iou_exit",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 531086,
+      "name": "kworker/0:2-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 531086,
+      "name": "kworker/0:2-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 531086,
+      "name": "kworker/0:2-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 552245,
+      "name": "kworker/18:1-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 552245,
+      "name": "kworker/18:1-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 552245,
+      "name": "kworker/18:1-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 569352,
+      "name": "kworker/17:2",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 569352,
+      "name": "kworker/17:2",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 569352,
+      "name": "kworker/17:2",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 584899,
+      "name": "kworker/u130:0-iou_exit",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 584899,
+      "name": "kworker/u130:0-iou_exit",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 584899,
+      "name": "kworker/u130:0-iou_exit",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 595884,
+      "name": "kworker/18:0-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 595884,
+      "name": "kworker/18:0-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 595884,
+      "name": "kworker/18:0-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 601716,
+      "name": "kworker/u129:3-flush-259:0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 601716,
+      "name": "kworker/u129:3-flush-259:0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 601716,
+      "name": "kworker/u129:3-flush-259:0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 623979,
+      "name": "kworker/30:0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 623979,
+      "name": "kworker/30:0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 623979,
+      "name": "kworker/30:0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 630193,
+      "name": "kworker/7:0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 630193,
+      "name": "kworker/7:0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 630193,
+      "name": "kworker/7:0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 640478,
+      "name": "kworker/u129:0-iou_exit",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 640478,
+      "name": "kworker/u129:0-iou_exit",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 640478,
+      "name": "kworker/u129:0-iou_exit",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 660558,
+      "name": "kworker/26:2-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 660558,
+      "name": "kworker/26:2-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 660558,
+      "name": "kworker/26:2-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669213,
+      "name": "kworker/7:1-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669213,
+      "name": "kworker/7:1-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669213,
+      "name": "kworker/7:1-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669300,
+      "name": "kworker/5:1-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669300,
+      "name": "kworker/5:1-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669300,
+      "name": "kworker/5:1-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669436,
+      "name": "kworker/13:1-mm_percpu_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669436,
+      "name": "kworker/13:1-mm_percpu_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669436,
+      "name": "kworker/13:1-mm_percpu_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669510,
+      "name": "kworker/u130:3-iou_exit",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669510,
+      "name": "kworker/u130:3-iou_exit",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669510,
+      "name": "kworker/u130:3-iou_exit",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669511,
+      "name": "kworker/u130:4-iou_exit",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669511,
+      "name": "kworker/u130:4-iou_exit",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669511,
+      "name": "kworker/u130:4-iou_exit",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669512,
+      "name": "kworker/u130:5-ext4-rsv-conversion",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669512,
+      "name": "kworker/u130:5-ext4-rsv-conversion",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669512,
+      "name": "kworker/u130:5-ext4-rsv-conversion",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669513,
+      "name": "kworker/u130:6-writeback",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669513,
+      "name": "kworker/u130:6-writeback",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669513,
+      "name": "kworker/u130:6-writeback",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669514,
+      "name": "kworker/u130:7-events_unbound",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669514,
+      "name": "kworker/u130:7-events_unbound",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669514,
+      "name": "kworker/u130:7-events_unbound",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669520,
+      "name": "kworker/u130:8",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669520,
+      "name": "kworker/u130:8",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669520,
+      "name": "kworker/u130:8",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669662,
+      "name": "kworker/25:1-mm_percpu_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669662,
+      "name": "kworker/25:1-mm_percpu_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669662,
+      "name": "kworker/25:1-mm_percpu_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669919,
+      "name": "kworker/u129:5-flush-259:0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669919,
+      "name": "kworker/u129:5-flush-259:0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 669919,
+      "name": "kworker/u129:5-flush-259:0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670018,
+      "name": "kworker/8:1-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670018,
+      "name": "kworker/8:1-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670018,
+      "name": "kworker/8:1-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670105,
+      "name": "kworker/18:2-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670105,
+      "name": "kworker/18:2-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670105,
+      "name": "kworker/18:2-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670129,
+      "name": "kworker/u129:6-iou_exit",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670129,
+      "name": "kworker/u129:6-iou_exit",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670129,
+      "name": "kworker/u129:6-iou_exit",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670130,
+      "name": "kworker/u129:7-iou_exit",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670130,
+      "name": "kworker/u129:7-iou_exit",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670130,
+      "name": "kworker/u129:7-iou_exit",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670131,
+      "name": "kworker/u129:8-iou_exit",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670131,
+      "name": "kworker/u129:8-iou_exit",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670131,
+      "name": "kworker/u129:8-iou_exit",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670132,
+      "name": "kworker/u129:9-flush-259:0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670132,
+      "name": "kworker/u129:9-flush-259:0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670132,
+      "name": "kworker/u129:9-flush-259:0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670519,
+      "name": "kworker/12:2-mm_percpu_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670519,
+      "name": "kworker/12:2-mm_percpu_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670519,
+      "name": "kworker/12:2-mm_percpu_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670575,
+      "name": "kworker/27:1-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670575,
+      "name": "kworker/27:1-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 670575,
+      "name": "kworker/27:1-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671092,
+      "name": "kworker/23:2-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671092,
+      "name": "kworker/23:2-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671092,
+      "name": "kworker/23:2-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671378,
+      "name": "kworker/u129:10-iou_exit",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671378,
+      "name": "kworker/u129:10-iou_exit",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671378,
+      "name": "kworker/u129:10-iou_exit",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671379,
+      "name": "kworker/u129:11-flush-259:0",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671379,
+      "name": "kworker/u129:11-flush-259:0",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671379,
+      "name": "kworker/u129:11-flush-259:0",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671380,
+      "name": "kworker/u129:12-events_unbound",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671380,
+      "name": "kworker/u129:12-events_unbound",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671380,
+      "name": "kworker/u129:12-events_unbound",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671381,
+      "name": "kworker/u129:13",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671381,
+      "name": "kworker/u129:13",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671381,
+      "name": "kworker/u129:13",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671574,
+      "name": "kworker/20:2-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671574,
+      "name": "kworker/20:2-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 671574,
+      "name": "kworker/20:2-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 728960,
+      "name": "cupsd",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 728960,
+      "name": "cupsd",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 728960,
+      "name": "cupsd",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 728965,
+      "name": "cups-browsed",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 728965,
+      "name": "cups-browsed",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 728965,
+      "name": "cups-browsed",
+      "field": "memory_maps",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1932090,
+      "name": "kworker/3:2-cgroup_free",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1932090,
+      "name": "kworker/3:2-cgroup_free",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1932090,
+      "name": "kworker/3:2-cgroup_free",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1932895,
+      "name": "kworker/1:0-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1932895,
+      "name": "kworker/1:0-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1932895,
+      "name": "kworker/1:0-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1951766,
+      "name": "kworker/19:0-cgroup_free",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1951766,
+      "name": "kworker/19:0-cgroup_free",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 1951766,
+      "name": "kworker/19:0-cgroup_free",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2091654,
+      "name": "kworker/6:0-cgroup_free",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2091654,
+      "name": "kworker/6:0-cgroup_free",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2091654,
+      "name": "kworker/6:0-cgroup_free",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2092228,
+      "name": "kworker/20:0-cgroup_free",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2092228,
+      "name": "kworker/20:0-cgroup_free",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2092228,
+      "name": "kworker/20:0-cgroup_free",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2118998,
+      "name": "kworker/u133:3-ttm",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2118998,
+      "name": "kworker/u133:3-ttm",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2118998,
+      "name": "kworker/u133:3-ttm",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2309457,
+      "name": "kworker/25:0-cgroup_free",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2309457,
+      "name": "kworker/25:0-cgroup_free",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2309457,
+      "name": "kworker/25:0-cgroup_free",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2310754,
+      "name": "kworker/26:1-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2310754,
+      "name": "kworker/26:1-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2310754,
+      "name": "kworker/26:1-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2335662,
+      "name": "kworker/6:2-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2335662,
+      "name": "kworker/6:2-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2335662,
+      "name": "kworker/6:2-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2390366,
+      "name": "kworker/12:0-cgroup_free",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2390366,
+      "name": "kworker/12:0-cgroup_free",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2390366,
+      "name": "kworker/12:0-cgroup_free",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2408536,
+      "name": "kworker/13:2-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2408536,
+      "name": "kworker/13:2-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2408536,
+      "name": "kworker/13:2-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2509101,
+      "name": "kworker/22:1-cgroup_free",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2509101,
+      "name": "kworker/22:1-cgroup_free",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2509101,
+      "name": "kworker/22:1-cgroup_free",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2509620,
+      "name": "kworker/9:1-mm_percpu_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2509620,
+      "name": "kworker/9:1-mm_percpu_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2509620,
+      "name": "kworker/9:1-mm_percpu_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2509939,
+      "name": "kworker/2:0-cgroup_free",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2509939,
+      "name": "kworker/2:0-cgroup_free",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2509939,
+      "name": "kworker/2:0-cgroup_free",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2576354,
+      "name": "kworker/20:1-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2576354,
+      "name": "kworker/20:1-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2576354,
+      "name": "kworker/20:1-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2600422,
+      "name": "kworker/1:2",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2600422,
+      "name": "kworker/1:2",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2600422,
+      "name": "kworker/1:2",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2703084,
+      "name": "kworker/15:0-mm_percpu_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2703084,
+      "name": "kworker/15:0-mm_percpu_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2703084,
+      "name": "kworker/15:0-mm_percpu_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2703356,
+      "name": "kworker/u133:0-ttm",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2703356,
+      "name": "kworker/u133:0-ttm",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2703356,
+      "name": "kworker/u133:0-ttm",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2768914,
+      "name": "kworker/8:2-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2768914,
+      "name": "kworker/8:2-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2768914,
+      "name": "kworker/8:2-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2835290,
+      "name": "kworker/28:0-mm_percpu_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2835290,
+      "name": "kworker/28:0-mm_percpu_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2835290,
+      "name": "kworker/28:0-mm_percpu_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2899142,
+      "name": "kworker/17:0-mm_percpu_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2899142,
+      "name": "kworker/17:0-mm_percpu_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2899142,
+      "name": "kworker/17:0-mm_percpu_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2963228,
+      "name": "kworker/4:0-cgroup_free",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2963228,
+      "name": "kworker/4:0-cgroup_free",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2963228,
+      "name": "kworker/4:0-cgroup_free",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2963346,
+      "name": "kworker/9:0-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2963346,
+      "name": "kworker/9:0-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2963346,
+      "name": "kworker/9:0-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2963646,
+      "name": "kworker/28:1-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2963646,
+      "name": "kworker/28:1-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2963646,
+      "name": "kworker/28:1-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2964044,
+      "name": "kworker/27:2-mm_percpu_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2964044,
+      "name": "kworker/27:2-mm_percpu_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2964044,
+      "name": "kworker/27:2-mm_percpu_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2964345,
+      "name": "kworker/11:1-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2964345,
+      "name": "kworker/11:1-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 2964345,
+      "name": "kworker/11:1-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3035454,
+      "name": "kworker/24:2-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3035454,
+      "name": "kworker/24:2-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3035454,
+      "name": "kworker/24:2-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3036291,
+      "name": "kworker/26:0-cgroup_release",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3036291,
+      "name": "kworker/26:0-cgroup_release",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3036291,
+      "name": "kworker/26:0-cgroup_release",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3036725,
+      "name": "kworker/31:2-mm_percpu_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3036725,
+      "name": "kworker/31:2-mm_percpu_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3036725,
+      "name": "kworker/31:2-mm_percpu_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3036843,
+      "name": "kworker/29:1-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3036843,
+      "name": "kworker/29:1-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3036843,
+      "name": "kworker/29:1-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3250968,
+      "name": "kworker/22:2-mm_percpu_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3250968,
+      "name": "kworker/22:2-mm_percpu_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3250968,
+      "name": "kworker/22:2-mm_percpu_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3428419,
+      "name": "kworker/19:1-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3428419,
+      "name": "kworker/19:1-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3428419,
+      "name": "kworker/19:1-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3500134,
+      "name": "nvidia-drm/timeline-7db",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3500134,
+      "name": "nvidia-drm/timeline-7db",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3500134,
+      "name": "nvidia-drm/timeline-7db",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3684858,
+      "name": "kworker/21:1-cgroup_free",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3684858,
+      "name": "kworker/21:1-cgroup_free",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3684858,
+      "name": "kworker/21:1-cgroup_free",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3743760,
+      "name": "kworker/23:0-cgroup_free",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3743760,
+      "name": "kworker/23:0-cgroup_free",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3743760,
+      "name": "kworker/23:0-cgroup_free",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3863953,
+      "name": "kworker/30:2-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3863953,
+      "name": "kworker/30:2-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3863953,
+      "name": "kworker/30:2-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3865463,
+      "name": "kworker/11:2-mm_percpu_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3865463,
+      "name": "kworker/11:2-mm_percpu_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3865463,
+      "name": "kworker/11:2-mm_percpu_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3865798,
+      "name": "kworker/23:1-mm_percpu_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3865798,
+      "name": "kworker/23:1-mm_percpu_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3865798,
+      "name": "kworker/23:1-mm_percpu_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3866366,
+      "name": "kworker/29:2-mm_percpu_wq",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3866366,
+      "name": "kworker/29:2-mm_percpu_wq",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3866366,
+      "name": "kworker/29:2-mm_percpu_wq",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3866805,
+      "name": "kworker/24:0-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3866805,
+      "name": "kworker/24:0-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3866805,
+      "name": "kworker/24:0-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3934376,
+      "name": "kworker/4:2-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3934376,
+      "name": "kworker/4:2-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 3934376,
+      "name": "kworker/4:2-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4003465,
+      "name": "kworker/14:1-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4003465,
+      "name": "kworker/14:1-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4003465,
+      "name": "kworker/14:1-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4057260,
+      "name": "kworker/12:1-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4057260,
+      "name": "kworker/12:1-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4057260,
+      "name": "kworker/12:1-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4114766,
+      "name": "kworker/5:2-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4114766,
+      "name": "kworker/5:2-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4114766,
+      "name": "kworker/5:2-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4171404,
+      "name": "kworker/3:0-events",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4171404,
+      "name": "kworker/3:0-events",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4171404,
+      "name": "kworker/3:0-events",
+      "field": "open_files",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4176063,
+      "name": "kworker/10:0-cgroup_free",
+      "field": "cwd",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4176063,
+      "name": "kworker/10:0-cgroup_free",
+      "field": "exe",
+      "error": "AccessDenied"
+    },
+    {
+      "pid": 4176063,
+      "name": "kworker/10:0-cgroup_free",
+      "field": "open_files",
+      "error": "AccessDenied"
+    }
+  ],
+  "scope": "Readable process fields only; not a claim of universal process visibility"
+}

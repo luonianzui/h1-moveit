@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "manager_update_rate_hz": [
+    100,
+    500
+  ],
+  "all_other_controller_parameters_unchanged": true,
+  "geometry_limits_inertias_pose_friction_unchanged": true,
+  "position_proportional_gain": 0.6,
+  "unchanged_tracking_guard_rad": 0.015,
+  "model_predicted_ramp_error_rad": 0.008,
+  "estimate_not_fresh_physical_certificate": true,
+  "calibration_required_before_fast_loaded_motion": true,
+  "source": "https://control.ros.org/jazzy/doc/gz_ros2_control/doc/index.html",
+  "robot_servo_sha256": "0d60455f5651819bbf6c68ad232a2f594e97f7dee0af875564475f65effe02be",
+  "parent_audit_sha256": "9fe96c5ff29f447144375f151871a5bba104a317512b689e61ca608a24c0c842",
+  "input_rebind_independently_verified": true,
+  "inherited_configuration_or_old_calibration_not_new_physical_pass": true,
+  "current_identity": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r350",
+  "gain_specific_calibration_required": true,
+  "loaded_motion_not_preclaimed": true,
+  "current_gripper_pid_d": 6.0,
+  "parent_gripper_dynamics_not_current_physical_certificate": true,
+  "controllers_servo_yaml_sha256": "26ec61df93b2e96ece9b2bcd6450feb81114ffdce91ceb054a9bb0d243a662ea",
+  "inherited_same_pid_not_general_physical_certificate": true,
+  "new_d6_current_physical_qualification_not_preclaimed": true
+}

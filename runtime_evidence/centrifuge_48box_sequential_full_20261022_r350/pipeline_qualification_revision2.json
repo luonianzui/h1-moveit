@@ -1,0 +1,67 @@
+{
+  "status": "PASS_PERSISTENT_PROTOCOL_AND_JOINED_TIMING_NOT_PHYSICAL",
+  "original_dense_paths_and_per_segment_ramps_preserved": true,
+  "fresh_scenes_with_empty_loaded_empty_state_isolation": true,
+  "records": [
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261021_r333/run/1_park_left_request.json",
+      "source_sha256": "3eb90ec796cf861f28530c3699f85c90d884f1ea284508c8e2a84a4addd95e45",
+      "mode": "park",
+      "checked_samples": 477,
+      "wall_s": 1.506243607000215
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261021_r333/run/3_load_pilot_left_request.json",
+      "source_sha256": "619b4c4a8c900cc976e33b36e462da1d1c2ff576091c08ac28cca68c1963e6fe",
+      "mode": "load_pilot",
+      "checked_samples": 82,
+      "wall_s": 3.0085335720068542
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261021_r333/run/1_park_left_request.json",
+      "source_sha256": "3eb90ec796cf861f28530c3699f85c90d884f1ea284508c8e2a84a4addd95e45",
+      "mode": "park",
+      "checked_samples": 477,
+      "wall_s": 1.465057177003473
+    }
+  ],
+  "joined": [
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261021_r333/run/15_retrieval_transport_left_result.json",
+      "original_sha256": "cfd6ef3b8d37b6166c2eccfc5b617a658007a3d5c6cd393b43300e282f1cc73e",
+      "phases": [
+        "retrieve_outboard",
+        "retrieve_transfer"
+      ],
+      "duration_sim_s": 2.339967791454904
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261021_r333/run/19_retrieval_transport_right_result.json",
+      "original_sha256": "621f49a6098353c262e71895f7be8d9af96c7acd0fd8e285a8af4dc15c07eace",
+      "phases": [
+        "retrieve_outboard",
+        "retrieve_transfer"
+      ],
+      "duration_sim_s": 2.681696833534086
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261021_r333/run/4_load_transport_left_result.json",
+      "original_sha256": "233d080ff72812af9dd4720788f3cdd4e5d18b5b82667d4d60a2fce4c60af612",
+      "phases": [
+        "load_lift",
+        "load_transfer"
+      ],
+      "duration_sim_s": 4.5601907912854704
+    },
+    {
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261021_r333/run/9_load_transport_right_result.json",
+      "original_sha256": "ad49fa3e261823a4e39a12b14509dd0fa468a05530640544f680940287688cfa",
+      "phases": [
+        "load_lift",
+        "load_transfer"
+      ],
+      "duration_sim_s": 3.147356453465808
+    }
+  ],
+  "no_guard_or_30_second_spin_reduction": true
+}

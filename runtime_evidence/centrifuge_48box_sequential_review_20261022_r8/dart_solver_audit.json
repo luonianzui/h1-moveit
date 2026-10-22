@@ -1,0 +1,2941 @@
+{
+  "status": "PASS_ACTUAL_SOLVER_GROUP_SAMPLES_NOT_COMPLETE_CENSUS",
+  "pid": 2088743,
+  "tid": 2088743,
+  "sample_period_calls": 1024,
+  "original_library_and_candidate_mapped": true,
+  "total_recorded_samples": 1079,
+  "task": {
+    "samples": 870,
+    "dimension": {
+      "minimum": 1,
+      "median": 37.0,
+      "mean": 49.08505747126437,
+      "maximum": 295,
+      "p95": 121
+    },
+    "constraints": {
+      "minimum": 1,
+      "median": 13.0,
+      "mean": 20.66896551724138,
+      "maximum": 119,
+      "p95": 41
+    },
+    "assembly_us": {
+      "minimum": 0.82,
+      "median": 44.931,
+      "mean": 117.91627701149426,
+      "maximum": 1742.4199999999998,
+      "p95": 322.93600000000004
+    },
+    "lcp_us": {
+      "minimum": 0.62,
+      "median": 15.54,
+      "mean": 38.47181494252874,
+      "maximum": 1080.46,
+      "p95": 92.152
+    },
+    "apply_us": {
+      "minimum": 0.06,
+      "median": 1.855,
+      "mean": 2.632690804597701,
+      "maximum": 31.211000000000002,
+      "p95": 7.621
+    },
+    "types": {
+      "ContactConstraint": 12361,
+      "JointConstraint": 4989,
+      "JointCoulombFrictionConstraint": 632
+    },
+    "dimensions_histogram": {
+      "55": 77,
+      "12": 79,
+      "56": 25,
+      "1": 135,
+      "187": 3,
+      "175": 9,
+      "154": 1,
+      "235": 3,
+      "295": 1,
+      "236": 1,
+      "220": 1,
+      "158": 1,
+      "163": 1,
+      "166": 2,
+      "169": 1,
+      "160": 1,
+      "103": 1,
+      "57": 22,
+      "25": 9,
+      "19": 129,
+      "43": 43,
+      "37": 72,
+      "49": 14,
+      "121": 121,
+      "82": 7,
+      "64": 3,
+      "109": 1,
+      "67": 2,
+      "79": 2,
+      "85": 1,
+      "58": 2,
+      "61": 1,
+      "40": 21,
+      "52": 10,
+      "46": 31,
+      "34": 1,
+      "70": 1,
+      "73": 1,
+      "182": 1,
+      "284": 1,
+      "249": 3,
+      "267": 2,
+      "149": 1,
+      "22": 23,
+      "201": 1,
+      "195": 2
+    },
+    "sampled_fallback_count": 3
+  },
+  "phases": {
+    "phase_not_observed_within_2s": {
+      "samples": 8,
+      "dimension": {
+        "minimum": 55,
+        "median": 55.0,
+        "mean": 55,
+        "maximum": 55,
+        "p95": 55
+      },
+      "constraints": {
+        "minimum": 39,
+        "median": 39.0,
+        "mean": 39,
+        "maximum": 39,
+        "p95": 39
+      },
+      "assembly_us": {
+        "minimum": 169.834,
+        "median": 173.329,
+        "mean": 202.463625,
+        "maximum": 379.90000000000003,
+        "p95": 379.90000000000003
+      },
+      "lcp_us": {
+        "minimum": 24.63,
+        "median": 29.945999999999998,
+        "mean": 35.755875,
+        "maximum": 64.85100000000001,
+        "p95": 64.85100000000001
+      },
+      "apply_us": {
+        "minimum": 1.6700000000000002,
+        "median": 1.8849999999999998,
+        "mean": 2.901375,
+        "maximum": 9.431,
+        "p95": 9.431
+      },
+      "types": {
+        "ContactConstraint": 64,
+        "JointConstraint": 216,
+        "JointCoulombFrictionConstraint": 32
+      },
+      "dimensions_histogram": {
+        "55": 8
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_preparation": {
+      "samples": 19,
+      "dimension": {
+        "minimum": 55,
+        "median": 55,
+        "mean": 55,
+        "maximum": 55,
+        "p95": 55
+      },
+      "constraints": {
+        "minimum": 39,
+        "median": 39,
+        "mean": 39,
+        "maximum": 39,
+        "p95": 39
+      },
+      "assembly_us": {
+        "minimum": 166.734,
+        "median": 172.844,
+        "mean": 174.85168421052632,
+        "maximum": 200.934,
+        "p95": 200.934
+      },
+      "lcp_us": {
+        "minimum": 23.020999999999997,
+        "median": 33.571,
+        "mean": 35.17442105263158,
+        "maximum": 52.211,
+        "p95": 52.211
+      },
+      "apply_us": {
+        "minimum": 1.7,
+        "median": 1.91,
+        "mean": 2.402842105263158,
+        "maximum": 6.851,
+        "p95": 6.851
+      },
+      "types": {
+        "ContactConstraint": 152,
+        "JointConstraint": 513,
+        "JointCoulombFrictionConstraint": 76
+      },
+      "dimensions_histogram": {
+        "55": 19
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_preparation_open_approach": {
+      "samples": 13,
+      "dimension": {
+        "minimum": 55,
+        "median": 55,
+        "mean": 55,
+        "maximum": 55,
+        "p95": 55
+      },
+      "constraints": {
+        "minimum": 39,
+        "median": 39,
+        "mean": 39,
+        "maximum": 39,
+        "p95": 39
+      },
+      "assembly_us": {
+        "minimum": 165.554,
+        "median": 169.244,
+        "mean": 172.8526923076923,
+        "maximum": 204.535,
+        "p95": 204.535
+      },
+      "lcp_us": {
+        "minimum": 22.48,
+        "median": 28.531,
+        "mean": 29.256846153846155,
+        "maximum": 38.751000000000005,
+        "p95": 38.751000000000005
+      },
+      "apply_us": {
+        "minimum": 1.71,
+        "median": 1.77,
+        "mean": 1.7977692307692308,
+        "maximum": 2.08,
+        "p95": 2.08
+      },
+      "types": {
+        "ContactConstraint": 104,
+        "JointConstraint": 351,
+        "JointCoulombFrictionConstraint": 52
+      },
+      "dimensions_histogram": {
+        "55": 13
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_preparation_open_press": {
+      "samples": 6,
+      "dimension": {
+        "minimum": 12,
+        "median": 55.0,
+        "mean": 40.666666666666664,
+        "maximum": 55,
+        "p95": 55
+      },
+      "constraints": {
+        "minimum": 4,
+        "median": 39.0,
+        "mean": 27.333333333333332,
+        "maximum": 39,
+        "p95": 39
+      },
+      "assembly_us": {
+        "minimum": 3.4699999999999998,
+        "median": 173.474,
+        "mean": 118.46766666666666,
+        "maximum": 181.414,
+        "p95": 181.414
+      },
+      "lcp_us": {
+        "minimum": 1.8199999999999998,
+        "median": 38.146,
+        "mean": 26.487333333333332,
+        "maximum": 40.471,
+        "p95": 40.471
+      },
+      "apply_us": {
+        "minimum": 0.52,
+        "median": 1.835,
+        "mean": 1.4366666666666665,
+        "maximum": 2.01,
+        "p95": 2.01
+      },
+      "types": {
+        "ContactConstraint": 40,
+        "JointConstraint": 108,
+        "JointCoulombFrictionConstraint": 16
+      },
+      "dimensions_histogram": {
+        "55": 4,
+        "12": 2
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_preparation_open_withdraw": {
+      "samples": 30,
+      "dimension": {
+        "minimum": 1,
+        "median": 55.0,
+        "mean": 48.56666666666667,
+        "maximum": 56,
+        "p95": 55
+      },
+      "constraints": {
+        "minimum": 1,
+        "median": 39.0,
+        "mean": 34.166666666666664,
+        "maximum": 40,
+        "p95": 39
+      },
+      "assembly_us": {
+        "minimum": 1.1099999999999999,
+        "median": 172.704,
+        "mean": 156.58843333333334,
+        "maximum": 214.635,
+        "p95": 209.915
+      },
+      "lcp_us": {
+        "minimum": 1.18,
+        "median": 38.416,
+        "mean": 34.63613333333333,
+        "maximum": 50.762,
+        "p95": 49.771
+      },
+      "apply_us": {
+        "minimum": 0.07,
+        "median": 1.88,
+        "mean": 1.8451333333333333,
+        "maximum": 3.1999999999999997,
+        "p95": 3.081
+      },
+      "types": {
+        "ContactConstraint": 216,
+        "JointConstraint": 705,
+        "JointCoulombFrictionConstraint": 104
+      },
+      "dimensions_histogram": {
+        "12": 2,
+        "56": 1,
+        "55": 25,
+        "1": 2
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_wait_preparation_open": {
+      "samples": 7,
+      "dimension": {
+        "minimum": 1,
+        "median": 1,
+        "mean": 1,
+        "maximum": 1,
+        "p95": 1
+      },
+      "constraints": {
+        "minimum": 1,
+        "median": 1,
+        "mean": 1,
+        "maximum": 1,
+        "p95": 1
+      },
+      "assembly_us": {
+        "minimum": 1.1099999999999999,
+        "median": 1.28,
+        "mean": 1.7058571428571427,
+        "maximum": 3.8909999999999996,
+        "p95": 3.8909999999999996
+      },
+      "lcp_us": {
+        "minimum": 1.21,
+        "median": 1.56,
+        "mean": 2.3401428571428573,
+        "maximum": 7.26,
+        "p95": 7.26
+      },
+      "apply_us": {
+        "minimum": 0.07,
+        "median": 0.09,
+        "mean": 0.09428571428571429,
+        "maximum": 0.14,
+        "p95": 0.14
+      },
+      "types": {
+        "JointConstraint": 7
+      },
+      "dimensions_histogram": {
+        "1": 7
+      },
+      "sampled_fallback_count": 0
+    },
+    "left_seq_load_open_empty": {
+      "samples": 13,
+      "dimension": {
+        "minimum": 1,
+        "median": 1,
+        "mean": 1,
+        "maximum": 1,
+        "p95": 1
+      },
+      "constraints": {
+        "minimum": 1,
+        "median": 1,
+        "mean": 1,
+        "maximum": 1,
+        "p95": 1
+      },
+      "assembly_us": {
+        "minimum": 0.95,
+        "median": 1.25,
+        "mean": 1.273076923076923,
+        "maximum": 1.7,
+        "p95": 1.7
+      },
+      "lcp_us": {
+        "minimum": 0.74,
+        "median": 1.15,
+        "mean": 1.2553846153846153,
+        "maximum": 2.42,
+        "p95": 2.42
+      },
+      "apply_us": {
+        "minimum": 0.07,
+        "median": 0.08,
+        "mean": 0.0823076923076923,
+        "maximum": 0.12,
+        "p95": 0.12
+      },
+      "types": {
+        "JointConstraint": 13
+      },
+      "dimensions_histogram": {
+        "1": 13
+      },
+      "sampled_fallback_count": 0
+    },
+    "right_seq_load_open_empty": {
+      "samples": 19,
+      "dimension": {
+        "minimum": 1,
+        "median": 1,
+        "mean": 1,
+        "maximum": 1,
+        "p95": 1
+      },
+      "constraints": {
+        "minimum": 1,
+        "median": 1,
+        "mean": 1,
+        "maximum": 1,
+        "p95": 1
+      },
+      "assembly_us": {
+        "minimum": 0.86,
+        "median": 1.241,
+        "mean": 1.422157894736842,
+        "maximum": 2.52,
+        "p95": 2.52
+      },
+      "lcp_us": {
+        "minimum": 0.63,
+        "median": 1.51,
+        "mean": 1.503736842105263,
+        "maximum": 2.481,
+        "p95": 2.481
+      },
+      "apply_us": {
+        "minimum": 0.07,
+        "median": 0.08,
+        "mean": 0.08578947368421053,
+        "maximum": 0.15,
+        "p95": 0.15
+      },
+      "types": {
+        "JointConstraint": 19
+      },
+      "dimensions_histogram": {
+        "1": 19
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_load_empty_park": {
+      "samples": 59,
+      "dimension": {
+        "minimum": 1,
+        "median": 12,
+        "mean": 18.728813559322035,
+        "maximum": 57,
+        "p95": 56
+      },
+      "constraints": {
+        "minimum": 1,
+        "median": 4,
+        "mean": 9.64406779661017,
+        "maximum": 41,
+        "p95": 40
+      },
+      "assembly_us": {
+        "minimum": 0.9099999999999999,
+        "median": 3.78,
+        "mean": 37.26101694915254,
+        "maximum": 220.965,
+        "p95": 189.454
+      },
+      "lcp_us": {
+        "minimum": 0.71,
+        "median": 2.5500000000000003,
+        "mean": 8.869508474576271,
+        "maximum": 38.991,
+        "p95": 33.951
+      },
+      "apply_us": {
+        "minimum": 0.06,
+        "median": 0.64,
+        "mean": 0.923728813559322,
+        "maximum": 2.4499999999999997,
+        "p95": 2.42
+      },
+      "types": {
+        "JointConstraint": 269,
+        "ContactConstraint": 268,
+        "JointCoulombFrictionConstraint": 32
+      },
+      "dimensions_histogram": {
+        "1": 25,
+        "19": 8,
+        "12": 8,
+        "57": 2,
+        "56": 6,
+        "37": 8,
+        "43": 2
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_load_empty_approach": {
+      "samples": 35,
+      "dimension": {
+        "minimum": 1,
+        "median": 1,
+        "mean": 13.542857142857143,
+        "maximum": 57,
+        "p95": 56
+      },
+      "constraints": {
+        "minimum": 1,
+        "median": 1,
+        "mean": 8.057142857142857,
+        "maximum": 41,
+        "p95": 40
+      },
+      "assembly_us": {
+        "minimum": 0.9299999999999999,
+        "median": 2.2,
+        "mean": 31.135514285714287,
+        "maximum": 216.565,
+        "p95": 178.004
+      },
+      "lcp_us": {
+        "minimum": 0.67,
+        "median": 2.0,
+        "mean": 7.0644285714285715,
+        "maximum": 43.351,
+        "p95": 39.181000000000004
+      },
+      "apply_us": {
+        "minimum": 0.07,
+        "median": 0.13,
+        "mean": 0.8528571428571429,
+        "maximum": 8.93,
+        "p95": 3.5700000000000003
+      },
+      "types": {
+        "JointConstraint": 166,
+        "ContactConstraint": 96,
+        "JointCoulombFrictionConstraint": 20
+      },
+      "dimensions_histogram": {
+        "1": 19,
+        "19": 6,
+        "12": 5,
+        "56": 4,
+        "57": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_load_empty_descend": {
+      "samples": 39,
+      "dimension": {
+        "minimum": 1,
+        "median": 1,
+        "mean": 11.717948717948717,
+        "maximum": 56,
+        "p95": 56
+      },
+      "constraints": {
+        "minimum": 1,
+        "median": 1,
+        "mean": 7.102564102564102,
+        "maximum": 40,
+        "p95": 40
+      },
+      "assembly_us": {
+        "minimum": 0.82,
+        "median": 1.42,
+        "mean": 27.58110256410256,
+        "maximum": 199.094,
+        "p95": 182.73399999999998
+      },
+      "lcp_us": {
+        "minimum": 0.62,
+        "median": 1.77,
+        "mean": 5.588846153846154,
+        "maximum": 37.301,
+        "p95": 26.341
+      },
+      "apply_us": {
+        "minimum": 0.07,
+        "median": 0.09,
+        "mean": 0.5479487179487179,
+        "maximum": 2.2800000000000002,
+        "p95": 2.06
+      },
+      "types": {
+        "JointConstraint": 167,
+        "ContactConstraint": 90,
+        "JointCoulombFrictionConstraint": 20
+      },
+      "dimensions_histogram": {
+        "1": 24,
+        "12": 5,
+        "56": 3,
+        "19": 5,
+        "55": 2
+      },
+      "sampled_fallback_count": 0
+    },
+    "left_seq_load_grasp": {
+      "samples": 11,
+      "dimension": {
+        "minimum": 1,
+        "median": 12,
+        "mean": 70.54545454545455,
+        "maximum": 187,
+        "p95": 187
+      },
+      "constraints": {
+        "minimum": 1,
+        "median": 4,
+        "mean": 31.272727272727273,
+        "maximum": 83,
+        "p95": 83
+      },
+      "assembly_us": {
+        "minimum": 1.0,
+        "median": 4.45,
+        "mean": 294.797,
+        "maximum": 819.049,
+        "p95": 819.049
+      },
+      "lcp_us": {
+        "minimum": 1.03,
+        "median": 3.9,
+        "mean": 183.74954545454545,
+        "maximum": 668.475,
+        "p95": 668.475
+      },
+      "apply_us": {
+        "minimum": 0.07,
+        "median": 0.53,
+        "mean": 3.081090909090909,
+        "maximum": 8.48,
+        "p95": 8.48
+      },
+      "types": {
+        "JointConstraint": 112,
+        "ContactConstraint": 216,
+        "JointCoulombFrictionConstraint": 16
+      },
+      "dimensions_histogram": {
+        "1": 4,
+        "187": 3,
+        "12": 3,
+        "175": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_load_single_pilot": {
+      "samples": 16,
+      "dimension": {
+        "minimum": 1,
+        "median": 19.0,
+        "mean": 42.25,
+        "maximum": 175,
+        "p95": 175
+      },
+      "constraints": {
+        "minimum": 1,
+        "median": 7.0,
+        "mean": 18.375,
+        "maximum": 79,
+        "p95": 79
+      },
+      "assembly_us": {
+        "minimum": 1.26,
+        "median": 20.9605,
+        "mean": 148.6878125,
+        "maximum": 781.378,
+        "p95": 781.378
+      },
+      "lcp_us": {
+        "minimum": 1.15,
+        "median": 7.03,
+        "mean": 87.0483125,
+        "maximum": 528.472,
+        "p95": 528.472
+      },
+      "apply_us": {
+        "minimum": 0.08,
+        "median": 1.17,
+        "mean": 1.9963125,
+        "maximum": 7.621,
+        "p95": 7.621
+      },
+      "types": {
+        "ContactConstraint": 191,
+        "JointConstraint": 91,
+        "JointCoulombFrictionConstraint": 12
+      },
+      "dimensions_histogram": {
+        "12": 3,
+        "1": 3,
+        "154": 1,
+        "175": 2,
+        "19": 7
+      },
+      "sampled_fallback_count": 0
+    },
+    "left_seq_load_static_grip_hold": {
+      "samples": 6,
+      "dimension": {
+        "minimum": 1,
+        "median": 12.0,
+        "mean": 62.666666666666664,
+        "maximum": 175,
+        "p95": 175
+      },
+      "constraints": {
+        "minimum": 1,
+        "median": 4.0,
+        "mean": 28,
+        "maximum": 79,
+        "p95": 79
+      },
+      "assembly_us": {
+        "minimum": 1.72,
+        "median": 5.985,
+        "mean": 277.0396666666667,
+        "maximum": 829.8589999999999,
+        "p95": 829.8589999999999
+      },
+      "lcp_us": {
+        "minimum": 2.4899999999999998,
+        "median": 3.765,
+        "mean": 207.64816666666667,
+        "maximum": 632.105,
+        "p95": 632.105
+      },
+      "apply_us": {
+        "minimum": 0.09,
+        "median": 0.605,
+        "mean": 3.49,
+        "maximum": 10.75,
+        "p95": 10.75
+      },
+      "types": {
+        "ContactConstraint": 104,
+        "JointConstraint": 56,
+        "JointCoulombFrictionConstraint": 8
+      },
+      "dimensions_histogram": {
+        "12": 2,
+        "1": 2,
+        "175": 2
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_load_load_lift_and_load_transfer": {
+      "samples": 43,
+      "dimension": {
+        "minimum": 1,
+        "median": 19,
+        "mean": 55.41860465116279,
+        "maximum": 295,
+        "p95": 235
+      },
+      "constraints": {
+        "minimum": 1,
+        "median": 7,
+        "mean": 23.186046511627907,
+        "maximum": 119,
+        "p95": 99
+      },
+      "assembly_us": {
+        "minimum": 0.9900000000000001,
+        "median": 19.44,
+        "mean": 253.21348837209302,
+        "maximum": 1742.4199999999998,
+        "p95": 1306.4
+      },
+      "lcp_us": {
+        "minimum": 1.24,
+        "median": 7.021,
+        "mean": 80.30655813953489,
+        "maximum": 490.642,
+        "p95": 444.69000000000005
+      },
+      "apply_us": {
+        "minimum": 0.07,
+        "median": 1.06,
+        "mean": 3.1698139534883722,
+        "maximum": 31.211000000000002,
+        "p95": 12.15
+      },
+      "types": {
+        "ContactConstraint": 693,
+        "JointConstraint": 268,
+        "JointCoulombFrictionConstraint": 36
+      },
+      "dimensions_histogram": {
+        "12": 10,
+        "1": 10,
+        "175": 3,
+        "235": 3,
+        "295": 1,
+        "236": 1,
+        "220": 1,
+        "19": 13,
+        "25": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_load_load_lower": {
+      "samples": 18,
+      "dimension": {
+        "minimum": 1,
+        "median": 19.0,
+        "mean": 47.72222222222222,
+        "maximum": 175,
+        "p95": 175
+      },
+      "constraints": {
+        "minimum": 1,
+        "median": 7.0,
+        "mean": 20.944444444444443,
+        "maximum": 79,
+        "p95": 79
+      },
+      "assembly_us": {
+        "minimum": 1.42,
+        "median": 20.396,
+        "mean": 187.37161111111112,
+        "maximum": 841.0200000000001,
+        "p95": 841.0200000000001
+      },
+      "lcp_us": {
+        "minimum": 1.4300000000000002,
+        "median": 7.2,
+        "mean": 65.01366666666667,
+        "maximum": 375.47900000000004,
+        "p95": 375.47900000000004
+      },
+      "apply_us": {
+        "minimum": 0.08,
+        "median": 1.29,
+        "mean": 2.6645555555555553,
+        "maximum": 12.540000000000001,
+        "p95": 12.540000000000001
+      },
+      "types": {
+        "ContactConstraint": 241,
+        "JointConstraint": 120,
+        "JointCoulombFrictionConstraint": 16
+      },
+      "dimensions_histogram": {
+        "158": 1,
+        "12": 3,
+        "1": 3,
+        "175": 1,
+        "163": 1,
+        "166": 1,
+        "25": 1,
+        "19": 7
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_load_load_release_pilot_align": {
+      "samples": 6,
+      "dimension": {
+        "minimum": 1,
+        "median": 12.0,
+        "mean": 60.166666666666664,
+        "maximum": 169,
+        "p95": 169
+      },
+      "constraints": {
+        "minimum": 1,
+        "median": 4.0,
+        "mean": 27.166666666666668,
+        "maximum": 77,
+        "p95": 77
+      },
+      "assembly_us": {
+        "minimum": 1.4500000000000002,
+        "median": 4.4,
+        "mean": 258.12233333333336,
+        "maximum": 778.307,
+        "p95": 778.307
+      },
+      "lcp_us": {
+        "minimum": 1.81,
+        "median": 4.2355,
+        "mean": 115.616,
+        "maximum": 345.047,
+        "p95": 345.047
+      },
+      "apply_us": {
+        "minimum": 0.08,
+        "median": 0.575,
+        "mean": 3.236666666666667,
+        "maximum": 10.49,
+        "p95": 10.49
+      },
+      "types": {
+        "ContactConstraint": 99,
+        "JointConstraint": 56,
+        "JointCoulombFrictionConstraint": 8
+      },
+      "dimensions_histogram": {
+        "12": 2,
+        "1": 2,
+        "169": 1,
+        "166": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "left_release_above_bucket": {
+      "samples": 11,
+      "dimension": {
+        "minimum": 1,
+        "median": 25,
+        "mean": 45,
+        "maximum": 160,
+        "p95": 160
+      },
+      "constraints": {
+        "minimum": 1,
+        "median": 9,
+        "mean": 24.818181818181817,
+        "maximum": 74,
+        "p95": 74
+      },
+      "assembly_us": {
+        "minimum": 1.48,
+        "median": 28.161,
+        "mean": 153.50427272727273,
+        "maximum": 732.886,
+        "p95": 732.886
+      },
+      "lcp_us": {
+        "minimum": 1.47,
+        "median": 15.18,
+        "mean": 50.10018181818182,
+        "maximum": 293.257,
+        "p95": 293.257
+      },
+      "apply_us": {
+        "minimum": 0.07,
+        "median": 1.42,
+        "mean": 1.9463636363636363,
+        "maximum": 7.55,
+        "p95": 7.55
+      },
+      "types": {
+        "ContactConstraint": 111,
+        "JointConstraint": 142,
+        "JointCoulombFrictionConstraint": 20
+      },
+      "dimensions_histogram": {
+        "12": 3,
+        "1": 2,
+        "160": 1,
+        "103": 1,
+        "55": 1,
+        "57": 2,
+        "25": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "left_drop_settling": {
+      "samples": 13,
+      "dimension": {
+        "minimum": 12,
+        "median": 19,
+        "mean": 29,
+        "maximum": 57,
+        "p95": 57
+      },
+      "constraints": {
+        "minimum": 4,
+        "median": 7,
+        "mean": 16.692307692307693,
+        "maximum": 41,
+        "p95": 41
+      },
+      "assembly_us": {
+        "minimum": 3.6500000000000004,
+        "median": 20.77,
+        "mean": 67.27392307692307,
+        "maximum": 189.505,
+        "p95": 189.505
+      },
+      "lcp_us": {
+        "minimum": 2.3,
+        "median": 7.07,
+        "mean": 16.357230769230767,
+        "maximum": 42.561,
+        "p95": 42.561
+      },
+      "apply_us": {
+        "minimum": 0.62,
+        "median": 1.29,
+        "mean": 1.3777692307692306,
+        "maximum": 2.36,
+        "p95": 2.36
+      },
+      "types": {
+        "ContactConstraint": 80,
+        "JointConstraint": 121,
+        "JointCoulombFrictionConstraint": 16
+      },
+      "dimensions_histogram": {
+        "25": 1,
+        "12": 4,
+        "57": 4,
+        "19": 4
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_load_empty_vertical_retreat": {
+      "samples": 13,
+      "dimension": {
+        "minimum": 12,
+        "median": 37,
+        "mean": 33.07692307692308,
+        "maximum": 57,
+        "p95": 57
+      },
+      "constraints": {
+        "minimum": 4,
+        "median": 13,
+        "mean": 16.46153846153846,
+        "maximum": 41,
+        "p95": 41
+      },
+      "assembly_us": {
+        "minimum": 4.7299999999999995,
+        "median": 41.671,
+        "mean": 68.71461538461539,
+        "maximum": 229.125,
+        "p95": 229.125
+      },
+      "lcp_us": {
+        "minimum": 3.36,
+        "median": 14.610000000000001,
+        "mean": 16.47269230769231,
+        "maximum": 44.561,
+        "p95": 44.561
+      },
+      "apply_us": {
+        "minimum": 0.65,
+        "median": 1.83,
+        "mean": 1.7715384615384615,
+        "maximum": 3.6100000000000003,
+        "p95": 3.6100000000000003
+      },
+      "types": {
+        "ContactConstraint": 108,
+        "JointConstraint": 94,
+        "JointCoulombFrictionConstraint": 12
+      },
+      "dimensions_histogram": {
+        "12": 3,
+        "57": 3,
+        "19": 2,
+        "37": 5
+      },
+      "sampled_fallback_count": 0
+    },
+    "right_seq_load_grasp": {
+      "samples": 7,
+      "dimension": {
+        "minimum": 19,
+        "median": 19,
+        "mean": 19,
+        "maximum": 19,
+        "p95": 19
+      },
+      "constraints": {
+        "minimum": 7,
+        "median": 7,
+        "mean": 7,
+        "maximum": 7,
+        "p95": 7
+      },
+      "assembly_us": {
+        "minimum": 18.43,
+        "median": 21.74,
+        "mean": 22.370285714285714,
+        "maximum": 32.36,
+        "p95": 32.36
+      },
+      "lcp_us": {
+        "minimum": 5.52,
+        "median": 7.130000000000001,
+        "mean": 8.073142857142857,
+        "maximum": 12.941,
+        "p95": 12.941
+      },
+      "apply_us": {
+        "minimum": 1.03,
+        "median": 1.19,
+        "mean": 1.3857142857142857,
+        "maximum": 2.21,
+        "p95": 2.21
+      },
+      "types": {
+        "ContactConstraint": 42,
+        "JointConstraint": 7
+      },
+      "dimensions_histogram": {
+        "19": 7
+      },
+      "sampled_fallback_count": 0
+    },
+    "right_seq_load_static_grip_hold": {
+      "samples": 3,
+      "dimension": {
+        "minimum": 19,
+        "median": 19,
+        "mean": 21,
+        "maximum": 25,
+        "p95": 25
+      },
+      "constraints": {
+        "minimum": 7,
+        "median": 7,
+        "mean": 7.666666666666667,
+        "maximum": 9,
+        "p95": 9
+      },
+      "assembly_us": {
+        "minimum": 19.44,
+        "median": 20.261000000000003,
+        "mean": 22.740333333333336,
+        "maximum": 28.520000000000003,
+        "p95": 28.520000000000003
+      },
+      "lcp_us": {
+        "minimum": 6.489999999999999,
+        "median": 7.441000000000001,
+        "mean": 8.017,
+        "maximum": 10.12,
+        "p95": 10.12
+      },
+      "apply_us": {
+        "minimum": 1.0699999999999998,
+        "median": 1.18,
+        "mean": 1.26,
+        "maximum": 1.53,
+        "p95": 1.53
+      },
+      "types": {
+        "ContactConstraint": 20,
+        "JointConstraint": 3
+      },
+      "dimensions_histogram": {
+        "19": 2,
+        "25": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "right_release_above_bucket": {
+      "samples": 6,
+      "dimension": {
+        "minimum": 19,
+        "median": 34.0,
+        "mean": 32,
+        "maximum": 43,
+        "p95": 43
+      },
+      "constraints": {
+        "minimum": 7,
+        "median": 12.0,
+        "mean": 11.333333333333334,
+        "maximum": 15,
+        "p95": 15
+      },
+      "assembly_us": {
+        "minimum": 21.861,
+        "median": 38.426,
+        "mean": 42.322833333333335,
+        "maximum": 63.972,
+        "p95": 63.972
+      },
+      "lcp_us": {
+        "minimum": 7.890999999999999,
+        "median": 14.82,
+        "mean": 15.1585,
+        "maximum": 24.89,
+        "p95": 24.89
+      },
+      "apply_us": {
+        "minimum": 1.0899999999999999,
+        "median": 1.9449999999999998,
+        "mean": 1.9033333333333333,
+        "maximum": 2.8,
+        "p95": 2.8
+      },
+      "types": {
+        "ContactConstraint": 62,
+        "JointConstraint": 6
+      },
+      "dimensions_histogram": {
+        "25": 1,
+        "19": 2,
+        "43": 3
+      },
+      "sampled_fallback_count": 0
+    },
+    "right_drop_settling": {
+      "samples": 6,
+      "dimension": {
+        "minimum": 37,
+        "median": 37.0,
+        "mean": 38,
+        "maximum": 43,
+        "p95": 43
+      },
+      "constraints": {
+        "minimum": 13,
+        "median": 13.0,
+        "mean": 13.333333333333334,
+        "maximum": 15,
+        "p95": 15
+      },
+      "assembly_us": {
+        "minimum": 39.201,
+        "median": 46.366,
+        "mean": 45.83266666666667,
+        "maximum": 51.001000000000005,
+        "p95": 51.001000000000005
+      },
+      "lcp_us": {
+        "minimum": 11.270000000000001,
+        "median": 15.3,
+        "mean": 15.281666666666666,
+        "maximum": 20.56,
+        "p95": 20.56
+      },
+      "apply_us": {
+        "minimum": 1.85,
+        "median": 2.2105,
+        "mean": 2.216833333333333,
+        "maximum": 2.53,
+        "p95": 2.53
+      },
+      "types": {
+        "ContactConstraint": 74,
+        "JointConstraint": 6
+      },
+      "dimensions_histogram": {
+        "37": 5,
+        "43": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_sequential_empty_neutral": {
+      "samples": 5,
+      "dimension": {
+        "minimum": 37,
+        "median": 37,
+        "mean": 37,
+        "maximum": 37,
+        "p95": 37
+      },
+      "constraints": {
+        "minimum": 13,
+        "median": 13,
+        "mean": 13,
+        "maximum": 13,
+        "p95": 13
+      },
+      "assembly_us": {
+        "minimum": 39.291000000000004,
+        "median": 40.411,
+        "mean": 40.661,
+        "maximum": 42.381,
+        "p95": 42.381
+      },
+      "lcp_us": {
+        "minimum": 9.74,
+        "median": 14.04,
+        "mean": 18.5182,
+        "maximum": 42.241,
+        "p95": 42.241
+      },
+      "apply_us": {
+        "minimum": 1.91,
+        "median": 1.9700000000000002,
+        "mean": 4.424,
+        "maximum": 14.13,
+        "p95": 14.13
+      },
+      "types": {
+        "ContactConstraint": 60,
+        "JointConstraint": 5
+      },
+      "dimensions_histogram": {
+        "37": 5
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_sequential_empty_grippers": {
+      "samples": 11,
+      "dimension": {
+        "minimum": 37,
+        "median": 37,
+        "mean": 37,
+        "maximum": 37,
+        "p95": 37
+      },
+      "constraints": {
+        "minimum": 13,
+        "median": 13,
+        "mean": 13,
+        "maximum": 13,
+        "p95": 13
+      },
+      "assembly_us": {
+        "minimum": 39.391000000000005,
+        "median": 42.721,
+        "mean": 44.13272727272727,
+        "maximum": 64.502,
+        "p95": 64.502
+      },
+      "lcp_us": {
+        "minimum": 9.58,
+        "median": 12.411,
+        "mean": 12.981181818181819,
+        "maximum": 16.6,
+        "p95": 16.6
+      },
+      "apply_us": {
+        "minimum": 1.8599999999999999,
+        "median": 2.04,
+        "mean": 2.069090909090909,
+        "maximum": 2.34,
+        "p95": 2.34
+      },
+      "types": {
+        "ContactConstraint": 132,
+        "JointConstraint": 11
+      },
+      "dimensions_histogram": {
+        "37": 11
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_close_approach": {
+      "samples": 8,
+      "dimension": {
+        "minimum": 37,
+        "median": 37.0,
+        "mean": 37.75,
+        "maximum": 43,
+        "p95": 43
+      },
+      "constraints": {
+        "minimum": 13,
+        "median": 13.0,
+        "mean": 13.25,
+        "maximum": 15,
+        "p95": 15
+      },
+      "assembly_us": {
+        "minimum": 39.531,
+        "median": 46.746,
+        "mean": 46.2885,
+        "maximum": 51.150999999999996,
+        "p95": 51.150999999999996
+      },
+      "lcp_us": {
+        "minimum": 10.77,
+        "median": 14.075,
+        "mean": 15.275,
+        "maximum": 24.3,
+        "p95": 24.3
+      },
+      "apply_us": {
+        "minimum": 1.8599999999999999,
+        "median": 2.16,
+        "mean": 2.127625,
+        "maximum": 2.35,
+        "p95": 2.35
+      },
+      "types": {
+        "ContactConstraint": 98,
+        "JointConstraint": 8
+      },
+      "dimensions_histogram": {
+        "37": 7,
+        "43": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_close_press": {
+      "samples": 5,
+      "dimension": {
+        "minimum": 37,
+        "median": 37,
+        "mean": 37,
+        "maximum": 37,
+        "p95": 37
+      },
+      "constraints": {
+        "minimum": 13,
+        "median": 13,
+        "mean": 13,
+        "maximum": 13,
+        "p95": 13
+      },
+      "assembly_us": {
+        "minimum": 38.800999999999995,
+        "median": 44.811,
+        "mean": 46.254999999999995,
+        "maximum": 58.400999999999996,
+        "p95": 58.400999999999996
+      },
+      "lcp_us": {
+        "minimum": 10.631,
+        "median": 13.57,
+        "mean": 15.012599999999999,
+        "maximum": 20.421,
+        "p95": 20.421
+      },
+      "apply_us": {
+        "minimum": 1.88,
+        "median": 2.02,
+        "mean": 2.134,
+        "maximum": 2.62,
+        "p95": 2.62
+      },
+      "types": {
+        "ContactConstraint": 60,
+        "JointConstraint": 5
+      },
+      "dimensions_histogram": {
+        "37": 5
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_close_withdraw": {
+      "samples": 15,
+      "dimension": {
+        "minimum": 37,
+        "median": 37,
+        "mean": 37.4,
+        "maximum": 43,
+        "p95": 43
+      },
+      "constraints": {
+        "minimum": 13,
+        "median": 13,
+        "mean": 13.133333333333333,
+        "maximum": 15,
+        "p95": 15
+      },
+      "assembly_us": {
+        "minimum": 39.251,
+        "median": 43.650999999999996,
+        "mean": 45.91693333333333,
+        "maximum": 57.741,
+        "p95": 57.741
+      },
+      "lcp_us": {
+        "minimum": 10.299999999999999,
+        "median": 15.809999999999999,
+        "mean": 16.918266666666668,
+        "maximum": 25.131,
+        "p95": 25.131
+      },
+      "apply_us": {
+        "minimum": 1.8399999999999999,
+        "median": 2.2800000000000002,
+        "mean": 2.348,
+        "maximum": 3.2399999999999998,
+        "p95": 3.2399999999999998
+      },
+      "types": {
+        "ContactConstraint": 182,
+        "JointConstraint": 15
+      },
+      "dimensions_histogram": {
+        "37": 14,
+        "43": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_start_approach": {
+      "samples": 8,
+      "dimension": {
+        "minimum": 37,
+        "median": 37.0,
+        "mean": 37.75,
+        "maximum": 43,
+        "p95": 43
+      },
+      "constraints": {
+        "minimum": 13,
+        "median": 13.0,
+        "mean": 13.25,
+        "maximum": 15,
+        "p95": 15
+      },
+      "assembly_us": {
+        "minimum": 38.541000000000004,
+        "median": 43.681,
+        "mean": 44.52225,
+        "maximum": 52.231,
+        "p95": 52.231
+      },
+      "lcp_us": {
+        "minimum": 9.9,
+        "median": 14.71,
+        "mean": 14.94025,
+        "maximum": 20.131,
+        "p95": 20.131
+      },
+      "apply_us": {
+        "minimum": 1.7999999999999998,
+        "median": 2.2405,
+        "mean": 2.236375,
+        "maximum": 2.76,
+        "p95": 2.76
+      },
+      "types": {
+        "ContactConstraint": 98,
+        "JointConstraint": 8
+      },
+      "dimensions_histogram": {
+        "43": 1,
+        "37": 7
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_start_press": {
+      "samples": 5,
+      "dimension": {
+        "minimum": 37,
+        "median": 37,
+        "mean": 38.2,
+        "maximum": 43,
+        "p95": 43
+      },
+      "constraints": {
+        "minimum": 13,
+        "median": 13,
+        "mean": 13.4,
+        "maximum": 15,
+        "p95": 15
+      },
+      "assembly_us": {
+        "minimum": 42.461,
+        "median": 45.221,
+        "mean": 46.086999999999996,
+        "maximum": 51.541,
+        "p95": 51.541
+      },
+      "lcp_us": {
+        "minimum": 14.290999999999999,
+        "median": 16.04,
+        "mean": 16.4684,
+        "maximum": 19.61,
+        "p95": 19.61
+      },
+      "apply_us": {
+        "minimum": 2.16,
+        "median": 2.21,
+        "mean": 2.326,
+        "maximum": 2.83,
+        "p95": 2.83
+      },
+      "types": {
+        "ContactConstraint": 62,
+        "JointConstraint": 5
+      },
+      "dimensions_histogram": {
+        "37": 4,
+        "43": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_start_withdraw": {
+      "samples": 5,
+      "dimension": {
+        "minimum": 43,
+        "median": 43,
+        "mean": 43,
+        "maximum": 43,
+        "p95": 43
+      },
+      "constraints": {
+        "minimum": 15,
+        "median": 15,
+        "mean": 15,
+        "maximum": 15,
+        "p95": 15
+      },
+      "assembly_us": {
+        "minimum": 47.531000000000006,
+        "median": 54.121,
+        "mean": 52.6552,
+        "maximum": 56.931,
+        "p95": 56.931
+      },
+      "lcp_us": {
+        "minimum": 12.18,
+        "median": 20.869999999999997,
+        "mean": 19.2584,
+        "maximum": 24.201,
+        "p95": 24.201
+      },
+      "apply_us": {
+        "minimum": 2.0999999999999996,
+        "median": 2.35,
+        "mean": 2.4002,
+        "maximum": 2.92,
+        "p95": 2.92
+      },
+      "types": {
+        "ContactConstraint": 70,
+        "JointConstraint": 5
+      },
+      "dimensions_histogram": {
+        "43": 5
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_running_steady": {
+      "samples": 121,
+      "dimension": {
+        "minimum": 37,
+        "median": 121,
+        "mean": 109.44628099173553,
+        "maximum": 121,
+        "p95": 121
+      },
+      "constraints": {
+        "minimum": 13,
+        "median": 41,
+        "mean": 37.14876033057851,
+        "maximum": 41,
+        "p95": 41
+      },
+      "assembly_us": {
+        "minimum": 39.351000000000006,
+        "median": 223.855,
+        "mean": 211.72901652892563,
+        "maximum": 382.428,
+        "p95": 302.57599999999996
+      },
+      "lcp_us": {
+        "minimum": 10.22,
+        "median": 40.51,
+        "mean": 44.73607438016529,
+        "maximum": 181.934,
+        "p95": 75.63199999999999
+      },
+      "apply_us": {
+        "minimum": 1.89,
+        "median": 5.93,
+        "mean": 6.034314049586777,
+        "maximum": 22.439999999999998,
+        "p95": 9.35
+      },
+      "types": {
+        "ContactConstraint": 4374,
+        "JointConstraint": 121
+      },
+      "dimensions_histogram": {
+        "43": 15,
+        "49": 2,
+        "37": 1,
+        "121": 103
+      },
+      "sampled_fallback_count": 2
+    },
+    "machine_stop_press": {
+      "samples": 6,
+      "dimension": {
+        "minimum": 121,
+        "median": 121.0,
+        "mean": 121,
+        "maximum": 121,
+        "p95": 121
+      },
+      "constraints": {
+        "minimum": 41,
+        "median": 41.0,
+        "mean": 41,
+        "maximum": 41,
+        "p95": 41
+      },
+      "assembly_us": {
+        "minimum": 216.085,
+        "median": 220.644,
+        "mean": 224.66933333333333,
+        "maximum": 250.34500000000003,
+        "p95": 250.34500000000003
+      },
+      "lcp_us": {
+        "minimum": 23.34,
+        "median": 43.525999999999996,
+        "mean": 43.667500000000004,
+        "maximum": 63.05200000000001,
+        "p95": 63.05200000000001
+      },
+      "apply_us": {
+        "minimum": 5.71,
+        "median": 5.885,
+        "mean": 5.991666666666667,
+        "maximum": 6.71,
+        "p95": 6.71
+      },
+      "types": {
+        "ContactConstraint": 240,
+        "JointConstraint": 6
+      },
+      "dimensions_histogram": {
+        "121": 6
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_stop_withdraw": {
+      "samples": 5,
+      "dimension": {
+        "minimum": 121,
+        "median": 121,
+        "mean": 121,
+        "maximum": 121,
+        "p95": 121
+      },
+      "constraints": {
+        "minimum": 41,
+        "median": 41,
+        "mean": 41,
+        "maximum": 41,
+        "p95": 41
+      },
+      "assembly_us": {
+        "minimum": 214.794,
+        "median": 217.734,
+        "mean": 220.25220000000002,
+        "maximum": 231.57500000000002,
+        "p95": 231.57500000000002
+      },
+      "lcp_us": {
+        "minimum": 41.781,
+        "median": 51.861,
+        "mean": 50.583,
+        "maximum": 59.271,
+        "p95": 59.271
+      },
+      "apply_us": {
+        "minimum": 5.75,
+        "median": 5.9399999999999995,
+        "mean": 6.368,
+        "maximum": 7.930000000000001,
+        "p95": 7.930000000000001
+      },
+      "types": {
+        "ContactConstraint": 200,
+        "JointConstraint": 5
+      },
+      "dimensions_histogram": {
+        "121": 5
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_stop_wait_quiet": {
+      "samples": 7,
+      "dimension": {
+        "minimum": 82,
+        "median": 121,
+        "mean": 115.42857142857143,
+        "maximum": 121,
+        "p95": 121
+      },
+      "constraints": {
+        "minimum": 28,
+        "median": 41,
+        "mean": 39.142857142857146,
+        "maximum": 41,
+        "p95": 41
+      },
+      "assembly_us": {
+        "minimum": 176.28300000000002,
+        "median": 221.57399999999998,
+        "mean": 236.84457142857144,
+        "maximum": 322.93600000000004,
+        "p95": 322.93600000000004
+      },
+      "lcp_us": {
+        "minimum": 47.370999999999995,
+        "median": 69.292,
+        "mean": 75.53157142857143,
+        "maximum": 117.05300000000001,
+        "p95": 117.05300000000001
+      },
+      "apply_us": {
+        "minimum": 4.76,
+        "median": 5.99,
+        "mean": 5.8701428571428576,
+        "maximum": 6.55,
+        "p95": 6.55
+      },
+      "types": {
+        "ContactConstraint": 267,
+        "JointConstraint": 7
+      },
+      "dimensions_histogram": {
+        "121": 6,
+        "82": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_stop_handover_collision_check": {
+      "samples": 28,
+      "dimension": {
+        "minimum": 40,
+        "median": 49.0,
+        "mean": 56.714285714285715,
+        "maximum": 121,
+        "p95": 109
+      },
+      "constraints": {
+        "minimum": 14,
+        "median": 17.0,
+        "mean": 19.571428571428573,
+        "maximum": 41,
+        "p95": 37
+      },
+      "assembly_us": {
+        "minimum": 43.201,
+        "median": 61.836,
+        "mean": 78.68042857142856,
+        "maximum": 215.364,
+        "p95": 185.443
+      },
+      "lcp_us": {
+        "minimum": 11.790000000000001,
+        "median": 24.6755,
+        "mean": 33.162,
+        "maximum": 97.242,
+        "p95": 79.59200000000001
+      },
+      "apply_us": {
+        "minimum": 1.9400000000000002,
+        "median": 2.725,
+        "mean": 3.129642857142857,
+        "maximum": 5.85,
+        "p95": 5.720000000000001
+      },
+      "types": {
+        "ContactConstraint": 520,
+        "JointConstraint": 28
+      },
+      "dimensions_histogram": {
+        "64": 1,
+        "49": 5,
+        "121": 1,
+        "109": 1,
+        "67": 1,
+        "79": 1,
+        "82": 1,
+        "85": 1,
+        "58": 1,
+        "43": 1,
+        "55": 2,
+        "61": 1,
+        "40": 8,
+        "52": 1,
+        "46": 2
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_final_open_approach": {
+      "samples": 8,
+      "dimension": {
+        "minimum": 34,
+        "median": 44.5,
+        "mean": 44.125,
+        "maximum": 52,
+        "p95": 52
+      },
+      "constraints": {
+        "minimum": 12,
+        "median": 15.5,
+        "mean": 15.375,
+        "maximum": 18,
+        "p95": 18
+      },
+      "assembly_us": {
+        "minimum": 41.371,
+        "median": 53.066,
+        "mean": 59.844875,
+        "maximum": 124.293,
+        "p95": 124.293
+      },
+      "lcp_us": {
+        "minimum": 10.501,
+        "median": 19.7855,
+        "mean": 20.036625,
+        "maximum": 30.33,
+        "p95": 30.33
+      },
+      "apply_us": {
+        "minimum": 1.83,
+        "median": 2.3705,
+        "mean": 2.368875,
+        "maximum": 3.27,
+        "p95": 3.27
+      },
+      "types": {
+        "ContactConstraint": 115,
+        "JointConstraint": 8
+      },
+      "dimensions_histogram": {
+        "46": 2,
+        "40": 2,
+        "52": 2,
+        "43": 1,
+        "34": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_final_open_press": {
+      "samples": 4,
+      "dimension": {
+        "minimum": 46,
+        "median": 58.0,
+        "mean": 57.25,
+        "maximum": 67,
+        "p95": 67
+      },
+      "constraints": {
+        "minimum": 16,
+        "median": 20.0,
+        "mean": 19.75,
+        "maximum": 23,
+        "p95": 23
+      },
+      "assembly_us": {
+        "minimum": 52.101,
+        "median": 82.74700000000001,
+        "mean": 77.90425,
+        "maximum": 94.022,
+        "p95": 94.022
+      },
+      "lcp_us": {
+        "minimum": 16.4,
+        "median": 38.666,
+        "mean": 34.49325,
+        "maximum": 44.241,
+        "p95": 44.241
+      },
+      "apply_us": {
+        "minimum": 2.36,
+        "median": 3.3099999999999996,
+        "mean": 3.1399999999999997,
+        "maximum": 3.58,
+        "p95": 3.58
+      },
+      "types": {
+        "ContactConstraint": 75,
+        "JointConstraint": 4
+      },
+      "dimensions_histogram": {
+        "46": 1,
+        "52": 1,
+        "67": 1,
+        "64": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_final_open_withdraw": {
+      "samples": 16,
+      "dimension": {
+        "minimum": 40,
+        "median": 52.0,
+        "mean": 60.25,
+        "maximum": 82,
+        "p95": 82
+      },
+      "constraints": {
+        "minimum": 14,
+        "median": 18.0,
+        "mean": 20.75,
+        "maximum": 28,
+        "p95": 28
+      },
+      "assembly_us": {
+        "minimum": 44.531,
+        "median": 86.7365,
+        "mean": 104.6251875,
+        "maximum": 286.395,
+        "p95": 286.395
+      },
+      "lcp_us": {
+        "minimum": 15.88,
+        "median": 26.840000000000003,
+        "mean": 34.6761875,
+        "maximum": 79.081,
+        "p95": 79.081
+      },
+      "apply_us": {
+        "minimum": 2.12,
+        "median": 2.8305000000000002,
+        "mean": 3.160125,
+        "maximum": 4.220000000000001,
+        "p95": 4.220000000000001
+      },
+      "types": {
+        "ContactConstraint": 316,
+        "JointConstraint": 16
+      },
+      "dimensions_histogram": {
+        "43": 2,
+        "79": 1,
+        "49": 1,
+        "46": 2,
+        "52": 2,
+        "82": 5,
+        "64": 1,
+        "40": 2
+      },
+      "sampled_fallback_count": 0
+    },
+    "machine_wait_final_open": {
+      "samples": 10,
+      "dimension": {
+        "minimum": 40,
+        "median": 40.0,
+        "mean": 48.7,
+        "maximum": 73,
+        "p95": 73
+      },
+      "constraints": {
+        "minimum": 14,
+        "median": 14.0,
+        "mean": 16.9,
+        "maximum": 25,
+        "p95": 25
+      },
+      "assembly_us": {
+        "minimum": 42.7,
+        "median": 57.876,
+        "mean": 70.4173,
+        "maximum": 129.37199999999999,
+        "p95": 129.37199999999999
+      },
+      "lcp_us": {
+        "minimum": 10.681,
+        "median": 19.9355,
+        "mean": 24.3703,
+        "maximum": 55.711000000000006,
+        "p95": 55.711000000000006
+      },
+      "apply_us": {
+        "minimum": 1.9,
+        "median": 2.495,
+        "mean": 2.866,
+        "maximum": 4.819999999999999,
+        "p95": 4.819999999999999
+      },
+      "types": {
+        "ContactConstraint": 159,
+        "JointConstraint": 10
+      },
+      "dimensions_histogram": {
+        "70": 1,
+        "40": 6,
+        "49": 1,
+        "73": 1,
+        "55": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "left_retrieval_open_empty": {
+      "samples": 8,
+      "dimension": {
+        "minimum": 40,
+        "median": 46.0,
+        "mean": 46.375,
+        "maximum": 49,
+        "p95": 49
+      },
+      "constraints": {
+        "minimum": 14,
+        "median": 16.0,
+        "mean": 16.125,
+        "maximum": 17,
+        "p95": 17
+      },
+      "assembly_us": {
+        "minimum": 43.661,
+        "median": 58.391,
+        "mean": 60.208625,
+        "maximum": 81.232,
+        "p95": 81.232
+      },
+      "lcp_us": {
+        "minimum": 13.871,
+        "median": 24.060000000000002,
+        "mean": 23.125625,
+        "maximum": 33.151,
+        "p95": 33.151
+      },
+      "apply_us": {
+        "minimum": 1.9800000000000002,
+        "median": 2.605,
+        "mean": 2.5665,
+        "maximum": 3.021,
+        "p95": 3.021
+      },
+      "types": {
+        "ContactConstraint": 121,
+        "JointConstraint": 8
+      },
+      "dimensions_histogram": {
+        "40": 1,
+        "46": 4,
+        "49": 3
+      },
+      "sampled_fallback_count": 0
+    },
+    "right_retrieval_open_empty": {
+      "samples": 7,
+      "dimension": {
+        "minimum": 46,
+        "median": 46,
+        "mean": 46.857142857142854,
+        "maximum": 49,
+        "p95": 49
+      },
+      "constraints": {
+        "minimum": 16,
+        "median": 16,
+        "mean": 16.285714285714285,
+        "maximum": 17,
+        "p95": 17
+      },
+      "assembly_us": {
+        "minimum": 51.791,
+        "median": 53.541000000000004,
+        "mean": 58.772571428571425,
+        "maximum": 80.341,
+        "p95": 80.341
+      },
+      "lcp_us": {
+        "minimum": 18.711000000000002,
+        "median": 23.7,
+        "mean": 31.465,
+        "maximum": 76.002,
+        "p95": 76.002
+      },
+      "apply_us": {
+        "minimum": 2.24,
+        "median": 2.43,
+        "mean": 2.617142857142857,
+        "maximum": 3.36,
+        "p95": 3.36
+      },
+      "types": {
+        "ContactConstraint": 107,
+        "JointConstraint": 7
+      },
+      "dimensions_histogram": {
+        "46": 5,
+        "49": 2
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_retrieval_empty_park": {
+      "samples": 32,
+      "dimension": {
+        "minimum": 12,
+        "median": 46.0,
+        "mean": 36.6875,
+        "maximum": 57,
+        "p95": 56
+      },
+      "constraints": {
+        "minimum": 4,
+        "median": 16.0,
+        "mean": 17.3125,
+        "maximum": 41,
+        "p95": 40
+      },
+      "assembly_us": {
+        "minimum": 3.63,
+        "median": 53.966,
+        "mean": 66.7086875,
+        "maximum": 182.71300000000002,
+        "p95": 182.50300000000001
+      },
+      "lcp_us": {
+        "minimum": 1.89,
+        "median": 19.811,
+        "mean": 16.25465625,
+        "maximum": 31.65,
+        "p95": 31.0
+      },
+      "apply_us": {
+        "minimum": 0.6,
+        "median": 1.795,
+        "mean": 1.9453125,
+        "maximum": 6.3999999999999995,
+        "p95": 2.9699999999999998
+      },
+      "types": {
+        "ContactConstraint": 310,
+        "JointConstraint": 216,
+        "JointCoulombFrictionConstraint": 28
+      },
+      "dimensions_histogram": {
+        "46": 10,
+        "52": 1,
+        "43": 1,
+        "56": 6,
+        "22": 7,
+        "12": 6,
+        "57": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_retrieval_empty_approach": {
+      "samples": 28,
+      "dimension": {
+        "minimum": 12,
+        "median": 43.0,
+        "mean": 37.107142857142854,
+        "maximum": 58,
+        "p95": 57
+      },
+      "constraints": {
+        "minimum": 4,
+        "median": 15.0,
+        "mean": 16.607142857142858,
+        "maximum": 41,
+        "p95": 40
+      },
+      "assembly_us": {
+        "minimum": 3.63,
+        "median": 51.081,
+        "mean": 65.83439285714286,
+        "maximum": 228.19400000000002,
+        "p95": 178.833
+      },
+      "lcp_us": {
+        "minimum": 2.35,
+        "median": 15.105,
+        "mean": 17.258178571428573,
+        "maximum": 53.400999999999996,
+        "p95": 32.801
+      },
+      "apply_us": {
+        "minimum": 0.5700000000000001,
+        "median": 2.0149999999999997,
+        "mean": 2.05325,
+        "maximum": 8.219999999999999,
+        "p95": 2.96
+      },
+      "types": {
+        "ContactConstraint": 287,
+        "JointConstraint": 158,
+        "JointCoulombFrictionConstraint": 20
+      },
+      "dimensions_histogram": {
+        "46": 3,
+        "52": 2,
+        "43": 6,
+        "58": 1,
+        "12": 6,
+        "56": 4,
+        "22": 4,
+        "57": 1,
+        "40": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_retrieval_empty_descend": {
+      "samples": 10,
+      "dimension": {
+        "minimum": 12,
+        "median": 41.5,
+        "mean": 35.4,
+        "maximum": 56,
+        "p95": 56
+      },
+      "constraints": {
+        "minimum": 4,
+        "median": 14.5,
+        "mean": 16.4,
+        "maximum": 40,
+        "p95": 40
+      },
+      "assembly_us": {
+        "minimum": 3.8600000000000003,
+        "median": 48.726,
+        "mean": 64.31,
+        "maximum": 190.843,
+        "p95": 190.843
+      },
+      "lcp_us": {
+        "minimum": 2.62,
+        "median": 17.72,
+        "mean": 15.8894,
+        "maximum": 34.400999999999996,
+        "p95": 34.400999999999996
+      },
+      "apply_us": {
+        "minimum": 0.63,
+        "median": 1.915,
+        "mean": 1.8011000000000001,
+        "maximum": 2.64,
+        "p95": 2.64
+      },
+      "types": {
+        "ContactConstraint": 95,
+        "JointConstraint": 61,
+        "JointCoulombFrictionConstraint": 8
+      },
+      "dimensions_histogram": {
+        "46": 2,
+        "40": 1,
+        "43": 1,
+        "56": 1,
+        "22": 2,
+        "12": 2,
+        "55": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "left_retrieval_grasp": {
+      "samples": 6,
+      "dimension": {
+        "minimum": 43,
+        "median": 215.5,
+        "mean": 176.5,
+        "maximum": 284,
+        "p95": 284
+      },
+      "constraints": {
+        "minimum": 15,
+        "median": 93.5,
+        "mean": 73.5,
+        "maximum": 116,
+        "p95": 116
+      },
+      "assembly_us": {
+        "minimum": 49.451,
+        "median": 800.5149999999999,
+        "mean": 699.9315,
+        "maximum": 1395.226,
+        "p95": 1395.226
+      },
+      "lcp_us": {
+        "minimum": 17.540000000000003,
+        "median": 579.4505,
+        "mean": 535.073,
+        "maximum": 1080.46,
+        "p95": 1080.46
+      },
+      "apply_us": {
+        "minimum": 2.1500000000000004,
+        "median": 9.855,
+        "mean": 9.602,
+        "maximum": 18.401,
+        "p95": 18.401
+      },
+      "types": {
+        "ContactConstraint": 309,
+        "JointConstraint": 116,
+        "JointCoulombFrictionConstraint": 16
+      },
+      "dimensions_histogram": {
+        "43": 1,
+        "52": 1,
+        "182": 1,
+        "284": 1,
+        "249": 2
+      },
+      "sampled_fallback_count": 1
+    },
+    "seq_retrieval_single_pilot": {
+      "samples": 22,
+      "dimension": {
+        "minimum": 19,
+        "median": 19.0,
+        "mean": 58.45454545454545,
+        "maximum": 267,
+        "p95": 267
+      },
+      "constraints": {
+        "minimum": 7,
+        "median": 7.0,
+        "mean": 24,
+        "maximum": 111,
+        "p95": 111
+      },
+      "assembly_us": {
+        "minimum": 18.96,
+        "median": 24.081,
+        "mean": 217.8904090909091,
+        "maximum": 1348.455,
+        "p95": 1329.815
+      },
+      "lcp_us": {
+        "minimum": 5.51,
+        "median": 8.36,
+        "mean": 98.44940909090909,
+        "maximum": 1054.579,
+        "p95": 386.517
+      },
+      "apply_us": {
+        "minimum": 1.0,
+        "median": 1.395,
+        "mean": 3.3714545454545455,
+        "maximum": 17.459999999999997,
+        "p95": 12.95
+      },
+      "types": {
+        "ContactConstraint": 379,
+        "JointConstraint": 133,
+        "JointCoulombFrictionConstraint": 16
+      },
+      "dimensions_histogram": {
+        "249": 1,
+        "267": 2,
+        "149": 1,
+        "25": 2,
+        "19": 16
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_retrieval_retrieve_axis_exit": {
+      "samples": 6,
+      "dimension": {
+        "minimum": 19,
+        "median": 19.0,
+        "mean": 19,
+        "maximum": 19,
+        "p95": 19
+      },
+      "constraints": {
+        "minimum": 7,
+        "median": 7.0,
+        "mean": 7,
+        "maximum": 7,
+        "p95": 7
+      },
+      "assembly_us": {
+        "minimum": 19.2,
+        "median": 21.0405,
+        "mean": 20.820333333333334,
+        "maximum": 22.26,
+        "p95": 22.26
+      },
+      "lcp_us": {
+        "minimum": 6.38,
+        "median": 7.395,
+        "mean": 7.636666666666667,
+        "maximum": 9.88,
+        "p95": 9.88
+      },
+      "apply_us": {
+        "minimum": 1.0899999999999999,
+        "median": 1.1300000000000001,
+        "mean": 1.2301666666666666,
+        "maximum": 1.491,
+        "p95": 1.491
+      },
+      "types": {
+        "ContactConstraint": 36,
+        "JointConstraint": 6
+      },
+      "dimensions_histogram": {
+        "19": 6
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_retrieval_retrieve_lift": {
+      "samples": 4,
+      "dimension": {
+        "minimum": 19,
+        "median": 19.0,
+        "mean": 19,
+        "maximum": 19,
+        "p95": 19
+      },
+      "constraints": {
+        "minimum": 7,
+        "median": 7.0,
+        "mean": 7,
+        "maximum": 7,
+        "p95": 7
+      },
+      "assembly_us": {
+        "minimum": 20.93,
+        "median": 22.535,
+        "mean": 23.167749999999998,
+        "maximum": 26.671,
+        "p95": 26.671
+      },
+      "lcp_us": {
+        "minimum": 7.7700000000000005,
+        "median": 8.15,
+        "mean": 8.370000000000001,
+        "maximum": 9.41,
+        "p95": 9.41
+      },
+      "apply_us": {
+        "minimum": 1.31,
+        "median": 1.38,
+        "mean": 1.3925,
+        "maximum": 1.5,
+        "p95": 1.5
+      },
+      "types": {
+        "ContactConstraint": 24,
+        "JointConstraint": 4
+      },
+      "dimensions_histogram": {
+        "19": 4
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_retrieval_static_grip_hold": {
+      "samples": 3,
+      "dimension": {
+        "minimum": 19,
+        "median": 19,
+        "mean": 19,
+        "maximum": 19,
+        "p95": 19
+      },
+      "constraints": {
+        "minimum": 7,
+        "median": 7,
+        "mean": 7,
+        "maximum": 7,
+        "p95": 7
+      },
+      "assembly_us": {
+        "minimum": 18.971,
+        "median": 19.32,
+        "mean": 20.113666666666667,
+        "maximum": 22.05,
+        "p95": 22.05
+      },
+      "lcp_us": {
+        "minimum": 5.0200000000000005,
+        "median": 5.12,
+        "mean": 5.666666666666667,
+        "maximum": 6.86,
+        "p95": 6.86
+      },
+      "apply_us": {
+        "minimum": 0.98,
+        "median": 1.0,
+        "mean": 1.0666666666666667,
+        "maximum": 1.22,
+        "p95": 1.22
+      },
+      "types": {
+        "ContactConstraint": 18,
+        "JointConstraint": 3
+      },
+      "dimensions_histogram": {
+        "19": 3
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_retrieval_retrieve_outboard_and_retrieve_transfer": {
+      "samples": 11,
+      "dimension": {
+        "minimum": 19,
+        "median": 19,
+        "mean": 19,
+        "maximum": 19,
+        "p95": 19
+      },
+      "constraints": {
+        "minimum": 7,
+        "median": 7,
+        "mean": 7,
+        "maximum": 7,
+        "p95": 7
+      },
+      "assembly_us": {
+        "minimum": 18.34,
+        "median": 22.171000000000003,
+        "mean": 22.00190909090909,
+        "maximum": 27.59,
+        "p95": 27.59
+      },
+      "lcp_us": {
+        "minimum": 6.33,
+        "median": 7.54,
+        "mean": 7.8020000000000005,
+        "maximum": 10.530000000000001,
+        "p95": 10.530000000000001
+      },
+      "apply_us": {
+        "minimum": 1.03,
+        "median": 1.26,
+        "mean": 1.3154545454545454,
+        "maximum": 1.8199999999999998,
+        "p95": 1.8199999999999998
+      },
+      "types": {
+        "ContactConstraint": 66,
+        "JointConstraint": 11
+      },
+      "dimensions_histogram": {
+        "19": 11
+      },
+      "sampled_fallback_count": 0
+    },
+    "paired_retrieval_setdown": {
+      "samples": 15,
+      "dimension": {
+        "minimum": 19,
+        "median": 19,
+        "mean": 19.4,
+        "maximum": 25,
+        "p95": 25
+      },
+      "constraints": {
+        "minimum": 7,
+        "median": 7,
+        "mean": 7.133333333333334,
+        "maximum": 9,
+        "p95": 9
+      },
+      "assembly_us": {
+        "minimum": 18.061,
+        "median": 19.581,
+        "mean": 21.431,
+        "maximum": 32.771,
+        "p95": 32.771
+      },
+      "lcp_us": {
+        "minimum": 5.63,
+        "median": 6.601,
+        "mean": 7.7136000000000005,
+        "maximum": 12.641,
+        "p95": 12.641
+      },
+      "apply_us": {
+        "minimum": 0.95,
+        "median": 1.19,
+        "mean": 1.2486666666666666,
+        "maximum": 1.7799999999999998,
+        "p95": 1.7799999999999998
+      },
+      "types": {
+        "ContactConstraint": 92,
+        "JointConstraint": 15
+      },
+      "dimensions_histogram": {
+        "19": 14,
+        "25": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "paired_retrieval_setdown_fine": {
+      "samples": 9,
+      "dimension": {
+        "minimum": 19,
+        "median": 19,
+        "mean": 19,
+        "maximum": 19,
+        "p95": 19
+      },
+      "constraints": {
+        "minimum": 7,
+        "median": 7,
+        "mean": 7,
+        "maximum": 7,
+        "p95": 7
+      },
+      "assembly_us": {
+        "minimum": 19.36,
+        "median": 20.68,
+        "mean": 21.724777777777778,
+        "maximum": 26.07,
+        "p95": 26.07
+      },
+      "lcp_us": {
+        "minimum": 5.32,
+        "median": 7.659999999999999,
+        "mean": 7.573333333333333,
+        "maximum": 9.33,
+        "p95": 9.33
+      },
+      "apply_us": {
+        "minimum": 1.091,
+        "median": 1.31,
+        "mean": 1.289111111111111,
+        "maximum": 1.52,
+        "p95": 1.52
+      },
+      "types": {
+        "ContactConstraint": 54,
+        "JointConstraint": 9
+      },
+      "dimensions_histogram": {
+        "19": 9
+      },
+      "sampled_fallback_count": 0
+    },
+    "left_retrieval_release_on_table": {
+      "samples": 18,
+      "dimension": {
+        "minimum": 12,
+        "median": 22.0,
+        "mean": 26.5,
+        "maximum": 57,
+        "p95": 57
+      },
+      "constraints": {
+        "minimum": 4,
+        "median": 8.0,
+        "mean": 14.055555555555555,
+        "maximum": 41,
+        "p95": 41
+      },
+      "assembly_us": {
+        "minimum": 3.5999999999999996,
+        "median": 23.7155,
+        "mean": 55.30611111111111,
+        "maximum": 189.803,
+        "p95": 189.803
+      },
+      "lcp_us": {
+        "minimum": 2.04,
+        "median": 8.485,
+        "mean": 10.910666666666666,
+        "maximum": 34.5,
+        "p95": 34.5
+      },
+      "apply_us": {
+        "minimum": 0.5700000000000001,
+        "median": 1.42,
+        "mean": 1.3155555555555556,
+        "maximum": 2.0999999999999996,
+        "p95": 2.0999999999999996
+      },
+      "types": {
+        "ContactConstraint": 112,
+        "JointConstraint": 125,
+        "JointCoulombFrictionConstraint": 16
+      },
+      "dimensions_histogram": {
+        "22": 6,
+        "12": 5,
+        "57": 4,
+        "19": 3
+      },
+      "sampled_fallback_count": 0
+    },
+    "seq_retrieval_empty_vertical_retreat": {
+      "samples": 12,
+      "dimension": {
+        "minimum": 12,
+        "median": 22.0,
+        "mean": 30.333333333333332,
+        "maximum": 57,
+        "p95": 57
+      },
+      "constraints": {
+        "minimum": 4,
+        "median": 8.0,
+        "mean": 17.666666666666668,
+        "maximum": 41,
+        "p95": 41
+      },
+      "assembly_us": {
+        "minimum": 3.63,
+        "median": 22.85,
+        "mean": 69.59625,
+        "maximum": 177.684,
+        "p95": 177.684
+      },
+      "lcp_us": {
+        "minimum": 2.1900000000000004,
+        "median": 5.7805,
+        "mean": 14.6445,
+        "maximum": 34.42,
+        "p95": 34.42
+      },
+      "apply_us": {
+        "minimum": 0.59,
+        "median": 1.245,
+        "mean": 1.3291666666666666,
+        "maximum": 2.05,
+        "p95": 2.05
+      },
+      "types": {
+        "ContactConstraint": 76,
+        "JointConstraint": 120,
+        "JointCoulombFrictionConstraint": 16
+      },
+      "dimensions_histogram": {
+        "57": 4,
+        "22": 4,
+        "12": 4
+      },
+      "sampled_fallback_count": 0
+    },
+    "right_retrieval_grasp": {
+      "samples": 2,
+      "dimension": {
+        "minimum": 12,
+        "median": 33.5,
+        "mean": 33.5,
+        "maximum": 55,
+        "p95": 55
+      },
+      "constraints": {
+        "minimum": 4,
+        "median": 21.5,
+        "mean": 21.5,
+        "maximum": 39,
+        "p95": 39
+      },
+      "assembly_us": {
+        "minimum": 4.930000000000001,
+        "median": 92.0965,
+        "mean": 92.0965,
+        "maximum": 179.263,
+        "p95": 179.263
+      },
+      "lcp_us": {
+        "minimum": 4.18,
+        "median": 17.850499999999997,
+        "mean": 17.850499999999997,
+        "maximum": 31.520999999999997,
+        "p95": 31.520999999999997
+      },
+      "apply_us": {
+        "minimum": 0.54,
+        "median": 1.155,
+        "mean": 1.155,
+        "maximum": 1.77,
+        "p95": 1.77
+      },
+      "types": {
+        "ContactConstraint": 12,
+        "JointConstraint": 27,
+        "JointCoulombFrictionConstraint": 4
+      },
+      "dimensions_histogram": {
+        "55": 1,
+        "12": 1
+      },
+      "sampled_fallback_count": 0
+    },
+    "STOP_AND_HOLD": {
+      "samples": 3,
+      "dimension": {
+        "minimum": 195,
+        "median": 195,
+        "mean": 197,
+        "maximum": 201,
+        "p95": 201
+      },
+      "constraints": {
+        "minimum": 87,
+        "median": 87,
+        "mean": 87.66666666666667,
+        "maximum": 89,
+        "p95": 89
+      },
+      "assembly_us": {
+        "minimum": 844.335,
+        "median": 906.396,
+        "mean": 926.8196666666666,
+        "maximum": 1029.7279999999998,
+        "p95": 1029.7279999999998
+      },
+      "lcp_us": {
+        "minimum": 438.008,
+        "median": 488.388,
+        "mean": 495.19166666666666,
+        "maximum": 559.1790000000001,
+        "p95": 559.1790000000001
+      },
+      "apply_us": {
+        "minimum": 8.8,
+        "median": 8.991000000000001,
+        "mean": 12.050666666666668,
+        "maximum": 18.361,
+        "p95": 18.361
+      },
+      "types": {
+        "ContactConstraint": 164,
+        "JointConstraint": 87,
+        "JointCoulombFrictionConstraint": 12
+      },
+      "dimensions_histogram": {
+        "201": 1,
+        "195": 2
+      },
+      "sampled_fallback_count": 0
+    }
+  },
+  "timing_scope": "per_sample_wall_microseconds_in_one_actual_solver_call_not_CPU_causal_share",
+  "sampled_types_are_actual_solver_constraints_not_contact_messages": true,
+  "limitations": [
+    "periodic_group_order_can_bias_every_1024th_sampling",
+    "phase_labels_are_readonly_observer_nearest_preceding_within_2s",
+    "not_all_constraints_or_all_steps_sampled",
+    "not_comparable_component_timer_to_parent_without_same_instrumentation"
+  ]
+}

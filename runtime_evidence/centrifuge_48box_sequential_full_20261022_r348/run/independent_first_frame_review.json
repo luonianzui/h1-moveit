@@ -1,0 +1,12 @@
+{
+  "status": "REVIEWED_BEFORE_EXECUTOR",
+  "actual_image_tool_inspection": true,
+  "source_sha256": "5dd42131c230233c690d67cd1c1d2b3b1e16fc6c514b7372027330338eb17945",
+  "observations": [
+    "Original 1200x900 frame inspected with view_image before executor dispatch.",
+    "Gazebo UI, full robot head and torso, table, centrifuge, surrounding walls and near gripper are visible.",
+    "Centrifuge lid is closed; near blue table box is visible.",
+    "Far table box and parts of far gripper are occluded in this front view; their presence is not visually certified by this frame.",
+    "No error dialog or blank capture observed; no manipulation commands issued during review."
+  ]
+}

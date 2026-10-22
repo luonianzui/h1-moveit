@@ -1,0 +1,173 @@
+{
+  "status": "PASS",
+  "removed_count": 1546,
+  "removed_bytes": 349473848,
+  "removed_allocated_bytes": 353587200,
+  "free_before": 2026385408,
+  "free_after": 2145759232,
+  "all_listed_files_absent": true,
+  "sqlite_browse_databases_and_entire_trash_untouched": true,
+  "current_process_visibility_limits": [
+    {
+      "pid": 1987,
+      "name": "systemd",
+      "field": "cwd"
+    },
+    {
+      "pid": 1987,
+      "name": "systemd",
+      "field": "open_files"
+    },
+    {
+      "pid": 1987,
+      "name": "systemd",
+      "field": "memory_maps"
+    },
+    {
+      "pid": 1988,
+      "name": "(sd-pam)",
+      "field": "cwd"
+    },
+    {
+      "pid": 1988,
+      "name": "(sd-pam)",
+      "field": "exe"
+    },
+    {
+      "pid": 1988,
+      "name": "(sd-pam)",
+      "field": "open_files"
+    },
+    {
+      "pid": 1988,
+      "name": "(sd-pam)",
+      "field": "memory_maps"
+    },
+    {
+      "pid": 2141,
+      "name": "fusermount3",
+      "field": "cwd"
+    },
+    {
+      "pid": 2141,
+      "name": "fusermount3",
+      "field": "exe"
+    },
+    {
+      "pid": 2141,
+      "name": "fusermount3",
+      "field": "open_files"
+    },
+    {
+      "pid": 2141,
+      "name": "fusermount3",
+      "field": "memory_maps"
+    },
+    {
+      "pid": 8539,
+      "name": "fcclientCore",
+      "field": "cwd"
+    },
+    {
+      "pid": 8539,
+      "name": "fcclientCore",
+      "field": "open_files"
+    },
+    {
+      "pid": 8539,
+      "name": "fcclientCore",
+      "field": "memory_maps"
+    },
+    {
+      "pid": 12360,
+      "name": "start.sh",
+      "field": "cmdline"
+    },
+    {
+      "pid": 12360,
+      "name": "start.sh",
+      "field": "cwd"
+    },
+    {
+      "pid": 12360,
+      "name": "start.sh",
+      "field": "exe"
+    },
+    {
+      "pid": 12360,
+      "name": "start.sh",
+      "field": "open_files"
+    },
+    {
+      "pid": 12360,
+      "name": "start.sh",
+      "field": "memory_maps"
+    },
+    {
+      "pid": 12361,
+      "name": "start.sh",
+      "field": "cmdline"
+    },
+    {
+      "pid": 12361,
+      "name": "start.sh",
+      "field": "cwd"
+    },
+    {
+      "pid": 12361,
+      "name": "start.sh",
+      "field": "exe"
+    },
+    {
+      "pid": 12361,
+      "name": "start.sh",
+      "field": "open_files"
+    },
+    {
+      "pid": 12361,
+      "name": "start.sh",
+      "field": "memory_maps"
+    },
+    {
+      "pid": 12362,
+      "name": "start.sh",
+      "field": "cmdline"
+    },
+    {
+      "pid": 12362,
+      "name": "start.sh",
+      "field": "cwd"
+    },
+    {
+      "pid": 12362,
+      "name": "start.sh",
+      "field": "exe"
+    },
+    {
+      "pid": 12362,
+      "name": "start.sh",
+      "field": "open_files"
+    },
+    {
+      "pid": 12362,
+      "name": "start.sh",
+      "field": "memory_maps"
+    },
+    {
+      "pid": 2183833,
+      "name": "ssh-agent",
+      "field": "cwd"
+    },
+    {
+      "pid": 2183833,
+      "name": "ssh-agent",
+      "field": "open_files"
+    },
+    {
+      "pid": 2183833,
+      "name": "ssh-agent",
+      "field": "memory_maps"
+    }
+  ],
+  "no_source_library_installed_runtime_or_formal_evidence_deleted": true
+}

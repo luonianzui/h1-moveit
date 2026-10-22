@@ -1,0 +1,1329 @@
+{
+  "status": "PASS_ORIGINAL_ALGORITHM_SYNTHETIC_CLOUDS_NOT_PHYSICAL",
+  "original_sha256": "65c49409765cf9a0194ca2a9476d881b466d2dcf516ceb34deef9694d913a199",
+  "original_guard_unchanged": true,
+  "clouds": 51,
+  "published_poses": 26,
+  "max_pose_gap_sim_s": 0.20000000000000284,
+  "original_source_stamps_preserved": true,
+  "actual_records": [
+    {
+      "event": "configured",
+      "localization_rate": 5.0,
+      "transform_timeout": 1.0,
+      "publish_map_to_odom": false,
+      "original_sha256": "65c49409765cf9a0194ca2a9476d881b466d2dcf516ceb34deef9694d913a199",
+      "rate_gate": "integer_nanoseconds_no_source_stamp_rewrite"
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 100.0
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 100.0
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 6.376201054081321e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 100.0,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 100.0,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 100.0,
+      "elapsed": 0.0025972550065489486
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 100.1
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 100.10000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 4.322099266573787e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 100.1,
+      "elapsed": 0.00030496199906338006
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 100.2
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 100.2
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.7570989914238453e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 100.2,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 100.2,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 100.2,
+      "elapsed": 0.001781995000783354
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 100.3
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 100.30000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.9350994736887515e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 100.3,
+      "elapsed": 0.00023781901109032333
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 100.4
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 100.4
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.3371001589111984e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 100.4,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 100.4,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 100.4,
+      "elapsed": 0.0017474039923399687
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 100.5
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 100.5
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.6730995159596205e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 100.5,
+      "elapsed": 0.0002307190006831661
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 100.6
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 100.60000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.5069995899684727e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 100.6,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 100.6,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 100.6,
+      "elapsed": 0.0017255439888685942
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 100.7
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 100.7
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.601099549792707e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 100.7,
+      "elapsed": 0.00023795900051482022
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 100.8
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 100.80000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.2791005903854966e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 100.8,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 100.8,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 100.8,
+      "elapsed": 0.0017110530025092885
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 100.9
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 100.9
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.832099562510848e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 100.9,
+      "elapsed": 0.00023008800053503364
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 101.0
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 101.0
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.3631000658497214e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 101.0,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 101.0,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 101.0,
+      "elapsed": 0.0017101720004575327
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 101.1
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 101.10000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.7130998205393553e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 101.1,
+      "elapsed": 0.00023392800358124077
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 101.2
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 101.2
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.5500994524918497e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 101.2,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 101.2,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 101.2,
+      "elapsed": 0.0017609439964871854
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 101.3
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 101.30000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 3.024100442416966e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 101.3,
+      "elapsed": 0.00023501800023950636
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 101.4
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 101.4
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.4600987671874464e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 101.4,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 101.4,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 101.4,
+      "elapsed": 0.001799135992769152
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 101.5
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 101.5
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 3.3212010748684406e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 101.5,
+      "elapsed": 0.0002472890046192333
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 101.6
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 101.60000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.426998980809003e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 101.6,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 101.6,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 101.6,
+      "elapsed": 0.001726033995510079
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 101.7
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 101.7
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.6870999136008322e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 101.7,
+      "elapsed": 0.00022510800044983625
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 101.8
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 101.80000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 3.177100734319538e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 101.8,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 101.8,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 101.8,
+      "elapsed": 0.0017073530034394935
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 101.9
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 101.9
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.561099245212972e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 101.9,
+      "elapsed": 0.00023327900271397084
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 102.0
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 102.0
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.412100729998201e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 102.0,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 102.0,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 102.0,
+      "elapsed": 0.0017487739969510585
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 102.1
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 102.10000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.5949993869289756e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 102.1,
+      "elapsed": 0.0002383090031798929
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 102.2
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 102.2
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.3540997062809765e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 102.2,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 102.2,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 102.2,
+      "elapsed": 0.001718263010843657
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 102.3
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 102.30000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.7420988772064447e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 102.3,
+      "elapsed": 0.0002296190068591386
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 102.4
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 102.4
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.431099710520357e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 102.4,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 102.4,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 102.4,
+      "elapsed": 0.0017233229882549495
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 102.5
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 102.5
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.9681003070436418e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 102.5,
+      "elapsed": 0.0002330190036445856
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 102.6
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 102.60000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.5470988475717604e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 102.6,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 102.6,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 102.6,
+      "elapsed": 0.0017688950028968975
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 102.7
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 102.7
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 3.2271011150442064e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 102.7,
+      "elapsed": 0.0002444690035190433
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 102.8
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 102.80000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.6720997993834317e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 102.8,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 102.8,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 102.8,
+      "elapsed": 0.0017555940139573067
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 102.9
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 102.9
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 3.0472001526504755e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 102.9,
+      "elapsed": 0.00023306898947339505
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 103.0
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 103.0
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.3091008188202977e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 103.0,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 103.0,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 103.0,
+      "elapsed": 0.0017545640002936125
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 103.1
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 103.10000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 3.042099706362933e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 103.1,
+      "elapsed": 0.0002391479938523844
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 103.2
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 103.2
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.3941000108607113e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 103.2,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 103.2,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 103.2,
+      "elapsed": 0.001715413003694266
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 103.3
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 103.30000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.7821006369777024e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 103.3,
+      "elapsed": 0.00023888899886514992
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 103.4
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 103.4
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.3070999304763973e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 103.4,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 103.4,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 103.4,
+      "elapsed": 0.0017080930119846016
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 103.5
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 103.5
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.6861001970246434e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 103.5,
+      "elapsed": 0.00022725900635123253
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 103.6
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 103.60000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.2481006453745067e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 103.6,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 103.6,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 103.6,
+      "elapsed": 0.0017176130058942363
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 103.7
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 103.7
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.5330999051220715e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 103.7,
+      "elapsed": 0.0002242579939775169
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 103.8
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 103.80000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.3190994397737086e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 103.8,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 103.8,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 103.8,
+      "elapsed": 0.001711332006379962
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 103.9
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 103.9
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.6651003281585872e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 103.9,
+      "elapsed": 0.0002241280017187819
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 104.0
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 104.0
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.2270993213169277e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 104.0,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 104.0,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 104.0,
+      "elapsed": 0.0017035719938576221
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 104.1
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 104.10000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.7041009161621332e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 104.1,
+      "elapsed": 0.00022536799951922148
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 104.2
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 104.2
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.3401007638312876e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 104.2,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 104.2,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 104.2,
+      "elapsed": 0.001773394993506372
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 104.3
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 104.30000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 3.655199543572962e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 104.3,
+      "elapsed": 0.00025338899285998195
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 104.4
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 104.4
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.6210997020825744e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 104.4,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 104.4,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 104.4,
+      "elapsed": 0.0017730440013110638
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 104.5
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 104.5
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 3.3100994187407196e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 104.5,
+      "elapsed": 0.00025713899231050164
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 104.6
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 104.60000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.9180999263189733e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 104.6,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 104.6,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 104.6,
+      "elapsed": 0.001743572996929288
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 104.7
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 104.7
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 3.364100120961666e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 104.7,
+      "elapsed": 0.00024026900064200163
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 104.8
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 104.80000000000001
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.5861008907668293e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 104.8,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 104.8,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 104.8,
+      "elapsed": 0.0017199430003529415
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 104.9
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 104.9
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 3.019199357368052e-05
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 104.9,
+      "elapsed": 0.00023326899099629372
+    },
+    {
+      "event": "cloud_enter",
+      "stamp": 105.0
+    },
+    {
+      "event": "tf_enter",
+      "target": "pelvis",
+      "source": "test_lidar",
+      "stamp": 105.0
+    },
+    {
+      "event": "tf_exit",
+      "elapsed": 2.2980995709076524e-05
+    },
+    {
+      "event": "pose_published",
+      "stamp": 105.0,
+      "inlier_rms": 0.0,
+      "map_to_odom_published": false
+    },
+    {
+      "event": "status_published",
+      "stamp": 105.0,
+      "valid": true,
+      "reason": "pass",
+      "point_count": 720
+    },
+    {
+      "event": "cloud_exit",
+      "stamp": 105.0,
+      "elapsed": 0.0017193730018334463
+    }
+  ],
+  "sole_launch_delta": "diagnostic_subclass_and_5Hz_rate",
+  "private_rate_gate": "integer_nanoseconds_only",
+  "formal_source_unchanged": true
+}

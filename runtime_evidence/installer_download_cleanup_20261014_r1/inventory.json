@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "selected": [
+    {
+      "path": "/home/liu/.cache/codex-update-manager/downloads/Codex-2ddfc5863814a6850b1fce952dcc92d922ce53a54a9a445d9fdc755e49b82aa0.dmg",
+      "bytes": 623791660,
+      "allocated_bytes": 623796224,
+      "device": 66309,
+      "inode": 20840621,
+      "links": 1,
+      "mode": 436,
+      "mtime_ns": 1789545906746987342,
+      "ctime_ns": 1789545906773987628,
+      "sha256": "2ddfc5863814a6850b1fce952dcc92d922ce53a54a9a445d9fdc755e49b82aa0"
+    },
+    {
+      "path": "/home/liu/.cache/codex-update-manager/packages/chatgpt-26.1007.21434-amd64-276b5341c3d74b261d3ad52106f7fa7edde06841e4767fe2a40cb54099b1f3ed.deb",
+      "bytes": 497075610,
+      "allocated_bytes": 497082368,
+      "device": 66309,
+      "inode": 20716509,
+      "links": 1,
+      "mode": 384,
+      "mtime_ns": 1791507909236609358,
+      "ctime_ns": 1791507909655610839,
+      "sha256": "276b5341c3d74b261d3ad52106f7fa7edde06841e4767fe2a40cb54099b1f3ed"
+    }
+  ],
+  "authorized_exact_files": 2,
+  "no_program_or_current_package_or_project_artifact_selected": true
+}

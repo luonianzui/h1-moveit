@@ -1,0 +1,194 @@
+{
+  "status": "PASS",
+  "error": null,
+  "rows": [
+    {
+      "phase": "preflow",
+      "wall": 1792661008.036844,
+      "status": "PASS",
+      "action": "native_pose_already_correct",
+      "pose": {
+        "valid": true,
+        "matches": true,
+        "position_error_m": 7.152557376007469e-08,
+        "orientation_error_deg": 0.0,
+        "age_wall_s": 0.013478349996148609,
+        "sequence": 12
+      },
+      "service_rows": []
+    },
+    {
+      "phase": "preflow",
+      "wall": 1792661012.0416784,
+      "status": "PASS",
+      "action": "native_pose_already_correct",
+      "pose": {
+        "valid": true,
+        "matches": true,
+        "position_error_m": 7.152557376007469e-08,
+        "orientation_error_deg": 0.0,
+        "age_wall_s": 0.018442817992763594,
+        "sequence": 212
+      },
+      "service_rows": []
+    },
+    {
+      "phase": "preflow",
+      "wall": 1792661016.0452216,
+      "status": "PASS",
+      "action": "native_pose_already_correct",
+      "pose": {
+        "valid": true,
+        "matches": true,
+        "position_error_m": 7.152557376007469e-08,
+        "orientation_error_deg": 0.0,
+        "age_wall_s": 0.0016184400010388345,
+        "sequence": 413
+      },
+      "service_rows": []
+    },
+    {
+      "phase": "preflow",
+      "wall": 1792661020.048747,
+      "status": "PASS",
+      "action": "native_pose_already_correct",
+      "pose": {
+        "valid": true,
+        "matches": true,
+        "position_error_m": 7.152557376007469e-08,
+        "orientation_error_deg": 0.0,
+        "age_wall_s": 0.0047321020101662725,
+        "sequence": 613
+      },
+      "service_rows": []
+    },
+    {
+      "phase": "preflow",
+      "wall": 1792661024.0525274,
+      "status": "PASS",
+      "action": "native_pose_already_correct",
+      "pose": {
+        "valid": true,
+        "matches": true,
+        "position_error_m": 7.152557376007469e-08,
+        "orientation_error_deg": 0.0,
+        "age_wall_s": 0.00908646899915766,
+        "sequence": 813
+      },
+      "service_rows": []
+    },
+    {
+      "phase": "preflow",
+      "wall": 1792661028.057497,
+      "status": "PASS",
+      "action": "native_pose_already_correct",
+      "pose": {
+        "valid": true,
+        "matches": true,
+        "position_error_m": 7.152557376007469e-08,
+        "orientation_error_deg": 0.0,
+        "age_wall_s": 0.01420808800321538,
+        "sequence": 1013
+      },
+      "service_rows": []
+    },
+    {
+      "phase": "preflow",
+      "wall": 1792661032.0611444,
+      "status": "PASS",
+      "action": "native_pose_already_correct",
+      "pose": {
+        "valid": true,
+        "matches": true,
+        "position_error_m": 7.152557376007469e-08,
+        "orientation_error_deg": 0.0,
+        "age_wall_s": 0.017358801007503644,
+        "sequence": 1213
+      },
+      "service_rows": []
+    },
+    {
+      "phase": "machine_preparation",
+      "wall": 1792661036.0648415,
+      "status": "PASS",
+      "action": "native_pose_already_correct",
+      "pose": {
+        "valid": true,
+        "matches": true,
+        "position_error_m": 7.152557376007469e-08,
+        "orientation_error_deg": 0.0,
+        "age_wall_s": 0.0011858159996336326,
+        "sequence": 1414
+      },
+      "service_rows": []
+    },
+    {
+      "phase": "machine_preparation_open_approach",
+      "wall": 1792661039.0681548,
+      "status": "PASS",
+      "action": "native_pose_already_correct",
+      "pose": {
+        "valid": true,
+        "matches": true,
+        "position_error_m": 7.152557376007469e-08,
+        "orientation_error_deg": 0.0,
+        "age_wall_s": 0.00489915200159885,
+        "sequence": 1564
+      },
+      "service_rows": []
+    },
+    {
+      "phase": "machine_preparation_open_press",
+      "wall": 1792661041.0705063,
+      "status": "PASS",
+      "action": "native_pose_already_correct",
+      "pose": {
+        "valid": true,
+        "matches": true,
+        "position_error_m": 7.152557376007469e-08,
+        "orientation_error_deg": 0.0,
+        "age_wall_s": 0.006818779002060182,
+        "sequence": 1664
+      },
+      "service_rows": []
+    },
+    {
+      "phase": "machine_preparation_open_withdraw",
+      "wall": 1792661043.0727437,
+      "status": "PASS",
+      "action": "native_pose_already_correct",
+      "pose": {
+        "valid": true,
+        "matches": true,
+        "position_error_m": 7.152557376007469e-08,
+        "orientation_error_deg": 0.0,
+        "age_wall_s": 0.009081783995497972,
+        "sequence": 1764
+      },
+      "service_rows": []
+    },
+    {
+      "phase": "STOP_AND_HOLD",
+      "wall": 1792661046.076782,
+      "status": "PASS",
+      "action": "native_pose_already_correct",
+      "pose": {
+        "valid": true,
+        "matches": true,
+        "position_error_m": 7.152557376007469e-08,
+        "orientation_error_deg": 0.0,
+        "age_wall_s": 0.013087846993585117,
+        "sequence": 1914
+      },
+      "service_rows": []
+    }
+  ],
+  "native_camera_pose_topic": "/gui/camera/pose",
+  "position_tolerance_m": 0.002,
+  "orientation_tolerance_deg": 0.1,
+  "pose_max_age_wall_s": 1.0,
+  "redundant_pose_service_requests_skipped": true,
+  "acknowledgement_alone_never_proves_camera_pose": true,
+  "terminal_result_stops_restoration_for_supervisor_overhead_movie": true,
+  "service_only_changes_gui_camera_not_physical_models": true
+}

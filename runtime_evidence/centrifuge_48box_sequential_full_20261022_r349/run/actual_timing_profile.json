@@ -1,0 +1,146 @@
+{
+  "status": "OBSERVED_PREFIX_NOT_COMPLETE_PASS",
+  "rows": 61761,
+  "trace_sha256": "a90730df0e6a3fd89d0669d8b34ca15ff9646e6c69df3f0069d781cd3a7cf329",
+  "phase_intervals": [
+    {
+      "phase": "machine_preparation",
+      "start_sim": 77.9315,
+      "start_wall": 1792656665.5518708,
+      "last_sim": 79.548,
+      "last_wall": 1792656667.6571705,
+      "end_sim": 79.548,
+      "end_wall": 1792656667.6596785,
+      "duration_sim_s": 1.616500000000002
+    },
+    {
+      "phase": "machine_preparation_leg_posture",
+      "start_sim": 79.548,
+      "start_wall": 1792656667.6596785,
+      "last_sim": 79.548,
+      "last_wall": 1792656667.6629128,
+      "end_sim": 79.548,
+      "end_wall": 1792656667.663297,
+      "duration_sim_s": 0.0
+    },
+    {
+      "phase": "machine_preparation_open_approach",
+      "start_sim": 79.548,
+      "start_wall": 1792656667.663297,
+      "last_sim": 81.373,
+      "last_wall": 1792656670.039292,
+      "end_sim": 81.373,
+      "end_wall": 1792656670.0407283,
+      "duration_sim_s": 1.8250000000000028
+    },
+    {
+      "phase": "machine_preparation_open_press",
+      "start_sim": 81.373,
+      "start_wall": 1792656670.0407283,
+      "last_sim": 82.643,
+      "last_wall": 1792656671.7964165,
+      "end_sim": 82.643,
+      "end_wall": 1792656671.7969434,
+      "duration_sim_s": 1.269999999999996
+    },
+    {
+      "phase": "machine_preparation_open_withdraw",
+      "start_sim": 82.643,
+      "start_wall": 1792656671.7969434,
+      "last_sim": 84.8995,
+      "last_wall": 1792656674.9098592,
+      "end_sim": 84.8995,
+      "end_wall": 1792656674.9099605,
+      "duration_sim_s": 2.2565000000000026
+    },
+    {
+      "phase": "STOP_AND_HOLD",
+      "start_sim": 84.8995,
+      "start_wall": 1792656674.9099605,
+      "last_sim": 86.3355,
+      "last_wall": 1792656796.9104378,
+      "end_sim": 86.3355,
+      "end_wall": 1792656796.9104378,
+      "duration_sim_s": 1.4359999999999928
+    }
+  ],
+  "milestones": [
+    {
+      "kind": "leg_posture_pass",
+      "phase": "machine_preparation_leg_posture",
+      "sim": 79.548,
+      "wall": 1792656667.6629128,
+      "payload": {
+        "joint_names": [
+          "left_hip_yaw_joint",
+          "left_hip_pitch_joint",
+          "left_hip_roll_joint",
+          "left_knee_joint",
+          "left_ankle_pitch_joint",
+          "left_ankle_roll_joint",
+          "right_hip_yaw_joint",
+          "right_hip_pitch_joint",
+          "right_hip_roll_joint",
+          "right_knee_joint",
+          "right_ankle_pitch_joint",
+          "right_ankle_roll_joint"
+        ],
+        "targets": [
+          -0.0006820783347054704,
+          -0.006738004897772717,
+          0.0008386775483049911,
+          -2.6950738338349654e-06,
+          0.09730889673450745,
+          -0.018243787663438996,
+          -0.0010815164714264418,
+          -0.006900721112082221,
+          0.0008400186943777271,
+          -2.8953534663859334e-06,
+          0.09746433270149103,
+          -0.018282342029613687
+        ],
+        "measured": [
+          -0.0006820783354627966,
+          -0.0062437007078512356,
+          0.0006713779601658046,
+          -2.6950715794794013e-06,
+          0.09681747941585744,
+          -0.018083496575322145,
+          -0.0010815164739724809,
+          -0.004644391330966329,
+          0.0007418357905687716,
+          -2.8953512128322974e-06,
+          0.0952143098944629,
+          -0.01819141700618844
+        ],
+        "controller": "leg_posture_controller",
+        "no_extra_fixed_joint": true,
+        "prior_fresh_hold_sim_s": 5.0,
+        "current_error_rad": 0.002256329781115892,
+        "current_limit_rad": 0.005,
+        "redundant_confirmation_action_removed": true
+      }
+    },
+    {
+      "kind": "FAIL",
+      "phase": "STOP_AND_HOLD",
+      "sim": 84.8995,
+      "wall": 1792656674.9099605,
+      "payload": {
+        "error": "Button tracking exceeded relaxed simulation limit",
+        "holding": null
+      }
+    }
+  ],
+  "maximum_actual_gripper_velocity": {
+    "joint": "left_dex1_finger_1_joint",
+    "velocity_m_s": -0.21518024291406376,
+    "source_sim": 84.91,
+    "kind": "raw_gripper_velocity",
+    "phase": "STOP_AND_HOLD",
+    "sim": 84.9105,
+    "wall": 1792656674.9238992
+  },
+  "first_nonempty_sim": 77.9315,
+  "exact_video_sim_synchronization_not_claimed": true
+}

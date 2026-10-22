@@ -1,0 +1,11 @@
+{
+  "actual_tool_inspection": true,
+  "frames": [
+    "../centrifuge_48box_sequential_full_20261022_r351/run/startup_frame.png",
+    "video_40s.png"
+  ],
+  "terminal_two_boxes_on_table": false,
+  "two_boxes_never_loaded_per_trace": true,
+  "observations": "At 40s the near-side box remains on the table, the far-side box is occluded, and the lid is partially open. First opening-withdraw failure; not a full two-box cycle or a visual confirmation of both boxes.",
+  "entire_video_watched": false
+}

@@ -1,0 +1,177 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "relative": "inputs/48box_friction.sdf",
+      "parent_sha256": "de44f946e4b70aac95b7bfd3e5479e49bed35af4f6c5558fbcb34e80135590bf",
+      "current_sha256": "de44f946e4b70aac95b7bfd3e5479e49bed35af4f6c5558fbcb34e80135590bf",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/button_plan.json",
+      "parent_sha256": "b734ffbc0368ef8245fb2aed0e7eef12ef2a5195c55b97d4df235f66d491e565",
+      "current_sha256": "b734ffbc0368ef8245fb2aed0e7eef12ef2a5195c55b97d4df235f66d491e565",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/centrifuge_brake.sdf",
+      "parent_sha256": "895b28365d91f898e16cc998a21d2dfb3b1ce86cf623b05441b109bd2e49bb4b",
+      "current_sha256": "9b8ffe759f1edaa5aa19c8ac426766b3cb4f3bf09010d3d3a6ed5f080be99a28",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/centrifuge_run_gui.config",
+      "parent_sha256": "28a62890d4b41b25baa097b55ac91128326b1547da9c49d3a21cf007a513c860",
+      "current_sha256": "1ceb79c7b618d94dff668681b5c05b361660232da367fd529588ac448dd76cb3",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/controllers.yaml",
+      "parent_sha256": "f28c051ec6379d9cb1aeecadd5a33a9bee97e21e3571e38126d72a5fbb78669a",
+      "current_sha256": "f28c051ec6379d9cb1aeecadd5a33a9bee97e21e3571e38126d72a5fbb78669a",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/controllers_servo.yaml",
+      "parent_sha256": "26ec61df93b2e96ece9b2bcd6450feb81114ffdce91ceb054a9bb0d243a662ea",
+      "current_sha256": "26ec61df93b2e96ece9b2bcd6450feb81114ffdce91ceb054a9bb0d243a662ea",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/dual_route.json",
+      "parent_sha256": "03407ddf0c74ef4f1c549a2ec0e61b414324f868a72874d05bc510a6d25d9856",
+      "current_sha256": "03407ddf0c74ef4f1c549a2ec0e61b414324f868a72874d05bc510a6d25d9856",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/gazebo_dual.launch.py",
+      "parent_sha256": "e3a7602bc47da43cce86334284c760fd61ada5aa9d85fbd11766b2ef25d75e94",
+      "current_sha256": "4ca9e7d419759b65d0f20123028674a9e94e2b776122b4e6bcaf008084bff69a",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/gazebo_effort.launch.py",
+      "parent_sha256": "4964ebdc829ef9969af968ee178ccac05b479fe2db123852720a7d7f72984382",
+      "current_sha256": "b5d03d22611ae788410b84a30e7278b0af798c76df7b4a3bf8bec0b678f80d0a",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/gazebo_servo.launch.py",
+      "parent_sha256": "99d587de827925f82a7d4d011f76b87d34518d047e1a75c019c4d82e6d44fd19",
+      "current_sha256": "28116f61ec0f6a2ada47dacbfc50253d95e9f5af5b61fdf94acadb41a75c3642",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/lab_dual.launch.py",
+      "parent_sha256": "4e4454da485169e86c4880ba3326ecf568e42f8b2af1303a079c5c85362a2d08",
+      "current_sha256": "3023b90a436ac56a96834648f8066a26bd0695ee5200304a3d3b554d7c358a5f",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/lab_effort.launch.py",
+      "parent_sha256": "b08f0b86fbab68b7de721d1c974859d69bb80b5363178ea9a19ce13d58a78382",
+      "current_sha256": "72c870146f8d2d6ff783daaa637434b20c79253dc196c0d4f36efa86f8344a58",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/lab_fast_world.sdf",
+      "parent_sha256": "f0a4266a64a7b14066f2ff5a494de114c278d78ac11d03589eb0d53878caed1f",
+      "current_sha256": "f0a4266a64a7b14066f2ff5a494de114c278d78ac11d03589eb0d53878caed1f",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/lab_servo.launch.py",
+      "parent_sha256": "b5c97cf8015e871e5b1494641968eb986da33f2779d04af4f3653ebe51fc0b9c",
+      "current_sha256": "c9cf90e88ee0f11caca54c81cf6065d5e54e42d2ef306b7f618ef9a792e5ed7b",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/libCentrifugeInterlockBrakeR189.so",
+      "parent_sha256": "174491d4c4bdefdfdc38f17eaab87a20f9b81bd35e9278eed4fe1a9e4ee95667",
+      "current_sha256": "174491d4c4bdefdfdc38f17eaab87a20f9b81bd35e9278eed4fe1a9e4ee95667",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/paired_empty_approach.json",
+      "parent_sha256": "2d5ac165892e8831e97d96b92b8e9d634ecafda1ee05969b27f6002f7194f700",
+      "current_sha256": "2d5ac165892e8831e97d96b92b8e9d634ecafda1ee05969b27f6002f7194f700",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/plan.json",
+      "parent_sha256": "9b4f451262c09d304a0903ef3bca6f5c725688883112283e2011a1107cc521a3",
+      "current_sha256": "9b4f451262c09d304a0903ef3bca6f5c725688883112283e2011a1107cc521a3",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/retention_fault_fixture_r163.json",
+      "parent_sha256": "7cc43530884197ba5f3d338a0bc9205b4b82e4167df6beeefca5b796965cc652",
+      "current_sha256": "7cc43530884197ba5f3d338a0bc9205b4b82e4167df6beeefca5b796965cc652",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/retention_fault_fixture_r165.json",
+      "parent_sha256": "779f382b5cdcc2348f2259ef119b6492cd007dcc41c4f5fa5c6b9fca6a6ba4de",
+      "current_sha256": "779f382b5cdcc2348f2259ef119b6492cd007dcc41c4f5fa5c6b9fca6a6ba4de",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/retention_fault_fixture_r166.json",
+      "parent_sha256": "0d9ca27ffd333eab4ac17246ed70e4b72a60dfb2cf560c280bf086454cc1ea35",
+      "current_sha256": "0d9ca27ffd333eab4ac17246ed70e4b72a60dfb2cf560c280bf086454cc1ea35",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/reverse_clearance_routes.json",
+      "parent_sha256": "c8d75c9d80fca5f8d87766b75381de86c002cec4bc439b4e397f9ef46427bd84",
+      "current_sha256": "c8d75c9d80fca5f8d87766b75381de86c002cec4bc439b4e397f9ef46427bd84",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/robot_dual.urdf",
+      "parent_sha256": "ec2f1a3679e2fbcecb8efdecf800bfb53a06d9d03a9f0f3ad8e453ec2b0c0888",
+      "current_sha256": "aff8d91242a4e2d7d34c5a781af6a3d25d3f6242c05875b4d9306330e3a50743",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/robot_effort.urdf",
+      "parent_sha256": "ada50534732145a2133d8b8bb31114087c855c124bcb1ceb2e2dba19e9a2f1d1",
+      "current_sha256": "bac078a1be7682184b709e37427c687b84d61cd34e2ae73f2894104e61c5ebe9",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/robot_joint_state_relay_05ms.py",
+      "parent_sha256": "b46a9c946542ce33b1b2dbc34b2da31d6e8be93730e86ad9412c1b8b00d226f7",
+      "current_sha256": "b46a9c946542ce33b1b2dbc34b2da31d6e8be93730e86ad9412c1b8b00d226f7",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/robot_servo.urdf",
+      "parent_sha256": "c1307261de9c067ef517faf635599358953f105c40f8dd1bc6f10560942c3e20",
+      "current_sha256": "0d60455f5651819bbf6c68ad232a2f594e97f7dee0af875564475f65effe02be",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/startup_lid_states.json",
+      "parent_sha256": "19fb9a40317162c4eca02e3270de0e7c437943773a7a2abde33839d547a5a42c",
+      "current_sha256": "19fb9a40317162c4eca02e3270de0e7c437943773a7a2abde33839d547a5a42c",
+      "only_declared_private_lid_rate_change": false
+    },
+    {
+      "relative": "inputs/libCentrifugeInterlockStartupRampProbeR1.so",
+      "current_sha256": "cb030abe1b549ac266132da3ba4cb5f78e460d015598d7be8bde81500d9dc8f1",
+      "tested_isolated_private_startup_plugin": true
+    }
+  ],
+  "all_input_changes_only_exclusive_identity_bindings": false,
+  "only_new_physics_change_is_declared_private_startup_ramp_plugin": false,
+  "startup_plugin_inherited_byte_identical_from_r274": true,
+  "only_new_runtime_change_is_qualified_retrieval_grip_feedforward": false,
+  "retrieval_feedforward_inherited_twenty_N_not_yet_physically_reached": true,
+  "only_new_runtime_change_is_empty_retrieval_approach_rate": true,
+  "inherited_private_lid_rate_preserved_without_current_physical_change": true,
+  "inherited_unchanged_four_gripper_pid_derivative_fields": 6.0,
+  "inherited_gain_specific_empty_calibration_not_full_physical_pass": 0.6,
+  "empty_contact_policy_corrected_in_current_source_not_parent": true,
+  "no_old_claim_run_or_actual_physical_result_inherited": true
+}

@@ -1,0 +1,27 @@
+{
+  "status": "PASS_BOUNDED_INTERMEDIATE_CACHE_CLEANUP",
+  "removed_count": 1546,
+  "removed_logical_bytes": 349473848,
+  "removed_allocated_bytes": 353587200,
+  "all_listed_files_absent": true,
+  "current_protected_paths_disjoint": true,
+  "retained_sources_and_build_recipes_hash_unchanged": true,
+  "nine_post_cleanup_protection_groups_same_pass": {
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r351/protected_after.json": "aefe48cf1638d185e7cbb902a082e78c8e0b101b3a4ade28c93bbebf99fa2735",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r351/source_1009_after.json": "05d33ee7ae2c0aeaa245a73b7ded431c4a99cbccb8a1fd812659c4e92ec42509",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r351/recent_protected_after.json": "1df66a92ac6dc4fc0b8ced875094d4c35f59dc0009763ea28116d7e7f6fdc530",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r351/latest_protected_after.json": "040a425d7544e3e4b56c87d8571d3bbeffe49bed1a73692dd0980964850cf83b",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r351/resumed_protected_after.json": "bbcbe523a9c76c4ac9f4606d0b3f49fe9895a3a39c9369b2f1cdb3672e64cede",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r351/additional_protected_after.json": "a0ae5da19ca57be64a38ba51c81f1a94813980f911b7d1e2b451ff69337f644d",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r351/dual_protected_after.json": "f0ad24bfbada7bdeb8174d614c9645d2b72a9edde3cbf3e951eaff8dba4f63d5",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r351/current_protected_after.json": "e9a5e3dde7049cf3f12865af174973ef2325770a186f131fe910fa72862e5e22",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r351/startup_protected_after.json": "d905f9d8017c4ef7addc52aebcedef790a5b1f785829b7d722052465b10cc07b"
+  },
+  "run_source_members_unchanged": 666,
+  "run_source_identity_sha256": "e5a2a8114ff6045ae439d999a41eb53a67935d5b709439cdbd94a374086e646c",
+  "current_free_bytes": 1795227648,
+  "full_run_startup_budget_bytes": 2096208487,
+  "process_visibility_limits_retained_in_original_logs": true,
+  "free_space_delta_not_identical_to_removed_allocated_bytes": true,
+  "next_compilation_rebuilds_removed_intermediates": true
+}

@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "counts": {
+    "centrifuge_48box_skip_empty_return_20261010_r216": 440,
+    "centrifuge_48box_scene_resume_20261012_r217": 89,
+    "centrifuge_48box_fast_complete_20261012_r218": 264,
+    "centrifuge_48box_fast_complete_20261012_r219": 292,
+    "centrifuge_48box_empty_quintic_20261012_r220": 168,
+    "centrifuge_48box_empty_shortcut_20261012_r221": 1,
+    "centrifuge_48box_loaded_grid_20261012_r222": 104,
+    "centrifuge_48box_loaded_rate_20261012_r223": 285,
+    "centrifuge_48box_retrieval_context_20261012_r224": 280,
+    "rl_source_recovery_20261010_r1": 28,
+    "rl_official_download_20261010_r1": 17,
+    "rl_official_redownload_20261012_r1": 24,
+    "centrifuge_48box_empty_sampling_20261013_r237": 14
+  },
+  "sealed_parent_members_checked": 219,
+  "failures": [],
+  "all_outputs_bound_to_new_offline_root": true
+}

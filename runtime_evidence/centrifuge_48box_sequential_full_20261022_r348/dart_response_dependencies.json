@@ -1,0 +1,80 @@
+{
+  "status": "PASS_EXACT_RESPONSE_COMPONENT_NOT_FULL_ROBOT",
+  "records": [
+    {
+      "status": "PASS_EXACT_CONTACT_RESPONSE_NOT_FULL_TASK",
+      "world_steps": 2400,
+      "contact_steps": 2400,
+      "response_cases": 96,
+      "native_s": 0.22311889700000015,
+      "candidate_s": 0.20838341800000004,
+      "component_speedup": 1.0707132992702908,
+      "candidate_calls": 6821325
+    },
+    {
+      "status": "PASS_EXACT_CONTACT_RESPONSE_NOT_FULL_TASK",
+      "world_steps": 2400,
+      "contact_steps": 2400,
+      "response_cases": 96,
+      "native_s": 0.21877539899999987,
+      "candidate_s": 0.20899593399999994,
+      "component_speedup": 1.0467926088935295,
+      "candidate_calls": 6821325
+    },
+    {
+      "status": "PASS_EXACT_CONTACT_RESPONSE_NOT_FULL_TASK",
+      "world_steps": 2400,
+      "contact_steps": 2400,
+      "response_cases": 96,
+      "native_s": 0.22074479800000013,
+      "candidate_s": 0.20839330300000003,
+      "component_speedup": 1.0592701148366563,
+      "candidate_calls": 6821325
+    },
+    {
+      "status": "PASS_EXACT_CONTACT_RESPONSE_NOT_FULL_TASK",
+      "world_steps": 2400,
+      "contact_steps": 2400,
+      "response_cases": 96,
+      "native_s": 0.223575126,
+      "candidate_s": 0.20844118300000017,
+      "component_speedup": 1.0726053401836615,
+      "candidate_calls": 6821325
+    },
+    {
+      "status": "PASS_EXACT_CONTACT_RESPONSE_NOT_FULL_TASK",
+      "world_steps": 2400,
+      "contact_steps": 2400,
+      "response_cases": 96,
+      "native_s": 0.2239117220000002,
+      "candidate_s": 0.21004258900000014,
+      "component_speedup": 1.0660300992576321,
+      "candidate_calls": 6821325
+    },
+    {
+      "status": "PASS_EXACT_CONTACT_RESPONSE_NOT_FULL_TASK",
+      "world_steps": 2400,
+      "contact_steps": 2400,
+      "response_cases": 96,
+      "native_s": 0.22143168199999996,
+      "candidate_s": 0.20966570599999979,
+      "component_speedup": 1.0561177897161693,
+      "candidate_calls": 6821325
+    }
+  ],
+  "median_component_speedup": 1.0626501070471441,
+  "sha256": {
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_dart_response_20261022_r1/build/unique_prefix/h12_dart_response_r1/libDartContactResponse.so": "cf4b4d432f7949f27b08817da34802a79d1f42679701ee647bc99f69a354d9ed",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r348/inputs/libDartContactResponse.so": "cf4b4d432f7949f27b08817da34802a79d1f42679701ee647bc99f69a354d9ed",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_dart_response_20261022_r1/plugin_src/ContactResponse.cc": "47faa449b00a56d5d78a1d67efdc2ef9869284a7979542f2dd2da89573179960",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_dart_response_20261022_r1/plugin_src/QualifyResponse.cc": "b0f5a5736b82e914add94128510508854a9e72759626c86905688639ce0c5cba",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_dart_response_20261022_r1/UpstreamContactConstraint.cpp": "f66bb3dbf267709582d6eab84f48a5a37d85f218d820257704f8d586786fd32b",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_dart_response_20261022_r1/qualification.log": "793c1fe029083c8d780147322f84ff8889be09bd3166392f2067ad9437cfa71e",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_dart_response_20261022_r1/qualification_2.log": "6ba548a5002becd8f4d49b00c1ea45dda2e58a44426fb8715e929af4b3e1e58c",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_dart_response_20261022_r1/qualification_3.log": "ce0085fea664a10c20541f0019b618bef1f2192a0456a06fe208dce6ea24bc8b",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_dart_response_20261022_r1/qualification_4.log": "f5506500a30a7cddeb3e803bc8bb4ba590741af1f7e02c6a6d607fa3848a4233",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_dart_response_20261022_r1/qualification_5.log": "d7f34d98e05768221dd06ab6127872e2fc032a686322b6820d926ff63e3a2dff",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_dart_response_20261022_r1/qualification_6.log": "d61de9e43f43809f7df87743a5a55ed48a93219bf1e8e60f8694976cf1ebdd46"
+  },
+  "original_arithmetic_and_constraints_unchanged": true
+}

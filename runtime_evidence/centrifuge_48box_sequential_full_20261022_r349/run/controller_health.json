@@ -1,0 +1,428 @@
+{
+  "status": "PASS",
+  "attempts": [
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656504.608554679] [_ros2cli_1834111]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656510.164072066] [_ros2cli_1835291]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656512.885701766] [_ros2cli_1835647]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656516.607629964] [_ros2cli_1836001]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656519.827122833] [_ros2cli_1836316]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656522.558230007] [_ros2cli_1836582]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656524.775122810] [_ros2cli_1836811]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656526.988027369] [_ros2cli_1837025]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656529.688860806] [_ros2cli_1837291]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656534.573832534] [_ros2cli_1837762]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656539.776855129] [_ros2cli_1838269]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656543.754960275] [_ros2cli_1838650]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656546.249282826] [_ros2cli_1838889]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656548.467603039] [_ros2cli_1839120]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656552.695491146] [_ros2cli_1839518]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656555.419239608] [_ros2cli_1839791]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656560.625867357] [_ros2cli_1840298]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "No controllers are currently loaded!\n",
+      "stderr": "[INFO] [1792656563.652809378] [_ros2cli_1840565]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "FAIL",
+        "terminal_states": {
+          "joint_state_broadcaster": [],
+          "left_arm_controller": [],
+          "right_arm_controller": [],
+          "torso_controller": [],
+          "left_gripper_controller": [],
+          "right_gripper_controller": []
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    },
+    {
+      "returncode": 0,
+      "stdout": "right_gripper_controller joint_trajectory_controller/JointTrajectoryController  active\nleft_gripper_controller  joint_trajectory_controller/JointTrajectoryController  active\nright_arm_controller     joint_trajectory_controller/JointTrajectoryController  active\nleft_arm_controller      joint_trajectory_controller/JointTrajectoryController  active\ntorso_controller         joint_trajectory_controller/JointTrajectoryController  active\njoint_state_broadcaster  joint_state_broadcaster/JointStateBroadcaster          active\n",
+      "stderr": "[INFO] [1792656567.646409214] [_ros2cli_1840986]: waiting for service /controller_manager/list_controllers to become available...\n",
+      "health": {
+        "status": "PASS",
+        "terminal_states": {
+          "joint_state_broadcaster": [
+            "active"
+          ],
+          "left_arm_controller": [
+            "active"
+          ],
+          "right_arm_controller": [
+            "active"
+          ],
+          "torso_controller": [
+            "active"
+          ],
+          "left_gripper_controller": [
+            "active"
+          ],
+          "right_gripper_controller": [
+            "active"
+          ]
+        },
+        "exact_terminal_token": true,
+        "inactive_is_not_active": true,
+        "command_returncode": 0
+      }
+    }
+  ],
+  "gazebo_processes": [
+    {
+      "pid": 1834569,
+      "created": 1792656504.78,
+      "role": "server"
+    },
+    {
+      "pid": 1834570,
+      "created": 1792656504.78,
+      "role": "gui"
+    }
+  ]
+}

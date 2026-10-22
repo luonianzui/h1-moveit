@@ -1,0 +1,11 @@
+{
+  "clock": "monotonic_ns",
+  "started_ns": 87201881118683,
+  "observed_exit_ns": 87335077137305,
+  "elapsed_wall_s": 133.196018622,
+  "scope": "executor_spawn_through_observed_exit_including_imports_prechecks_plans_and_shutdown",
+  "excludes_scene_launch_video_review_and_recording_finalization": true,
+  "within_180_wall_s": true,
+  "execution_returncode": 1,
+  "not_independent_physical_certificate": true
+}

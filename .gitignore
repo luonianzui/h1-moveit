@@ -4,21 +4,38 @@ log/
 __pycache__/
 *.py[cod]
 
-# GitHub source snapshot: large evidence remains in local storage.
+# Managed by tools/github_sync: full data stays in the original workspace.
 **/__pycache__/
 **/.pytest_cache/
-**/build/
+**/.git/
+**/build*/
+**/install*/
+**/log/
+**/logs/
 **/colcon_log/
-/install*/
+*.py[cod]
 *.mp4
+*.mkv
+*.avi
+*.mov
+*.webm
 *.db3
 *.mcap
+*.bag
 *.cdr
 *.jsonl
 *.jsonl.gz
 *.tar
 *.tar.gz
 *.tar.zst
+*.zip
+*.7z
 *.so
+*.so.*
 *.o
+*.a
+.env
+.env.*
+*.pem
+*.key
 !LOCAL_DATA_INVENTORY.jsonl.gz

@@ -2,16 +2,19 @@
   "source_workspace": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws",
   "state": "local_only_pending_destination",
   "inventory": "LOCAL_DATA_INVENTORY.jsonl.gz",
-  "checksum_status": "Metadata inventory only; existing historical checksum manifests remain unchanged. Full payload verification is pending the eventual migration.",
+  "checksum_status": "Metadata inventory only; large payloads were not read or hashed.",
+  "inventory_scope": "Omitted runtime files, excluding build/install/cache directories and credential paths.",
   "file_counts": {
     "runtime_assets": 486,
-    "runtime_evidence": 99939,
-    "runtime_dependencies": 3705
+    "runtime_evidence": 96640,
+    "runtime_dependencies": 3705,
+    "runtime_logs": 63
   },
   "bytes": {
     "runtime_assets": 6496970334,
-    "runtime_evidence": 101592233936,
-    "runtime_dependencies": 104280005
+    "runtime_evidence": 101521058905,
+    "runtime_dependencies": 104280005,
+    "runtime_logs": 3944396
   },
   "original_files_modified": false,
   "large_files_copied": false

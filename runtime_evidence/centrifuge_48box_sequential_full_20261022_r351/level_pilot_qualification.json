@@ -1,0 +1,41 @@
+{
+  "status": "PASS_ACTUAL_LEVEL_PILOT_DENSE_GEOMETRY_NOT_PHYSICAL",
+  "records": [
+    {
+      "actual_request": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r317/run/14_retrieval_pilot_left_request.json",
+      "request_sha256": "cb3472446dc77b602519838fb81898fb5553516f2312fe1ce2c0fd19c2d55c9c",
+      "result": "r317_14_retrieval_pilot_left_level_result.json",
+      "independent_dense_checks": 62,
+      "initial_tilt_deg": 0.9648469875539637,
+      "final_tilt_deg": 0.0,
+      "original_runtime_holder_reference_unchanged": true
+    },
+    {
+      "actual_request": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r316/run/14_retrieval_pilot_left_request.json",
+      "request_sha256": "7500e725a6c93f5f75d04006018a8b4e7ee26d73862a50fd0a8d3f9cde09130d",
+      "result": "r316_14_retrieval_pilot_left_level_result.json",
+      "independent_dense_checks": 62,
+      "initial_tilt_deg": 0.9649092175091682,
+      "final_tilt_deg": 0.0,
+      "original_runtime_holder_reference_unchanged": true
+    },
+    {
+      "actual_request": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r316/run/18_retrieval_pilot_right_request.json",
+      "request_sha256": "fa4fa648f32a366ab5b2dccccb2453a453b481488a99ba750aaec14890ddd010",
+      "result": "r316_18_retrieval_pilot_right_level_result.json",
+      "independent_dense_checks": 62,
+      "initial_tilt_deg": 0.9641856243531589,
+      "final_tilt_deg": 0.0,
+      "original_runtime_holder_reference_unchanged": true
+    },
+    {
+      "actual_request": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r315/run/18_retrieval_pilot_right_request.json",
+      "request_sha256": "e4aa3b4c9d9a3dc45ce29424fd2c172751554e1f5c1d460e596c7bd43e0cb8ff",
+      "result": "r315_18_retrieval_pilot_right_level_result.json",
+      "independent_dense_checks": 62,
+      "initial_tilt_deg": 0.9650484922801238,
+      "final_tilt_deg": 0.0,
+      "original_runtime_holder_reference_unchanged": true
+    }
+  ]
+}

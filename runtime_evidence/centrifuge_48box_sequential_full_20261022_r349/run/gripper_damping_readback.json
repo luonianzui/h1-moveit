@@ -1,0 +1,33 @@
+{
+  "attempts": [
+    {
+      "node": "/left_gripper_controller",
+      "parameter": "gains.left_dex1_finger_1_joint.d",
+      "command_returncode": 0,
+      "stdout": "Double value is: 6.0\n",
+      "stderr": ""
+    },
+    {
+      "node": "/left_gripper_controller",
+      "parameter": "gains.left_dex1_finger_2_joint.d",
+      "command_returncode": 0,
+      "stdout": "Double value is: 6.0\n",
+      "stderr": ""
+    },
+    {
+      "node": "/right_gripper_controller",
+      "parameter": "gains.right_dex1_finger_1_joint.d",
+      "command_returncode": 0,
+      "stdout": "Double value is: 6.0\n",
+      "stderr": ""
+    },
+    {
+      "node": "/right_gripper_controller",
+      "parameter": "gains.right_dex1_finger_2_joint.d",
+      "command_returncode": 0,
+      "stdout": "Double value is: 6.0\n",
+      "stderr": ""
+    }
+  ],
+  "read_only_no_parameter_set": true
+}

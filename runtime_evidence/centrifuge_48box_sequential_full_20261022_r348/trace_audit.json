@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "gates": {
+    "closed": true,
+    "no_sampling": true,
+    "sha256": true,
+    "rows": true,
+    "bytes": true,
+    "compressed_bytes": true
+  },
+  "decoded_sha256": "b82716f6314c2f2e159da63b5a71dfce38d9d982c2af89d61003cb4e73661a0e",
+  "rows": 445445,
+  "uncompressed_bytes": 981532930,
+  "compressed_bytes": 251965219,
+  "gzip_crc_verified": true
+}

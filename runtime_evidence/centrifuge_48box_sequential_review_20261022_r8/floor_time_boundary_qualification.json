@@ -1,0 +1,52 @@
+{
+  "status": "PASS_EXACT_ONE_MILLISECOND_BOUNDARY_COMPONENT_ONLY_NOT_FULL_RUN",
+  "source_sha256": "50c4b47290d71995880774f24862a660f3b2d4bc0187b02ee765591f1ad6f505",
+  "actual_fault_sim": 207.8245,
+  "actual_contact_stamp": 207.8235,
+  "original_float_age": 0.0010000000000047748,
+  "exact_age_ns": 1000000,
+  "original": {
+    "valid": false,
+    "not_a_grip_certificate": true
+  },
+  "candidate": {
+    "valid": true,
+    "not_a_grip_certificate": true,
+    "source": "one_actual_contact_frame_floor_history",
+    "current_contact_stamp": 207.8235,
+    "last_actual_positive_basket_stamp": 207.823,
+    "missing_floor_sim_s": 0.0004999999999881766,
+    "observed_fingers": [
+      1
+    ],
+    "maximum_native_distance_to_final_goal_m": 0.00018696920121780147,
+    "final_endpoint_and_two_opposed_strong_capture_still_required": true,
+    "no_holder_created_or_anchor_rebased": true
+  },
+  "boundary_cases": [
+    {
+      "age_ns": -1,
+      "valid": false
+    },
+    {
+      "age_ns": 0,
+      "valid": true
+    },
+    {
+      "age_ns": 999999,
+      "valid": true
+    },
+    {
+      "age_ns": 1000000,
+      "valid": true
+    },
+    {
+      "age_ns": 1000001,
+      "valid": false
+    }
+  ],
+  "no_new_support_contact_or_holder": true,
+  "original_one_frame_floor_history_and_midband_guards_unchanged": true,
+  "post_fault_next_observation_s": 0.003999999999990678,
+  "post_fault_observation_not_uninterrupted_recovery": true
+}

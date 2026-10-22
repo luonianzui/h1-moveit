@@ -1,0 +1,175 @@
+{
+  "status": "FAILED_SNAPSHOT_DIAGNOSTIC_NOT_TASK_SUCCESS",
+  "request_source_sim": 182.9665,
+  "initial_payload_tilt_deg": 5.234752364306255,
+  "compared": [
+    {
+      "factory": "original_fresh",
+      "status": "GEOMETRY_REJECTED",
+      "error": "Explicit five-degree simulation retrieval tilt exceeded"
+    },
+    {
+      "factory": "resource_cache",
+      "status": "GEOMETRY_REJECTED",
+      "error": "Explicit five-degree simulation retrieval tilt exceeded"
+    }
+  ],
+  "timeline": [
+    {
+      "kind": "sequential_retrieval_pilot_settle_started",
+      "phase": "seq_retrieval_single_pilot",
+      "sim": 182.9695,
+      "wall": 1792654663.5812533,
+      "payload": {
+        "hand": "left",
+        "payload": "left",
+        "requested_sim_s": 1.0,
+        "original_runtime_holder_references": {
+          "left": {
+            "payload": "left",
+            "source_sim": 181.3375,
+            "native_reference": [
+              [
+                -5.76632472615387e-05,
+                -0.00010310384334259043,
+                -0.9999999930222735,
+                0.2070019676163335
+              ],
+              [
+                4.535225385803556e-06,
+                0.9999999946744877,
+                -0.0001031041050288048,
+                -0.00018198250914142067
+              ],
+              [
+                0.999999998327191,
+                -4.541170671695392e-06,
+                -5.766277935522012e-05,
+                2.0524992080384052e-06
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "fk_reference": [
+              [
+                -5.766272721128299e-05,
+                -0.00010310187675449667,
+                -0.9999999930225063,
+                0.20700166903990525
+              ],
+              [
+                4.534698748337398e-06,
+                0.9999999946746929,
+                -0.0001031021384078519,
+                -0.00018198833686783322
+              ],
+              [
+                0.9999999983272231,
+                -4.54064386742584e-06,
+                -5.766225936833836e-05,
+                2.053017638392607e-06
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "kind": "sequential_actual_planning_started",
+      "phase": "seq_retrieval_single_pilot",
+      "sim": 182.9695,
+      "wall": 1792654663.5827863,
+      "payload": {
+        "mode": "retrieval_transport",
+        "hand": "left",
+        "payload": "left",
+        "request": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r348/run/17_retrieval_transport_left_request.json",
+        "source_sim": 182.9665,
+        "prefetch_during_existing_stationary_observation": true
+      }
+    },
+    {
+      "kind": "sequential_retrieval_pilot_settle_pass",
+      "phase": "seq_retrieval_single_pilot",
+      "sim": 183.9695,
+      "wall": 1792654666.6588166,
+      "payload": {
+        "hand": "left",
+        "payload": "left",
+        "duration_sim_s": 1.0,
+        "original_runtime_holder_references": {
+          "left": {
+            "payload": "left",
+            "source_sim": 181.3375,
+            "native_reference": [
+              [
+                -5.76632472615387e-05,
+                -0.00010310384334259043,
+                -0.9999999930222735,
+                0.2070019676163335
+              ],
+              [
+                4.535225385803556e-06,
+                0.9999999946744877,
+                -0.0001031041050288048,
+                -0.00018198250914142067
+              ],
+              [
+                0.999999998327191,
+                -4.541170671695392e-06,
+                -5.766277935522012e-05,
+                2.0524992080384052e-06
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "fk_reference": [
+              [
+                -5.766272721128299e-05,
+                -0.00010310187675449667,
+                -0.9999999930225063,
+                0.20700166903990525
+              ],
+              [
+                4.534698748337398e-06,
+                0.9999999946746929,
+                -0.0001031021384078519,
+                -0.00018198833686783322
+              ],
+              [
+                0.9999999983272231,
+                -4.54064386742584e-06,
+                -5.766225936833836e-05,
+                2.053017638392607e-06
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ]
+          }
+        },
+        "no_rebase_or_new_gripper_command": true,
+        "fresh_planning_still_required": true,
+        "original_snapshot_bounds_unchanged": true
+      }
+    }
+  ],
+  "final_sample_kinds": {}
+}

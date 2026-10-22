@@ -1,0 +1,36 @@
+{
+  "status": "PASS_ACTUAL_RETURN_HEIGHT_DENSE_GEOMETRY_NOT_PHYSICAL",
+  "records": [
+    {
+      "actual_request": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r316/run/19_retrieval_transport_right_request.json",
+      "request_sha256": "fc3c7ecb94244f6bece73be256a4596d53281b8f01294da72dca8a61c4cdbd39",
+      "result": "centrifuge_48box_sequential_full_20261020_r316_19_retrieval_transport_right_height_result.json",
+      "hand": "right",
+      "height_m": 1.13475,
+      "dense_checks": 2563,
+      "maximum_ik_position_error_m": 4.277764770826801e-11,
+      "maximum_ik_angle_error_deg": 2.1448259715334528e-07
+    },
+    {
+      "actual_request": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r315/run/19_retrieval_transport_right_request.json",
+      "request_sha256": "4a02969250ad71a1c44d78da1aafd083bcba497702a6d910c98aa500e634ffe8",
+      "result": "centrifuge_48box_sequential_full_20261020_r315_19_retrieval_transport_right_height_result.json",
+      "hand": "right",
+      "height_m": 1.13475,
+      "dense_checks": 2554,
+      "maximum_ik_position_error_m": 4.06119430088415e-11,
+      "maximum_ik_angle_error_deg": 2.0334997267428127e-07
+    },
+    {
+      "actual_request": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r315/run/15_retrieval_transport_left_request.json",
+      "request_sha256": "d2b7c2ce02b4cc72e1ba139cbe29638908a92660971463c32152db0bd73a5b1d",
+      "result": "centrifuge_48box_sequential_full_20261020_r315_15_retrieval_transport_left_height_result.json",
+      "hand": "left",
+      "height_m": 1.14475,
+      "dense_checks": 2228,
+      "maximum_ik_position_error_m": 2.7083479147121074e-11,
+      "maximum_ik_angle_error_deg": 1.7823981925704254e-07
+    }
+  ],
+  "unchanged_original_bounds_accuracy_collision_and_runtime_holder": true
+}

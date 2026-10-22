@@ -1,0 +1,2210 @@
+{
+  "status": "FAIL",
+  "counts": {
+    "826_apriltag_execution_20260827": 787,
+    "826_apriltag_plan_only_20260826": 850,
+    "backup_914_release_20260914": 25,
+    "backup_915_release_20260915": 13,
+    "backup_920_release_20260920": 13,
+    "build_cache_cleanup_20261010_r1": 16,
+    "candidate3_middle_hinge_8263_20260828": 24,
+    "centrifuge_48box_angle2_config_20260923_r137": 24,
+    "centrifuge_48box_angle2_run_20260923_r138": 107,
+    "centrifuge_48box_async_alignment_20261007_r145": 107,
+    "centrifuge_48box_bounded_speed_20261010_r210": 198,
+    "centrifuge_48box_button_speed_20261010_r211": 212,
+    "centrifuge_48box_centered_grasp_20260923_r128": 70,
+    "centrifuge_48box_clearance_unloading_20261010_r196": 176,
+    "centrifuge_48box_codec_complete_20261010_r213": 230,
+    "centrifuge_48box_coherent_feedback_20261012_r230": 326,
+    "centrifuge_48box_compound_handover_20261012_r234": 20,
+    "centrifuge_48box_contact_loading_20260923_r122": 33,
+    "centrifuge_48box_contact_loading_20260923_r123": 33,
+    "centrifuge_48box_contact_loading_20260923_r124": 32,
+    "centrifuge_48box_contact_loading_20260923_r127": 43,
+    "centrifuge_48box_control_resample_20261012_r232": 337,
+    "centrifuge_48box_deep_grasp_20260923_r129": 49,
+    "centrifuge_48box_demo_complete_20261010_r214": 255,
+    "centrifuge_48box_display_20260923_r134": 18,
+    "centrifuge_48box_drop_contact_settle_20261007_r149": 118,
+    "centrifuge_48box_drop_demo_20260923_r132": 64,
+    "centrifuge_48box_dual_sync_20261012_r227": 367,
+    "centrifuge_48box_effort_grip_20260923_r131": 78,
+    "centrifuge_48box_empty_quintic_20261012_r220": 168,
+    "centrifuge_48box_empty_shortcut_20261012_r221": 1,
+    "centrifuge_48box_extraction_local_z_20261010_r187": 19,
+    "centrifuge_48box_fast_complete_20261010_r209": 194,
+    "centrifuge_48box_fast_complete_20261012_r218": 264,
+    "centrifuge_48box_fast_complete_20261012_r219": 292,
+    "centrifuge_48box_fast_drop_demo_20260923_r133": 84,
+    "centrifuge_48box_force16_loading_20261007_r146": 103,
+    "centrifuge_48box_force8_loading_20261007_r143": 86,
+    "centrifuge_48box_friction_20260923_r136": 108,
+    "centrifuge_48box_full_cycle_20261009_r160": 116,
+    "centrifuge_48box_full_cycle_20261009_r161": 113,
+    "centrifuge_48box_full_cycle_20261009_r162": 115,
+    "centrifuge_48box_full_cycle_20261009_r163": 133,
+    "centrifuge_48box_full_cycle_20261009_r164": 118,
+    "centrifuge_48box_full_cycle_20261009_r165": 122,
+    "centrifuge_48box_full_cycle_20261009_r166": 125,
+    "centrifuge_48box_full_cycle_20261009_r167": 124,
+    "centrifuge_48box_full_cycle_20261009_r171": 134,
+    "centrifuge_48box_full_cycle_20261009_r172": 140,
+    "centrifuge_48box_full_cycle_20261009_r175": 152,
+    "centrifuge_48box_full_cycle_20261009_r176": 161,
+    "centrifuge_48box_full_cycle_20261009_r177": 155,
+    "centrifuge_48box_full_cycle_20261009_r178": 167,
+    "centrifuge_48box_full_cycle_20261009_r181": 175,
+    "centrifuge_48box_full_cycle_20261009_r183": 184,
+    "centrifuge_48box_full_cycle_20261009_r185": 186,
+    "centrifuge_48box_full_cycle_20261010_r188": 186,
+    "centrifuge_48box_full_cycle_20261010_r191": 138,
+    "centrifuge_48box_full_cycle_20261010_r192": 106,
+    "centrifuge_48box_full_cycle_20261010_r193": 164,
+    "centrifuge_48box_full_cycle_20261010_r195": 170,
+    "centrifuge_48box_full_cycle_20261010_r206": 192,
+    "centrifuge_48box_global_speed_20261009_r156": 83,
+    "centrifuge_48box_global_speed_20261009_r158": 117,
+    "centrifuge_48box_global_speed_20261009_r159": 114,
+    "centrifuge_48box_gripper_probe_20260923_r125": 16,
+    "centrifuge_48box_gripper_probe_20260923_r126": 16,
+    "centrifuge_48box_horizontal_rate_20261012_r225": 304,
+    "centrifuge_48box_left_reorient_20261008_r150": 130,
+    "centrifuge_48box_left_transfer_20261008_r151": 133,
+    "centrifuge_48box_leg_posture_unloading_20261010_r199": 184,
+    "centrifuge_48box_lift_speed_20261008_r155": 109,
+    "centrifuge_48box_loaded_grid_20261012_r222": 104,
+    "centrifuge_48box_loaded_rate_20261012_r223": 285,
+    "centrifuge_48box_loading_20260923_r121": 46,
+    "centrifuge_48box_localization_jitter_20261008_r152": 456,
+    "centrifuge_48box_lossless_complete_20261010_r212": 183,
+    "centrifuge_48box_low_preload_20260923_r130": 44,
+    "centrifuge_48box_lower_release_20261012_r231": 340,
+    "centrifuge_48box_midband_grasp_20260923_r135": 93,
+    "centrifuge_48box_passive_rotor_settle_20261007_r148": 112,
+    "centrifuge_48box_pilot_braking_20261010_r208": 202,
+    "centrifuge_48box_position_brake_20261010_r189": 64,
+    "centrifuge_48box_reachability_20260923_r140": 41,
+    "centrifuge_48box_retrieval_actual_pose_20261009_r173": 16,
+    "centrifuge_48box_retrieval_context_20261012_r224": 280,
+    "centrifuge_48box_retrieval_dense_20261009_r174": 23,
+    "centrifuge_48box_retrieval_upright_20261009_r182": 35,
+    "centrifuge_48box_right_lower_20261008_r154": 465,
+    "centrifuge_48box_right_transfer_20261008_r153": 486,
+    "centrifuge_48box_rotor_physics_20261009_r168": 28,
+    "centrifuge_48box_rotor_physics_20261009_r169": 33,
+    "centrifuge_48box_rotor_physics_20261009_r170": 33,
+    "centrifuge_48box_scene_resume_20261012_r217": 89,
+    "centrifuge_48box_servo_fast_20261012_r229": 321,
+    "centrifuge_48box_servo_gain02_20261007_r144": 108,
+    "centrifuge_48box_servo_rate_20261012_r228": 333,
+    "centrifuge_48box_setdown_braking_20261010_r201": 155,
+    "centrifuge_48box_setdown_braking_20261010_r203": 156,
+    "centrifuge_48box_setdown_braking_20261010_r205": 195,
+    "centrifuge_48box_shared_grasp_probe_20261012_r233": 10,
+    "centrifuge_48box_single_extraction_20261010_r190": 153,
+    "centrifuge_48box_skip_empty_return_20261010_r216": 440,
+    "centrifuge_48box_soft_grasp_20261010_r194": 170,
+    "centrifuge_48box_speed_analysis_20261010_r215": 3,
+    "centrifuge_48box_stop_brake_20261009_r179": 48,
+    "centrifuge_48box_stop_brake_20261009_r180": 58,
+    "centrifuge_48box_stop_brake_20261009_r184": 62,
+    "centrifuge_48box_stop_brake_20261010_r186": 62,
+    "centrifuge_48box_table_20260923_r120": 40,
+    "centrifuge_48box_terminal_unloading_20261010_r198": 180,
+    "centrifuge_48box_three_minute_budget_20261012_r226": 24,
+    "centrifuge_48box_tilt_loading_20260923_r141": 50,
+    "centrifuge_48box_velocity_diagnostic_20260923_r139": 94,
+    "centrifuge_48box_velocity_epsilon_20261007_r147": 105,
+    "centrifuge_button_20260921_r109": 28,
+    "centrifuge_button_20260921_r110": 39,
+    "centrifuge_front_buttons_20260922_r115": 48,
+    "centrifuge_front_buttons_show_20260922_r116": 19,
+    "centrifuge_lid_20260921_r105": 30,
+    "centrifuge_lid_20260921_r106": 20,
+    "centrifuge_lid_20260921_r107": 35,
+    "centrifuge_lid_20260921_r108": 39,
+    "centrifuge_passive_buckets_20260922_r113": 52,
+    "centrifuge_passive_buckets_show_20260922_r114": 20,
+    "centrifuge_robot_press_20260922_r117": 47,
+    "centrifuge_robot_press_20260922_r118": 35,
+    "centrifuge_robot_press_20260922_r119": 62,
+    "centrifuge_scene_20260920_r104": 27,
+    "closed_loop_90_8261_20260825": 208,
+    "closed_loop_parallel_826_2_20260826": 191,
+    "documentation_process_cleanup_20261010_r1": 27,
+    "full_robot_flow_8252_20260825": 6,
+    "rl_official_download_20261010_r1": 17,
+    "rl_official_redownload_20261012_r1": 24,
+    "rl_source_recovery_20261010_r1": 28,
+    "unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29": 15,
+    "unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30": 25,
+    "unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20": 7,
+    "unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21": 20,
+    "unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22": 23,
+    "unitree_h12_incubator_nav2_reduced_velocity_damping_20260911_r19": 20,
+    "unitree_h12_incubator_nav2_settling_handoff_20260912_r25": 12,
+    "unitree_h12_incubator_nav2_settling_handoff_20260912_r26": 34,
+    "unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24": 35,
+    "unitree_h12_incubator_nav2_user_view_20260914_r28": 24,
+    "unitree_h12_incubator_nav2_xy004_settling_handoff_20260912_r27": 40,
+    "unitree_h12_incubator_nav2_xy_goal_tolerance_004_20260912_r23": 29,
+    "unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60": 26,
+    "unitree_h12_v12_learned_recover_stop_offline_20260916_r31": 16
+  },
+  "manifests": {
+    "runtime_evidence/826_apriltag_execution_20260827/SHA256SUMS": "41e3fda5542dcbc57db24dadbf20ef6b7ff42bfa6fd33d00f409aeb5385088d6",
+    "runtime_evidence/826_apriltag_plan_only_20260826/SHA256SUMS": "a1dec8bf63890d9b5253e3abff02dcdf47c335da79a30c08c7840b20e56c3a41",
+    "runtime_evidence/backup_914_release_20260914/SHA256SUMS": "f01d8beb6c9faf39e5cd4d6518686012db3a1c21822667dc3dbce1e9ee814177",
+    "runtime_evidence/backup_915_release_20260915/SHA256SUMS": "db27be5a13b38e4bc3653aa8e77debf0ca089468c34f165ed5b31dc27c5e8028",
+    "runtime_evidence/backup_920_release_20260920/SHA256SUMS": "8c474df9159327c0e35ae0f8406e05e5cfbc7f7d1b4d97949d5eb9e9dae84d4b",
+    "runtime_evidence/build_cache_cleanup_20261010_r1/SHA256SUMS": "a41e9612377839a7945a641dc5190c4d3b24170198d74fd8928a5649bef7b64b",
+    "runtime_evidence/candidate3_middle_hinge_8263_20260828/SHA256SUMS": "b992b6f74aa9af1f600deeaf009e4c7ae1909063b66d81e973eed421d2628bea",
+    "runtime_evidence/centrifuge_48box_angle2_config_20260923_r137/SHA256SUMS": "126f27d12acee818c7c7196160049b327faf2bc621a07cc6127782dffe58da79",
+    "runtime_evidence/centrifuge_48box_angle2_run_20260923_r138/SHA256SUMS": "dde43c21e0a77a4f3c19f79f39e055f21ec21efdf5ec9916fc7e96e58f0f2583",
+    "runtime_evidence/centrifuge_48box_async_alignment_20261007_r145/SHA256SUMS": "8cab8a76c3e0bc9f75d66ea3d9772637add410eb8a0da33134191086586c9bb7",
+    "runtime_evidence/centrifuge_48box_bounded_speed_20261010_r210/SHA256SUMS": "df7e80d03a69777240656cabfeeb43b0323bbf944fc5c6f47bcd4b03e1e1c939",
+    "runtime_evidence/centrifuge_48box_button_speed_20261010_r211/SHA256SUMS": "3f6fae2293322ae6f033952e9817fcc4ae8103b06187d863acc5082a85070509",
+    "runtime_evidence/centrifuge_48box_centered_grasp_20260923_r128/SHA256SUMS": "e8fd56b223b4487016b499fc160c30c5e3c6e94084cc5833034bd6a9280ee475",
+    "runtime_evidence/centrifuge_48box_clearance_unloading_20261010_r196/SHA256SUMS": "2530b6fe3ee3d5f8d1dc3c69e79bb399dfab6f382e7192222a505db509c2494e",
+    "runtime_evidence/centrifuge_48box_codec_complete_20261010_r213/SHA256SUMS": "2224325d215d4de3f879f659d9905bd9fa24ca7360b0293f516dd2b4b7d9b469",
+    "runtime_evidence/centrifuge_48box_coherent_feedback_20261012_r230/SHA256SUMS": "044810c05f75c5165b3120dd4e7bf6d699606d62436475f48e0d1367452538d0",
+    "runtime_evidence/centrifuge_48box_compound_handover_20261012_r234/SHA256SUMS": "c532557099522f2a38aa49919c783da1caa247b311eab331ac6e83719fe4eeaf",
+    "runtime_evidence/centrifuge_48box_contact_loading_20260923_r122/SHA256SUMS": "450a04ac3027f798be736ab997f576d5b729804f460a72768f594f60395c13c5",
+    "runtime_evidence/centrifuge_48box_contact_loading_20260923_r123/SHA256SUMS": "cb4fdd92019c6414ca4b025447e43d70a919ce812e02b5f908459cd345d28267",
+    "runtime_evidence/centrifuge_48box_contact_loading_20260923_r124/SHA256SUMS": "69ca2103599a83593c4408de080512443bda4213e308d8d8c3ed69b1fb6a5db4",
+    "runtime_evidence/centrifuge_48box_contact_loading_20260923_r127/SHA256SUMS": "ef593f86119ef1ab1be1519c42991f516afa88735ae971e969583375b7158a86",
+    "runtime_evidence/centrifuge_48box_control_resample_20261012_r232/SHA256SUMS": "88be882a1f6fee9b4744c8f9a634cfef994814ec8727880704665f0c04d4ff08",
+    "runtime_evidence/centrifuge_48box_deep_grasp_20260923_r129/SHA256SUMS": "0b8446f1733ab8e28e55136c525bbb6164cf9f13da08d7df5f6f32d4c49a72fc",
+    "runtime_evidence/centrifuge_48box_demo_complete_20261010_r214/SHA256SUMS": "4a35dfea335b1be7c66df555dc183e8df6e343a86a6c96e7bd4b5ff7d706d31c",
+    "runtime_evidence/centrifuge_48box_display_20260923_r134/SHA256SUMS": "09409b7f8bb3ce613135909c656e3be05cf33c7c783d28364f88f411212d2a9d",
+    "runtime_evidence/centrifuge_48box_drop_contact_settle_20261007_r149/SHA256SUMS": "e3bd35f6315a113fa58cf2cc6aaea691f9a744d6adddad0b4bd3be7450ee7c1b",
+    "runtime_evidence/centrifuge_48box_drop_demo_20260923_r132/SHA256SUMS": "6ef5919a4cf7680386e831aa3e5b7eb0985c2d8051b43ada666b9f1376384713",
+    "runtime_evidence/centrifuge_48box_dual_sync_20261012_r227/SHA256SUMS": "02683a745b55706a03f67a1d4c32295aa326d96949381e5ed583a0de275b51d1",
+    "runtime_evidence/centrifuge_48box_effort_grip_20260923_r131/SHA256SUMS": "c3c28f701ff9e08006f58f065634bb6d87010ef6074d1d24c22a08d82b0b90dc",
+    "runtime_evidence/centrifuge_48box_empty_quintic_20261012_r220/SHA256SUMS": "c26735e14062c745f80c56ec939e1f8d140659667f95b5e0addd299240dd863c",
+    "runtime_evidence/centrifuge_48box_empty_shortcut_20261012_r221/SHA256SUMS": "c0db02e2f5315a3aef8f1b2a488b65cebfe2ce841b6dd50d2c4cd7a0d8c76d61",
+    "runtime_evidence/centrifuge_48box_extraction_local_z_20261010_r187/SHA256SUMS": "207cf090255204c5feb67341055cad5a1f5cdc10fa60af13a9ccde06da618f55",
+    "runtime_evidence/centrifuge_48box_fast_complete_20261010_r209/SHA256SUMS": "3f5564bebe0af8bf73e05fbb0438708895417ee54f084c6b74d83270aa41d08a",
+    "runtime_evidence/centrifuge_48box_fast_complete_20261012_r218/SHA256SUMS": "35d453e298553e74dc56024479ab8d526b847a7f014204c7a243e2b43ac27c19",
+    "runtime_evidence/centrifuge_48box_fast_complete_20261012_r219/SHA256SUMS": "6dae6eb9f08da780bde10f0a2e4feacb37ba69acead87220d2a0b2f163cf7ab0",
+    "runtime_evidence/centrifuge_48box_fast_drop_demo_20260923_r133/SHA256SUMS": "9aeade101eb3d776a413105ce2e979c6957acb78ad78c25cd7abe6bfd7f50e53",
+    "runtime_evidence/centrifuge_48box_force16_loading_20261007_r146/SHA256SUMS": "3ce54d0b0e8d612535e4c85a6e6c92678a8826b3803fd4a51cb5206d66c1f9bb",
+    "runtime_evidence/centrifuge_48box_force8_loading_20261007_r143/SHA256SUMS": "eeee95c31e5554739c1de72fe0b037361eb7d3d47b73b2fb476bd4b28ee96d69",
+    "runtime_evidence/centrifuge_48box_friction_20260923_r136/SHA256SUMS": "6a5fc9d67886963992c83c845626ae28902699589d02c4cbee5e3f5fe1ff2acf",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r160/SHA256SUMS": "c356526abd9d9c0e7ab6fa1ba892b576dbb438eee59a986926d7a020bb30ae07",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r161/SHA256SUMS": "8902ed06c4bbaa5b751775cd1bfa4b9e7a61c0f92165ee62ff6351662fc2718b",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r162/SHA256SUMS": "c313d5e81cc2a0305dea8e7d51dc24d87041f27edce2a9c1b33e1a4caedc80ea",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r163/SHA256SUMS": "0dc37f270abf026dca7b255df30184fe58aecaf352824c1300d454d9f02bc1f7",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r164/SHA256SUMS": "16bbd4789b69d9ed14332cf070b41721e774cd454f1d739fc876dbc2098f76f9",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r165/SHA256SUMS": "e1488969c450b6e4dbdcdc757452f8f118adf2b9115c0a9c0ca74cd56f9dc219",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r166/SHA256SUMS": "40ffe2e71a0c61a9722fe00b78b1bcab0fb83559379b9c3c5cffdde09bafc3c6",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r167/SHA256SUMS": "b7dd364de7b7e96f5588361815d0d44663df38e2cf301adefdff155c0a2ffd64",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r171/SHA256SUMS": "ab8cb756ca2b769095d23821e58815724fbd65751cf9e5fb096111c3f45773d1",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r172/SHA256SUMS": "cb8249faaeb034bfc5eb6cb578d82ca8fade4b211900366a44a5379433943e0e",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r175/SHA256SUMS": "b8b40b195531f68b3331f13aab87428eaeeb78aa3c436a609dc940ba4decb784",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r176/SHA256SUMS": "26a6dfec0bb604eeb320b92f4b7e4a6e906e3047304169fef1927d8f015efe33",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r177/SHA256SUMS": "22fcdc92fe1fbba05e2892e9f6b4fb2c098462379a25a63025c3c3dd5b5003ce",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r178/SHA256SUMS": "e10444d64b7983e805c53fdf14a517313ba83a0f34557c2f4a746ba80c9f5ca2",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r181/SHA256SUMS": "3397c869bc1ab8594d432d7dbcc8ae3c767eb42ea537937f4d1e43b974305c46",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r183/SHA256SUMS": "6e74a5223c6f6517af6da5b6176ec3a9a1404cc97f20274d88b3b5635bcdad89",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261009_r185/SHA256SUMS": "8135b7192966c023fe55a33ed0c4383d566f9178829feb854a1af6dd878e5d0a",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261010_r188/SHA256SUMS": "5c6519ab3e37e43229f6ae750c22f3e7361a78abd18593fc7d1cd973d9ac472c",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261010_r191/SHA256SUMS": "a5871be63f7afaf8a8ed620d5169a37b9103e86502fb22a5b1181b94906e3452",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261010_r192/SHA256SUMS": "e74c695e47ebb6cd94c02d5a7fad485bfecbf01e3a0d507fe74c6f67c2c707ca",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261010_r193/SHA256SUMS": "96c64664362eadea7689b138845b17e32065ad769c2ea3c72711b7b201c1579a",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261010_r195/SHA256SUMS": "d9daf64cbb87c44c97d101ed9a65a6d0c938cb8a72d21987a7bc02357e88381c",
+    "runtime_evidence/centrifuge_48box_full_cycle_20261010_r206/SHA256SUMS": "467b11411bd777a7c8c121d88dc54037d6eacc0d7cbf7d7a43178ff7cb8b31ae",
+    "runtime_evidence/centrifuge_48box_global_speed_20261009_r156/SHA256SUMS": "f225e0fb5db851f39b00173cbc331ca37c8a9aa4b6947f1b4314a3d874b8b75d",
+    "runtime_evidence/centrifuge_48box_global_speed_20261009_r158/SHA256SUMS": "6373665511f98e2f8e936fbe1592a5b705854e2b3af7d9cfdbd62e4da2f8f43f",
+    "runtime_evidence/centrifuge_48box_global_speed_20261009_r159/SHA256SUMS": "df4d50283edadb96bf93d8d03aea833899463533a050ca1cd88ae0b182572799",
+    "runtime_evidence/centrifuge_48box_gripper_probe_20260923_r125/SHA256SUMS": "f17950a426ae6079b32e47df4dc67c02e36dddcf38bea5aa00f9006b485be535",
+    "runtime_evidence/centrifuge_48box_gripper_probe_20260923_r126/SHA256SUMS": "c2e4f57c477a466e560fddb8864d648396d01a6920526a0018faaa52687b68e8",
+    "runtime_evidence/centrifuge_48box_horizontal_rate_20261012_r225/SHA256SUMS": "ab95a8395f1d6e22ecb942279536195878e6ab5b77445e08469a7e6e26a8add8",
+    "runtime_evidence/centrifuge_48box_left_reorient_20261008_r150/SHA256SUMS": "20f9666f5614b11164f840c7aef29ff3c77c9cd0219ee458b2968ff2dd78f856",
+    "runtime_evidence/centrifuge_48box_left_transfer_20261008_r151/SHA256SUMS": "8f715f8767a8341a13ebb1d48c193af50b5dc93c87848af6f58c9f7e4f5ec767",
+    "runtime_evidence/centrifuge_48box_leg_posture_unloading_20261010_r199/SHA256SUMS": "9ff81f0f75d5e51c772023e095a187230d769d81d707f72484ac9a5cdcdf0c88",
+    "runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/SHA256SUMS": "7cd82fd19b8ac4cd62bbe007d586c2c23c78e85890f8c887ea28904a6f069032",
+    "runtime_evidence/centrifuge_48box_loaded_grid_20261012_r222/SHA256SUMS": "2a42b181689ecb2e131633c5331768de7d123d644c1c8836337cf5ef2ef7d17c",
+    "runtime_evidence/centrifuge_48box_loaded_rate_20261012_r223/SHA256SUMS": "c3b30423b1ccf6f26fe04424bcdf346b49422a42f344c76c1657abfc204498d5",
+    "runtime_evidence/centrifuge_48box_loading_20260923_r121/SHA256SUMS": "51020b3c3ab655171126329450f367e287350e1f9efae2fbacf4d2ca5a707248",
+    "runtime_evidence/centrifuge_48box_localization_jitter_20261008_r152/SHA256SUMS": "a0e4aefc147e979adaa8dfe0459f2021c156df3fb42d5e372c84390cd9c215f4",
+    "runtime_evidence/centrifuge_48box_lossless_complete_20261010_r212/SHA256SUMS": "90ba29f6d20b622d7e42801d481631f4351cfb7ce8cc3e4fb225723a030c440a",
+    "runtime_evidence/centrifuge_48box_low_preload_20260923_r130/SHA256SUMS": "dbd13ba6f3f7fed4d5afa2cf8e1a2515e703c6c20daa9c03e96f8804b92cea28",
+    "runtime_evidence/centrifuge_48box_lower_release_20261012_r231/SHA256SUMS": "27ec6299ae6256ebee9f55cc0fb2c44909fb2039755305ee19fa28939746142d",
+    "runtime_evidence/centrifuge_48box_midband_grasp_20260923_r135/SHA256SUMS": "3c73b31a7633114865fa8a6d28c7436ee47749892943c278ac2fb79fcd3c1f9f",
+    "runtime_evidence/centrifuge_48box_passive_rotor_settle_20261007_r148/SHA256SUMS": "12d9126412c9ee08e59bd82905c0f221f4781e95ea8a6fdb613e191d157bd132",
+    "runtime_evidence/centrifuge_48box_pilot_braking_20261010_r208/SHA256SUMS": "9e33a3c035b58ea311b1d2d21ccc2918e5ff944f805a9a0846481f2273700ab4",
+    "runtime_evidence/centrifuge_48box_position_brake_20261010_r189/SHA256SUMS": "fc9075e5ba9caa96652c2fe8c1f85c9d174583ceb182a934889a1111edf544ba",
+    "runtime_evidence/centrifuge_48box_reachability_20260923_r140/SHA256SUMS": "0286b79f01f96e49eea29267d99cac9fc062ccdb531864d75be5754f4328675b",
+    "runtime_evidence/centrifuge_48box_retrieval_actual_pose_20261009_r173/SHA256SUMS": "f91342a1ae04542ecc3c5594d157fa704711a5e22a82b37cc7968f8767a5573c",
+    "runtime_evidence/centrifuge_48box_retrieval_context_20261012_r224/SHA256SUMS": "431fe1e40de4ce80fb10238b3eb5e08b5a71ed970ae8aaed3d31831a085293ba",
+    "runtime_evidence/centrifuge_48box_retrieval_dense_20261009_r174/SHA256SUMS": "db4623b2e59678f2721614b0c4321ac224de5c6c7827d3243fee8c10fe3a03cf",
+    "runtime_evidence/centrifuge_48box_retrieval_upright_20261009_r182/SHA256SUMS": "946d3f661adb6983e9e657fe56ea2981a958d3d01c60e0141dc03af6b2f36655",
+    "runtime_evidence/centrifuge_48box_right_lower_20261008_r154/SHA256SUMS": "58fe3e34f2d3bbc915c99ef2c073d56bc6f622420a4031c17f13e52e4201c651",
+    "runtime_evidence/centrifuge_48box_right_transfer_20261008_r153/SHA256SUMS": "be20a409dada0c8e4578124867df51667675573eeb602469af586c33669df476",
+    "runtime_evidence/centrifuge_48box_rotor_physics_20261009_r168/SHA256SUMS": "9f0e356a900fb41663c09fae2fd658f248607843902e045fd7b645c8742227e0",
+    "runtime_evidence/centrifuge_48box_rotor_physics_20261009_r169/SHA256SUMS": "3c06c510125891317e1700b44e57046be960a8cfe4a3ae4555a0b357f5f3b4d0",
+    "runtime_evidence/centrifuge_48box_rotor_physics_20261009_r170/SHA256SUMS": "3a128a491df44debd47198fbc10cd203ebc6edcf8b77521ebc9da2fc658cc4d9",
+    "runtime_evidence/centrifuge_48box_scene_resume_20261012_r217/SHA256SUMS": "0afbda15381138dfafeb6925360106af94f8226ca33767b46c04bb8898d5d063",
+    "runtime_evidence/centrifuge_48box_servo_fast_20261012_r229/SHA256SUMS": "7ceaf4b6949f938f664a6f303780c931cd230bb5acfecf631cbd697140f8eec5",
+    "runtime_evidence/centrifuge_48box_servo_gain02_20261007_r144/SHA256SUMS": "ebc087bbb306c8c03eadabcf5b9da20cd07778b17d922d297a552463a35751b3",
+    "runtime_evidence/centrifuge_48box_servo_rate_20261012_r228/SHA256SUMS": "09e79a787f08028d256418b41c52832c36b9ae159bf736832da7c4684943fc58",
+    "runtime_evidence/centrifuge_48box_setdown_braking_20261010_r201/SHA256SUMS": "ac495432c02dc64c4e1242cdf69c5bfaec4403f53e1621fa7e0d2304f8ccf343",
+    "runtime_evidence/centrifuge_48box_setdown_braking_20261010_r203/SHA256SUMS": "dc08db2b89fdb44740de8405a4e59d647d42acc34576770c4d3a36e5857d62a6",
+    "runtime_evidence/centrifuge_48box_setdown_braking_20261010_r205/SHA256SUMS": "1c5a5135abe928e3f66e743aae7c38946e9ff2fbb6867d81b9f68537a359653b",
+    "runtime_evidence/centrifuge_48box_shared_grasp_probe_20261012_r233/SHA256SUMS": "14ecb304fbffce8eacddfd711b65b6edd56e2a248db4e6817632680dc048b616",
+    "runtime_evidence/centrifuge_48box_single_extraction_20261010_r190/SHA256SUMS": "a119b3589760e0f6fb600608ac1e29ebc2a371747c4e348bf62c0974d85083b6",
+    "runtime_evidence/centrifuge_48box_skip_empty_return_20261010_r216/SHA256SUMS": "0a92e10886c10efb5ca41975a6337aef3376da54febd8cb104f13190247ae816",
+    "runtime_evidence/centrifuge_48box_soft_grasp_20261010_r194/SHA256SUMS": "706306893ef118821a569a78f9a5dff3f80e3798c1d80bbeee9b72a7b9f289a4",
+    "runtime_evidence/centrifuge_48box_speed_analysis_20261010_r215/SHA256SUMS": "297966a5ca5dcd861d8fca994c9fed3057b15f70bc1bcebb94d15d20b6ad6c90",
+    "runtime_evidence/centrifuge_48box_stop_brake_20261009_r179/SHA256SUMS": "915fa3152ed7c9e0487eb5c445d11e7dabc9624a07ab4435d276ce96ff763dac",
+    "runtime_evidence/centrifuge_48box_stop_brake_20261009_r180/SHA256SUMS": "825cfefecd1d2f05fa771705d6fa072fa55cec508cff2b1f7df4a1ceecf0b980",
+    "runtime_evidence/centrifuge_48box_stop_brake_20261009_r184/SHA256SUMS": "3624f562530f36d6a7cc781955208cf960443b377f5181c0adfc09b6c408d4c2",
+    "runtime_evidence/centrifuge_48box_stop_brake_20261010_r186/SHA256SUMS": "8e3c67267781eaa316ded2e75e98e13224a0f4b7b217d8c381c84d4b0db443c1",
+    "runtime_evidence/centrifuge_48box_table_20260923_r120/SHA256SUMS": "e5b298b80bb0dbe8cf2943fe2dfd11b3ad238f61dbe18ee50acbe73bd41d6e0a",
+    "runtime_evidence/centrifuge_48box_terminal_unloading_20261010_r198/SHA256SUMS": "d09d851acfe1ef040692766a610ba776da2fbd1613d85be75e6da3a3a4173bb3",
+    "runtime_evidence/centrifuge_48box_three_minute_budget_20261012_r226/SHA256SUMS": "f358b0123aa1a4cbcdd84060a86fbc922323037d6b43afb5a22211e4e6bc53bb",
+    "runtime_evidence/centrifuge_48box_tilt_loading_20260923_r141/SHA256SUMS": "35d01d43394ec23f12d5c3a07f463a8c8fbd5f1a3d8645342b0b7e4c18e5e8ca",
+    "runtime_evidence/centrifuge_48box_velocity_diagnostic_20260923_r139/SHA256SUMS": "289eecbfdfca676da3bc4754ce9798450248c3fc89270d5b8d8b902637040457",
+    "runtime_evidence/centrifuge_48box_velocity_epsilon_20261007_r147/SHA256SUMS": "68c4d5176d869c6db6936a5b2f500f56938a5b1cefb4d035817b73dabacced43",
+    "runtime_evidence/centrifuge_button_20260921_r109/SHA256SUMS": "0c0d37eefe80bbbbad6efe4f0335704a3abbb3d0c0ca22c7fbe00ed58187b212",
+    "runtime_evidence/centrifuge_button_20260921_r110/SHA256SUMS": "a0f71430b0dcc9a2672be1d95b3669e355d4bc74d24a8f7a733a58e63a0b8efd",
+    "runtime_evidence/centrifuge_front_buttons_20260922_r115/SHA256SUMS": "3e9a387d7227860239a3c4738b4334526288884fc19fcdf134a1bf7d0124f36e",
+    "runtime_evidence/centrifuge_front_buttons_show_20260922_r116/SHA256SUMS": "92b59d87774e39a3e7b3f8deef57df48db964514cc0696f4d43ce800d9e485ed",
+    "runtime_evidence/centrifuge_lid_20260921_r105/SHA256SUMS": "83fcbaecdc495ca46992b23dd4587cd4d6c0ee7fa75df4c8ab47d1a2d4a14fa2",
+    "runtime_evidence/centrifuge_lid_20260921_r106/SHA256SUMS": "d04fbdfdc399f54ba7339c0aa686beda50fe96b027ba921a270abc7023900313",
+    "runtime_evidence/centrifuge_lid_20260921_r107/SHA256SUMS": "a9e95f22f1cea93de67a3d9a362460cc3015ee298f448eb2bc4bf8a722fc5b61",
+    "runtime_evidence/centrifuge_lid_20260921_r108/SHA256SUMS": "2a9f0d07be128e89ab026f656749474115838b9fc1b50d1d96c0cf025af6afaf",
+    "runtime_evidence/centrifuge_passive_buckets_20260922_r113/SHA256SUMS": "b40ec60e71adb0066d0b8c7a2fa15e9f94acdec158a9ffc2b48b150ec6e73b00",
+    "runtime_evidence/centrifuge_passive_buckets_show_20260922_r114/SHA256SUMS": "7f4042bb8d0ec635e91eb2a7fdfffe7bb2edc35be0a28438b83c595096258187",
+    "runtime_evidence/centrifuge_robot_press_20260922_r117/SHA256SUMS": "e5641eaf9ecaacfc20c561c37e01908f33c88731873229623bf169db5488f8d3",
+    "runtime_evidence/centrifuge_robot_press_20260922_r118/SHA256SUMS": "0165ab3b6759bdaccdf8a9d0926dca35f6ac95c1e9a8ee0eeaaf888845aa9c0b",
+    "runtime_evidence/centrifuge_robot_press_20260922_r119/SHA256SUMS": "928d653a1ea53a2e346b140764f648f0a84793ddf12ccd2eb4b9114480a8cc37",
+    "runtime_evidence/centrifuge_scene_20260920_r104/SHA256SUMS": "c207a66f104a95bbeec8e923ced701d594df565639cb0ee028160c2a98e2a79e",
+    "runtime_evidence/closed_loop_90_8261_20260825/SHA256SUMS": "994dbbd1cc9d155c127bd00c7209dd00e64f5edc8b876561a057e8130284af1d",
+    "runtime_evidence/closed_loop_parallel_826_2_20260826/SHA256SUMS": "04dcd94112c0dc1be88a1fb9a018e1bb5280180fa6283d87a907a9dbc4f9ed78",
+    "runtime_evidence/documentation_process_cleanup_20261010_r1/SHA256SUMS": "3380281dd8c8e28b17451a505e1185ec9dbaf09eac8cb64858c2aa3fd53e178e",
+    "runtime_evidence/full_robot_flow_8252_20260825/SHA256SUMS": "51a272636a9663873e81e4f5f25b47d7c7ad826842945a9a045576c0c36e515c",
+    "runtime_evidence/rl_official_download_20261010_r1/SHA256SUMS": "a48b39d00db8563e19307f9a6bcee59c37e6c824c47cf17bec64fab84ec6ff82",
+    "runtime_evidence/rl_official_redownload_20261012_r1/SHA256SUMS": "917eaf355995835d352897754cff937120b87b383e72379bd4aba8cba02b88b2",
+    "runtime_evidence/rl_source_recovery_20261010_r1/SHA256SUMS": "467c33c87639348d3f78110255a225660fa5806f57572d78bcfc6245d9eae397",
+    "runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/SHA256SUMS": "bfdde308cbbd7ccd77e514dbb8d0fa6adaee6a1341f2189ef34ca2463ccd9a3b",
+    "runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/SHA256SUMS": "15f6eccb0e02db9cfafc27f525100bea3bd4c9535970734b3b9c681251f77ee9",
+    "runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20/SHA256SUMS": "484d196cd0644b64b64a899db515279d6b624a34c625dc3fe7124ede256fabb7",
+    "runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/SHA256SUMS": "5bbdaaa49a918376b379761d354952d2dcaa6439fae2a5103f88e9da2a16f1b5",
+    "runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/SHA256SUMS": "6e1f045968de910b58daa67178807940b69a9eba5cc62c16d660f7b08e1d598c",
+    "runtime_evidence/unitree_h12_incubator_nav2_reduced_velocity_damping_20260911_r19/SHA256SUMS": "6b2c881e9f34c89b82afc48753470a4630f4347db13159c1373feb5371663bb3",
+    "runtime_evidence/unitree_h12_incubator_nav2_settling_handoff_20260912_r25/SHA256SUMS": "0fb8f4ea0fb981076ac92cb3de8ebaf0d33f1f7f87b976b83ae8fe28928afc01",
+    "runtime_evidence/unitree_h12_incubator_nav2_settling_handoff_20260912_r26/SHA256SUMS": "6d5b37e2ee7f50ed770f6ef568cb9b15d87f2a755702114980aff7dd5121f551",
+    "runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/SHA256SUMS": "3955cad24f8216d84f5f36fa65988b5911b25739eeaeb82cd9e2f509dbe69d03",
+    "runtime_evidence/unitree_h12_incubator_nav2_user_view_20260914_r28/SHA256SUMS": "078367d1ab6ee04e48fa17cb551aae026b70901aac38946755b7ebfdd65103c3",
+    "runtime_evidence/unitree_h12_incubator_nav2_xy004_settling_handoff_20260912_r27/SHA256SUMS": "6b33e5993ac591a44f985b2c1e3c2b36e672e18f7c0994f45527a6289615054f",
+    "runtime_evidence/unitree_h12_incubator_nav2_xy_goal_tolerance_004_20260912_r23/SHA256SUMS": "3ff223ecc5bc8be084ef08500cc8ede54d77e24f922e3e685479105e068e7309",
+    "runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/SHA256SUMS": "4815ce24a7372815faf311d81fd91cd40e3331b3ddfe04b7154a364dbceb1925",
+    "runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/SHA256SUMS": "bd5defa858ddba01a417d47f7eb331c16e24448065e4c3cca9c6a1ae54b10d45"
+  },
+  "failures": [
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_assets/candidate3_middle_hinge_8263/door60_seam_to_cube_candidate.json",
+      "expected": "8b02fa773989f217247e70de8a702f8a5c5c3f50c34f69cc5ac97abc9e3d5f5c",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_assets/candidate3_middle_hinge_8263/door60_seam_to_hinge_candidate.json",
+      "expected": "f001c71db9dba420bbb0830903ff97ca6ab128fb5fe8b04cac90ed02f7637e22",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_assets/candidate3_middle_hinge_8263/door_hinge_close_ramp15_neg8_candidate.json",
+      "expected": "2fa5b91e3821ad3be6c7dd1400206d5bf949867bc5316b3c9600adcf51474031",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_assets/candidate3_middle_hinge_8263/door_hinge_open_ramp15_neg8_candidate.json",
+      "expected": "8b2c3f48a09756c191d53d0666d363ee62257615192f2df1e8923846a6d67341",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_assets/candidate3_middle_hinge_8263/manifest.json",
+      "expected": "e0ff58e64eacf81f7eb5ed27cd5b9bfd2ea269bdd77fb55d20176d2d5a84d61d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/SUMMARY.md",
+      "expected": "4e7664c0f41af95ab5f33b91f6781b61554ed77aa1e6293a0ee29a794b2a9a68",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/door60_seam_to_cube.stderr.log",
+      "expected": "709a8516f42c97cc3a7a76ea43a56da15b07018c4d550be312a19357f57ab0a8",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/door60_seam_to_cube.stdout.log",
+      "expected": "c19d32affd10c475e23758b0038a38f5a17a7d888a968030f2add39c32987cc4",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/door60_seam_to_cube_exact.json",
+      "expected": "f45bc0cfffcd097df63e72439abcb0b07aabb97b20e1b0fee61725ad9c58ed0e",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/door60_seam_to_hinge.stderr.log",
+      "expected": "ad6e2b6cddec0b1c0ef7692a351592ac21813773923dfd0f8c56173e1b13b41d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/door60_seam_to_hinge.stdout.log",
+      "expected": "c19d32affd10c475e23758b0038a38f5a17a7d888a968030f2add39c32987cc4",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/door60_seam_to_hinge_exact.json",
+      "expected": "b026f2443612accc42d4ffa9a375e5a01ae9bce0f308014f44d70fcf32e38974",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/door_hinge_close.stderr.log",
+      "expected": "366249b81eb4b10559f4a38b67b58886e5c306bee02fc95d95fc00327162c1a1",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/door_hinge_close.stdout.log",
+      "expected": "1b9fbfcd5ab42f441690c9b52131e903c77590c46534cfba1b29c4f355ccff03",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/door_hinge_close_exact.json",
+      "expected": "0b649f0638db9e4d29a15b5822789f7ecb8db20790906278161ce676e35e63fa",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/door_hinge_open.stderr.log",
+      "expected": "61c5b21cb8609140861127eaa302c4eaa3ea2aabcadebfed66e223c7a3eb7f6e",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/door_hinge_open.stdout.log",
+      "expected": "1b9fbfcd5ab42f441690c9b52131e903c77590c46534cfba1b29c4f355ccff03",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/door_hinge_open_exact.json",
+      "expected": "eb83be8b9c0be62ba25185ded437d5a444744f037053ec4dd5e74924a74cae14",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/manifest.json",
+      "expected": "eea13c881980978961f589a12279b7f836592847e810cda920fee151c4f00536",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/source_snapshot/candidate0_hinge_exact_auditor.cpp",
+      "expected": "481f5293b6e1988e257bc0aa0c237f957bcd11514a59088232dab1a967ede9ae",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/source_snapshot/candidate3_middle_exact_auditor.cpp",
+      "expected": "7d06ed0de8fa1871d9db2e8ed7abd07b90273d0aae0c23b63ca4731571856062",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/source_snapshot/right_handle_path_exact_auditor.cpp",
+      "expected": "4fa1ea39cff7ddbdfb4fd7f1b156926dfaee6087354a8f16e5a13e5cf7460c2d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/source_snapshot/trace_hinge_torso_schedule.py",
+      "expected": "d7de95707f54b605778097c27f12ebdb464de19dd5aad9de074c6104e3a689fb",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/candidate3_middle_hinge_8263_20260828/runtime_evidence/candidate3_middle_hinge_8263_20260828/source_snapshot/trace_open_door_torso_seam.py",
+      "expected": "ff4aecee89fb19187adbfe97b41043fae2f198663b6858004338de766b854cf9",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/OPTIMIZATION_PLAN.md",
+      "expected": "a5360695ee279ea7127646e9686361f670e4f353a49d2e89863620e4868773f7",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/REPORT.md",
+      "expected": "ce56cec112bf32103a2960e0bbdc42e3958263cf4329c45dd0fb33e784aaa096",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/alignment_scene.py",
+      "expected": "393c69098407c20dcdecb34997b3ded9d44cdd059fc2833f2e6872ea27cba3aa",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/alignment_wait.py",
+      "expected": "dc7af4398a1a024d5b389a2adfee8065c8a9a25b4b887cb902611c4daa59eb84",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/alignment_worker.py",
+      "expected": "70b46bd65a774911bcc87485ce66189939dc957f1adf07cfe1551e0260cec21d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/audit_friction.py",
+      "expected": "008e18f39ef26215f214c06719fb04d5486fcca0416f5234a6f29b08465933fa",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/audit_live_friction.py",
+      "expected": "37de0cf3350c132026248f50772f99a1c84350c2569ae551f3694fc5502498f7",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/audit_loading_result.py",
+      "expected": "6bfa145d8ebfe62c6bf237dd45747202c1666344a688d1294474fb68213365ca",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/audit_midband_geometry.py",
+      "expected": "30b439eb55edad2cb4856ac040ab517b75d4ba1a1a329d091047a6f40fe6e933",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/audit_passive_settling.py",
+      "expected": "a15f96747fab8481475d3d724d3d07ff3357d35abd747c0847ca6570dbded0c4",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/audit_probe_paths.py",
+      "expected": "f73b87475602c6001d778abc03a175eb156349fedbd2f291f3fe8a8685ed9c75",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/audit_protected.py",
+      "expected": "f10845afe01b0726021a5f32a170118c68ba43c7d39690b65637050b05c1d474",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/audit_tracking_response.py",
+      "expected": "c2484e0779d426ac90179cd1ba657af84dfaf1d1e468fb876fca9e81efaec1b4",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/base_r154_dependency.json",
+      "expected": "7e88dc91a2710e536301418715a302b116a406bfb5172c07513b599e2161d28f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/control_fork_audit.json",
+      "expected": "2c3253350bfd0663b4bfd24189bb0f8600e2261fd872feea6dc76924edb6ba9a",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/dense_audit_retry1.json",
+      "expected": "ae555ee1341f1b0b64b61cda4e922977c4e32849cc4bd0e83753e1941470b2f5",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/execute_loading.py",
+      "expected": "7afb0248a915bac07a38705521d814e0cab2a04d0e584e070b931e1287bd20ba",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/executor_delta.json",
+      "expected": "caff62efc09488c9ca29719c4e41196ac11ed7ab6c2009b100101114df3e5f02",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/friction_audit.json",
+      "expected": "ae22594717bedb2e35646882b3ebdea371d138aa4cbd51936b8a75e7b78eb8c2",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/identity.json",
+      "expected": "f6bab08eb346a86483f723914513b3e78d7ee26d73868832270776a741de3f6f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/inputs/48box_friction.sdf",
+      "expected": "de44f946e4b70aac95b7bfd3e5479e49bed35af4f6c5558fbcb34e80135590bf",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/inputs/controllers.yaml",
+      "expected": "43a36cf30582b2fa244c2b73f3b0037708d3997917d73e34f55272258c37de36",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/inputs/gazebo_effort.launch.py",
+      "expected": "f9b45a7851e5c093e7be82708e68d0e94637131452bee081c5c909f3eb783dc5",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/inputs/lab_effort.launch.py",
+      "expected": "c7f70aeee71353f7b74780219cbb3ddb7b38d67b58c37f9a264f5fabb828bd22",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/inputs/lab_fast_world.sdf",
+      "expected": "bfeec2679cccc506005ebc1810420dce787f24d6b203d0c35d9dead2bd522ebe",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/inputs/plan.json",
+      "expected": "9b4f451262c09d304a0903ef3bca6f5c725688883112283e2011a1107cc521a3",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/inputs/robot_converted.sdf",
+      "expected": "801515a7e46fb4ad4af8285d1563e8b5728dd8d473a20b0bffba58945043f9a1",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/inputs/robot_effort.urdf",
+      "expected": "b8f59214be8a3dc6d53d42190214cdd9490fe07293d222f06f77a693d66b09dc",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/launch_scene.py",
+      "expected": "5ca54f3721cce078b57d0252e4ac9f856bff060c2700cfe7387c0707212fb294",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/loading_contact_guard.py",
+      "expected": "cd30c8aa05bdf56280d4c4b1384252c3752586c9da77d9c62757281cb86ff25d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/loading_machine_guard.py",
+      "expected": "75b5db96c7c8c5eefe3217ad7bb40fe8c6a4cf13966dc2913de465d63f4c8d99",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/midband_geometry.json",
+      "expected": "64febc84f93cd209fbcdf003c44131d59ee3862154a8383188f49b2c2bc101f7",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/pause_after_result.py",
+      "expected": "351d4e4a8045c5ec8c32d062ca899840c5cbd533849689ff882fed226874a948",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/prepare_effort_scene.py",
+      "expected": "18ddc8ee8d25fefba25eda211bbc98f5b25d5a560f92bcd088cd760916712aae",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/prepare_route.py",
+      "expected": "28ef08d029846344071cec11df6921a0b35c5218cb1f4c8446f94055072b1aad",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/protected_after.json",
+      "expected": "a373f511498ca6b3c22c27110b8237ca220b926bd602be440ef89ca404c7fac9",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/protected_before.json",
+      "expected": "a373f511498ca6b3c22c27110b8237ca220b926bd602be440ef89ca404c7fac9",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/protection_after.log",
+      "expected": "b77c7ba20710748404f3a50647f896240c804f04a7a9a1c828550e671a4eba15",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/protection_before.log",
+      "expected": "b77c7ba20710748404f3a50647f896240c804f04a7a9a1c828550e671a4eba15",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/record_base_dependency.py",
+      "expected": "f3c0fc46d1e622202a6ed89e9c3a1fa089f9419f6e0375e457176577d4aeb34b",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/launch.log",
+      "expected": "7061188019303dc08362dd668e719c5ba4a6b5388b7f9b263e55f5c3fde2d8f6",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/launch_pid.json",
+      "expected": "f3b3613a88c7daa255ded7eddd18e6a9b31040f530a066554fdde0f99be73b0a",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/preflight_rejected.json",
+      "expected": "89436476dd246b4bf94f64dd879be5313fdc5d185d28c02033950cd7e337f800",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/2026-10-09-09-14-41-906853-liu-System-Product-Name-151741/launch.log",
+      "expected": "b24145d134c956bc1bb280a5ba2da5a987633ef80fbb331d334d92ce16a9401f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/create_151840_1791508482229.log",
+      "expected": "8cb98c9473e49859b40f0eb33f2a91233c5fa8bea826ce4c0cb6c8a658d70d47",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/create_151842_1791508482229.log",
+      "expected": "6b5c5359a4011a692130fd8407c7a8a7b579317423f18b9496fb5fa1abc21432",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/create_151857_1791508482240.log",
+      "expected": "fd0b7df2e49bbf981bf34450f3730afb229a69107393ea0b408fd59ae193f7e9",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/create_151859_1791508482239.log",
+      "expected": "ca5022a870486f8d95b6ea7a76ba7396e9f1f06d250778d8e10f7daf4a68b874",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/create_151861_1791508482240.log",
+      "expected": "dea8609e04392acc969a628475011d9902887630ba908c3104f804baf4269af0",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/gz sim server_152133_1791508484542.log",
+      "expected": "7c2d083d5436e228293c506e0e0a329425eac999ff84e87fc3cdc0abc455bd11",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/image_bridge_151845_1791508482272.log",
+      "expected": "28398cbf3187a91a6fdf6fccfd42bb36888943a2a4633f915005f9d94642d34d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/parameter_bridge_151846_1791508482257.log",
+      "expected": "6b64d1acb2fe8e9e4e2720d4f568d93674d88ada4bb948b9ddaa2bdde3504e4d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/parameter_bridge_151847_1791508482257.log",
+      "expected": "0afc4dcf80250d5eb0bd16866b403bd64e55253c1d22b67c5cabb270485cd44d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/parameter_bridge_151848_1791508482269.log",
+      "expected": "e10e6755bb90fe6717f26f3c2278233741309e369e9f415af5abe654875d5e30",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/parameter_bridge_151855_1791508482257.log",
+      "expected": "ba3560f9eb7cc4b9c502511550a40de6321a669d01d1e3abf78ca49276fda5ff",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/parameter_bridge_151858_1791508482270.log",
+      "expected": "8c6caff92c929fce6ad8b014e402c26d9ada9843a85edf379057116e014aeb85",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/parameter_bridge_151860_1791508482257.log",
+      "expected": "8c04c6fccbd4369e36d49a0ed66b52e0df4f41c77e44263cf95483472aeab2f2",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/python3_151853_1791508482386.log",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/python3_151854_1791508482456.log",
+      "expected": "e2e4be94f99aebc540e358c97bfa02d3e8d084a9f66272d9f09818263bab208d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/python3_151856_1791508482405.log",
+      "expected": "5e68488dc9c23f7b84ed26d8b0481021db9cf851173d0bdb9cc3ade5992ffa52",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/python3_152337_1791508484305.log",
+      "expected": "0c446b4e72595d0f74a96b4d235dc7a4e7c4fdfd760acea28bf5b7cea241af70",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/python3_152338_1791508483614.log",
+      "expected": "a9f98eb4abfa450ef1942b4a1e7da728e3e477167b0d34e94a82c7998b138da3",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/python3_152339_1791508484305.log",
+      "expected": "677232a6d670c57eee8eb915899c35801761f42f8ca5dd245d1dae98946cfbaa",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/python3_152340_1791508484305.log",
+      "expected": "0572c206d50179202e2a676aeaee8a7e956a1f6b1dd9033b2389dda510f854f4",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/python3_152341_1791508484305.log",
+      "expected": "6fc3bdf8a710cb5d648f3a480037a9491deab2f73d90195f8cfeecff39cc742d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/python3_152342_1791508483614.log",
+      "expected": "d5bfb05355f41208fe39189ab70c2a1ec0a44c9a9f0bab5af70dd9b49e3323a6",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/python3_152382_1791508483780.log",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/run/ros_log/robot_state_publisher_151838_1791508482229.log",
+      "expected": "12a8f7c5aa16b30ef593108bc210afb36ff79f38fe2a9a72fe8aaed893086f19",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/seal_identity.py",
+      "expected": "1863e95be1ef5e31a2df72aef1f05d4403cea1232c754d48679783978f95c3db",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/test_alignment_wait.py",
+      "expected": "acc6906fae6e311c1950c0fa9988073b97fa5145864470ed9462dcdd2defdb9a",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/test_angle_limit.py",
+      "expected": "ad7149c24ca5f72d4974a92a9b410dd60a431100c0972699559fcd33e200b6c2",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/test_effort_fork.py",
+      "expected": "9a65e533d2335c3207399ba429e2df3f7e7e1a38820794d69998e28f7455a3d6",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/test_fast_timing.py",
+      "expected": "f84b798ae8a97f9f3cd6ca20b394e912cac2d000c7d85668fc83966c7dc5d552",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/test_friction.py",
+      "expected": "f2c8c1e47e6552584e477fac3c39b32bec445ac169927c7f5cd3af3845c42032",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/test_loading_contact_guard.py",
+      "expected": "128df48210353203f640703b6dd370e547f97ed074e9a1232f35f1b34887227b",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/test_loading_guards.py",
+      "expected": "213baea2211b5e6d30c19687d4d1d62b1c9ac5b461a8f005703c3269fcfac849",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/test_loading_machine_guard.py",
+      "expected": "2e4950bac945d557c2d5021d58fe34f1ac4d61d24883c058a554c5fbba2d388a",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/test_midband_grasp.py",
+      "expected": "cc44957cf39ba41ee4dfaae5bb666f8d1605c360ebd1912d62b7e35a552be70d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/test_overhead_drop.py",
+      "expected": "849d72c771280c6695425e2de9fe71c851a5a454e996f72e3b75afca179c8929",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/test_servo_gain.py",
+      "expected": "e69d84d2f35d5e58405cc061b9527c3e06e64da08ec97bf970d55bef979a7fbb",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/tests.log",
+      "expected": "690ec4162e740f23a16840937d8c76cc5862d23336baeecd6a975f1907628192",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/watch_metrics.py",
+      "expected": "41d36776116fd10f4f6813f3432d0aafa3ead6be20d8c8cfd1dcc14dc830aad7",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/runtime_evidence/centrifuge_48box_global_speed_20261009_r156/write_executor_delta.py",
+      "expected": "d20671ad6c19b6f0021da1da9434567811024ff56eeb796c83e742a45f458177",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/OPTIMIZATION_PLAN.md",
+      "expected": "4b70027278e8fa876d70bae5899707eea51894c20fdc699e67778f95f68d7eef",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/REPORT.md",
+      "expected": "7fbbbd29d44e1c3e69875656e776a4121b1347a15e7c94a3473fb8a193ec50c7",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/alignment_scene.py",
+      "expected": "393c69098407c20dcdecb34997b3ded9d44cdd059fc2833f2e6872ea27cba3aa",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/alignment_wait.py",
+      "expected": "dc7af4398a1a024d5b389a2adfee8065c8a9a25b4b887cb902611c4daa59eb84",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/alignment_worker.py",
+      "expected": "70b46bd65a774911bcc87485ce66189939dc957f1adf07cfe1551e0260cec21d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/audit_friction.py",
+      "expected": "008e18f39ef26215f214c06719fb04d5486fcca0416f5234a6f29b08465933fa",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/audit_live_friction.py",
+      "expected": "37de0cf3350c132026248f50772f99a1c84350c2569ae551f3694fc5502498f7",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/audit_loading_result.py",
+      "expected": "6bfa145d8ebfe62c6bf237dd45747202c1666344a688d1294474fb68213365ca",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/audit_midband_geometry.py",
+      "expected": "30b439eb55edad2cb4856ac040ab517b75d4ba1a1a329d091047a6f40fe6e933",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/audit_passive_settling.py",
+      "expected": "a15f96747fab8481475d3d724d3d07ff3357d35abd747c0847ca6570dbded0c4",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/audit_probe_paths.py",
+      "expected": "f73b87475602c6001d778abc03a175eb156349fedbd2f291f3fe8a8685ed9c75",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/audit_protected.py",
+      "expected": "f10845afe01b0726021a5f32a170118c68ba43c7d39690b65637050b05c1d474",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/audit_tracking_response.py",
+      "expected": "c2484e0779d426ac90179cd1ba657af84dfaf1d1e468fb876fca9e81efaec1b4",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/base_r154_dependency.json",
+      "expected": "7e88dc91a2710e536301418715a302b116a406bfb5172c07513b599e2161d28f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/baseline_conversion_retry1.log",
+      "expected": "ab9945f1e004c37210a574115578a3b87501b9716435dcbf58a99b83c0007929",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/control_fork_audit.json",
+      "expected": "2c3253350bfd0663b4bfd24189bb0f8600e2261fd872feea6dc76924edb6ba9a",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/dense_audit_retry1.json",
+      "expected": "ae555ee1341f1b0b64b61cda4e922977c4e32849cc4bd0e83753e1941470b2f5",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/execute_loading.py",
+      "expected": "e8d96c4e7d544c8a68972dbff10f1e36052149ce4628eabc84fca5da14982ba0",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/executor_delta.json",
+      "expected": "31c2832f5efd23b4eeec12fd07ef46ad8cf9e072eb8630cdc08feafa9e78f4ab",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/friction_audit.json",
+      "expected": "ae22594717bedb2e35646882b3ebdea371d138aa4cbd51936b8a75e7b78eb8c2",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/friction_audit.log",
+      "expected": "58e50fb41034d6f85132e6b9e716999258ede500b6de5691abb3e708d05a673f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/geometry.log",
+      "expected": "2c33caeaebb00573f0ab9cc25e70e79f8a04a17e06b46b70ee705a116161c0f1",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/identity.json",
+      "expected": "3e43763691a63740407941a4b8bf8a661c6d18a220e6db5a83949c99d6f29df5",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/inputs/48box_friction.sdf",
+      "expected": "de44f946e4b70aac95b7bfd3e5479e49bed35af4f6c5558fbcb34e80135590bf",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/inputs/controllers.yaml",
+      "expected": "43a36cf30582b2fa244c2b73f3b0037708d3997917d73e34f55272258c37de36",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/inputs/gazebo_effort.launch.py",
+      "expected": "f9b45a7851e5c093e7be82708e68d0e94637131452bee081c5c909f3eb783dc5",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/inputs/lab_effort.launch.py",
+      "expected": "bf0847fbb6a9f1eb30d1e4b3084fb44d4e69c3ba8d3b81e5ad00c6943d8c595f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/inputs/lab_fast_world.sdf",
+      "expected": "bfeec2679cccc506005ebc1810420dce787f24d6b203d0c35d9dead2bd522ebe",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/inputs/plan.json",
+      "expected": "9b4f451262c09d304a0903ef3bca6f5c725688883112283e2011a1107cc521a3",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/inputs/robot_converted.sdf",
+      "expected": "cecaafb24de62706a4728c873afc2ea12c64dc56b1bac523e3e16f0b7962b3d9",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/inputs/robot_effort.urdf",
+      "expected": "b8f59214be8a3dc6d53d42190214cdd9490fe07293d222f06f77a693d66b09dc",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/launch_scene.py",
+      "expected": "5ca54f3721cce078b57d0252e4ac9f856bff060c2700cfe7387c0707212fb294",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/loading_contact_guard.py",
+      "expected": "cd30c8aa05bdf56280d4c4b1384252c3752586c9da77d9c62757281cb86ff25d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/loading_machine_guard.py",
+      "expected": "75b5db96c7c8c5eefe3217ad7bb40fe8c6a4cf13966dc2913de465d63f4c8d99",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/loading_result_audit.json",
+      "expected": "1735edba4594fdf4f4cdec5b27fce7b39511e7c4df9e7f6e16cde60f7ac38bb6",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/loading_result_audit.log",
+      "expected": "6d6cc9a2806378a323c8ea747b2f1b4bc1f55d3bdbdecbbca95b33fe191e8153",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/midband_geometry.json",
+      "expected": "64febc84f93cd209fbcdf003c44131d59ee3862154a8383188f49b2c2bc101f7",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/passive_settling_audit.json",
+      "expected": "cf203c30065bf7b9450c56d01726299161948346ff6b4562c736f3bbe06e32f6",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/passive_settling_audit.log",
+      "expected": "95fe350bdc2bd344b0829d5a17dc91687c9b80f838e37c7a267b6e9cee6a3ae0",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/pause_after_result.py",
+      "expected": "351d4e4a8045c5ec8c32d062ca899840c5cbd533849689ff882fed226874a948",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/prepare.log",
+      "expected": "99694f5b42de123116e50ac39b8cafcd6a02c4cd9cd8e0aac6fd961998e6bcd4",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/prepare_effort_scene.py",
+      "expected": "18ddc8ee8d25fefba25eda211bbc98f5b25d5a560f92bcd088cd760916712aae",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/prepare_route.py",
+      "expected": "28ef08d029846344071cec11df6921a0b35c5218cb1f4c8446f94055072b1aad",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/probe_candidate.json",
+      "expected": "9b4f451262c09d304a0903ef3bca6f5c725688883112283e2011a1107cc521a3",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/protected_after.json",
+      "expected": "a373f511498ca6b3c22c27110b8237ca220b926bd602be440ef89ca404c7fac9",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/protected_before.json",
+      "expected": "4f7d0380e45df4ccde1ffd28045f8b59088afc017ca0c5c149decbc583266baa",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/protection_after.log",
+      "expected": "b77c7ba20710748404f3a50647f896240c804f04a7a9a1c828550e671a4eba15",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/protection_before.log",
+      "expected": "6ef9f2d17d84db2358f8c2121f7fa5a00537177b61916a2a348ae160a30e46ca",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/record_base_dependency.py",
+      "expected": "f3c0fc46d1e622202a6ed89e9c3a1fa089f9419f6e0375e457176577d4aeb34b",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/execution.claim",
+      "expected": "3ca55dec63beb6df4fadb3976f7afeccf1ffea968fd4d1fcbb62bcfc4ce58827",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/executor.log",
+      "expected": "682572ac8587bead297381c9691537c81afef12f4765b11386a7d04602c91c69",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/executor_exit.txt",
+      "expected": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/launch.log",
+      "expected": "fecc56f1b3d9cda5695ab83ff0a02844326fd7374da958cd55a47ab47d0ec856",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/launch_pid.json",
+      "expected": "43fb9470d58a6c50a98e08e2099838b32a20ceaf3a08e502061db8458c5e1b30",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/left_alignment_request.json",
+      "expected": "5b6088c73f496a7faea786f12ca1968c5e8241cb83ce28cd96da2ca0b85120cc",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/left_alignment_result.json",
+      "expected": "171ab1935f4342062d43900268b08002051d710d7b29b45365762a5816d89d49",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/left_alignment_worker.log",
+      "expected": "b1d0985bc633f32abf442a3cc59013756b51c4f3193c2e38611f3d800040d76b",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/lid_open.log",
+      "expected": "1756e2784025e8dd1da6f8da2a6b4e4f8c93b3607ded8d045a65b8c06569595f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/loading_trace.jsonl",
+      "expected": "199a65c3a392a4b023e5d6db394693c09d2715ce4f408aca9627df6cf67fac88",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/machine_before.json",
+      "expected": "46e53507fd7baabaec070ea673ec85fee6bf79273aa59fd83492d3265ef1e7bd",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/pause.json",
+      "expected": "205c0de30a2ba4424b4b408916c65ba97bc07bced6f89c324db6d1e08bd77670",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/pause.log",
+      "expected": "0c86ad5db2b43756119ca60340b6db5273e9da2136672fcfbf49db7d6a99b15b",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/pause_exit.txt",
+      "expected": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/poses_before.json",
+      "expected": "0d909f3160c3a3576998c919fb207a5f979bbc2dfa00a88b0214b9250030a62c",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/result.json",
+      "expected": "f3cb5a154ef2b7e1fde8c4060bbae709b34526eac58075d04eb0b8d2eab496d1",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/2026-10-08-11-50-42-639519-liu-System-Product-Name-1492341/launch.log",
+      "expected": "b7a1c553db3d0d9362279ab5b37ea722b95ebe8272ec02eb60d08643a00abe56",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/create_1492458_1791431443103.log",
+      "expected": "40f8b8cc077e79a4acf4b3907e7358bc738551ebfa43f2c2a30356043b75150e",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/create_1492459_1791431443105.log",
+      "expected": "bd3a935158045c13f606cb9fb2bab7a91fd9e610d3d5c3b3512cf1692eb5ba28",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/create_1492484_1791431443118.log",
+      "expected": "767347c4fce2c645fa5e1c292f0ab64fcf479708eb42d8e3d66b2f7a414f5308",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/create_1492486_1791431443117.log",
+      "expected": "2ad70a8683d207bda9d37e135a6745e926fe7754c7ddcd47e95afaab2b84f430",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/create_1492488_1791431443117.log",
+      "expected": "8d4ce389d778a441c0ed20275063959930dbd8acf4d8f9550ac109b53f62c171",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/gz sim server_1492745_1791431445398.log",
+      "expected": "9513e1c5f57b94715ff08a368fa786b198e6cceca14244bdb1c8286fdd202b87",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/image_bridge_1492470_1791431443128.log",
+      "expected": "ca6bcd9a30562334249e626acf7c9887dcfccca68edae95428cc256863ef94d3",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/parameter_bridge_1492474_1791431443129.log",
+      "expected": "1686e1c56773877cb8e4b3e124c9a58bd763d26ac1dba5be525d1ebf79ff1d2c",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/parameter_bridge_1492477_1791431443128.log",
+      "expected": "c9e3df8cc2ce6d3da3cbfec8a75e104764990702846cf65abb2ab4ed73545b00",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/parameter_bridge_1492478_1791431443128.log",
+      "expected": "726bed404f2ba5c0133137cdefca9636f9a8b3457993b93c04b03e70bdc41ee8",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/parameter_bridge_1492482_1791431443128.log",
+      "expected": "b125da37c899ef3269f075cf25c54f1f3445685f54a583cad1bad1f53525584f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/parameter_bridge_1492485_1791431443128.log",
+      "expected": "fb4013b5ff1bbb66be71ebe62a6d26db8fd31294d8f693c77b412f02c4329d60",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/parameter_bridge_1492487_1791431443131.log",
+      "expected": "116a22b4f5a86624accfae82895ce2d9e1318c4b18d4a2095f01b64f76c83df5",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/python3_1492479_1791431443283.log",
+      "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/python3_1492481_1791431443357.log",
+      "expected": "984d9311a2a7450da7ff480ba0346b49daf4f0d014af23420ebd37c0b1e1d98f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/python3_1492483_1791431443299.log",
+      "expected": "a6c0732c403655c7e177e99aae9c778cd285bbfb0ca984c4afc50605b3e2b49c",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/python3_1492911_1791431444495.log",
+      "expected": "52ff2c4876374160c049c5203a7e613c2c0809e95aae869cf2fe03884c3592d2",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/python3_1492912_1791431444495.log",
+      "expected": "dc19203ff99730d3c2eede64e58d84f327cfbef5b9bfb9b02f988a3601bcf90d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/python3_1492913_1791431444495.log",
+      "expected": "70c32683a619c7d4b66a68bd7ffc88b5e8a32af4a1405176b4ecd5a949b1bf40",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/python3_1492914_1791431444496.log",
+      "expected": "d2cb8835474651b192076cc6163f57b157c97651a2c8c5808deed4e227f83a31",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/python3_1492915_1791431444496.log",
+      "expected": "ec6aa1bf095184dc78f370b98d3afce6bc94906a63ed0a2fb6aea0ade3f343e4",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/python3_1492916_1791431444496.log",
+      "expected": "7c37301b5359ad6b2180cfbcb1ccd5f7804dde2bb4d282c4642ecfa0784c8d0b",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/ros_log/robot_state_publisher_1492456_1791431443093.log",
+      "expected": "cc86fae54022694b7f9e9caf22108001b11d19a6d9e0f28bcd180a586643566d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/run/stats_before.json",
+      "expected": "c16e461101075ad7855167637f462c934123a65284a3821e8387bf07d42e3ce8",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/sdf_conversion.log",
+      "expected": "1afea0cffef969548ceaae2aaa917eb30887938dddeb1bdf396b50fb231ba103",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/seal.log",
+      "expected": "90e1938459eba475df91c7ece852f0dd76d6dfd1270e5c111ef81c5e6e7f8821",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/seal_identity.py",
+      "expected": "40e1445e24abe87d789e23cf1f58cb313c839ffe2dede665d0433f4f7f6d046f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/test_alignment_wait.py",
+      "expected": "acc6906fae6e311c1950c0fa9988073b97fa5145864470ed9462dcdd2defdb9a",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/test_angle_limit.py",
+      "expected": "ad7149c24ca5f72d4974a92a9b410dd60a431100c0972699559fcd33e200b6c2",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/test_effort_fork.py",
+      "expected": "9a65e533d2335c3207399ba429e2df3f7e7e1a38820794d69998e28f7455a3d6",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/test_fast_timing.py",
+      "expected": "fdb4389e8f4b15f27fc6e0c6b20db67265eb411c15127ea04785b89d02d79f1c",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/test_friction.py",
+      "expected": "f2c8c1e47e6552584e477fac3c39b32bec445ac169927c7f5cd3af3845c42032",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/test_loading_contact_guard.py",
+      "expected": "128df48210353203f640703b6dd370e547f97ed074e9a1232f35f1b34887227b",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/test_loading_guards.py",
+      "expected": "202e5e1f853f044c69195ab614ed215aae6da6e414ac6d13cfa65d0798b2ccf2",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/test_loading_machine_guard.py",
+      "expected": "2e4950bac945d557c2d5021d58fe34f1ac4d61d24883c058a554c5fbba2d388a",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/test_midband_grasp.py",
+      "expected": "cc44957cf39ba41ee4dfaae5bb666f8d1605c360ebd1912d62b7e35a552be70d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/test_overhead_drop.py",
+      "expected": "849d72c771280c6695425e2de9fe71c851a5a454e996f72e3b75afca179c8929",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/test_servo_gain.py",
+      "expected": "e69d84d2f35d5e58405cc061b9527c3e06e64da08ec97bf970d55bef979a7fbb",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/tests.log",
+      "expected": "a3907d1e228fe931ce730581c832edc55d13d9416c01cfdd3bc5532815d01f87",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/tracking_response_audit.json",
+      "expected": "8838602e718102d5aaff98594ce21cb67af82b5010652dfa5d09c2192038caae",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/tracking_response_audit.log",
+      "expected": "3209bc4a0afdc51e27d86c9f82f80fa4bbec06f455b0fe8b815711b9b356caa6",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/watch_metrics.py",
+      "expected": "41d36776116fd10f4f6813f3432d0aafa3ead6be20d8c8cfd1dcc14dc830aad7",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/runtime_evidence/centrifuge_48box_lift_speed_20261008_r155/write_executor_delta.py",
+      "expected": "225cf652977a0b24ece6f19a160e47c1e3ab7409cc43cde2f960b68d5b4b7922",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/full_robot_flow_8252_20260825/../../src/h1_2_moveit_demo/scripts/h1_full_incubator_8251.sh",
+      "expected": "346a5474e108aeed10f4c5fe52b2115b1b87708dd7c0b5f94bac46878a549e08",
+      "actual": "1f099053aad31e38d33e143b6ddb09a80018e567bbb8dd14a2079d33f764b405"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/REPORT.md",
+      "expected": "424d85ef1b10f2510730ad7263c36b5af11d6cc172df277e381c8a09c8a31db2",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/ATTEMPT_STATUS.md",
+      "expected": "3acba4eb4432a944f73853e39c444b5dfa65b01aacc692d2b291bf2516d781c0",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/READ_ONLY_LIVE_20260915_104859.txt",
+      "expected": "816dd86ca0323d6496b9208175fae8466955f0fa0d670b1fcf481b6d04842b21",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/offline_slew_matrix.py",
+      "expected": "62e25758d8372cb676326907229ab957e83cddf0655fd3a71153f1b7f439400d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/offline_slew_matrix.json",
+      "expected": "dd4063e589b1827ee0f66558dfebd8dabe53f8f679e7d0f374e70a3cf9aa367d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/focused_pytest.xml",
+      "expected": "bfb4ebb0cecd04e0514a85011de586e7ea844a4416e8198f932b92e5e8888400",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/isolated_build_retry1.log",
+      "expected": "4bf9968f7cc35db010b678e67bc3fc6efad9a717fb6bb4c26a259938741942ef",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/isolated_test_retry1.log",
+      "expected": "4a39acaf1bd2125e629dac6b2cf09746593f27d3ac4bf059d31fac5262998e59",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/isolated_test_result_retry1.log",
+      "expected": "c664abe23cbd13dc80a43f8e8b96c1394bd6473b260c1b7077753bc43a254ed1",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/src/h1_2_navigation/h1_2_navigation/velocity_gate.py",
+      "expected": "e21c9d3f47e3f0e2f96f6e81bb5c421457d1792f02c388e2a814268c675a90fc",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/src/h1_2_navigation/h1_2_navigation/unitree_h12_velocity_gate.py",
+      "expected": "7398e291cbf0affe1702539b9bcc24c9d40265f36d05368599d64c72ad62fbe2",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/src/h1_2_navigation/launch/unitree_h12_navigation_gazebo.launch.py",
+      "expected": "8c9410830e1513650081697f243d9845c9c20c2af0bb3c191aa7415a6a58f87e",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/src/h1_2_navigation/launch/incubator_navigation_gazebo.launch.py",
+      "expected": "8ce13bf437b7609a6a5f1c73deb3db41ec27afcc2b6547e624674eb774fea4e8",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/src/h1_2_navigation/test/test_unitree_h12_velocity_gate.py",
+      "expected": "2ff73fed915e1e633572e749e1f374e7a68fdbc4558c870dc50e6292c1e64e64",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_20260915_r29/src/h1_2_navigation/test/test_unitree_h12_gazebo_integration.py",
+      "expected": "5f5f69cdcafb0e67e7f1c28c4007b6fb11dadbfaa69339470dee8892ed073a41",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/ATTEMPT_STATUS.md",
+      "expected": "7ce38e0a7736659ce05e3297683045d85bedf9dfae80a81cd68556a24e93f87f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/REPORT.md",
+      "expected": "399aaf3e94fee84e3300401c8a57ae0312e46e8b4c795619cbc87109e60670ae",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/audit_r30.py",
+      "expected": "72dcdeefd4e080f195064c600da4cf5f2e86ce97dc20789e2b41b486e6fb272a",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/auto_trace.jsonl",
+      "expected": "2457d016bead530144ba7d0acdd56f669b729e78332b076f4e74855c01df1f15",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/gazebo_user_view.png",
+      "expected": "aadd67daea210450990c2c1c6fd00262594f35fba72be7bac852fd30445b95ef",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/integration_hashes_before.txt",
+      "expected": "164fd74aabf351e9e5f7de7b7fe689b84f5e0fc733f9d3cca1bcbcbb31027a74",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/integration_hashes_final_rollback.txt",
+      "expected": "ada08c6244767974a7a71d259323d5efdf584e6c833030a4fcd628cce5ebdfe1",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/live_state_before.txt",
+      "expected": "ed58833a2108c1c5276df3efe7c1bedc900c469befb58b2973111325f348ce33",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/live_state_user_view.txt",
+      "expected": "17b9eb8727d6f66fe464574947a97eee4c9b89ad4b2d666bd02fe867992bf885",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/localization_trace.jsonl",
+      "expected": "2ec557e4b970232965a9260d63738f5a8b5a15a4742c27dda5a29ffaf99c3ad3",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/loco_trace.jsonl",
+      "expected": "17bef340ec820636647003a749bbcd20e4cf1df5989dadb2e3dca4f8a3388cc3",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/navigation_audit.json",
+      "expected": "e60e61bf1c34e7a4d39618f3c29d9af529b19c82b4641b45be039224002db3ad",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/odom_trace.jsonl",
+      "expected": "3987f59dd5819330935d9d3bf7ca5f6436c73337c28af3ae63c168d26c7b4d6d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/pose_trace.jsonl",
+      "expected": "671e7a29de200c9ae1b0596048d9a04048acea2beb34f4f3bb75240c8eb3ccb7",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/protected_hashes_before.txt",
+      "expected": "c8f8970cd954ca4ac018cd0551e220f67d0c02d9278739101cf89d4fc5e9db64",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/protected_hashes_final.txt",
+      "expected": "c8f8970cd954ca4ac018cd0551e220f67d0c02d9278739101cf89d4fc5e9db64",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/raw_cmd_trace.jsonl",
+      "expected": "cc8eefbbcf0fe2a7f15f13f1769b66d11ecf8a310b08929a61138d6f5c27f513",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/recorder_summary.json",
+      "expected": "44e9f194d904ec8150c6037d962a8c9de88cb27d7476e5774a41ed5e4a00ace4",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/rollback_build_output_retry1.log",
+      "expected": "48a3fb54b5cff40a48f69f53026132c1c487b721e7b5a68f3bd57107f742ccf6",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/rollback_build_output_retry2.log",
+      "expected": "30c0277e4e64817c1ba2cf6dd88392a5bc0ee29b3b9064cc32c019f38413cd7d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/rollback_prebuild_failures.txt",
+      "expected": "471aee51bdebee1219f49f39be26e609f5c6bd8c33dcf708f62777e00529b14d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/rollback_test_output_retry2.log",
+      "expected": "6a3e51dd852fd00b2a75165b0fcd2c76c49803dc40a3a781ab890cfc46239191",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/rollback_test_result_retry2.log",
+      "expected": "6fa11646b53c936dbc465261936708a22944ae6df068345c8dbbb0f727ddda44",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/run_metadata.txt",
+      "expected": "6ea91fc0f8d5756b7e9d5ef2d0677163ba1fc91d9639c1833347ea79a40c200a",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/runtime_evidence/unitree_h12_incubator_nav2_authorized_deadband_slew_gazebo_20260915_r30/safe_cmd_trace.jsonl",
+      "expected": "699f85b2670ca36a4931bc3e9430a65027a341fb22809009257504a5930cbd94",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20/ATTEMPT_STATUS.md",
+      "expected": "348cd59396c8a6381ccb4568865b6c9b3ec27777494bfc29b96b27eefe59df6d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20/integration_hashes_after.txt",
+      "expected": "f7346422c7bdd007604e9156ff7e90ae2203d31a56d2bf1e7b3dde322f398f2f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20/integration_hashes_before.txt",
+      "expected": "f7346422c7bdd007604e9156ff7e90ae2203d31a56d2bf1e7b3dde322f398f2f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20/protected_hashes_after.txt",
+      "expected": "3e5163c4d5377be17675a1d62dd498593a11c127d5b1dc38220486884734ebbd",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20/protected_hashes_before.txt",
+      "expected": "3e5163c4d5377be17675a1d62dd498593a11c127d5b1dc38220486884734ebbd",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20/recorder_output.log",
+      "expected": "a0773ed30cd8f5a087e507bae7adff41eefb13d4b1430879d5cea452e20fe8d8",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r20/run_metadata.txt",
+      "expected": "78c225778c6a897b0a102b82fe04e8e98c11b939fd3adeabf26fc906e5db3e56",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/ATTEMPT_STATUS.md",
+      "expected": "8b68d68e3cc4ec0d8cdd89ff02f1afa93f12e4e12e8d6587b088a4baccf255cf",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/REPORT.md",
+      "expected": "d3671e046e2180cb1ef26910bd495e014137545886654346736a0d0d81add93c",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/auto_trace.jsonl",
+      "expected": "00112c4bd19a2ceacad6ad35c42756b5d491230f1971d4a10aa04619efec41e6",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/build_test_summary.txt",
+      "expected": "228beb542def6df1b156ab955a591289d6806c2e1e762eece59b378e716b8d04",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/integration_hashes_after.txt",
+      "expected": "1a8e2c166706ac3d421cc6f428a157cf193fe872a57754bf65bbfb9b1fe73d15",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/integration_hashes_before.txt",
+      "expected": "1a8e2c166706ac3d421cc6f428a157cf193fe872a57754bf65bbfb9b1fe73d15",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/launch_output.log",
+      "expected": "71e5253c64b76f003af3c95d62dcab593a99bc9406b5af36cbea23f6f324d5b1",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/live_state_after.txt",
+      "expected": "f1aa5a20864d44ef0fb2c46b8ef85b9007616517ee2adc9f4e523b3146d5e723",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/localization_trace.jsonl",
+      "expected": "c05a4741b5f4e732e337689b9e77ff07817b64a50a78a5204c2f9c50ac6956e5",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/loco_trace.jsonl",
+      "expected": "47525c5f711ba8858be8181cd738877c238768139314bcf9f4af7ad9f6b68b4f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/navigation_audit.json",
+      "expected": "885ade5866fb469ad085c9c027f0a68fbacd5129f472af289a1d3376a248c4a7",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/odom_trace.jsonl",
+      "expected": "ac10fda2d3271b4728d165f13ad6dfbcfd96e87f789cd05a6245929587104d43",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/pose_trace.jsonl",
+      "expected": "5c902f53dc5b04108bbad71b565d6bd756be03fc0937680d56b0289bf2d74faa",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/protected_hashes_after.txt",
+      "expected": "3e5163c4d5377be17675a1d62dd498593a11c127d5b1dc38220486884734ebbd",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/protected_hashes_before.txt",
+      "expected": "3e5163c4d5377be17675a1d62dd498593a11c127d5b1dc38220486884734ebbd",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/raw_cmd_trace.jsonl",
+      "expected": "a81d3f0a722e2908e875f42a4bbe07820aebb07af4a21fac59ed7da8cc633565",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/recorder_output.log",
+      "expected": "2f452f366bd27857f3a8f42ae635b76809be3898167f3befa6db33a42ecabac6",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/recorder_summary.json",
+      "expected": "d07b1f62967543a3ef26965e371bb6a0ac6339f371568cb390a3dd6d9e1bde36",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/run_metadata.txt",
+      "expected": "678c99dc64c0a31358819494ba5654e48f7a988f401620b8d0ea966726654f4d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/runtime_evidence/unitree_h12_incubator_nav2_long_hold_supervisor_20260911_r21/safe_cmd_trace.jsonl",
+      "expected": "dd539f5cbcb0506325d94ae1ef36bf3e331cc57e26cc3dcdf06dc2a90cba9350",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/ATTEMPT_STATUS.md",
+      "expected": "edcd6004bf5de0ef7444bbe95f25da8ad90f2182413445af0d5368f791b7f2b9",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/REPORT.md",
+      "expected": "59670eabbb0e185800c423dd4507fc6419ee94d47a4a5076067dd2975c69528a",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/auto_trace.jsonl",
+      "expected": "df53afcdee09442ae598fc7be192bc98f89ba0a5b934ed141a3a773bc1aa966a",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/build_test_summary.txt",
+      "expected": "f75bca65a90d4eaa55d333fa786184a7099a9cde2db9fbd9780a149df69bb24e",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/integration_hashes_after.txt",
+      "expected": "6ae5e70f327ba5b9a54088ccd1dc44de9be1dc38d84d1fd4b4117b0885a8cc58",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/integration_hashes_before.txt",
+      "expected": "6ae5e70f327ba5b9a54088ccd1dc44de9be1dc38d84d1fd4b4117b0885a8cc58",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/integration_hashes_reverted.txt",
+      "expected": "fe9b04262b324a38d5cc9d13de0f11f7cd4a564efc1b992017ee5f4dedee287b",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/launch_output.log",
+      "expected": "bf7803ea99c9f686b7c19146272cbd8b97b44e10d160e5a7803a7fe3cce0096a",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/live_state_final.txt",
+      "expected": "0268f17d67d1ca5f85d201a58cd97628ecbd330212eb9c37d728e1abcedbff47",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/localization_trace.jsonl",
+      "expected": "82f381ea05a2ae0af67778ca5865aaf73e22578c5329173e6e0c40ae9fa1fb2b",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/loco_trace.jsonl",
+      "expected": "b2cd8ad253c22a768f51f9692716fdf16a9c0d6cb9eeb00005c7d33ff0094a23",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/navigation_audit.json",
+      "expected": "7ba76b5e962018c85ea998f01779fd8710561b6e27f12d385fa266dcb73b64da",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/odom_trace.jsonl",
+      "expected": "16e91e1a8122fe8a5f005d7e439e4ec67c62286ecc045e40d62922483d3ac43b",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/pose_trace.jsonl",
+      "expected": "65fbb583e515377c0c7b2a4476f994778c83435226be2334f51cf10fc34d30ca",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/protected_hashes_after.txt",
+      "expected": "3e5163c4d5377be17675a1d62dd498593a11c127d5b1dc38220486884734ebbd",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/protected_hashes_before.txt",
+      "expected": "3e5163c4d5377be17675a1d62dd498593a11c127d5b1dc38220486884734ebbd",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/protected_hashes_final.txt",
+      "expected": "3e5163c4d5377be17675a1d62dd498593a11c127d5b1dc38220486884734ebbd",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/raw_cmd_trace.jsonl",
+      "expected": "54a9df848731317ed97447d4b1f334f1f6deff9e696cbc4ddd4baf8b87df2a18",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/recorder_output.log",
+      "expected": "3ac040bb3715df036a1fdeeb988eb7e153cd131a80394c69fcbd22f80f41ab72",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/recorder_summary.json",
+      "expected": "0e1274cf1ec53b213c5e9281ace366570c435261ee69817627ff0d8457858564",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/run_metadata.txt",
+      "expected": "3dd9235845e9e25acd0c6bc928f44f2207e675abef616ba6542e873c892dbaeb",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runner_result.txt",
+      "expected": "18dfd60b212bbd02bd28c85f9afa80a8ce4bd5412d76618e28d12f0a8632b467",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/runtime_evidence/unitree_h12_incubator_nav2_phase_gated_reset_20260912_r22/safe_cmd_trace.jsonl",
+      "expected": "f798f6e784750bb5729e356d733d15bdb17cabae0e6bf61b66fa92a7986cf373",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/ATTEMPT_STATUS.md",
+      "expected": "982c52b8495d09fcca1068454f67724cbdbb96e46d691c2cfd4d564a4a2220f5",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/REPORT.md",
+      "expected": "642cc185b8e55f48762f1495124ffbe82362e266da6e65e9c9a338d6c3507b02",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/auto_trace.jsonl",
+      "expected": "5e97dc5626eaf43775bef97457b2ceef2e711157e210a87f225a701a6381f90d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/build_test.log",
+      "expected": "16e52e8cbb5c1032e72820b33121d30bc4b1490bbc579967baec80a5b55d5a93",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/build_test_summary.txt",
+      "expected": "46f74a1cb13d658e9158b373ee598a5adb565999df225ca0c1943860fc7a9353",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/final_hash_validation.log",
+      "expected": "82082106c8f44310f592eef2703067ee9fda37456925364c961adee194d43ac2",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/focused_test.log",
+      "expected": "808216c1e906665a6311eea3399af7e63a60328f6537b9bcf2f6f7027e943f4a",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/handoff_hashes_final.txt",
+      "expected": "46bcad214a5ec821f6b9b7570344578edc61282e2425966cef3021af807daecb",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/integration_hashes_after_run.txt",
+      "expected": "b4c617593723fbdd5b43f69b9bd67420d22221943a4f9a868414103eb5f50713",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/integration_hashes_before.txt",
+      "expected": "b4c617593723fbdd5b43f69b9bd67420d22221943a4f9a868414103eb5f50713",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/integration_hashes_reverted.txt",
+      "expected": "0a65368943bb78fbebacb141c494472f251bccbce337e885297476aff1e03097",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/launch_output.log",
+      "expected": "f849171de077406e35009f42eb73ca69abaa2064bb425dbf33424a9edcc6b961",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/live_state_after_run.txt",
+      "expected": "e09f14342c654f232cc5d9ae38b4b68ba8d433602f39830d675753ccbb34a973",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/live_state_before.txt",
+      "expected": "27d1881fd75896030de6d37c950f3b9635514ce7c11f7d8f53ce8a2f201c09a8",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/live_state_final.txt",
+      "expected": "72b5b7da1f961ca5fc5a5cba83e350451f4ff0fc03b15ef4505666b47a8abadc",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/localization_trace.jsonl",
+      "expected": "6b3d5f8ca01ba4e3bfc559c19521bf706170edfa49662bc6314be496bc839869",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/loco_trace.jsonl",
+      "expected": "99fb7d88a60085f5e33300415e13bf13c71d4202d12577d5ffe2ecc7f4deb115",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/navigation_audit.json",
+      "expected": "65b0e9994cdad47e97533180f3b7b0178e5aaee9b5d78d8057401de711904808",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/odom_trace.jsonl",
+      "expected": "f352ab6649990dd730b3effeb4e091f3ab5adf4a4f0dcf7a09bbe0825ee03595",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/plugin_contract.txt",
+      "expected": "9f33026cd37af7fe0ce873b7128de919007dbe752d172eb5a94b0593da96ebb7",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/pose_trace.jsonl",
+      "expected": "b3b0b571856362d2ff1b0d4d97864f587d1b3e8308c3903fe4ad81d80b4d2df6",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/protected_hashes_after_run.txt",
+      "expected": "3e5163c4d5377be17675a1d62dd498593a11c127d5b1dc38220486884734ebbd",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/protected_hashes_before.txt",
+      "expected": "3e5163c4d5377be17675a1d62dd498593a11c127d5b1dc38220486884734ebbd",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/protected_hashes_final.txt",
+      "expected": "3e5163c4d5377be17675a1d62dd498593a11c127d5b1dc38220486884734ebbd",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/raw_cmd_trace.jsonl",
+      "expected": "64c448b98dadc43e7ebe9879c1d2d3d62a0aeff3ce6a857b250d0c74c7a20488",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/recorder_output.log",
+      "expected": "4347a67ee4be63d6c963f8efc109f62104bad8cdc7a8cbaf93a93a76fe014403",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/recorder_summary.json",
+      "expected": "f6e5d736f94162f338a772663bafb9200c7d5013772701eed061d30662efe09b",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/revert_build_test.log",
+      "expected": "7c96370378b4223f5d2b447531fe1bd214e09e6358ee2b5f77dfb4c929f784e1",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/run_metadata.txt",
+      "expected": "84c973cccfdd1e0df9bd99a661a9b0b6fa45b2a8c66c00d5b89bb04d9789cdcc",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runner_output.log",
+      "expected": "de403d5af4caacb66f953268bce9829b9bc2c0ac8f8eaa8af1b12d728497c14e",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runner_result.txt",
+      "expected": "43ff83f09fb8426fd28b3c8f18a0cdc624ca635bdb673bfde0e9e563b0c0a8f5",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runner_v3_orphan_cleanup.log",
+      "expected": "710e4e087158a4a82c6eedb52996a2a09bd07449b38a8ec715f712a109daf5e3",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runner_v4_static_validation.txt",
+      "expected": "b1225940531451be26a34edb8dc6b1a670f6da9d256252506b1c61a1e0f9600e",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runner_v4_static_validation_final.txt",
+      "expected": "fd2deba38a14088719c0b74dbb989d68687585c3a684c64ca7fbb7c27c1daba5",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/runtime_evidence/unitree_h12_incubator_nav2_stopped_goal_015_20260912_r24/safe_cmd_trace.jsonl",
+      "expected": "33b5209db7d916e82654d1406c4dbbfa90d0b1ab20af79d7307d7c5f8259a3db",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/ATTEMPT_STATUS.md",
+      "expected": "c259269d7832ee453a8c3649e1a74214a0bbd69bca2c857c4a4a01152b2dd6e2",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/REPORT.md",
+      "expected": "9537a0ae4d9fc1643faf022dca1c8f07dd137515cbfb14edeb0b6253a606826b",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/POST_DOCUMENT_HASHES.txt",
+      "expected": "78cdf883e6cb2adeee4593cdec836fe45277c6e14e56c15e273341cebdcee83b",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/audit_r60.py",
+      "expected": "47f9d2342056aaedb74355b0a3ba137a042e4d409024408156d213e8922a52c7",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/auto_trace.jsonl",
+      "expected": "2958a0bd038f38f007a9014194f3933fd67eb58a2a8c4fe45e0fb8fea5d3d5ee",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/gazebo_failed_view.png",
+      "expected": "3f98ccf766f14cdeefa4771a4b2f17167c9c7cea949215bc6705e8b4983d77ab",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/gazebo_failed_view_front.png",
+      "expected": "1ba3a6080f8398ad99e29acb96275e80fa93c4954261fac3037b7786014eab40",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/gazebo_failed_view_front2.png",
+      "expected": "69c01571d67e21f6f5b5fefb3abb549260ca33bec0570b3d8f18a8d006df48e9",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/live_state_before.txt",
+      "expected": "2ae1466de2c8285a2af4853639d598ffb58a089ff713161041348ed9e948baa9",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/live_state_user_view.txt",
+      "expected": "92fdd079e711d9cee808c25ca0cd75a401cc4fc798fd9a85386ead7a078bdfe6",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/localization_trace.jsonl",
+      "expected": "efb8cb30d8ec77f621e70c0cd3055ea718428d6be247b55a1f8104063da0cbf2",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/loco_trace.jsonl",
+      "expected": "f6c43a18339640e96158df420f0557e0bd6c082f435129cc5bd8e6f42e174da9",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/navigation_audit.json",
+      "expected": "618e783c88393e0a7a97095f2962cde970cb093c1b9278b87deced5181357052",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/odom_trace.jsonl",
+      "expected": "7c5c9d001137cc1237afdcf852e854ff0e9d59e0db430ddcdfd9b961a78554b7",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/pose_trace.jsonl",
+      "expected": "f6cd99fb8fe8371d3c5ca41d01c3ff23aecd0b7877cdb74bb9c860cf2511b4b1",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/raw_cmd_trace.jsonl",
+      "expected": "b6060149b503a15f5e1e450be42a6ce00d56be6c8d5ba108cae64ec730761a2d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/recorder_summary.json",
+      "expected": "37ca11b9c5cb51cd069917bfe677da91144dd3e0b8853cb82066f979d8939231",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/run_metadata.txt",
+      "expected": "82e3b9bec51bb54a331186c43fc6dcfee9e18f716b65deec9bda8fcb960406a6",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/safe_cmd_trace.jsonl",
+      "expected": "5479004e5a7b6442bfbb2f1fa5dcc1dd492a795015d2962b93639192d8a52cc4",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/src/h1_2_navigation/h1_2_navigation/unitree_h12_gazebo_controller.py",
+      "expected": "3c2767e4bcc4d264d43a3d1a47cdcb6a617a7d724827b56080747791bcd799cb",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/src/h1_2_navigation/h1_2_navigation/unitree_h12_contract.py",
+      "expected": "5a71e90107a0877c9500ed518657d21256a15265fab939fda70ce8ec97e0f978",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/src/h1_2_navigation/config/unitree_h12_locomotion.yaml",
+      "expected": "cb7e9797df04692c504c765e2ef348a93ae79674b39cf8919c8a40046a269731",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/src/h1_2_navigation/launch/unitree_h12_navigation_gazebo.launch.py",
+      "expected": "886ada10dabe344ea00a349c291a62b176d4c6d18ddae315a447c1a8d85515a4",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/src/h1_2_navigation/launch/incubator_navigation_gazebo.launch.py",
+      "expected": "83a0349e379fc5bc8c0ee6031392e3422f208a9ce2125b846c728be12dfde864",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_gazebo_20260916_r60/src/h1_2_navigation/test/test_unitree_h12_gazebo_integration.py",
+      "expected": "942915c0aba3e91e9440d2a911fbd093badcd31c9e9f3d2987c2a1b8759aaa6a",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/ATTEMPT_STATUS.md",
+      "expected": "d7620e449ad6e210fc467d214169e1e93247884cac991c860b825a416c91c92c",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/REPORT.md",
+      "expected": "41bea54c8c2e1a71f7b61d6ef8fb943ab92a5188fb70eb782135049612c81242",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/offline_matrix_summary.json",
+      "expected": "47a65c84414e56041a95c93c126d9715407c4398cc004c4c193467a29ae2fec2",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/replay_r30_stop_matrix.py",
+      "expected": "d665dd34e5d15f960faa3eecdf2c29585beb245192185469d7abbfa6cbdf0a6d",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/POST_DOCUMENT_HASHES.txt",
+      "expected": "b4a037b3145283d11cfd1b94a41893026b043e60a368fc53eaa173168609cec9",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/src/h1_2_navigation/h1_2_navigation/unitree_h12_v12_stop_adapter.py",
+      "expected": "e4c579fedfa3ed2fb704971337911b3d819bbfbc0a097471d18eb0c29326950f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/src/h1_2_navigation/h1_2_navigation/unitree_h12_gazebo_controller.py",
+      "expected": "f25b3632344b2f7de0ab00080687d80d9714565a8d681f1db96f1c64a7cd837f",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/src/h1_2_navigation/h1_2_navigation/unitree_h12_contract.py",
+      "expected": "7cead08f476e0d801193974d095978fd4b3e0ebbec6fdde1c541cbca33edac99",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/src/h1_2_navigation/config/unitree_h12_locomotion.yaml",
+      "expected": "9032e6c7d0af592012707570c58e0419990cc45e41f6f4f3bff549fe7c5a37f5",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/src/h1_2_navigation/launch/unitree_h12_navigation_gazebo.launch.py",
+      "expected": "fdb9f1596586fa71fffd8ae0a9f63ff3382ffc41c57f08d7a98fa43d3de770e1",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/src/h1_2_navigation/launch/incubator_navigation_gazebo.launch.py",
+      "expected": "38216185a7c5c917bfd49ab268d51e8ae2492c950947abd1cad5883f887d7afd",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/src/h1_2_navigation/test/test_unitree_h12_v12_stop_adapter.py",
+      "expected": "ad62fd01f144383ea5cdc8a00f9020e9fca45ec1000bd1a2d8e18378f360fc35",
+      "actual": "MISSING"
+    },
+    {
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/unitree_h12_v12_learned_recover_stop_offline_20260916_r31/src/h1_2_navigation/test/test_unitree_h12_gazebo_integration.py",
+      "expected": "0e0397f096df8563463eb161b62fcb5a23f7197659f1200a2ce311b6ae352a68",
+      "actual": "MISSING"
+    }
+  ],
+  "archive_or_sidecar_formally_referenced": []
+}

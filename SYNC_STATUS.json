@@ -1,11 +1,10 @@
 {
   "repository": "https://github.com/luonianzui/h1-moveit",
-  "snapshot_baseline": "r347 (latest accepted baseline in source handoff documents at selection time)",
   "prepared_at": "2026-10-22T09:01:34.841487+00:00",
-  "snapshot_kind": "reviewable source and selected evidence archive; not a portable verified release",
-  "source_files": 2943,
-  "source_bytes": 239662138,
-  "data_storage": "Full videos and historical data retained at original local locations. No external large-file storage configured or uploaded.",
+  "snapshot_kind": "Source and selected evidence archive; not a portable verified release. Sync does not certify experiment success.",
+  "source_files": 6242,
+  "source_bytes": 351570397,
+  "data_storage": "Full videos and historical large data remain at original local locations; no offsite backup configured.",
   "excluded_binary_files": [
     {
       "path": "install_lab_scene_48box_sequential_full_20261022_r347/h1_2_moveit_config/lib/libCentrifugeButton.so",
@@ -55,8 +54,11 @@
     "Credential scan is heuristic on these selected UTF-8 files only, reports filenames and finding types without matched values, and is not a guarantee that all sensitive material has been identified."
   ],
   "checks": {
-    "source_copy_sha256": "each selected file hashed during copy",
+    "source_copy_sha256": "Every selected file hashed; source left unchanged.",
     "secret_pattern_scan_findings": [],
     "builds_or_simulation_run": false
-  }
+  },
+  "initial_evidence_baseline": "r347 (latest accepted baseline in source handoff documents at selection time)",
+  "sync_policy": "tools/github_sync/config.json",
+  "last_synced_at": "2026-10-22T10:02:21.756860+00:00"
 }

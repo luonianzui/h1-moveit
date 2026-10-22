@@ -1,0 +1,50 @@
+{
+  "status": "PASS_IDENTICAL_ACTUAL_TRACE_BYTES_NOT_TASK_SPEED",
+  "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r328/run/loading_trace.jsonl.gz",
+  "real_prefix_bytes": 16777597,
+  "rows": 19049,
+  "unchanged_every_row_sha256_crc_and_closed_audit": true,
+  "results": [
+    {
+      "implementation": "original",
+      "wall_s": 0.06853006000164896,
+      "audit": {
+        "status": "PASS",
+        "gates": {
+          "closed": true,
+          "no_sampling": true,
+          "sha256": true,
+          "rows": true,
+          "bytes": true,
+          "compressed_bytes": true
+        },
+        "decoded_sha256": "e8b2e37064443e85beadb88b9abfce7ac78b5f59bae89560837ae4d40166f99a",
+        "rows": 19049,
+        "uncompressed_bytes": 16777597,
+        "compressed_bytes": 2574762,
+        "gzip_crc_verified": true
+      }
+    },
+    {
+      "implementation": "batched",
+      "wall_s": 0.06446904300537426,
+      "audit": {
+        "status": "PASS",
+        "gates": {
+          "closed": true,
+          "no_sampling": true,
+          "sha256": true,
+          "rows": true,
+          "bytes": true,
+          "compressed_bytes": true
+        },
+        "decoded_sha256": "e8b2e37064443e85beadb88b9abfce7ac78b5f59bae89560837ae4d40166f99a",
+        "rows": 19049,
+        "uncompressed_bytes": 16777597,
+        "compressed_bytes": 2574762,
+        "gzip_crc_verified": true
+      }
+    }
+  ],
+  "component_speedup": 1.0629917369168358
+}

@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "actual_received_samples": [
+    {
+      "wall": 1792658680.9019637,
+      "value": {
+        "ready": true,
+        "rotor_enabled": false,
+        "open_lid_demo": false,
+        "stopped_velocity_gain": 80,
+        "startup_ramp_rad_s2": 0.8,
+        "stopped_position_gain": 8000,
+        "brake_active": true,
+        "rotor_angle_rad": 2.19177113218923e-28,
+        "brake_reference_rad": 2.1917711909613616e-28,
+        "brake_position_error_rad": 5.877213152887637e-36,
+        "motor_torque_nm": 4.701770780129517e-32,
+        "rotor_rad_s": -3.2231454786509955e-41,
+        "rotor_rpm": -3.077877211389594e-40,
+        "lid_rad": -7.764322171310845e-15,
+        "lid_target_rad": 0,
+        "can_open": true,
+        "can_start": true,
+        "starts": 0,
+        "stops": 0,
+        "blocked_lid": 0,
+        "blocked_start": 0,
+        "rejected": ""
+      }
+    },
+    {
+      "wall": 1792658680.9021752,
+      "value": {
+        "ready": true,
+        "rotor_enabled": false,
+        "open_lid_demo": false,
+        "stopped_velocity_gain": 80,
+        "startup_ramp_rad_s2": 0.8,
+        "stopped_position_gain": 8000,
+        "brake_active": true,
+        "rotor_angle_rad": 2.19177113218923e-28,
+        "brake_reference_rad": 2.1917711909613616e-28,
+        "brake_position_error_rad": 5.877213152887637e-36,
+        "motor_torque_nm": 4.7017707801295146e-32,
+        "rotor_rad_s": -3.2231454539956026e-41,
+        "rotor_rpm": -3.077877187845428e-40,
+        "lid_rad": -7.764322171310845e-15,
+        "lid_target_rad": 0,
+        "can_open": true,
+        "can_start": true,
+        "starts": 0,
+        "stops": 0,
+        "blocked_lid": 0,
+        "blocked_start": 0,
+        "rejected": ""
+      }
+    }
+  ],
+  "readonly_before_executor": true,
+  "no_machine_command_published": true
+}

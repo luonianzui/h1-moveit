@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "original_children": [
+    {
+      "pid": 1834279,
+      "created": 1792656504.69,
+      "command": [
+        "gz sim -r /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r349/inputs/lab_fast_world.sdf --gui-config /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r349/inputs/centrifuge_run_gui.config"
+      ]
+    },
+    {
+      "pid": 1834569,
+      "created": 1792656504.78,
+      "command": [
+        "gz sim server"
+      ]
+    },
+    {
+      "pid": 1834570,
+      "created": 1792656504.78,
+      "command": [
+        "gz sim gui"
+      ]
+    }
+  ],
+  "remaining": [],
+  "normal_sigint": true,
+  "no_reset_detach_release": true
+}

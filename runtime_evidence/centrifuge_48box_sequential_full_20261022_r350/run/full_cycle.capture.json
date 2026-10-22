@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "error": null,
+  "normal_sigint": true,
+  "test_frame_limit": null,
+  "frames": 5454,
+  "unique_captures": 5454,
+  "duplicate_frames": 0,
+  "maximum_capture_gap_wall_s": 0.13923933199839666,
+  "elapsed_wall_s": 454.46271860400157,
+  "geometries": [
+    {
+      "wall_offset_s": 0.004106323001906276,
+      "geometry": {
+        "native_width": 1200,
+        "native_height": 900,
+        "content_rect": [
+          0,
+          0,
+          1200,
+          900
+        ],
+        "entire_window": true
+      }
+    }
+  ],
+  "entire_native_window_each_capture": true,
+  "no_fixed_upper_left_crop": true,
+  "encoder_command": [
+    "ffmpeg",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-nostdin",
+    "-n",
+    "-f",
+    "rawvideo",
+    "-pixel_format",
+    "rgb24",
+    "-video_size",
+    "1200x900",
+    "-framerate",
+    "12",
+    "-i",
+    "pipe:0",
+    "-an",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "veryfast",
+    "-crf",
+    "21",
+    "-g",
+    "24",
+    "-pix_fmt",
+    "yuv420p",
+    "-movflags",
+    "frag_keyframe+empty_moov+default_base_moof",
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r350/run/full_cycle.mp4"
+  ],
+  "wide_camera_guard_enabled": true,
+  "wide_camera_guard_status": "PASS"
+}
