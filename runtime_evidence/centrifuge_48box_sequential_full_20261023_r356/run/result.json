@@ -1,0 +1,159 @@
+{
+  "status": "PASS",
+  "scope": "two_box_load_close_spin_open_retrieve",
+  "error": null,
+  "holding": null,
+  "held_payload": null,
+  "motions": 151,
+  "max_slip_m": 0.003231687492485034,
+  "max_native_slip_m": 0.003231298629304429,
+  "final_machine": {
+    "ready": true,
+    "rotor_enabled": false,
+    "open_lid_demo": false,
+    "stopped_velocity_gain": 80,
+    "startup_ramp_rad_s2": 0.8,
+    "stopped_position_gain": 8000,
+    "brake_active": true,
+    "rotor_angle_rad": 105.69521714622952,
+    "brake_reference_rad": 105.6952171462294,
+    "brake_position_error_rad": -1.2789769243681803e-13,
+    "motor_torque_nm": -1.2789769243681803e-13,
+    "rotor_rad_s": -1.2789769243681803e-11,
+    "rotor_rpm": -1.2213329976819904e-10,
+    "lid_rad": 2.0943951023932086,
+    "lid_target_rad": 2.0943951023931953,
+    "can_open": true,
+    "can_start": false,
+    "starts": 1,
+    "stops": 1,
+    "blocked_lid": 0,
+    "blocked_start": 0,
+    "rejected": ""
+  },
+  "physical_press_events": [
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 1,
+      "sim_time": 38.848,
+      "contact": {
+        "stamp": 38.8475,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.400677967443626e-06,
+              3.0534476962639986e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 2,
+      "sim_time": 108.5885,
+      "contact": {
+        "stamp": 108.588,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.4636229499598005e-06,
+              3.116858597476159e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "rotor",
+      "sequence": 3,
+      "sim_time": 116.8365,
+      "contact": {
+        "stamp": 116.836,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::rotor_button_collision",
+            "second": "h1_2::right_dex1_finger_2_slider_link::right_dex1_finger_2_slider_link_fixed_joint_lump__right_dex1_finger_2_link_collision_1",
+            "depths": [
+              6.463510770730353e-06,
+              3.1167478022975717e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "rotor",
+      "sequence": 4,
+      "sim_time": 150.873,
+      "contact": {
+        "stamp": 150.8725,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::rotor_button_collision",
+            "second": "h1_2::right_dex1_finger_2_slider_link::right_dex1_finger_2_slider_link_fixed_joint_lump__right_dex1_finger_2_link_collision_1",
+            "depths": [
+              7.128253278892126e-06,
+              3.7859171737293987e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 5,
+      "sim_time": 164.658,
+      "contact": {
+        "stamp": 164.6575,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.464226101373163e-06,
+              3.1174574388493498e-06
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "actual_holder_registry": {},
+  "order": {
+    "phase": "complete",
+    "locations": {
+      "left": "table",
+      "right": "table"
+    },
+    "loaded": [
+      "left",
+      "right"
+    ],
+    "returned": [
+      "left",
+      "right"
+    ],
+    "holder": null,
+    "retrieval_assignment": {
+      "left": "left",
+      "right": "right"
+    }
+  },
+  "paired_actual_cycle": false,
+  "sequential_actual_cycle": true
+}

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "before_execution_claim": true,
+  "gazebo_processes": [
+    {
+      "pid": 2589365,
+      "created": 1792749929.54,
+      "role": "server"
+    },
+    {
+      "pid": 2589368,
+      "created": 1792749929.54,
+      "role": "gui"
+    }
+  ],
+  "video_pid": 2593977,
+  "no_robot_command": true
+}

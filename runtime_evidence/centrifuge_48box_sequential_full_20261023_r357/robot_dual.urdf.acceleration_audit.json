@@ -1,0 +1,109 @@
+{
+  "status": "PASS_DECLARED_INPUT_DELTA_ONLY",
+  "scope": "fixed_pelvis_original_stance_ground_trimmed_OBB",
+  "records": [
+    {
+      "link": "left_ankle_roll_link",
+      "original_target_world_transform": [
+        [
+          0.9959013272269147,
+          -0.0009736322437807332,
+          0.09044113261079453,
+          0.12363451565548321
+        ],
+        [
+          -0.000597803012158845,
+          0.9998493591925508,
+          0.017346514168657866,
+          0.1636851748591307
+        ],
+        [
+          -0.09044439761106325,
+          -0.017329482464824644,
+          0.9957507218065538,
+          0.016900425755564222
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "center": [
+        0.03997190095086128,
+        -0.0007599950665331762,
+        0.012073497090322275
+      ],
+      "rpy": [
+        0.017418776971769773,
+        -0.09056488401899654,
+        -0.0009776389557585204
+      ],
+      "size": [
+        0.2603958893844744,
+        0.08638336448916083,
+        0.05064111003258212
+      ],
+      "all_original_vertices_contained": false,
+      "original_lowest_world_z": -0.04355737810391319,
+      "collision_approximation": "original_stance_OBB_trimmed_at_ground_not_for_walking",
+      "target_lowest_world_z": 0.0,
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/left_ankle_roll_link.STL",
+      "source_sha256": "d27424a8eab6e4aa469bce2bdcdd349892a855913f388b7908fdac121a58b7eb",
+      "triangles": 4008
+    },
+    {
+      "link": "right_ankle_roll_link",
+      "original_target_world_transform": [
+        [
+          0.995901685811501,
+          -0.0005777508551185534,
+          0.09044057939752309,
+          0.12363203778380859
+        ],
+        [
+          -0.0009953445772782473,
+          0.9998490232557935,
+          0.017347621843001995,
+          -0.16231523634237505
+        ],
+        [
+          -0.0904369475766556,
+          -0.01736654537853533,
+          0.9957507527562469,
+          0.01690130156551319
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "center": [
+        0.03997569209763937,
+        -0.0007552017597548534,
+        0.012072983461226268
+      ],
+      "rpy": [
+        0.01741988849417956,
+        -0.09056432852923235,
+        -0.000580128338505596
+      ],
+      "size": [
+        0.26037672415393043,
+        0.08646582296039275,
+        0.05064163922019792
+      ],
+      "all_original_vertices_contained": false,
+      "original_lowest_world_z": -0.04355602437309827,
+      "collision_approximation": "original_stance_OBB_trimmed_at_ground_not_for_walking",
+      "target_lowest_world_z": 0.0,
+      "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/src/h1_2_description/meshes/right_ankle_roll_link.STL",
+      "source_sha256": "d27424a8eab6e4aa469bce2bdcdd349892a855913f388b7908fdac121a58b7eb",
+      "triangles": 4008
+    }
+  ],
+  "manipulation_geometry_inertia_friction_and_original_task_targets_unchanged": true
+}

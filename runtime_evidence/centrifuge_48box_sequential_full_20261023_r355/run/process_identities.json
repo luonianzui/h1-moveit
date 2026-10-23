@@ -1,0 +1,34 @@
+{
+  "executor": {
+    "pid": 1652100,
+    "created": 1792741517.69,
+    "command": [
+      "/usr/bin/python3",
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r355/execute_sequential.py"
+    ]
+  },
+  "guard": {
+    "pid": 1652101,
+    "created": 1792741517.69,
+    "command": [
+      "/usr/bin/python3",
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r355/sequential_run_guard.py"
+    ]
+  },
+  "disk": {
+    "pid": 1652102,
+    "created": 1792741517.69,
+    "command": [
+      "/usr/bin/python3",
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r355/sequential_disk_watch.py"
+    ]
+  },
+  "supervisor": {
+    "pid": 1652103,
+    "created": 1792741517.69,
+    "command": [
+      "/usr/bin/python3",
+      "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r355/supervise_completion.py"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "status": "PASS_EXACT_TIMELINE_AND_UNCHANGED_CONTRACT_NOT_PHYSICAL",
+  "real_joint_value_source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_runtime_perf_20261020_r1/actual_samples.json",
+  "real_sample_sha256": "797cb5421afc2854874e33227a3ceba4dc841fafa4ed976084812086486ff01f",
+  "synthetic_monotonic_probe_times": true,
+  "iterations_each": 20000,
+  "unchanged_add_validation_and_bounded_real_interpolation": true,
+  "unchanged_contract_sources": {
+    "speed_feedback_cycle.py": "60c50dab29ee51184d431d9366fca83fa5b549e9709f10a75d036f034a41d987",
+    "coherent_time.py": "bbe6c9746325d066c02d0af33981ac91d169bbe8aa8235e41c96ea93a5db902b",
+    "sequential_cycle.py": "7c8d5439e3468a25e6606d27103a174b3b4cc1b4e93d57b36fad5b87ca8b1afc",
+    "execute_coherent.py": "36560399838e0fc0e1fad9a6545bc0bec2491d2e39dee21aa77df243ef7e466c",
+    "execute_dual.py": "f2c825566343b4982bece5107a7e1810d28700f441c01b6dce6a85aad01a44e7",
+    "speed_retrieval_geometry.py": "c3f5808ec6509aa0f8e74cb483d5753e325ed479880eada71c1550171f4b50d0"
+  },
+  "wall_seconds": {
+    "original": 2.8761668619990814,
+    "candidate": 0.1879630420007743,
+    "candidate_repeat": 0.1880679549940396,
+    "original_repeat": 2.877075524011161
+  },
+  "component_speedup": 15.293231970806696
+}

@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "original_lid_velocity_rad_s": 0.35,
+  "candidate_lid_velocity_rad_s": 0.8,
+  "unchanged_upper_angle_deg": 120.0,
+  "unchanged_joint_effort_Nm": 30.0,
+  "exact_byte_inverse_with_only_declared_terminal_newline": true,
+  "terminal_newline_added_by_patch_tool": true,
+  "all_other_model_fields_unchanged": true,
+  "only_new_private_model_changed_original_models_not_written": true,
+  "rotor_motor_contact_interlock_and_steady_30_seconds_unchanged": false,
+  "no_joint_pose_reset_or_direct_gui_toggle": true,
+  "actual_lid_and_full_cycle_not_preclaimed": true,
+  "parent_sha256": "895b28365d91f898e16cc998a21d2dfb3b1ce86cf623b05441b109bd2e49bb4b",
+  "current_sha256": "ad8766608b03fd75ef2f83910117686f7b1a6d62d4facfd5eab2a3f3251de371",
+  "original_sha256_after_rebinding": "df8438900a18beadc1a6a4f0aed5f49a5194b01c68285ac200c4cb95ac5819f8",
+  "parent_private_lid_rate_rad_s": 0.8,
+  "no_new_private_lid_velocity_change": true,
+  "inherited_partial_lid_physics_not_current_full_certificate": true,
+  "inherited_lid_proof_excludes_new_startup_ramp": true,
+  "original_angle_force_and_lid_velocity_preserved": true
+}

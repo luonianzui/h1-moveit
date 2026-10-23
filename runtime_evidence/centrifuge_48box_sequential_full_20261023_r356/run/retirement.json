@@ -1,0 +1,215 @@
+{
+  "status": "PASS",
+  "original_children": [
+    {
+      "pid": 1936669,
+      "created": 1792744102.37,
+      "command": [
+        "/usr/bin/python3",
+        "/opt/ros/jazzy/bin/ros2",
+        "launch",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r356/inputs/lab_dual.launch.py",
+        "scene:=centrifuge",
+        "with_48box:=true",
+        "enable_robot_press:=true",
+        "allow_open_lid_demo:=false"
+      ]
+    },
+    {
+      "pid": 1936816,
+      "created": 1792744103.23,
+      "command": [
+        "/opt/ros/jazzy/lib/robot_state_publisher/robot_state_publisher",
+        "--ros-args",
+        "--params-file",
+        "/tmp/launch_params_93w32qg8",
+        "--params-file",
+        "/tmp/launch_params_u2s5z9qw"
+      ]
+    },
+    {
+      "pid": 1936817,
+      "created": 1792744103.23,
+      "command": [
+        "/bin/sh",
+        "-c",
+        "ruby /opt/ros/jazzy/opt/gz_tools_vendor/bin/gz sim -r /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r356/inputs/lab_fast_world.sdf --gui-config /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r356/inputs/centrifuge_run_gui.config --force-version 8"
+      ]
+    },
+    {
+      "pid": 1936870,
+      "created": 1792744103.25,
+      "command": [
+        "/opt/ros/jazzy/lib/ros_gz_image/image_bridge",
+        "/realsense_camera/color",
+        "/realsense_camera/depth",
+        "--ros-args",
+        "--params-file",
+        "/tmp/launch_params_0nx2t7u7",
+        "-r",
+        "/realsense_camera/color:=/realsense_camera/color/image",
+        "-r",
+        "/realsense_camera/depth:=/realsense_camera/depth/image"
+      ]
+    },
+    {
+      "pid": 1936873,
+      "created": 1792744103.25,
+      "command": [
+        "/opt/ros/jazzy/lib/ros_gz_bridge/parameter_bridge",
+        "/realsense_camera/color/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo",
+        "/realsense_camera/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo",
+        "/incubator/latch/state@std_msgs/msg/String[gz.msgs.StringMsg",
+        "--ros-args",
+        "-r",
+        "/realsense_camera/camera_info:=/realsense_camera/depth/camera_info"
+      ]
+    },
+    {
+      "pid": 1936874,
+      "created": 1792744103.25,
+      "command": [
+        "/opt/ros/jazzy/lib/ros_gz_bridge/parameter_bridge",
+        "/livox/mid360/points@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked",
+        "--ros-args"
+      ]
+    },
+    {
+      "pid": 1936875,
+      "created": 1792744103.25,
+      "command": [
+        "/opt/ros/jazzy/lib/ros_gz_bridge/parameter_bridge",
+        "--ros-args",
+        "-r",
+        "__node:=candidate3_telemetry_bridge_829",
+        "--params-file",
+        "/tmp/launch_params_xf37g3mp"
+      ]
+    },
+    {
+      "pid": 1936876,
+      "created": 1792744103.25,
+      "command": [
+        "/usr/bin/python3",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r356/inputs/robot_joint_state_relay_05ms.py",
+        "--self-sha256",
+        "b46a9c946542ce33b1b2dbc34b2da31d6e8be93730e86ad9412c1b8b00d226f7"
+      ]
+    },
+    {
+      "pid": 1936877,
+      "created": 1792744103.26,
+      "command": [
+        "/usr/bin/python3",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r356/inputs/localizer_runtime.py",
+        "--ros-args",
+        "--params-file",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/install/h1_2_navigation/share/h1_2_navigation/config/mid360_localization.yaml",
+        "-p",
+        "use_sim_time:=true",
+        "-p",
+        "static_obstacle_enabled:=true",
+        "-p",
+        "localization_rate:=5.0"
+      ]
+    },
+    {
+      "pid": 1936878,
+      "created": 1792744103.26,
+      "command": [
+        "/opt/ros/jazzy/lib/ros_gz_bridge/parameter_bridge",
+        "/centrifuge/lid_button/contacts@ros_gz_interfaces/msg/Contacts[gz.msgs.Contacts",
+        "/centrifuge/rotor_button/contacts@ros_gz_interfaces/msg/Contacts[gz.msgs.Contacts",
+        "--ros-args",
+        "-r",
+        "__node:=centrifuge_contact_bridge"
+      ]
+    },
+    {
+      "pid": 1936879,
+      "created": 1792744103.26,
+      "command": [
+        "/usr/bin/python3",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/install_lab_scene_48box_sequential_full_20261023_r356/h1_2_moveit_config/lib/h1_2_moveit_config/centrifuge_contact_button.py",
+        "--ros-args",
+        "--params-file",
+        "/tmp/launch_params_nht6wasz"
+      ]
+    },
+    {
+      "pid": 1936880,
+      "created": 1792744103.26,
+      "command": [
+        "/opt/ros/jazzy/lib/ros_gz_bridge/parameter_bridge",
+        "/centrifuge/lid/target_angle@std_msgs/msg/Float64]gz.msgs.Double",
+        "/world/h1_world/model/centrifuge/joint_state@sensor_msgs/msg/JointState[gz.msgs.Model",
+        "/centrifuge/button/action@std_msgs/msg/String[gz.msgs.StringMsg",
+        "/centrifuge/rotor/enable@std_msgs/msg/Bool]gz.msgs.Boolean",
+        "/centrifuge/machine/heartbeat@std_msgs/msg/Bool]gz.msgs.Boolean",
+        "/centrifuge/machine/status@std_msgs/msg/String[gz.msgs.StringMsg",
+        "--ros-args",
+        "-r",
+        "__node:=centrifuge_lid_bridge",
+        "-r",
+        "/world/h1_world/model/centrifuge/joint_state:=/centrifuge/joint_states"
+      ]
+    },
+    {
+      "pid": 1936881,
+      "created": 1792744103.26,
+      "command": [
+        "/usr/bin/python3",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/install_lab_scene_48box_sequential_full_20261023_r356/h1_2_moveit_config/lib/h1_2_moveit_config/centrifuge_button.py",
+        "--ros-args",
+        "-r",
+        "__node:=centrifuge_button_controller"
+      ]
+    },
+    {
+      "pid": 1936883,
+      "created": 1792744103.26,
+      "command": [
+        "/opt/ros/jazzy/lib/ros_gz_bridge/parameter_bridge",
+        "/lab_48box/left/contacts@ros_gz_interfaces/msg/Contacts[gz.msgs.Contacts",
+        "--ros-args",
+        "-r",
+        "__node:=lab_48box_left_contact_bridge"
+      ]
+    },
+    {
+      "pid": 1936885,
+      "created": 1792744103.26,
+      "command": [
+        "/opt/ros/jazzy/lib/ros_gz_bridge/parameter_bridge",
+        "/lab_48box/right/contacts@ros_gz_interfaces/msg/Contacts[gz.msgs.Contacts",
+        "--ros-args",
+        "-r",
+        "__node:=lab_48box_right_contact_bridge"
+      ]
+    },
+    {
+      "pid": 1936823,
+      "created": 1792744103.24,
+      "command": [
+        "gz sim -r /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r356/inputs/lab_fast_world.sdf --gui-config /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r356/inputs/centrifuge_run_gui.config"
+      ]
+    },
+    {
+      "pid": 1937104,
+      "created": 1792744103.32,
+      "command": [
+        "gz sim server"
+      ]
+    },
+    {
+      "pid": 1937105,
+      "created": 1792744103.32,
+      "command": [
+        "gz sim gui"
+      ]
+    }
+  ],
+  "remaining": [],
+  "normal_sigint": true,
+  "no_reset_detach_release": true
+}

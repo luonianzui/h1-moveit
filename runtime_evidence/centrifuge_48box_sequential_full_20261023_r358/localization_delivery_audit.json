@@ -1,0 +1,23 @@
+{
+  "status": "FAIL",
+  "task_status": "FAIL",
+  "failures": [
+    {
+      "error": "Persistent planner exited before request completion",
+      "holding": "left"
+    }
+  ],
+  "consumed_pose_count": 767,
+  "delivery_count": 1534,
+  "invalid_health": [],
+  "unchanged_maximum_source_age_sim_s": 1.0,
+  "maximum_observed_health_age_sim_s": 0.2890000000000015,
+  "maximum_callback_source_age_sim_s": 0.03699999999997772,
+  "validated_bootstrap_preclock_events": [],
+  "maximum_transport_wall_s": 0.333579628,
+  "maximum_callback_queue_wall_s": 0.027015389,
+  "unavailable_dds_timestamp_count": 0,
+  "no_timestamp_rewriting": true,
+  "original_timeout_not_widened": true,
+  "historical_r332_root_cause_not_proven_by_a_successful_new_run": true
+}

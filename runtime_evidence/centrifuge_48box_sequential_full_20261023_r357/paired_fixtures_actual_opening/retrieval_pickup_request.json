@@ -1,0 +1,236 @@
+{
+  "hand": "right",
+  "payload": "left",
+  "mode": "retrieval_pickup",
+  "positions": {
+    "torso_joint": 2.1302235346148888e-21,
+    "left_shoulder_pitch_joint": 1.2822506589531706e-13,
+    "left_shoulder_roll_joint": 0.2499999999998204,
+    "left_shoulder_yaw_joint": -4.825041809928136e-13,
+    "left_elbow_joint": 0.6000000000007641,
+    "left_wrist_roll_joint": 7.662254280555222e-14,
+    "left_wrist_pitch_joint": 7.717329919987577e-13,
+    "left_wrist_yaw_joint": -3.2303979865500053e-13,
+    "right_shoulder_pitch_joint": 1.282969819340251e-13,
+    "right_shoulder_roll_joint": -0.24999999999981862,
+    "right_shoulder_yaw_joint": 4.82606736913912e-13,
+    "right_elbow_joint": 0.6000000000007644,
+    "right_wrist_roll_joint": 8.502910174378514e-14,
+    "right_wrist_pitch_joint": 7.717418069359221e-13,
+    "right_wrist_yaw_joint": 3.237887465448146e-13,
+    "left_dex1_finger_1_joint": -0.019899587633982807,
+    "left_dex1_finger_2_joint": -0.019899827658898743,
+    "right_dex1_finger_1_joint": -0.01989763320261513,
+    "right_dex1_finger_2_joint": -0.019894337027270646,
+    "left_hip_yaw_joint": 0.0010417646306277021,
+    "left_hip_pitch_joint": -0.007575661907026272,
+    "left_hip_roll_joint": 0.00041542337054845227,
+    "left_knee_joint": -2.6950806843741832e-06,
+    "left_ankle_pitch_joint": 0.09816660495719064,
+    "left_ankle_roll_joint": -0.017720993608899144,
+    "right_hip_yaw_joint": -0.003152337674095801,
+    "right_hip_pitch_joint": -0.007735374193970026,
+    "right_hip_roll_joint": 0.0017806951305836649,
+    "right_knee_joint": -2.8953602667543903e-06,
+    "right_ankle_pitch_joint": 0.09832615374676112,
+    "right_ankle_roll_joint": -0.019091353701604984
+  },
+  "poses": {
+    "box48_right": {
+      "name": "box48_right",
+      "id": 32,
+      "position": {
+        "x": 0.5783477513920648,
+        "y": -0.08657891968725613,
+        "z": 1.0522339431016714
+      },
+      "orientation": {
+        "x": 0.008320545433379048,
+        "y": 0.0012969750059662474,
+        "z": 0.15401277449819892,
+        "w": 0.9880329709432232
+      }
+    },
+    "centrifuge": {
+      "name": "centrifuge",
+      "id": 198,
+      "position": {
+        "x": 0.52,
+        "z": 0.815
+      },
+      "orientation": {
+        "w": 1
+      }
+    },
+    "box48_left": {
+      "name": "box48_left",
+      "id": 241,
+      "position": {
+        "x": 0.5228282050323146,
+        "y": 0.08658939711593991,
+        "z": 1.0522339508782552
+      },
+      "orientation": {
+        "x": -0.008316816839858767,
+        "y": -0.0012964251325983229,
+        "z": 0.15401750365285577,
+        "w": 0.9880322658739796
+      }
+    },
+    "left_wrist_yaw_link": {
+      "name": "left_wrist_yaw_link",
+      "id": 108,
+      "position": {
+        "x": 0.18796465603261975,
+        "y": 0.3246457709319982,
+        "z": 0.9826316679978521
+      },
+      "orientation": {
+        "x": 0.11910628120109515,
+        "y": 0.2932144527334178,
+        "z": 0.036843978015732304,
+        "w": 0.9478826402939681
+      }
+    },
+    "left_dex1_finger_1_slider_link": {
+      "name": "left_dex1_finger_1_slider_link",
+      "id": 114,
+      "position": {
+        "x": 0.29088387937177734,
+        "y": 0.27893901188800824,
+        "z": 0.9172988837337699
+      },
+      "orientation": {
+        "x": -0.12311304475211311,
+        "y": 0.2915548207957704,
+        "z": -0.6442016659937484,
+        "w": 0.6963068132752178
+      }
+    },
+    "left_dex1_finger_2_slider_link": {
+      "name": "left_dex1_finger_2_slider_link",
+      "id": 121,
+      "position": {
+        "x": 0.27371874818013353,
+        "y": 0.40228638223362556,
+        "z": 0.922899415807279
+      },
+      "orientation": {
+        "x": -0.12311304475211311,
+        "y": 0.2915548207957704,
+        "z": -0.6442016659937484,
+        "w": 0.6963068132752178
+      }
+    },
+    "right_wrist_yaw_link": {
+      "name": "right_wrist_yaw_link",
+      "id": 146,
+      "position": {
+        "x": 0.1879649164645999,
+        "y": -0.3246457412084412,
+        "z": 0.9826315997998274
+      },
+      "orientation": {
+        "x": -0.1191062945577922,
+        "y": 0.29321445499994464,
+        "z": -0.036843953493944426,
+        "w": 0.947882638867668
+      }
+    },
+    "right_dex1_finger_1_slider_link": {
+      "name": "right_dex1_finger_1_slider_link",
+      "id": 152,
+      "position": {
+        "x": 0.29088387937186744,
+        "y": -0.3960769642064612,
+        "z": 0.9472091135266157
+      },
+      "orientation": {
+        "x": -0.29155482079511097,
+        "y": 0.12311304475359346,
+        "z": -0.6963068132720871,
+        "w": 0.644201665997148
+      }
+    },
+    "right_dex1_finger_2_slider_link": {
+      "name": "right_dex1_finger_2_slider_link",
+      "id": 159,
+      "position": {
+        "x": 0.2737187481800435,
+        "y": -0.2851514345566664,
+        "z": 0.8929899532253643
+      },
+      "orientation": {
+        "x": -0.29155482079511097,
+        "y": 0.12311304475359346,
+        "z": -0.6963068132720871,
+        "w": 0.644201665997148
+      }
+    },
+    "lid": {
+      "name": "lid",
+      "id": 220,
+      "position": {
+        "x": 0.2680710507631302,
+        "z": 0.30699999999999994
+      },
+      "orientation": {
+        "y": 0.8660254037844625,
+        "w": 0.4999999999999587
+      }
+    },
+    "rotor": {
+      "name": "rotor",
+      "id": 227,
+      "position": {
+        "x": 0.03057105112628944,
+        "z": 0.2250000000000001
+      },
+      "orientation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      }
+    },
+    "bucket_left": {
+      "name": "bucket_left",
+      "id": 230,
+      "position": {
+        "x": 0.003178388484186164,
+        "y": 0.0857300537450808,
+        "z": 0.23750000000000004
+      },
+      "orientation": {
+        "x": -0.006798458124141404,
+        "y": 0.004964809247929345,
+        "z": 0.8075489087912466,
+        "w": 0.5897405290009607
+      }
+    },
+    "bucket_right": {
+      "name": "bucket_right",
+      "id": 233,
+      "position": {
+        "x": 0.05796371284529324,
+        "y": -0.08573005308635764,
+        "z": 0.23750000000000004
+      },
+      "orientation": {
+        "x": 0.0049661628981834864,
+        "y": 0.0068003116400501915,
+        "z": -0.5897405219514809,
+        "w": 0.8075488900098011
+      }
+    }
+  },
+  "assignment": {
+    "right": "right",
+    "left": "left"
+  },
+  "retrieval": true,
+  "nominal_phase_fixture_is_prospective_not_actual_new_stop": true,
+  "original_runtime_holder_references": {},
+  "prospective_empty_holder_registry_not_measured": true,
+  "not_current_fresh_execution_permission": true
+}

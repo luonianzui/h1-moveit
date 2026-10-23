@@ -1,0 +1,7 @@
+# r356离线准备记录
+
+第一轮prepare_full_r356.sh在localization_delivery的继承源码逆变换校验失败，未生成该qualification、未seal、未启动Gazebo。
+原因是新增单指低力有界观测等待尚未加入旧源码等价还原器；补充三个精确函数块的声明式逆变换，并验证还原后逐字节等于r355。
+逆变换对任意未声明函数变更拒绝；原保护/动作八文件另有逐字节一致测试。
+额外专项首次命令误写不存在的test_floor_time.py，pytest退出4、未运行测试；原日志保留，revision2使用实际test_floor_time_boundary.py及test_preload_floor_frame.py。
+未放宽运行支撑门；原失败log和已生成离线结果保留。仅resume_preparation_r356.sh从尚未生成的qualification继续，写新resumed日志，不重复或覆盖已有资格文件。

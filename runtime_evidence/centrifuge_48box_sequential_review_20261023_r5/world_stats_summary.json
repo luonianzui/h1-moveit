@@ -1,0 +1,61 @@
+{
+  "status": "PARTIAL_WORLD_STATS_NOT_WHOLE_TASK_WALL_CLOCK",
+  "samples": 21,
+  "errors": [
+    {
+      "status": "SAMPLE_ERROR",
+      "monotonic": 180553.50594023,
+      "error": "[Errno 2] No such file or directory: '/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r358/run/trace_progress.json'"
+    }
+  ],
+  "first": {
+    "status": "READ_ONLY_SAMPLE",
+    "monotonic": 180568.675166808,
+    "request_began": 180568.508899053,
+    "stats": {
+      "simTime": {
+        "sec": "41",
+        "nsec": 949500000
+      },
+      "realTime": {
+        "sec": "100",
+        "nsec": 845111583
+      },
+      "iterations": "83899",
+      "realTimeFactor": 0.632510268804214,
+      "stepSize": {
+        "nsec": 500000
+      }
+    },
+    "phase": "right_seq_load_open_empty",
+    "observer_started_after_executor": true
+  },
+  "last": {
+    "status": "READ_ONLY_SAMPLE",
+    "monotonic": 180871.138684868,
+    "request_began": 180871.029549066,
+    "stats": {
+      "simTime": {
+        "sec": "185",
+        "nsec": 376000000
+      },
+      "realTime": {
+        "sec": "399",
+        "nsec": 802929181
+      },
+      "paused": true,
+      "iterations": "370752",
+      "stepSize": {}
+    },
+    "phase": "STOP_AND_HOLD",
+    "observer_started_after_executor": true
+  },
+  "elapsed_sim_s": 143.4265,
+  "elapsed_real_s": 298.957817598,
+  "interval_ratio": 0.47975497397048,
+  "minimum_reported_rtf": 0.15243279695280743,
+  "median_reported_rtf": 0.421419584518024,
+  "maximum_reported_rtf": 0.8710194411539266,
+  "missing_reported_rtf_samples": 1,
+  "stable_one_times_realtime_not_achieved": true
+}

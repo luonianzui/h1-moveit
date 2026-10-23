@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.8">
+  <world name="h1_world">
+    
+    <physics name="lab-scene-1ms" type="ignored">
+      <max_step_size>0.0005</max_step_size>
+      <real_time_update_rate>2000</real_time_update_rate>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands">
+    </plugin>
+    
+    <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact">
+    </plugin>
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu">
+    </plugin>
+    <plugin filename="gz-sim-forcetorque-system" name="gz::sim::systems::ForceTorque">
+    </plugin>
+    <plugin filename="gz-sim-apply-link-wrench-system" name="gz::sim::systems::ApplyLinkWrench">
+    </plugin>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre</render_engine>
+    </plugin>
+
+    
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="navigation_enclosure">
+      <static>true</static>
+      <link name="walls">
+        <collision name="north_wall_collision">
+          <pose>0 2.55 1.25 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.2 0.1 2.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="north_wall_visual">
+          <pose>0 2.55 1.25 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.2 0.1 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.60 0.68 0.86</ambient>
+            <diffuse>0.62 0.70 0.78 0.86</diffuse>
+            <specular>0.18 0.20 0.22 0.86</specular>
+          </material>
+          <transparency>0.14</transparency>
+        </visual>
+
+        <collision name="south_wall_collision">
+          <pose>0 -2.55 1.25 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.2 0.1 2.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="south_wall_visual">
+          <pose>0 -2.55 1.25 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>5.2 0.1 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.60 0.68 0.86</ambient>
+            <diffuse>0.62 0.70 0.78 0.86</diffuse>
+            <specular>0.18 0.20 0.22 0.86</specular>
+          </material>
+          <transparency>0.14</transparency>
+        </visual>
+
+        <collision name="east_wall_collision">
+          <pose>2.55 0 1.25 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 5.0 2.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="east_wall_visual">
+          <pose>2.55 0 1.25 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 5.0 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.60 0.68 0.86</ambient>
+            <diffuse>0.62 0.70 0.78 0.86</diffuse>
+            <specular>0.18 0.20 0.22 0.86</specular>
+          </material>
+          <transparency>0.14</transparency>
+        </visual>
+
+        <collision name="west_wall_collision">
+          <pose>-2.55 0 1.25 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 5.0 2.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="west_wall_visual">
+          <pose>-2.55 0 1.25 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.1 5.0 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.52 0.60 0.68 0.86</ambient>
+            <diffuse>0.62 0.70 0.78 0.86</diffuse>
+            <specular>0.18 0.20 0.22 0.86</specular>
+          </material>
+          <transparency>0.14</transparency>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

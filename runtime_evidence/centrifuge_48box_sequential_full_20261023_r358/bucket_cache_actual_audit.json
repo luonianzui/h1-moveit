@@ -1,0 +1,21 @@
+{
+  "status": "PASS_ACTUAL_TRACE_CORNERS_EXACT_ORIGINAL_BYTES_NOT_WHOLE_TASK",
+  "comparisons": 14954,
+  "event_kinds": {
+    "state": 10318,
+    "lower_release_gate_pass": 4,
+    "LOADING_PASS": 2,
+    "loaded_retention": 4630
+  },
+  "original_function_sha256": "670488b8153dbee3c929f17f50f1b0309bd5c9db69495370791b415ac97cd82a",
+  "runtime_cache_stats": {
+    "hits": 1264719,
+    "misses": 8979,
+    "maxsize": 512,
+    "currsize": 512,
+    "no_contact_force_time_or_verdict_cached": true,
+    "no_geometry_quantization": true
+  },
+  "no_force_contact_or_guard_decimation": true,
+  "complete_task_separately_required": true
+}

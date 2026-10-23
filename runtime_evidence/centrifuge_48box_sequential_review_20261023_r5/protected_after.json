@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "protected_manifests": {
+    "centrifuge_48box_sequential_full_20261020_r318": {
+      "manifest_sha256": "4bdfd4c608f56f0ed0c7b1c4396e727f0986d6b8df0bb7d10c1d3a3c8116823f",
+      "checked_members": 753
+    },
+    "centrifuge_48box_sequential_review_20261020_r6": {
+      "manifest_sha256": "a7ebcc60dfca91c9365b6f26caaeb2267b89b3e0bdfdcc9e129f4bc059570ccf",
+      "checked_members": 56
+    },
+    "centrifuge_48box_sequential_full_20261020_r327": {
+      "manifest_sha256": "8039813de5340b87c6adb2638222355fe3c2131bf6a9ba99274e9635ab6b652a",
+      "checked_members": 796
+    },
+    "centrifuge_48box_sequential_review_20261020_r15": {
+      "manifest_sha256": "35ab3bf41c30c01e4b405ce689971097af474f188470ffe64923a9b36f3e61ad",
+      "checked_members": 14
+    }
+  },
+  "official_source_files": 785,
+  "models": {
+    "incubator": "44ff23fc7077f0c232e2e69ff9d73aba336140d6a7951968c9c4241a97e73db9",
+    "centrifuge": "f017dfcf10b0e2c583e80bb6f625ad5998c7815f8fa69e3c1eaa7134a3684a55",
+    "lab_48box": "dc582ab7ef80536e28836c743f9671b2709d54143cb1d3c2a87a0e3c5f9bf1ec"
+  },
+  "scope": "fresh bounded documentation audit; not a new all-backup/archive scan"
+}

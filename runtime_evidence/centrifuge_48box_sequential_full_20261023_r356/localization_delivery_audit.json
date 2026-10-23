@@ -1,0 +1,223 @@
+{
+  "status": "PASS",
+  "task_status": "PASS",
+  "failures": [],
+  "consumed_pose_count": 1106,
+  "delivery_count": 2212,
+  "invalid_health": [],
+  "unchanged_maximum_source_age_sim_s": 1.0,
+  "maximum_observed_health_age_sim_s": 0.27650000000000574,
+  "maximum_callback_source_age_sim_s": 0.040500000000001535,
+  "validated_bootstrap_preclock_events": [
+    {
+      "row": 394,
+      "phase": "machine_preparation",
+      "payload": {
+        "kind": "pose",
+        "source_sim": 32.4,
+        "clock_sim": null,
+        "source_timestamp_ns": 1792744216432451723,
+        "received_timestamp_ns": 1792744216432499853,
+        "callback_wall_ns": 1792744216433043324,
+        "callback_monotonic_ns": 174754351392696,
+        "transport_wall_s": 4.813e-05,
+        "callback_queue_wall_s": 0.000543471,
+        "dds_timestamps_available": true,
+        "source_stamp_not_rewritten": true
+      }
+    },
+    {
+      "row": 442,
+      "phase": "machine_preparation",
+      "payload": {
+        "kind": "status",
+        "source_sim": null,
+        "clock_sim": null,
+        "source_timestamp_ns": 1792744216459512654,
+        "received_timestamp_ns": 1792744216459570434,
+        "callback_wall_ns": 1792744216459719164,
+        "callback_monotonic_ns": 174754378068036,
+        "transport_wall_s": 5.778e-05,
+        "callback_queue_wall_s": 0.00014873,
+        "dds_timestamps_available": true,
+        "source_stamp_not_rewritten": true
+      }
+    },
+    {
+      "row": 791,
+      "phase": "machine_preparation",
+      "payload": {
+        "kind": "pose",
+        "source_sim": 32.6,
+        "clock_sim": null,
+        "source_timestamp_ns": 1792744216663680321,
+        "received_timestamp_ns": 1792744216663725991,
+        "callback_wall_ns": 1792744216663914032,
+        "callback_monotonic_ns": 174754582264724,
+        "transport_wall_s": 4.567e-05,
+        "callback_queue_wall_s": 0.000188041,
+        "dds_timestamps_available": true,
+        "source_stamp_not_rewritten": true
+      }
+    },
+    {
+      "row": 806,
+      "phase": "machine_preparation",
+      "payload": {
+        "kind": "status",
+        "source_sim": null,
+        "clock_sim": null,
+        "source_timestamp_ns": 1792744216671959093,
+        "received_timestamp_ns": 1792744216672003333,
+        "callback_wall_ns": 1792744216672296043,
+        "callback_monotonic_ns": 174754590644315,
+        "transport_wall_s": 4.424e-05,
+        "callback_queue_wall_s": 0.00029271,
+        "dds_timestamps_available": true,
+        "source_stamp_not_rewritten": true
+      }
+    },
+    {
+      "row": 1405,
+      "phase": "machine_preparation",
+      "payload": {
+        "kind": "pose",
+        "source_sim": 32.9,
+        "clock_sim": null,
+        "source_timestamp_ns": 1792744217030238825,
+        "received_timestamp_ns": 1792744217030275705,
+        "callback_wall_ns": 1792744217030444706,
+        "callback_monotonic_ns": 174754948793208,
+        "transport_wall_s": 3.688e-05,
+        "callback_queue_wall_s": 0.000169001,
+        "dds_timestamps_available": true,
+        "source_stamp_not_rewritten": true
+      }
+    },
+    {
+      "row": 1424,
+      "phase": "machine_preparation",
+      "payload": {
+        "kind": "status",
+        "source_sim": null,
+        "clock_sim": null,
+        "source_timestamp_ns": 1792744217039888251,
+        "received_timestamp_ns": 1792744217039934871,
+        "callback_wall_ns": 1792744217040361442,
+        "callback_monotonic_ns": 174754958709974,
+        "transport_wall_s": 4.662e-05,
+        "callback_queue_wall_s": 0.000426571,
+        "dds_timestamps_available": true,
+        "source_stamp_not_rewritten": true
+      }
+    },
+    {
+      "row": 1939,
+      "phase": "machine_preparation",
+      "payload": {
+        "kind": "pose",
+        "source_sim": 33.1,
+        "clock_sim": null,
+        "source_timestamp_ns": 1792744217274947589,
+        "received_timestamp_ns": 1792744217274978529,
+        "callback_wall_ns": 1792744217275403370,
+        "callback_monotonic_ns": 174755193752012,
+        "transport_wall_s": 3.094e-05,
+        "callback_queue_wall_s": 0.000424841,
+        "dds_timestamps_available": true,
+        "source_stamp_not_rewritten": true
+      }
+    },
+    {
+      "row": 1949,
+      "phase": "machine_preparation",
+      "payload": {
+        "kind": "status",
+        "source_sim": null,
+        "clock_sim": null,
+        "source_timestamp_ns": 1792744217277565386,
+        "received_timestamp_ns": 1792744217277589446,
+        "callback_wall_ns": 1792744217278180977,
+        "callback_monotonic_ns": 174755196528779,
+        "transport_wall_s": 2.406e-05,
+        "callback_queue_wall_s": 0.000591531,
+        "dds_timestamps_available": true,
+        "source_stamp_not_rewritten": true
+      }
+    },
+    {
+      "row": 2555,
+      "phase": "machine_preparation",
+      "payload": {
+        "kind": "pose",
+        "source_sim": 33.3,
+        "clock_sim": null,
+        "source_timestamp_ns": 1792744217516973915,
+        "received_timestamp_ns": 1792744217517017295,
+        "callback_wall_ns": 1792744217517136776,
+        "callback_monotonic_ns": 174755435485308,
+        "transport_wall_s": 4.338e-05,
+        "callback_queue_wall_s": 0.000119481,
+        "dds_timestamps_available": true,
+        "source_stamp_not_rewritten": true
+      }
+    },
+    {
+      "row": 2571,
+      "phase": "machine_preparation",
+      "payload": {
+        "kind": "status",
+        "source_sim": null,
+        "clock_sim": null,
+        "source_timestamp_ns": 1792744217523086981,
+        "received_timestamp_ns": 1792744217523124481,
+        "callback_wall_ns": 1792744217523307782,
+        "callback_monotonic_ns": 174755441656094,
+        "transport_wall_s": 3.75e-05,
+        "callback_queue_wall_s": 0.000183301,
+        "dds_timestamps_available": true,
+        "source_stamp_not_rewritten": true
+      }
+    },
+    {
+      "row": 3156,
+      "phase": "machine_preparation",
+      "payload": {
+        "kind": "pose",
+        "source_sim": 33.5,
+        "clock_sim": null,
+        "source_timestamp_ns": 1792744217765760079,
+        "received_timestamp_ns": 1792744217765798580,
+        "callback_wall_ns": 1792744217765928920,
+        "callback_monotonic_ns": 174755684277662,
+        "transport_wall_s": 3.8501e-05,
+        "callback_queue_wall_s": 0.00013034,
+        "dds_timestamps_available": true,
+        "source_stamp_not_rewritten": true
+      }
+    },
+    {
+      "row": 3194,
+      "phase": "machine_preparation",
+      "payload": {
+        "kind": "status",
+        "source_sim": null,
+        "clock_sim": null,
+        "source_timestamp_ns": 1792744217778552453,
+        "received_timestamp_ns": 1792744217778598923,
+        "callback_wall_ns": 1792744217778975724,
+        "callback_monotonic_ns": 174755697323686,
+        "transport_wall_s": 4.647e-05,
+        "callback_queue_wall_s": 0.000376801,
+        "dds_timestamps_available": true,
+        "source_stamp_not_rewritten": true
+      }
+    }
+  ],
+  "maximum_transport_wall_s": 0.000366011,
+  "maximum_callback_queue_wall_s": 0.025001774,
+  "unavailable_dds_timestamp_count": 0,
+  "no_timestamp_rewriting": true,
+  "original_timeout_not_widened": true,
+  "historical_r332_root_cause_not_proven_by_a_successful_new_run": true
+}

@@ -1,0 +1,210 @@
+{
+  "status": "PASS_MEASURED_LOOKUP_AND_INERTIA_USE_NOT_CONTROLLED_WHOLE_TASK_CAUSAL_PROOF",
+  "task_pass": false,
+  "current_wall_s": 315.213575348,
+  "parent_wall_s": 481.783994177,
+  "saved_wall_s": null,
+  "within_180_wall_s": false,
+  "lookup_component": [
+    {
+      "status": "PASS_EXACT_LOOKUP_NOT_FULL_TASK",
+      "world_steps": 5400,
+      "vector_checks": 43200,
+      "contact_steps": 5088,
+      "hits": 42710145,
+      "misses": 129968,
+      "responses": 37277418,
+      "inertia_queries": 24895716,
+      "implicit_queries": 0,
+      "dirty_refreshes": 0,
+      "lookup_hits": 40606584,
+      "lookup_misses": 72240,
+      "lookup_retained": 0,
+      "retained_after_solve": 0,
+      "baseline_s": 1.6862367440000001,
+      "candidate_s": 1.5498475790000006,
+      "component_speedup": 1.0880016634203482
+    },
+    {
+      "status": "PASS_EXACT_LOOKUP_NOT_FULL_TASK",
+      "world_steps": 5400,
+      "vector_checks": 43200,
+      "contact_steps": 5088,
+      "hits": 43406016,
+      "misses": 129968,
+      "responses": 37277418,
+      "inertia_queries": 24895716,
+      "implicit_queries": 0,
+      "dirty_refreshes": 0,
+      "lookup_hits": 40563034,
+      "lookup_misses": 115790,
+      "lookup_retained": 0,
+      "retained_after_solve": 0,
+      "baseline_s": 1.6854875020000013,
+      "candidate_s": 1.5449948210000024,
+      "component_speedup": 1.090934078930481
+    }
+  ],
+  "lookup_scope_probe": {
+    "status": "PASS_LOOKUP_SCOPE_AND_EXCEPTION_INVALIDATION",
+    "checks": 1296,
+    "mode_rejections": 31,
+    "dirty_refreshes": 157,
+    "exception_scope_cleared": true,
+    "lookup_retained": 0,
+    "retained": 0
+  },
+  "lookup_actual_first": {
+    "lookup_hits": 31893623,
+    "lookup_misses": 408565
+  },
+  "lookup_actual_last": {
+    "lookup_hits": 1273759761,
+    "lookup_misses": 2680887
+  },
+  "component": {
+    "status": "PASS_EXACT_INERTIA_QUERIES_NOT_FULL_TASK",
+    "world_steps": 5400,
+    "vector_checks": 43200,
+    "contact_steps": 5088,
+    "hits": 994605,
+    "misses": 94278,
+    "responses": 37277418,
+    "inertia_queries": 12447858,
+    "implicit_queries": 0,
+    "dirty_refreshes": 0,
+    "retained_after_solve": 0,
+    "baseline_s": 1.6001557559999986,
+    "candidate_s": 1.553891780999998,
+    "component_speedup": 1.0297729710432137
+  },
+  "dirty_probe": {
+    "status": "PASS_DIRTY_INVALIDATION_INSIDE_SOLVE",
+    "checks": 1266,
+    "mode_rejections": 30,
+    "dirty_refreshes": 152,
+    "retained": 0
+  },
+  "current_rtf": 0.47975497397048,
+  "parent_rtf": 0.45679859322042166,
+  "actual_first_counters": {
+    "inertia_queries": 241527262,
+    "implicit_inertia_queries": 0,
+    "inertia_refreshes": 0,
+    "inertia_slot_hits": 198391073
+  },
+  "actual_last_counters": {
+    "inertia_queries": 2603683595,
+    "implicit_inertia_queries": 0,
+    "inertia_refreshes": 0,
+    "inertia_slot_hits": 2204245040
+  },
+  "parent_symbols": [
+    {
+      "name": "dart::constraint::BoxedLcpConstraintSolver::solveConstrainedGroup(dart::constraint::ConstrainedGroup&)",
+      "library": "libDartConstraintCache.so",
+      "flat_pct": 1.50293506315525,
+      "cumulative_pct": 48.69692332290263
+    },
+    {
+      "name": "dart::dynamics::Skeleton::updateVelocityChange()",
+      "library": "libdart.so.6.13.2",
+      "flat_pct": 0.10278431282976634,
+      "cumulative_pct": 16.08231881409744
+    },
+    {
+      "name": "dart::dynamics::BodyNode::updateVelocityChangeFD()",
+      "library": "libdart.so.6.13.2",
+      "flat_pct": 1.2539686165231494,
+      "cumulative_pct": 15.518147141454055
+    },
+    {
+      "name": "dart::dynamics::BodyNode::getArticulatedInertia() const",
+      "library": "libDartConstraintCache.so",
+      "flat_pct": 1.6080034718256777,
+      "cumulative_pct": 3.5289280738219775
+    },
+    {
+      "name": "dart::dynamics::BodyNode::getArticulatedInertia() const",
+      "library": "libdart.so.6.13.2",
+      "flat_pct": 0.09364792946712044,
+      "cumulative_pct": 0.1941481464562253
+    },
+    {
+      "name": "dart::constraint::BoxedLcpConstraintSolver::solveConstrainedGroup(dart::constraint::ConstrainedGroup&)",
+      "library": "libdart.so.6.13.2",
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "dart::dynamics::SoftBodyNode::updateVelocityChangeFD()",
+      "library": "libdart.so.6.13.2",
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "non-virtual thunk to dart::dynamics::SoftBodyNode::updateVelocityChangeFD()",
+      "library": "libdart.so.6.13.2",
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    }
+  ],
+  "current_symbols": [
+    {
+      "name": "dart::constraint::BoxedLcpConstraintSolver::solveConstrainedGroup(dart::constraint::ConstrainedGroup&)",
+      "library": "libDartConstraintCache.so",
+      "flat_pct": 1.4712676356658019,
+      "cumulative_pct": 46.72873947190732
+    },
+    {
+      "name": "dart::dynamics::Skeleton::updateVelocityChange()",
+      "library": "libdart.so.6.13.2",
+      "flat_pct": 0.11372116990653541,
+      "cumulative_pct": 15.629553289029461
+    },
+    {
+      "name": "dart::dynamics::BodyNode::updateVelocityChangeFD()",
+      "library": "libdart.so.6.13.2",
+      "flat_pct": 1.3859767582359004,
+      "cumulative_pct": 15.110700451330892
+    },
+    {
+      "name": "dart::dynamics::BodyNode::getArticulatedInertia() const",
+      "library": "libDartConstraintCache.so",
+      "flat_pct": 1.521020647499911,
+      "cumulative_pct": 3.617754717651658
+    },
+    {
+      "name": "dart::dynamics::BodyNode::getArticulatedInertia() const",
+      "library": "libdart.so.6.13.2",
+      "flat_pct": 0.06396815807242617,
+      "cumulative_pct": 0.18479690109812005
+    },
+    {
+      "name": "dart::constraint::BoxedLcpConstraintSolver::solveConstrainedGroup(dart::constraint::ConstrainedGroup&)",
+      "library": "libdart.so.6.13.2",
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "dart::dynamics::SoftBodyNode::updateVelocityChangeFD()",
+      "library": "libdart.so.6.13.2",
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    },
+    {
+      "name": "non-virtual thunk to dart::dynamics::SoftBodyNode::updateVelocityChangeFD()",
+      "library": "libdart.so.6.13.2",
+      "flat_pct": 0.0,
+      "cumulative_pct": 0.0
+    }
+  ],
+  "unchanged_action_and_physics_contract": true,
+  "inclusive_percentages_overlap_not_wall_time": true,
+  "limitations": [
+    "different_actual_contacts_plans_and_process_layouts",
+    "one_new_full_run_not_same_snapshot_AB",
+    "dirty_flag_preserved_no_cross_step_numeric_cache",
+    "component_speed_not_whole_task_speed"
+  ]
+}

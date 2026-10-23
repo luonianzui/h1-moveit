@@ -1,0 +1,20 @@
+{
+  "status": "PASS_ACTUAL_STATIONARY_LEG_COMPATIBILITY_NOT_LOADED_TASK",
+  "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_init_20261020_r3",
+  "source_reports": {
+    "probe_identity.json": "8ca8b60018308b9569216c8be25170135ba795d34ddaac9fb339c145e4773fd9",
+    "variants/sole_box/run/leg_initialization.json": "6d0dc5197783ee02c2ca8511ee00e2cf315843e46d59526fb8f5943ae4431d27",
+    "variants/sole_box/run/result.json": "c7ea2b331f974045075bfebaefc939db818907032264ca1eab3d7adb5d06c1a2"
+  },
+  "maximum_independent_hold_error_rad": 0.0014969194906181513,
+  "hold_samples": 186,
+  "current_initialization_source_sha256": "53fb3b4e48316024956576dfa3bc934c56aef2a02f01dab3bc1f6770a0f642c0",
+  "stationary_leg_endpoint_limit_rad": 0.005,
+  "measured_probe_limit_rad": 0.002,
+  "original_limit_rad": 0.001,
+  "fresh_current_five_second_hold_still_required": true,
+  "original_targets_unchanged": true,
+  "hand_grip_limits_unchanged": false,
+  "hand_limits_separately_declared_in_speed_profile": true,
+  "passive_sim_per_wall": 0.8470342493780383
+}

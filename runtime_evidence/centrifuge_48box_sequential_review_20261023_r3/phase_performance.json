@@ -1,0 +1,993 @@
+{
+  "status": "PHASE_CORRELATION_NOT_FUNCTION_CAUSAL_PROFILE",
+  "task_status": "PASS",
+  "world_intervals": [
+    {
+      "start_phase": "machine_wait_preparation_open",
+      "end_phase": "seq_load_empty_descend",
+      "same_phase": false,
+      "real_s": 15.148795794999998,
+      "simulated_s": 12.167000000000002,
+      "rtf": 0.8031661502768315
+    },
+    {
+      "start_phase": "seq_load_empty_descend",
+      "end_phase": "left_seq_load_static_grip_hold",
+      "same_phase": false,
+      "real_s": 15.149255127999993,
+      "simulated_s": 4.831000000000003,
+      "rtf": 0.31889356665932606
+    },
+    {
+      "start_phase": "left_seq_load_static_grip_hold",
+      "end_phase": "seq_load_load_lift_and_load_transfer",
+      "same_phase": false,
+      "real_s": 15.149410345999996,
+      "simulated_s": 3.6580000000000013,
+      "rtf": 0.24146154315279
+    },
+    {
+      "start_phase": "seq_load_load_lift_and_load_transfer",
+      "end_phase": "seq_load_load_release_pilot_align",
+      "same_phase": false,
+      "real_s": 15.142799313000012,
+      "simulated_s": 4.048999999999992,
+      "rtf": 0.26738781359427694
+    },
+    {
+      "start_phase": "seq_load_load_release_pilot_align",
+      "end_phase": "seq_load_empty_park",
+      "same_phase": false,
+      "real_s": 15.082325789999999,
+      "simulated_s": 7.9055000000000035,
+      "rtf": 0.5241565598086715
+    },
+    {
+      "start_phase": "seq_load_empty_park",
+      "end_phase": "right_seq_load_grasp",
+      "same_phase": false,
+      "real_s": 15.071068639000003,
+      "simulated_s": 9.385499999999993,
+      "rtf": 0.6227494695175604
+    },
+    {
+      "start_phase": "right_seq_load_grasp",
+      "end_phase": "seq_load_load_lift_and_load_transfer",
+      "same_phase": false,
+      "real_s": 15.152477919000006,
+      "simulated_s": 4.19850000000001,
+      "rtf": 0.27708339338580545
+    },
+    {
+      "start_phase": "seq_load_load_lift_and_load_transfer",
+      "end_phase": "seq_load_load_lower",
+      "same_phase": false,
+      "real_s": 15.251800455999984,
+      "simulated_s": 4.04849999999999,
+      "rtf": 0.26544407079541416
+    },
+    {
+      "start_phase": "seq_load_load_lower",
+      "end_phase": "machine_sequential_empty_grippers",
+      "same_phase": false,
+      "real_s": 15.06887876099998,
+      "simulated_s": 9.158500000000004,
+      "rtf": 0.6077758103478325
+    },
+    {
+      "start_phase": "machine_sequential_empty_grippers",
+      "end_phase": "machine_start_approach",
+      "same_phase": false,
+      "real_s": 15.154381225000009,
+      "simulated_s": 10.848500000000001,
+      "rtf": 0.7158655862572175
+    },
+    {
+      "start_phase": "machine_start_approach",
+      "end_phase": "machine_running_steady",
+      "same_phase": false,
+      "real_s": 15.159678952000036,
+      "simulated_s": 10.204499999999996,
+      "rtf": 0.6731343079434874
+    },
+    {
+      "start_phase": "machine_running_steady",
+      "end_phase": "machine_running_steady",
+      "same_phase": true,
+      "real_s": 15.06782601499998,
+      "simulated_s": 7.473500000000001,
+      "rtf": 0.4959905956280722
+    },
+    {
+      "start_phase": "machine_running_steady",
+      "end_phase": "machine_running_steady",
+      "same_phase": true,
+      "real_s": 15.075018020000016,
+      "simulated_s": 7.305499999999995,
+      "rtf": 0.4846097026423314
+    },
+    {
+      "start_phase": "machine_running_steady",
+      "end_phase": "machine_running_steady",
+      "same_phase": true,
+      "real_s": 15.073159486000009,
+      "simulated_s": 7.543000000000006,
+      "rtf": 0.5004259396980417
+    },
+    {
+      "start_phase": "machine_running_steady",
+      "end_phase": "machine_stop_handover_collision_check",
+      "same_phase": false,
+      "real_s": 15.085737870999992,
+      "simulated_s": 7.409500000000008,
+      "rtf": 0.4911592699912698
+    },
+    {
+      "start_phase": "machine_stop_handover_collision_check",
+      "end_phase": "machine_final_open_approach",
+      "same_phase": false,
+      "real_s": 15.16230141699998,
+      "simulated_s": 9.153500000000008,
+      "rtf": 0.6037012290058487
+    },
+    {
+      "start_phase": "machine_final_open_approach",
+      "end_phase": "left_retrieval_open_empty",
+      "same_phase": false,
+      "real_s": 15.159857394000028,
+      "simulated_s": 9.555999999999983,
+      "rtf": 0.6303489374367109
+    },
+    {
+      "start_phase": "left_retrieval_open_empty",
+      "end_phase": "seq_retrieval_empty_descend",
+      "same_phase": false,
+      "real_s": 15.15814693699997,
+      "simulated_s": 9.96350000000001,
+      "rtf": 0.6573032997641558
+    },
+    {
+      "start_phase": "seq_retrieval_empty_descend",
+      "end_phase": "seq_retrieval_single_pilot",
+      "same_phase": false,
+      "real_s": 15.09016271500002,
+      "simulated_s": 3.359499999999997,
+      "rtf": 0.22262848078242162
+    },
+    {
+      "start_phase": "seq_retrieval_single_pilot",
+      "end_phase": "seq_retrieval_single_pilot",
+      "same_phase": true,
+      "real_s": 15.126107157999968,
+      "simulated_s": 4.6440000000000055,
+      "rtf": 0.30701884837195964
+    },
+    {
+      "start_phase": "seq_retrieval_single_pilot",
+      "end_phase": "seq_retrieval_static_grip_hold",
+      "same_phase": false,
+      "real_s": 15.117325937000032,
+      "simulated_s": 4.911999999999978,
+      "rtf": 0.32492518984311475
+    },
+    {
+      "start_phase": "seq_retrieval_static_grip_hold",
+      "end_phase": "paired_retrieval_setdown",
+      "same_phase": false,
+      "real_s": 15.139471082,
+      "simulated_s": 4.364000000000004,
+      "rtf": 0.2882531348924442
+    },
+    {
+      "start_phase": "paired_retrieval_setdown",
+      "end_phase": "paired_retrieval_setdown_fine",
+      "same_phase": false,
+      "real_s": 15.144320601999993,
+      "simulated_s": 4.430000000000007,
+      "rtf": 0.29251889975275425
+    },
+    {
+      "start_phase": "paired_retrieval_setdown_fine",
+      "end_phase": "seq_retrieval_empty_approach",
+      "same_phase": false,
+      "real_s": 15.162152883999966,
+      "simulated_s": 10.101500000000016,
+      "rtf": 0.666231245475683
+    },
+    {
+      "start_phase": "seq_retrieval_empty_approach",
+      "end_phase": "right_retrieval_grasp",
+      "same_phase": false,
+      "real_s": 15.13825360100003,
+      "simulated_s": 5.797499999999985,
+      "rtf": 0.38297019939056925
+    },
+    {
+      "start_phase": "right_retrieval_grasp",
+      "end_phase": "seq_retrieval_single_pilot",
+      "same_phase": false,
+      "real_s": 15.160324660999947,
+      "simulated_s": 3.843500000000006,
+      "rtf": 0.25352359437838684
+    },
+    {
+      "start_phase": "seq_retrieval_single_pilot",
+      "end_phase": "seq_retrieval_retrieve_lift",
+      "same_phase": false,
+      "real_s": 15.140632415000027,
+      "simulated_s": 4.384500000000003,
+      "rtf": 0.28958499749694866
+    },
+    {
+      "start_phase": "seq_retrieval_retrieve_lift",
+      "end_phase": "paired_retrieval_setdown",
+      "same_phase": false,
+      "real_s": 15.120946214000014,
+      "simulated_s": 5.141999999999996,
+      "rtf": 0.3400580841455
+    },
+    {
+      "start_phase": "paired_retrieval_setdown",
+      "end_phase": "paired_retrieval_setdown",
+      "same_phase": true,
+      "real_s": 15.118762916000037,
+      "simulated_s": 5.6895000000000095,
+      "rtf": 0.3763204722245408
+    },
+    {
+      "start_phase": "paired_retrieval_setdown",
+      "end_phase": "seq_retrieval_table_alignment_pilot",
+      "same_phase": false,
+      "real_s": 15.101685246999978,
+      "simulated_s": 6.497499999999974,
+      "rtf": 0.4302499948666811
+    },
+    {
+      "start_phase": "seq_retrieval_table_alignment_pilot",
+      "end_phase": "terminal_table_hold",
+      "same_phase": false,
+      "real_s": 15.146549392999987,
+      "simulated_s": 12.222999999999985,
+      "rtf": 0.8069824804881878
+    }
+  ],
+  "contact_counts": {
+    "machine_preparation": {
+      "messages": 10264,
+      "contact_points": 41056,
+      "maximum_points": 4,
+      "basket_contact_messages": 0
+    },
+    "machine_preparation_leg_posture": {
+      "messages": 2,
+      "contact_points": 8,
+      "maximum_points": 4,
+      "basket_contact_messages": 0
+    },
+    "machine_preparation_open_approach": {
+      "messages": 5117,
+      "contact_points": 20468,
+      "maximum_points": 4,
+      "basket_contact_messages": 0
+    },
+    "machine_preparation_open_press": {
+      "messages": 3716,
+      "contact_points": 14864,
+      "maximum_points": 4,
+      "basket_contact_messages": 0
+    },
+    "machine_preparation_open_withdraw": {
+      "messages": 10029,
+      "contact_points": 40116,
+      "maximum_points": 4,
+      "basket_contact_messages": 0
+    },
+    "machine_wait_preparation_open": {
+      "messages": 3453,
+      "contact_points": 13812,
+      "maximum_points": 4,
+      "basket_contact_messages": 0
+    },
+    "left_seq_load_open_empty": {
+      "messages": 3196,
+      "contact_points": 12784,
+      "maximum_points": 4,
+      "basket_contact_messages": 0
+    },
+    "right_seq_load_open_empty": {
+      "messages": 5738,
+      "contact_points": 22952,
+      "maximum_points": 4,
+      "basket_contact_messages": 0
+    },
+    "seq_load_empty_park": {
+      "messages": 12425,
+      "contact_points": 60470,
+      "maximum_points": 9,
+      "basket_contact_messages": 4938
+    },
+    "seq_load_empty_approach": {
+      "messages": 4488,
+      "contact_points": 20178,
+      "maximum_points": 8,
+      "basket_contact_messages": 1038
+    },
+    "seq_load_empty_descend": {
+      "messages": 5960,
+      "contact_points": 26714,
+      "maximum_points": 8,
+      "basket_contact_messages": 1339
+    },
+    "left_seq_load_grasp": {
+      "messages": 5879,
+      "contact_points": 130391,
+      "maximum_points": 84,
+      "basket_contact_messages": 0
+    },
+    "seq_load_single_pilot": {
+      "messages": 7795,
+      "contact_points": 176709,
+      "maximum_points": 60,
+      "basket_contact_messages": 1741
+    },
+    "left_seq_load_static_grip_hold": {
+      "messages": 2884,
+      "contact_points": 63448,
+      "maximum_points": 40,
+      "basket_contact_messages": 0
+    },
+    "seq_load_load_lift_and_load_transfer": {
+      "messages": 15568,
+      "contact_points": 483055,
+      "maximum_points": 80,
+      "basket_contact_messages": 3170
+    },
+    "seq_load_load_lower": {
+      "messages": 7681,
+      "contact_points": 183421,
+      "maximum_points": 60,
+      "basket_contact_messages": 1834
+    },
+    "seq_load_load_release_pilot_align": {
+      "messages": 2385,
+      "contact_points": 47794,
+      "maximum_points": 40,
+      "basket_contact_messages": 0
+    },
+    "left_release_above_bucket": {
+      "messages": 5685,
+      "contact_points": 88752,
+      "maximum_points": 40,
+      "basket_contact_messages": 539
+    },
+    "left_drop_settling": {
+      "messages": 5066,
+      "contact_points": 25614,
+      "maximum_points": 8,
+      "basket_contact_messages": 2533
+    },
+    "seq_load_empty_vertical_retreat": {
+      "messages": 3395,
+      "contact_points": 19102,
+      "maximum_points": 9,
+      "basket_contact_messages": 2563
+    },
+    "right_seq_load_grasp": {
+      "messages": 4168,
+      "contact_points": 85427,
+      "maximum_points": 84,
+      "basket_contact_messages": 2084
+    },
+    "right_seq_load_static_grip_hold": {
+      "messages": 2436,
+      "contact_points": 54162,
+      "maximum_points": 40,
+      "basket_contact_messages": 1218
+    },
+    "right_release_above_bucket": {
+      "messages": 4917,
+      "contact_points": 72907,
+      "maximum_points": 80,
+      "basket_contact_messages": 2974
+    },
+    "right_drop_settling": {
+      "messages": 3103,
+      "contact_points": 19894,
+      "maximum_points": 10,
+      "basket_contact_messages": 3103
+    },
+    "machine_sequential_empty_neutral": {
+      "messages": 839,
+      "contact_points": 5122,
+      "maximum_points": 8,
+      "basket_contact_messages": 839
+    },
+    "machine_sequential_empty_grippers": {
+      "messages": 2940,
+      "contact_points": 17884,
+      "maximum_points": 8,
+      "basket_contact_messages": 2940
+    },
+    "machine_close_approach": {
+      "messages": 1553,
+      "contact_points": 9508,
+      "maximum_points": 8,
+      "basket_contact_messages": 1553
+    },
+    "machine_close_press": {
+      "messages": 1086,
+      "contact_points": 6618,
+      "maximum_points": 8,
+      "basket_contact_messages": 1086
+    },
+    "machine_close_withdraw": {
+      "messages": 3067,
+      "contact_points": 18822,
+      "maximum_points": 8,
+      "basket_contact_messages": 3067
+    },
+    "machine_wait_closed": {
+      "messages": 1378,
+      "contact_points": 8416,
+      "maximum_points": 8,
+      "basket_contact_messages": 1378
+    },
+    "machine_start_approach": {
+      "messages": 1685,
+      "contact_points": 10340,
+      "maximum_points": 8,
+      "basket_contact_messages": 1685
+    },
+    "machine_start_press": {
+      "messages": 1104,
+      "contact_points": 6740,
+      "maximum_points": 8,
+      "basket_contact_messages": 1104
+    },
+    "machine_start_withdraw": {
+      "messages": 1116,
+      "contact_points": 7568,
+      "maximum_points": 8,
+      "basket_contact_messages": 1116
+    },
+    "machine_running_steady": {
+      "messages": 22773,
+      "contact_points": 394022,
+      "maximum_points": 20,
+      "basket_contact_messages": 22773
+    },
+    "machine_stop_press": {
+      "messages": 1019,
+      "contact_points": 20380,
+      "maximum_points": 20,
+      "basket_contact_messages": 1019
+    },
+    "machine_stop_withdraw": {
+      "messages": 863,
+      "contact_points": 17260,
+      "maximum_points": 20,
+      "basket_contact_messages": 863
+    },
+    "machine_stop_wait_quiet": {
+      "messages": 1270,
+      "contact_points": 25400,
+      "maximum_points": 20,
+      "basket_contact_messages": 1270
+    },
+    "machine_stop_handover_collision_check": {
+      "messages": 5948,
+      "contact_points": 71460,
+      "maximum_points": 20,
+      "basket_contact_messages": 5948
+    },
+    "machine_final_open_approach": {
+      "messages": 1379,
+      "contact_points": 14900,
+      "maximum_points": 20,
+      "basket_contact_messages": 1379
+    },
+    "machine_final_open_press": {
+      "messages": 1010,
+      "contact_points": 10176,
+      "maximum_points": 20,
+      "basket_contact_messages": 1010
+    },
+    "machine_final_open_withdraw": {
+      "messages": 2679,
+      "contact_points": 31453,
+      "maximum_points": 20,
+      "basket_contact_messages": 2679
+    },
+    "machine_wait_final_open": {
+      "messages": 2564,
+      "contact_points": 24377,
+      "maximum_points": 20,
+      "basket_contact_messages": 2564
+    },
+    "left_retrieval_open_empty": {
+      "messages": 2188,
+      "contact_points": 18551,
+      "maximum_points": 20,
+      "basket_contact_messages": 2188
+    },
+    "right_retrieval_open_empty": {
+      "messages": 2544,
+      "contact_points": 21611,
+      "maximum_points": 20,
+      "basket_contact_messages": 2544
+    },
+    "seq_retrieval_empty_park": {
+      "messages": 10495,
+      "contact_points": 68227,
+      "maximum_points": 20,
+      "basket_contact_messages": 6437
+    },
+    "seq_retrieval_empty_approach": {
+      "messages": 4416,
+      "contact_points": 31274,
+      "maximum_points": 20,
+      "basket_contact_messages": 3348
+    },
+    "seq_retrieval_empty_descend": {
+      "messages": 3728,
+      "contact_points": 26145,
+      "maximum_points": 20,
+      "basket_contact_messages": 2820
+    },
+    "left_retrieval_grasp": {
+      "messages": 8869,
+      "contact_points": 216508,
+      "maximum_points": 60,
+      "basket_contact_messages": 8869
+    },
+    "seq_retrieval_single_pilot": {
+      "messages": 30198,
+      "contact_points": 697748,
+      "maximum_points": 80,
+      "basket_contact_messages": 11953
+    },
+    "seq_retrieval_retrieve_axis_exit": {
+      "messages": 6698,
+      "contact_points": 154054,
+      "maximum_points": 60,
+      "basket_contact_messages": 1588
+    },
+    "seq_retrieval_retrieve_lift": {
+      "messages": 2868,
+      "contact_points": 57149,
+      "maximum_points": 60,
+      "basket_contact_messages": 709
+    },
+    "seq_retrieval_static_grip_hold": {
+      "messages": 3532,
+      "contact_points": 61825,
+      "maximum_points": 60,
+      "basket_contact_messages": 865
+    },
+    "seq_retrieval_retrieve_outboard_and_retrieve_transfer": {
+      "messages": 7970,
+      "contact_points": 222169,
+      "maximum_points": 80,
+      "basket_contact_messages": 1913
+    },
+    "paired_retrieval_setdown": {
+      "messages": 11754,
+      "contact_points": 256000,
+      "maximum_points": 60,
+      "basket_contact_messages": 1769
+    },
+    "paired_retrieval_setdown_fine": {
+      "messages": 5742,
+      "contact_points": 101688,
+      "maximum_points": 78,
+      "basket_contact_messages": 1467
+    },
+    "left_retrieval_release_on_table": {
+      "messages": 5897,
+      "contact_points": 55227,
+      "maximum_points": 37,
+      "basket_contact_messages": 2948
+    },
+    "seq_retrieval_empty_vertical_retreat": {
+      "messages": 3605,
+      "contact_points": 18270,
+      "maximum_points": 14,
+      "basket_contact_messages": 825
+    },
+    "right_retrieval_grasp": {
+      "messages": 9570,
+      "contact_points": 203731,
+      "maximum_points": 58,
+      "basket_contact_messages": 4785
+    },
+    "seq_retrieval_table_alignment_pilot": {
+      "messages": 1914,
+      "contact_points": 10515,
+      "maximum_points": 8,
+      "basket_contact_messages": 0
+    },
+    "right_retrieval_release_on_table": {
+      "messages": 8066,
+      "contact_points": 36440,
+      "maximum_points": 8,
+      "basket_contact_messages": 0
+    },
+    "terminal_table_hold": {
+      "messages": 1448,
+      "contact_points": 5792,
+      "maximum_points": 4,
+      "basket_contact_messages": 0
+    }
+  },
+  "machine_observations": {
+    "machine_preparation": {
+      "samples": 93,
+      "peak_abs_rpm": 3.077877211389594e-40,
+      "peak_abs_brake_torque_nm": 4.701770780129517e-32
+    },
+    "machine_preparation_open_approach": {
+      "samples": 90,
+      "peak_abs_rpm": 3.077877211389594e-40,
+      "peak_abs_brake_torque_nm": 4.701770780129517e-32
+    },
+    "machine_preparation_open_press": {
+      "samples": 63,
+      "peak_abs_rpm": 3.077877211389594e-40,
+      "peak_abs_brake_torque_nm": 4.701770780129517e-32
+    },
+    "machine_preparation_open_withdraw": {
+      "samples": 204,
+      "peak_abs_rpm": 3.077877211389594e-40,
+      "peak_abs_brake_torque_nm": 4.701770780129517e-32
+    },
+    "machine_wait_preparation_open": {
+      "samples": 48,
+      "peak_abs_rpm": 3.077877211389594e-40,
+      "peak_abs_brake_torque_nm": 4.701770780129517e-32
+    },
+    "left_seq_load_open_empty": {
+      "samples": 79,
+      "peak_abs_rpm": 3.077877211389594e-40,
+      "peak_abs_brake_torque_nm": 4.701770780129517e-32
+    },
+    "right_seq_load_open_empty": {
+      "samples": 151,
+      "peak_abs_rpm": 3.077877211389594e-40,
+      "peak_abs_brake_torque_nm": 4.701770780129517e-32
+    },
+    "seq_load_empty_park": {
+      "samples": 506,
+      "peak_abs_rpm": 1.3065007531351144e-05,
+      "peak_abs_brake_torque_nm": 0.00011210468872308146
+    },
+    "seq_load_empty_approach": {
+      "samples": 249,
+      "peak_abs_rpm": 4.688675528132983e-11,
+      "peak_abs_brake_torque_nm": 4.0560458628851163e-10
+    },
+    "seq_load_empty_descend": {
+      "samples": 273,
+      "peak_abs_rpm": 4.541053789354228e-11,
+      "peak_abs_brake_torque_nm": 3.91490366294194e-10
+    },
+    "left_seq_load_grasp": {
+      "samples": 98,
+      "peak_abs_rpm": 3.077877211389594e-40,
+      "peak_abs_brake_torque_nm": 4.701770780129517e-32
+    },
+    "seq_load_single_pilot": {
+      "samples": 165,
+      "peak_abs_rpm": 5.397227889147208e-11,
+      "peak_abs_brake_torque_nm": 4.63266016165651e-10
+    },
+    "left_seq_load_static_grip_hold": {
+      "samples": 50,
+      "peak_abs_rpm": 3.077877211389594e-40,
+      "peak_abs_brake_torque_nm": 4.701770780129517e-32
+    },
+    "seq_load_load_lift_and_load_transfer": {
+      "samples": 417,
+      "peak_abs_rpm": 4.7070805721005575e-11,
+      "peak_abs_brake_torque_nm": 4.0324180894224764e-10
+    },
+    "seq_load_load_lower": {
+      "samples": 173,
+      "peak_abs_rpm": 3.71580693746493e-11,
+      "peak_abs_brake_torque_nm": 3.216728363380098e-10
+    },
+    "seq_load_load_release_pilot_align": {
+      "samples": 44,
+      "peak_abs_rpm": 3.077877211389594e-40,
+      "peak_abs_brake_torque_nm": 4.701770780129517e-32
+    },
+    "left_release_above_bucket": {
+      "samples": 79,
+      "peak_abs_rpm": 0.001325706037483748,
+      "peak_abs_brake_torque_nm": 0.00014816320416160232
+    },
+    "left_drop_settling": {
+      "samples": 111,
+      "peak_abs_rpm": 6.187347385005227e-07,
+      "peak_abs_brake_torque_nm": 2.2361631582423877e-05
+    },
+    "seq_load_empty_vertical_retreat": {
+      "samples": 121,
+      "peak_abs_rpm": 3.654227399393603e-08,
+      "peak_abs_brake_torque_nm": 1.0951532660091866e-07
+    },
+    "right_seq_load_grasp": {
+      "samples": 97,
+      "peak_abs_rpm": 6.810935158775597e-11,
+      "peak_abs_brake_torque_nm": 5.860208265474035e-10
+    },
+    "right_seq_load_static_grip_hold": {
+      "samples": 48,
+      "peak_abs_rpm": 2.8188691888219535e-11,
+      "peak_abs_brake_torque_nm": 2.402858696282477e-10
+    },
+    "right_release_above_bucket": {
+      "samples": 80,
+      "peak_abs_rpm": 0.0038032918647289632,
+      "peak_abs_brake_torque_nm": 0.004671653806913496
+    },
+    "right_drop_settling": {
+      "samples": 67,
+      "peak_abs_rpm": 2.7444340806724996e-07,
+      "peak_abs_brake_torque_nm": 2.3562390315412424e-06
+    },
+    "machine_sequential_empty_neutral": {
+      "samples": 49,
+      "peak_abs_rpm": 3.5649601542302253e-10,
+      "peak_abs_brake_torque_nm": 3.0408819095032623e-09
+    },
+    "machine_sequential_empty_grippers": {
+      "samples": 158,
+      "peak_abs_rpm": 5.777808069671992e-10,
+      "peak_abs_brake_torque_nm": 4.9955724930920666e-09
+    },
+    "machine_close_approach": {
+      "samples": 90,
+      "peak_abs_rpm": 4.817202370916725e-10,
+      "peak_abs_brake_torque_nm": 4.1238717164900025e-09
+    },
+    "machine_close_press": {
+      "samples": 62,
+      "peak_abs_rpm": 5.081962953497116e-10,
+      "peak_abs_brake_torque_nm": 4.34549630380915e-09
+    },
+    "machine_close_withdraw": {
+      "samples": 174,
+      "peak_abs_rpm": 5.199599639467455e-10,
+      "peak_abs_brake_torque_nm": 4.449893976431839e-09
+    },
+    "machine_wait_closed": {
+      "samples": 71,
+      "peak_abs_rpm": 4.753054998459538e-10,
+      "peak_abs_brake_torque_nm": 4.066114526087835e-09
+    },
+    "machine_start_approach": {
+      "samples": 96,
+      "peak_abs_rpm": 4.778271999936894e-10,
+      "peak_abs_brake_torque_nm": 4.089395083456572e-09
+    },
+    "machine_start_press": {
+      "samples": 63,
+      "peak_abs_rpm": 0.5779219382984674,
+      "peak_abs_brake_torque_nm": 0.027746077496681402
+    },
+    "machine_start_withdraw": {
+      "samples": 62,
+      "peak_abs_rpm": 10.253227475946652,
+      "peak_abs_brake_torque_nm": 0.030506213769964034
+    },
+    "machine_running_steady": {
+      "samples": 1531,
+      "peak_abs_rpm": 30.050901476785004,
+      "peak_abs_brake_torque_nm": 0.051498757342662155
+    },
+    "machine_stop_approach": {
+      "samples": 1,
+      "peak_abs_rpm": 29.9991246811038,
+      "peak_abs_brake_torque_nm": 0.03159833626501631
+    },
+    "machine_stop_press": {
+      "samples": 71,
+      "peak_abs_rpm": 30.015845582730535,
+      "peak_abs_brake_torque_nm": 0.033484498421424876
+    },
+    "machine_stop_withdraw": {
+      "samples": 63,
+      "peak_abs_rpm": 29.235126907908434,
+      "peak_abs_brake_torque_nm": 0.00695140737540657
+    },
+    "machine_stop_wait_quiet": {
+      "samples": 88,
+      "peak_abs_rpm": 16.940250626543097,
+      "peak_abs_brake_torque_nm": 0.024674738824019708
+    },
+    "machine_stop_handover_collision_check": {
+      "samples": 372,
+      "peak_abs_rpm": 0.008551816947946447,
+      "peak_abs_brake_torque_nm": 0.07295003248860099
+    },
+    "machine_final_open_approach": {
+      "samples": 90,
+      "peak_abs_rpm": 2.4434046109583e-06,
+      "peak_abs_brake_torque_nm": 2.0975326351876782e-05
+    },
+    "machine_final_open_press": {
+      "samples": 62,
+      "peak_abs_rpm": 0.008509833127447212,
+      "peak_abs_brake_torque_nm": 0.07259373145606034
+    },
+    "machine_final_open_withdraw": {
+      "samples": 174,
+      "peak_abs_rpm": 0.007735011376061231,
+      "peak_abs_brake_torque_nm": 0.06803261329368565
+    },
+    "machine_wait_final_open": {
+      "samples": 156,
+      "peak_abs_rpm": 7.54244814334665e-06,
+      "peak_abs_brake_torque_nm": 6.452641533918173e-05
+    },
+    "left_retrieval_open_empty": {
+      "samples": 78,
+      "peak_abs_rpm": 4.5056745734296885e-08,
+      "peak_abs_brake_torque_nm": 3.858321530603493e-07
+    },
+    "right_retrieval_open_empty": {
+      "samples": 91,
+      "peak_abs_rpm": 3.9278777101554296e-08,
+      "peak_abs_brake_torque_nm": 3.366369990461108e-07
+    },
+    "seq_retrieval_empty_park": {
+      "samples": 457,
+      "peak_abs_rpm": 3.1126470582922696e-08,
+      "peak_abs_brake_torque_nm": 2.6562044863289434e-07
+    },
+    "seq_retrieval_empty_approach": {
+      "samples": 255,
+      "peak_abs_rpm": 4.0189752891842146e-08,
+      "peak_abs_brake_torque_nm": 3.439267574956397e-07
+    },
+    "seq_retrieval_empty_descend": {
+      "samples": 145,
+      "peak_abs_rpm": 6.056566042650463e-08,
+      "peak_abs_brake_torque_nm": 5.320003098562281e-07
+    },
+    "left_retrieval_grasp": {
+      "samples": 145,
+      "peak_abs_rpm": 0.003558097499611888,
+      "peak_abs_brake_torque_nm": 0.05539161375132607
+    },
+    "seq_retrieval_single_pilot": {
+      "samples": 622,
+      "peak_abs_rpm": 0.012708685544081813,
+      "peak_abs_brake_torque_nm": 0.10727052021183917
+    },
+    "seq_retrieval_retrieve_axis_exit": {
+      "samples": 151,
+      "peak_abs_rpm": 2.72972201927084e-06,
+      "peak_abs_brake_torque_nm": 2.2997938633116778e-05
+    },
+    "seq_retrieval_retrieve_lift": {
+      "samples": 75,
+      "peak_abs_rpm": 4.362434779234733e-09,
+      "peak_abs_brake_torque_nm": 3.73378876775891e-08
+    },
+    "seq_retrieval_static_grip_hold": {
+      "samples": 98,
+      "peak_abs_rpm": 7.277986955862411e-09,
+      "peak_abs_brake_torque_nm": 6.210116782965751e-08
+    },
+    "seq_retrieval_retrieve_outboard_and_retrieve_transfer": {
+      "samples": 273,
+      "peak_abs_rpm": 8.550396460634572e-09,
+      "peak_abs_brake_torque_nm": 7.321429565655993e-08
+    },
+    "paired_retrieval_setdown": {
+      "samples": 675,
+      "peak_abs_rpm": 1.3985187139251878e-08,
+      "peak_abs_brake_torque_nm": 1.1987586865359927e-07
+    },
+    "paired_retrieval_setdown_fine": {
+      "samples": 268,
+      "peak_abs_rpm": 1.1167882212011596e-08,
+      "peak_abs_brake_torque_nm": 9.650399403762225e-08
+    },
+    "left_retrieval_release_on_table": {
+      "samples": 148,
+      "peak_abs_rpm": 1.7854207393056616e-07,
+      "peak_abs_brake_torque_nm": 1.5288738554750339e-06
+    },
+    "seq_retrieval_empty_vertical_retreat": {
+      "samples": 157,
+      "peak_abs_rpm": 7.920540827298453e-08,
+      "peak_abs_brake_torque_nm": 6.764270324706484e-07
+    },
+    "right_retrieval_grasp": {
+      "samples": 147,
+      "peak_abs_rpm": 9.150731475951659e-07,
+      "peak_abs_brake_torque_nm": 4.337436119031613e-05
+    },
+    "seq_retrieval_table_alignment_pilot": {
+      "samples": 78,
+      "peak_abs_rpm": 1.2213329976819904e-10,
+      "peak_abs_brake_torque_nm": 1.2789769243681803e-13
+    },
+    "right_retrieval_release_on_table": {
+      "samples": 178,
+      "peak_abs_rpm": 1.2213329976819904e-10,
+      "peak_abs_brake_torque_nm": 1.2789769243681803e-13
+    },
+    "terminal_table_hold": {
+      "samples": 49,
+      "peak_abs_rpm": 1.2213329976819904e-10,
+      "peak_abs_brake_torque_nm": 1.2789769243681803e-13
+    }
+  },
+  "actual_holder_counts": {
+    "seq_load_empty_park": [
+      0
+    ],
+    "seq_load_empty_approach": [
+      0
+    ],
+    "seq_load_empty_descend": [
+      0
+    ],
+    "seq_load_single_pilot": [
+      1
+    ],
+    "seq_load_load_lift_and_load_transfer": [
+      1
+    ],
+    "seq_load_load_lower": [
+      1
+    ],
+    "seq_load_load_release_pilot_align": [
+      1
+    ],
+    "seq_load_empty_vertical_retreat": [
+      0
+    ],
+    "machine_sequential_empty_neutral": [
+      0
+    ],
+    "seq_retrieval_empty_park": [
+      0
+    ],
+    "seq_retrieval_empty_approach": [
+      0
+    ],
+    "seq_retrieval_empty_descend": [
+      0
+    ],
+    "seq_retrieval_single_pilot": [
+      1
+    ],
+    "seq_retrieval_retrieve_axis_exit": [
+      1
+    ],
+    "seq_retrieval_retrieve_lift": [
+      1
+    ],
+    "seq_retrieval_retrieve_outboard_and_retrieve_transfer": [
+      1
+    ],
+    "paired_retrieval_setdown": [
+      1
+    ],
+    "paired_retrieval_setdown_fine": [
+      1
+    ],
+    "seq_retrieval_empty_vertical_retreat": [
+      0
+    ],
+    "seq_retrieval_table_alignment_pilot": [
+      1
+    ]
+  },
+  "contact_messages_not_solver_cost": true,
+  "read_only_and_no_frequency_or_guard_changes": true
+}

@@ -7,7 +7,30 @@
 工作区：
 /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws
 
-最新覆盖（2026-10-23）：r354完整分开抓PASS，214.241sim /484.470481546wall，
+最新实验覆盖（2026-10-23）：r357/r358失败，完整成功仍r356；不能把失败前缀或剪辑视频称现实三分钟。
+先读runtime_evidence/centrifuge_48box_sequential_full_20261023_r358/REPORT.md和review_20261023_r5的ROUND_SUMMARY（完整目录名centrifuge_48box_sequential_review_20261023_r5）。
+新DART lookup组件两轮5400步/43200向量逐位一致，组件比1.0880/1.0909；实际物理/动作/门限不变，各2341测试两轮通过。
+r357任务前丢0.5ms关节源帧；r358重新启动通过，但不能称根因修复。r357无任务视频，旧失败证据封存。
+r358双装篮→真实关盖/启动→稳转30.0945sim→停稳开盖通过；左取盒轴向离篮规划发现盒子与篮体模型碰撞，
+worker失败后停持，左holder、右盒在篮、返回0。315.213575348wall为失败前缀，不计算相对成功提速。
+原快照已离线复现第三条边抬起约2.314mm时原碰撞门拒绝，尚未修复，不放宽ACM/源步长/重置holder凑通过。
+原速357.916667秒视频完整解码；不是完整成功。保护前后保持，正常SIGINT录像和原身份场景退休remaining为空，live须重查。
+r358源700 SHA53645015dd869c345f296496630264fa734653039860b38f47ba1d565f9e4931；
+失败core1030 SUM84d7cb92d80bacea4282f7d9a21a927198b279a2b7c59bdacdc2b4d3f3c94da3。
+下一步先分析实际篮局部净空、小幅居中/轴向离篮候选，左右手旧快照回归后再新身份；当前默认成功仍r356，不复用run。
+MD/封存后执行既定GitHub同步，实际提交看远端回执；大文件仍本地，无清理/备份/真机许可。
+
+当前完整成功基线（2026-10-23，r356）：完整分开抓PASS，221.376sim /481.783994177wall，稳转30.129sim。
+先读runtime_evidence/centrifuge_48box_sequential_full_20261023_r356/REPORT.md和runtime_evidence/centrifuge_48box_sequential_review_20261023_r3/ROUND_SUMMARY.md。
+现实180秒与稳定1倍未达；r355预压观测缺口FAIL已封存，r356窄等待原支撑门不改，实际未触发新等待，不称充分恢复证明。
+2325测试两轮、91专项、28物理门、4捕获4释放、22路径24597密FCL通过；Nav111/2旧缺源保持。
+源695 SHA ce7ff0e0463f286fcd4bfeacd3721c3830e2afa3b75c56389ccf57a370018fbb；核心/review清单见新报告。
+原速551.083333秒，另155.541667秒汇报剪辑不是实际执行用时。RTF0.456799、native滑移3.231299mm/角偏5.984290°符合现5mm/10°而非旧严格门。
+新惯量组件只省重复骨架读取，原dirty刷新/算术/顺序/.5ms保持；下一新身份优先测重复骨架/接触响应查找。
+九组及r353/r354/r355保护前后保持；既有r353两自输出日志例外不改。新运行必须未用identity/overlay/domain/partition，禁止重跑r356。
+完成MD/封存后按/home/liu/h1_moveit/sync_to_github.sh同步；大数据仅本地。该段覆盖以下旧“最新”，没有新目标仍只读R。
+
+保留历史（2026-10-23）：r354完整分开抓PASS，214.241sim /484.470481546wall，
 稳转30.2595sim，较r353少9.830916wall（1.99%）；现实/当前分开抓仿真三分钟、稳定1倍仍未达。
 先读runtime_evidence/centrifuge_48box_sequential_full_20261023_r354/REPORT.md，
 及runtime_evidence/centrifuge_48box_sequential_review_20261023_r1/ROUND_SUMMARY.md、PERFORMANCE.md。
@@ -315,7 +338,7 @@ maxContacts=4仅离线SDF探针，未实跑/安装；r337未改变10Hz Mid360点
 清理需对应明确授权；新备份需用户给从未使用编号并验证archive/sidecar不存在；
 完整恢复只能到新空目录，不能覆盖当前工作区。所有结果只限Gazebo，无真机许可。
 
-首次简洁报告：已读文件；r354/r353完整成功、r348–r352历史失败、旧r333/r331/r327/r318和备份区别；新查live；
+首次简洁报告：已读文件；r356/r354完整成功、r357/r358及此前失败、旧r333/r331/r327/r318和备份区别；新查live；
 本次对应分支；非只读还缺什么授权/编号。不要仅照抄本提示词的历史状态。
 
 本次具体目标：（留空则只读接管和报告）

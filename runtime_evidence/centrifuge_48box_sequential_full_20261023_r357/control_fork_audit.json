@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "geometry_inertias_joints_unchanged": true,
+  "friction_links": [
+    "left_dex1_finger_1_link",
+    "left_dex1_finger_1_pad_link",
+    "left_dex1_finger_2_link",
+    "left_dex1_finger_2_pad_link",
+    "right_dex1_finger_1_link",
+    "right_dex1_finger_1_pad_link",
+    "right_dex1_finger_2_link",
+    "right_dex1_finger_2_pad_link"
+  ],
+  "friction_coefficient": 1.2,
+  "position_proportional_gain": 0.2,
+  "previous_default_gain": 0.1,
+  "payload_friction_before": 0.6,
+  "payload_contact_changes_include_table": true,
+  "only_four_gripper_command_interfaces_changed": [
+    "left_dex1_finger_1_joint",
+    "left_dex1_finger_2_joint",
+    "right_dex1_finger_1_joint",
+    "right_dex1_finger_2_joint"
+  ],
+  "limits_N": [
+    -18,
+    18
+  ],
+  "original_urdf_sha256": "84eb84b513ba68f06d97a7db2fdb7d9bb6e62c5bef69aaabba4ce285325c989d",
+  "original_controller_sha256": "612722d2143e39ef467219c67b9fb4bbfba9cb90a6bf047701308b4ff6279795",
+  "other_controllers_unchanged": true,
+  "experimental_only": true,
+  "world_only_changes": {
+    "max_step_size": [
+      0.001,
+      0.0005
+    ],
+    "real_time_update_rate": [
+      500,
+      2000
+    ],
+    "real_time_factor": [
+      0.5,
+      1.0
+    ]
+  },
+  "physics_step_s": 0.0005,
+  "relay_exact_source_step_ns": 500000,
+  "relay_output_period_ns": 10000000,
+  "motor_brake": {
+    "stopped_velocity_gain": 80,
+    "stopped_position_gain": 8000,
+    "torque_limit_nm": 2,
+    "model_geometry_inertia_joints_unchanged": true,
+    "library_sha256": "174491d4c4bdefdfdc38f17eaab87a20f9b81bd35e9278eed4fe1a9e4ee95667",
+    "parent_bench": "centrifuge_48box_position_brake_20261010_r189"
+  },
+  "gui_only_removed_plugin": "WorldControl",
+  "original_gui_sha256": "5dbca992689ccbe756c1907d85343a2df9eb18eb26d2dd0dae988e1174880eae",
+  "experimental_gui_sha256": "28a62890d4b41b25baa097b55ac91128326b1547da9c49d3a21cf007a513c860",
+  "parent_audit_sha256": "671dcdd9923869a1d71f288958e84136236645e7c04724b089b523c93e74e470",
+  "input_rebind_independently_verified": true,
+  "inherited_configuration_or_old_calibration_not_new_physical_pass": true,
+  "current_identity": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r357",
+  "current_gripper_pid_d": 6.0,
+  "parent_gripper_dynamics_not_current_physical_certificate": true,
+  "controllers_servo_yaml_sha256": "26ec61df93b2e96ece9b2bcd6450feb81114ffdce91ceb054a9bb0d243a662ea",
+  "inherited_same_pid_not_general_physical_certificate": true,
+  "new_d6_current_physical_qualification_not_preclaimed": true
+}

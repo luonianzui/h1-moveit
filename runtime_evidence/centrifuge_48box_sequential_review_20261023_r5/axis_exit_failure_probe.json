@@ -1,0 +1,123 @@
+{
+  "status": "PASS_REPRODUCED_R358_GEOMETRIC_FAILURE_NOT_FIXED",
+  "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r358/run/16_retrieval_transport_left_request.json",
+  "source_sha256": "06abc32e0ee92fe22158e2d6257e074304f7c475e928b44b8f24db49d2177022",
+  "original_protection_and_runtime_holder_anchors_unchanged": true,
+  "no_commands_or_physics": true,
+  "checked_edges": [
+    {
+      "phase": "retrieve_axis_exit",
+      "initial_support": "basket",
+      "table_endpoint": false,
+      "maximum_joint_delta_rad": 3.469446951953614e-18,
+      "status": "PASS_ORIGINAL_GATE"
+    },
+    {
+      "phase": "retrieve_axis_exit",
+      "initial_support": "basket",
+      "table_endpoint": false,
+      "maximum_joint_delta_rad": 0.0038561299785830894,
+      "status": "PASS_ORIGINAL_GATE"
+    },
+    {
+      "phase": "retrieve_axis_exit",
+      "initial_support": null,
+      "table_endpoint": false,
+      "maximum_joint_delta_rad": 0.0038399338378498626,
+      "status": "REPRODUCED_ORIGINAL_COLLISION_REJECTION",
+      "error": "Single-holder dense full-scene collision: {\"phase\": \"retrieve_axis_exit\", \"fraction\": 1.0, \"joints\": {\"torso_joint\": -0.7310115491920066, \"left_shoulder_pitch_joint\": -1.6311570681614191, \"left_shoulder_roll_joint\": 0.6158376460196471, \"left_shoulder_yaw_joint\": -0.023840679097621557, \"left_elbow_joint\": 3.0271451868856114, \"left_wrist_roll_joint\": 0.5272042626754015, \"left_wrist_pitch_joint\": 0.10129063354262777, \"left_wrist_yaw_joint\": -0.3631681492296795, \"right_shoulder_pitch_joint\": 3.357661827111516e-13, \"right_shoulder_roll_joint\": -0.9499999999994285, \"right_shoulder_yaw_joint\": 1.3197733825388432e-12, \"right_elbow_joint\": 0.3000000000003791, \"right_wrist_roll_joint\": 6.221256742354643e-14, \"right_wrist_pitch_joint\": 5.107992693422252e-13, \"right_wrist_yaw_joint\": 1.0519206207563413e-12}}",
+      "actual_initial_bucket_local": [
+        [
+          -1.5325077000860054e-05,
+          0.9999997073275867,
+          -0.000764924756203194,
+          0.0009063718403958809
+        ],
+        [
+          -0.9999905501675361,
+          -1.1999541847773584e-05,
+          0.004347347655669084,
+          0.0005950289807951092
+        ],
+        [
+          0.004347337204573733,
+          0.0007649841512299693,
+          0.9999902576817826,
+          0.014748869118285324
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "rejected_endpoint_bucket_local": [
+        [
+          -1.5324872769099726e-05,
+          0.9999997073275115,
+          -0.000764924858649433,
+          0.0009063718595154757
+        ],
+        [
+          -0.9999905501673321,
+          -1.199933713602603e-05,
+          0.004347347703147591,
+          0.0005950289713185786
+        ],
+        [
+          0.0043473372522071655,
+          0.0007649842527876725,
+          0.9999902576814979,
+          0.01706350345243357
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "body_motion_world_m": [
+        3.2636092281324025e-05,
+        2.5525402322500168e-05,
+        0.00231426347681829
+      ],
+      "original_start_joint_positions": {
+        "torso_joint": -0.7330877718824105,
+        "left_shoulder_pitch_joint": -1.6273171343235693,
+        "left_shoulder_roll_joint": 0.6174869122732337,
+        "left_shoulder_yaw_joint": -0.022945316123120372,
+        "left_elbow_joint": 3.0268098583099277,
+        "left_wrist_roll_joint": 0.5266317305995512,
+        "left_wrist_pitch_joint": 0.09882983149053091,
+        "left_wrist_yaw_joint": -0.36183702675110346,
+        "right_shoulder_pitch_joint": 3.357661827111516e-13,
+        "right_shoulder_roll_joint": -0.9499999999994285,
+        "right_shoulder_yaw_joint": 1.3197733825388432e-12,
+        "right_elbow_joint": 0.3000000000003791,
+        "right_wrist_roll_joint": 6.221256742354643e-14,
+        "right_wrist_pitch_joint": 5.107992693422252e-13,
+        "right_wrist_yaw_joint": 1.0519206207563413e-12
+      },
+      "rejected_endpoint_joint_positions": {
+        "torso_joint": -0.7310115491920066,
+        "left_shoulder_pitch_joint": -1.6311570681614191,
+        "left_shoulder_roll_joint": 0.6158376460196471,
+        "left_shoulder_yaw_joint": -0.023840679097621557,
+        "left_elbow_joint": 3.0271451868856114,
+        "left_wrist_roll_joint": 0.5272042626754015,
+        "left_wrist_pitch_joint": 0.10129063354262777,
+        "left_wrist_yaw_joint": -0.3631681492296795,
+        "right_shoulder_pitch_joint": 3.357661827111516e-13,
+        "right_shoulder_roll_joint": -0.9499999999994285,
+        "right_shoulder_yaw_joint": 1.3197733825388432e-12,
+        "right_elbow_joint": 0.3000000000003791,
+        "right_wrist_roll_joint": 6.221256742354643e-14,
+        "right_wrist_pitch_joint": 5.107992693422252e-13,
+        "right_wrist_yaw_joint": 1.0519206207563413e-12
+      }
+    }
+  ],
+  "task_pass": false
+}

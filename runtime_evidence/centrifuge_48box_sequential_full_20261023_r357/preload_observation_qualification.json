@@ -1,0 +1,12 @@
+{
+  "status": "PASS_ACTUAL_FAULT_ELIGIBILITY_AND_BOUNDED_WAIT_NOT_NEW_PHYSICS",
+  "fixture_sha256": "565c48b124c9ddd13bad50963fd672ce977fb771093d59c315d0572517593c6c",
+  "actual_fault_wait_eligible": true,
+  "actual_post_fault_large_gap_rejected": true,
+  "original_support_capture_and_geometry_unchanged": true,
+  "maximum_wall_wait_s": 0.02,
+  "maximum_sim_wait_s": 0.001,
+  "maximum_callbacks": 64,
+  "old_complete_success_not_modified": true,
+  "no_new_physical_success_claimed": true
+}

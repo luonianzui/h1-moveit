@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "phase": "approach",
+      "checked": 555,
+      "minimum_nonallowed_distance_m": 0.008670888244954012
+    },
+    {
+      "phase": "push",
+      "checked": 125,
+      "minimum_nonallowed_distance_m": 0.008670888244954012
+    }
+  ],
+  "maximum_joint_step_rad": 0.002,
+  "minimum_original_nonallowed_clearance_m": 0.005,
+  "source_sim": 154.0045,
+  "original_push_and_approach_reverse_paths_identical_geometry": true,
+  "original_five_lid_angle_and_loaded_rotor_envelope_preserved": true,
+  "whole_robot_actual_positions_used": true,
+  "only_target_left_fingertip_button_contact_exempt": true,
+  "right_stop_pre_not_replaced_by_old_home": true,
+  "no_physical_attachment_or_robot_command": true
+}

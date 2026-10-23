@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "calibration_parent": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_gain_reverse_calibration_20261013_r253",
+  "calibration_manifest_sha256": "c7c85cf28e5cfd4045d1f8b6175ec29a7e6f4896d51edd162a8a963004674fda",
+  "calibration_report_sha256": "9d52f57bbb938ddd1ff464dad6b9d77174b2f4c420573e897ee50c0d160454cd",
+  "position_proportional_gain": 0.6,
+  "manager_update_rate_hz": 500,
+  "models": [
+    {
+      "name": "robot_servo.urdf",
+      "calibrated_model_sha256": "f6e18f1e29ed5a95a3e960b29c2dd3f4df4e848dfa1d69b386edfb04b8409673",
+      "current_sha256": "8651643ac0e91dd0ddc2b5a79a24034ada2804fba5144b2bef3b9f62a4e9e862"
+    },
+    {
+      "name": "robot_dual.urdf",
+      "calibrated_model_sha256": "4df2c64ec386cd2977e40943ba6ee2d2d9800e21e012602ba24506c36fffc492",
+      "current_sha256": "bf75163ba0ef6dc1e8e1b7e9a23b7f2f6582c6d4be86362d3d1ad863cd6ea0e3"
+    }
+  ],
+  "certificate": {
+    "status": "PASS",
+    "scope": "fixed_pelvis_empty_arm_gain06_500hz_calibration",
+    "full_cycle_execution_certified": false,
+    "position_proportional_gain": 0.6,
+    "native_tracking_peaks_rad": {
+      "machine_gain_calibration_0.12_outward": 0.00016000000025406802,
+      "machine_gain_calibration_0.12_return": 0.00015999999998139725,
+      "machine_gain_calibration_0.4_outward": 0.0005333333335366675,
+      "machine_gain_calibration_0.4_return": 0.0005333333333099599,
+      "machine_gain_calibration_0.8_outward": 0.0010713035269045434,
+      "machine_gain_calibration_0.8_return": 0.0010666666666347968
+    },
+    "native_tracking_counts": {
+      "machine_gain_calibration_0.12_outward": 100,
+      "machine_gain_calibration_0.12_return": 100,
+      "machine_gain_calibration_0.4_outward": 30,
+      "machine_gain_calibration_0.4_return": 30,
+      "machine_gain_calibration_0.8_outward": 15,
+      "machine_gain_calibration_0.8_return": 15
+    },
+    "maximum_actual_finger_velocity_m_s": 0.12831165669919897,
+    "independent_native_frames_and_scalar_interpolation": true,
+    "reported_tracking_peaks_not_used_as_proof": true,
+    "medium_rate_two_mrad_passed": true
+  },
+  "only_small_empty_arm_ramps_certified": true,
+  "loaded_motion_not_preclaimed": true,
+  "calibration_shape_changed_only_at_feet": true,
+  "new_scene_tracking_still_requires_actual_verification": true,
+  "full_cycle_execution_certified": false,
+  "fresh_complete_physical_execution_required": true,
+  "prior_certificate_gripper_control_not_current_dynamics": true,
+  "unchanged_arm_driver_parameters_not_current_gripper_velocity_certificate": true,
+  "current_gripper_pid_d": 6.0,
+  "current_initial_approach_under_native_guards_required": true
+}

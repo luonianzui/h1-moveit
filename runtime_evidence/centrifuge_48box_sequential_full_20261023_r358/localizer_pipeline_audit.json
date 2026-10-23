@@ -1,0 +1,27 @@
+{
+  "status": "FAIL",
+  "task_status": "FAIL",
+  "configuration": {
+    "event": "configured",
+    "wall": 180467.770910671,
+    "localization_rate": 5.0,
+    "transform_timeout": 1.0,
+    "publish_map_to_odom": false,
+    "original_sha256": "65c49409765cf9a0194ca2a9476d881b466d2dcf516ceb34deef9694d913a199",
+    "rate_gate": "integer_nanoseconds_no_source_stamp_rewrite"
+  },
+  "validated_bootstrap_preclock_events": [],
+  "original_source_stamps_preserved": true,
+  "original_1s_guard_unchanged": true,
+  "producer_cloud_count": 1821,
+  "producer_pose_count": 918,
+  "consumer_pose_count": 767,
+  "consumer_all_stamps_found_in_producer": true,
+  "task_source_pose_max_gap_sim_s": 0.30000000000001137,
+  "task_source_cloud_max_gap_sim_s": 0.20000000000001705,
+  "producer_max_tf_lookup_wall_s": 0.003239298996049911,
+  "producer_max_cloud_callback_wall_s": 0.14001579699106514,
+  "tf_errors": [],
+  "configured_rate_hz_is_cap_not_guaranteed_5Hz": true,
+  "historical_failure_unique_root_cause_not_proven": true
+}

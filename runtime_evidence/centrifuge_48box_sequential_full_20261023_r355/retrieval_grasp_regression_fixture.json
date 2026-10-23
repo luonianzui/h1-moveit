@@ -1,0 +1,37 @@
+{
+  "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_loaded_rate_20261012_r223/failure_analysis.json",
+  "source_sha256": "d4b0e1cfba65aa5196dd340b9d970870a1e3d6ab286a2eb449a3a03b37e7689a",
+  "fault": {
+    "kind": "machine_guard_fault",
+    "phase": "right_grasp",
+    "sim": 322.171,
+    "wall": 1791783131.8942573,
+    "payload": {
+      "machine": {
+        "ready": true,
+        "rotor_enabled": false,
+        "open_lid_demo": false,
+        "stopped_velocity_gain": 80,
+        "stopped_position_gain": 8000,
+        "brake_active": true,
+        "rotor_angle_rad": 104.19572615833904,
+        "brake_reference_rad": 104.19573207162297,
+        "brake_position_error_rad": 5.913283928293822e-06,
+        "motor_torque_nm": 0.22724450931567536,
+        "rotor_rad_s": -0.002249509162261842,
+        "rotor_rpm": -0.02148123016226884,
+        "lid_rad": 2.0943951023932086,
+        "lid_target_rad": 2.0943951023931953,
+        "can_open": true,
+        "can_start": false,
+        "starts": 1,
+        "stops": 1,
+        "blocked_lid": 0,
+        "blocked_start": 0,
+        "rejected": ""
+      },
+      "drop_window_until": null
+    }
+  },
+  "retrieval_closing_from_sealed_call_chain": true
+}

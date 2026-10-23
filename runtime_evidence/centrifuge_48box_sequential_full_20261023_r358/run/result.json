@@ -1,0 +1,215 @@
+{
+  "status": "FAIL",
+  "scope": "two_box_load_close_spin_open_retrieve",
+  "error": "Traceback (most recent call last):\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r358/execute_sequential.py\", line 47, in main\n    cycle.run_complete()\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r358/planning_pipeline.py\", line 11, in run_complete\n    return super().run_complete()\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r358/runtime_performance.py\", line 20, in run_complete\n    return super().run_complete()\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r358/sequential_cycle.py\", line 451, in run_complete\n    self.retrieve()\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r358/sequential_speed_cycle.py\", line 228, in retrieve\n    planned = self.single_plan('retrieval_transport', hand, payload)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r358/prefetch_cycle.py\", line 83, in single_plan\n    return super().single_plan(mode, hand, payload)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r358/sequential_speed_cycle.py\", line 167, in single_plan\n    receipt = self.planning_worker.execute(source, output, self.spin)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r358/planner_client.py\", line 22, in execute\n    return self.finish(self.submit(source, destination), spin)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r358/planner_client.py\", line 45, in finish\n    raise RuntimeError('Persistent planner exited before request completion')\nRuntimeError: Persistent planner exited before request completion\n",
+  "holding": "left",
+  "held_payload": "left",
+  "motions": 94,
+  "max_slip_m": 0.0009621431891643965,
+  "max_native_slip_m": 0.0009597943220641404,
+  "final_machine": {
+    "ready": true,
+    "rotor_enabled": false,
+    "open_lid_demo": false,
+    "stopped_velocity_gain": 80,
+    "startup_ramp_rad_s2": 0.8,
+    "stopped_position_gain": 8000,
+    "brake_active": true,
+    "rotor_angle_rad": 105.59782777438886,
+    "brake_reference_rad": 105.59782777438893,
+    "brake_position_error_rad": 7.105427357601002e-14,
+    "motor_torque_nm": 2.235832693822237e-08,
+    "rotor_rad_s": -2.724077103339704e-10,
+    "rotor_rpm": -2.6013020181597936e-09,
+    "lid_rad": 2.0943951023932086,
+    "lid_target_rad": 2.0943951023931953,
+    "can_open": true,
+    "can_start": false,
+    "starts": 1,
+    "stops": 1,
+    "blocked_lid": 0,
+    "blocked_start": 0,
+    "rejected": ""
+  },
+  "physical_press_events": [
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 1,
+      "sim_time": 34.8845,
+      "contact": {
+        "stamp": 34.884,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.463705284748093e-06,
+              3.116939928216912e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 2,
+      "sim_time": 104.5,
+      "contact": {
+        "stamp": 104.4995,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.464233130131815e-06,
+              3.1174644145055136e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "rotor",
+      "sequence": 3,
+      "sim_time": 112.5625,
+      "contact": {
+        "stamp": 112.562,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::rotor_button_collision",
+            "second": "h1_2::right_dex1_finger_2_slider_link::right_dex1_finger_2_slider_link_fixed_joint_lump__right_dex1_finger_2_link_collision_1",
+            "depths": [
+              6.529262322320893e-06,
+              3.1829133950419045e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "rotor",
+      "sequence": 4,
+      "sim_time": 146.568,
+      "contact": {
+        "stamp": 146.5675,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::rotor_button_collision",
+            "second": "h1_2::right_dex1_finger_2_slider_link::right_dex1_finger_2_slider_link_fixed_joint_lump__right_dex1_finger_2_link_collision_1",
+            "depths": [
+              1.456079891101053e-06
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "gazebo_physics_contact",
+      "button": "lid",
+      "sequence": 5,
+      "sim_time": 160.5835,
+      "contact": {
+        "stamp": 160.583,
+        "valid": true,
+        "pairs": [
+          {
+            "first": "centrifuge::assembly::lid_button_collision",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depths": [
+              6.464491490610659e-06,
+              3.11770345205048e-06
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "actual_holder_registry": {
+    "left": {
+      "payload": "left",
+      "source_sim": 181.4775,
+      "native_reference": [
+        [
+          -5.767354654392132e-05,
+          -5.1894839690185685e-05,
+          -0.9999999969903439,
+          0.20700233833974502
+        ],
+        [
+          2.6122548285419126e-06,
+          0.9999999986500431,
+          -5.189499043429038e-05,
+          -0.00018192755121715365
+        ],
+        [
+          0.9999999983334692,
+          -2.6152477888372583e-06,
+          -5.767341090354586e-05,
+          2.0948853045044125e-06
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "fk_reference": [
+        [
+          -5.7674013602482276e-05,
+          -5.189084048019821e-05,
+          -0.9999999969905243,
+          0.20700156373132383
+        ],
+        [
+          2.6115162327975128e-06,
+          0.9999999986502528,
+          -5.189099118280832e-05,
+          -0.00018194155606421347
+        ],
+        [
+          0.9999999983334441,
+          -2.6145089869679277e-06,
+          -5.767387801094101e-05,
+          2.0967371467395246e-06
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  },
+  "order": {
+    "phase": "retrieval",
+    "locations": {
+      "left": "held",
+      "right": "basket"
+    },
+    "loaded": [
+      "left",
+      "right"
+    ],
+    "returned": [],
+    "holder": {
+      "hand": "left",
+      "payload": "left"
+    },
+    "retrieval_assignment": {
+      "left": "left",
+      "right": "right"
+    }
+  },
+  "paired_actual_cycle": false,
+  "sequential_actual_cycle": true
+}

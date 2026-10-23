@@ -1,0 +1,2632 @@
+[
+  {
+    "fault": {
+      "kind": "sequential_remaining_basket_fault",
+      "phase": "left_retrieval_grasp",
+      "sim": 185.612,
+      "wall": 1792741804.4287295,
+      "payload": {
+        "payload": "left",
+        "metrics": {
+          "valid": false,
+          "side_overhang_m": 0.0,
+          "side_overhangs_m": [
+            0.0,
+            0.0
+          ],
+          "maximum_contact_depth_m": 0.0,
+          "contact_certified_bound_m": 0.001,
+          "contact_geometry_rounding_m": 5e-06,
+          "original_contact_depth_limit_m": 0.001,
+          "sidewall_certified": true,
+          "wall_contact": [
+            false,
+            false
+          ],
+          "floor_contact": false,
+          "bottom_penetration_m": 5.855161352985583e-08,
+          "vertical_inside": true,
+          "supported": false,
+          "contacts_valid": false,
+          "corners_min": [
+            -0.04314113538222443,
+            -0.05674566154546054,
+            -0.03000005855161353
+          ],
+          "corners_max": [
+            0.04499939039655966,
+            0.06199960560179926,
+            0.029500048652849775
+          ],
+          "actual_retrieval_preload_support": {
+            "valid": false,
+            "reason": "missing_actual_opposed_midband"
+          },
+          "single_actual_floor_frame": {
+            "valid": false,
+            "not_a_grip_certificate": true
+          }
+        },
+        "continuity": {
+          "valid": false,
+          "zero_force_gap_sim_s": 0.0,
+          "maximum_zero_force_gap_sim_s": 0.0,
+          "limit_sim_s": 0.02
+        },
+        "poses": {
+          "centrifuge": {
+            "name": "centrifuge",
+            "id": 20,
+            "position": {
+              "x": 0.52,
+              "z": 0.815
+            },
+            "orientation": {
+              "w": 1
+            }
+          },
+          "box48_left": {
+            "name": "box48_left",
+            "id": 63,
+            "position": {
+              "x": 0.5893087946651998,
+              "y": 0.0823019167570196,
+              "z": 1.0522343947779131
+            },
+            "orientation": {
+              "x": -0.008184953746963744,
+              "y": 0.001954493878598927,
+              "z": -0.2322498407780149,
+              "w": 0.9726197602066418
+            }
+          },
+          "box48_right": {
+            "name": "box48_right",
+            "id": 229,
+            "position": {
+              "x": 0.5092865440064134,
+              "y": -0.08101232620983617,
+              "z": 1.0522339544727075
+            },
+            "orientation": {
+              "x": 0.008186447062928105,
+              "y": -0.001954800851578322,
+              "z": -0.23225630100992425,
+              "w": 0.9726182043737943
+            }
+          },
+          "lid": {
+            "name": "lid",
+            "id": 42,
+            "position": {
+              "x": 0.2680710507631302,
+              "z": 0.30699999999999994
+            },
+            "orientation": {
+              "y": 0.8660254037845236,
+              "w": 0.4999999999998528
+            }
+          },
+          "rotor": {
+            "name": "rotor",
+            "id": 49,
+            "position": {
+              "x": 0.03057105112628944,
+              "z": 0.2250000000000001
+            },
+            "orientation": {
+              "z": -0.37929556194303893,
+              "w": 0.9252755679743815
+            }
+          },
+          "bucket_left": {
+            "name": "bucket_left",
+            "id": 52,
+            "position": {
+              "x": 0.0712345108517336,
+              "y": 0.0802899939277349,
+              "z": 0.23750000000000004
+            },
+            "orientation": {
+              "x": -0.004405292933667237,
+              "y": 0.007169147593852925,
+              "z": 0.5235193269286098,
+              "w": 0.8519722478163015
+            }
+          },
+          "bucket_right": {
+            "name": "bucket_right",
+            "id": 55,
+            "position": {
+              "x": -0.01009240792975219,
+              "y": -0.08028999324846843,
+              "z": 0.23750000000000004
+            },
+            "orientation": {
+              "x": 0.007170319598199922,
+              "y": 0.004406013106101403,
+              "z": -0.8519722379533109,
+              "w": 0.5235193208680978
+            }
+          },
+          "left_wrist_yaw_link": {
+            "name": "left_wrist_yaw_link",
+            "id": 139,
+            "position": {
+              "x": 0.590978591577594,
+              "y": 0.08557706747127886,
+              "z": 1.2592038625292397
+            },
+            "orientation": {
+              "x": 0.158426851947267,
+              "y": 0.6891514754051825,
+              "z": -0.17002761286817367,
+              "w": 0.6863394112181592
+            }
+          },
+          "left_dex1_finger_1_slider_link": {
+            "name": "left_dex1_finger_1_slider_link",
+            "id": 145,
+            "position": {
+              "x": 0.5766687694362199,
+              "y": 0.023695170538532734,
+              "z": 1.145927393241544
+            },
+            "orientation": {
+              "x": 0.3752789793473653,
+              "y": -0.5993283830819898,
+              "z": 0.6055429294072868,
+              "w": -0.365087575161315
+            }
+          },
+          "left_dex1_finger_2_slider_link": {
+            "name": "left_dex1_finger_2_slider_link",
+            "id": 152,
+            "position": {
+              "x": 0.603517983455858,
+              "y": 0.14399244087417432,
+              "z": 1.143912507183584
+            },
+            "orientation": {
+              "x": 0.3752789858097818,
+              "y": -0.5993283780302979,
+              "z": 0.6055429347303809,
+              "w": -0.36508756798235603
+            }
+          },
+          "right_wrist_yaw_link": {
+            "name": "right_wrist_yaw_link",
+            "id": 177,
+            "position": {
+              "x": -0.0483331831801875,
+              "y": -0.5578435116581204,
+              "z": 1.1977148317680042
+            },
+            "orientation": {
+              "x": -0.38182156846166204,
+              "y": 0.27633448865717913,
+              "z": -0.35818382709202545,
+              "w": 0.8059503001089842
+            }
+          },
+          "right_dex1_finger_1_slider_link": {
+            "name": "right_dex1_finger_1_slider_link",
+            "id": 183,
+            "position": {
+              "x": 0.007948012658363167,
+              "y": -0.6689430701928301,
+              "z": 1.2357218234333032
+            },
+            "orientation": {
+              "x": 0.4653866400862565,
+              "y": 0.07459044840440343,
+              "z": 0.8231672587295049,
+              "w": -0.31661838921927354
+            }
+          },
+          "right_dex1_finger_2_slider_link": {
+            "name": "right_dex1_finger_2_slider_link",
+            "id": 190,
+            "position": {
+              "x": 0.030378261928379897,
+              "y": -0.627013111283683,
+              "z": 1.1204948430297257
+            },
+            "orientation": {
+              "x": 0.4653866400862565,
+              "y": 0.07459044840440343,
+              "z": 0.8231672587295049,
+              "w": -0.31661838921927354
+            }
+          }
+        },
+        "contacts": [
+          {
+            "first": "box48_left::body::48box_outer_envelope",
+            "second": "h1_2::left_dex1_finger_1_slider_link::left_dex1_finger_1_slider_link_fixed_joint_lump__left_dex1_finger_1_link_collision_1",
+            "depth": 1.330451510905828e-06,
+            "force": 0.1541900246707106,
+            "positions": [
+              [
+                0.5717106694180484,
+                0.04191599289191319,
+                1.0579641801092516
+              ],
+              [
+                0.571711125826691,
+                0.04191709419494711,
+                1.0579639544381987
+              ],
+              [
+                0.571710724998393,
+                0.04191596629097891,
+                1.057964262151976
+              ],
+              [
+                0.5717105830345611,
+                0.04191603550065616,
+                1.0579641196616365
+              ],
+              [
+                0.5719128579450599,
+                0.041819581379556346,
+                1.0582815317361052
+              ],
+              [
+                0.5719133156209999,
+                0.041820698811354584,
+                1.0582812984894718
+              ],
+              [
+                0.5714200830871209,
+                0.0420591808967826,
+                1.0577532076105318
+              ],
+              [
+                0.571419975379104,
+                0.04205923501259238,
+                1.0577531846444763
+              ],
+              [
+                0.571420534544054,
+                0.042060274379418984,
+                1.0577529803841417
+              ],
+              [
+                0.5719130336619679,
+                0.04181950042693024,
+                1.0582819578591987
+              ],
+              [
+                0.5710821574896745,
+                0.0422289302744489,
+                1.057679308787753
+              ],
+              [
+                0.5710838564052869,
+                0.042229389772023215,
+                1.057679080525591
+              ],
+              [
+                0.5710834086690757,
+                0.04222829660850183,
+                1.0576793087055998
+              ],
+              [
+                0.5722166921404263,
+                0.04168507406144864,
+                1.0593082018910345
+              ],
+              [
+                0.5722165923976801,
+                0.041685113277793236,
+                1.059307603042298
+              ],
+              [
+                0.572217260502277,
+                0.04168619628662508,
+                1.0593081806533926
+              ],
+              [
+                0.5721362587913068,
+                0.0417180180789331,
+                1.05882191829382
+              ],
+              [
+                0.5721357014308355,
+                0.04171691757587777,
+                1.05882193912038
+              ],
+              [
+                0.5720810134493696,
+                0.041764064158661296,
+                1.0597765781964579
+              ],
+              [
+                0.5675739502681965,
+                0.04405538711859392,
+                1.0602350821203037
+              ]
+            ],
+            "normals": [
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ],
+              [
+                0.45174959505575424,
+                0.8919860267494737,
+                -0.016829481591814518
+              ]
+            ],
+            "force_vectors": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.04744149579272919,
+                0.09678305517333183,
+                0.11025837118431694
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "context": [
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.111,
+        "wall": 1792741803.4561799,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.5454490551694477e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.9919196391225977e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.112
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.1365,
+        "wall": 1792741803.5065289,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.526332905607627e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 3.007973505692041e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.138
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.166,
+        "wall": 1792741803.558916,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.5348861354534947e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 3.0139304003917733e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.1675
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.1945,
+        "wall": 1792741803.610948,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.5286894260984873e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 3.01235393573851e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.196
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.223,
+        "wall": 1792741803.661925,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.5386311506106275e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 3.0017407726123935e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.224
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.2505,
+        "wall": 1792741803.712804,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.5382819811896067e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 3.0072611206799493e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.252
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.2795,
+        "wall": 1792741803.7662,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.5335564046153673e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.997910187457764e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.281
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.3065,
+        "wall": 1792741803.8177834,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.532941076796594e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 3.0081506764700894e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.3085
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.3365,
+        "wall": 1792741803.8697104,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.532280656987466e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 3.0122703255364147e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.3375
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.3625,
+        "wall": 1792741803.9193707,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.528155276162191e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 3.0148429655540987e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.3645
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.39,
+        "wall": 1792741803.9704797,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.5281212638953e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.999283484766968e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.3915
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.418,
+        "wall": 1792741804.0211549,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.5358340489488846e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.988139118087485e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.4195
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.4445,
+        "wall": 1792741804.072031,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.5445116823936282e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 3.000265921121459e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.447
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.4725,
+        "wall": 1792741804.1235769,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.541170732763543e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 3.0073865481261564e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.4735
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.4975,
+        "wall": 1792741804.174455,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.5113298493117694e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.9887428261432536e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.499
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.5275,
+        "wall": 1792741804.2250488,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.5234510962611506e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 3.001625639015293e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.53
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.5575,
+        "wall": 1792741804.2766278,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.537620120175773e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 4.770838677690958e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141137308817815,
+                  -0.05674566123843813,
+                  -0.030000477083867768
+                ],
+                "corners_max": [
+                  0.04499936977902903,
+                  0.061999606457129736,
+                  0.029499601345818412
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 3.00286005436301e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  true,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.559
+        }
+      },
+      {
+        "kind": "sequential_remaining_support",
+        "phase": "left_retrieval_grasp",
+        "sim": 185.5875,
+        "wall": 1792741804.3476846,
+        "payload": {
+          "rows": {
+            "left": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 0.0,
+                "side_overhangs_m": [
+                  0.0,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 2.5842360415216503e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  false,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.855161352985583e-08,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.04314113538222443,
+                  -0.05674566154546054,
+                  -0.03000005855161353
+                ],
+                "corners_max": [
+                  0.04499939039655966,
+                  0.06199960560179926,
+                  0.029500048652849775
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 1,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            },
+            "right": {
+              "location": "basket",
+              "metrics": {
+                "valid": true,
+                "side_overhang_m": 5.537629669399857e-08,
+                "side_overhangs_m": [
+                  5.537629669399857e-08,
+                  0.0
+                ],
+                "maximum_contact_depth_m": 3.0043340037977373e-09,
+                "contact_certified_bound_m": 0.001,
+                "contact_geometry_rounding_m": 5e-06,
+                "original_contact_depth_limit_m": 0.001,
+                "sidewall_certified": true,
+                "wall_contact": [
+                  true,
+                  false
+                ],
+                "floor_contact": true,
+                "bottom_penetration_m": 5.06640844669809e-07,
+                "vertical_inside": true,
+                "supported": true,
+                "contacts_valid": true,
+                "corners_min": [
+                  -0.043141360170374836,
+                  -0.059600639793993715,
+                  -0.03000050664084467
+                ],
+                "corners_max": [
+                  0.04500005537629669,
+                  0.05914527561572708,
+                  0.029499628506278106
+                ]
+              },
+              "continuity": {
+                "valid": true,
+                "zero_force_gap_sim_s": 0.0,
+                "maximum_zero_force_gap_sim_s": 0.0,
+                "limit_sim_s": 0.02
+              },
+              "qualified_current_grasp_contact_count": 0,
+              "all_raw_contacts_still_checked_by_original_force_depth_guards": true
+            }
+          },
+          "order": {
+            "phase": "retrieval",
+            "locations": {
+              "left": "basket",
+              "right": "basket"
+            },
+            "loaded": [
+              "left",
+              "right"
+            ],
+            "returned": [],
+            "holder": null,
+            "retrieval_assignment": {
+              "left": "left",
+              "right": "right"
+            }
+          },
+          "actual_holders": {},
+          "native_pose_sim": 185.5895
+        }
+      }
+    ]
+  }
+]

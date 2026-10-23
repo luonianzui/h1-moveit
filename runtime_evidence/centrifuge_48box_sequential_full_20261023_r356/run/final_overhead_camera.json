@@ -1,0 +1,20 @@
+{
+  "request": "pose: { position: { x: 0.32 y: 0 z: 2.5 } orientation: { x: 0 y: 0.6386638956379793 z: 0 w: 0.7694858136051279 } }",
+  "attempts": [
+    {
+      "wall": 1792744697.4378352,
+      "phase": "terminal_overhead",
+      "attempt": 1,
+      "maximum_attempts": 3,
+      "returncode": 0,
+      "accepted": true,
+      "output": "data: true\n\n",
+      "error": ""
+    }
+  ],
+  "accepted": true,
+  "error": null,
+  "before_video_sigint": true,
+  "terminal_inspection_only": true,
+  "no_robot_command": true
+}

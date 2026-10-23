@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "actual_requests": [
+    {
+      "request": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r356/run/5_load_release_align_left_request.json",
+      "source_sha256": "d423825dcab90b7df63c46d9dbb4bbc414897b5a4a40bc61c1de2808643285b1",
+      "hand": "left",
+      "before": {
+        "position_m": 0.00012461788054520776,
+        "angle_deg": 0.2496500458551151,
+        "within_alignment_goal": false,
+        "within_local_correction_bound": true
+      },
+      "commanded_step_deg": 0.2496500458551151
+    }
+  ],
+  "counts": {
+    "left": 1
+  },
+  "above_one_degree_branch_observed": false,
+  "original_final_release_gate_and_grip_audit_required_separately": true
+}

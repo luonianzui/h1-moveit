@@ -1,0 +1,8 @@
+# 2026-10-23 用户切换为汇报视频剪辑时的接续点
+
+用户在r356取回阶段中断对话，随即要求先剪辑上方视频发给领导。本轮未另启仿真；既有连续执行器自行完成并正常收尾。
+r356 run/result.json为PASS；executor_wall_clock.json为481.783994177现实秒，未达180秒。原片551.083333秒，正常SIGINT，completion_finalization.json为PASS，源录像SHA256为243e2ea65030f9240b7eb37c910253052f6cbb13812a7a4191da3d26014a042a。
+汇报剪辑独立保存在../centrifuge_48box_briefing_edit_20261023_r1/，交付revision2约155.54秒；编辑后时长不是实际性能证据。
+上一任务尚未完成版本收尾：读取continuous_stdout/post_speed最终状态，完成collect_metrics.sh、性能结论/全部独立核验、原片关键帧记录、根六MD和AGENTS追加、core/review封存及GitHub同步。不得把剪辑交付当作源码版本封存或三分钟达标；不得重跑r356。
+已知源identity 695成员SHA ce7ff0e0463f286fcd4bfeacd3721c3830e2afa3b75c56389ccf57a370018fbb；2325测试两轮通过，91专项通过，Nav111/2旧V12缺源保持。r355失败证据和新inertia组件均已独立封存；r354及此前成果未改。
+root当前摘要MD仍是r354，待全部后验结果收齐后追加r355失败+r356完整结果，不覆盖历史。r3/documentation_before.json及原AGENTS前缀记录可用于校验。

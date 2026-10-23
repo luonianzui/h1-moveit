@@ -1,0 +1,22 @@
+{
+  "actual_tool_inspection": true,
+  "terminal_two_boxes_on_table": false,
+  "complete_task": false,
+  "source_video_sha256": "8ed5a52c11ec25ac4518a73c119832dfe17cc1c551651202a624ada2455d022c",
+  "actual_inspected": [
+    "run/startup_frame.png",
+    "inspection_20.png",
+    "inspection_35.png",
+    "inspection_50.png",
+    "inspection_72.png",
+    "inspection_90.png",
+    "inspection_99.png"
+  ],
+  "observations": [
+    "Actual front view shows robot with grippers, enclosure, table and centrifuge.",
+    "Sequential loading and a closed-lid running state with displayed 30rpm are visible.",
+    "Final sample shows open machine and one gripper at a basket, not two returned boxes on the table.",
+    "Failure status and left remaining holder established by original trace/result, not inferred as a successful final state."
+  ],
+  "not_every_frame_viewed": true
+}

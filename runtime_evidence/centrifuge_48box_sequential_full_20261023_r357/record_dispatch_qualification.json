@@ -1,0 +1,28 @@
+{
+  "status": "PASS_ACTUAL_RECORD_BINDING_OFFLINE_NOT_TASK",
+  "original_duplicate_methods": 2,
+  "current_record_methods": 1,
+  "original_history_empty": {
+    "valid": false,
+    "not_a_grip_certificate": true
+  },
+  "classified_actual_history": {
+    "valid": true,
+    "not_a_grip_certificate": true,
+    "source": "one_actual_contact_frame_floor_history",
+    "current_contact_stamp": 244.562,
+    "last_actual_positive_basket_stamp": 244.5615,
+    "missing_floor_sim_s": 0.0005000000000165983,
+    "observed_fingers": [
+      1
+    ],
+    "maximum_native_distance_to_final_goal_m": 0.0001912731120220744,
+    "final_endpoint_and_two_opposed_strong_capture_still_required": true,
+    "no_holder_created_or_anchor_rebased": true
+  },
+  "original_parent_source_sha256": "278b43b9bfdef6745f1b4d628b34cc37d9a71968e4d4a6ebf323a8a52bfe47a5",
+  "current_source_sha256": "e544b3c2dd0be6e6a1ef47b9ab6bb3b84bbe044b1c1261c221cfd34bd482c2c2",
+  "thresholds_and_commands_unchanged": true,
+  "no_new_physical_execution": true,
+  "parent_IO_only_mocked_real_SequentialCycle_record_executed": true
+}

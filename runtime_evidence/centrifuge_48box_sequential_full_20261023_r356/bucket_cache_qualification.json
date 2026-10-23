@@ -1,0 +1,31 @@
+{
+  "status": "PASS_EXACT_BUCKET_CORNERS_ONLY_NOT_NEW_PHYSICS_OR_WHOLE_TASK_SPEED",
+  "source_sha256": "797cb5421afc2854874e33227a3ceba4dc841fafa4ed976084812086486ff01f",
+  "cache_max_entries": 512,
+  "defensive_copy": true,
+  "signed_zero_key_preserved": true,
+  "guard_models_and_rates_unchanged": {
+    "sequential_cycle.py": "e544b3c2dd0be6e6a1ef47b9ab6bb3b84bbe044b1c1261c221cfd34bd482c2c2",
+    "loaded_retention.py": "cb41c4f2d482ca3645cc166877dfb426159498ecd8a72c0360c8c584c26a0731",
+    "preload_observation.py": "9652d14a3cd00c3b58eadc1c20faa66e2398b3db53a3f81f27c5cf1346145d79",
+    "preload_floor_frame.py": "7967334ac95e8b4e3e0870ea25908393e9d1ae320ff57c13d5c13dd88da2fccf",
+    "sequential_support.py": "8691eabd753b550a5c5957058a3bcf29a5b7978aaaa61df30e85d4b779ab7adf",
+    "sequential_speed_cycle.py": "a5a944a174469c92b0e62286203defd4c04bb09deda86e495d4d6f602bf6ff02",
+    "speed_retrieval_geometry.py": "d281b78179a7600227302d8db0319a4575c9f1ff505ba021e8dc1fdcc7e3287c",
+    "speed_policy.py": "a9c5d2b77a78148e68c9d0772a3f7303045b2db5d98ccf2b9224f247b98033c8"
+  },
+  "actual_payloads": 2,
+  "wall_seconds": {
+    "original": 0.36769700498552993,
+    "candidate": 0.03763585101114586,
+    "candidate_repeat": 0.038032482989365235,
+    "original_repeat": 0.36537675600266084
+  },
+  "component_speedup": 9.6069656063431,
+  "cache_info": {
+    "hits": 80000,
+    "misses": 2,
+    "maxsize": 512,
+    "currsize": 2
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "status": "PASS_OWNED_PROCESS_ENV_NOT_PACKET_LOSS_PROOF",
+  "processes": [
+    {
+      "pid": 1639861,
+      "created": 1792741400.99,
+      "command": [
+        "/opt/ros/jazzy/lib/ros_gz_bridge/parameter_bridge",
+        "/realsense_camera/color/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo",
+        "/realsense_camera/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo",
+        "/incubator/latch/state@std_msgs/msg/String[gz.msgs.StringMsg",
+        "--ros-args",
+        "-r",
+        "/realsense_camera/camera_info:=/realsense_camera/depth/camera_info"
+      ],
+      "transport": "UDPv4"
+    },
+    {
+      "pid": 1639862,
+      "created": 1792741400.99,
+      "command": [
+        "/opt/ros/jazzy/lib/ros_gz_bridge/parameter_bridge",
+        "/livox/mid360/points@sensor_msgs/msg/PointCloud2[gz.msgs.PointCloudPacked",
+        "--ros-args"
+      ],
+      "transport": "UDPv4"
+    },
+    {
+      "pid": 1639863,
+      "created": 1792741400.99,
+      "command": [
+        "/opt/ros/jazzy/lib/ros_gz_bridge/parameter_bridge",
+        "--ros-args",
+        "-r",
+        "__node:=candidate3_telemetry_bridge_829",
+        "--params-file",
+        "/tmp/launch_params_28n71mpk"
+      ],
+      "transport": "UDPv4"
+    },
+    {
+      "pid": 1639864,
+      "created": 1792741400.99,
+      "command": [
+        "/usr/bin/python3",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r355/inputs/robot_joint_state_relay_05ms.py",
+        "--self-sha256",
+        "b46a9c946542ce33b1b2dbc34b2da31d6e8be93730e86ad9412c1b8b00d226f7"
+      ],
+      "transport": "UDPv4"
+    },
+    {
+      "pid": 1639866,
+      "created": 1792741400.99,
+      "command": [
+        "/opt/ros/jazzy/lib/ros_gz_bridge/parameter_bridge",
+        "/centrifuge/lid_button/contacts@ros_gz_interfaces/msg/Contacts[gz.msgs.Contacts",
+        "/centrifuge/rotor_button/contacts@ros_gz_interfaces/msg/Contacts[gz.msgs.Contacts",
+        "--ros-args",
+        "-r",
+        "__node:=centrifuge_contact_bridge"
+      ],
+      "transport": "UDPv4"
+    },
+    {
+      "pid": 1639868,
+      "created": 1792741400.99,
+      "command": [
+        "/opt/ros/jazzy/lib/ros_gz_bridge/parameter_bridge",
+        "/centrifuge/lid/target_angle@std_msgs/msg/Float64]gz.msgs.Double",
+        "/world/h1_world/model/centrifuge/joint_state@sensor_msgs/msg/JointState[gz.msgs.Model",
+        "/centrifuge/button/action@std_msgs/msg/String[gz.msgs.StringMsg",
+        "/centrifuge/rotor/enable@std_msgs/msg/Bool]gz.msgs.Boolean",
+        "/centrifuge/machine/heartbeat@std_msgs/msg/Bool]gz.msgs.Boolean",
+        "/centrifuge/machine/status@std_msgs/msg/String[gz.msgs.StringMsg",
+        "--ros-args",
+        "-r",
+        "__node:=centrifuge_lid_bridge",
+        "-r",
+        "/world/h1_world/model/centrifuge/joint_state:=/centrifuge/joint_states"
+      ],
+      "transport": "UDPv4"
+    },
+    {
+      "pid": 1639873,
+      "created": 1792741400.99,
+      "command": [
+        "/opt/ros/jazzy/lib/ros_gz_bridge/parameter_bridge",
+        "/lab_48box/left/contacts@ros_gz_interfaces/msg/Contacts[gz.msgs.Contacts",
+        "--ros-args",
+        "-r",
+        "__node:=lab_48box_left_contact_bridge"
+      ],
+      "transport": "UDPv4"
+    },
+    {
+      "pid": 1639875,
+      "created": 1792741400.99,
+      "command": [
+        "/opt/ros/jazzy/lib/ros_gz_bridge/parameter_bridge",
+        "/lab_48box/right/contacts@ros_gz_interfaces/msg/Contacts[gz.msgs.Contacts",
+        "--ros-args",
+        "-r",
+        "__node:=lab_48box_right_contact_bridge"
+      ],
+      "transport": "UDPv4"
+    }
+  ]
+}

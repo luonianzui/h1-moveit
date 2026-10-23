@@ -1,0 +1,492 @@
+{
+  "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r356/run/full_cycle.mp4",
+  "source_sha256": "243e2ea65030f9240b7eb37c910253052f6cbb13812a7a4191da3d26014a042a",
+  "original_duration_s": 551.0833333333334,
+  "source_task_wall_s": 481.783994177,
+  "source_task_pass": true,
+  "alignment": "approximate video time from process creation plus monotonic samples, reviewed visually",
+  "timeline": [
+    {
+      "phase": "machine_preparation",
+      "begin_video_s": 66.95421200976125,
+      "begin_sim_s": null,
+      "end_video_s": 71.96511121976073
+    },
+    {
+      "phase": "machine_preparation_open_approach",
+      "begin_video_s": 71.96511121976073,
+      "begin_sim_s": 36.3715,
+      "end_video_s": 73.96971780076274
+    },
+    {
+      "phase": "machine_preparation_open_press",
+      "begin_video_s": 73.96971780076274,
+      "begin_sim_s": 37.958,
+      "end_video_s": 75.9742112167587
+    },
+    {
+      "phase": "machine_preparation_open_withdraw",
+      "begin_video_s": 75.9742112167587,
+      "begin_sim_s": 39.4185,
+      "end_video_s": 80.98616107276757
+    },
+    {
+      "phase": "machine_wait_preparation_open",
+      "begin_video_s": 80.98616107276757,
+      "begin_sim_s": 43.35,
+      "end_video_s": 81.98872579477029
+    },
+    {
+      "phase": "left_seq_load_open_empty",
+      "begin_video_s": 81.98872579477029,
+      "begin_sim_s": 44.159,
+      "end_video_s": 83.99346014577895
+    },
+    {
+      "phase": "right_seq_load_open_empty",
+      "begin_video_s": 83.99346014577895,
+      "begin_sim_s": 45.7985,
+      "end_video_s": 88.00212020176696
+    },
+    {
+      "phase": "seq_load_empty_park",
+      "begin_video_s": 88.00212020176696,
+      "begin_sim_s": 49.049,
+      "end_video_s": 92.01088349276688
+    },
+    {
+      "phase": "seq_load_empty_approach",
+      "begin_video_s": 92.01088349276688,
+      "begin_sim_s": 52.253,
+      "end_video_s": 95.01713943877257
+    },
+    {
+      "phase": "seq_load_empty_descend",
+      "begin_video_s": 95.01713943877257,
+      "begin_sim_s": 54.628,
+      "end_video_s": 99.02644693278125
+    },
+    {
+      "phase": "left_seq_load_grasp",
+      "begin_video_s": 99.02644693278125,
+      "begin_sim_s": 57.578,
+      "end_video_s": 105.04094980077934
+    },
+    {
+      "phase": "seq_load_single_pilot",
+      "begin_video_s": 105.04094980077934,
+      "begin_sim_s": 59.1465,
+      "end_video_s": 111.05472571976134
+    },
+    {
+      "phase": "left_seq_load_static_grip_hold",
+      "begin_video_s": 111.05472571976134,
+      "begin_sim_s": 60.814,
+      "end_video_s": 115.06471868275548
+    },
+    {
+      "phase": "seq_load_load_lift_and_load_transfer",
+      "begin_video_s": 115.06471868275548,
+      "begin_sim_s": 61.847,
+      "end_video_s": 136.1135705257766
+    },
+    {
+      "phase": "seq_load_load_lower",
+      "begin_video_s": 136.1135705257766,
+      "begin_sim_s": 66.998,
+      "end_video_s": 142.12788843977614
+    },
+    {
+      "phase": "seq_load_load_release_pilot_align",
+      "begin_video_s": 142.12788843977614,
+      "begin_sim_s": 68.6995,
+      "end_video_s": 145.13423519177013
+    },
+    {
+      "phase": "left_release_above_bucket",
+      "begin_video_s": 145.13423519177013,
+      "begin_sim_s": 69.5735,
+      "end_video_s": 149.14404117676895
+    },
+    {
+      "phase": "left_drop_settling",
+      "begin_video_s": 149.14404117676895,
+      "begin_sim_s": 71.0495,
+      "end_video_s": 153.1546216077695
+    },
+    {
+      "phase": "seq_load_empty_vertical_retreat",
+      "begin_video_s": 153.1546216077695,
+      "begin_sim_s": 73.504,
+      "end_video_s": 155.15915565178148
+    },
+    {
+      "phase": "seq_load_empty_park",
+      "begin_video_s": 155.15915565178148,
+      "begin_sim_s": 74.926,
+      "end_video_s": 161.1743818547693
+    },
+    {
+      "phase": "seq_load_empty_approach",
+      "begin_video_s": 161.1743818547693,
+      "begin_sim_s": 79.356,
+      "end_video_s": 164.18098223677953
+    },
+    {
+      "phase": "seq_load_empty_descend",
+      "begin_video_s": 164.18098223677953,
+      "begin_sim_s": 81.5625,
+      "end_video_s": 168.19098157377448
+    },
+    {
+      "phase": "right_seq_load_grasp",
+      "begin_video_s": 168.19098157377448,
+      "begin_sim_s": 84.5945,
+      "end_video_s": 173.20335357275326
+    },
+    {
+      "phase": "seq_load_single_pilot",
+      "begin_video_s": 173.20335357275326,
+      "begin_sim_s": 86.272,
+      "end_video_s": 179.217771589756
+    },
+    {
+      "phase": "right_seq_load_static_grip_hold",
+      "begin_video_s": 179.217771589756,
+      "begin_sim_s": 88.077,
+      "end_video_s": 182.22532617676188
+    },
+    {
+      "phase": "seq_load_load_lift_and_load_transfer",
+      "begin_video_s": 182.22532617676188,
+      "begin_sim_s": 88.958,
+      "end_video_s": 197.25933596276445
+    },
+    {
+      "phase": "seq_load_load_lower",
+      "begin_video_s": 197.25933596276445,
+      "begin_sim_s": 92.676,
+      "end_video_s": 203.27256874577142
+    },
+    {
+      "phase": "right_release_above_bucket",
+      "begin_video_s": 203.27256874577142,
+      "begin_sim_s": 94.407,
+      "end_video_s": 207.28292759277974
+    },
+    {
+      "phase": "right_drop_settling",
+      "begin_video_s": 207.28292759277974,
+      "begin_sim_s": 96.112,
+      "end_video_s": 209.28743722377112
+    },
+    {
+      "phase": "seq_load_empty_vertical_retreat",
+      "begin_video_s": 209.28743722377112,
+      "begin_sim_s": 97.3045,
+      "end_video_s": 211.2927713347599
+    },
+    {
+      "phase": "seq_load_empty_park",
+      "begin_video_s": 211.2927713347599,
+      "begin_sim_s": 98.601,
+      "end_video_s": 215.30198046177975
+    },
+    {
+      "phase": "machine_sequential_empty_neutral",
+      "begin_video_s": 215.30198046177975,
+      "begin_sim_s": 101.3795,
+      "end_video_s": 217.30703425276442
+    },
+    {
+      "phase": "machine_sequential_empty_grippers",
+      "begin_video_s": 217.30703425276442,
+      "begin_sim_s": 102.8165,
+      "end_video_s": 221.3174926537613
+    },
+    {
+      "phase": "machine_close_approach",
+      "begin_video_s": 221.3174926537613,
+      "begin_sim_s": 105.776,
+      "end_video_s": 224.32616521176533
+    },
+    {
+      "phase": "machine_close_press",
+      "begin_video_s": 224.32616521176533,
+      "begin_sim_s": 107.963,
+      "end_video_s": 226.33128004777245
+    },
+    {
+      "phase": "machine_close_withdraw",
+      "begin_video_s": 226.33128004777245,
+      "begin_sim_s": 109.302,
+      "end_video_s": 231.34383627877105
+    },
+    {
+      "phase": "machine_wait_closed",
+      "begin_video_s": 231.34383627877105,
+      "begin_sim_s": 112.86,
+      "end_video_s": 233.34847389376955
+    },
+    {
+      "phase": "machine_start_approach",
+      "begin_video_s": 233.34847389376955,
+      "begin_sim_s": 114.2955,
+      "end_video_s": 235.3534076147771
+    },
+    {
+      "phase": "machine_start_press",
+      "begin_video_s": 235.3534076147771,
+      "begin_sim_s": 115.7315,
+      "end_video_s": 237.35845744377002
+    },
+    {
+      "phase": "machine_start_withdraw",
+      "begin_video_s": 237.35845744377002,
+      "begin_sim_s": 117.1125,
+      "end_video_s": 239.36345413976233
+    },
+    {
+      "phase": "machine_running_steady",
+      "begin_video_s": 239.36345413976233,
+      "begin_sim_s": 118.4385,
+      "end_video_s": 299.50571447776747
+    },
+    {
+      "phase": "machine_stop_press",
+      "begin_video_s": 299.50571447776747,
+      "begin_sim_s": 149.693,
+      "end_video_s": 302.5130612717767
+    },
+    {
+      "phase": "machine_stop_withdraw",
+      "begin_video_s": 302.5130612717767,
+      "begin_sim_s": 151.112,
+      "end_video_s": 305.52017725876067
+    },
+    {
+      "phase": "machine_stop_wait_quiet",
+      "begin_video_s": 305.52017725876067,
+      "begin_sim_s": 152.5465,
+      "end_video_s": 308.52743972075405
+    },
+    {
+      "phase": "machine_stop_handover_collision_check",
+      "begin_video_s": 308.52743972075405,
+      "begin_sim_s": 154.0315,
+      "end_video_s": 321.56007553776726
+    },
+    {
+      "phase": "machine_final_open_approach",
+      "begin_video_s": 321.56007553776726,
+      "begin_sim_s": 161.826,
+      "end_video_s": 324.56739903776906
+    },
+    {
+      "phase": "machine_final_open_press",
+      "begin_video_s": 324.56739903776906,
+      "begin_sim_s": 163.7435,
+      "end_video_s": 326.571658510773
+    },
+    {
+      "phase": "machine_final_open_withdraw",
+      "begin_video_s": 326.571658510773,
+      "begin_sim_s": 164.898,
+      "end_video_s": 332.5865756577696
+    },
+    {
+      "phase": "machine_wait_final_open",
+      "begin_video_s": 332.5865756577696,
+      "begin_sim_s": 168.452,
+      "end_video_s": 337.5998004497669
+    },
+    {
+      "phase": "left_retrieval_open_empty",
+      "begin_video_s": 337.5998004497669,
+      "begin_sim_s": 171.82,
+      "end_video_s": 339.603918855777
+    },
+    {
+      "phase": "right_retrieval_open_empty",
+      "begin_video_s": 339.603918855777,
+      "begin_sim_s": 173.2045,
+      "end_video_s": 342.6107838007738
+    },
+    {
+      "phase": "seq_retrieval_empty_park",
+      "begin_video_s": 342.6107838007738,
+      "begin_sim_s": 175.249,
+      "end_video_s": 347.6225805087597
+    },
+    {
+      "phase": "seq_retrieval_empty_approach",
+      "begin_video_s": 347.6225805087597,
+      "begin_sim_s": 178.6335,
+      "end_video_s": 351.6327413767576
+    },
+    {
+      "phase": "seq_retrieval_empty_descend",
+      "begin_video_s": 351.6327413767576,
+      "begin_sim_s": 181.286,
+      "end_video_s": 354.63958090078086
+    },
+    {
+      "phase": "left_retrieval_grasp",
+      "begin_video_s": 354.63958090078086,
+      "begin_sim_s": 183.038,
+      "end_video_s": 366.666603188758
+    },
+    {
+      "phase": "seq_retrieval_single_pilot",
+      "begin_video_s": 366.666603188758,
+      "begin_sim_s": 185.803,
+      "end_video_s": 390.7226222057652
+    },
+    {
+      "phase": "seq_retrieval_retrieve_axis_exit",
+      "begin_video_s": 390.7226222057652,
+      "begin_sim_s": 192.89,
+      "end_video_s": 396.73692556176684
+    },
+    {
+      "phase": "seq_retrieval_retrieve_lift",
+      "begin_video_s": 396.73692556176684,
+      "begin_sim_s": 194.8555,
+      "end_video_s": 398.74105222776416
+    },
+    {
+      "phase": "seq_retrieval_static_grip_hold",
+      "begin_video_s": 398.74105222776416,
+      "begin_sim_s": 195.542,
+      "end_video_s": 400.7455039327615
+    },
+    {
+      "phase": "seq_retrieval_retrieve_outboard_and_retrieve_transfer",
+      "begin_video_s": 400.7455039327615,
+      "begin_sim_s": 196.25,
+      "end_video_s": 411.77199252776336
+    },
+    {
+      "phase": "paired_retrieval_setdown",
+      "begin_video_s": 411.77199252776336,
+      "begin_sim_s": 199.3395,
+      "end_video_s": 424.8058474837744
+    },
+    {
+      "phase": "paired_retrieval_setdown_fine",
+      "begin_video_s": 424.8058474837744,
+      "begin_sim_s": 203.1235,
+      "end_video_s": 431.8225299407786
+    },
+    {
+      "phase": "left_retrieval_release_on_table",
+      "begin_video_s": 431.8225299407786,
+      "begin_sim_s": 205.3865,
+      "end_video_s": 436.83378925477155
+    },
+    {
+      "phase": "seq_retrieval_empty_vertical_retreat",
+      "begin_video_s": 436.83378925477155,
+      "begin_sim_s": 208.6365,
+      "end_video_s": 438.83915076075937
+    },
+    {
+      "phase": "seq_retrieval_empty_park",
+      "begin_video_s": 438.83915076075937,
+      "begin_sim_s": 210.059,
+      "end_video_s": 444.85337607277324
+    },
+    {
+      "phase": "seq_retrieval_empty_approach",
+      "begin_video_s": 444.85337607277324,
+      "begin_sim_s": 214.397,
+      "end_video_s": 447.860643281776
+    },
+    {
+      "phase": "seq_retrieval_empty_descend",
+      "begin_video_s": 447.860643281776,
+      "begin_sim_s": 216.635,
+      "end_video_s": 449.8652112747659
+    },
+    {
+      "phase": "right_retrieval_grasp",
+      "begin_video_s": 449.8652112747659,
+      "begin_sim_s": 217.846,
+      "end_video_s": 461.8952928977669
+    },
+    {
+      "phase": "seq_retrieval_single_pilot",
+      "begin_video_s": 461.8952928977669,
+      "begin_sim_s": 220.8795,
+      "end_video_s": 482.9446891207772
+    },
+    {
+      "phase": "seq_retrieval_retrieve_axis_exit",
+      "begin_video_s": 482.9446891207772,
+      "begin_sim_s": 226.3645,
+      "end_video_s": 488.9585860527586
+    },
+    {
+      "phase": "seq_retrieval_retrieve_lift",
+      "begin_video_s": 488.9585860527586,
+      "begin_sim_s": 228.185,
+      "end_video_s": 490.96304205578053
+    },
+    {
+      "phase": "seq_retrieval_static_grip_hold",
+      "begin_video_s": 490.96304205578053,
+      "begin_sim_s": 228.868,
+      "end_video_s": 492.9684975887649
+    },
+    {
+      "phase": "seq_retrieval_retrieve_outboard_and_retrieve_transfer",
+      "begin_video_s": 492.9684975887649,
+      "begin_sim_s": 229.7455,
+      "end_video_s": 502.9923529017542
+    },
+    {
+      "phase": "paired_retrieval_setdown",
+      "begin_video_s": 502.9923529017542,
+      "begin_sim_s": 232.766,
+      "end_video_s": 530.057958072779
+    },
+    {
+      "phase": "paired_retrieval_setdown_fine",
+      "begin_video_s": 530.057958072779,
+      "begin_sim_s": 242.875,
+      "end_video_s": 536.071838588774
+    },
+    {
+      "phase": "seq_retrieval_table_alignment_pilot",
+      "begin_video_s": 536.071838588774,
+      "begin_sim_s": 246.0365,
+      "end_video_s": 538.0765422507538
+    },
+    {
+      "phase": "right_retrieval_release_on_table",
+      "begin_video_s": 538.0765422507538,
+      "begin_sim_s": 247.432,
+      "end_video_s": 543.087985277758
+    },
+    {
+      "phase": "seq_retrieval_empty_vertical_retreat",
+      "begin_video_s": 543.087985277758,
+      "begin_sim_s": 251.3925,
+      "end_video_s": 545.0929409537639
+    },
+    {
+      "phase": "seq_retrieval_empty_park",
+      "begin_video_s": 545.0929409537639,
+      "begin_sim_s": 253.011,
+      "end_video_s": 547.0978418087761
+    },
+    {
+      "phase": "terminal_table_hold",
+      "begin_video_s": 547.0978418087761,
+      "begin_sim_s": 255.0285,
+      "end_video_s": 551.0833333333334
+    }
+  ],
+  "original_preserved": true,
+  "purpose": "edited briefing, not a task duration certificate"
+}

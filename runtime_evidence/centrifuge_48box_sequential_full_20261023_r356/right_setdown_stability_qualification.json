@@ -1,0 +1,32 @@
+{
+  "status": "PASS_ACTUAL_R338_PATH_RETIMING_ONLY_NOT_PHYSICAL",
+  "records": [
+    {
+      "hand": "left",
+      "actual_failed_run_plan": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261021_r338/run/16_retrieval_transport_left_result.json",
+      "plan_sha256": "fc10e3b37892eea33139ff045b91fe81670d9233ce03e39779ced540e26ed562",
+      "samples": 115,
+      "original_duration_sim_s": 3.3587545844583087,
+      "candidate_duration_sim_s": 3.3587545844583087,
+      "rate_rad_s": 0.4,
+      "ramp_sim_s": 0.3,
+      "points_groups_and_holder_unchanged": true
+    },
+    {
+      "hand": "right",
+      "actual_failed_run_plan": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261021_r338/run/20_retrieval_transport_right_result.json",
+      "plan_sha256": "c7ab5f5bdcc121a8e482aa0719297a5c4d331520005b3b2012349829cd46b781",
+      "samples": 115,
+      "original_duration_sim_s": 4.774569911446233,
+      "candidate_duration_sim_s": 9.505139822892465,
+      "rate_rad_s": 0.2,
+      "ramp_sim_s": 0.6,
+      "points_groups_and_holder_unchanged": true
+    }
+  ],
+  "mock": "holder, recorder and synthetic start at actual qualified first point",
+  "all_other_phases_original_parent": true,
+  "carry_slip_m": 0.005,
+  "carry_angle_deg": 10.0,
+  "no_complete_success_or_runtime_speedup_claim": true
+}

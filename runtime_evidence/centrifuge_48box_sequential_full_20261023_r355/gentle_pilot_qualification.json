@@ -1,0 +1,14 @@
+{
+  "status": "PASS_R339_ACTUAL_FAILED_PILOT_RETIMING_ONLY_NOT_PHYSICAL",
+  "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261021_r339/run/15_retrieval_pilot_left_result.json",
+  "source_sha256": "0446714253310bcbfaed0e05a546b401355274df7ba169eea1c906d0ee5e40eb",
+  "old_rate_rad_s": 0.1,
+  "current_rate_rad_s": 0.05,
+  "previous_sim_s": 0.7085836571971407,
+  "candidate_sim_s": 1.2231673143942814,
+  "unchanged_point_count": 22,
+  "rotor_transient_guard_rpm": 0.1,
+  "original_point_geometry_and_hold_reference_unchanged": true,
+  "right_setdown_stability_retained": true,
+  "new_full_success_claimed": false
+}

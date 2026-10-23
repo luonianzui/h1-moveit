@@ -1,0 +1,55 @@
+{
+  "status": "PASS_EXACT_POSE_GEOMETRY_COMPONENT_ONLY_NOT_REALTIME_PROOF",
+  "actual_fixture_sha256": "797cb5421afc2854874e33227a3ceba4dc841fafa4ed976084812086486ff01f",
+  "source_pose_sha256": "a06b785d8c56eeadc6b17550a0acdc4d713635e4ef337e2a00848f50ad6dd0fe",
+  "source_bucket_sha256": "e232974810417bff26a080fa052a2712dca02dffa57c0e48aa6714b0fb03c2f6",
+  "actual_fixture_poses": 13,
+  "measurements": {
+    "pose": {
+      "parent": [
+        0.09040267000091262,
+        0.09084825401077978,
+        0.09061770199332386,
+        0.0905265600013081,
+        0.09073531298781745,
+        0.09083301399368793
+      ],
+      "candidate": [
+        0.04856210600701161,
+        0.047762927977601066,
+        0.04877612701966427,
+        0.047767787997145206,
+        0.04793729999801144,
+        0.04793255901313387
+      ],
+      "median_component_speedup": 1.8916583048281963
+    },
+    "corners": {
+      "parent": [
+        0.21356419898802415,
+        0.21312000500620343,
+        0.21370494001894258,
+        0.2140418019844219,
+        0.21410992401069961,
+        0.21502124099060893
+      ],
+      "candidate": [
+        0.09512825301499106,
+        0.09633067299728282,
+        0.09572449800907634,
+        0.09624254298978485,
+        0.09571912698447704,
+        0.09742220299085602
+      ],
+      "median_component_speedup": 2.2282301158452613
+    }
+  },
+  "minimum_component_speedup": 1.8916583048281963,
+  "bucket_transform_cache": {
+    "hits": 0,
+    "misses": 2,
+    "maxsize": 512,
+    "currsize": 2
+  },
+  "dynamics_contact_sampling_guards_and_all_stamps_unchanged": true
+}

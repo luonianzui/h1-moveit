@@ -1,0 +1,138 @@
+{
+  "status": "PASS_TECHNICAL_QA_AWAITING_VISUAL_REVIEW",
+  "metadata": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "width": 1200,
+        "height": 900,
+        "coded_width": 1200,
+        "coded_height": 912,
+        "closed_captions": 0,
+        "film_grain": 0,
+        "has_b_frames": 2,
+        "pix_fmt": "yuv420p",
+        "level": 32,
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "refs": 4,
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "time_base": "1/12288",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 1911296,
+        "duration": "155.541667",
+        "bit_rate": "175106",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "3733",
+        "nb_read_frames": "3733",
+        "extradata_size": 47,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "vendor_id": "[0][0][0][0]",
+          "encoder": "Lavc60.31.102 libx264"
+        }
+      }
+    ],
+    "format": {
+      "filename": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_briefing_edit_20261023_r1/H1-2_离心机双盒流程_汇报版.mp4",
+      "nb_streams": 1,
+      "nb_programs": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
+      "duration": "155.541667",
+      "size": "3450176",
+      "bit_rate": "177453",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "title": "H1-2 离心机双盒操作演示",
+        "encoder": "Lavf60.16.100",
+        "comment": "Edited Gazebo demonstration"
+      }
+    }
+  },
+  "full_decode_returncode": 0,
+  "duration_s": 155.541667,
+  "size_bytes": 3450176,
+  "mp4_atoms": [
+    "ftyp",
+    "moov",
+    "free",
+    "mdat"
+  ],
+  "faststart": true,
+  "source_unchanged": true,
+  "previews": [
+    {
+      "time_s": 1,
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_briefing_edit_20261023_r1/preview_001.png"
+    },
+    {
+      "time_s": 23,
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_briefing_edit_20261023_r1/preview_023.png"
+    },
+    {
+      "time_s": 44,
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_briefing_edit_20261023_r1/preview_044.png"
+    },
+    {
+      "time_s": 60,
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_briefing_edit_20261023_r1/preview_060.png"
+    },
+    {
+      "time_s": 65,
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_briefing_edit_20261023_r1/preview_065.png"
+    },
+    {
+      "time_s": 76,
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_briefing_edit_20261023_r1/preview_076.png"
+    },
+    {
+      "time_s": 97,
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_briefing_edit_20261023_r1/preview_097.png"
+    },
+    {
+      "time_s": 139,
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_briefing_edit_20261023_r1/preview_139.png"
+    },
+    {
+      "time_s": 153,
+      "path": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_briefing_edit_20261023_r1/preview_153.png"
+    }
+  ]
+}

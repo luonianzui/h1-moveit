@@ -1,0 +1,19 @@
+{
+  "status": "PASS_ACTUAL_SINGLE_SETDOWN_DISPATCH_OFFLINE_NOT_PHYSICAL",
+  "actual_parent_plan": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261020_r313/run/15_retrieval_transport_left_result.json",
+  "actual_parent_plan_sha256": "749f3dd83f9c124229c61c22bb0d9e57bdfb06e31a845835e3a2c3332d983078",
+  "initial_state": "synthetic_offline_state_at_qualified_setdown_first_point_not_new_measurement",
+  "holder_references": "copied_parent_actual_registry_for_offline_dispatch_not_new_capture",
+  "actual_SequentialCycle_and_original_DualCycle_move_executed_with_mock_publishers": true,
+  "original_samples": 122,
+  "split_index": 114,
+  "published_group_messages": 6,
+  "coarse_sim_s": 10.044455261942712,
+  "fine_sim_s": 7.135267236170738,
+  "original_path_and_guards_unchanged": true,
+  "coarse_rate_rad_s": 0.13,
+  "fine_rate_rad_s": 0.03,
+  "ramp_sim_s": 0.6,
+  "old_paired_guard_unchanged": true,
+  "no_new_task_result": true
+}
