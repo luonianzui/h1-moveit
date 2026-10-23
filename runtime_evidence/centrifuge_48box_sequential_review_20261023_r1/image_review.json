@@ -1,0 +1,38 @@
+{
+  "actual_tool_inspection": true,
+  "terminal_two_boxes_on_table": true,
+  "images": {
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r354/run/startup_frame.png": {
+      "sha256": "113e66144b645f10fcc2502b3cbd7d6f6d6e6eade875441151ad9ccab33e60c4",
+      "observation": "Robot, closed centrifuge, table, walls and near box/gripper visible from front oblique; far box/gripper partly occluded."
+    },
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r354/run/final_scene.png": {
+      "sha256": "175bfe006ca0631077ace5f146e022901ecf795a89c3556dd2f2dc6639d26459",
+      "observation": "Open stopped centrifuge, robot with empty open grippers and near returned blue box visible; far return slot obscured in this view."
+    },
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r354/run/final_overhead.png": {
+      "sha256": "f1a06e5656503d3401e3362f56349eca83435534ca008e84e2bad046057bd514",
+      "observation": "Two separate blue boxes visibly returned to opposite table slots, both baskets empty, grippers open and empty, lid open."
+    },
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_review_20261023_r1/video_100s.png": {
+      "sha256": "51651b09fdd1b3a4121e551699e94308ea6b6ef689404a13edfa85acd096750f",
+      "observation": "One elevated elbow arm carries a blue box beside the open centrifuge; other hand empty."
+    },
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_review_20261023_r1/video_160s.png": {
+      "sha256": "f970c4dd855bc10ed72a57cb4e1308639fd7bab7ff96cb40533070d055580eb8",
+      "observation": "First blue box visible inside one basket while near hand grasps the remaining table box."
+    },
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_review_20261023_r1/video_320s.png": {
+      "sha256": "9282a4bdd777e7b4d8eae8c1dc3008d88158ebbcbfa27cd45b04dde09fec9ba7",
+      "observation": "Both blue boxes visible inside baskets with lid open and rotor status stopped."
+    },
+    "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_review_20261023_r1/video_460s.png": {
+      "sha256": "627ab3baa6a349d305daa398df8e3e5d47e8e842848b900608da1d1f84f793c0",
+      "observation": "Single near arm holds a blue box above a basket during retrieval; other hand empty."
+    }
+  },
+  "original_video": "../centrifuge_48box_sequential_full_20261023_r354/run/full_cycle.mp4",
+  "video_sha256": "de122e7a4f04598f8f38ec9179c4a25e740c82f88c7332bae96f58d4c81ffd34",
+  "scope": "Selected original recorded frames plus startup and terminal screenshots inspected; not every frame watched. Physics and timing proven separately by machine logs.",
+  "no_speedup_or_wait_removal": true
+}

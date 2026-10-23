@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "initial_fixed_pelvis_x_m": 0.12,
+  "device_x_m": 0.52,
+  "table_x_m": 0.6,
+  "table_slots_m": [
+    [
+      0.44,
+      0.38,
+      0.84475
+    ],
+    [
+      0.44,
+      -0.38,
+      0.84475
+    ]
+  ],
+  "physics_controller_and_all_model_geometry_inertias_limits_friction_unchanged": false,
+  "startup_initial_position_not_leg_motion": true,
+  "prior_identity_never_reused": true,
+  "robot_dual_sha256": "d1770ecfa21e0a91fc3080aa88e68c53353b87e13303e4ab0c8667e59e27110a",
+  "original_generated_robot_kept_for_legacy_reference_checks": true,
+  "dual_route_requires_real_contact_new_grip_guards_and_actual_state_replanning": true,
+  "parent_audit_sha256": "c0031c8b4782fdbaa8e2c2a199f7b22c658f68626ae26faa8752aa8de752ee73",
+  "input_rebind_independently_verified": true,
+  "inherited_configuration_or_old_calibration_not_new_physical_pass": true,
+  "current_identity": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r354",
+  "current_gripper_pid_d": 6.0,
+  "parent_gripper_dynamics_not_current_physical_certificate": true,
+  "controllers_servo_yaml_sha256": "26ec61df93b2e96ece9b2bcd6450feb81114ffdce91ceb054a9bb0d243a662ea",
+  "inherited_same_pid_not_general_physical_certificate": true,
+  "new_d6_current_physical_qualification_not_preclaimed": true,
+  "all_geometry_inertias_friction_robot_limits_lid_angle_and_force_unchanged": false,
+  "only_declared_new_private_lid_velocity_limit_changed": false,
+  "current_private_lid_rate_unchanged_from_sealed_parent": true,
+  "only_two_fixed_pelvis_ground_trimmed_foot_colliders_approximated": true,
+  "manipulation_geometry_inertias_friction_limits_lid_angle_and_force_unchanged": true
+}

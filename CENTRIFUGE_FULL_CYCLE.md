@@ -1,8 +1,22 @@
 # 离心机分开抓完整流程：本轮总结与接口
 
-更新：2026-10-22 CST，r353规划资源复用及初始撤臂修正完整通过，494.301现实秒；r347成功保持，现实三分钟仍未达。当前入口为[HANDOFF_CURRENT.md](HANDOFF_CURRENT.md)，累积权威为[AGENTS.md](AGENTS.md)最新日期小节。第0节覆盖本轮，其余历史不替代原始报告。
+更新：2026-10-23 CST，r354单次求解查询缓存完整通过，484.470现实秒；r353成功保持，现实三分钟仍未达。当前入口为[HANDOFF_CURRENT.md](HANDOFF_CURRENT.md)，累积权威为[AGENTS.md](AGENTS.md)最新日期小节。第0节覆盖本轮，其余历史不替代原始报告。
 
-## 0. 2026-10-22最新覆盖：r353完整分开抓PASS，现实494.301秒
+## 0. 2026-10-23最新覆盖：r354完整通过，现实484.470秒
+
+[r354报告](runtime_evidence/centrifuge_48box_sequential_full_20261023_r354/REPORT.md) · [原速完整录像](runtime_evidence/centrifuge_48box_sequential_full_20261023_r354/run/full_cycle.mp4) · [轮次交接](runtime_evidence/centrifuge_48box_sequential_review_20261023_r1/ROUND_SUMMARY.md) · [性能分析](runtime_evidence/centrifuge_48box_sequential_review_20261023_r1/PERFORMANCE.md)。
+
+- 分开抓双盒装篮→实体关盖/启动→稳转30.2595sim→停稳开盖→双盒返桌完整PASS：**214.241sim /484.470481546wall**。比r353少9.830916wall（1.99%），非同状态受控A/B。**现实/当前分开抓仿真三分钟、稳定1倍仍未达**；RTF0.434703低于r353的0.454443，不称实时率提升。
+- 新私有DART组件只缓存一次求解内的所属骨架/可反应性查询，退出清空；数值响应/脉冲状态实时读取，算术/顺序/接触/0.5ms步长不改。5400小世界步、43200状态向量一致，组件约1.149倍不代替整机结论。
+- 2302候选测试两轮、15专项、46配置/122装盒/6CTest通过；Nav111/2旧V12缺失不变。28门、4捕获4释放、单holder、21路径24459密FCL通过；独立抓持0.905259mm/2.337157°，返桌0.128403/0.436028mm。现5mm/10°不等于旧严格门，指速0.2界5样本越界及visual-only碰撞缺口保留。
+- 单planner模型1构建34复用35新场景，21请求worker40.757846wall；两次装盒观察期预规划，连续执行无AI逐动作等待。主线程0.932516核，精确符号Physics累计88.2516%、BoxedLcp51.6780%、速度传播19.4210%，重叠比例不当墙钟。下一新组件测单位脉冲传播的重复惯量读取。
+- 原速529.916667秒视频完整解码，实际首帧/四运动帧/两终帧抽查，俯视双返桌。正常SIGINT刷盘、退休owned空；live下次重查。未清理或备份，旧r353及此前成功、孵育箱/920版/源模型/十备份不改。
+- 九组保护前后相等；r353核心1028成员全部符合旧清单。**旧review_r10/r11各自freeze_review.log存在seal先哈希空文件、后写自身回执的既有不一致**，本轮独立精确例外记录且前后不变，旧文件/清单不改，不称旧review无例外全通过。新sealer防自包含stdout的2测试通过。
+- r354源682 SHA `771aa0233af8b4fe4b8b67e624880cbe1a748432e834cf9e443a363e03941b0f`；1035核心SUM `b26e2f0e94230ddd26465fee3e6ac9da68ba4d71145647c7b1830d3741cedf5d`。新版本封存/MD完成后按既定脚本同步GitHub，实际提交看同步回执；大视频、原始流、备份留本地。
+
+**本节及AGENTS最末覆盖后续历史“当前/最新”；禁止复用r354/r353封存身份。**
+
+## 保留成功：2026-10-22 r353完整分开抓PASS，现实494.301秒
 
 [r353报告](runtime_evidence/centrifuge_48box_sequential_full_20261022_r353/REPORT.md) · [原速完整录像](runtime_evidence/centrifuge_48box_sequential_full_20261022_r353/run/full_cycle.mp4) · [轮次汇总](runtime_evidence/centrifuge_48box_sequential_review_20261022_r11/ROUND_SUMMARY.md) · [性能分析](runtime_evidence/centrifuge_48box_sequential_review_20261022_r11/PERFORMANCE.md)。
 

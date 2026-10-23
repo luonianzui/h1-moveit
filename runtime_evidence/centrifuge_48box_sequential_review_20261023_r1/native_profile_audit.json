@@ -1,0 +1,43 @@
+{
+  "status": "PASS_OWNED_PREUPDATE_CPU_SAMPLING_NOT_SPEED_CERTIFICATE",
+  "metadata": {
+    "status": "PROFILE_STOPPED",
+    "pid": 1214677,
+    "tid": 1214677,
+    "sampled_thread_is_process_main": true,
+    "wall_s": 484.136653,
+    "samples": 44040,
+    "preupdate_calls": 430626,
+    "reason": "actual_task_result_written",
+    "no_simulation_commands": true
+  },
+  "commands": [
+    {
+      "argv": [
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_dependencies/gperftools_profile_20261015_r1/extracted/usr/bin/google-pprof",
+        "--text",
+        "--nodecount=60",
+        "/usr/bin/ruby3.2",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r354/run/main-thread.prof"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_dependencies/gperftools_profile_20261015_r1/extracted/usr/bin/google-pprof",
+        "--text",
+        "--nodecount=60",
+        "--cum",
+        "/usr/bin/ruby3.2",
+        "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r354/run/main-thread.prof"
+      ],
+      "returncode": 0
+    }
+  ],
+  "profile_sha256": "a77510751b95d51c5fb3632005da04543e2aa570d14346475e5ccda710ffa4e2",
+  "sampled_thread_is_process_main": true,
+  "other_threads_excluded": true,
+  "profiler_overhead_not_subtracted": true,
+  "sampled_counts_not_exact_elapsed_time": true,
+  "task_complete": true
+}

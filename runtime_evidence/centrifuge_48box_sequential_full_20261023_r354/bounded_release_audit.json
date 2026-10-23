@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "actual_requests": [
+    {
+      "request": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r354/run/10_load_release_align_right_request.json",
+      "source_sha256": "68bfeacb4af06ce99b5fb68109392d7b3e9743c787d14768991b1bdab67ac558",
+      "hand": "right",
+      "before": {
+        "position_m": 0.00043234400518122945,
+        "angle_deg": 0.5551313071480685,
+        "within_alignment_goal": false,
+        "within_local_correction_bound": true
+      },
+      "commanded_step_deg": 0.5551313071480685
+    },
+    {
+      "request": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261023_r354/run/5_load_release_align_left_request.json",
+      "source_sha256": "96bc093b97c76fd2eb1239c410e41a4f10d8cbbf53458a2afec1bdea85d54af0",
+      "hand": "left",
+      "before": {
+        "position_m": 0.0001389612390048828,
+        "angle_deg": 0.3978940666819372,
+        "within_alignment_goal": false,
+        "within_local_correction_bound": true
+      },
+      "commanded_step_deg": 0.3978940666819372
+    }
+  ],
+  "counts": {
+    "right": 1,
+    "left": 1
+  },
+  "above_one_degree_branch_observed": false,
+  "original_final_release_gate_and_grip_audit_required_separately": true
+}

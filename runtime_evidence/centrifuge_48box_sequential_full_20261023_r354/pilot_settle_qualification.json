@@ -1,0 +1,19 @@
+{
+  "status": "PASS_ACTUAL_SETTLING_TREND_NOT_NEW_PHYSICAL_RESULT",
+  "source": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_review_20261019_r15/r312_settling_analysis.json",
+  "source_sha256": "7c2056db000589781e0cb4f1ba2cc168a3893e246ef17b9a5e82b3b0cfdf7867",
+  "original_failed_snapshot": {
+    "mode": "retrieval_transport",
+    "joint_drift_rad": 1.6769621563041192e-08,
+    "pose_drift_m": 0.00044447267326010095,
+    "angle_drift_deg": 0.004397322408766034,
+    "finger_drift_m": 0.00044444883129898805
+  },
+  "observed_later_half_second_windows": 24,
+  "maximum_later_position_drift_m": 0.00011208132854767603,
+  "maximum_later_angle_drift_deg": 0.0020216440437412038,
+  "proposed_guarded_wait_sim_s": 1.0,
+  "original_fresh_snapshot_check_still_required": true,
+  "original_path_force_contact_grip_and_observation_gates_unchanged": true,
+  "no_new_task_success_claim": true
+}

@@ -1,0 +1,47 @@
+{
+  "status": "OBSERVED_ORIGINAL_CONTROLLER_REFERENCE_NOT_UNIQUE_CAUSAL_PROOF",
+  "controller_messages": 10000,
+  "maximum_bounded_messages": 10000,
+  "first_withdraw_smoothing": {
+    "kind": "initial_button_withdraw_smoothing",
+    "phase": "machine_preparation_open_withdraw",
+    "sim": 33.7425,
+    "wall": 1792737697.0360458,
+    "payload": {
+      "maximum_rate_rad_s": 0.6,
+      "maximum_acceleration_rad_s2": 2.0,
+      "ramp_time_sim_s": 0.3,
+      "original_vertices": [
+        0,
+        46,
+        120
+      ],
+      "original_joint_polyline_preserved": true,
+      "all_original_vertices_zero_velocity": true,
+      "original_tracking_limit_rad": 0.15,
+      "original_terminal_limit_rad": 0.005,
+      "no_contact_timing_grip_or_spin_change": true,
+      "actual_physical_pass_not_preclaimed": true
+    }
+  },
+  "phases": {
+    "machine_preparation_open_approach": {
+      "samples": 687,
+      "max_feedback_reference_error_rad": 0.0017459256051556276,
+      "max_reference_command_error_rad": 1.6653345369377348e-16
+    },
+    "machine_preparation_open_press": {
+      "samples": 411,
+      "max_feedback_reference_error_rad": 0.0030092549996953988,
+      "max_reference_command_error_rad": 1.1102230246251565e-16
+    },
+    "machine_preparation_open_withdraw": {
+      "samples": 1626,
+      "max_feedback_reference_error_rad": 0.0034056486990660106,
+      "max_reference_command_error_rad": 4.440892098500626e-16
+    }
+  },
+  "complete_task": true,
+  "identity_sha256": "771aa0233af8b4fe4b8b67e624880cbe1a748432e834cf9e443a363e03941b0f",
+  "original_tracking_and_endpoint_guards_unchanged": true
+}

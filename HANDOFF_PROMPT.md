@@ -1,13 +1,38 @@
 # H1-2 新对话交接提示词
 
-更新：2026-10-22 CST。复制整个代码块并填写最后目标；留空仅只读接管。最新详情统一在[HANDOFF_CURRENT.md](HANDOFF_CURRENT.md)，本轮经过在[CENTRIFUGE_FULL_CYCLE.md](CENTRIFUGE_FULL_CYCLE.md)。
+更新：2026-10-23 CST。复制整个代码块并填写最后目标；留空仅只读接管。最新详情统一在[HANDOFF_CURRENT.md](HANDOFF_CURRENT.md)，本轮经过在[CENTRIFUGE_FULL_CYCLE.md](CENTRIFUGE_FULL_CYCLE.md)。
 
 ```text
 请接手H1-2 Gazebo项目。
 工作区：
 /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws
 
-最新覆盖（2026-10-22）：r353完整分开抓PASS，221.4645sim / 494.301397270wall，
+最新覆盖（2026-10-23）：r354完整分开抓PASS，214.241sim /484.470481546wall，
+稳转30.2595sim，较r353少9.830916wall（1.99%）；现实/当前分开抓仿真三分钟、稳定1倍仍未达。
+先读runtime_evidence/centrifuge_48box_sequential_full_20261023_r354/REPORT.md，
+及runtime_evidence/centrifuge_48box_sequential_review_20261023_r1/ROUND_SUMMARY.md、PERFORMANCE.md。
+新私有DART组件缓存一次求解内BodyNode所属骨架/isReactive，退出清空；速度增量/脉冲状态实时读取，
+算术/顺序/接触/0.5ms步长不变。5400小世界步43200状态向量逐字节一致，组件约1.149倍，
+但整机RTF0.434703低于r353的0.454443，不能称整体物理实时率提升或因果份额已证实。
+28门、4捕获4正常释放、单holder、21路径24459密FCL通过；独立抓持0.905259mm/2.337157度。
+现5mm/10度不替代旧2mm/2度严格证书；原0.2指速门5样本越界、visual-only碰撞缺口仍保留。
+2302候选测试两轮/15专项/46配置/122装盒/6CTest通过；Nav111/2原V12缺失不变。
+原速529.916667秒录像完整解码，抽查首帧/100、160、320、460秒及正面/俯视终帧，双盒返桌。
+九组前后保护相等；r353核心1028成员原清单全符。旧review_r10/r11各自freeze_review.log
+在seal哈希空文件后写自身打印回执，旧清单这两行既存不符；本轮精确例外记录且前后不变，
+旧文件/清单未改，其余仍严格核验，不宣称旧review无例外全通过。
+新sealer禁止stdout/stderr重定向至自身封存树；2测试通过。r353旧raw审计在新seal前修为gzip，本次post全通过。
+682源SHA 771aa0233af8b4fe4b8b67e624880cbe1a748432e834cf9e443a363e03941b0f；
+1035核心SUM b26e2f0e94230ddd26465fee3e6ac9da68ba4d71145647c7b1830d3741cedf5d。
+正常SIGINT录像/场景退休owned空；下次重查live和空间，不重跑sealed r354/r353。
+单planner模型1构建34复用35新场景，worker40.757846wall，连续执行无AI逐动作接续；
+下一新组件重点测单位脉冲传播重复惯量读取，先同状态数值对照，不删接触/改时钟凑三分钟。
+新版本完成测试/保护/封存/MD后执行/home/liu/h1_moveit/sync_to_github.sh，
+既定main/筛选普通提交推送，实际提交以远端回执为准；视频/原始流/归档/备份留本地。
+旧孵育箱/920箱子版/正式源模型/所有备份不变；实体机器人未授权，留空目标默认只读R。
+本段及AGENTS最末覆盖下列历史“最新/当前”，旧段仅用于回溯。
+
+保留成功历史（2026-10-22）：r353完整分开抓PASS，221.4645sim / 494.301397270wall，
 稳转30.1345sim，较r347少90.676094wall（15.50%）；现实/当前分开抓仿真三分钟、稳定1倍仍未达。
 先读runtime_evidence/centrifuge_48box_sequential_full_20261022_r353/REPORT.md，
 及runtime_evidence/centrifuge_48box_sequential_review_20261022_r11/ROUND_SUMMARY.md、PERFORMANCE.md。
@@ -290,7 +315,7 @@ maxContacts=4仅离线SDF探针，未实跑/安装；r337未改变10Hz Mid360点
 清理需对应明确授权；新备份需用户给从未使用编号并验证archive/sidecar不存在；
 完整恢复只能到新空目录，不能覆盖当前工作区。所有结果只限Gazebo，无真机许可。
 
-首次简洁报告：已读文件；r347完整成功与r348–r351失败候选、旧r333/r331/r327/r318和备份区别；新查live；
+首次简洁报告：已读文件；r354/r353完整成功、r348–r352历史失败、旧r333/r331/r327/r318和备份区别；新查live；
 本次对应分支；非只读还缺什么授权/编号。不要仅照抄本提示词的历史状态。
 
 本次具体目标：（留空则只读接管和报告）
