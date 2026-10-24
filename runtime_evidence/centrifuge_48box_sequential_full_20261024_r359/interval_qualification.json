@@ -1,0 +1,18 @@
+{
+  "status": "PASS_SCHEDULING_AND_ENDPOINT_OVERLAP_NOT_PHYSICAL",
+  "parent": "/home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws/runtime_evidence/centrifuge_48box_sequential_full_20261022_r345",
+  "parent_unique_schedules": 11,
+  "parent_arm_commands": 11,
+  "old_future_lead_sim_s": 0.3,
+  "new_future_lead_sim_s": 0.16,
+  "unchanged_minimum_future_sim_s": 0.15,
+  "nominal_lead_budget_reduction_sim_s": 1.5399999999999998,
+  "endpoint_overlap_max_nominal_reduction_sim_s": 0.55,
+  "original_geometry_dense_samples_and_per_segment_ramps_unchanged": true,
+  "only_named_empty_free_phases_eligible": true,
+  "loaded_near_contact_and_button_lead_restored_to_original_0_3": true,
+  "original_50ms_measured_endpoint_hold_and_tracking_guards_unchanged": true,
+  "grip_drop_pilot_settle_and_30s_spin_observations_unchanged": true,
+  "persistent_planning_no_ai_relay": true,
+  "actual_wall_saving_not_preclaimed": true
+}

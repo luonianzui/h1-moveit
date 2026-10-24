@@ -1,5 +1,19 @@
 # 离心机分开抓完整流程：本轮总结与接口
 
+## 2026-10-24 最新交接：r359离线修正完成，尚未实跑
+
+[本轮总结](runtime_evidence/centrifuge_48box_sequential_full_20261024_r359/REPORT.md) · [接续与证据](runtime_evidence/centrifuge_48box_sequential_review_20261024_r1/ROUND_SUMMARY.md) · [机器快照](runtime_evidence/centrifuge_48box_sequential_review_20261024_r1/OFFLINE_CHECKPOINT.json)。
+
+- r358离篮碰撞已实现“原路径优先；失败后最多2毫米篮局部X居中”的候选修正。真实失败快照0.906372毫米修正通过2261次原密FCL及独立复核；r356左右旧路径2215/2617次通过，无修正。没有放宽碰撞、重置holder或改变盒姿态。
+- r359最终两轮**2359测试通过**，另46配置/122装盒/6CTest通过；510项手部依赖审核通过。Nav111通过/2项原V12缺源失败保留。
+- **用户中断后改为总结与同步：未启动Gazebo，未创建执行identity或run，没有新任务录像，未证明修正分支的物理成功。** 当前完整成功仍r356（221.376sim、481.783994177wall、稳转30.129sim）；现实三分钟/稳定1倍仍未达。
+- r359按离线候选封存827成员，清单SHA `865b7ce6f1351ae407190eaeaebe943500f53891e21aa42f1f22a5029088201f`。后续派生全新运行身份再测，不复用本次输出；详细步骤见本轮报告。
+- 旧成功、孵育箱/920版、正式785源/三模型与十备份保持；r354–r358/组件前后复核保持。仅按精确授权清除指定pip下载缓存及索引，共3,021,341,614字节；未删除视频/成果、未额外压缩或新建备份。
+- [AprilTag方案](runtime_evidence/centrifuge_48box_sequential_full_20261024_r359/APRILTAG_DESIGN.md)只做设计，未安装或接入视觉闭环。固定机身标签不能代替转子/摇篮活动状态。
+- 本轮仅收尾MD并按既定脚本普通同步GitHub，实际提交以远端回执为准；完整录像、原始流、构建和备份仍保留本地。
+
+**本节覆盖下面历史状态；离线检查通过不等于新完整流程成功。**
+
 ## 2026-10-23 最新实验：r357启动失败、r358取回规划失败；完整成功仍r356
 
 [本轮报告](runtime_evidence/centrifuge_48box_sequential_full_20261023_r358/REPORT.md) · [失败尝试原速录像](runtime_evidence/centrifuge_48box_sequential_full_20261023_r358/run/full_cycle.mp4) · [交接与下一步](runtime_evidence/centrifuge_48box_sequential_review_20261023_r5/ROUND_SUMMARY.md)。

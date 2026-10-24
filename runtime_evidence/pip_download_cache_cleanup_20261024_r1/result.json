@@ -1,0 +1,26 @@
+{
+  "status": "PASS_EXACT_AUTHORIZED_TWO_CACHE_FILES_REMOVED",
+  "removed_bytes": 3021341614,
+  "files": [
+    {
+      "path": "/home/liu/.cache/pip/http-v2/5/f/0/c/f/5f0cfe9031b2dd26c1748b016f63f2829715613528a11611040321e0.body",
+      "bytes": 3021340845,
+      "sha256": "82c0c43a4a8a62a37c82a6c32a489be6ac2fb52baf17041dcccb80295d94721f",
+      "inode": 17563654,
+      "device": 66309,
+      "mtime_ns": 1783933398980544746,
+      "uid": 1000
+    },
+    {
+      "path": "/home/liu/.cache/pip/http-v2/5/f/0/c/f/5f0cfe9031b2dd26c1748b016f63f2829715613528a11611040321e0",
+      "bytes": 769,
+      "sha256": "d8026fd80ed7810507d3b94d47c9a47f3de0fe19bb2e0b232b80739fe6dff70e",
+      "inode": 17563653,
+      "device": 66309,
+      "mtime_ns": 1783933398466922552,
+      "uid": 1000
+    }
+  ],
+  "free_bytes_after": 5148762112,
+  "no_installed_software_project_evidence_videos_or_backups_deleted": true
+}

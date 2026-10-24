@@ -1,13 +1,28 @@
 # H1-2 新对话交接提示词
 
-更新：2026-10-23 CST。复制整个代码块并填写最后目标；留空仅只读接管。最新详情统一在[HANDOFF_CURRENT.md](HANDOFF_CURRENT.md)，本轮经过在[CENTRIFUGE_FULL_CYCLE.md](CENTRIFUGE_FULL_CYCLE.md)。
+更新：2026-10-24 CST。复制整个代码块并填写最后目标；留空仅只读接管。最新详情统一在[HANDOFF_CURRENT.md](HANDOFF_CURRENT.md)，本轮经过在[CENTRIFUGE_FULL_CYCLE.md](CENTRIFUGE_FULL_CYCLE.md)。
 
 ```text
 请接手H1-2 Gazebo项目。
 工作区：
 /home/liu/h1_moveit/h1_2_ros2_ws_claude_2026-07-30/h1_2_ros2_ws
 
-最新实验覆盖（2026-10-23）：r357/r358失败，完整成功仍r356；不能把失败前缀或剪辑视频称现实三分钟。
+最新交接覆盖（2026-10-24）：r359仅离线修正完成，用户中断后要求总结MD/同步GitHub，未启动新仿真。
+先读runtime_evidence/centrifuge_48box_sequential_full_20261024_r359/REPORT.md和
+runtime_evidence/centrifuge_48box_sequential_review_20261024_r1/ROUND_SUMMARY.md。
+原轴向路径碰撞时，候选最多2mm篮局部X居中，不改局部Y/姿态/原holder；全程原密FCL、不豁免篮碰撞。
+r358真实失败快照修正0.906372mm、2261次接受路径密检查与独立复核；r356左右2215/2617次，原路径不变。
+r359两轮2359测试、46配置/122装盒/6CTest通过，510手部依赖通过；Nav111/2原V12缺源保持。
+r359没有identity.json、run/、任务结果或新录像；827成员离线归档SUM
+865b7ce6f1351ae407190eaeaebe943500f53891e21aa42f1f22a5029088201f。
+不能将离线修正说成物理成功。下一次另派生未用运行身份，重新fresh/资格/seal/首帧检查，再完整录像实跑。
+最新完整成功仍r356，481.783994177wall、稳转30.129sim；现实三分钟和稳定1倍尚未达。
+旧成功/孵育箱/正式源模型/十备份保持；只删除用户指定的pip下载缓存和索引3,021,341,614字节，未删成果录像或另建备份。
+AprilTag仅有设计，未安装/检测/接入动作；机身固定标签不能代替活动篮/转子状态。
+本次仅文档与既定GitHub同步，无新运行授权；用户以后另行要求继续时再执行。留空目标只读。
+此段优先于以下历史覆盖；同步不表示新物理PASS，大视频/原始流/备份不在GitHub。
+
+历史实验覆盖（2026-10-23）：r357/r358失败，完整成功仍r356；不能把失败前缀或剪辑视频称现实三分钟。
 先读runtime_evidence/centrifuge_48box_sequential_full_20261023_r358/REPORT.md和review_20261023_r5的ROUND_SUMMARY（完整目录名centrifuge_48box_sequential_review_20261023_r5）。
 新DART lookup组件两轮5400步/43200向量逐位一致，组件比1.0880/1.0909；实际物理/动作/门限不变，各2341测试两轮通过。
 r357任务前丢0.5ms关节源帧；r358重新启动通过，但不能称根因修复。r357无任务视频，旧失败证据封存。
